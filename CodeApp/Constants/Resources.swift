@@ -9,7 +9,7 @@ import Foundation
 
 class Resources {
     static let appGroupSharedLibrary = FileManager.default.containerURL(
-        forSecurityApplicationGroupIdentifier: "group.com.thebaselab.code")
+        forSecurityApplicationGroupIdentifier: "group.com.mh.Python3IDE")
 
     static let clangLib = URL(fileURLWithPath: Bundle.main.resourcePath!).appendingPathComponent(
         "ClangLib")
@@ -23,7 +23,7 @@ class Resources {
 
     static let pythonLibrary = URL(fileURLWithPath: Bundle.main.resourcePath!)
         .appendingPathComponent(
-            "Library")
+            "pyhome")
 
     static let carcert = Bundle.main.url(forResource: "cacert", withExtension: "pem")!
 

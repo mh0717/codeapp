@@ -251,7 +251,7 @@ struct CodeApp: App {
         // Magic file
         //        setenv("MAGIC", Bundle.main.resourcePath! + "/usr/share/magic.mgc", 1)
         joinMainThread = false
-        numPythonInterpreters = 2
+        numPythonInterpreters = 1
 
         let notificationName = "com.thebaselab.code.node.stdout" as CFString
         let notificationCenter = CFNotificationCenterGetDarwinNotifyCenter()
@@ -268,7 +268,7 @@ struct CodeApp: App {
                 ) in
 
                 let sharedURL = FileManager.default.containerURL(
-                    forSecurityApplicationGroupIdentifier: "group.com.thebaselab.code")!
+                    forSecurityApplicationGroupIdentifier: "group.com.mh.Python3IDE")!
                 let stdoutURL = sharedURL.appendingPathComponent("stdout")
 
                 guard let data = try? Data(contentsOf: stdoutURL),
