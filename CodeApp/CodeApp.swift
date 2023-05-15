@@ -216,6 +216,12 @@ struct CodeApp: App {
         replaceCommand("npm", "npm", true)
         replaceCommand("npx", "npx", true)
         replaceCommand("wasm", "wasm", true)
+        replaceCommand("python3", "python3", true)
+//        replaceCommand("pythonA", "pythonA", true)
+//        replaceCommand("pythonB", "pythonB", true)
+        replaceCommand("backgroundCmdQueue", "backgroundCmdQueue", true)
+//        let fm = FileManager()
+//        fm.changeCurrentDirectoryPath("/")
 
         refreshNodeCommands()
 
@@ -231,6 +237,9 @@ struct CodeApp: App {
             (libraryURL.appendingPathComponent("__pycache__")).path.toCString(), 1)
         setenv("PYTHONUSERBASE", libraryURL.path.toCString(), 1)
         setenv("SSL_CERT_FILE", Resources.carcert.path.toCString(), 1)
+        
+        let pysite1 = URL(fileURLWithPath: Bundle.main.resourcePath!).appendingPathComponent("site-packages1")
+        setenv("PYTHONPATH", pysite1.path.toCString(), 1)
 
         // Help aiohttp install itself:
         setenv("YARL_NO_EXTENSIONS", "1", 1)

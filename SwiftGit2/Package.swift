@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "SwiftGit2",
-    platforms: [.iOS(.v13)],
+    platforms: [.iOS("15.6")],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
@@ -22,7 +22,7 @@ let package = Package(
         .package(
             name: "ZipArchive",
             url: "https://github.com/ZipArchive/ZipArchive.git",
-            .upToNextMajor(from: "2.4.3")
+            from: Version("2.4.3")
         ),
         .package(
             name: "Quick",

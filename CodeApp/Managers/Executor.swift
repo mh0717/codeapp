@@ -16,7 +16,10 @@ class Executor {
         case interactive
     }
 
-    private let persistentIdentifier = "com.thebaselab.terminal"
+    public lazy var persistentIdentifier: String = {
+        return "com.thebaselab.terminal." + UUID().uuidString
+    }()
+//    public let persistentIdentifier: String = "com.thebaselab.terminal"
     private var pid: pid_t? = nil
 
     private var stdin_file: UnsafeMutablePointer<FILE>?
@@ -85,6 +88,8 @@ class Executor {
             CFNotificationCenterPostNotification(
                 notificationCenter, notificationName, nil, nil, false)
         }
+        
+        wmessager.passMessage(message: nil, identifier: "\(self.persistentIdentifier).stop")
 
         ios_switchSession(persistentIdentifier.toCString())
         ios_kill()
@@ -199,7 +204,7 @@ class Executor {
             ios_setDirectoryURL(self.currentWorkingDirectory)
             self.lastCommand = command
             Thread.current.name = command
-
+//            print(self.persistentIdentifier.toCString())
             ios_switchSession(self.persistentIdentifier.toCString())
             ios_setContext(UnsafeMutableRawPointer(mutating: self.persistentIdentifier.toCString()))
             ios_setStreams(self.stdin_file, self.stdout_file, self.stdout_file)

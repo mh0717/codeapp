@@ -112,6 +112,7 @@ class MainApp: ObservableObject {
 
         let rootDir: URL = getRootDirectory()
 
+        FileManager.default.changeCurrentDirectoryPath(rootDir.path)
         self.workSpaceStorage = WorkSpaceStorage(url: rootDir)
 
         terminalInstance = TerminalInstance(root: rootDir)
@@ -379,7 +380,7 @@ class MainApp: ObservableObject {
         components.scheme = "modified"
 
         let diffEditor = DiffTextEditorInstnace(
-            editor: monacoInstance,
+            editor: AnyView(monacoInstance),
             url: components.url!,
             content: original,
             encoding: encoding,
@@ -668,6 +669,7 @@ class MainApp: ObservableObject {
     }
 
     private func createTextEditorFromURL(url: URL) async throws -> TextEditorInstance {
+        return try! await createPTEidtorInstance(url: url, app: self)
         // TODO: A more efficient way to determine whether file is supported
         let contentData: Data? = try await workSpaceStorage.contents(
             at: url
@@ -681,7 +683,7 @@ class MainApp: ObservableObject {
         let modificationDate = attributes?[.modificationDate] as? Date
 
         return TextEditorInstance(
-            editor: monacoInstance,
+            editor: AnyView(monacoInstance),
             url: url,
             content: content,
             encoding: encoding,

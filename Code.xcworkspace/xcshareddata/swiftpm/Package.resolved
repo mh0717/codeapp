@@ -1,0 +1,151 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AppReceiptValidator",
+        "repositoryURL": "https://github.com/IdeasOnCanvas/AppReceiptValidator.git",
+        "state": {
+          "branch": null,
+          "revision": "b5cdf299431f80c42a4b5ae032c1f99a3a0b4bd7",
+          "version": "1.1.0"
+        }
+      },
+      {
+        "package": "ASN1Decoder",
+        "repositoryURL": "https://github.com/IdeasOnCanvas/ASN1Decoder",
+        "state": {
+          "branch": null,
+          "revision": "1fa1e9c68c27cbed56e2a997605ae2e808cf4d98",
+          "version": "1.8.2"
+        }
+      },
+      {
+        "package": "Clibgit2",
+        "repositoryURL": "https://github.com/thebaselab/Clibgit2",
+        "state": {
+          "branch": "master",
+          "revision": "0abab9d7c7e050debf0ef7682a3e48199a0c3767",
+          "version": null
+        }
+      },
+      {
+        "package": "CwlCatchException",
+        "repositoryURL": "https://github.com/mattgallagher/CwlCatchException.git",
+        "state": {
+          "branch": null,
+          "revision": "3b123999de19bf04905bc1dfdb76f817b0f2cc00",
+          "version": "2.1.2"
+        }
+      },
+      {
+        "package": "CwlPreconditionTesting",
+        "repositoryURL": "https://github.com/mattgallagher/CwlPreconditionTesting.git",
+        "state": {
+          "branch": null,
+          "revision": "a23ded2c91df9156628a6996ab4f347526f17b6b",
+          "version": "2.1.2"
+        }
+      },
+      {
+        "package": "Dynamic",
+        "repositoryURL": "https://github.com/mhdhejazi/Dynamic.git",
+        "state": {
+          "branch": null,
+          "revision": "ab9a2570862d54aed2663691bb767f881226a12f",
+          "version": "1.2.0"
+        }
+      },
+      {
+        "package": "FilesProvider",
+        "repositoryURL": "https://github.com/amosavian/FileProvider",
+        "state": {
+          "branch": "master",
+          "revision": "abf68a62541a4193c8d106367ddb3648e8ab693f",
+          "version": null
+        }
+      },
+      {
+        "package": "GCDWebServer",
+        "repositoryURL": "https://github.com/JacobHearst/GCDWebServer",
+        "state": {
+          "branch": null,
+          "revision": "14f9eedb296c5b71fec971d8256ef3bfc20a2245",
+          "version": "3.5.5"
+        }
+      },
+      {
+        "package": "MarkdownView",
+        "repositoryURL": "https://github.com/thebaselab/MarkdownView",
+        "state": {
+          "branch": "master",
+          "revision": "bf73bf35a97ec6c63c4d73d99a7273858ebf3be5",
+          "version": null
+        }
+      },
+      {
+        "package": "MarqueeLabel",
+        "repositoryURL": "https://github.com/cbpowell/MarqueeLabel",
+        "state": {
+          "branch": "master",
+          "revision": "980925156200e94062e31db9e203f535c05b27ee",
+          "version": null
+        }
+      },
+      {
+        "package": "Nimble",
+        "repositoryURL": "https://github.com/Quick/Nimble.git",
+        "state": {
+          "branch": null,
+          "revision": "c93f16c25af5770f0d3e6af27c9634640946b068",
+          "version": "9.2.1"
+        }
+      },
+      {
+        "package": "Pipable",
+        "repositoryURL": "https://github.com/ColdGrub1384/Pipable",
+        "state": {
+          "branch": "main",
+          "revision": "657043e43cec85552590ad10cca4fd2b2bebcc86",
+          "version": null
+        }
+      },
+      {
+        "package": "Quick",
+        "repositoryURL": "https://github.com/Quick/Quick.git",
+        "state": {
+          "branch": null,
+          "revision": "bd86ca0141e3cfb333546de5a11ede63f0c4a0e6",
+          "version": "4.0.0"
+        }
+      },
+      {
+        "package": "swift-crypto",
+        "repositoryURL": "https://github.com/apple/swift-crypto",
+        "state": {
+          "branch": null,
+          "revision": "ddb07e896a2a8af79512543b1c7eb9797f8898a5",
+          "version": "1.1.7"
+        }
+      },
+      {
+        "package": "ZipArchive",
+        "repositoryURL": "https://github.com/ZipArchive/ZipArchive.git",
+        "state": {
+          "branch": null,
+          "revision": "b56f8c605a233fb25fe8d49f1b9ed50912c2d1b7",
+          "version": "2.5.4"
+        }
+      },
+      {
+        "package": "ZIPFoundation",
+        "repositoryURL": "https://github.com/weichsel/ZIPFoundation.git",
+        "state": {
+          "branch": null,
+          "revision": "43ec568034b3731101dbf7670765d671c30f54f3",
+          "version": "0.9.16"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

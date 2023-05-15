@@ -6,7 +6,7 @@
         "repositoryURL": "https://github.com/IdeasOnCanvas/AppReceiptValidator",
         "state": {
           "branch": "main",
-          "revision": "4dd74e61bb8692fa52da5ec99941dbea1d8c8753",
+          "revision": "4ab86e91d1d0b68e8f398fb152c447ab6f878aea",
           "version": null
         }
       },
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/IdeasOnCanvas/ASN1Decoder",
         "state": {
           "branch": null,
-          "revision": "6f36ef23becd7f9266ef6b026af4798996a1a8be",
-          "version": "1.8.1"
+          "revision": "1fa1e9c68c27cbed56e2a997605ae2e808cf4d98",
+          "version": "1.8.2"
         }
       },
       {
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/mattgallagher/CwlCatchException.git",
         "state": {
           "branch": null,
-          "revision": "35f9e770f54ce62dd8526470f14c6e137cef3eea",
-          "version": "2.1.1"
+          "revision": "3b123999de19bf04905bc1dfdb76f817b0f2cc00",
+          "version": "2.1.2"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/mattgallagher/CwlPreconditionTesting.git",
         "state": {
           "branch": null,
-          "revision": "c21f7bab5ca8eee0a9998bbd17ca1d0eb45d4688",
-          "version": "2.1.0"
+          "revision": "a23ded2c91df9156628a6996ab4f347526f17b6b",
+          "version": "2.1.2"
         }
       },
       {
@@ -83,12 +83,30 @@
         }
       },
       {
+        "package": "MarqueeLabel",
+        "repositoryURL": "https://github.com/cbpowell/MarqueeLabel",
+        "state": {
+          "branch": "master",
+          "revision": "980925156200e94062e31db9e203f535c05b27ee",
+          "version": null
+        }
+      },
+      {
         "package": "Nimble",
         "repositoryURL": "https://github.com/Quick/Nimble.git",
         "state": {
           "branch": null,
           "revision": "c93f16c25af5770f0d3e6af27c9634640946b068",
           "version": "9.2.1"
+        }
+      },
+      {
+        "package": "Pipable",
+        "repositoryURL": "https://github.com/ColdGrub1384/Pipable",
+        "state": {
+          "branch": "main",
+          "revision": "657043e43cec85552590ad10cca4fd2b2bebcc86",
+          "version": null
         }
       },
       {
@@ -114,8 +132,8 @@
         "repositoryURL": "https://github.com/ZipArchive/ZipArchive.git",
         "state": {
           "branch": null,
-          "revision": "38e0ce0598e06b034271f296a8e15b149c91aa19",
-          "version": "2.4.3"
+          "revision": "b56f8c605a233fb25fe8d49f1b9ed50912c2d1b7",
+          "version": "2.5.4"
         }
       },
       {
@@ -123,8 +141,8 @@
         "repositoryURL": "https://github.com/weichsel/ZIPFoundation.git",
         "state": {
           "branch": null,
-          "revision": "f6a22e7da26314b38bf9befce34ae8e4b2543090",
-          "version": "0.9.15"
+          "revision": "43ec568034b3731101dbf7670765d671c30f54f3",
+          "version": "0.9.16"
         }
       }
     ]

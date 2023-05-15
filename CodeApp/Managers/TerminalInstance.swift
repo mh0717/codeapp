@@ -197,11 +197,13 @@ class TerminalInstance: NSObject, WKScriptMessageHandler, WKNavigationDelegate {
 
         if self.executor?.state == .interactive && event == "Data" {
             self.executor?.sendInput(input: result["Input"] as! String)
+            wmessager.passMessage(message: result["Input"] as! String + "\n", identifier: "\(self.executor!.persistentIdentifier).input")
             return
         }
 
         if self.executor?.state == .running && event == "Return" {
             self.executor?.sendInput(input: result["Input"] as! String)
+            wmessager.passMessage(message: result["Input"] as! String + "\n", identifier: "\(self.executor!.persistentIdentifier).input")
             return
         }
 
@@ -402,7 +404,11 @@ class TerminalInstance: NSObject, WKScriptMessageHandler, WKNavigationDelegate {
         nc.addObserver(
             self, selector: #selector(onNodeStdout), name: Notification.Name("node.stdout"),
             object: nil)
-
+        wmessager.listenForMessage(withIdentifier: "\(self.executor!.persistentIdentifier).stdout") { [weak self] msg in
+            if let content = msg as? String, let data = content.data(using: .utf8) {
+                self?.writeToLocalTerminal(data: data)
+            }
+        }
     }
 
 }

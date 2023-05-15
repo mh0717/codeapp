@@ -92,7 +92,7 @@ class TextEditorInstance: EditorInstanceWithURL {
     var isSaving: Bool = false
 
     init(
-        editor: MonacoEditor,
+        editor: AnyView,
         url: URL,
         content: String,
         encoding: String.Encoding = .utf8,
@@ -131,7 +131,7 @@ class DiffTextEditorInstnace: TextEditorInstance {
     var compareWith: String
 
     init(
-        editor: MonacoEditor,
+        editor: AnyView,
         url: URL,
         content: String,
         encoding: String.Encoding = .utf8,
