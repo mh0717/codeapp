@@ -211,7 +211,9 @@ struct CodeApp: App {
         UITableViewCell.appearance().backgroundColor = UIColor.clear
         UITableView.appearance().separatorStyle = .none
         UITextView.appearance().backgroundColor = .clear
-
+        
+        setenv("LINES", "50", 1)
+        setenv("COLUMNS", "45", 1)
         replaceCommand("node", "node", true)
         replaceCommand("npm", "npm", true)
         replaceCommand("npx", "npx", true)
@@ -219,6 +221,7 @@ struct CodeApp: App {
         replaceCommand("python3", "python3", true)
 //        replaceCommand("pythonA", "pythonA", true)
 //        replaceCommand("pythonB", "pythonB", true)
+        replaceCommand("pro", "pro", true)
         replaceCommand("backgroundCmdQueue", "backgroundCmdQueue", true)
 //        let fm = FileManager()
 //        fm.changeCurrentDirectoryPath("/")
@@ -240,6 +243,9 @@ struct CodeApp: App {
         
         let pysite1 = URL(fileURLWithPath: Bundle.main.resourcePath!).appendingPathComponent("site-packages1")
         setenv("PYTHONPATH", pysite1.path.toCString(), 1)
+        
+        // matplotlib backend
+        setenv("MPLBACKEND", "module://backend_ios", 1);
 
         // Help aiohttp install itself:
         setenv("YARL_NO_EXTENSIONS", "1", 1)
@@ -317,6 +323,8 @@ struct CodeApp: App {
         }
         initializeEnvironment()
         Repository.initialize_libgit2()
+        
+        initIntepreters();
     }
 
     var window: UIWindow? {
@@ -345,6 +353,7 @@ struct CodeApp: App {
 }
 
 func refreshNodeCommands() {
+    return
     let nodeBinPath = Resources.appGroupSharedLibrary?.appendingPathComponent("lib/bin").path
 
     if let nodeBinPath = nodeBinPath,

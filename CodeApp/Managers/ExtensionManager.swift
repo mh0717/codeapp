@@ -15,7 +15,7 @@ class ExtensionManager: ObservableObject {
     private var extensions: [CodeAppExtension] = [
         MonacoIntellisenseExtension(),
         RemoteExecutionExtension(),
-        LocalExecutionExtension(),
+        PTLocalExecutionExtension(),
         TerminalExtension(),
         ImageViewerExtension(),
         VideoViewerExtension(),
@@ -23,6 +23,7 @@ class ExtensionManager: ObservableObject {
         MarkdownViewerExtension(),
         SourceControlAuxiliaryExtension(),
         SimpleWebPreviewExtension(),
+        TMConsoleExtension(),
     ]
 
     func registerExtension(ex: CodeAppExtension) {

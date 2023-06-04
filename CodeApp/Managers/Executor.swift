@@ -36,6 +36,8 @@ class Executor {
     var currentWorkingDirectory: URL
     var state: State = .idle
     var prompt: String
+    
+    var winsize = (80, 50)
 
     func setNewWorkingDirectory(url: URL) {
         currentWorkingDirectory = url
@@ -53,6 +55,10 @@ class Executor {
         receivedStderr = onStderr
         requestInput = onRequestInput
     }
+    
+    deinit {
+        ios_closeSession(self.persistentIdentifier.utf8CString)
+    }
 
     func evaluateCommands(_ cmds: [String]) {
         guard !cmds.isEmpty else {
@@ -68,8 +74,9 @@ class Executor {
                     }
                 } else {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        self.prompt =
-                            "\(FileManager().currentDirectoryPath.split(separator: "/").last?.removingPercentEncoding ?? "") $ "
+//                        let path = ios_getLogicalPWD(self.persistentIdentifier.utf8CString) ?? FileManager.default.currentDirectoryPath
+//                        self.prompt =
+//                            "\(path.split(separator: "/").last?.removingPercentEncoding ?? "") $ "
                         self.requestInput(self.prompt)
                     }
                 }
@@ -88,8 +95,6 @@ class Executor {
             CFNotificationCenterPostNotification(
                 notificationCenter, notificationName, nil, nil, false)
         }
-        
-        wmessager.passMessage(message: nil, identifier: "\(self.persistentIdentifier).stop")
 
         ios_switchSession(persistentIdentifier.toCString())
         ios_kill()
@@ -154,15 +159,16 @@ class Executor {
     private func onStderr(_ stderr: FileHandle) {
         let data = stderr.availableData
         DispatchQueue.main.async {
-            if self.state == .running {
-                let str = String(decoding: data, as: UTF8.self)
-                self.requestInput(str)
-                if let prom = str.components(separatedBy: "\n").last {
-                    self.prompt = prom
-                }
-            } else {
-                self.receivedStdout(data)
-            }
+//            if self.state == .running {
+//                let str = String(decoding: data, as: UTF8.self)
+//                self.requestInput(str)
+//                if let prom = str.components(separatedBy: "\n").last {
+//                    self.prompt = prom
+//                }
+//            } else {
+//                self.receivedStdout(data)
+//            }
+            self.receivedStdout(data)
         }
     }
 
@@ -208,7 +214,9 @@ class Executor {
             ios_switchSession(self.persistentIdentifier.toCString())
             ios_setContext(UnsafeMutableRawPointer(mutating: self.persistentIdentifier.toCString()))
             ios_setStreams(self.stdin_file, self.stdout_file, self.stdout_file)
-
+            let winsize = self.winsize
+            ios_setWindowSize(Int32(winsize.0), Int32(winsize.1), self.persistentIdentifier.utf8CString)
+            ios_setenv("WORKSPACE", self.currentWorkingDirectory.path, 1)
             let code = self.run(command: command)
 
             close(stdin_pipe.fileHandleForReading.fileDescriptor)
@@ -230,7 +238,13 @@ class Executor {
                 self.state = .idle
             }
 
+            
             var url = URL(fileURLWithPath: FileManager().currentDirectoryPath)
+            
+            /// 这里应该取ios_system存储的当前目录
+            if let lurl = ios_getLogicalPWD(self.persistentIdentifier.toCString()) {
+                url = URL(fileURLWithPath: lurl)
+            }
 
             // Sometimes pip would change the working directory to an inaccesible location,
             // we need to verify that the current directory is readable.
@@ -239,12 +253,14 @@ class Executor {
             {
                 url = self.currentWorkingDirectory
             }
+            
+            
 
             ios_setMiniRootURL(url)
 
             DispatchQueue.main.async {
                 self.prompt =
-                    "\(FileManager().currentDirectoryPath.split(separator: "/").last?.removingPercentEncoding ?? "") $ "
+                "\(url.path.split(separator: "/").last?.removingPercentEncoding ?? "") $ "
                 self.currentWorkingDirectory = url
             }
 

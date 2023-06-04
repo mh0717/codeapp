@@ -28,6 +28,7 @@ import Foundation
 public enum TransitingType {
     case file
     case coordinatedFile
+    case binary
 }
 
 
@@ -242,6 +243,8 @@ open class Messenger: TransitingDelegate {
             break
         case .coordinatedFile:
             transitingDelegate = MessengerCoordinatedFileTransiting(withApplicationGroupIdentifier: identifier, directory: directory)
+        case .binary:
+            transitingDelegate = MessengerBinaryFileTransiting(withApplicationGroupIdentifier: identifier, directory: directory)
         }
     }
 
@@ -381,7 +384,7 @@ open class MessengerCoordinatedFileTransiting: MessengerFileTransiting {
         guard let message = message else {
             return false
         }
-        let data = NSKeyedArchiver.archivedData(withRootObject: message) as NSData
+        let data = NSKeyedArchiver.archivedData(withRootObject: message)
         guard let filePath = self.filePath(forIdentifier: identifier) else {
             return false
         }
@@ -393,8 +396,9 @@ open class MessengerCoordinatedFileTransiting: MessengerFileTransiting {
                                    options: NSFileCoordinator.ReadingOptions(rawValue: 0),
                                    error: &error) { newURL in
             do {
-                try data.write(to: newURL, options: [.atomic, additionalFileWritingOptions])
+                try data.write(to: newURL, options: [.atomic/*, additionalFileWritingOptions*/])
                 success = true
+                
             } catch let error as NSError {
                 NSLog("SwiftyMessenger: Error on writeMessage \(error.description)")
                 success = false
@@ -437,4 +441,42 @@ extension String {
 }
 
 
-public let wmessager = Messenger(withApplicationGroupIdentifier: "group.com.mh.Python3IDE", directory: "transmsg")
+open class MessengerBinaryFileTransiting: MessengerFileTransiting {
+
+    override open func writeMessage(message: Any?, identifier: String) -> Bool {
+        if identifier.isEmpty {
+            return false
+        }
+        guard let message = message as? Data else {
+            return false
+        }
+        guard let filePath = self.filePath(forIdentifier: identifier) else {
+            return false
+        }
+        let fileURL = URL(fileURLWithPath: filePath)
+        var success = false
+        do {
+            try message.write(to: fileURL, options: .atomic)
+            success = true
+        } catch _ as NSError {
+            success = false
+        }
+        return success
+    }
+
+    override open func messageForIdentifier(identifier: String?) -> Any? {
+        guard let identifier = identifier, let filePath = filePath(forIdentifier: identifier)  else {
+            return nil
+        }
+        let fileURL = URL(fileURLWithPath: filePath)
+        let message = NSData(contentsOf: fileURL)
+        return message
+    }
+
+}
+
+
+public let wmessager = Messenger(withApplicationGroupIdentifier: "group.com.mh.Python3IDE", directory: "transmsg", transitingType: .coordinatedFile)
+
+
+public let binaryWMessager = Messenger(withApplicationGroupIdentifier: "group.com.mh.Python3IDE", directory: "transmsg", transitingType: .binary)

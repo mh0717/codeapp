@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../sdl/SDL-release-2.26.5/Xcode/SDL/SDL.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../ios_system/ios_system.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Code.xcodeproj">
    </FileRef>
    <FileRef

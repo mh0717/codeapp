@@ -470,7 +470,6 @@
 		942E32082808805F00233441 /* SearchUnsupportedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942E32062808805F00233441 /* SearchUnsupportedSection.swift */; };
 		94369AFF25E3B933008419A0 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94369AFE25E3B933008419A0 /* Media.xcassets */; };
 		94369B0125E3B933008419A0 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94369B0025E3B933008419A0 /* ActionRequestHandler.swift */; };
-		94369B0725E3B933008419A0 /* extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 94369AFC25E3B933008419A0 /* extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		94369B1325E3DE02008419A0 /* NodeRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94369B1225E3DE02008419A0 /* NodeRunner.mm */; };
 		94369B4A25EAB262008419A0 /* npm.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94369B4925EAB175008419A0 /* npm.bundle */; };
 		9437153F26BF9FC3000376FB /* RemoteContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437153E26BF9FC3000376FB /* RemoteContainer.swift */; };
@@ -718,9 +717,38 @@
 		9FE3E2AA298A169300F63DD0 /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE3E2A9298A169300F63DD0 /* Dynamic */; };
 		9FE3E2AC298A169B00F63DD0 /* SwiftGit2 in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE3E2AB298A169A00F63DD0 /* SwiftGit2 */; };
 		9FE3E2AD298A16A300F63DD0 /* NMSSH.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942E321128093CA600233441 /* NMSSH.xcframework */; };
-		A3140F9329E4A1F0005D8947 /* libshm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C5C29E49F5F005515EE /* libshm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A3140F9529E4A1F0005D8947 /* libc10.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C6729E49F64005515EE /* libc10.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3140FC929E4A749005D8947 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3140FC829E4A749005D8947 /* Accelerate.framework */; };
+		A31D2CA52A265A6E00A5BF09 /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2CA42A265A6E00A5BF09 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A31D2CA82A265B6600A5BF09 /* python3_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0C29E4903E005515EE /* python3_ios.framework */; };
+		A31D2CAB2A265D2B00A5BF09 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2CA62A265AA800A5BF09 /* SDL2.framework */; };
+		A31D2CAE2A265DC200A5BF09 /* rectangles.c in Sources */ = {isa = PBXBuildFile; fileRef = A31D2CA22A2652E700A5BF09 /* rectangles.c */; };
+		A31D2CB22A26625500A5BF09 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D2CA02A26526800A5BF09 /* ActionViewController.swift */; };
+		A31D2CF12A26781400A5BF09 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3441F752A0548F300CA7588 /* UniformTypeIdentifiers.framework */; };
+		A31D2CF42A26781400A5BF09 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A31D2CF32A26781400A5BF09 /* Media.xcassets */; };
+		A31D2CF62A26781400A5BF09 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D2CF52A26781400A5BF09 /* ActionViewController.swift */; };
+		A31D2CF92A26781400A5BF09 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A31D2CF72A26781400A5BF09 /* MainInterface.storyboard */; };
+		A31D2D012A2679F000A5BF09 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2CA42A265A6E00A5BF09 /* SDL2.framework */; };
+		A31D2D022A2679F000A5BF09 /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2CA42A265A6E00A5BF09 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A31D2D062A267A0900A5BF09 /* rect.c in Sources */ = {isa = PBXBuildFile; fileRef = A31D2D052A267A0900A5BF09 /* rect.c */; };
+		A31D2D072A268A6800A5BF09 /* PYUI.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A33FCAFE2A250DDC00BA5EE5 /* PYUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A31D2D0A2A268CA800A5BF09 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2CA42A265A6E00A5BF09 /* SDL2.framework */; };
+		A31D2D0C2A2724A000A5BF09 /* Runner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D2D0B2A2724A000A5BF09 /* Runner.swift */; };
+		A31D2D0E2A272A6400A5BF09 /* mysdl.py in Resources */ = {isa = PBXBuildFile; fileRef = A31D2D0D2A272A6400A5BF09 /* mysdl.py */; };
+		A31D2D0F2A272E8A00A5BF09 /* python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8EAA52A0EAE5300ADFE98 /* python.swift */; };
+		A31D2D102A272F4400A5BF09 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948D11FF2583F20C008F877A /* commandDictionary.plist */; };
+		A31D2D112A272F4900A5BF09 /* extraCommandsDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948D11FE2583F20C008F877A /* extraCommandsDictionary.plist */; };
+		A31D2D212A275EB600A5BF09 /* res in Resources */ = {isa = PBXBuildFile; fileRef = A31D2D202A275EB600A5BF09 /* res */; };
+		A31D2D242A27A61500A5BF09 /* FullScreenCoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D2D232A27A61500A5BF09 /* FullScreenCoverManager.swift */; };
+		A31D2D252A27A61500A5BF09 /* FullScreenCoverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D2D232A27A61500A5BF09 /* FullScreenCoverManager.swift */; };
+		A31D2D272A27B42600A5BF09 /* SheetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D2D262A27B42600A5BF09 /* SheetManager.swift */; };
+		A31D2D282A27B42600A5BF09 /* SheetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D2D262A27B42600A5BF09 /* SheetManager.swift */; };
+		A31D2D382A29829400A5BF09 /* python3_ios-kivy_all.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2D372A29829400A5BF09 /* python3_ios-kivy_all.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A31D2D3C2A2982AF00A5BF09 /* SDL2_ttf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2D392A2982AD00A5BF09 /* SDL2_ttf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A31D2D3D2A2982B000A5BF09 /* SDL2_mixer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2D3A2A2982AD00A5BF09 /* SDL2_mixer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A31D2D3E2A2982B100A5BF09 /* SDL2_image.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2D3B2A2982AE00A5BF09 /* SDL2_image.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A31D2D402A29A29200A5BF09 /* python3_ios-ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2D3F2A29A29100A5BF09 /* python3_ios-ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A31D2D422A29E83700A5BF09 /* python3_ios-pyobjus.pyobjus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2D412A29E83600A5BF09 /* python3_ios-pyobjus.pyobjus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A31D2D442A2A30F800A5BF09 /* python3_ios-pygame_all.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2D432A2A30F700A5BF09 /* python3_ios-pygame_all.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A323BA1B2A0AA13500E10379 /* AppReceiptValidator in Frameworks */ = {isa = PBXBuildFile; productRef = A323BA1A2A0AA13500E10379 /* AppReceiptValidator */; };
 		A323BA1D2A0AA18F00E10379 /* AppReceiptValidator in Frameworks */ = {isa = PBXBuildFile; productRef = A323BA1C2A0AA18F00E10379 /* AppReceiptValidator */; };
 		A323BA202A0B16F800E10379 /* PTTextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA1F2A0B16F800E10379 /* PTTextEditorView.swift */; };
@@ -743,9 +771,19 @@
 		A323BA4A2A0B8F2600E10379 /* HighlightrTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA3C2A0B8F2500E10379 /* HighlightrTheme.swift */; };
 		A33F75CE29E4887900CD679A /* openblas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33F75C929E4887700CD679A /* openblas.framework */; };
 		A33F75CF29E4887900CD679A /* openblas.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A33F75C929E4887700CD679A /* openblas.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A33F75D029E4887900CD679A /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33F75CA29E4887700CD679A /* ios_system.framework */; };
-		A33F75D129E4887900CD679A /* ios_system.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A33F75CA29E4887700CD679A /* ios_system.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A33F75D329E4887A00CD679A /* libgfortran.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A33F75CB29E4887800CD679A /* libgfortran.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A33FCA432A21A66600BA5EE5 /* python3_ios-numpy_all.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A33FCA412A21A66500BA5EE5 /* python3_ios-numpy_all.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A33FCA442A21A66600BA5EE5 /* python3_ios-matplotlib_all.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A33FCA422A21A66600BA5EE5 /* python3_ios-matplotlib_all.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A33FCA462A22164B00BA5EE5 /* python3_ios-PIL_all.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A33FCA452A22164B00BA5EE5 /* python3_ios-PIL_all.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A33FCA4A2A2217CF00BA5EE5 /* freetype.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A33FCA492A2217CF00BA5EE5 /* freetype.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A33FCA4C2A22186B00BA5EE5 /* python3_ios-kiwisolver._cext.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A33FCA4B2A22186A00BA5EE5 /* python3_ios-kiwisolver._cext.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A33FCA512A22720A00BA5EE5 /* sixel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A33FCA502A22720900BA5EE5 /* sixel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A33FCAB22A24922B00BA5EE5 /* python3_ios-cv2.cv2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A33FCAB12A24922B00BA5EE5 /* python3_ios-cv2.cv2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A33FCB012A250DDC00BA5EE5 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33FCB002A250DDC00BA5EE5 /* ShareViewController.swift */; };
+		A33FCB042A250DDC00BA5EE5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A33FCB022A250DDC00BA5EE5 /* MainInterface.storyboard */; };
+		A33FCB0E2A25154D00BA5EE5 /* python3.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C8EAAB2A0EBAB100ADFE98 /* python3.m */; };
+		A33FCB0F2A25171700BA5EE5 /* wormhole.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3441F682A04DC4C00CA7588 /* wormhole.swift */; };
+		A33FCB102A25176000BA5EE5 /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DC7B282A1472B500B7B8D5 /* ios_system.framework */; };
 		A3441F692A04DC4C00CA7588 /* wormhole.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3441F682A04DC4C00CA7588 /* wormhole.swift */; };
 		A3441F6A2A04DC4C00CA7588 /* wormhole.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3441F682A04DC4C00CA7588 /* wormhole.swift */; };
 		A3441F6B2A04DC4C00CA7588 /* wormhole.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3441F682A04DC4C00CA7588 /* wormhole.swift */; };
@@ -756,21 +794,17 @@
 		A3441F792A0548F400CA7588 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3441F782A0548F400CA7588 /* Media.xcassets */; };
 		A3441F7B2A0548F400CA7588 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3441F7A2A0548F400CA7588 /* ActionRequestHandler.swift */; };
 		A3441F7D2A0548F400CA7588 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A3441F7C2A0548F400CA7588 /* Action.js */; };
-		A3441F812A0548F400CA7588 /* cmdextension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A3441F742A0548F300CA7588 /* cmdextension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A3441F852A054B0A00CA7588 /* wormhole.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3441F682A04DC4C00CA7588 /* wormhole.swift */; };
 		A3441F862A05575E00CA7588 /* ClangLib in Resources */ = {isa = PBXBuildFile; fileRef = 94CF58DE265E51B100CB6A4B /* ClangLib */; };
-		A3441F882A0630E600CA7588 /* ios_system.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3CF21462A04DB9E00EF1FA4 /* ios_system.xcframework */; };
 		A3441F8B2A06349500CA7588 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948D11FF2583F20C008F877A /* commandDictionary.plist */; };
 		A3441F8C2A06349800CA7588 /* extraCommandsDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948D11FE2583F20C008F877A /* extraCommandsDictionary.plist */; };
-		A3441FBC2A06DE5800CA7588 /* MarqueeLabel in Frameworks */ = {isa = PBXBuildFile; productRef = A3441FBB2A06DE5800CA7588 /* MarqueeLabel */; };
-		A3441FBF2A06DF2000CA7588 /* Pipable in Frameworks */ = {isa = PBXBuildFile; productRef = A3441FBE2A06DF2000CA7588 /* Pipable */; };
-		A3441FC12A06DF7400CA7588 /* Pipable in Frameworks */ = {isa = PBXBuildFile; productRef = A3441FC02A06DF7400CA7588 /* Pipable */; };
 		A3592D062A0C1D4000A5A88D /* CodeCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3592D052A0C1D4000A5A88D /* CodeCompletionView.swift */; };
 		A3592D082A0C1E0400A5A88D /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3592D072A0C1E0400A5A88D /* CodeView.swift */; };
 		A3592D122A0D280500A5A88D /* site-packages1 in Resources */ = {isa = PBXBuildFile; fileRef = A3592D112A0D280500A5A88D /* site-packages1 */; };
 		A3592D152A0D476900A5A88D /* BackgroundCmdQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3592D132A0D476800A5A88D /* BackgroundCmdQueue.swift */; };
 		A3592D172A0D581000A5A88D /* CompletionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3592D162A0D581000A5A88D /* CompletionService.swift */; };
 		A3592D182A0D581000A5A88D /* CompletionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3592D162A0D581000A5A88D /* CompletionService.swift */; };
+		A36AD4C82A1F931500E54117 /* files.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4A625F5518700F1EF4E /* files.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A37962E529E6197B00D7FE90 /* python3_ios-_cffi_backend.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0F29E4903F005515EE /* python3_ios-_cffi_backend.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A37962E729E6197D00D7FE90 /* python3_ios-_decimal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C1229E49040005515EE /* python3_ios-_decimal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A37962E929E6197F00D7FE90 /* python3_ios-_opcode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0729E4903B005515EE /* python3_ios-_opcode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -818,12 +852,16 @@
 		A3CF207329E61ACC00EF1FA4 /* python3_ios-_xxsubinterpreters.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0E29E4903F005515EE /* python3_ios-_xxsubinterpreters.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3CF207429E61ACC00EF1FA4 /* python3_ios-_xxtestfuzz.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0629E4903B005515EE /* python3_ios-_xxtestfuzz.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3CF207529E61ACD00EF1FA4 /* python3_ios-syslog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0129E49039005515EE /* python3_ios-syslog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3DC7B252A13D4AD00B7B8D5 /* KeyboardToolbar in Frameworks */ = {isa = PBXBuildFile; productRef = A3DC7B242A13D4AD00B7B8D5 /* KeyboardToolbar */; };
+		A3DC7B272A13F8BC00B7B8D5 /* PTInputAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DC7B262A13F8BC00B7B8D5 /* PTInputAssistantView.swift */; };
+		A3DC7B2A2A1472EF00B7B8D5 /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DC7B282A1472B500B7B8D5 /* ios_system.framework */; };
+		A3DC7B2C2A147B0200B7B8D5 /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DC7B282A1472B500B7B8D5 /* ios_system.framework */; };
+		A3DC7B2D2A147B0200B7B8D5 /* ios_system.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3DC7B282A1472B500B7B8D5 /* ios_system.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3DC7B2E2A14F85E00B7B8D5 /* python3.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C8EAAB2A0EBAB100ADFE98 /* python3.m */; };
 		A3E35E3E29E5363900B322D4 /* fake.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E35E3D29E5363800B322D4 /* fake.m */; };
 		A3E35E4029E541BD00B322D4 /* ios_fake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E35E3F29E541BC00B322D4 /* ios_fake.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A3E35E4129E541BD00B322D4 /* ios_fake.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3E35E3F29E541BC00B322D4 /* ios_fake.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3E35E4229E6185C00B322D4 /* ios_fake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E35E3F29E541BC00B322D4 /* ios_fake.framework */; };
-		A3E35E4F29E6185F00B322D4 /* libbackend_with_compiler.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3E35E4B29E6185E00B322D4 /* libbackend_with_compiler.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A3E35E5129E6186000B322D4 /* libjitbackend_test.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3E35E4C29E6185E00B322D4 /* libjitbackend_test.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3E4ACDB29E476A800EDF69F /* SourceControlUnsupportedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A0462A2804A70C00182275 /* SourceControlUnsupportedSection.swift */; };
 		A3E4ACDC29E476A800EDF69F /* GitHubSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777EE257B9193008FE7B2 /* GitHubSearchManager.swift */; };
 		A3E4ACDD29E476A800EDF69F /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7781F257BC5AA008FE7B2 /* MainScene.swift */; };
@@ -996,6 +1034,315 @@
 		A3E4AD8C29E476A800EDF69F /* shell.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4AD25F5518700F1EF4E /* shell.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3E4AD8D29E476A800EDF69F /* tar.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B3DDF42604D3C400C4F2B1 /* tar.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3EE7C5029E49104005515EE /* pyhome in Resources */ = {isa = PBXBuildFile; fileRef = A3EE7C4F29E49103005515EE /* pyhome */; };
+		A3EFE6ED2A1B914700237F66 /* SourceControlUnsupportedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A0462A2804A70C00182275 /* SourceControlUnsupportedSection.swift */; };
+		A3EFE6EE2A1B914700237F66 /* GitHubSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777EE257B9193008FE7B2 /* GitHubSearchManager.swift */; };
+		A3EFE6EF2A1B914700237F66 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7781F257BC5AA008FE7B2 /* MainScene.swift */; };
+		A3EFE6F02A1B914700237F66 /* PTInputAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DC7B262A13F8BC00B7B8D5 /* PTInputAssistantView.swift */; };
+		A3EFE6F12A1B914700237F66 /* RemoteConnectedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A045F92804842500182275 /* RemoteConnectedSection.swift */; };
+		A3EFE6F22A1B914700237F66 /* HighlightedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777D8257B8AF1008FE7B2 /* HighlightedText.swift */; };
+		A3EFE6F32A1B914700237F66 /* SideBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A046002804865000182275 /* SideBarButton.swift */; };
+		A3EFE6F42A1B914700237F66 /* LineNumberTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A323BA242A0B80DB00E10379 /* LineNumberTextView.m */; };
+		A3EFE6F52A1B914700237F66 /* LocalFileSystemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9419692A2802AB88008AAEB2 /* LocalFileSystemProvider.swift */; };
+		A3EFE6F62A1B914700237F66 /* SourceControlError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC03E65291F21BD00DECD1B /* SourceControlError.swift */; };
+		A3EFE6F72A1B914700237F66 /* DirectoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77822257BC7E5008FE7B2 /* DirectoryPickerView.swift */; };
+		A3EFE6F82A1B914700237F66 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77831257BDC50008FE7B2 /* SafariView.swift */; };
+		A3EFE6F92A1B914700237F66 /* ExplorerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C75E5281587DB00D22B35 /* ExplorerCell.swift */; };
+		A3EFE6FA2A1B914700237F66 /* getRootDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7782C257BCEE2008FE7B2 /* getRootDirectory.swift */; };
+		A3EFE6FB2A1B914700237F66 /* ReadOnlyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA352A0B8F2500E10379 /* ReadOnlyTheme.swift */; };
+		A3EFE6FC2A1B914700237F66 /* RemoteTypeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A045F3280481A900182275 /* RemoteTypeLabel.swift */; };
+		A3EFE6FD2A1B914700237F66 /* DescriptionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A045FD2804853200182275 /* DescriptionText.swift */; };
+		A3EFE6FE2A1B914700237F66 /* SourceControlContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777DF257B8D8E008FE7B2 /* SourceControlContainer.swift */; };
+		A3EFE6FF2A1B914700237F66 /* shortcutsMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C893E5279D0C3000DFBF29 /* shortcutsMapping.swift */; };
+		A3EFE7002A1B914700237F66 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7FFB2268D085300369147 /* BottomBar.swift */; };
+		A3EFE7012A1B914700237F66 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777D5257B8A88008FE7B2 /* SearchBar.swift */; };
+		A3EFE7022A1B914700237F66 /* Color+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3DDF0260344E700C4F2B1 /* Color+init.swift */; };
+		A3EFE7032A1B914700237F66 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5BD00292A08D600F20C4B /* AppError.swift */; };
+		A3EFE7042A1B914700237F66 /* PanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7780A257BBCAC008FE7B2 /* PanelView.swift */; };
+		A3EFE7052A1B914700237F66 /* UIApplication+getSafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947A9D8827D3C562007680C3 /* UIApplication+getSafeArea.swift */; };
+		A3EFE7062A1B914700237F66 /* SourceControlAuthenticationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F52704259F997200337306 /* SourceControlAuthenticationConfiguration.swift */; };
+		A3EFE7072A1B914700237F66 /* NotificationCentreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777C0257B752A008FE7B2 /* NotificationCentreView.swift */; };
+		A3EFE7082A1B914700237F66 /* DocumentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77828257BC951008FE7B2 /* DocumentPickerView.swift */; };
+		A3EFE7092A1B914700237F66 /* RemoteHostError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C2DF2291CB2B400BFF14C /* RemoteHostError.swift */; };
+		A3EFE70A2A1B914700237F66 /* GitServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A0461228049A7A00182275 /* GitServiceProvider.swift */; };
+		A3EFE70B2A1B914700237F66 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77833257BE2D8008FE7B2 /* EditorView.swift */; };
+		A3EFE70C2A1B914700237F66 /* ExplorerFileTreeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC03E70291F6FE000DECD1B /* ExplorerFileTreeSection.swift */; };
+		A3EFE70D2A1B914700237F66 /* HierarchyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944FC40A25C5F69D00C7C43C /* HierarchyList.swift */; };
+		A3EFE70E2A1B914700237F66 /* WebViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5BCEE29249F0200F20C4B /* WebViewBase.swift */; };
+		A3EFE70F2A1B914700237F66 /* python3.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C8EAAB2A0EBAB100ADFE98 /* python3.m */; };
+		A3EFE7102A1B914700237F66 /* PanelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5BCE42923897200F20C4B /* PanelManager.swift */; };
+		A3EFE7112A1B914700237F66 /* MarkdownViewerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAE4996292DD76A00B1B962 /* MarkdownViewerExtension.swift */; };
+		A3EFE7122A1B914700237F66 /* RemoteExecutionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F046C3929223D1600BDE4E9 /* RemoteExecutionExtension.swift */; };
+		A3EFE7132A1B914700237F66 /* EditorTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E478126502B6900A6110D /* EditorTab.swift */; };
+		A3EFE7142A1B914700237F66 /* SimpleWebPreviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0FAF32939AD86007170F5 /* SimpleWebPreviewExtension.swift */; };
+		A3EFE7152A1B914700237F66 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777F2257B91CA008FE7B2 /* RemoteImage.swift */; };
+		A3EFE7162A1B914700237F66 /* KeyChainAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942E31F728086FE800233441 /* KeyChainAccessor.swift */; };
+		A3EFE7172A1B914700237F66 /* SourceControlEmptySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A046272804A6B300182275 /* SourceControlEmptySection.swift */; };
+		A3EFE7182A1B914700237F66 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C2DE92918E19B00BFF14C /* Theme.swift */; };
+		A3EFE7192A1B914700237F66 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777F5257B9260008FE7B2 /* SettingsView.swift */; };
+		A3EFE71A2A1B914700237F66 /* wasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF58E0265E8A4B00CB6A4B /* wasm.swift */; };
+		A3EFE71B2A1B914700237F66 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947BF348262453040015DAEB /* SearchManager.swift */; };
+		A3EFE71C2A1B914700237F66 /* ArchiveDir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7781D257BC473008FE7B2 /* ArchiveDir.swift */; };
+		A3EFE71D2A1B914700237F66 /* MarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A5682A257CBDE4008A6530 /* MarkdownView.swift */; };
+		A3EFE71E2A1B914700237F66 /* LineNumberLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A323BA262A0B80DB00E10379 /* LineNumberLayoutManager.m */; };
+		A3EFE71F2A1B914700237F66 /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F046C3429222D8E00BDE4E9 /* ExtensionManager.swift */; };
+		A3EFE7202A1B914700237F66 /* LocalExecutionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5BCFA2928E02300F20C4B /* LocalExecutionExtension.swift */; };
+		A3EFE7212A1B914700237F66 /* MonacoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777AB257B66CF008FE7B2 /* MonacoEditor.swift */; };
+		A3EFE7222A1B914700237F66 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F37391D293F37F8006886C1 /* ThemeManager.swift */; };
+		A3EFE7232A1B914700237F66 /* WWDC16.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA342A0B8F2500E10379 /* WWDC16.swift */; };
+		A3EFE7242A1B914700237F66 /* XcodeDark.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA3B2A0B8F2500E10379 /* XcodeDark.swift */; };
+		A3EFE7252A1B914700237F66 /* EditorProviderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5BCFD2929F0F300F20C4B /* EditorProviderManager.swift */; };
+		A3EFE7262A1B914700237F66 /* Midnight.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA312A0B8F2500E10379 /* Midnight.swift */; };
+		A3EFE7272A1B914700237F66 /* SearchUnsupportedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942E32062808805F00233441 /* SearchUnsupportedSection.swift */; };
+		A3EFE7282A1B914700237F66 /* hiddenSystemOverlays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A347BC293DE24B00A59658 /* hiddenSystemOverlays.swift */; };
+		A3EFE7292A1B914700237F66 /* hiddenScrollableContentBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C2DC72918A31000BFF14C /* hiddenScrollableContentBackground.swift */; };
+		A3EFE72A2A1B914700237F66 /* Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA372A0B8F2500E10379 /* Basic.swift */; };
+		A3EFE72B2A1B914700237F66 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC03E68291F303900DECD1B /* Utilities.swift */; };
+		A3EFE72C2A1B914700237F66 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D721DE268DA2B8007A63BD /* TopBar.swift */; };
+		A3EFE72D2A1B914700237F66 /* EditorKeyboardToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9438C9A125CBD25F00335E82 /* EditorKeyboardToolBar.swift */; };
+		A3EFE72E2A1B914700237F66 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777BD257B74EE008FE7B2 /* NotificationManager.swift */; };
+		A3EFE72F2A1B914700237F66 /* URL+isDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF58DC265E4E0F00CB6A4B /* URL+isDirectory.swift */; };
+		A3EFE7302A1B914700237F66 /* SolarizedLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA302A0B8F2500E10379 /* SolarizedLight.swift */; };
+		A3EFE7312A1B914700237F66 /* TerminalProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9441129C28217D6A00A8F1D7 /* TerminalProvider.swift */; };
+		A3EFE7322A1B914700237F66 /* String.Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E3B96A25866C79006AC043 /* String.Encoding.swift */; };
+		A3EFE7332A1B914700237F66 /* SettingsThemeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3DDF72604F90800C4F2B1 /* SettingsThemeConfiguration.swift */; };
+		A3EFE7342A1B914700237F66 /* RemoteContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437153E26BF9FC3000376FB /* RemoteContainer.swift */; };
+		A3EFE7352A1B914700237F66 /* Sunset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA382A0B8F2500E10379 /* Sunset.swift */; };
+		A3EFE7362A1B914700237F66 /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F046C2D29221D5200BDE4E9 /* Toolbar.swift */; };
+		A3EFE7372A1B914700237F66 /* CloudCodeExecutionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77818257BC332008FE7B2 /* CloudCodeExecutionManager.swift */; };
+		A3EFE7382A1B914700237F66 /* KBWebViewBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FF3370284348F1003DE5DD /* KBWebViewBase.m */; };
+		A3EFE7392A1B914700237F66 /* CodeAppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F046C3C29223E1500BDE4E9 /* CodeAppExtension.swift */; };
+		A3EFE73A2A1B914700237F66 /* TextEditorWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081B72925F8FB001D9373 /* TextEditorWithPlaceholder.swift */; };
+		A3EFE73B2A1B914700237F66 /* String+toCString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B3CC425DEA89A00BC83B5 /* String+toCString.swift */; };
+		A3EFE73C2A1B914700237F66 /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C2DF6291CCE9A00BFF14C /* Remote.swift */; };
+		A3EFE73D2A1B914700237F66 /* CompactSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94795C4729314A0A0057C12F /* CompactSidebar.swift */; };
+		A3EFE73E2A1B914700237F66 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D12212583F2A5008F877A /* Executor.swift */; };
+		A3EFE73F2A1B914700237F66 /* RemoteAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437155A26C3C745000376FB /* RemoteAuthView.swift */; };
+		A3EFE7402A1B914700237F66 /* CodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EEBF32563C381009D77FE /* CodeApp.swift */; };
+		A3EFE7412A1B914700237F66 /* openFilesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777DB257B8C99008FE7B2 /* openFilesApp.swift */; };
+		A3EFE7422A1B914700237F66 /* View+If.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3DDF9260526D200C4F2B1 /* View+If.swift */; };
+		A3EFE7432A1B914700237F66 /* WorkSpaceStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777A1257ABDC3008FE7B2 /* WorkSpaceStorage.swift */; };
+		A3EFE7442A1B914700237F66 /* RemoteListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A045ED280480E800182275 /* RemoteListSection.swift */; };
+		A3EFE7452A1B914700237F66 /* CodeCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3592D052A0C1D4000A5A88D /* CodeCompletionView.swift */; };
+		A3EFE7462A1B914700237F66 /* DirectoryFolderMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777A7257ABEBE008FE7B2 /* DirectoryFolderMonitor.swift */; };
+		A3EFE7472A1B914700237F66 /* ActivityBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94795C442931489C0057C12F /* ActivityBar.swift */; };
+		A3EFE7482A1B914700237F66 /* XcodeLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA2F2A0B8F2500E10379 /* XcodeLight.swift */; };
+		A3EFE7492A1B914700237F66 /* TerminalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5BCE829238B6C00F20C4B /* TerminalExtension.swift */; };
+		A3EFE74A2A1B914700237F66 /* FileSystemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941969242802AB2C008AAEB2 /* FileSystemProvider.swift */; };
+		A3EFE74B2A1B914700237F66 /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941E53B528787D3100561C7E /* MenuButtonView.swift */; };
+		A3EFE74C2A1B914700237F66 /* SettingsKeyboardShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C893E1279D09D400DFBF29 /* SettingsKeyboardShortcuts.swift */; };
+		A3EFE74D2A1B914700237F66 /* SearchServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942E3200280877C900233441 /* SearchServiceProvider.swift */; };
+		A3EFE74E2A1B914700237F66 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F52706259F9B4800337306 /* KeychainWrapper.swift */; };
+		A3EFE74F2A1B914700237F66 /* GitHubSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A046092804955C00182275 /* GitHubSearchView.swift */; };
+		A3EFE7502A1B914700237F66 /* ExplorerEditorListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC03E6D291F6EE700DECD1B /* ExplorerEditorListSection.swift */; };
+		A3EFE7512A1B914700237F66 /* SpellChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942ACB9C281312900067114D /* SpellChecker.swift */; };
+		A3EFE7522A1B914700237F66 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3592D072A0C1E0400A5A88D /* CodeView.swift */; };
+		A3EFE7532A1B914700237F66 /* PTTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA392A0B8F2500E10379 /* PTTheme.swift */; };
+		A3EFE7542A1B914700237F66 /* CoolGlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA362A0B8F2500E10379 /* CoolGlow.swift */; };
+		A3EFE7552A1B914700237F66 /* SFTPFileSystemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E6CC7A2806FBAF00939E4F /* SFTPFileSystemProvider.swift */; };
+		A3EFE7562A1B914700237F66 /* fake.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E35E3D29E5363800B322D4 /* fake.m */; };
+		A3EFE7572A1B914700237F66 /* EditorTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7782F257BD680008FE7B2 /* EditorTabs.swift */; };
+		A3EFE7582A1B914700237F66 /* LocalGitServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944FC3FE25C543CC00C7C43C /* LocalGitServiceProvider.swift */; };
+		A3EFE7592A1B914700237F66 /* SolarizedDark.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA332A0B8F2500E10379 /* SolarizedDark.swift */; };
+		A3EFE75A2A1B914700237F66 /* SourceControlIdentityConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9494A3A42587479F004A103E /* SourceControlIdentityConfiguration.swift */; };
+		A3EFE75B2A1B914700237F66 /* PTTextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA1F2A0B16F800E10379 /* PTTextEditorView.swift */; };
+		A3EFE75C2A1B914700237F66 /* CompletionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3592D162A0D581000A5A88D /* CompletionService.swift */; };
+		A3EFE75D2A1B914700237F66 /* SearchContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777D1257B8A32008FE7B2 /* SearchContainer.swift */; };
+		A3EFE75E2A1B914700237F66 /* String+base64EncodedDecoded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777AF257B679C008FE7B2 /* String+base64EncodedDecoded.swift */; };
+		A3EFE75F2A1B914700237F66 /* HighlightrTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA3C2A0B8F2500E10379 /* HighlightrTheme.swift */; };
+		A3EFE7602A1B914700237F66 /* PTEditorInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38849C32A0A1B6B008F50FD /* PTEditorInstance.swift */; };
+		A3EFE7612A1B914700237F66 /* FileDisplayName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F6B50F280EFD07000DBAE2 /* FileDisplayName.swift */; };
+		A3EFE7622A1B914700237F66 /* FileIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77791257AB805008FE7B2 /* FileIcon.swift */; };
+		A3EFE7632A1B914700237F66 /* ViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94801F94266FBC3500B29D80 /* ViewRepresentable.swift */; };
+		A3EFE7642A1B914700237F66 /* SourceControlEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FC220A257F7D2900B85D1B /* SourceControlEntry.swift */; };
+		A3EFE7652A1B914700237F66 /* DebugMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5BCF32927859600F20C4B /* DebugMenu.swift */; };
+		A3EFE7662A1B914700237F66 /* python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3441F6C2A052E3600CA7588 /* python.swift */; };
+		A3EFE7672A1B914700237F66 /* FTPFileSystemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941969282802AB64008AAEB2 /* FTPFileSystemProvider.swift */; };
+		A3EFE7682A1B914700237F66 /* PDFViewerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA8975292FB86700163800 /* PDFViewerExtension.swift */; };
+		A3EFE7692A1B914700237F66 /* SourceControlAuxiliaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAE499A292F530B00B1B962 /* SourceControlAuxiliaryExtension.swift */; };
+		A3EFE76A2A1B914700237F66 /* View+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777B6257B6A43008FE7B2 /* View+cornerRadius.swift */; };
+		A3EFE76B2A1B914700237F66 /* MonacoIntellisenseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B3CBA25DBCCDB00BC83B5 /* MonacoIntellisenseExtension.swift */; };
+		A3EFE76C2A1B914700237F66 /* ActivityBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E6CC842807502A00939E4F /* ActivityBarItemView.swift */; };
+		A3EFE76D2A1B914700237F66 /* wormhole.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3441F682A04DC4C00CA7588 /* wormhole.swift */; };
+		A3EFE76E2A1B914700237F66 /* RemoteCreateSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A045F02804816000182275 /* RemoteCreateSection.swift */; };
+		A3EFE76F2A1B914700237F66 /* VideoViewerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAE4992292D153F00B1B962 /* VideoViewerExtension.swift */; };
+		A3EFE7702A1B914700237F66 /* SFTPTerminalServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944112A0282181E500A8F1D7 /* SFTPTerminalServiceProvider.swift */; };
+		A3EFE7712A1B914700237F66 /* URL+relativePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B3CB825DADCB900BC83B5 /* URL+relativePath.swift */; };
+		A3EFE7722A1B914700237F66 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942A1884285B90650018801F /* Secrets.swift */; };
+		A3EFE7732A1B914700237F66 /* SearchResultsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942E320328087FA400233441 /* SearchResultsSection.swift */; };
+		A3EFE7742A1B914700237F66 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F52708259F9B7800337306 /* KeychainItemAccessibility.swift */; };
+		A3EFE7752A1B914700237F66 /* ExplorerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777C3257B8042008FE7B2 /* ExplorerContainer.swift */; };
+		A3EFE7762A1B914700237F66 /* InfiniteProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9419692C2803117D008AAEB2 /* InfiniteProgressView.swift */; };
+		A3EFE7772A1B914700237F66 /* Dusk.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA322A0B8F2500E10379 /* Dusk.swift */; };
+		A3EFE7782A1B914700237F66 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7779E257ABD7A008FE7B2 /* MainApp.swift */; };
+		A3EFE7792A1B914700237F66 /* LineNumberTextViewWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A323BA222A0B80DB00E10379 /* LineNumberTextViewWrapper.m */; };
+		A3EFE77A2A1B914700237F66 /* EncodingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0FAEF2938A14C007170F5 /* EncodingMenu.swift */; };
+		A3EFE77B2A1B914700237F66 /* PanelSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77807257BBA8A008FE7B2 /* PanelSelector.swift */; };
+		A3EFE77C2A1B914700237F66 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC03E732920CF1700DECD1B /* Notification.swift */; };
+		A3EFE77D2A1B914700237F66 /* node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B3CC625DEAAA600BC83B5 /* node.swift */; };
+		A3EFE77E2A1B914700237F66 /* LowKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA3A2A0B8F2500E10379 /* LowKey.swift */; };
+		A3EFE77F2A1B914700237F66 /* TerminalInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94801F92266FB5E400B29D80 /* TerminalInstance.swift */; };
+		A3EFE7802A1B914700237F66 /* convertCArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F2FEA826A2EB0E007EBC6D /* convertCArguments.swift */; };
+		A3EFE7812A1B914700237F66 /* SettingsFontPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FF337328435158003DE5DD /* SettingsFontPicker.swift */; };
+		A3EFE7822A1B914700237F66 /* NewFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77801257B960A008FE7B2 /* NewFileView.swift */; };
+		A3EFE7832A1B914700237F66 /* DefaultUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5BCEB292495DF00F20C4B /* DefaultUIState.swift */; };
+		A3EFE7842A1B914700237F66 /* EditorInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77795257ABB69008FE7B2 /* EditorInstance.swift */; };
+		A3EFE7852A1B914700237F66 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C2DEC2918EDC400BFF14C /* Resources.swift */; };
+		A3EFE7862A1B914700237F66 /* biometricType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E6CC872807632B00939E4F /* biometricType.swift */; };
+		A3EFE7872A1B914700237F66 /* SearchSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942E31FA280876AA00233441 /* SearchSection.swift */; };
+		A3EFE7882A1B914700237F66 /* Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94795C4A293259080057C12F /* Encoding.swift */; };
+		A3EFE7892A1B914700237F66 /* SourceControlSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A046242804A67100182275 /* SourceControlSection.swift */; };
+		A3EFE78A2A1B914700237F66 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9420698728284027007DE671 /* Store.swift */; };
+		A3EFE78B2A1B914700237F66 /* SourceControlCloneSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A04606280493C600182275 /* SourceControlCloneSection.swift */; };
+		A3EFE78C2A1B914700237F66 /* Libgit2Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081BA29260B00001D9373 /* Libgit2Error.swift */; };
+		A3EFE78D2A1B914700237F66 /* SourceControlTemplateSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAD1B8296EAC3C00E8AEB2 /* SourceControlTemplateSection.swift */; };
+		A3EFE78E2A1B914700237F66 /* ImageViewerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAE498E292D062800B1B962 /* ImageViewerExtension.swift */; };
+		A3EFE78F2A1B914700237F66 /* RemoteHostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A045F62804822400182275 /* RemoteHostCell.swift */; };
+		A3EFE7902A1B914700237F66 /* UserDefaults+Hosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FE0C93281E50F200C05529 /* UserDefaults+Hosts.swift */; };
+		A3EFE7912A1B914700237F66 /* ToolbarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F046C312922203E00BDE4E9 /* ToolbarManager.swift */; };
+		A3EFE7932A1B914700237F66 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3140FC829E4A749005D8947 /* Accelerate.framework */; };
+		A3EFE7942A1B914700237F66 /* FilesProvider in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE6E12A1B914700237F66 /* FilesProvider */; };
+		A3EFE7952A1B914700237F66 /* ios_system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DC7B282A1472B500B7B8D5 /* ios_system.framework */; };
+		A3EFE7962A1B914700237F66 /* ios_fake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E35E3F29E541BC00B322D4 /* ios_fake.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A3EFE7972A1B914700237F66 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE6DB2A1B914700237F66 /* ZIPFoundation */; };
+		A3EFE7992A1B914700237F66 /* MarkdownView in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE6DF2A1B914700237F66 /* MarkdownView */; };
+		A3EFE79A2A1B914700237F66 /* ios_fake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E35E3F29E541BC00B322D4 /* ios_fake.framework */; };
+		A3EFE79B2A1B914700237F66 /* python3_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0C29E4903E005515EE /* python3_ios.framework */; };
+		A3EFE79C2A1B914700237F66 /* GCDWebServers in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE6E42A1B914700237F66 /* GCDWebServers */; };
+		A3EFE79D2A1B914700237F66 /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE6DD2A1B914700237F66 /* Dynamic */; };
+		A3EFE79E2A1B914700237F66 /* SwiftGit2 in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE6E32A1B914700237F66 /* SwiftGit2 */; };
+		A3EFE79F2A1B914700237F66 /* KeyboardToolbar in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE6E82A1B914700237F66 /* KeyboardToolbar */; };
+		A3EFE7A02A1B914700237F66 /* NMSSH.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942E321128093CA600233441 /* NMSSH.xcframework */; };
+		A3EFE7A12A1B914700237F66 /* AppReceiptValidator in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE6E62A1B914700237F66 /* AppReceiptValidator */; };
+		A3EFE7A22A1B914700237F66 /* Pods_pyaide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81336277C33A963EBD119B4 /* Pods_pyaide.framework */; };
+		A3EFE7A42A1B914700237F66 /* Themes in Resources */ = {isa = PBXBuildFile; fileRef = 94127C3F280335C8008C7F82 /* Themes */; };
+		A3EFE7A52A1B914700237F66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944EEBFA2563C386009D77FE /* Preview Assets.xcassets */; };
+		A3EFE7A62A1B914700237F66 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94A56832257CC3A1008A6530 /* Localizable.strings */; };
+		A3EFE7A72A1B914700237F66 /* monaco-textmate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94A4438F25A44CDB006643FF /* monaco-textmate.bundle */; };
+		A3EFE7A82A1B914700237F66 /* ClangLib in Resources */ = {isa = PBXBuildFile; fileRef = 94CF58DE265E51B100CB6A4B /* ClangLib */; };
+		A3EFE7A92A1B914700237F66 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9425205B263E103E0029427A /* InfoPlist.strings */; };
+		A3EFE7AA2A1B914700237F66 /* cacert.pem in Resources */ = {isa = PBXBuildFile; fileRef = 94B3D5D525F776A900C4F2B1 /* cacert.pem */; };
+		A3EFE7AB2A1B914700237F66 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948D11FF2583F20C008F877A /* commandDictionary.plist */; };
+		A3EFE7AC2A1B914700237F66 /* FiraCode-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 94FF33882843744C003DE5DD /* FiraCode-Regular.ttf */; };
+		A3EFE7AD2A1B914700237F66 /* pyhome in Resources */ = {isa = PBXBuildFile; fileRef = A3EE7C4F29E49103005515EE /* pyhome */; };
+		A3EFE7AE2A1B914700237F66 /* site-packages1 in Resources */ = {isa = PBXBuildFile; fileRef = A3592D112A0D280500A5A88D /* site-packages1 */; };
+		A3EFE7AF2A1B914700237F66 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 941CF5FA2641CBDA001199C0 /* Settings.bundle */; };
+		A3EFE7B02A1B914700237F66 /* extraCommandsDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948D11FE2583F20C008F877A /* extraCommandsDictionary.plist */; };
+		A3EFE7B12A1B914700237F66 /* npm.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94369B4925EAB175008419A0 /* npm.bundle */; };
+		A3EFE7B22A1B914700237F66 /* terminal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 948D12202583F24E008F877A /* terminal.bundle */; };
+		A3EFE7B32A1B914700237F66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A56834257CC60E008A6530 /* LaunchScreen.storyboard */; };
+		A3EFE7B42A1B914700237F66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944EEBF72563C386009D77FE /* Assets.xcassets */; };
+		A3EFE7C02A1B914700237F66 /* ios_system.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3DC7B282A1472B500B7B8D5 /* ios_system.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7C32A1B914700237F66 /* python3_ios-_bz2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C1329E49041005515EE /* python3_ios-_bz2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7C42A1B914700237F66 /* python3_ios-_crypt.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0A29E4903D005515EE /* python3_ios-_crypt.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7C52A1B914700237F66 /* python3_ios-_ctypes_test.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C1029E4903F005515EE /* python3_ios-_ctypes_test.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7C62A1B914700237F66 /* python3_ios-_ctypes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0329E4903A005515EE /* python3_ios-_ctypes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7C72A1B914700237F66 /* python3_ios-_dbm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C1129E49040005515EE /* python3_ios-_dbm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7C82A1B914700237F66 /* python3_ios-_hashlib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0229E4903A005515EE /* python3_ios-_hashlib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7C92A1B914700237F66 /* python3_ios-_lsprof.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0929E4903C005515EE /* python3_ios-_lsprof.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7CA2A1B914700237F66 /* python3_ios-_lzma.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C1429E49041005515EE /* python3_ios-_lzma.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7CB2A1B914700237F66 /* python3_ios-_multiprocessing.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0429E4903B005515EE /* python3_ios-_multiprocessing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7CC2A1B914700237F66 /* python3_ios-_posixshmem.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0829E4903C005515EE /* python3_ios-_posixshmem.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7CD2A1B914700237F66 /* python3_ios-_testbuffer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0B29E4903D005515EE /* python3_ios-_testbuffer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7CE2A1B914700237F66 /* python3_ios-_testimportmultiple.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C1929E49043005515EE /* python3_ios-_testimportmultiple.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7CF2A1B914700237F66 /* python3_ios-_testmultiphase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0D29E4903E005515EE /* python3_ios-_testmultiphase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7D02A1B914700237F66 /* python3_ios-_xxsubinterpreters.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0E29E4903F005515EE /* python3_ios-_xxsubinterpreters.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7D12A1B914700237F66 /* python3_ios-_xxtestfuzz.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0629E4903B005515EE /* python3_ios-_xxtestfuzz.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7D22A1B914700237F66 /* python3_ios-syslog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0129E49039005515EE /* python3_ios-syslog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7D32A1B914700237F66 /* network_ios.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4AB25F5518700F1EF4E /* network_ios.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7D62A1B914700237F66 /* python3_ios-_testcapi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C1A29E49044005515EE /* python3_ios-_testcapi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7D82A1B914700237F66 /* NMSSH.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 942E321128093CA600233441 /* NMSSH.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7DA2A1B914700237F66 /* NodeMobile.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 945AEA3427ECCB3D00BA193E /* NodeMobile.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7DC2A1B914700237F66 /* python3_ios-_testinternalcapi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C1729E49042005515EE /* python3_ios-_testinternalcapi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7DD2A1B914700237F66 /* libpng.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94D7DEC02631D0CA00FA0760 /* libpng.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7DE2A1B914700237F66 /* python3_ios-_ssl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C1829E49043005515EE /* python3_ios-_ssl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7DF2A1B914700237F66 /* ios_fake.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3E35E3F29E541BC00B322D4 /* ios_fake.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7E22A1B914700237F66 /* harfbuzz.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94D7DED42631D16C00FA0760 /* harfbuzz.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7E42A1B914700237F66 /* python3_ios-_decimal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C1229E49040005515EE /* python3_ios-_decimal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7E52A1B914700237F66 /* ssh_cmd.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4A525F5518700F1EF4E /* ssh_cmd.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7E72A1B914700237F66 /* python3_ios-xxlimited.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C1529E49041005515EE /* python3_ios-xxlimited.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7E92A1B914700237F66 /* python3_ios-_queue.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C1629E49042005515EE /* python3_ios-_queue.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7EA2A1B914700237F66 /* python3_ios-_sqlite3.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0529E4903B005515EE /* python3_ios-_sqlite3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7EC2A1B914700237F66 /* python3_ios-_cffi_backend.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0F29E4903F005515EE /* python3_ios-_cffi_backend.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7ED2A1B914700237F66 /* awk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4A925F5518700F1EF4E /* awk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7EE2A1B914700237F66 /* text.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4AC25F5518700F1EF4E /* text.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7EF2A1B914700237F66 /* python3_ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0C29E4903E005515EE /* python3_ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7F02A1B914700237F66 /* shell.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4AD25F5518700F1EF4E /* shell.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7F12A1B914700237F66 /* python3_ios-_opcode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0729E4903B005515EE /* python3_ios-_opcode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7F22A1B914700237F66 /* tar.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B3DDF42604D3C400C4F2B1 /* tar.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3EFE7F42A1B914700237F66 /* cmdextension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A3441F742A0548F300CA7588 /* cmdextension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A3EFE7FE2A1B9DA900237F66 /* TreeSitterC in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE7FD2A1B9DA900237F66 /* TreeSitterC */; };
+		A3EFE8002A1B9DA900237F66 /* TreeSitterCPP in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE7FF2A1B9DA900237F66 /* TreeSitterCPP */; };
+		A3EFE8022A1B9DA900237F66 /* TreeSitterCPPQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8012A1B9DA900237F66 /* TreeSitterCPPQueries */; };
+		A3EFE8042A1B9DA900237F66 /* TreeSitterCPPRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8032A1B9DA900237F66 /* TreeSitterCPPRunestone */; };
+		A3EFE8062A1B9DA900237F66 /* TreeSitterCQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8052A1B9DA900237F66 /* TreeSitterCQueries */; };
+		A3EFE8082A1B9DA900237F66 /* TreeSitterCRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8072A1B9DA900237F66 /* TreeSitterCRunestone */; };
+		A3EFE80A2A1B9DA900237F66 /* TreeSitterCSS in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8092A1B9DA900237F66 /* TreeSitterCSS */; };
+		A3EFE80C2A1B9DA900237F66 /* TreeSitterCSSQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE80B2A1B9DA900237F66 /* TreeSitterCSSQueries */; };
+		A3EFE80E2A1B9DA900237F66 /* TreeSitterCSSRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE80D2A1B9DA900237F66 /* TreeSitterCSSRunestone */; };
+		A3EFE8102A1B9DA900237F66 /* TreeSitterHTML in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE80F2A1B9DA900237F66 /* TreeSitterHTML */; };
+		A3EFE8122A1B9DA900237F66 /* TreeSitterHTMLQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8112A1B9DA900237F66 /* TreeSitterHTMLQueries */; };
+		A3EFE8142A1B9DA900237F66 /* TreeSitterHTMLRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8132A1B9DA900237F66 /* TreeSitterHTMLRunestone */; };
+		A3EFE8162A1B9DA900237F66 /* TreeSitterJSON in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8152A1B9DA900237F66 /* TreeSitterJSON */; };
+		A3EFE8182A1B9DA900237F66 /* TreeSitterJSON5 in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8172A1B9DA900237F66 /* TreeSitterJSON5 */; };
+		A3EFE81A2A1B9DA900237F66 /* TreeSitterJSON5Queries in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8192A1B9DA900237F66 /* TreeSitterJSON5Queries */; };
+		A3EFE81C2A1B9DA900237F66 /* TreeSitterJSON5Runestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE81B2A1B9DA900237F66 /* TreeSitterJSON5Runestone */; };
+		A3EFE81E2A1B9DA900237F66 /* TreeSitterJSONQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE81D2A1B9DA900237F66 /* TreeSitterJSONQueries */; };
+		A3EFE8202A1B9DA900237F66 /* TreeSitterJSONRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE81F2A1B9DA900237F66 /* TreeSitterJSONRunestone */; };
+		A3EFE8222A1B9DA900237F66 /* TreeSitterJavaScript in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8212A1B9DA900237F66 /* TreeSitterJavaScript */; };
+		A3EFE8242A1B9DA900237F66 /* TreeSitterJavaScriptQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8232A1B9DA900237F66 /* TreeSitterJavaScriptQueries */; };
+		A3EFE8262A1B9DA900237F66 /* TreeSitterJavaScriptRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8252A1B9DA900237F66 /* TreeSitterJavaScriptRunestone */; };
+		A3EFE8282A1B9DA900237F66 /* TreeSitterLua in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8272A1B9DA900237F66 /* TreeSitterLua */; };
+		A3EFE82A2A1B9DA900237F66 /* TreeSitterLuaQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8292A1B9DA900237F66 /* TreeSitterLuaQueries */; };
+		A3EFE82C2A1B9DA900237F66 /* TreeSitterLuaRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE82B2A1B9DA900237F66 /* TreeSitterLuaRunestone */; };
+		A3EFE82E2A1B9DA900237F66 /* TreeSitterMarkdown in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE82D2A1B9DA900237F66 /* TreeSitterMarkdown */; };
+		A3EFE8302A1B9DA900237F66 /* TreeSitterMarkdownInline in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE82F2A1B9DA900237F66 /* TreeSitterMarkdownInline */; };
+		A3EFE8322A1B9DA900237F66 /* TreeSitterMarkdownInlineQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8312A1B9DA900237F66 /* TreeSitterMarkdownInlineQueries */; };
+		A3EFE8342A1B9DA900237F66 /* TreeSitterMarkdownInlineRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8332A1B9DA900237F66 /* TreeSitterMarkdownInlineRunestone */; };
+		A3EFE8362A1B9DA900237F66 /* TreeSitterMarkdownQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8352A1B9DA900237F66 /* TreeSitterMarkdownQueries */; };
+		A3EFE8382A1B9DA900237F66 /* TreeSitterMarkdownRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8372A1B9DA900237F66 /* TreeSitterMarkdownRunestone */; };
+		A3EFE83A2A1B9DA900237F66 /* TreeSitterPHP in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8392A1B9DA900237F66 /* TreeSitterPHP */; };
+		A3EFE83C2A1B9DA900237F66 /* TreeSitterPHPQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE83B2A1B9DA900237F66 /* TreeSitterPHPQueries */; };
+		A3EFE83E2A1B9DA900237F66 /* TreeSitterPHPRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE83D2A1B9DA900237F66 /* TreeSitterPHPRunestone */; };
+		A3EFE8402A1B9DA900237F66 /* TreeSitterPython in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE83F2A1B9DA900237F66 /* TreeSitterPython */; };
+		A3EFE8422A1B9DA900237F66 /* TreeSitterPythonQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8412A1B9DA900237F66 /* TreeSitterPythonQueries */; };
+		A3EFE8442A1B9DA900237F66 /* TreeSitterPythonRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8432A1B9DA900237F66 /* TreeSitterPythonRunestone */; };
+		A3EFE8462A1B9DA900237F66 /* TreeSitterYAML in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8452A1B9DA900237F66 /* TreeSitterYAML */; };
+		A3EFE8482A1B9DA900237F66 /* TreeSitterYAMLQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8472A1B9DA900237F66 /* TreeSitterYAMLQueries */; };
+		A3EFE84A2A1B9DA900237F66 /* TreeSitterYAMLRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8492A1B9DA900237F66 /* TreeSitterYAMLRunestone */; };
+		A3EFE84C2A1B9E0400237F66 /* TreeSitterPython in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE84B2A1B9E0400237F66 /* TreeSitterPython */; };
+		A3EFE84E2A1B9E0400237F66 /* TreeSitterPythonQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE84D2A1B9E0400237F66 /* TreeSitterPythonQueries */; };
+		A3EFE8502A1B9E0400237F66 /* TreeSitterPythonRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE84F2A1B9E0400237F66 /* TreeSitterPythonRunestone */; };
+		A3EFE8522A1B9E1400237F66 /* TreeSitterPython in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8512A1B9E1400237F66 /* TreeSitterPython */; };
+		A3EFE8542A1B9E1400237F66 /* TreeSitterPythonQueries in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8532A1B9E1400237F66 /* TreeSitterPythonQueries */; };
+		A3EFE8562A1B9E1400237F66 /* TreeSitterPythonRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8552A1B9E1400237F66 /* TreeSitterPythonRunestone */; };
+		A3EFE8592A1B9EA200237F66 /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE8582A1B9EA200237F66 /* SwiftTerm */; };
+		A3EFE85B2A1B9EBC00237F66 /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = A3EFE85A2A1B9EBC00237F66 /* SwiftTerm */; };
+		A3EFE85E2A1B9F4800237F66 /* RSCodeEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE85D2A1B9F4800237F66 /* RSCodeEditorView.swift */; };
+		A3EFE85F2A1B9F4800237F66 /* RSCodeEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE85D2A1B9F4800237F66 /* RSCodeEditorView.swift */; };
+		A3EFE8612A1B9F7400237F66 /* TMConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE8602A1B9F7400237F66 /* TMConsoleView.swift */; };
+		A3EFE8622A1B9F7400237F66 /* TMConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE8602A1B9F7400237F66 /* TMConsoleView.swift */; };
+		A3EFE8642A1BA28900237F66 /* InputCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE8632A1BA28900237F66 /* InputCompletionView.swift */; };
+		A3EFE8652A1BA28900237F66 /* InputCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE8632A1BA28900237F66 /* InputCompletionView.swift */; };
+		A3EFE8672A1BC8C600237F66 /* RSCodeEditorInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE8662A1BC8C600237F66 /* RSCodeEditorInstance.swift */; };
+		A3EFE8682A1BC8C600237F66 /* RSCodeEditorInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE8662A1BC8C600237F66 /* RSCodeEditorInstance.swift */; };
+		A3EFE86F2A1C9AA000237F66 /* HandleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE86A2A1C9A9F00237F66 /* HandleView.swift */; };
+		A3EFE8702A1C9AA000237F66 /* HandleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE86A2A1C9A9F00237F66 /* HandleView.swift */; };
+		A3EFE8712A1C9AA000237F66 /* Snapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE86B2A1C9A9F00237F66 /* Snapped.swift */; };
+		A3EFE8722A1C9AA000237F66 /* Snapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE86B2A1C9A9F00237F66 /* Snapped.swift */; };
+		A3EFE8732A1C9AA000237F66 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE86C2A1C9A9F00237F66 /* SplitView.swift */; };
+		A3EFE8742A1C9AA000237F66 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE86C2A1C9A9F00237F66 /* SplitView.swift */; };
+		A3EFE8752A1C9AA000237F66 /* InstantPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE86D2A1C9A9F00237F66 /* InstantPanGestureRecognizer.swift */; };
+		A3EFE8762A1C9AA000237F66 /* InstantPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE86D2A1C9A9F00237F66 /* InstantPanGestureRecognizer.swift */; };
+		A3EFE8772A1C9AA000237F66 /* Arrangement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE86E2A1C9A9F00237F66 /* Arrangement.swift */; };
+		A3EFE8782A1C9AA000237F66 /* Arrangement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE86E2A1C9A9F00237F66 /* Arrangement.swift */; };
+		A3EFE87A2A1C9BB700237F66 /* TMConsoleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE8792A1C9BB700237F66 /* TMConsoleExtension.swift */; };
+		A3EFE87B2A1C9BB700237F66 /* TMConsoleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE8792A1C9BB700237F66 /* TMConsoleExtension.swift */; };
+		A3EFE87D2A1D2B2000237F66 /* EditorAndRunnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE87C2A1D2B2000237F66 /* EditorAndRunnerView.swift */; };
+		A3EFE87E2A1D2B2000237F66 /* EditorAndRunnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE87C2A1D2B2000237F66 /* EditorAndRunnerView.swift */; };
+		A3EFE8802A1D2D9900237F66 /* EditorAndRunnerInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE87F2A1D2D9900237F66 /* EditorAndRunnerInstance.swift */; };
+		A3EFE8812A1D2D9900237F66 /* EditorAndRunnerInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE87F2A1D2D9900237F66 /* EditorAndRunnerInstance.swift */; };
+		A3EFE8832A1DA8AD00237F66 /* PTLocalExecutionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE8822A1DA8AD00237F66 /* PTLocalExecutionExtension.swift */; };
+		A3EFE8842A1DA8AD00237F66 /* PTLocalExecutionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE8822A1DA8AD00237F66 /* PTLocalExecutionExtension.swift */; };
 		FFD081B82925F8FB001D9373 /* TextEditorWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081B72925F8FB001D9373 /* TextEditorWithPlaceholder.swift */; };
 		FFD081B92925F8FB001D9373 /* TextEditorWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081B72925F8FB001D9373 /* TextEditorWithPlaceholder.swift */; };
 		FFD081BB29260B00001D9373 /* Libgit2Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081BA29260B00001D9373 /* Libgit2Error.swift */; };
@@ -1003,13 +1350,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		94369B0525E3B933008419A0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 94369AFB25E3B933008419A0;
-			remoteInfo = extension;
-		};
 		9FE3E296298A14BC00F63DD0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
@@ -1017,7 +1357,14 @@
 			remoteGlobalIDString = 9419692E280316C7008AAEB2;
 			remoteInfo = CodeUI;
 		};
-		A3441F7F2A0548F400CA7588 /* PBXContainerItemProxy */ = {
+		A31D2D082A268A6800A5BF09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A33FCAFD2A250DDC00BA5EE5;
+			remoteInfo = PYUI;
+		};
+		A3EFE6DA2A1B914700237F66 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
 			proxyType = 1;
@@ -1056,17 +1403,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		94369B0B25E3B933008419A0 /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				94369B0725E3B933008419A0 /* extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1452,6 +1788,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A31D2D032A2679F000A5BF09 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A31D2D022A2679F000A5BF09 /* SDL2.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3E4AD7F29E476A800EDF69F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1468,6 +1815,7 @@
 				A3CF205F29E61ACC00EF1FA4 /* python3_ios-qutip_all.framework in Embed Frameworks */,
 				A3CF206029E61ACC00EF1FA4 /* python3_ios-rasterio_all.framework in Embed Frameworks */,
 				A3CF206129E61ACC00EF1FA4 /* python3_ios-scipy_all.framework in Embed Frameworks */,
+				A3DC7B2D2A147B0200B7B8D5 /* ios_system.framework in Embed Frameworks */,
 				A3CF206229E61ACC00EF1FA4 /* python3_ios-sklearn_all.framework in Embed Frameworks */,
 				A3CF206329E61ACC00EF1FA4 /* python3_ios-statsmodels_all.framework in Embed Frameworks */,
 				A3CF206629E61ACC00EF1FA4 /* python3_ios-_bz2.framework in Embed Frameworks */,
@@ -1490,8 +1838,6 @@
 				A3E4AD8129E476A800EDF69F /* freetype.xcframework in Embed Frameworks */,
 				A33F75CF29E4887900CD679A /* openblas.framework in Embed Frameworks */,
 				A37962F129E6198700D7FE90 /* python3_ios-_testcapi.framework in Embed Frameworks */,
-				A33F75D129E4887900CD679A /* ios_system.framework in Embed Frameworks */,
-				A3140F9329E4A1F0005D8947 /* libshm.framework in Embed Frameworks */,
 				A3E4AD8229E476A800EDF69F /* NMSSH.xcframework in Embed Frameworks */,
 				A37962F729E6198C00D7FE90 /* python3_ios-numpy_all.framework in Embed Frameworks */,
 				A3E4AD8329E476A800EDF69F /* NodeMobile.xcframework in Embed Frameworks */,
@@ -1501,14 +1847,11 @@
 				A37962EF29E6198500D7FE90 /* python3_ios-_ssl.framework in Embed Frameworks */,
 				A3E35E4129E541BD00B322D4 /* ios_fake.framework in Embed Frameworks */,
 				A37962F529E6198A00D7FE90 /* python3_ios-contourpy._contourpy.framework in Embed Frameworks */,
-				A3E35E5129E6186000B322D4 /* libjitbackend_test.framework in Embed Frameworks */,
 				A3E4AD8529E476A800EDF69F /* harfbuzz.xcframework in Embed Frameworks */,
 				A33F75D329E4887A00CD679A /* libgfortran.framework in Embed Frameworks */,
 				A37962E729E6197D00D7FE90 /* python3_ios-_decimal.framework in Embed Frameworks */,
 				A3E4AD8729E476A800EDF69F /* ssh_cmd.xcframework in Embed Frameworks */,
-				A3140F9529E4A1F0005D8947 /* libc10.framework in Embed Frameworks */,
 				A37962FB29E6199100D7FE90 /* python3_ios-xxlimited.framework in Embed Frameworks */,
-				A3E35E4F29E6185F00B322D4 /* libbackend_with_compiler.framework in Embed Frameworks */,
 				A37962EB29E6198100D7FE90 /* python3_ios-_queue.framework in Embed Frameworks */,
 				A37962ED29E6198300D7FE90 /* python3_ios-_sqlite3.framework in Embed Frameworks */,
 				A3E4AD8829E476A800EDF69F /* files.xcframework in Embed Frameworks */,
@@ -1523,13 +1866,78 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A3E4AD8E29E476A800EDF69F /* Embed Foundation Extensions */ = {
+		A3EFE7B52A1B914700237F66 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A31D2D442A2A30F800A5BF09 /* python3_ios-pygame_all.framework in Embed Frameworks */,
+				A31D2D422A29E83700A5BF09 /* python3_ios-pyobjus.pyobjus.framework in Embed Frameworks */,
+				A31D2D402A29A29200A5BF09 /* python3_ios-ios.framework in Embed Frameworks */,
+				A31D2D3C2A2982AF00A5BF09 /* SDL2_ttf.framework in Embed Frameworks */,
+				A31D2D3D2A2982B000A5BF09 /* SDL2_mixer.framework in Embed Frameworks */,
+				A31D2D3E2A2982B100A5BF09 /* SDL2_image.framework in Embed Frameworks */,
+				A31D2D382A29829400A5BF09 /* python3_ios-kivy_all.framework in Embed Frameworks */,
+				A31D2CA52A265A6E00A5BF09 /* SDL2.framework in Embed Frameworks */,
+				A33FCA4A2A2217CF00BA5EE5 /* freetype.framework in Embed Frameworks */,
+				A33FCA512A22720A00BA5EE5 /* sixel.framework in Embed Frameworks */,
+				A33FCA4C2A22186B00BA5EE5 /* python3_ios-kiwisolver._cext.framework in Embed Frameworks */,
+				A33FCA462A22164B00BA5EE5 /* python3_ios-PIL_all.framework in Embed Frameworks */,
+				A33FCA432A21A66600BA5EE5 /* python3_ios-numpy_all.framework in Embed Frameworks */,
+				A33FCA442A21A66600BA5EE5 /* python3_ios-matplotlib_all.framework in Embed Frameworks */,
+				A36AD4C82A1F931500E54117 /* files.xcframework in Embed Frameworks */,
+				A33FCAB22A24922B00BA5EE5 /* python3_ios-cv2.cv2.framework in Embed Frameworks */,
+				A3EFE7C02A1B914700237F66 /* ios_system.framework in Embed Frameworks */,
+				A3EFE7C32A1B914700237F66 /* python3_ios-_bz2.framework in Embed Frameworks */,
+				A3EFE7C42A1B914700237F66 /* python3_ios-_crypt.framework in Embed Frameworks */,
+				A3EFE7C52A1B914700237F66 /* python3_ios-_ctypes_test.framework in Embed Frameworks */,
+				A3EFE7C62A1B914700237F66 /* python3_ios-_ctypes.framework in Embed Frameworks */,
+				A3EFE7C72A1B914700237F66 /* python3_ios-_dbm.framework in Embed Frameworks */,
+				A3EFE7C82A1B914700237F66 /* python3_ios-_hashlib.framework in Embed Frameworks */,
+				A3EFE7C92A1B914700237F66 /* python3_ios-_lsprof.framework in Embed Frameworks */,
+				A3EFE7CA2A1B914700237F66 /* python3_ios-_lzma.framework in Embed Frameworks */,
+				A3EFE7CB2A1B914700237F66 /* python3_ios-_multiprocessing.framework in Embed Frameworks */,
+				A3EFE7CC2A1B914700237F66 /* python3_ios-_posixshmem.framework in Embed Frameworks */,
+				A3EFE7CD2A1B914700237F66 /* python3_ios-_testbuffer.framework in Embed Frameworks */,
+				A3EFE7CE2A1B914700237F66 /* python3_ios-_testimportmultiple.framework in Embed Frameworks */,
+				A3EFE7CF2A1B914700237F66 /* python3_ios-_testmultiphase.framework in Embed Frameworks */,
+				A3EFE7D02A1B914700237F66 /* python3_ios-_xxsubinterpreters.framework in Embed Frameworks */,
+				A3EFE7D12A1B914700237F66 /* python3_ios-_xxtestfuzz.framework in Embed Frameworks */,
+				A3EFE7D22A1B914700237F66 /* python3_ios-syslog.framework in Embed Frameworks */,
+				A3EFE7D32A1B914700237F66 /* network_ios.xcframework in Embed Frameworks */,
+				A3EFE7D62A1B914700237F66 /* python3_ios-_testcapi.framework in Embed Frameworks */,
+				A3EFE7D82A1B914700237F66 /* NMSSH.xcframework in Embed Frameworks */,
+				A3EFE7DA2A1B914700237F66 /* NodeMobile.xcframework in Embed Frameworks */,
+				A3EFE7DC2A1B914700237F66 /* python3_ios-_testinternalcapi.framework in Embed Frameworks */,
+				A3EFE7DD2A1B914700237F66 /* libpng.xcframework in Embed Frameworks */,
+				A3EFE7DE2A1B914700237F66 /* python3_ios-_ssl.framework in Embed Frameworks */,
+				A3EFE7DF2A1B914700237F66 /* ios_fake.framework in Embed Frameworks */,
+				A3EFE7E22A1B914700237F66 /* harfbuzz.xcframework in Embed Frameworks */,
+				A3EFE7E42A1B914700237F66 /* python3_ios-_decimal.framework in Embed Frameworks */,
+				A3EFE7E52A1B914700237F66 /* ssh_cmd.xcframework in Embed Frameworks */,
+				A3EFE7E72A1B914700237F66 /* python3_ios-xxlimited.framework in Embed Frameworks */,
+				A3EFE7E92A1B914700237F66 /* python3_ios-_queue.framework in Embed Frameworks */,
+				A3EFE7EA2A1B914700237F66 /* python3_ios-_sqlite3.framework in Embed Frameworks */,
+				A3EFE7EC2A1B914700237F66 /* python3_ios-_cffi_backend.framework in Embed Frameworks */,
+				A3EFE7ED2A1B914700237F66 /* awk.xcframework in Embed Frameworks */,
+				A3EFE7EE2A1B914700237F66 /* text.xcframework in Embed Frameworks */,
+				A3EFE7EF2A1B914700237F66 /* python3_ios.framework in Embed Frameworks */,
+				A3EFE7F02A1B914700237F66 /* shell.xcframework in Embed Frameworks */,
+				A3EFE7F12A1B914700237F66 /* python3_ios-_opcode.framework in Embed Frameworks */,
+				A3EFE7F22A1B914700237F66 /* tar.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3EFE7F32A1B914700237F66 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A3441F812A0548F400CA7588 /* cmdextension.appex in Embed Foundation Extensions */,
+				A3EFE7F42A1B914700237F66 /* cmdextension.appex in Embed Foundation Extensions */,
+				A31D2D072A268A6800A5BF09 /* PYUI.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2082,6 +2490,31 @@
 		9FE3E292298A14BC00F63DD0 /* CodeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE3E294298A14BC00F63DD0 /* CodeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeUITests.swift; sourceTree = "<group>"; };
 		A3140FC829E4A749005D8947 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		A31BC7EC2A1EF5F8004615D8 /* files.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = files.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A31D2CA02A26526800A5BF09 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		A31D2CA22A2652E700A5BF09 /* rectangles.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = rectangles.c; sourceTree = "<group>"; };
+		A31D2CA42A265A6E00A5BF09 /* SDL2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDL2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A31D2CA62A265AA800A5BF09 /* SDL2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDL2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A31D2CF02A26781400A5BF09 /* PYUIExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PYUIExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A31D2CF32A26781400A5BF09 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		A31D2CF52A26781400A5BF09 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		A31D2CF82A26781400A5BF09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		A31D2CFA2A26781400A5BF09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A31D2D042A267A0800A5BF09 /* PYUIExt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PYUIExt-Bridging-Header.h"; sourceTree = "<group>"; };
+		A31D2D052A267A0900A5BF09 /* rect.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = rect.c; sourceTree = "<group>"; };
+		A31D2D0B2A2724A000A5BF09 /* Runner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runner.swift; sourceTree = "<group>"; };
+		A31D2D0D2A272A6400A5BF09 /* mysdl.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = mysdl.py; sourceTree = "<group>"; };
+		A31D2D202A275EB600A5BF09 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
+		A31D2D232A27A61500A5BF09 /* FullScreenCoverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverManager.swift; sourceTree = "<group>"; };
+		A31D2D262A27B42600A5BF09 /* SheetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetManager.swift; sourceTree = "<group>"; };
+		A31D2D372A29829400A5BF09 /* python3_ios-kivy_all.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-kivy_all.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-kivy_all.framework"; sourceTree = "<group>"; };
+		A31D2D392A2982AD00A5BF09 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../modules/pythoncc/frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
+		A31D2D3A2A2982AD00A5BF09 /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = ../modules/pythoncc/frameworks/SDL2_mixer.framework; sourceTree = "<group>"; };
+		A31D2D3B2A2982AE00A5BF09 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../modules/pythoncc/frameworks/SDL2_image.framework; sourceTree = "<group>"; };
+		A31D2D3F2A29A29100A5BF09 /* python3_ios-ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-ios.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-ios.framework"; sourceTree = "<group>"; };
+		A31D2D412A29E83600A5BF09 /* python3_ios-pyobjus.pyobjus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-pyobjus.pyobjus.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-pyobjus.pyobjus.framework"; sourceTree = "<group>"; };
+		A31D2D432A2A30F700A5BF09 /* python3_ios-pygame_all.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-pygame_all.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-pygame_all.framework"; sourceTree = "<group>"; };
+		A31D2D452A2A344F00A5BF09 /* freetype.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = freetype.framework; path = ../modules/pythoncc/frameworks/freetype.framework; sourceTree = "<group>"; };
 		A323BA1F2A0B16F800E10379 /* PTTextEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTTextEditorView.swift; sourceTree = "<group>"; };
 		A323BA222A0B80DB00E10379 /* LineNumberTextViewWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineNumberTextViewWrapper.m; sourceTree = "<group>"; };
 		A323BA232A0B80DB00E10379 /* LineNumberLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineNumberLayoutManager.h; sourceTree = "<group>"; };
@@ -2109,6 +2542,21 @@
 		A33F75C929E4887700CD679A /* openblas.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = openblas.framework; path = ../modules/pythoncc/frameworks/openblas.framework; sourceTree = "<group>"; };
 		A33F75CA29E4887700CD679A /* ios_system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ios_system.framework; path = ../modules/pythoncc/frameworks/ios_system.framework; sourceTree = "<group>"; };
 		A33F75CB29E4887800CD679A /* libgfortran.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libgfortran.framework; path = ../modules/pythoncc/frameworks/libgfortran.framework; sourceTree = "<group>"; };
+		A33FCA412A21A66500BA5EE5 /* python3_ios-numpy_all.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-numpy_all.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-numpy_all.framework"; sourceTree = "<group>"; };
+		A33FCA422A21A66600BA5EE5 /* python3_ios-matplotlib_all.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-matplotlib_all.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-matplotlib_all.framework"; sourceTree = "<group>"; };
+		A33FCA452A22164B00BA5EE5 /* python3_ios-PIL_all.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-PIL_all.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-PIL_all.framework"; sourceTree = "<group>"; };
+		A33FCA472A2216C500BA5EE5 /* freetype.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = freetype.framework; path = ../modules/pythoncc/frameworks/freetype.framework; sourceTree = "<group>"; };
+		A33FCA492A2217CF00BA5EE5 /* freetype.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = freetype.framework; path = ../modules/pythoncc/frameworks/freetype.framework; sourceTree = "<group>"; };
+		A33FCA4B2A22186A00BA5EE5 /* python3_ios-kiwisolver._cext.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-kiwisolver._cext.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-kiwisolver._cext.framework"; sourceTree = "<group>"; };
+		A33FCA502A22720900BA5EE5 /* sixel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = sixel.framework; path = ../modules/pythoncc/frameworks/sixel.framework; sourceTree = "<group>"; };
+		A33FCAAF2A24920E00BA5EE5 /* python3_ios-cv2.cv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-cv2.cv2.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-cv2.cv2.framework"; sourceTree = "<group>"; };
+		A33FCAB12A24922B00BA5EE5 /* python3_ios-cv2.cv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-cv2.cv2.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-cv2.cv2.framework"; sourceTree = "<group>"; };
+		A33FCAFE2A250DDC00BA5EE5 /* PYUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PYUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A33FCB002A250DDC00BA5EE5 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		A33FCB032A250DDC00BA5EE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		A33FCB052A250DDC00BA5EE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A33FCB0D2A250E8200BA5EE5 /* PYUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PYUI.entitlements; sourceTree = "<group>"; };
+		A33FCB172A251BB300BA5EE5 /* PYUI-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PYUI-Bridging-Header.h"; sourceTree = "<group>"; };
 		A3441F682A04DC4C00CA7588 /* wormhole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wormhole.swift; sourceTree = "<group>"; };
 		A3441F6C2A052E3600CA7588 /* python.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = python.swift; sourceTree = "<group>"; };
 		A3441F742A0548F300CA7588 /* cmdextension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = cmdextension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -16848,6 +17296,8 @@
 		A3CF5FB82A04DBC900EF1FA4 /* Catppuccin-mocha-color-theme.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Catppuccin-mocha-color-theme.json"; sourceTree = "<group>"; };
 		A3CF5FB92A04DBC900EF1FA4 /* fake.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fake.m; sourceTree = "<group>"; };
 		A3CF5FBA2A04DBC900EF1FA4 /* downloadFrameworks.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = downloadFrameworks.sh; sourceTree = "<group>"; };
+		A3DC7B262A13F8BC00B7B8D5 /* PTInputAssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTInputAssistantView.swift; sourceTree = "<group>"; };
+		A3DC7B282A1472B500B7B8D5 /* ios_system.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ios_system.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3E35E3D29E5363800B322D4 /* fake.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fake.m; sourceTree = "<group>"; };
 		A3E35E3F29E541BC00B322D4 /* ios_fake.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ios_fake.framework; path = ../modules/pythoncc/cmds/Frameworks/ios_fake.framework; sourceTree = "<group>"; };
 		A3E35E4B29E6185E00B322D4 /* libbackend_with_compiler.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libbackend_with_compiler.framework; path = ../modules/pythoncc/cmds/Frameworks/libbackend_with_compiler.framework; sourceTree = "<group>"; };
@@ -16903,6 +17353,21 @@
 		A3EE7C6829E49F64005515EE /* libtorch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libtorch.framework; path = ../modules/pythoncc/cmds/Frameworks/libtorch.framework; sourceTree = "<group>"; };
 		A3EE7C6A29E49F65005515EE /* libtorch_cpu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libtorch_cpu.framework; path = ../modules/pythoncc/cmds/Frameworks/libtorch_cpu.framework; sourceTree = "<group>"; };
 		A3EE7C6B29E49F65005515EE /* python3_ios-lxml_all.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-lxml_all.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-lxml_all.framework"; sourceTree = "<group>"; };
+		A3EFE7F92A1B914700237F66 /* pyaideui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pyaideui.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3EFE7FA2A1B914900237F66 /* pyaide copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "pyaide copy-Info.plist"; path = "/Users/huima/PythonSchool/codeapp/pyaide copy-Info.plist"; sourceTree = "<absolute>"; };
+		A3EFE85D2A1B9F4800237F66 /* RSCodeEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSCodeEditorView.swift; sourceTree = "<group>"; };
+		A3EFE8602A1B9F7400237F66 /* TMConsoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMConsoleView.swift; sourceTree = "<group>"; };
+		A3EFE8632A1BA28900237F66 /* InputCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCompletionView.swift; sourceTree = "<group>"; };
+		A3EFE8662A1BC8C600237F66 /* RSCodeEditorInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSCodeEditorInstance.swift; sourceTree = "<group>"; };
+		A3EFE86A2A1C9A9F00237F66 /* HandleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandleView.swift; sourceTree = "<group>"; };
+		A3EFE86B2A1C9A9F00237F66 /* Snapped.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snapped.swift; sourceTree = "<group>"; };
+		A3EFE86C2A1C9A9F00237F66 /* SplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
+		A3EFE86D2A1C9A9F00237F66 /* InstantPanGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstantPanGestureRecognizer.swift; sourceTree = "<group>"; };
+		A3EFE86E2A1C9A9F00237F66 /* Arrangement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arrangement.swift; sourceTree = "<group>"; };
+		A3EFE8792A1C9BB700237F66 /* TMConsoleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMConsoleExtension.swift; sourceTree = "<group>"; };
+		A3EFE87C2A1D2B2000237F66 /* EditorAndRunnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorAndRunnerView.swift; sourceTree = "<group>"; };
+		A3EFE87F2A1D2D9900237F66 /* EditorAndRunnerInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorAndRunnerInstance.swift; sourceTree = "<group>"; };
+		A3EFE8822A1DA8AD00237F66 /* PTLocalExecutionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTLocalExecutionExtension.swift; sourceTree = "<group>"; };
 		B838255AC3E96C4DA10774BD /* Pods-pyaide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pyaide.debug.xcconfig"; path = "Target Support Files/Pods-pyaide/Pods-pyaide.debug.xcconfig"; sourceTree = "<group>"; };
 		C0C3800F546A1D746688C5E0 /* Pods_pyto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pyto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C81336277C33A963EBD119B4 /* Pods_pyaide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pyaide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -16939,20 +17404,58 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3EFE83C2A1B9DA900237F66 /* TreeSitterPHPQueries in Frameworks */,
+				A3EFE8022A1B9DA900237F66 /* TreeSitterCPPQueries in Frameworks */,
+				A3EFE8482A1B9DA900237F66 /* TreeSitterYAMLQueries in Frameworks */,
+				A3EFE8462A1B9DA900237F66 /* TreeSitterYAML in Frameworks */,
+				A3EFE8382A1B9DA900237F66 /* TreeSitterMarkdownRunestone in Frameworks */,
 				948F174E26B91C2600B277FC /* FilesProvider in Frameworks */,
+				A3EFE80C2A1B9DA900237F66 /* TreeSitterCSSQueries in Frameworks */,
+				A3EFE82C2A1B9DA900237F66 /* TreeSitterLuaRunestone in Frameworks */,
+				A3EFE82E2A1B9DA900237F66 /* TreeSitterMarkdown in Frameworks */,
 				94A7781C257BC452008FE7B2 /* ZIPFoundation in Frameworks */,
+				A3EFE8042A1B9DA900237F66 /* TreeSitterCPPRunestone in Frameworks */,
+				A3EFE8182A1B9DA900237F66 /* TreeSitterJSON5 in Frameworks */,
 				A323BA1B2A0AA13500E10379 /* AppReceiptValidator in Frameworks */,
+				A3EFE7FE2A1B9DA900237F66 /* TreeSitterC in Frameworks */,
+				A3EFE8242A1B9DA900237F66 /* TreeSitterJavaScriptQueries in Frameworks */,
 				94B7C4C825F551F800F1EF4E /* ios_system.xcframework in Frameworks */,
+				A3EFE8302A1B9DA900237F66 /* TreeSitterMarkdownInline in Frameworks */,
+				A3EFE8362A1B9DA900237F66 /* TreeSitterMarkdownQueries in Frameworks */,
+				A3EFE8402A1B9DA900237F66 /* TreeSitterPython in Frameworks */,
+				A3EFE8442A1B9DA900237F66 /* TreeSitterPythonRunestone in Frameworks */,
+				A3EFE8082A1B9DA900237F66 /* TreeSitterCRunestone in Frameworks */,
 				94C893B92793D01500DFBF29 /* curl_ios.xcframework in Frameworks */,
+				A3EFE80A2A1B9DA900237F66 /* TreeSitterCSS in Frameworks */,
+				A3EFE8282A1B9DA900237F66 /* TreeSitterLua in Frameworks */,
+				A3EFE84A2A1B9DA900237F66 /* TreeSitterYAMLRunestone in Frameworks */,
+				A3EFE8122A1B9DA900237F66 /* TreeSitterHTMLQueries in Frameworks */,
+				A3EFE8322A1B9DA900237F66 /* TreeSitterMarkdownInlineQueries in Frameworks */,
 				948F174826B6A5AB00B277FC /* MarkdownView in Frameworks */,
+				A3EFE81A2A1B9DA900237F66 /* TreeSitterJSON5Queries in Frameworks */,
 				94465DDA2809491B001DACDF /* NMSSH.xcframework in Frameworks */,
+				A3EFE8062A1B9DA900237F66 /* TreeSitterCQueries in Frameworks */,
+				A3EFE82A2A1B9DA900237F66 /* TreeSitterLuaQueries in Frameworks */,
+				A3EFE8342A1B9DA900237F66 /* TreeSitterMarkdownInlineRunestone in Frameworks */,
+				A3EFE8162A1B9DA900237F66 /* TreeSitterJSON in Frameworks */,
+				A3EFE83A2A1B9DA900237F66 /* TreeSitterPHP in Frameworks */,
 				94C893BF2793D2FB00DFBF29 /* openssl.xcframework in Frameworks */,
+				A3EFE8142A1B9DA900237F66 /* TreeSitterHTMLRunestone in Frameworks */,
+				A3EFE8202A1B9DA900237F66 /* TreeSitterJSONRunestone in Frameworks */,
+				A3EFE8422A1B9DA900237F66 /* TreeSitterPythonQueries in Frameworks */,
 				94A7418C25F74A85007A9728 /* Dynamic in Frameworks */,
+				A3EFE8222A1B9DA900237F66 /* TreeSitterJavaScript in Frameworks */,
 				94798713280330080055B838 /* GCDWebServers in Frameworks */,
 				94C893BC2793D17C00DFBF29 /* libssh2.xcframework in Frameworks */,
-				A3441FBF2A06DF2000CA7588 /* Pipable in Frameworks */,
+				A3EFE8262A1B9DA900237F66 /* TreeSitterJavaScriptRunestone in Frameworks */,
+				A3EFE83E2A1B9DA900237F66 /* TreeSitterPHPRunestone in Frameworks */,
+				A3EFE81C2A1B9DA900237F66 /* TreeSitterJSON5Runestone in Frameworks */,
+				A3EFE8002A1B9DA900237F66 /* TreeSitterCPP in Frameworks */,
 				94B99D9D27D4AA57005B5E3A /* SwiftGit2 in Frameworks */,
 				945AEA3527ECCB3D00BA193E /* NodeMobile.xcframework in Frameworks */,
+				A3EFE80E2A1B9DA900237F66 /* TreeSitterCSSRunestone in Frameworks */,
+				A3EFE81E2A1B9DA900237F66 /* TreeSitterJSONQueries in Frameworks */,
+				A3EFE8102A1B9DA900237F66 /* TreeSitterHTML in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -16971,13 +17474,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A31D2CED2A26781400A5BF09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A31D2CF12A26781400A5BF09 /* UniformTypeIdentifiers.framework in Frameworks */,
+				A31D2D012A2679F000A5BF09 /* SDL2.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A33FCAFB2A250DDC00BA5EE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A31D2CAB2A265D2B00A5BF09 /* SDL2.framework in Frameworks */,
+				A33FCB102A25176000BA5EE5 /* ios_system.framework in Frameworks */,
+				A31D2CA82A265B6600A5BF09 /* python3_ios.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3441F712A0548F300CA7588 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3DC7B2A2A1472EF00B7B8D5 /* ios_system.framework in Frameworks */,
 				A3C8EAA72A0EB42C00ADFE98 /* python3_ios.framework in Frameworks */,
 				A3C8EAA32A0EADA900ADFE98 /* Dynamic in Frameworks */,
-				A3441F882A0630E600CA7588 /* ios_system.xcframework in Frameworks */,
 				A3441F762A0548F300CA7588 /* UniformTypeIdentifiers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -16986,23 +17508,53 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3441FC12A06DF7400CA7588 /* Pipable in Frameworks */,
 				A3140FC929E4A749005D8947 /* Accelerate.framework in Frameworks */,
 				A3E4AD6729E476A800EDF69F /* FilesProvider in Frameworks */,
+				A3DC7B2C2A147B0200B7B8D5 /* ios_system.framework in Frameworks */,
 				A3E35E4029E541BD00B322D4 /* ios_fake.framework in Frameworks */,
 				A3E4AD6829E476A800EDF69F /* ZIPFoundation in Frameworks */,
 				A33F75CE29E4887900CD679A /* openblas.framework in Frameworks */,
+				A3EFE8592A1B9EA200237F66 /* SwiftTerm in Frameworks */,
+				A3EFE8502A1B9E0400237F66 /* TreeSitterPythonRunestone in Frameworks */,
 				A3E4AD6A29E476A800EDF69F /* MarkdownView in Frameworks */,
 				A3E35E4229E6185C00B322D4 /* ios_fake.framework in Frameworks */,
 				A37962FC29E6199200D7FE90 /* python3_ios.framework in Frameworks */,
 				A3E4AD6B29E476A800EDF69F /* GCDWebServers in Frameworks */,
-				A3441FBC2A06DE5800CA7588 /* MarqueeLabel in Frameworks */,
 				A3E4AD6C29E476A800EDF69F /* Dynamic in Frameworks */,
 				A3E4AD6D29E476A800EDF69F /* SwiftGit2 in Frameworks */,
+				A3DC7B252A13D4AD00B7B8D5 /* KeyboardToolbar in Frameworks */,
 				A3E4AD6E29E476A800EDF69F /* NMSSH.xcframework in Frameworks */,
-				A33F75D029E4887900CD679A /* ios_system.framework in Frameworks */,
+				A3EFE84C2A1B9E0400237F66 /* TreeSitterPython in Frameworks */,
 				A323BA1D2A0AA18F00E10379 /* AppReceiptValidator in Frameworks */,
+				A3EFE84E2A1B9E0400237F66 /* TreeSitterPythonQueries in Frameworks */,
 				6F39030C10C7E5DB32530F4A /* Pods_pyaide.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3EFE7922A1B914700237F66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3EFE7932A1B914700237F66 /* Accelerate.framework in Frameworks */,
+				A3EFE7942A1B914700237F66 /* FilesProvider in Frameworks */,
+				A3EFE7952A1B914700237F66 /* ios_system.framework in Frameworks */,
+				A3EFE7962A1B914700237F66 /* ios_fake.framework in Frameworks */,
+				A3EFE7972A1B914700237F66 /* ZIPFoundation in Frameworks */,
+				A3EFE7992A1B914700237F66 /* MarkdownView in Frameworks */,
+				A3EFE79A2A1B914700237F66 /* ios_fake.framework in Frameworks */,
+				A3EFE79B2A1B914700237F66 /* python3_ios.framework in Frameworks */,
+				A3EFE79C2A1B914700237F66 /* GCDWebServers in Frameworks */,
+				A3EFE8562A1B9E1400237F66 /* TreeSitterPythonRunestone in Frameworks */,
+				A3EFE79D2A1B914700237F66 /* Dynamic in Frameworks */,
+				A3EFE79E2A1B914700237F66 /* SwiftGit2 in Frameworks */,
+				A3EFE79F2A1B914700237F66 /* KeyboardToolbar in Frameworks */,
+				A3EFE8542A1B9E1400237F66 /* TreeSitterPythonQueries in Frameworks */,
+				A3EFE85B2A1B9EBC00237F66 /* SwiftTerm in Frameworks */,
+				A31D2D0A2A268CA800A5BF09 /* SDL2.framework in Frameworks */,
+				A3EFE7A02A1B914700237F66 /* NMSSH.xcframework in Frameworks */,
+				A3EFE8522A1B9E1400237F66 /* TreeSitterPython in Frameworks */,
+				A3EFE7A12A1B914700237F66 /* AppReceiptValidator in Frameworks */,
+				A3EFE7A22A1B914700237F66 /* Pods_pyaide.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -17012,6 +17564,11 @@
 		24509F1455D67D501EFBD28C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A31D2CA62A265AA800A5BF09 /* SDL2.framework */,
+				A31D2CA42A265A6E00A5BF09 /* SDL2.framework */,
+				A33FCAAF2A24920E00BA5EE5 /* python3_ios-cv2.cv2.framework */,
+				A31BC7EC2A1EF5F8004615D8 /* files.framework */,
+				A3DC7B282A1472B500B7B8D5 /* ios_system.framework */,
 				A388468D2A0819C4008F50FD /* libcrypto.a */,
 				A388468B2A0819BE008F50FD /* libssl.a */,
 				A3E35E4B29E6185E00B322D4 /* libbackend_with_compiler.framework */,
@@ -17122,6 +17679,22 @@
 		944EEBE72563C381009D77FE = {
 			isa = PBXGroup;
 			children = (
+				A31D2D452A2A344F00A5BF09 /* freetype.framework */,
+				A31D2D432A2A30F700A5BF09 /* python3_ios-pygame_all.framework */,
+				A31D2D412A29E83600A5BF09 /* python3_ios-pyobjus.pyobjus.framework */,
+				A31D2D3F2A29A29100A5BF09 /* python3_ios-ios.framework */,
+				A31D2D3B2A2982AE00A5BF09 /* SDL2_image.framework */,
+				A31D2D3A2A2982AD00A5BF09 /* SDL2_mixer.framework */,
+				A31D2D392A2982AD00A5BF09 /* SDL2_ttf.framework */,
+				A31D2D372A29829400A5BF09 /* python3_ios-kivy_all.framework */,
+				A33FCAB12A24922B00BA5EE5 /* python3_ios-cv2.cv2.framework */,
+				A33FCA502A22720900BA5EE5 /* sixel.framework */,
+				A33FCA4B2A22186A00BA5EE5 /* python3_ios-kiwisolver._cext.framework */,
+				A33FCA472A2216C500BA5EE5 /* freetype.framework */,
+				A33FCA492A2217CF00BA5EE5 /* freetype.framework */,
+				A33FCA452A22164B00BA5EE5 /* python3_ios-PIL_all.framework */,
+				A33FCA422A21A66600BA5EE5 /* python3_ios-matplotlib_all.framework */,
+				A33FCA412A21A66500BA5EE5 /* python3_ios-numpy_all.framework */,
 				A3441F872A0579C100CA7588 /* cmdextension.entitlements */,
 				A3441F672A04DC4B00CA7588 /* pyaide */,
 				A3CF208A2A04DB9E00EF1FA4 /* codeapp */,
@@ -17146,6 +17719,7 @@
 				944EEBF12563C381009D77FE /* Products */,
 				24509F1455D67D501EFBD28C /* Frameworks */,
 				E6F2C5215D4290D0380CA0E6 /* Pods */,
+				A3EFE7FA2A1B914900237F66 /* pyaide copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -17158,6 +17732,9 @@
 				9FE3E292298A14BC00F63DD0 /* CodeUITests.xctest */,
 				A3E4AD9229E476A800EDF69F /* pyaide.app */,
 				A3441F742A0548F300CA7588 /* cmdextension.appex */,
+				A3EFE7F92A1B914700237F66 /* pyaideui.app */,
+				A33FCAFE2A250DDC00BA5EE5 /* PYUI.appex */,
+				A31D2CF02A26781400A5BF09 /* PYUIExt.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -17983,6 +18560,28 @@
 			path = CodeUITests;
 			sourceTree = "<group>";
 		};
+		A31D2CF22A26781400A5BF09 /* PYUIExt */ = {
+			isa = PBXGroup;
+			children = (
+				A31D2CF32A26781400A5BF09 /* Media.xcassets */,
+				A31D2CF52A26781400A5BF09 /* ActionViewController.swift */,
+				A31D2CF72A26781400A5BF09 /* MainInterface.storyboard */,
+				A31D2CFA2A26781400A5BF09 /* Info.plist */,
+				A31D2D052A267A0900A5BF09 /* rect.c */,
+				A31D2D042A267A0800A5BF09 /* PYUIExt-Bridging-Header.h */,
+			);
+			path = PYUIExt;
+			sourceTree = "<group>";
+		};
+		A31D2D222A27A5F000A5BF09 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				A31D2D232A27A61500A5BF09 /* FullScreenCoverManager.swift */,
+				A31D2D262A27B42600A5BF09 /* SheetManager.swift */,
+			);
+			path = manager;
+			sourceTree = "<group>";
+		};
 		A323BA212A0B80DB00E10379 /* LineNumberTextView */ = {
 			isa = PBXGroup;
 			children = (
@@ -18017,14 +18616,34 @@
 			path = themes;
 			sourceTree = "<group>";
 		};
+		A33FCAFF2A250DDC00BA5EE5 /* PYUI */ = {
+			isa = PBXGroup;
+			children = (
+				A31D2D202A275EB600A5BF09 /* res */,
+				A33FCB172A251BB300BA5EE5 /* PYUI-Bridging-Header.h */,
+				A33FCB0D2A250E8200BA5EE5 /* PYUI.entitlements */,
+				A33FCB002A250DDC00BA5EE5 /* ShareViewController.swift */,
+				A33FCB022A250DDC00BA5EE5 /* MainInterface.storyboard */,
+				A33FCB052A250DDC00BA5EE5 /* Info.plist */,
+				A31D2CA02A26526800A5BF09 /* ActionViewController.swift */,
+				A31D2CA22A2652E700A5BF09 /* rectangles.c */,
+				A31D2D0B2A2724A000A5BF09 /* Runner.swift */,
+				A31D2D0D2A272A6400A5BF09 /* mysdl.py */,
+			);
+			path = PYUI;
+			sourceTree = "<group>";
+		};
 		A3441F672A04DC4B00CA7588 /* pyaide */ = {
 			isa = PBXGroup;
 			children = (
+				A31D2D222A27A5F000A5BF09 /* manager */,
 				A3592D112A0D280500A5A88D /* site-packages1 */,
 				A38849C22A0A1B31008F50FD /* pyaide */,
 				A3441F772A0548F300CA7588 /* cmdextension */,
 				A3441F682A04DC4C00CA7588 /* wormhole.swift */,
 				A3441F6C2A052E3600CA7588 /* python.swift */,
+				A31D2CF22A26781400A5BF09 /* PYUIExt */,
+				A33FCAFF2A250DDC00BA5EE5 /* PYUI */,
 				A323BA2B2A0B816500E10379 /* PyAIDE-Bridging-Header.h */,
 			);
 			path = pyaide;
@@ -18049,6 +18668,8 @@
 		A38849C22A0A1B31008F50FD /* pyaide */ = {
 			isa = PBXGroup;
 			children = (
+				A3EFE8692A1C9A9F00237F66 /* SplitKit */,
+				A3EFE85C2A1B9F1D00237F66 /* editor */,
 				A3592D072A0C1E0400A5A88D /* CodeView.swift */,
 				A3592D052A0C1D4000A5A88D /* CodeCompletionView.swift */,
 				A323BA2E2A0B8F2500E10379 /* themes */,
@@ -18056,6 +18677,7 @@
 				A38849C32A0A1B6B008F50FD /* PTEditorInstance.swift */,
 				A323BA1F2A0B16F800E10379 /* PTTextEditorView.swift */,
 				A3592D162A0D581000A5A88D /* CompletionService.swift */,
+				A3DC7B262A13F8BC00B7B8D5 /* PTInputAssistantView.swift */,
 			);
 			path = pyaide;
 			sourceTree = "<group>";
@@ -44401,6 +45023,33 @@
 			path = Themes;
 			sourceTree = "<group>";
 		};
+		A3EFE85C2A1B9F1D00237F66 /* editor */ = {
+			isa = PBXGroup;
+			children = (
+				A3EFE85D2A1B9F4800237F66 /* RSCodeEditorView.swift */,
+				A3EFE8602A1B9F7400237F66 /* TMConsoleView.swift */,
+				A3EFE8632A1BA28900237F66 /* InputCompletionView.swift */,
+				A3EFE8662A1BC8C600237F66 /* RSCodeEditorInstance.swift */,
+				A3EFE8792A1C9BB700237F66 /* TMConsoleExtension.swift */,
+				A3EFE87C2A1D2B2000237F66 /* EditorAndRunnerView.swift */,
+				A3EFE87F2A1D2D9900237F66 /* EditorAndRunnerInstance.swift */,
+				A3EFE8822A1DA8AD00237F66 /* PTLocalExecutionExtension.swift */,
+			);
+			path = editor;
+			sourceTree = "<group>";
+		};
+		A3EFE8692A1C9A9F00237F66 /* SplitKit */ = {
+			isa = PBXGroup;
+			children = (
+				A3EFE86A2A1C9A9F00237F66 /* HandleView.swift */,
+				A3EFE86B2A1C9A9F00237F66 /* Snapped.swift */,
+				A3EFE86C2A1C9A9F00237F66 /* SplitView.swift */,
+				A3EFE86D2A1C9A9F00237F66 /* InstantPanGestureRecognizer.swift */,
+				A3EFE86E2A1C9A9F00237F66 /* Arrangement.swift */,
+			);
+			path = SplitKit;
+			sourceTree = "<group>";
+		};
 		E6F2C5215D4290D0380CA0E6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -44469,12 +45118,10 @@
 				944EEBED2563C381009D77FE /* Frameworks */,
 				944EEBEE2563C381009D77FE /* Resources */,
 				94A77817257BC13F008FE7B2 /* Embed Frameworks */,
-				94369B0B25E3B933008419A0 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				94369B0625E3B933008419A0 /* PBXTargetDependency */,
 			);
 			name = Code;
 			packageProductDependencies = (
@@ -44484,8 +45131,46 @@
 				948F174D26B91C2600B277FC /* FilesProvider */,
 				94B99D9C27D4AA57005B5E3A /* SwiftGit2 */,
 				94798712280330080055B838 /* GCDWebServers */,
-				A3441FBE2A06DF2000CA7588 /* Pipable */,
 				A323BA1A2A0AA13500E10379 /* AppReceiptValidator */,
+				A3EFE7FD2A1B9DA900237F66 /* TreeSitterC */,
+				A3EFE7FF2A1B9DA900237F66 /* TreeSitterCPP */,
+				A3EFE8012A1B9DA900237F66 /* TreeSitterCPPQueries */,
+				A3EFE8032A1B9DA900237F66 /* TreeSitterCPPRunestone */,
+				A3EFE8052A1B9DA900237F66 /* TreeSitterCQueries */,
+				A3EFE8072A1B9DA900237F66 /* TreeSitterCRunestone */,
+				A3EFE8092A1B9DA900237F66 /* TreeSitterCSS */,
+				A3EFE80B2A1B9DA900237F66 /* TreeSitterCSSQueries */,
+				A3EFE80D2A1B9DA900237F66 /* TreeSitterCSSRunestone */,
+				A3EFE80F2A1B9DA900237F66 /* TreeSitterHTML */,
+				A3EFE8112A1B9DA900237F66 /* TreeSitterHTMLQueries */,
+				A3EFE8132A1B9DA900237F66 /* TreeSitterHTMLRunestone */,
+				A3EFE8152A1B9DA900237F66 /* TreeSitterJSON */,
+				A3EFE8172A1B9DA900237F66 /* TreeSitterJSON5 */,
+				A3EFE8192A1B9DA900237F66 /* TreeSitterJSON5Queries */,
+				A3EFE81B2A1B9DA900237F66 /* TreeSitterJSON5Runestone */,
+				A3EFE81D2A1B9DA900237F66 /* TreeSitterJSONQueries */,
+				A3EFE81F2A1B9DA900237F66 /* TreeSitterJSONRunestone */,
+				A3EFE8212A1B9DA900237F66 /* TreeSitterJavaScript */,
+				A3EFE8232A1B9DA900237F66 /* TreeSitterJavaScriptQueries */,
+				A3EFE8252A1B9DA900237F66 /* TreeSitterJavaScriptRunestone */,
+				A3EFE8272A1B9DA900237F66 /* TreeSitterLua */,
+				A3EFE8292A1B9DA900237F66 /* TreeSitterLuaQueries */,
+				A3EFE82B2A1B9DA900237F66 /* TreeSitterLuaRunestone */,
+				A3EFE82D2A1B9DA900237F66 /* TreeSitterMarkdown */,
+				A3EFE82F2A1B9DA900237F66 /* TreeSitterMarkdownInline */,
+				A3EFE8312A1B9DA900237F66 /* TreeSitterMarkdownInlineQueries */,
+				A3EFE8332A1B9DA900237F66 /* TreeSitterMarkdownInlineRunestone */,
+				A3EFE8352A1B9DA900237F66 /* TreeSitterMarkdownQueries */,
+				A3EFE8372A1B9DA900237F66 /* TreeSitterMarkdownRunestone */,
+				A3EFE8392A1B9DA900237F66 /* TreeSitterPHP */,
+				A3EFE83B2A1B9DA900237F66 /* TreeSitterPHPQueries */,
+				A3EFE83D2A1B9DA900237F66 /* TreeSitterPHPRunestone */,
+				A3EFE83F2A1B9DA900237F66 /* TreeSitterPython */,
+				A3EFE8412A1B9DA900237F66 /* TreeSitterPythonQueries */,
+				A3EFE8432A1B9DA900237F66 /* TreeSitterPythonRunestone */,
+				A3EFE8452A1B9DA900237F66 /* TreeSitterYAML */,
+				A3EFE8472A1B9DA900237F66 /* TreeSitterYAMLQueries */,
+				A3EFE8492A1B9DA900237F66 /* TreeSitterYAMLRunestone */,
 			);
 			productName = testfield;
 			productReference = 944EEBF02563C381009D77FE /* Code.app */;
@@ -44518,6 +45203,41 @@
 			productReference = 9FE3E292298A14BC00F63DD0 /* CodeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A31D2CEF2A26781400A5BF09 /* PYUIExt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A31D2CFE2A26781500A5BF09 /* Build configuration list for PBXNativeTarget "PYUIExt" */;
+			buildPhases = (
+				A31D2CEC2A26781400A5BF09 /* Sources */,
+				A31D2CED2A26781400A5BF09 /* Frameworks */,
+				A31D2CEE2A26781400A5BF09 /* Resources */,
+				A31D2D032A2679F000A5BF09 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PYUIExt;
+			productName = PYUIExt;
+			productReference = A31D2CF02A26781400A5BF09 /* PYUIExt.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		A33FCAFD2A250DDC00BA5EE5 /* PYUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A33FCB092A250DDD00BA5EE5 /* Build configuration list for PBXNativeTarget "PYUI" */;
+			buildPhases = (
+				A33FCAFA2A250DDC00BA5EE5 /* Sources */,
+				A33FCAFB2A250DDC00BA5EE5 /* Frameworks */,
+				A33FCAFC2A250DDC00BA5EE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PYUI;
+			productName = PYUI;
+			productReference = A33FCAFE2A250DDC00BA5EE5 /* PYUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		A3441F732A0548F300CA7588 /* cmdextension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3441F822A0548F400CA7588 /* Build configuration list for PBXNativeTarget "cmdextension" */;
@@ -44548,13 +45268,11 @@
 				A3E4AD6529E476A800EDF69F /* Frameworks */,
 				A3E4AD6F29E476A800EDF69F /* Resources */,
 				A3E4AD7F29E476A800EDF69F /* Embed Frameworks */,
-				A3E4AD8E29E476A800EDF69F /* Embed Foundation Extensions */,
 				02EDE10856D7BB90F6A3BC51 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A3441F802A0548F400CA7588 /* PBXTargetDependency */,
 			);
 			name = pyaide;
 			packageProductDependencies = (
@@ -44564,12 +45282,53 @@
 				A3E4ACD229E476A800EDF69F /* FilesProvider */,
 				A3E4ACD429E476A800EDF69F /* SwiftGit2 */,
 				A3E4ACD529E476A800EDF69F /* GCDWebServers */,
-				A3441FBB2A06DE5800CA7588 /* MarqueeLabel */,
-				A3441FC02A06DF7400CA7588 /* Pipable */,
 				A323BA1C2A0AA18F00E10379 /* AppReceiptValidator */,
+				A3DC7B242A13D4AD00B7B8D5 /* KeyboardToolbar */,
+				A3EFE84B2A1B9E0400237F66 /* TreeSitterPython */,
+				A3EFE84D2A1B9E0400237F66 /* TreeSitterPythonQueries */,
+				A3EFE84F2A1B9E0400237F66 /* TreeSitterPythonRunestone */,
+				A3EFE8582A1B9EA200237F66 /* SwiftTerm */,
 			);
 			productName = testfield;
 			productReference = A3E4AD9229E476A800EDF69F /* pyaide.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A3EFE6D82A1B914700237F66 /* pyaideui */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3EFE7F62A1B914700237F66 /* Build configuration list for PBXNativeTarget "pyaideui" */;
+			buildPhases = (
+				A3EFE6EA2A1B914700237F66 /* [CP] Check Pods Manifest.lock */,
+				A3EFE6EB2A1B914700237F66 /* ShellScript */,
+				A3EFE6EC2A1B914700237F66 /* Sources */,
+				A3EFE7922A1B914700237F66 /* Frameworks */,
+				A3EFE7A32A1B914700237F66 /* Resources */,
+				A3EFE7B52A1B914700237F66 /* Embed Frameworks */,
+				A3EFE7F32A1B914700237F66 /* Embed Foundation Extensions */,
+				A3EFE7F52A1B914700237F66 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A3EFE6D92A1B914700237F66 /* PBXTargetDependency */,
+				A31D2D092A268A6800A5BF09 /* PBXTargetDependency */,
+			);
+			name = pyaideui;
+			packageProductDependencies = (
+				A3EFE6DB2A1B914700237F66 /* ZIPFoundation */,
+				A3EFE6DD2A1B914700237F66 /* Dynamic */,
+				A3EFE6DF2A1B914700237F66 /* MarkdownView */,
+				A3EFE6E12A1B914700237F66 /* FilesProvider */,
+				A3EFE6E32A1B914700237F66 /* SwiftGit2 */,
+				A3EFE6E42A1B914700237F66 /* GCDWebServers */,
+				A3EFE6E62A1B914700237F66 /* AppReceiptValidator */,
+				A3EFE6E82A1B914700237F66 /* KeyboardToolbar */,
+				A3EFE8512A1B9E1400237F66 /* TreeSitterPython */,
+				A3EFE8532A1B9E1400237F66 /* TreeSitterPythonQueries */,
+				A3EFE8552A1B9E1400237F66 /* TreeSitterPythonRunestone */,
+				A3EFE85A2A1B9EBC00237F66 /* SwiftTerm */,
+			);
+			productName = testfield;
+			productReference = A3EFE7F92A1B914700237F66 /* pyaideui.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -44595,6 +45354,13 @@
 					9FE3E291298A14BC00F63DD0 = {
 						CreatedOnToolsVersion = 14.1;
 						TestTargetID = 9419692E280316C7008AAEB2;
+					};
+					A31D2CEF2A26781400A5BF09 = {
+						CreatedOnToolsVersion = 14.1;
+						LastSwiftMigration = 1410;
+					};
+					A33FCAFD2A250DDC00BA5EE5 = {
+						CreatedOnToolsVersion = 14.1;
 					};
 					A3441F732A0548F300CA7588 = {
 						CreatedOnToolsVersion = 14.1;
@@ -44623,9 +45389,11 @@
 				948F174626B6A5AB00B277FC /* XCRemoteSwiftPackageReference "MarkdownView" */,
 				948F174C26B91C2600B277FC /* XCRemoteSwiftPackageReference "FileProvider" */,
 				94798711280330080055B838 /* XCRemoteSwiftPackageReference "GCDWebServer" */,
-				A3441FBA2A06DE5800CA7588 /* XCRemoteSwiftPackageReference "MarqueeLabel" */,
-				A3441FBD2A06DF2000CA7588 /* XCRemoteSwiftPackageReference "Pipable" */,
 				A323BA192A0AA13500E10379 /* XCRemoteSwiftPackageReference "AppReceiptValidator" */,
+				A3C8EAB92A13B7C300ADFE98 /* XCRemoteSwiftPackageReference "KeyboardToolbar" */,
+				A34A39DD2A1B0CAB006CC4E6 /* XCRemoteSwiftPackageReference "Runestone" */,
+				A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */,
+				A3EFE8572A1B9EA200237F66 /* XCRemoteSwiftPackageReference "SwiftTerm" */,
 			);
 			productRefGroup = 944EEBF12563C381009D77FE /* Products */;
 			projectDirPath = "";
@@ -44643,6 +45411,9 @@
 				9FE3E291298A14BC00F63DD0 /* CodeUITests */,
 				A3E4ACCB29E476A800EDF69F /* pyaide */,
 				A3441F732A0548F300CA7588 /* cmdextension */,
+				A3EFE6D82A1B914700237F66 /* pyaideui */,
+				A33FCAFD2A250DDC00BA5EE5 /* PYUI */,
+				A31D2CEF2A26781400A5BF09 /* PYUIExt */,
 			);
 		};
 /* End PBXProject section */
@@ -44707,6 +45478,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A31D2CEE2A26781400A5BF09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A31D2CF42A26781400A5BF09 /* Media.xcassets in Resources */,
+				A31D2CF92A26781400A5BF09 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A33FCAFC2A250DDC00BA5EE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A31D2D0E2A272A6400A5BF09 /* mysdl.py in Resources */,
+				A31D2D102A272F4400A5BF09 /* commandDictionary.plist in Resources */,
+				A31D2D212A275EB600A5BF09 /* res in Resources */,
+				A33FCB042A250DDC00BA5EE5 /* MainInterface.storyboard in Resources */,
+				A31D2D112A272F4900A5BF09 /* extraCommandsDictionary.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3441F722A0548F300CA7588 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -44739,6 +45531,30 @@
 				A3E4AD7C29E476A800EDF69F /* terminal.bundle in Resources */,
 				A3E4AD7D29E476A800EDF69F /* LaunchScreen.storyboard in Resources */,
 				A3E4AD7E29E476A800EDF69F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3EFE7A32A1B914700237F66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3EFE7A42A1B914700237F66 /* Themes in Resources */,
+				A3EFE7A52A1B914700237F66 /* Preview Assets.xcassets in Resources */,
+				A3EFE7A62A1B914700237F66 /* Localizable.strings in Resources */,
+				A3EFE7A72A1B914700237F66 /* monaco-textmate.bundle in Resources */,
+				A3EFE7A82A1B914700237F66 /* ClangLib in Resources */,
+				A3EFE7A92A1B914700237F66 /* InfoPlist.strings in Resources */,
+				A3EFE7AA2A1B914700237F66 /* cacert.pem in Resources */,
+				A3EFE7AB2A1B914700237F66 /* commandDictionary.plist in Resources */,
+				A3EFE7AC2A1B914700237F66 /* FiraCode-Regular.ttf in Resources */,
+				A3EFE7AD2A1B914700237F66 /* pyhome in Resources */,
+				A3EFE7AE2A1B914700237F66 /* site-packages1 in Resources */,
+				A3EFE7AF2A1B914700237F66 /* Settings.bundle in Resources */,
+				A3EFE7B02A1B914700237F66 /* extraCommandsDictionary.plist in Resources */,
+				A3EFE7B12A1B914700237F66 /* npm.bundle in Resources */,
+				A3EFE7B22A1B914700237F66 /* terminal.bundle in Resources */,
+				A3EFE7B32A1B914700237F66 /* LaunchScreen.storyboard in Resources */,
+				A3EFE7B42A1B914700237F66 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44838,6 +45654,63 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export PATH=$PATH:/opt/homebrew/bin\nif command -v swift-format > /dev/null\nthen\n    swift-format format -i -r ${PROJECT_DIR}/CodeApp ${PROJECT_DIR}/CodeUITests ${PROJECT_DIR}/Extensions\n    swift-format lint -r -s ${PROJECT_DIR}/CodeApp ${PROJECT_DIR}/CodeUITests ${PROJECT_DIR}/Extensions\nelse\n    echo \"warning: swift-format not installed, install it by running brew install swift-format\"\nfi\n\n";
+		};
+		A3EFE6EA2A1B914700237F66 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-pyaide-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3EFE6EB2A1B914700237F66 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=$PATH:/opt/homebrew/bin\nif command -v swift-format > /dev/null\nthen\n    swift-format format -i -r ${PROJECT_DIR}/CodeApp ${PROJECT_DIR}/CodeUITests ${PROJECT_DIR}/Extensions\n    swift-format lint -r -s ${PROJECT_DIR}/CodeApp ${PROJECT_DIR}/CodeUITests ${PROJECT_DIR}/Extensions\nelse\n    echo \"warning: swift-format not installed, install it by running brew install swift-format\"\nfi\n\n";
+		};
+		A3EFE7F52A1B914700237F66 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-pyaide/Pods-pyaide-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-pyaide/Pods-pyaide-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pyaide/Pods-pyaide-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -45153,6 +46026,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A31D2CEC2A26781400A5BF09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A31D2CF62A26781400A5BF09 /* ActionViewController.swift in Sources */,
+				A31D2D062A267A0900A5BF09 /* rect.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A33FCAFA2A250DDC00BA5EE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A33FCB0F2A25171700BA5EE5 /* wormhole.swift in Sources */,
+				A31D2CB22A26625500A5BF09 /* ActionViewController.swift in Sources */,
+				A31D2CAE2A265DC200A5BF09 /* rectangles.c in Sources */,
+				A31D2D0C2A2724A000A5BF09 /* Runner.swift in Sources */,
+				A33FCB012A250DDC00BA5EE5 /* ShareViewController.swift in Sources */,
+				A33FCB0E2A25154D00BA5EE5 /* python3.m in Sources */,
+				A31D2D0F2A272E8A00A5BF09 /* python.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3441F702A0548F300CA7588 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -45170,13 +46066,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3EFE8672A1BC8C600237F66 /* RSCodeEditorInstance.swift in Sources */,
 				A3E4ACDB29E476A800EDF69F /* SourceControlUnsupportedSection.swift in Sources */,
 				A3E4ACDC29E476A800EDF69F /* GitHubSearchManager.swift in Sources */,
 				A3E4ACDD29E476A800EDF69F /* MainScene.swift in Sources */,
+				A3DC7B272A13F8BC00B7B8D5 /* PTInputAssistantView.swift in Sources */,
+				A3EFE85E2A1B9F4800237F66 /* RSCodeEditorView.swift in Sources */,
 				A3E4ACDE29E476A800EDF69F /* RemoteConnectedSection.swift in Sources */,
 				A3E4ACDF29E476A800EDF69F /* HighlightedText.swift in Sources */,
 				A3E4ACE029E476A800EDF69F /* SideBarButton.swift in Sources */,
 				A323BA292A0B80DC00E10379 /* LineNumberTextView.m in Sources */,
+				A3EFE8642A1BA28900237F66 /* InputCompletionView.swift in Sources */,
 				A3E4ACE129E476A800EDF69F /* LocalFileSystemProvider.swift in Sources */,
 				A3E4ACE229E476A800EDF69F /* SourceControlError.swift in Sources */,
 				A3E4ACE329E476A800EDF69F /* DirectoryPickerView.swift in Sources */,
@@ -45191,6 +46091,7 @@
 				A3E4ACEB29E476A800EDF69F /* BottomBar.swift in Sources */,
 				A3E4ACEC29E476A800EDF69F /* SearchBar.swift in Sources */,
 				A3E4ACED29E476A800EDF69F /* Color+init.swift in Sources */,
+				A3EFE8752A1C9AA000237F66 /* InstantPanGestureRecognizer.swift in Sources */,
 				A3E4ACEE29E476A800EDF69F /* AppError.swift in Sources */,
 				A3E4ACEF29E476A800EDF69F /* PanelView.swift in Sources */,
 				A3E4ACF029E476A800EDF69F /* UIApplication+getSafeArea.swift in Sources */,
@@ -45199,10 +46100,12 @@
 				A3E4ACF329E476A800EDF69F /* DocumentPickerView.swift in Sources */,
 				A3E4ACF429E476A800EDF69F /* RemoteHostError.swift in Sources */,
 				A3E4ACF529E476A800EDF69F /* GitServiceProvider.swift in Sources */,
+				A3EFE8732A1C9AA000237F66 /* SplitView.swift in Sources */,
 				A3E4ACF629E476A800EDF69F /* EditorView.swift in Sources */,
 				A3E4ACF729E476A800EDF69F /* ExplorerFileTreeSection.swift in Sources */,
 				A3E4ACF829E476A800EDF69F /* HierarchyList.swift in Sources */,
 				A3E4ACF929E476A800EDF69F /* WebViewBase.swift in Sources */,
+				A3DC7B2E2A14F85E00B7B8D5 /* python3.m in Sources */,
 				A3E4ACFA29E476A800EDF69F /* PanelManager.swift in Sources */,
 				A3E4ACFB29E476A800EDF69F /* MarkdownViewerExtension.swift in Sources */,
 				A3E4ACFC29E476A800EDF69F /* RemoteExecutionExtension.swift in Sources */,
@@ -45211,6 +46114,8 @@
 				A3E4ACFF29E476A800EDF69F /* RemoteImage.swift in Sources */,
 				A3E4AD0029E476A800EDF69F /* KeyChainAccessor.swift in Sources */,
 				A3E4AD0129E476A800EDF69F /* SourceControlEmptySection.swift in Sources */,
+				A3EFE8832A1DA8AD00237F66 /* PTLocalExecutionExtension.swift in Sources */,
+				A31D2D242A27A61500A5BF09 /* FullScreenCoverManager.swift in Sources */,
 				A3E4AD0229E476A800EDF69F /* Theme.swift in Sources */,
 				A3E4AD0329E476A800EDF69F /* SettingsView.swift in Sources */,
 				A3E4AD0429E476A800EDF69F /* wasm.swift in Sources */,
@@ -45230,6 +46135,7 @@
 				A3E4AD0E29E476A800EDF69F /* hiddenSystemOverlays.swift in Sources */,
 				A3E4AD0F29E476A800EDF69F /* hiddenScrollableContentBackground.swift in Sources */,
 				A323BA452A0B8F2600E10379 /* Basic.swift in Sources */,
+				A3EFE8712A1C9AA000237F66 /* Snapped.swift in Sources */,
 				A3E4AD1029E476A800EDF69F /* Utilities.swift in Sources */,
 				A3E4AD1129E476A800EDF69F /* TopBar.swift in Sources */,
 				A3E4AD1229E476A800EDF69F /* EditorKeyboardToolBar.swift in Sources */,
@@ -45250,6 +46156,7 @@
 				A3E4AD1F29E476A800EDF69F /* Remote.swift in Sources */,
 				A3E4AD2029E476A800EDF69F /* CompactSidebar.swift in Sources */,
 				A3E4AD2129E476A800EDF69F /* Executor.swift in Sources */,
+				A3EFE8802A1D2D9900237F66 /* EditorAndRunnerInstance.swift in Sources */,
 				A3E4AD2229E476A800EDF69F /* RemoteAuthView.swift in Sources */,
 				A3E4AD2329E476A800EDF69F /* CodeApp.swift in Sources */,
 				A3E4AD2429E476A800EDF69F /* openFilesApp.swift in Sources */,
@@ -45268,11 +46175,13 @@
 				A3E4AD2F29E476A800EDF69F /* KeychainWrapper.swift in Sources */,
 				A3E4AD3029E476A800EDF69F /* GitHubSearchView.swift in Sources */,
 				A3E4AD3129E476A800EDF69F /* ExplorerEditorListSection.swift in Sources */,
+				A31D2D272A27B42600A5BF09 /* SheetManager.swift in Sources */,
 				A3E4AD3229E476A800EDF69F /* SpellChecker.swift in Sources */,
 				A3592D082A0C1E0400A5A88D /* CodeView.swift in Sources */,
 				A323BA472A0B8F2600E10379 /* PTTheme.swift in Sources */,
 				A323BA442A0B8F2600E10379 /* CoolGlow.swift in Sources */,
 				A3E4AD3329E476A800EDF69F /* SFTPFileSystemProvider.swift in Sources */,
+				A3EFE8612A1B9F7400237F66 /* TMConsoleView.swift in Sources */,
 				A3E35E3E29E5363900B322D4 /* fake.m in Sources */,
 				A3E4AD3429E476A800EDF69F /* EditorTabs.swift in Sources */,
 				A3E4AD3529E476A800EDF69F /* LocalGitServiceProvider.swift in Sources */,
@@ -45290,6 +46199,7 @@
 				A3E4AD3C29E476A800EDF69F /* SourceControlEntry.swift in Sources */,
 				A3E4AD3D29E476A800EDF69F /* DebugMenu.swift in Sources */,
 				A3441F6F2A052E3600CA7588 /* python.swift in Sources */,
+				A3EFE86F2A1C9AA000237F66 /* HandleView.swift in Sources */,
 				A3E4AD3E29E476A800EDF69F /* FTPFileSystemProvider.swift in Sources */,
 				A3E4AD3F29E476A800EDF69F /* PDFViewerExtension.swift in Sources */,
 				A3E4AD4029E476A800EDF69F /* SourceControlAuxiliaryExtension.swift in Sources */,
@@ -45307,17 +46217,20 @@
 				A3E4AD4B29E476A800EDF69F /* ExplorerContainer.swift in Sources */,
 				A3E4AD4C29E476A800EDF69F /* InfiniteProgressView.swift in Sources */,
 				A323BA402A0B8F2600E10379 /* Dusk.swift in Sources */,
+				A3EFE87D2A1D2B2000237F66 /* EditorAndRunnerView.swift in Sources */,
 				A3E4AD4D29E476A800EDF69F /* MainApp.swift in Sources */,
 				A323BA282A0B80DC00E10379 /* LineNumberTextViewWrapper.m in Sources */,
 				A3E4AD4E29E476A800EDF69F /* EncodingMenu.swift in Sources */,
 				A3E4AD4F29E476A800EDF69F /* PanelSelector.swift in Sources */,
 				A3E4AD5029E476A800EDF69F /* Notification.swift in Sources */,
 				A3E4AD5129E476A800EDF69F /* node.swift in Sources */,
+				A3EFE87A2A1C9BB700237F66 /* TMConsoleExtension.swift in Sources */,
 				A323BA482A0B8F2600E10379 /* LowKey.swift in Sources */,
 				A3E4AD5229E476A800EDF69F /* TerminalInstance.swift in Sources */,
 				A3E4AD5329E476A800EDF69F /* convertCArguments.swift in Sources */,
 				A3E4AD5429E476A800EDF69F /* SettingsFontPicker.swift in Sources */,
 				A3E4AD5529E476A800EDF69F /* NewFileView.swift in Sources */,
+				A3EFE8772A1C9AA000237F66 /* Arrangement.swift in Sources */,
 				A3E4AD5629E476A800EDF69F /* DefaultUIState.swift in Sources */,
 				A3E4AD5729E476A800EDF69F /* EditorInstance.swift in Sources */,
 				A3E4AD5829E476A800EDF69F /* Resources.swift in Sources */,
@@ -45336,23 +46249,210 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A3EFE6EC2A1B914700237F66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3EFE8682A1BC8C600237F66 /* RSCodeEditorInstance.swift in Sources */,
+				A3EFE6ED2A1B914700237F66 /* SourceControlUnsupportedSection.swift in Sources */,
+				A3EFE6EE2A1B914700237F66 /* GitHubSearchManager.swift in Sources */,
+				A3EFE6EF2A1B914700237F66 /* MainScene.swift in Sources */,
+				A3EFE6F02A1B914700237F66 /* PTInputAssistantView.swift in Sources */,
+				A3EFE85F2A1B9F4800237F66 /* RSCodeEditorView.swift in Sources */,
+				A3EFE6F12A1B914700237F66 /* RemoteConnectedSection.swift in Sources */,
+				A3EFE6F22A1B914700237F66 /* HighlightedText.swift in Sources */,
+				A3EFE6F32A1B914700237F66 /* SideBarButton.swift in Sources */,
+				A3EFE6F42A1B914700237F66 /* LineNumberTextView.m in Sources */,
+				A3EFE8652A1BA28900237F66 /* InputCompletionView.swift in Sources */,
+				A3EFE6F52A1B914700237F66 /* LocalFileSystemProvider.swift in Sources */,
+				A3EFE6F62A1B914700237F66 /* SourceControlError.swift in Sources */,
+				A3EFE6F72A1B914700237F66 /* DirectoryPickerView.swift in Sources */,
+				A3EFE6F82A1B914700237F66 /* SafariView.swift in Sources */,
+				A3EFE6F92A1B914700237F66 /* ExplorerCell.swift in Sources */,
+				A3EFE6FA2A1B914700237F66 /* getRootDirectory.swift in Sources */,
+				A3EFE6FB2A1B914700237F66 /* ReadOnlyTheme.swift in Sources */,
+				A3EFE6FC2A1B914700237F66 /* RemoteTypeLabel.swift in Sources */,
+				A3EFE6FD2A1B914700237F66 /* DescriptionText.swift in Sources */,
+				A3EFE6FE2A1B914700237F66 /* SourceControlContainer.swift in Sources */,
+				A3EFE6FF2A1B914700237F66 /* shortcutsMapping.swift in Sources */,
+				A3EFE7002A1B914700237F66 /* BottomBar.swift in Sources */,
+				A3EFE7012A1B914700237F66 /* SearchBar.swift in Sources */,
+				A3EFE7022A1B914700237F66 /* Color+init.swift in Sources */,
+				A3EFE8762A1C9AA000237F66 /* InstantPanGestureRecognizer.swift in Sources */,
+				A3EFE7032A1B914700237F66 /* AppError.swift in Sources */,
+				A3EFE7042A1B914700237F66 /* PanelView.swift in Sources */,
+				A3EFE7052A1B914700237F66 /* UIApplication+getSafeArea.swift in Sources */,
+				A3EFE7062A1B914700237F66 /* SourceControlAuthenticationConfiguration.swift in Sources */,
+				A3EFE7072A1B914700237F66 /* NotificationCentreView.swift in Sources */,
+				A3EFE7082A1B914700237F66 /* DocumentPickerView.swift in Sources */,
+				A3EFE7092A1B914700237F66 /* RemoteHostError.swift in Sources */,
+				A3EFE70A2A1B914700237F66 /* GitServiceProvider.swift in Sources */,
+				A3EFE8742A1C9AA000237F66 /* SplitView.swift in Sources */,
+				A3EFE70B2A1B914700237F66 /* EditorView.swift in Sources */,
+				A3EFE70C2A1B914700237F66 /* ExplorerFileTreeSection.swift in Sources */,
+				A3EFE70D2A1B914700237F66 /* HierarchyList.swift in Sources */,
+				A3EFE70E2A1B914700237F66 /* WebViewBase.swift in Sources */,
+				A3EFE70F2A1B914700237F66 /* python3.m in Sources */,
+				A3EFE7102A1B914700237F66 /* PanelManager.swift in Sources */,
+				A3EFE7112A1B914700237F66 /* MarkdownViewerExtension.swift in Sources */,
+				A3EFE7122A1B914700237F66 /* RemoteExecutionExtension.swift in Sources */,
+				A3EFE7132A1B914700237F66 /* EditorTab.swift in Sources */,
+				A3EFE7142A1B914700237F66 /* SimpleWebPreviewExtension.swift in Sources */,
+				A3EFE7152A1B914700237F66 /* RemoteImage.swift in Sources */,
+				A3EFE7162A1B914700237F66 /* KeyChainAccessor.swift in Sources */,
+				A3EFE7172A1B914700237F66 /* SourceControlEmptySection.swift in Sources */,
+				A3EFE8842A1DA8AD00237F66 /* PTLocalExecutionExtension.swift in Sources */,
+				A31D2D252A27A61500A5BF09 /* FullScreenCoverManager.swift in Sources */,
+				A3EFE7182A1B914700237F66 /* Theme.swift in Sources */,
+				A3EFE7192A1B914700237F66 /* SettingsView.swift in Sources */,
+				A3EFE71A2A1B914700237F66 /* wasm.swift in Sources */,
+				A3EFE71B2A1B914700237F66 /* SearchManager.swift in Sources */,
+				A3EFE71C2A1B914700237F66 /* ArchiveDir.swift in Sources */,
+				A3EFE71D2A1B914700237F66 /* MarkdownView.swift in Sources */,
+				A3EFE71E2A1B914700237F66 /* LineNumberLayoutManager.m in Sources */,
+				A3EFE71F2A1B914700237F66 /* ExtensionManager.swift in Sources */,
+				A3EFE7202A1B914700237F66 /* LocalExecutionExtension.swift in Sources */,
+				A3EFE7212A1B914700237F66 /* MonacoEditor.swift in Sources */,
+				A3EFE7222A1B914700237F66 /* ThemeManager.swift in Sources */,
+				A3EFE7232A1B914700237F66 /* WWDC16.swift in Sources */,
+				A3EFE7242A1B914700237F66 /* XcodeDark.swift in Sources */,
+				A3EFE7252A1B914700237F66 /* EditorProviderManager.swift in Sources */,
+				A3EFE7262A1B914700237F66 /* Midnight.swift in Sources */,
+				A3EFE7272A1B914700237F66 /* SearchUnsupportedSection.swift in Sources */,
+				A3EFE7282A1B914700237F66 /* hiddenSystemOverlays.swift in Sources */,
+				A3EFE7292A1B914700237F66 /* hiddenScrollableContentBackground.swift in Sources */,
+				A3EFE72A2A1B914700237F66 /* Basic.swift in Sources */,
+				A3EFE8722A1C9AA000237F66 /* Snapped.swift in Sources */,
+				A3EFE72B2A1B914700237F66 /* Utilities.swift in Sources */,
+				A3EFE72C2A1B914700237F66 /* TopBar.swift in Sources */,
+				A3EFE72D2A1B914700237F66 /* EditorKeyboardToolBar.swift in Sources */,
+				A3EFE72E2A1B914700237F66 /* NotificationManager.swift in Sources */,
+				A3EFE72F2A1B914700237F66 /* URL+isDirectory.swift in Sources */,
+				A3EFE7302A1B914700237F66 /* SolarizedLight.swift in Sources */,
+				A3EFE7312A1B914700237F66 /* TerminalProvider.swift in Sources */,
+				A3EFE7322A1B914700237F66 /* String.Encoding.swift in Sources */,
+				A3EFE7332A1B914700237F66 /* SettingsThemeConfiguration.swift in Sources */,
+				A3EFE7342A1B914700237F66 /* RemoteContainer.swift in Sources */,
+				A3EFE7352A1B914700237F66 /* Sunset.swift in Sources */,
+				A3EFE7362A1B914700237F66 /* Toolbar.swift in Sources */,
+				A3EFE7372A1B914700237F66 /* CloudCodeExecutionManager.swift in Sources */,
+				A3EFE7382A1B914700237F66 /* KBWebViewBase.m in Sources */,
+				A3EFE7392A1B914700237F66 /* CodeAppExtension.swift in Sources */,
+				A3EFE73A2A1B914700237F66 /* TextEditorWithPlaceholder.swift in Sources */,
+				A3EFE73B2A1B914700237F66 /* String+toCString.swift in Sources */,
+				A3EFE73C2A1B914700237F66 /* Remote.swift in Sources */,
+				A3EFE73D2A1B914700237F66 /* CompactSidebar.swift in Sources */,
+				A3EFE73E2A1B914700237F66 /* Executor.swift in Sources */,
+				A3EFE8812A1D2D9900237F66 /* EditorAndRunnerInstance.swift in Sources */,
+				A3EFE73F2A1B914700237F66 /* RemoteAuthView.swift in Sources */,
+				A3EFE7402A1B914700237F66 /* CodeApp.swift in Sources */,
+				A3EFE7412A1B914700237F66 /* openFilesApp.swift in Sources */,
+				A3EFE7422A1B914700237F66 /* View+If.swift in Sources */,
+				A3EFE7432A1B914700237F66 /* WorkSpaceStorage.swift in Sources */,
+				A3EFE7442A1B914700237F66 /* RemoteListSection.swift in Sources */,
+				A3EFE7452A1B914700237F66 /* CodeCompletionView.swift in Sources */,
+				A3EFE7462A1B914700237F66 /* DirectoryFolderMonitor.swift in Sources */,
+				A3EFE7472A1B914700237F66 /* ActivityBar.swift in Sources */,
+				A3EFE7482A1B914700237F66 /* XcodeLight.swift in Sources */,
+				A3EFE7492A1B914700237F66 /* TerminalExtension.swift in Sources */,
+				A3EFE74A2A1B914700237F66 /* FileSystemProvider.swift in Sources */,
+				A3EFE74B2A1B914700237F66 /* MenuButtonView.swift in Sources */,
+				A3EFE74C2A1B914700237F66 /* SettingsKeyboardShortcuts.swift in Sources */,
+				A3EFE74D2A1B914700237F66 /* SearchServiceProvider.swift in Sources */,
+				A3EFE74E2A1B914700237F66 /* KeychainWrapper.swift in Sources */,
+				A3EFE74F2A1B914700237F66 /* GitHubSearchView.swift in Sources */,
+				A3EFE7502A1B914700237F66 /* ExplorerEditorListSection.swift in Sources */,
+				A31D2D282A27B42600A5BF09 /* SheetManager.swift in Sources */,
+				A3EFE7512A1B914700237F66 /* SpellChecker.swift in Sources */,
+				A3EFE7522A1B914700237F66 /* CodeView.swift in Sources */,
+				A3EFE7532A1B914700237F66 /* PTTheme.swift in Sources */,
+				A3EFE7542A1B914700237F66 /* CoolGlow.swift in Sources */,
+				A3EFE7552A1B914700237F66 /* SFTPFileSystemProvider.swift in Sources */,
+				A3EFE8622A1B9F7400237F66 /* TMConsoleView.swift in Sources */,
+				A3EFE7562A1B914700237F66 /* fake.m in Sources */,
+				A3EFE7572A1B914700237F66 /* EditorTabs.swift in Sources */,
+				A3EFE7582A1B914700237F66 /* LocalGitServiceProvider.swift in Sources */,
+				A3EFE7592A1B914700237F66 /* SolarizedDark.swift in Sources */,
+				A3EFE75A2A1B914700237F66 /* SourceControlIdentityConfiguration.swift in Sources */,
+				A3EFE75B2A1B914700237F66 /* PTTextEditorView.swift in Sources */,
+				A3EFE75C2A1B914700237F66 /* CompletionService.swift in Sources */,
+				A3EFE75D2A1B914700237F66 /* SearchContainer.swift in Sources */,
+				A3EFE75E2A1B914700237F66 /* String+base64EncodedDecoded.swift in Sources */,
+				A3EFE75F2A1B914700237F66 /* HighlightrTheme.swift in Sources */,
+				A3EFE7602A1B914700237F66 /* PTEditorInstance.swift in Sources */,
+				A3EFE7612A1B914700237F66 /* FileDisplayName.swift in Sources */,
+				A3EFE7622A1B914700237F66 /* FileIcon.swift in Sources */,
+				A3EFE7632A1B914700237F66 /* ViewRepresentable.swift in Sources */,
+				A3EFE7642A1B914700237F66 /* SourceControlEntry.swift in Sources */,
+				A3EFE7652A1B914700237F66 /* DebugMenu.swift in Sources */,
+				A3EFE7662A1B914700237F66 /* python.swift in Sources */,
+				A3EFE8702A1C9AA000237F66 /* HandleView.swift in Sources */,
+				A3EFE7672A1B914700237F66 /* FTPFileSystemProvider.swift in Sources */,
+				A3EFE7682A1B914700237F66 /* PDFViewerExtension.swift in Sources */,
+				A3EFE7692A1B914700237F66 /* SourceControlAuxiliaryExtension.swift in Sources */,
+				A3EFE76A2A1B914700237F66 /* View+cornerRadius.swift in Sources */,
+				A3EFE76B2A1B914700237F66 /* MonacoIntellisenseExtension.swift in Sources */,
+				A3EFE76C2A1B914700237F66 /* ActivityBarItemView.swift in Sources */,
+				A3EFE76D2A1B914700237F66 /* wormhole.swift in Sources */,
+				A3EFE76E2A1B914700237F66 /* RemoteCreateSection.swift in Sources */,
+				A3EFE76F2A1B914700237F66 /* VideoViewerExtension.swift in Sources */,
+				A3EFE7702A1B914700237F66 /* SFTPTerminalServiceProvider.swift in Sources */,
+				A3EFE7712A1B914700237F66 /* URL+relativePath.swift in Sources */,
+				A3EFE7722A1B914700237F66 /* Secrets.swift in Sources */,
+				A3EFE7732A1B914700237F66 /* SearchResultsSection.swift in Sources */,
+				A3EFE7742A1B914700237F66 /* KeychainItemAccessibility.swift in Sources */,
+				A3EFE7752A1B914700237F66 /* ExplorerContainer.swift in Sources */,
+				A3EFE7762A1B914700237F66 /* InfiniteProgressView.swift in Sources */,
+				A3EFE7772A1B914700237F66 /* Dusk.swift in Sources */,
+				A3EFE87E2A1D2B2000237F66 /* EditorAndRunnerView.swift in Sources */,
+				A3EFE7782A1B914700237F66 /* MainApp.swift in Sources */,
+				A3EFE7792A1B914700237F66 /* LineNumberTextViewWrapper.m in Sources */,
+				A3EFE77A2A1B914700237F66 /* EncodingMenu.swift in Sources */,
+				A3EFE77B2A1B914700237F66 /* PanelSelector.swift in Sources */,
+				A3EFE77C2A1B914700237F66 /* Notification.swift in Sources */,
+				A3EFE77D2A1B914700237F66 /* node.swift in Sources */,
+				A3EFE87B2A1C9BB700237F66 /* TMConsoleExtension.swift in Sources */,
+				A3EFE77E2A1B914700237F66 /* LowKey.swift in Sources */,
+				A3EFE77F2A1B914700237F66 /* TerminalInstance.swift in Sources */,
+				A3EFE7802A1B914700237F66 /* convertCArguments.swift in Sources */,
+				A3EFE7812A1B914700237F66 /* SettingsFontPicker.swift in Sources */,
+				A3EFE7822A1B914700237F66 /* NewFileView.swift in Sources */,
+				A3EFE8782A1C9AA000237F66 /* Arrangement.swift in Sources */,
+				A3EFE7832A1B914700237F66 /* DefaultUIState.swift in Sources */,
+				A3EFE7842A1B914700237F66 /* EditorInstance.swift in Sources */,
+				A3EFE7852A1B914700237F66 /* Resources.swift in Sources */,
+				A3EFE7862A1B914700237F66 /* biometricType.swift in Sources */,
+				A3EFE7872A1B914700237F66 /* SearchSection.swift in Sources */,
+				A3EFE7882A1B914700237F66 /* Encoding.swift in Sources */,
+				A3EFE7892A1B914700237F66 /* SourceControlSection.swift in Sources */,
+				A3EFE78A2A1B914700237F66 /* Store.swift in Sources */,
+				A3EFE78B2A1B914700237F66 /* SourceControlCloneSection.swift in Sources */,
+				A3EFE78C2A1B914700237F66 /* Libgit2Error.swift in Sources */,
+				A3EFE78D2A1B914700237F66 /* SourceControlTemplateSection.swift in Sources */,
+				A3EFE78E2A1B914700237F66 /* ImageViewerExtension.swift in Sources */,
+				A3EFE78F2A1B914700237F66 /* RemoteHostCell.swift in Sources */,
+				A3EFE7902A1B914700237F66 /* UserDefaults+Hosts.swift in Sources */,
+				A3EFE7912A1B914700237F66 /* ToolbarManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		94369B0625E3B933008419A0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 94369AFB25E3B933008419A0 /* extension */;
-			targetProxy = 94369B0525E3B933008419A0 /* PBXContainerItemProxy */;
-		};
 		9FE3E297298A14BC00F63DD0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9419692E280316C7008AAEB2 /* CodeUI */;
 			targetProxy = 9FE3E296298A14BC00F63DD0 /* PBXContainerItemProxy */;
 		};
-		A3441F802A0548F400CA7588 /* PBXTargetDependency */ = {
+		A31D2D092A268A6800A5BF09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A33FCAFD2A250DDC00BA5EE5 /* PYUI */;
+			targetProxy = A31D2D082A268A6800A5BF09 /* PBXContainerItemProxy */;
+		};
+		A3EFE6D92A1B914700237F66 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A3441F732A0548F300CA7588 /* cmdextension */;
-			targetProxy = A3441F7F2A0548F400CA7588 /* PBXContainerItemProxy */;
+			targetProxy = A3EFE6DA2A1B914700237F66 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -45378,6 +46478,22 @@
 				4F30816829662CBF002708FD /* ja */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A31D2CF72A26781400A5BF09 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A31D2CF82A26781400A5BF09 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		A33FCB022A250DDC00BA5EE5 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A33FCB032A250DDC00BA5EE5 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		A3CF21292A04DB9E00EF1FA4 /* Localizable.strings */ = {
@@ -45690,7 +46806,6 @@
 		944EEC002563C386009D77FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
@@ -45735,7 +46850,6 @@
 		944EEC012563C386009D77FE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
@@ -45817,6 +46931,130 @@
 			};
 			name = Release;
 		};
+		A31D2CFF2A26781500A5BF09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pyaide/PYUIExt/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PYUIExt;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.pyaide.PYUIExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "pyaide/PYUIExt/PYUIExt-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A31D2D002A26781500A5BF09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 69R94YG49H;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pyaide/PYUIExt/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PYUIExt;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.pyaide.PYUIExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "pyaide/PYUIExt/PYUIExt-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A33FCB0A2A250DDD00BA5EE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = pyaide/PYUI/PYUI.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
+				FRAMEWORK_SEARCH_PATHS = "/Users/huima/PythonSchool/modules/cpython/build/lib.darwin-arm64-3.11/Frameworks";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pyaide/PYUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PYUI;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.pyaide.PYUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "pyaide/PYUI/PYUI-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A33FCB0B2A250DDD00BA5EE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = pyaide/PYUI/PYUI.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
+				FRAMEWORK_SEARCH_PATHS = "/Users/huima/PythonSchool/modules/cpython/build/lib.darwin-arm64-3.11/Frameworks";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pyaide/PYUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PYUI;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.pyaide.PYUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "pyaide/PYUI/PYUI-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A3441F832A0548F400CA7588 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -45887,7 +47125,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B838255AC3E96C4DA10774BD /* Pods-pyaide.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -45911,6 +47148,7 @@
 					"$(PROJECT_DIR)/../modules/cpython/build/lib.darwin-arm64-3.11/Frameworks",
 					"$(PROJECT_DIR)/../modules/pythoncc/cmds/frameworks",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Resources/Term",
 				);
 				INFOPLIST_FILE = pyaiide.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
@@ -45938,6 +47176,109 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D5297FCB7003AD96997CB9F3 /* Pods-pyaide.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = pyaide.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 87;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 69R94YG49H;
+				ENABLE_BITCODE = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTING_SEARCH_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Resources/cpython",
+					"$(PROJECT_DIR)/Resources/NodeJS",
+					"$(PROJECT_DIR)/../modules/pythoncc/frameworks",
+					"$(PROJECT_DIR)/../modules/cpython/build/lib.darwin-arm64-3.11/Frameworks",
+					"$(PROJECT_DIR)/../modules/pythoncc/cmds/frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Resources/Term",
+				);
+				GCC_OPTIMIZATION_LEVEL = s;
+				INFOPLIST_FILE = pyaiide.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MARKETING_VERSION = 1.4.4;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.pyaide;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore thebaselab.VS-Code";
+				STRIP_STYLE = "non-global";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "pyaide/PyAIDE-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		A3EFE7F72A1B914700237F66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B838255AC3E96C4DA10774BD /* Pods-pyaide.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = pyaide.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 87;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
+				ENABLE_BITCODE = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTING_SEARCH_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Resources/cpython",
+					"$(PROJECT_DIR)/Resources/NodeJS",
+					"$(PROJECT_DIR)/../modules/pythoncc/frameworks",
+					"$(PROJECT_DIR)/../modules/cpython/build/lib.darwin-arm64-3.11/Frameworks",
+					"$(PROJECT_DIR)/../modules/pythoncc/cmds/frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Resources/Term",
+				);
+				INFOPLIST_FILE = "pyaide copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MARKETING_VERSION = 1.4.4;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.pyaide;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRIP_STYLE = "non-global";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "pyaide/PyAIDE-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		A3EFE7F82A1B914700237F66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5297FCB7003AD96997CB9F3 /* Pods-pyaide.release.xcconfig */;
+			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -45962,9 +47303,10 @@
 					"$(PROJECT_DIR)/../modules/cpython/build/lib.darwin-arm64-3.11/Frameworks",
 					"$(PROJECT_DIR)/../modules/pythoncc/cmds/frameworks",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Resources/Term",
 				);
 				GCC_OPTIMIZATION_LEVEL = s;
-				INFOPLIST_FILE = pyaiide.plist;
+				INFOPLIST_FILE = "pyaide copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -46033,6 +47375,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		A31D2CFE2A26781500A5BF09 /* Build configuration list for PBXNativeTarget "PYUIExt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A31D2CFF2A26781500A5BF09 /* Debug */,
+				A31D2D002A26781500A5BF09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A33FCB092A250DDD00BA5EE5 /* Build configuration list for PBXNativeTarget "PYUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A33FCB0A2A250DDD00BA5EE5 /* Debug */,
+				A33FCB0B2A250DDD00BA5EE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A3441F822A0548F400CA7588 /* Build configuration list for PBXNativeTarget "cmdextension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -46047,6 +47407,15 @@
 			buildConfigurations = (
 				A3E4AD9029E476A800EDF69F /* Debug */,
 				A3E4AD9129E476A800EDF69F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3EFE7F62A1B914700237F66 /* Build configuration list for PBXNativeTarget "pyaideui" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3EFE7F72A1B914700237F66 /* Debug */,
+				A3EFE7F82A1B914700237F66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -46134,20 +47503,20 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		A3441FBA2A06DE5800CA7588 /* XCRemoteSwiftPackageReference "MarqueeLabel" */ = {
+		A34A39DD2A1B0CAB006CC4E6 /* XCRemoteSwiftPackageReference "Runestone" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/cbpowell/MarqueeLabel";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		A3441FBD2A06DF2000CA7588 /* XCRemoteSwiftPackageReference "Pipable" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ColdGrub1384/Pipable";
+			repositoryURL = "https://github.com/simonbs/Runestone.git";
 			requirement = {
 				branch = main;
 				kind = branch;
+			};
+		};
+		A3C8EAB92A13B7C300ADFE98 /* XCRemoteSwiftPackageReference "KeyboardToolbar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simonbs/KeyboardToolbar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
 			};
 		};
 		A3E4ACCD29E476A800EDF69F /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
@@ -46188,6 +47557,78 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 3.0.0;
+			};
+		};
+		A3EFE6DC2A1B914700237F66 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.11;
+			};
+		};
+		A3EFE6DE2A1B914700237F66 /* XCRemoteSwiftPackageReference "Dynamic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mhdhejazi/Dynamic.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+		A3EFE6E02A1B914700237F66 /* XCRemoteSwiftPackageReference "MarkdownView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/thebaselab/MarkdownView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		A3EFE6E22A1B914700237F66 /* XCRemoteSwiftPackageReference "FileProvider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/amosavian/FileProvider";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		A3EFE6E52A1B914700237F66 /* XCRemoteSwiftPackageReference "GCDWebServer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JacobHearst/GCDWebServer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		A3EFE6E72A1B914700237F66 /* XCRemoteSwiftPackageReference "AppReceiptValidator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/IdeasOnCanvas/AppReceiptValidator.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		A3EFE6E92A1B914700237F66 /* XCRemoteSwiftPackageReference "KeyboardToolbar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simonbs/KeyboardToolbar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
+		A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simonbs/TreeSitterLanguages.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		A3EFE8572A1B9EA200237F66 /* XCRemoteSwiftPackageReference "SwiftTerm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/migueldeicaza/SwiftTerm.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.2.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -46290,25 +47731,15 @@
 			package = A323BA192A0AA13500E10379 /* XCRemoteSwiftPackageReference "AppReceiptValidator" */;
 			productName = AppReceiptValidator;
 		};
-		A3441FBB2A06DE5800CA7588 /* MarqueeLabel */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A3441FBA2A06DE5800CA7588 /* XCRemoteSwiftPackageReference "MarqueeLabel" */;
-			productName = MarqueeLabel;
-		};
-		A3441FBE2A06DF2000CA7588 /* Pipable */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A3441FBD2A06DF2000CA7588 /* XCRemoteSwiftPackageReference "Pipable" */;
-			productName = Pipable;
-		};
-		A3441FC02A06DF7400CA7588 /* Pipable */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A3441FBD2A06DF2000CA7588 /* XCRemoteSwiftPackageReference "Pipable" */;
-			productName = Pipable;
-		};
 		A3C8EAA22A0EADA900ADFE98 /* Dynamic */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 94A7418A25F74A85007A9728 /* XCRemoteSwiftPackageReference "Dynamic" */;
 			productName = Dynamic;
+		};
+		A3DC7B242A13D4AD00B7B8D5 /* KeyboardToolbar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3C8EAB92A13B7C300ADFE98 /* XCRemoteSwiftPackageReference "KeyboardToolbar" */;
+			productName = KeyboardToolbar;
 		};
 		A3E4ACCC29E476A800EDF69F /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -46338,6 +47769,280 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A3E4ACD629E476A800EDF69F /* XCRemoteSwiftPackageReference "GCDWebServer" */;
 			productName = GCDWebServers;
+		};
+		A3EFE6DB2A1B914700237F66 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE6DC2A1B914700237F66 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+		A3EFE6DD2A1B914700237F66 /* Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE6DE2A1B914700237F66 /* XCRemoteSwiftPackageReference "Dynamic" */;
+			productName = Dynamic;
+		};
+		A3EFE6DF2A1B914700237F66 /* MarkdownView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE6E02A1B914700237F66 /* XCRemoteSwiftPackageReference "MarkdownView" */;
+			productName = MarkdownView;
+		};
+		A3EFE6E12A1B914700237F66 /* FilesProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE6E22A1B914700237F66 /* XCRemoteSwiftPackageReference "FileProvider" */;
+			productName = FilesProvider;
+		};
+		A3EFE6E32A1B914700237F66 /* SwiftGit2 */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftGit2;
+		};
+		A3EFE6E42A1B914700237F66 /* GCDWebServers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE6E52A1B914700237F66 /* XCRemoteSwiftPackageReference "GCDWebServer" */;
+			productName = GCDWebServers;
+		};
+		A3EFE6E62A1B914700237F66 /* AppReceiptValidator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE6E72A1B914700237F66 /* XCRemoteSwiftPackageReference "AppReceiptValidator" */;
+			productName = AppReceiptValidator;
+		};
+		A3EFE6E82A1B914700237F66 /* KeyboardToolbar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE6E92A1B914700237F66 /* XCRemoteSwiftPackageReference "KeyboardToolbar" */;
+			productName = KeyboardToolbar;
+		};
+		A3EFE7FD2A1B9DA900237F66 /* TreeSitterC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterC;
+		};
+		A3EFE7FF2A1B9DA900237F66 /* TreeSitterCPP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCPP;
+		};
+		A3EFE8012A1B9DA900237F66 /* TreeSitterCPPQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCPPQueries;
+		};
+		A3EFE8032A1B9DA900237F66 /* TreeSitterCPPRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCPPRunestone;
+		};
+		A3EFE8052A1B9DA900237F66 /* TreeSitterCQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCQueries;
+		};
+		A3EFE8072A1B9DA900237F66 /* TreeSitterCRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCRunestone;
+		};
+		A3EFE8092A1B9DA900237F66 /* TreeSitterCSS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCSS;
+		};
+		A3EFE80B2A1B9DA900237F66 /* TreeSitterCSSQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCSSQueries;
+		};
+		A3EFE80D2A1B9DA900237F66 /* TreeSitterCSSRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterCSSRunestone;
+		};
+		A3EFE80F2A1B9DA900237F66 /* TreeSitterHTML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterHTML;
+		};
+		A3EFE8112A1B9DA900237F66 /* TreeSitterHTMLQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterHTMLQueries;
+		};
+		A3EFE8132A1B9DA900237F66 /* TreeSitterHTMLRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterHTMLRunestone;
+		};
+		A3EFE8152A1B9DA900237F66 /* TreeSitterJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJSON;
+		};
+		A3EFE8172A1B9DA900237F66 /* TreeSitterJSON5 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJSON5;
+		};
+		A3EFE8192A1B9DA900237F66 /* TreeSitterJSON5Queries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJSON5Queries;
+		};
+		A3EFE81B2A1B9DA900237F66 /* TreeSitterJSON5Runestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJSON5Runestone;
+		};
+		A3EFE81D2A1B9DA900237F66 /* TreeSitterJSONQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJSONQueries;
+		};
+		A3EFE81F2A1B9DA900237F66 /* TreeSitterJSONRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJSONRunestone;
+		};
+		A3EFE8212A1B9DA900237F66 /* TreeSitterJavaScript */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJavaScript;
+		};
+		A3EFE8232A1B9DA900237F66 /* TreeSitterJavaScriptQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJavaScriptQueries;
+		};
+		A3EFE8252A1B9DA900237F66 /* TreeSitterJavaScriptRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJavaScriptRunestone;
+		};
+		A3EFE8272A1B9DA900237F66 /* TreeSitterLua */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterLua;
+		};
+		A3EFE8292A1B9DA900237F66 /* TreeSitterLuaQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterLuaQueries;
+		};
+		A3EFE82B2A1B9DA900237F66 /* TreeSitterLuaRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterLuaRunestone;
+		};
+		A3EFE82D2A1B9DA900237F66 /* TreeSitterMarkdown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterMarkdown;
+		};
+		A3EFE82F2A1B9DA900237F66 /* TreeSitterMarkdownInline */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterMarkdownInline;
+		};
+		A3EFE8312A1B9DA900237F66 /* TreeSitterMarkdownInlineQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterMarkdownInlineQueries;
+		};
+		A3EFE8332A1B9DA900237F66 /* TreeSitterMarkdownInlineRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterMarkdownInlineRunestone;
+		};
+		A3EFE8352A1B9DA900237F66 /* TreeSitterMarkdownQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterMarkdownQueries;
+		};
+		A3EFE8372A1B9DA900237F66 /* TreeSitterMarkdownRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterMarkdownRunestone;
+		};
+		A3EFE8392A1B9DA900237F66 /* TreeSitterPHP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPHP;
+		};
+		A3EFE83B2A1B9DA900237F66 /* TreeSitterPHPQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPHPQueries;
+		};
+		A3EFE83D2A1B9DA900237F66 /* TreeSitterPHPRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPHPRunestone;
+		};
+		A3EFE83F2A1B9DA900237F66 /* TreeSitterPython */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPython;
+		};
+		A3EFE8412A1B9DA900237F66 /* TreeSitterPythonQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPythonQueries;
+		};
+		A3EFE8432A1B9DA900237F66 /* TreeSitterPythonRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPythonRunestone;
+		};
+		A3EFE8452A1B9DA900237F66 /* TreeSitterYAML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterYAML;
+		};
+		A3EFE8472A1B9DA900237F66 /* TreeSitterYAMLQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterYAMLQueries;
+		};
+		A3EFE8492A1B9DA900237F66 /* TreeSitterYAMLRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterYAMLRunestone;
+		};
+		A3EFE84B2A1B9E0400237F66 /* TreeSitterPython */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPython;
+		};
+		A3EFE84D2A1B9E0400237F66 /* TreeSitterPythonQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPythonQueries;
+		};
+		A3EFE84F2A1B9E0400237F66 /* TreeSitterPythonRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPythonRunestone;
+		};
+		A3EFE8512A1B9E1400237F66 /* TreeSitterPython */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPython;
+		};
+		A3EFE8532A1B9E1400237F66 /* TreeSitterPythonQueries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPythonQueries;
+		};
+		A3EFE8552A1B9E1400237F66 /* TreeSitterPythonRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE7FC2A1B9DA900237F66 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterPythonRunestone;
+		};
+		A3EFE8582A1B9EA200237F66 /* SwiftTerm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE8572A1B9EA200237F66 /* XCRemoteSwiftPackageReference "SwiftTerm" */;
+			productName = SwiftTerm;
+		};
+		A3EFE85A2A1B9EBC00237F66 /* SwiftTerm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE8572A1B9EA200237F66 /* XCRemoteSwiftPackageReference "SwiftTerm" */;
+			productName = SwiftTerm;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -60,7 +60,7 @@ struct MainScene: View {
     }
 
     func restoreSceneState() {
-
+        return
         var isStale = false
 
         guard stateRestorationEnabled else { return }
@@ -95,6 +95,8 @@ struct MainScene: View {
             .environmentObject(App.stateManager)
             .environmentObject(App.alertManager)
             .environmentObject(App.safariManager)
+            .environmentObject(App.fullScreenCoverManager)
+            .environmentObject(App.sheetManager)
             .onAppear {
                 restoreSceneState()
                 App.extensionManager.initializeExtensions(app: App)
@@ -148,6 +150,8 @@ private struct MainView: View {
     @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var safariManager: SafariManager
     @EnvironmentObject var themeManager: ThemeManager
+    @EnvironmentObject var fullScreenCoverManager: FullScreenCoverManager
+    @EnvironmentObject var sheetManager: SheetManager
 
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.colorScheme) var colorScheme: ColorScheme
@@ -277,6 +281,12 @@ private struct MainView: View {
             } else {
                 EmptyView()
             }
+        }
+        .fullScreenCover(isPresented: $fullScreenCoverManager.showCover) {
+            fullScreenCoverManager.coverContent
+        }
+        .sheet(isPresented: $sheetManager.showSheet) {
+            sheetManager.sheetContent
         }
     }
 }

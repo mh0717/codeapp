@@ -42,6 +42,7 @@ class PTTextEditorInstance: TextEditorInstance {
     }
     
     var app: MainApp?
+    var editorView: UIView?
 }
 
 func createPTEidtorInstance(url: URL, app: MainApp) async throws -> TextEditorInstance {
@@ -64,6 +65,7 @@ func createPTEidtorInstance(url: URL, app: MainApp) async throws -> TextEditorIn
     storage.editor = editorInstance
     let ptView = await PTCodeTextView(frame: .zero, editor: editorInstance)
     storage.editorView = ptView
+    editorInstance.editorView = ptView
     return editorInstance
 }
 

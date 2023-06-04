@@ -11,4 +11,6 @@ void initIntepreters(void);
 typedef void (*exit_t)(int value);
 
 
-NSString* pycompleteCode(NSString* code, NSString* path, int index, BOOL getdef, int vid, NSString* uid);
+
+int rectangles_main();
+extern void update_sdl_winsize(CGRect size);

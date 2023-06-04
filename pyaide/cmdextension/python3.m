@@ -79,22 +79,45 @@ static PyThreadState* main_state = NULL;
 //    return status;
 //}
 
-static int isInitialized = 0;
 void initIntepreters(void) {
-    if (isInitialized == 0) {
-        isInitialized = 1;
+    if (!Py_IsInitialized()) {
+        thread_stdin = stdin;
+        thread_stdout = stdout;
+        thread_stderr = stderr;
+//        char* argv[] = {"python3", "-c", ""};
+//        Py_BytesMain(3, argv);
         Py_SetProgramName(L"python3");
-        wchar_t* name[] = {Py_DecodeLocale("python3", NULL), NULL};
-//        PySys_SetArgv(1, name);
+//        wchar_t* name[] = {Py_DecodeLocale("python3", NULL), NULL};
+////        PySys_SetArgv(1, name);
         Py_InitializeWithName("python3");
+//        PyEval_InitThreads();
         PyThread_init_thread();
+        return;
 //
         
         main_state = PyThreadState_Get();
+//        PyEval_ReleaseLock();
+
         subIntepreters[0] = main_state;
         irunning[0] = 0;
+        intepreterSize = 1;
+        return;
 //        PyThreadState* state = PyEval_SaveThread();
-        for(int i = 1; i < INTERPRETER_INIT_COUNT; i++) {
+        
+        
+//        PyGILState_STATE gilstate;
+//        PyThreadState *mainstate = PyThreadState_Get();
+//
+//        PyEval_ReleaseThread(mainstate);
+//
+//        gilstate = PyGILState_Ensure();
+//        PyThreadState_Swap(NULL);
+//
+//        subIntepreters[0] = main_state;
+//                irunning[0] = 0;
+        
+        
+        for(int i = 0; i < INTERPRETER_INIT_COUNT; i++) {
             subIntepreters[i] = Py_NewInterpreter();
             irunning[i] = 0;
         }
@@ -102,9 +125,19 @@ void initIntepreters(void) {
         
         PyThreadState_Swap(main_state);
         PyEval_SaveThread();
-//        PyEval_RestoreThread(state);
+        PyEval_RestoreThread(main_state);
+        
+        
+        
+////        PyThreadState_Swap(mainstate);
+//        PyGILState_Release(gilstate);
+//        PyEval_SaveThread();
+//        PyEval_RestoreThread(mainstate);
+////        PyEval_SaveThread();
         
         pthread_key_create(&pid_key, NULL);
+        
+        sleep(1);
     }
 }
 
@@ -114,6 +147,7 @@ PyThreadState* genPyIntepreter(void) {
         if (irunning[i] == 0) {
             idle = subIntepreters[i];
             irunning[i] = 1;
+            fprintf(thread_stdout, "inteperter: %d\n", i);
             return idle;
         }
     }
@@ -190,8 +224,8 @@ pymain_run_module(const wchar_t *modname, int set_argv0)
 
 int python3_run(int argc, char** argv) {
     initIntepreters();
-    
-    setvbuf(thread_stdout, NULL, _IONBF, 1024);
+    /*
+//    setvbuf(thread_stdout, NULL, _IONBF, 1024);
     
     PyThreadState* context = genPyIntepreter();
     
@@ -207,7 +241,7 @@ int python3_run(int argc, char** argv) {
     signal(SIGINT, &onSig);
     
     pthread_setspecific(pid_key, context);
-    
+    */
     wchar_t** wargv = NULL;
     if (argc > 1) {
         wargv = (wchar_t**)malloc(sizeof(wchar_t*) * (argc));
@@ -216,17 +250,30 @@ int python3_run(int argc, char** argv) {
         }
         wargv[argc-1] = NULL;
     }
+    /*
+//    PyThreadState* cstate = NULL;
+//
+//    if (_PyThreadState_UncheckedGet() != NULL) {
+//        cstate = PyEval_SaveThread();
+//    }
+//    PyEval_RestoreThread(context);
     
-    PyThreadState* cstate = NULL;
-    
+//    PyGILState_Ensure();
+//    PyThreadState_Swap(context);
     if (_PyThreadState_UncheckedGet() != NULL) {
-        cstate = PyEval_SaveThread();
+        PyEval_SaveThread();
     }
-    PyEval_RestoreThread(context);
+//    PyEval_RestoreThread(context);
+    PyThreadState_Swap(context);
+//    PyGILState_STATE gstate = PyGILState_Ensure();
+//    PyGILState_Release(PyGILState_UNLOCKED);
+    
+//    PyEval_ReleaseThread(context);
+//    PyEval_RestoreThread(context);
     
     
     pthread_cleanup_push(idleIntepreter, context);
-    
+    */
     
     if (argc > 1 && strcmp(argv[1], "-m") == 0) {
         PySys_SetArgv(argc-2, &wargv[1]);
@@ -360,13 +407,17 @@ int python3_run(int argc, char** argv) {
     }
 
 
-    PyEval_SaveThread();
+//    PyEval_SaveThread();
+//
+//    if (cstate != NULL) {
+//        PyEval_RestoreThread(cstate);
+//    }
+//
     
-    if (cstate != NULL) {
-        PyEval_RestoreThread(cstate);
-    }
-    
-    pthread_cleanup_pop(1);
+//    PyGILState_Release(gstate);
+//    PyEval_SaveThread();
+//    PyThreadState_Swap(NULL);
+//    pthread_cleanup_pop(1);
     
     return 0;
 }
@@ -452,3 +503,48 @@ int python_sub_main(int argc, char** argv) {
     return 0;
 }
 
+
+PyThreadState* _completionState = NULL;
+
+NSString* pycompleteCode(NSString* code, NSString* path, int index, BOOL getdef, int vid, NSString* uid) {
+    initIntepreters();
+    
+    if (_completionState == NULL) {
+        _completionState = genPyIntepreter();
+    }
+    
+    if (_completionState == NULL) {return @"";}
+    
+    PyThreadState* cstate = NULL;
+    
+    if (_PyThreadState_UncheckedGet() != NULL) {
+        cstate = PyEval_SaveThread();
+    }
+    PyEval_RestoreThread(_completionState);
+    
+    
+    NSString* result = @"";
+    NSString* errResult = @"";
+    
+    PyObject* cmpModule = PyImport_ImportModule("_ccmp");
+    if (cmpModule == NULL) return errResult;
+    PyObject* cmpFunc = PyObject_GetAttrString(cmpModule, "completeCode");
+//    PyObject* cmpFunc = PyObject_GetAttrString(cmpModule, "test");
+    if (cmpFunc == NULL) return errResult;
+    PyObject* pResult = PyObject_CallFunction(cmpFunc, "ssiiis", [code UTF8String], [path UTF8String],index, 1, vid, [uid UTF8String]);
+//    printf("%s", [code UTF8String]);
+//    PyObject* pResult = PyObject_CallFunction(cmpFunc, NULL);
+    if (pResult == NULL) return errResult;
+    
+    const char* strResult = PyUnicode_AsUTF8(pResult);
+    result = [[NSString alloc] initWithCString:strResult encoding:NSUTF8StringEncoding];
+    
+    
+    PyEval_SaveThread();
+    
+    if (cstate != NULL) {
+        PyEval_RestoreThread(cstate);
+    }
+    
+    return result;
+}

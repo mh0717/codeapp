@@ -54,6 +54,8 @@ class MainApp: ObservableObject {
     let stateManager = MainStateManager()
     let alertManager = AlertManager()
     let safariManager = SafariManager()
+    let fullScreenCoverManager = FullScreenCoverManager()
+    let sheetManager = SheetManager()
 
     @Published var editors: [EditorInstance] = []
     var textEditors: [TextEditorInstance] {
@@ -669,7 +671,14 @@ class MainApp: ObservableObject {
     }
 
     private func createTextEditorFromURL(url: URL) async throws -> TextEditorInstance {
-        return try! await createPTEidtorInstance(url: url, app: self)
+        let editorAndRunner = try? await createEditorAndRunnerInstance(url: url, app: self)
+        if let editor = editorAndRunner {
+            return editor
+        }
+
+//        let editor = try? await createRSCodeEditorInstance(url: url, app: self)
+//        if let editor = editor {return editor}
+        
         // TODO: A more efficient way to determine whether file is supported
         let contentData: Data? = try await workSpaceStorage.contents(
             at: url

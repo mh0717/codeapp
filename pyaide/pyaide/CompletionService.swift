@@ -24,6 +24,38 @@ class CompletionResult {
         self.signatures = signatures
         self.signature = signature
     }
+    
+    static func parseJson(jsonstr: String?) -> CompletionResult? {
+        guard let jsonstr = jsonstr, !jsonstr.isEmpty else {return nil}
+        guard let json = try? JSONSerialization.jsonObject(with: jsonstr.data(using: .utf8)!) as? [String: Any] else {
+            print("completion result error: \(jsonstr)")
+            return nil
+        }
+        
+        if (json.keys.contains("exception")) {
+            print("completion result error: \(json["exception"] ?? "")")
+            return nil
+        }
+        
+        let vid = json["vid"] as? Int ?? Int(json["vid"] as? String ?? "0") ?? 0
+        let suggestions = json["suggestions"] as? [String] ?? []
+        let completions = json["completions"] as? [String] ?? []
+        let suggestionsType = json["suggestionsType"] as? [String: String] ?? [:]
+        let signatures = json["signatures"] as? [String: String] ?? [:]
+        let signature = json["signature"] as? String ?? ""
+        let uid = json["uid"] as? String ?? ""
+        
+        let result = CompletionResult(
+            vid: vid,
+            suggestions: suggestions,
+            completions: completions,
+            suggestionsType: suggestionsType,
+            signatures: signatures,
+            signature: signature
+        )
+        
+        return result
+    }
 }
 
 private class RequestItem {
@@ -45,7 +77,7 @@ class CompletionService {
     public static let instance = CompletionService()
     
     init() {
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
             self.checkQueue()
         }
     }
@@ -62,37 +94,71 @@ class CompletionService {
         return "CompletionService\(UUID().uuidString)"
     }()
     
-    func startService(){
-        if (_serviceRunning) {return}
-        _serviceRunning = true
+    private func onReceiveMsg(msg: String) {
+        guard let json = try? JSONSerialization.jsonObject(with: msg.data(using: .utf8)!) as? [String: Any] else {
+            print("completion result error: \(msg)")
+            return
+        }
         
-        wmessager.listenForMessage(withIdentifier: "\(CompletionServiceId).stdout") { msg in
-            guard let msg = msg as? String, let json = try? JSONSerialization.jsonObject(with: msg.data(using: .utf8)!) as? [String: Any] else {return}
-            
-            let vid = Int(json["vid"] as? String ?? "0") ?? 0
-            let suggestions = json["suggestions"] as? [String] ?? []
-            let completions = json["completions"] as? [String] ?? []
-            let suggestionsType = json["suggestionsType"] as? [String: String] ?? [:]
-            let signatures = json["signatures"] as? [String: String] ?? [:]
-            let signature = json["signature"] as? String ?? ""
+        if (json.keys.contains("exception")) {
+            print("completion result error: \(json["exception"] ?? "")")
             let uid = json["uid"] as? String ?? ""
-            
-            let result = CompletionResult(
-                vid: vid,
-                suggestions: suggestions,
-                completions: completions,
-                suggestionsType: suggestionsType,
-                signatures: signatures,
-                signature: signature
-            )
-            
             self.requestQueue.removeAll { item in
                 if item.uid == uid {
-                    item.continuation.resume(returning: result)
+                    item.continuation.resume(returning: nil)
                     return true
                 }
                 return false
             }
+            return
+        }
+        
+        let vid = Int(json["vid"] as? String ?? "0") ?? 0
+        let suggestions = json["suggestions"] as? [String] ?? []
+        let completions = json["completions"] as? [String] ?? []
+        let suggestionsType = json["suggestionsType"] as? [String: String] ?? [:]
+        let signatures = json["signatures"] as? [String: String] ?? [:]
+        let signature = json["signature"] as? String ?? ""
+        let uid = json["uid"] as? String ?? ""
+        
+        let result = CompletionResult(
+            vid: vid,
+            suggestions: suggestions,
+            completions: completions,
+            suggestionsType: suggestionsType,
+            signatures: signatures,
+            signature: signature
+        )
+        
+        self.requestQueue.removeAll { item in
+            if item.uid == uid {
+                item.continuation.resume(returning: result)
+                return true
+            }
+            return false
+        }
+    }
+    
+    func startService(){
+        return
+        if (_serviceRunning) {return}
+        _serviceRunning = true
+        
+        var msgBuffer = ""
+        wmessager.listenForMessage(withIdentifier: "\(CompletionServiceId).stdout") { [weak self] msg in
+            guard let self = self else {return}
+            guard let msg = msg as? String else {return}
+            if (!msg.contains("\n")) {
+                msgBuffer += msg
+                return
+            }else {
+                var msgitems = (msgBuffer + msg).components(separatedBy: "\n")
+                msgBuffer = msgitems.popLast()!
+                for msg in msgitems {
+                    self.onReceiveMsg(msg: msg)
+                }
+            }
+            
         }
         
         Task.init {
@@ -158,4 +224,19 @@ class CompletionService {
         })
         
     }
+}
+
+private let _completionQueue = DispatchQueue(label: "completion.queue")
+//private var _nextRequest: (UnsafeContinuation<CompletionResult?, Never>, ()->CompletionResult?)? = nil
+func completeCode(code: String, path: String, index: Int, getdef: Bool, vid: Int) async -> CompletionResult? {
+    return nil
+    let result = await withUnsafeContinuation({ continuation in
+        _completionQueue.async {
+            let str = pycompleteCode(code, path, Int32(index), getdef, Int32(vid), UUID().uuidString)
+            let result = CompletionResult.parseJson(jsonstr: str)
+            continuation.resume(returning: result)
+        }
+    })
+    
+    return result
 }

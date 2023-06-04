@@ -12,6 +12,7 @@ func getRootDirectory() -> URL {
     if let documentsPathURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         .first
     {
+        return documentsPathURL
         #if targetEnvironment(simulator)
             return documentsPathURL
         #else

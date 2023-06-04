@@ -74,20 +74,20 @@
         }
       },
       {
+        "package": "KeyboardToolbar",
+        "repositoryURL": "https://github.com/simonbs/KeyboardToolbar.git",
+        "state": {
+          "branch": null,
+          "revision": "5f95f8e9af98f6163a58caaceaadc3bf720fd7bd",
+          "version": "0.1.1"
+        }
+      },
+      {
         "package": "MarkdownView",
         "repositoryURL": "https://github.com/thebaselab/MarkdownView",
         "state": {
           "branch": "master",
           "revision": "bf73bf35a97ec6c63c4d73d99a7273858ebf3be5",
-          "version": null
-        }
-      },
-      {
-        "package": "MarqueeLabel",
-        "repositoryURL": "https://github.com/cbpowell/MarqueeLabel",
-        "state": {
-          "branch": "master",
-          "revision": "980925156200e94062e31db9e203f535c05b27ee",
           "version": null
         }
       },
@@ -101,15 +101,6 @@
         }
       },
       {
-        "package": "Pipable",
-        "repositoryURL": "https://github.com/ColdGrub1384/Pipable",
-        "state": {
-          "branch": "main",
-          "revision": "657043e43cec85552590ad10cca4fd2b2bebcc86",
-          "version": null
-        }
-      },
-      {
         "package": "Quick",
         "repositoryURL": "https://github.com/Quick/Quick.git",
         "state": {
@@ -119,12 +110,39 @@
         }
       },
       {
+        "package": "Runestone",
+        "repositoryURL": "https://github.com/simonbs/Runestone.git",
+        "state": {
+          "branch": "main",
+          "revision": "599d8ae6cf3b5c0e80c223c225a3e327822f26e4",
+          "version": null
+        }
+      },
+      {
         "package": "swift-crypto",
         "repositoryURL": "https://github.com/apple/swift-crypto",
         "state": {
           "branch": null,
           "revision": "ddb07e896a2a8af79512543b1c7eb9797f8898a5",
           "version": "1.1.7"
+        }
+      },
+      {
+        "package": "SwiftTerm",
+        "repositoryURL": "https://github.com/migueldeicaza/SwiftTerm.git",
+        "state": {
+          "branch": null,
+          "revision": "0d31c2eea98e65ff1a34ec4a312099a8c25958b2",
+          "version": "1.2.1"
+        }
+      },
+      {
+        "package": "TreeSitterLanguages",
+        "repositoryURL": "https://github.com/simonbs/TreeSitterLanguages.git",
+        "state": {
+          "branch": "main",
+          "revision": "7a186fe6f5ca6cb0ca332004b8f54b0fcea59212",
+          "version": null
         }
       },
       {

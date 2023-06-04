@@ -14,6 +14,7 @@ import ios_system
 private func command(args: [String]) -> Int32 {
     let ntidentifier = String.init(cString: ios_getContext().assumingMemoryBound(to: Int8.self), encoding: .utf8)!
     
+
     var ended = false
 
     // We use a private API here to launch an extension programatically
@@ -58,14 +59,25 @@ private func command(args: [String]) -> Int32 {
             }
         } as RequestCompletionBlock)
 
-    let workingDir = FileManager.default.currentDirectoryPath
+    let workingDir = ios_getLogicalPWD(ntidentifier.utf8CString) ?? FileManager.default.currentDirectoryPath
+    let workspace = String.init(cString: ios_getenv("WORKSPACE"), encoding: .utf8) ?? workingDir
     guard let bookmark = try? URL(fileURLWithPath: workingDir).bookmarkData() else {
+        return 0
+    }
+    guard let wbookmark = try? URL(fileURLWithPath: workspace).bookmarkData() else {
         return 0
     }
 
     let item = NSExtensionItem()
 
-    item.userInfo = ["workingDirectoryBookmark": bookmark, "args": args, "identifier": ntidentifier]
+    item.userInfo = [
+        "workingDirectoryBookmark": bookmark,
+        "args": args,
+        "identifier": ntidentifier,
+        "workspace": wbookmark,
+        "COLUMNS": String(cString: ios_getenv("COLUMNS"), encoding: .utf8) ?? "80",
+        "LINES": String(cString: ios_getenv("LINES"), encoding: .utf8) ?? "80",
+    ]
     
     ext.beginExtensionRequestWithInputItems(
         [item],
@@ -88,11 +100,15 @@ public func python3(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer
 //    return Py_BytesMain(argc, argv)
     let args = convertCArguments(argc: argc, argv: argv)!
 
-//    if args.count == 1 {
-//        fputs("Welcome to Node.js v16.17.0. \nREPL is unavailable in Code App.\n", thread_stderr)
-//        return 1
-//    }
+    return command(args: args)
     
+//    python3_run(argc, argv)
+}
+
+@_cdecl("pro")
+public func pro(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    var args = convertCArguments(argc: argc, argv: argv)!
+    args.removeFirst()
     return command(args: args)
 }
 
@@ -121,4 +137,35 @@ public func python3(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer
 public func backgroundCmdQueue(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
     
     return command(args: ["backgroundCmdQueue"])
+}
+
+
+private func uicommand(args: [String]) -> Int32 {
+    let ntidentifier = String.init(cString: ios_getContext().assumingMemoryBound(to: Int8.self), encoding: .utf8)!
+    
+    
+    var ended = false
+    
+    let workingDir = ios_getLogicalPWD(ntidentifier.utf8CString) ?? FileManager.default.currentDirectoryPath
+    let workspace = String.init(cString: ios_getenv("WORKSPACE"), encoding: .utf8) ?? workingDir
+    guard let bookmark = try? URL(fileURLWithPath: workingDir).bookmarkData() else {
+        return 0
+    }
+    guard let wbookmark = try? URL(fileURLWithPath: workspace).bookmarkData() else {
+        return 0
+    }
+
+    let userInfo: [String: Any] = [
+        "workingDirectoryBookmark": bookmark,
+        "args": args,
+        "identifier": ntidentifier,
+        "workspace": wbookmark,
+        "COLUMNS": String(cString: ios_getenv("COLUMNS"), encoding: .utf8) ?? "80",
+        "LINES": String(cString: ios_getenv("LINES"), encoding: .utf8) ?? "80",
+    ]
+    let item = NSKeyedArchiver.archivedData(withRootObject: userInfo)
+    
+    let toVC = UIActivityViewController(activityItems: [item], applicationActivities: nil)
+//    present(toVC, animated: true, completion: nil)
+    return 0
 }

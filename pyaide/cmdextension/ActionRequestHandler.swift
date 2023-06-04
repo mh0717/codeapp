@@ -36,27 +36,55 @@ class OutputListener {
     var stdout_file: UnsafeMutablePointer<FILE>?
     var stderr_file: UnsafeMutablePointer<FILE>?
     
-    /// Buffers strings written to stdout
-    var contents = ""
-    
     let stdoutFileDescriptor = FileHandle.standardOutput.fileDescriptor
     let stderrFileDescriptor = FileHandle.standardError.fileDescriptor
     
     let coordinator = NSFileCoordinator(filePresenter: nil)
     
+    var isClosed = false
+    var stdoutBuffer = Data()
+    var stdoutIndex = 1
+    var stderrBuffer = Data()
+    
     init(context: NSExtensionContext) {
         let ncid = (context.inputItems.first as? NSExtensionItem)?.userInfo?["identifier"] as! String
         
-        // Set up a read handler which fires when data is written to our inputPipe
-        inputPipe.fileHandleForReading.readabilityHandler = { [weak self] fileHandle in
-            guard let strongSelf = self else { return }
-            
-            let data = fileHandle.availableData
-            if let string = String(data: data, encoding: String.Encoding.utf8) {
-                wmessager.passMessage(message: string, identifier: "\(ncid).stdout")
+        DispatchQueue.main.async {
+            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) {[weak self] timer in
+                guard let self = self else {
+                    timer.invalidate()
+                    return
+                }
+                if (!self.stdoutBuffer.isEmpty) {
+                    let buffer = self.stdoutBuffer
+                    self.stdoutBuffer = Data()
+//                    let path = FileManager.default.currentDirectoryPath.appendingPathComponent(path: "ext\(self.stdoutIndex).txt")
+//                    try? buffer.write(to: URL(fileURLWithPath: path), options: .atomic)
+                    binaryWMessager.passMessage(message: buffer, identifier: "\(ncid).\(self.stdoutIndex).stdout")
+//                    self.stdoutBuffer = Data()
+                    
+                    if (self.stdoutIndex == 5) {
+                        self.stdoutIndex = 1
+                    }
+                    else {
+                        self.stdoutIndex += 1
+                    }
+                }
             }
+        }
+        // Set up a read handler which fires when data is written to our inputPipe
+        inputPipe.fileHandleForReading.readabilityHandler = { fileHandle in
+            let data = fileHandle.availableData
+            DispatchQueue.main.async {
+                self.stdoutBuffer.append(data)
+            }
+            
+            
+//            if let string = String(data: data, encoding: String.Encoding.utf8) {
+//                wmessager.passMessage(message: string, identifier: "\(ncid).stdout")
+//            }
             // Write input back to stdout
-            strongSelf.outputPipe.fileHandleForWriting.write(data)
+//            strongSelf.outputPipe.fileHandleForWriting.write(data)
         }
         
         
@@ -70,22 +98,37 @@ class OutputListener {
             }
             
             // Write input back to stdout
-            strongSelf.outputErrorPipe.fileHandleForWriting.write(data)
+//            strongSelf.outputErrorPipe.fileHandleForWriting.write(data)
         }
         
         wmessager.listenForMessage(withIdentifier: "\(ncid).input") { [self] msg in
-            var msgstr = (msg as? String) ?? ""
+            let msgstr = (msg as? String) ?? ""
             let msgdata = msgstr.data(using: .utf8)!
-            myinputPipe.fileHandleForWriting.write(msgdata)
+            Thread.detachNewThread { [self] in
+                myinputPipe.fileHandleForWriting.write(msgdata)
+            }
         }
+        
+        wmessager.listenForMessage(withIdentifier: "\(ncid).winsize") { msg in
+            guard let msg = msg as? String, msg.contains(":") else {return}
+            let size = msg.split(separator: ":")
+            let COLUMNS: String = String(size.first ?? "80")
+            let LINES: String = String(size.last ?? "80")
+            
+            setenv("COLUMNS", COLUMNS, 1)
+            setenv("LINES", LINES, 1)
+            ios_setWindowSize(Int32(COLUMNS) ?? 80, Int32(LINES) ?? 80, ncid.toCString())
+        }
+        
+        
         
         stdin_file = fdopen(myinputPipe.fileHandleForReading.fileDescriptor, "r")
         stdout_file = fdopen(inputPipe.fileHandleForWriting.fileDescriptor, "w")
         stderr_file = fdopen(inputErrorPipe.fileHandleForWriting.fileDescriptor, "w")
         
-        setvbuf(stdin_file, nil, _IONBF, 1024);
-        setvbuf(stdout_file, nil, _IONBF, 1024);
-        setvbuf(stderr_file, nil, _IONBF, 1024);
+        setvbuf(stdin_file, nil, _IOLBF, 1024);
+        setvbuf(stdout_file, nil, _IOLBF, 10240);
+        setvbuf(stderr_file, nil, _IOLBF, 1024);
     }
     
     /// Sets up the "tee" of piped output, intercepting stdout then passing it through.
@@ -125,13 +168,14 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
             return
         }
         
-        numPythonInterpreters = 3
+        numPythonInterpreters = 1
         
         replaceCommand("backgroundCmdQueue", "backgroundCmdQueue", true)
         replaceCommand("python3", "python3", true)
-        replaceCommand("pythonA", "pythonA", true)
-        replaceCommand("pythonB", "pythonB", true)
+//        replaceCommand("pythonA", "pythonA", true)
+//        replaceCommand("pythonB", "pythonB", true)
         replaceCommand("mhecho", "mhecho", true)
+        replaceCommand("six", "six", true)
         
 //        joinMainThread = false
         
@@ -158,6 +202,9 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
         setenv("PYTHONUSERBASE", libraryURL.path.toCString(), 1)
         setenv("APPDIR", pybundle.deletingLastPathComponent().path.toCString(), 1)
         
+        // matplotlib backend
+        setenv("MPLBACKEND", "module://backend_ios", 1);
+        
         // Do not call super in an Action extension with no user interface
         self.extensionContext = context
         
@@ -180,10 +227,33 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
         _ = url.startAccessingSecurityScopedResource()
         FileManager.default.changeCurrentDirectoryPath(url.path)
         
+//        workspace": wbookmark,
+//        "COLUMNS": String(cString: ios_getenv("COLUMNS"), encoding: .utf8) ?? "80",
+//        "LINES"
+        if let wdata = item.userInfo?["workspace"] as? Data {
+            let url = try! URL(resolvingBookmarkData: wdata, bookmarkDataIsStale: &isStale)
+            _ = url.startAccessingSecurityScopedResource()
+        }
+        
         
         guard let args = item.userInfo?["args"] as? [String] else {
             return
         }
+        
+//        guard let appGroupContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.mh.Python3IDE") else {
+//            return
+//        }
+//        let path = appGroupContainer.appendingPathComponent("protest.txt").path
+//
+//        let tqueue = DispatchQueue(label: "test process")
+//        tqueue.async {
+//            let fileHandle = FileHandle(forReadingAtPath: path)
+//            fileHandle?.readabilityHandler = { handler in
+//                if let data = fileHandle?.availableData {
+//                  print(String(data: data, encoding: .utf8))
+//                }
+//            }
+//        }
         
         
         
@@ -204,19 +274,30 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
         ios_switchSession(ncid.toCString())
         ios_setContext(UnsafeMutableRawPointer(mutating: ncid.toCString()))
         ios_setStreams(output.stdin_file, output.stdout_file, output.stdout_file)
+        if let COLUMNS = item.userInfo?["COLUMNS"] as? String,
+            let LINES = item.userInfo?["LINES"] as? String {
+            setenv("COLUMNS", COLUMNS, 1)
+            setenv("LINES", LINES, 1)
+            ios_setWindowSize(Int32(COLUMNS) ?? 80, Int32(LINES) ?? 80, ncid.toCString())
+        }
         
         
         let ret = run(command: args.joined(separator: " "))
-        sleep(1)
-        
+//        sleep(1)
+        usleep(1000*100)
+        fflush(thread_stdout)
+        fflush(thread_stderr)
+//        sleep(1)
+        usleep(1000*100)
+        output.closeConsolePipe()
         
         self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
         
-        sleep(5)
-        output.closeConsolePipe()
+        sleep(1)
         self.extensionContext = nil
-        
         real_exit(vlaue: 0)
+        
+        
         
 //        DispatchQueue.global(qos: .default).async {
 ////            NodeRunner.startEngine(withArguments: args)

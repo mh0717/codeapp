@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import KeyboardToolbar
+
+
 
 class PTTextEditorView: UIView {
     let label = UILabel(frame: CGRectZero)
@@ -46,7 +49,6 @@ import SourceEditor
 import SavannaKit
 import InputAssistant
 import IntentsUI
-import MarqueeLabel
 import SwiftUI
 import Highlightr
 import AVKit
@@ -500,7 +502,7 @@ public class EditorTextView: LineNumberTextView, UITextViewDelegate {
 
 
 
-@objc public class PTCodeTextView: UIView, InputAssistantViewDelegate, InputAssistantViewDataSource, UITextViewDelegate {
+@objc public class PTCodeTextView: UIView, UITextViewDelegate {
     
     /// Returns string used for indentation
     static var indentation: String {
@@ -567,15 +569,9 @@ public class EditorTextView: LineNumberTextView, UITextViewDelegate {
         return textView.layoutManager.textStorage as? CodeAttributedString
     }
     
-    /// The Input assistant view containing `suggestions`.
-    var inputAssistant = InputAssistantView()
-    
     
     /// The line number where an error occurred. If this value is set at `viewDidAppear(_:)`, the error will be shown and the value will be reset to `nil`.
     var lineNumberError: Int?
-    
-    
-    @objc private var lastCodeFromCompletions: String?
     
     /// Returns the text of the text view from any thread.
     @objc var text: String {
@@ -602,14 +598,21 @@ public class EditorTextView: LineNumberTextView, UITextViewDelegate {
     
     open var edgesForExtendedLayout: UIRectEdge?
     
-    
+    private var inputAssistantView: PTInputAssistantView?
     /// Initialize with given document.
     ///
     /// - Parameters:
     ///     - document: The document to be edited.
     init(frame: CGRect, editor: TextEditorInstance) {
+        
         super.init(frame: frame)
+        
+        
         self.editor = editor
+        
+        self.inputAssistantView = PTInputAssistantView(textView: self.textView)
+        self.textView.inputAccessoryView = self.inputAssistantView!
+        self.textView.reloadInputViews()
         
         addSubview(textView)
         setup(theme: Themes.first!.value)
@@ -624,16 +627,16 @@ public class EditorTextView: LineNumberTextView, UITextViewDelegate {
 //            let label = MarqueeLabel(frame: .zero, rate: 100, fadeLength: 1)
 //            return label
 //        }
-        inputAssistant.dataSource = self
-        inputAssistant.delegate = self
-        
+//        inputAssistant.dataSource = self
+//        inputAssistant.delegate = self
+//
         completionsHostingController = UIHostingController(rootView: CompletionsView(manager: codeCompletionManager))
         completionsHostingController.view.isHidden = true
-
-//        codeCompletionManager.editor = self
-        codeCompletionManager.didSelectSuggestion = { [weak self] index in
-            self?.inputAssistantView(self!.inputAssistant, didSelectSuggestionAtIndex: index)
-        }
+//
+////        codeCompletionManager.editor = self
+//        codeCompletionManager.didSelectSuggestion = { [weak self] index in
+//            self?.inputAssistantView(self!.inputAssistant, didSelectSuggestionAtIndex: index)
+//        }
 
         edgesForExtendedLayout = []
 
@@ -660,7 +663,6 @@ public class EditorTextView: LineNumberTextView, UITextViewDelegate {
         
         textView.isHidden = false
         
-        textView.inputAccessoryView = nil
         textView.font = PTCodeTextView.font.withSize(CGFloat(ThemeFontSize))
         textStorage?.highlightr.theme.codeFont = textView.font
         
@@ -702,19 +704,6 @@ public class EditorTextView: LineNumberTextView, UITextViewDelegate {
 //        if parent?.superclass?.isSubclass(of: EditorSplitViewController.self) == false {
 //            (parent as? EditorSplitViewController)?.separatorColor = theme.sourceCodeTheme.color(for: .plain).withAlphaComponent(0.5)
 //        }
-        
-        textView.inputAccessoryView = nil
-
-        inputAssistant = InputAssistantView()
-        inputAssistant.delegate = self
-        inputAssistant.dataSource = self
-        inputAssistant.leadingActions = [InputAssistantAction(image: UIImage(systemName: "arrow.forward.to.line") ?? UIImage(), target: self, action: #selector(insertTab))]
-        if !(traitCollection.horizontalSizeClass == .regular && traitCollection.verticalSizeClass == .regular) {
-            inputAssistant.attach(to: textView)
-        }
-        inputAssistant.trailingActions = [InputAssistantAction(image: PTCodeTextView.downArrow, target: textView, action: #selector(textView.resignFirstResponder))]
-        
-        textView.reloadInputViews()
     }
     
 //    /// Called when the user choosed a theme.
@@ -1789,8 +1778,8 @@ public class EditorTextView: LineNumberTextView, UITextViewDelegate {
 
         docString = nil
 
-        if text == "\n", currentSuggestionIndex != -1, completionsHostingController.view.isHidden {
-            inputAssistantView(inputAssistant, didSelectSuggestionAtIndex: 0)
+        if text == "\n", let inputAssistantView = self.inputAssistantView, inputAssistantView.currentSuggestionIndex != -1, completionsHostingController.view.isHidden {
+            inputAssistantView.inputAssistantView(inputAssistantView.completionView, didSelectSuggestionAtIndex: inputAssistantView.currentSuggestionIndex)
             return false
         }
 
@@ -2011,12 +2000,12 @@ public class EditorTextView: LineNumberTextView, UITextViewDelegate {
     }
 
     public func textViewDidBeginEditing(_ textView: UITextView) {
-        if (!CompletionService.instance.serviceRunning) {
-            if let dir = (editor as? PTTextEditorInstance)?.app?.workSpaceStorage.currentDirectory.url {
-                FileManager.default.changeCurrentDirectoryPath(dir)
-            }
-            CompletionService.instance.startService()
-        }
+//        if (!CompletionService.instance.serviceRunning) {
+//            if let dir = (editor as? PTTextEditorInstance)?.app?.workSpaceStorage.currentDirectory.url {
+//                FileManager.default.changeCurrentDirectoryPath(dir)
+//            }
+//            CompletionService.instance.startService()
+//        }
         
 //        if let console = (parent as? EditorSplitViewController)?.console, !ConsoleViewController.visibles.contains(console) {
 //            ConsoleViewController.visibles.append(console)
@@ -2192,30 +2181,22 @@ public class EditorTextView: LineNumberTextView, UITextViewDelegate {
 //        return definitions
 //    }
 
-    private var currentSuggestionIndex = -1 {
-        didSet {
-            DispatchQueue.main.async { [weak self] in
-                self?.inputAssistant.reloadData()
-            }
-        }
-    }
-
     @objc private static var codeToComplete = ""
 
     /// Selects a suggestion from hardware tab key.
     @objc func nextSuggestion() {
-        guard numberOfSuggestionsInInputAssistantView() != 0 else {
-            return
-        }
+        guard let inputAssistantView = self.inputAssistantView else {return}
         
-        guard let result = self.completionResult else {return}
+        guard let result = inputAssistantView.completionResult else {return}
+        
+        if (inputAssistantView.numberOfSuggestionsInInputAssistantView() <= 0) {return}
 
-        let new = currentSuggestionIndex+1
+            let new = inputAssistantView.currentSuggestionIndex+1
 
         if result.suggestions.indices.contains(new) {
-            currentSuggestionIndex = new
+            inputAssistantView.currentSuggestionIndex = new
         } else {
-            currentSuggestionIndex = -1
+            inputAssistantView.currentSuggestionIndex = -1
         }
     }
 
@@ -2223,8 +2204,6 @@ public class EditorTextView: LineNumberTextView, UITextViewDelegate {
     @objc static var isCompleting = false
 
     let codeCompletionManager = CodeCompletionManager()
-    
-    var completionResult: CompletionResult?
 
     private var _signature = ""
 
@@ -2439,7 +2418,6 @@ public class EditorTextView: LineNumberTextView, UITextViewDelegate {
 
         switch editor!.url.pathExtension.lowercased() {
         case "c", "cpp", "cxx", "m", "mm":
-            completionResult = nil
             completionsHostingController.view.isHidden = true
             codeCompletionManager.selectedIndex = -1
 
@@ -2490,13 +2468,13 @@ public class EditorTextView: LineNumberTextView, UITextViewDelegate {
 
         if !force && !getDefinitions {
             guard let line = textView.currentLine, !line.isEmpty else {
-                self.completionResult = nil
                 self.signature = ""
                 codeCompletionManager.docStrings = [:]
                 codeCompletionManager.signatures = [:]
                 completionsHostingController.view.isHidden = true
                 codeCompletionManager.selectedIndex = -1
-                return inputAssistant.reloadData()
+                self.inputAssistantView?.reloadCompletion(result: nil)
+                return
             }
         }
 
@@ -2525,11 +2503,14 @@ public class EditorTextView: LineNumberTextView, UITextViewDelegate {
         Task.init {
             guard let editor = self.editor else {return}
             
-            if let result = await CompletionService.instance.requestCompletion(vid: editor.currentVersionId, path: editor.url.path, index: location), result.vid == editor.currentVersionId {
-                self.completionResult = result
-                self.lastCodeFromCompletions = self.text
-                self.currentSuggestionIndex = -1
-                self.inputAssistant.reloadData()
+//            if let result = await CompletionService.instance.requestCompletion(vid: editor.currentVersionId, path: editor.url.path, index: location), result.vid == editor.currentVersionId {
+//                self.inputAssistantView?.reloadCompletion(result: result)
+//            }
+            
+            let result = await completeCode(code: editor.content, path: editor.url.path, index: location, getdef: getDefinitions, vid: editor.currentVersionId)
+            
+            if result?.vid == editor.currentVersionId {
+                self.inputAssistantView?.reloadCompletion(result: result)
             }
                 
             
@@ -2581,156 +2562,6 @@ public class EditorTextView: LineNumberTextView, UITextViewDelegate {
 
     @objc func toggleCompletionsView(_ sender: Any) {
         completionsHostingController.view.isHidden.toggle()
-    }
-
-    // MARK: - Input assistant view delegate
-
-    public func inputAssistantView(_ inputAssistantView: InputAssistantView, didSelectSuggestionAtIndex index: Int) {
-        guard let result = self.completionResult else {return}
-        guard result.completions.indices.contains(index), result.suggestions.indices.contains(index) else {
-            currentSuggestionIndex = -1
-            return
-        }
-
-        var completion = result.completions[index]
-        var suggestion = result.suggestions[index]
-
-        let isFuzzy: Bool
-        if completion == "__is_fuzzy__" {
-            completion = suggestion
-            isFuzzy = true
-        } else {
-            isFuzzy = false
-        }
-
-        var isParam = false
-
-        if suggestion.hasSuffix("=") {
-            suggestion.removeLast()
-            isParam = true
-        }
-
-        if isFuzzy, let wordRange = textView.currentWordWithUnderscoreRange {
-            let location = textView.offset(from: textView.beginningOfDocument, to: wordRange.start)
-            let length = textView.offset(from: wordRange.start, to: wordRange.end)
-            let nsRange = NSRange(location: location, length: length)
-            var text = textView.text as NSString
-            text = text.replacingCharacters(in: nsRange, with: "") as NSString
-            textView.text = text as String
-
-            textView.selectedTextRange = textView.textRange(from: wordRange.start, to: wordRange.start)
-        }
-
-        let selectedRange = textView.selectedRange
-
-        let location = selectedRange.location-(suggestion.count-completion.count)
-        let length = suggestion.count-completion.count
-
-        /*
-
-         hello_w HELLO_WORLD ORLD
-
-         */
-
-        let iDonTKnowHowToNameThisVariableButItSSomethingWithTheSelectedRangeButFromTheBeginingLikeTheEntireSelectedWordWithUnderscoresIncluded = NSRange(location: location, length: length)
-
-        textView.selectedRange = iDonTKnowHowToNameThisVariableButItSSomethingWithTheSelectedRangeButFromTheBeginingLikeTheEntireSelectedWordWithUnderscoresIncluded
-
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.1) { [weak self] in
-
-            guard let self = self else {
-                return
-            }
-
-            self.textView.insertText(suggestion)
-            if suggestion.hasSuffix("(") {
-                let range = self.textView.selectedRange
-                self.textView.insertText(")")
-                self.textView.selectedRange = range
-            }
-
-            if isParam {
-                self.textView.insertText("=")
-            }
-        }
-
-        completionsHostingController.view.isHidden = true
-
-        currentSuggestionIndex = -1
-    }
-
-    // MARK: - Input assistant view data source
-
-    public func textForEmptySuggestionsInInputAssistantView() -> String? {
-        nil
-    }
-
-    public func numberOfSuggestionsInInputAssistantView() -> Int {
-        guard let result = self.completionResult else {return 0}
-        #if !targetEnvironment(simulator)
-        guard editor?.url.pathExtension.lowercased() == "html" || lastCodeFromCompletions == text else {
-            return 0
-        }
-        #endif
-
-        #if !SCREENSHOTS
-        if let currentTextRange = textView.selectedTextRange {
-
-            var range = textView.selectedRange
-
-            if range.length > 1 {
-                return 0
-            }
-
-            if textView.text(in: currentTextRange) == "" {
-
-                range.length += 1
-
-                let word = textView.currentWord?.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\t", with: "")
-
-                if word == "\"\"\"" || word == "'''" {
-                    return 0
-                } else if word?.isEmpty != false {
-
-                    range.location -= 1
-
-                    if let range = range.toTextRange(textInput: textView), [
-                        "(",
-                        "[",
-                        "{"
-                    ].contains(textView.text(in: range) ?? "") {
-                        return result.suggestions.count
-                    } else if let currentLineStart = textView.currentLineRange?.start, let cursor = textView.selectedTextRange?.start, let range = textView.textRange(from: currentLineStart, to: cursor), let text = textView.text(in: range), text.replacingOccurrences(of: " ", with: "").hasSuffix(","), cursor != textView.currentLineRange?.end {
-                        return result.suggestions.count
-                    } else {
-                        return 0
-                    }
-                }
-
-                range.location -= 1
-                if let textRange = range.toTextRange(textInput: textView), let word = textView.word(in: range), let last = word.last, String(last) != textView.text(in: textRange) {
-                    return 0
-                }
-            }
-        }
-        #endif
-
-        return result.suggestions.count
-    }
-
-    public func inputAssistantView(_ inputAssistantView: InputAssistantView, nameForSuggestionAtIndex index: Int) -> String {
-        guard let result = self.completionResult else {return ""}
-        let suffix: String = ((currentSuggestionIndex != -1 && index == 0) ? " ⤶" : "")
-
-        guard result.suggestions.indices.contains(index) else {
-            return ""
-        }
-
-        if result.suggestions[index].hasSuffix("(") {
-            return "()"+suffix
-        }
-
-        return result.suggestions[index]+suffix
     }
 
 //    // MARK: - Document picker delegate
