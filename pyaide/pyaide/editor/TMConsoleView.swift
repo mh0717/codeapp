@@ -27,20 +27,19 @@ class TMConsoleView: UIView, TerminalViewDelegate {
         self.executor = Executor(
             root: root,
             onStdout: { [weak self] data in
-                self?.terminalView.feed(byteArray: [UInt8](data)[0..<data.count])
+                self?.feed(data)
             },
             onStderr: { [weak self] data in
-                self?.terminalView.feed(byteArray: [UInt8](data)[0..<data.count])
+                self?.feed(data)
             },
             onRequestInput: { [weak self] prompt in
                 let prompt = prompt.replacingOccurrences(of: "\n", with: "\r\n")
-                self?.terminalView.feed(text: prompt)
-//                DispatchQueue.main.async {
-//                    self?.terminalView.feed(text: prompt)
-//                }
+                if let data = prompt.data(using: .utf8) {
+                    self?.feed(data)
+                }
             })
 //        var buffer = Data()
-        for i in 1...5 {
+        /*for i in 1...5 {
             let tid = "\(self.executor!.persistentIdentifier).\(i).stdout"
             binaryWMessager.listenForMessage(withIdentifier: tid) { [weak self] msg in
 //                print("tid: \(tid)")
@@ -68,7 +67,7 @@ class TMConsoleView: UIView, TerminalViewDelegate {
 //                    }
                 }
             }
-        }
+        }*/
         
         
         setupView()
@@ -97,14 +96,6 @@ class TMConsoleView: UIView, TerminalViewDelegate {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    deinit {
-        if let executor = self.executor {
-            wmessager.passMessage(message: nil, identifier: "\(executor.persistentIdentifier).stop")
-            wmessager.stopListeningForMessage(withIdentifier: "\(executor.persistentIdentifier).stdout")
-        }
-        
     }
     
     func setupView() {
@@ -146,6 +137,20 @@ class TMConsoleView: UIView, TerminalViewDelegate {
         
     }
     
+    private var buffer = Data()
+    private func feed(_ data: Data) {
+        self.terminalView.feed(byteArray: [UInt8](data)[...])
+        print([UInt8](data[(data.count - 6)...]))
+        return
+        if (self.buffer.isEmpty) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.terminalView.feed(byteArray: [UInt8](self.buffer)[...])
+                self.buffer = Data()
+            }
+        }
+        self.buffer += data
+    }
+    
     func readLine() {
         if executor?.state == .idle {
             terminalView.feed(text: executor?.prompt ?? "")
@@ -155,13 +160,11 @@ class TMConsoleView: UIView, TerminalViewDelegate {
     func handleLine(_ line: String) {
         if self.executor?.state == .interactive {
             self.executor?.sendInput(input: line + "\n")
-            wmessager.passMessage(message: line + "\n", identifier: "\(self.executor!.persistentIdentifier).input")
             return
         }
 
         if self.executor?.state == .running {
             self.executor?.sendInput(input: line + "\n")
-            wmessager.passMessage(message: line + "\n", identifier: "\(self.executor!.persistentIdentifier).input")
             return
         }
         
@@ -198,7 +201,7 @@ extension TMConsoleView {
 //        setenv("COLUMNS", "\(newCols - 5)", 1)
         self.executor?.winsize = (newCols, newRows)
         ios_setWindowSize(Int32(newCols), Int32(newRows), self.executor?.persistentIdentifier.utf8CString)
-        wmessager.passMessage(message: "\(newCols):\(newRows)", identifier: "\(self.executor?.persistentIdentifier ?? "").winsize")
+        wmessager.passMessage(message: "\(newCols):\(newRows)", identifier: "\(self.executor?.remoteIdentifier ?? "").winsize")
     }
     
     func setTerminalTitle(source: SwiftTerm.TerminalView, title: String) {
@@ -362,7 +365,7 @@ extension TMConsoleView {
     
     private func _interrupt() {
         guard let executor = self.executor else {return}
-        wmessager.passMessage(message: nil, identifier: "\(executor.persistentIdentifier).stop")
+        wmessager.passMessage(message: nil, identifier: "\(executor.remoteIdentifier).stop")
         
         self.executor?.kill()
     }

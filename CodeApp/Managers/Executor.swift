@@ -17,8 +17,9 @@ class Executor {
     }
 
     public lazy var persistentIdentifier: String = {
-        return "com.thebaselab.terminal." + UUID().uuidString
+        return "com.pyaide.terminal." + UUID().uuidString
     }()
+    public var remoteIdentifier = ""
 //    public let persistentIdentifier: String = "com.thebaselab.terminal"
     private var pid: pid_t? = nil
 
@@ -179,7 +180,7 @@ class Executor {
             completionHandler(0)
             return
         }
-
+        self.remoteIdentifier = "com.pyaide.terminal.\(UUID().uuidString)"
         var stdin_pipe = Pipe()
         stdin_file = fdopen(stdin_pipe.fileHandleForReading.fileDescriptor, "r")
         while stdin_file == nil {
@@ -212,7 +213,7 @@ class Executor {
             Thread.current.name = command
 //            print(self.persistentIdentifier.toCString())
             ios_switchSession(self.persistentIdentifier.toCString())
-            ios_setContext(UnsafeMutableRawPointer(mutating: self.persistentIdentifier.toCString()))
+            ios_setContext(UnsafeMutableRawPointer(mutating: self.remoteIdentifier.toCString()))
             ios_setStreams(self.stdin_file, self.stdout_file, self.stdout_file)
             let winsize = self.winsize
             ios_setWindowSize(Int32(winsize.0), Int32(winsize.1), self.persistentIdentifier.utf8CString)

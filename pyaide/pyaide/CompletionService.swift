@@ -229,9 +229,11 @@ class CompletionService {
 private let _completionQueue = DispatchQueue(label: "completion.queue")
 //private var _nextRequest: (UnsafeContinuation<CompletionResult?, Never>, ()->CompletionResult?)? = nil
 func completeCode(code: String, path: String, index: Int, getdef: Bool, vid: Int) async -> CompletionResult? {
-    return nil
+//    return nil
     let result = await withUnsafeContinuation({ continuation in
         _completionQueue.async {
+            thread_stdout = stdout
+            thread_stderr = stderr
             let str = pycompleteCode(code, path, Int32(index), getdef, Int32(vid), UUID().uuidString)
             let result = CompletionResult.parseJson(jsonstr: str)
             continuation.resume(returning: result)

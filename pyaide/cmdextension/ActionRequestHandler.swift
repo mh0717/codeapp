@@ -15,6 +15,34 @@ import ios_system
 let sharedURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.mh.Python3IDE")!
 
 
+@propertyWrapper
+struct Atomic<Value> {
+
+    private var value: Value
+    private let lock = NSLock()
+
+    init(wrappedValue value: Value) {
+        self.value = value
+    }
+
+    var wrappedValue: Value {
+      get { return load() }
+      set { store(newValue: newValue) }
+    }
+
+    func load() -> Value {
+        lock.lock()
+        defer { lock.unlock() }
+        return value
+    }
+
+    mutating func store(newValue: Value) {
+        lock.lock()
+        defer { lock.unlock() }
+        value = newValue
+    }
+}
+
 
 class OutputListener {
     /// consumes the messages on STDOUT
@@ -39,96 +67,14 @@ class OutputListener {
     let stdoutFileDescriptor = FileHandle.standardOutput.fileDescriptor
     let stderrFileDescriptor = FileHandle.standardError.fileDescriptor
     
-    let coordinator = NSFileCoordinator(filePresenter: nil)
-    
-    var isClosed = false
-    var stdoutBuffer = Data()
-    var stdoutIndex = 1
-    var stderrBuffer = Data()
-    
     init(context: NSExtensionContext) {
-        let ncid = (context.inputItems.first as? NSExtensionItem)?.userInfo?["identifier"] as! String
-        
-        DispatchQueue.main.async {
-            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) {[weak self] timer in
-                guard let self = self else {
-                    timer.invalidate()
-                    return
-                }
-                if (!self.stdoutBuffer.isEmpty) {
-                    let buffer = self.stdoutBuffer
-                    self.stdoutBuffer = Data()
-//                    let path = FileManager.default.currentDirectoryPath.appendingPathComponent(path: "ext\(self.stdoutIndex).txt")
-//                    try? buffer.write(to: URL(fileURLWithPath: path), options: .atomic)
-                    binaryWMessager.passMessage(message: buffer, identifier: "\(ncid).\(self.stdoutIndex).stdout")
-//                    self.stdoutBuffer = Data()
-                    
-                    if (self.stdoutIndex == 5) {
-                        self.stdoutIndex = 1
-                    }
-                    else {
-                        self.stdoutIndex += 1
-                    }
-                }
-            }
-        }
-        // Set up a read handler which fires when data is written to our inputPipe
-        inputPipe.fileHandleForReading.readabilityHandler = { fileHandle in
-            let data = fileHandle.availableData
-            DispatchQueue.main.async {
-                self.stdoutBuffer.append(data)
-            }
-            
-            
-//            if let string = String(data: data, encoding: String.Encoding.utf8) {
-//                wmessager.passMessage(message: string, identifier: "\(ncid).stdout")
-//            }
-            // Write input back to stdout
-//            strongSelf.outputPipe.fileHandleForWriting.write(data)
-        }
-        
-        
-        
-        inputErrorPipe.fileHandleForReading.readabilityHandler = { [weak self] fileHandle in
-            guard let strongSelf = self else { return }
-            
-            let data = fileHandle.availableData
-            if let string = String(data: data, encoding: String.Encoding.utf8) {
-                wmessager.passMessage(message: string, identifier: "\(ncid).stdout")
-            }
-            
-            // Write input back to stdout
-//            strongSelf.outputErrorPipe.fileHandleForWriting.write(data)
-        }
-        
-        wmessager.listenForMessage(withIdentifier: "\(ncid).input") { [self] msg in
-            let msgstr = (msg as? String) ?? ""
-            let msgdata = msgstr.data(using: .utf8)!
-            Thread.detachNewThread { [self] in
-                myinputPipe.fileHandleForWriting.write(msgdata)
-            }
-        }
-        
-        wmessager.listenForMessage(withIdentifier: "\(ncid).winsize") { msg in
-            guard let msg = msg as? String, msg.contains(":") else {return}
-            let size = msg.split(separator: ":")
-            let COLUMNS: String = String(size.first ?? "80")
-            let LINES: String = String(size.last ?? "80")
-            
-            setenv("COLUMNS", COLUMNS, 1)
-            setenv("LINES", LINES, 1)
-            ios_setWindowSize(Int32(COLUMNS) ?? 80, Int32(LINES) ?? 80, ncid.toCString())
-        }
-        
-        
-        
         stdin_file = fdopen(myinputPipe.fileHandleForReading.fileDescriptor, "r")
         stdout_file = fdopen(inputPipe.fileHandleForWriting.fileDescriptor, "w")
         stderr_file = fdopen(inputErrorPipe.fileHandleForWriting.fileDescriptor, "w")
         
-        setvbuf(stdin_file, nil, _IOLBF, 1024);
-        setvbuf(stdout_file, nil, _IOLBF, 10240);
-        setvbuf(stderr_file, nil, _IOLBF, 1024);
+        setvbuf(stdin_file, nil, _IONBF, 1024);
+        setvbuf(stdout_file, nil, _IONBF, 10240);
+        setvbuf(stderr_file, nil, _IONBF, 1024);
     }
     
     /// Sets up the "tee" of piped output, intercepting stdout then passing it through.
@@ -177,7 +123,7 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
         replaceCommand("mhecho", "mhecho", true)
         replaceCommand("six", "six", true)
         
-//        joinMainThread = false
+        joinMainThread = true
         
         let ncid: String = item.userInfo?["identifier"] as! String
         
@@ -212,6 +158,17 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
             real_exit(vlaue: 0)
         }
         
+        wmessager.listenForMessage(withIdentifier: "\(ncid).winsize") { msg in
+            guard let msg = msg as? String, msg.contains(":") else {return}
+            let size = msg.split(separator: ":")
+            let COLUMNS: String = String(size.first ?? "80")
+            let LINES: String = String(size.last ?? "80")
+            
+            setenv("COLUMNS", COLUMNS, 1)
+            setenv("LINES", LINES, 1)
+            ios_setWindowSize(Int32(COLUMNS) ?? 80, Int32(LINES) ?? 80, ncid.toCString())
+        }
+        
         let output = OutputListener(context: context)
         output.openConsolePipe()
         
@@ -226,10 +183,7 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
         let url = try! URL(resolvingBookmarkData: data, bookmarkDataIsStale: &isStale)
         _ = url.startAccessingSecurityScopedResource()
         FileManager.default.changeCurrentDirectoryPath(url.path)
-        
-//        workspace": wbookmark,
-//        "COLUMNS": String(cString: ios_getenv("COLUMNS"), encoding: .utf8) ?? "80",
-//        "LINES"
+
         if let wdata = item.userInfo?["workspace"] as? Data {
             let url = try! URL(resolvingBookmarkData: wdata, bookmarkDataIsStale: &isStale)
             _ = url.startAccessingSecurityScopedResource()
@@ -240,34 +194,9 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
             return
         }
         
-//        guard let appGroupContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.mh.Python3IDE") else {
-//            return
-//        }
-//        let path = appGroupContainer.appendingPathComponent("protest.txt").path
-//
-//        let tqueue = DispatchQueue(label: "test process")
-//        tqueue.async {
-//            let fileHandle = FileHandle(forReadingAtPath: path)
-//            fileHandle?.readabilityHandler = { handler in
-//                if let data = fileHandle?.availableData {
-//                  print(String(data: data, encoding: .utf8))
-//                }
-//            }
-//        }
-        
-        
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            let str = readLine()
-//            print("cmdextension echo main: \(str ?? "")\n")
-//            sleep(3)
-//        }
-        
-//        let str = readLine()
-//        print("cmdextension ec: \(str ?? "")\n")
-//        wmessager.passMessage(message: "cmdextension echo: \(str ?? "")", identifier: "\(ncid).stdout")
-        
-        print("pid: \(getpid())")
+        let END_OF_TRANSMISSION:UInt8 = 4
+        var isEnd = false
+        var shouldEnd = false
         
         ios_setDirectoryURL(url)
         Thread.current.name = args.joined(separator: " ")
@@ -281,46 +210,79 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
             ios_setWindowSize(Int32(COLUMNS) ?? 80, Int32(LINES) ?? 80, ncid.toCString())
         }
         
+        var remoteInputHandle: FileHandle? = nil
+        var remoteOutputHandle: FileHandle? = nil
         
-        let ret = run(command: args.joined(separator: " "))
-//        sleep(1)
+        let inputPath = ConstantManager.appGroupContainer.appendingPathComponent("\(ncid).input").path
+        let outputPath = ConstantManager.appGroupContainer.appendingPathComponent("\(ncid).output").path
+        let inputQueue = DispatchQueue(label: "\(ncid).input")
+        let outputQueue = DispatchQueue(label: "\(ncid).output")
+        let inputHandle = output.myinputPipe.fileHandleForWriting
+        let outputHandle = output.inputPipe.fileHandleForReading
+        
+        inputQueue.async {
+            remoteInputHandle = FileHandle(forReadingAtPath: inputPath)
+            remoteInputHandle?.readabilityHandler = {hd in
+                let data = hd.availableData
+                try? inputHandle.write(contentsOf: data)
+            }
+        }
+        outputQueue.async {
+            remoteOutputHandle = FileHandle(forWritingAtPath: outputPath)
+            
+            outputHandle.readabilityHandler = {hd in
+                var data = [UInt8](hd.availableData)[...]
+                var eof = false
+                if shouldEnd && data.last == END_OF_TRANSMISSION {
+                    if data.count == 1 {
+                        isEnd = true
+                        return
+                    }
+                    data = data[0...(data.count - 2)]
+                    eof = true
+                }
+
+                var index = 0
+                let bufferSize = 1024*4
+                while index <= data.count {
+                    
+                    if (index + bufferSize <= data.count) {
+                        try? remoteOutputHandle?.write(contentsOf: data[index..<index+bufferSize])
+                    } else {
+                        try? remoteOutputHandle?.write(contentsOf: data[index...])
+                    }
+                    index += bufferSize
+                }
+                if eof {
+                    isEnd = true
+                }
+            }
+        }
+            
+        
+        _ = run(command: args.joined(separator: " "))
+        shouldEnd = true
+        try? output.inputPipe.fileHandleForWriting.write(contentsOf: Data([END_OF_TRANSMISSION]))
+        while !isEnd {
+            fflush(thread_stdout)
+            fflush(thread_stderr)
+            usleep(1000*50)
+        }
         usleep(1000*100)
-        fflush(thread_stdout)
-        fflush(thread_stderr)
-//        sleep(1)
-        usleep(1000*100)
-        output.closeConsolePipe()
         
         self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
+        
+        output.closeConsolePipe()
+        remoteInputHandle = nil
+        remoteOutputHandle = nil
         
         sleep(1)
         self.extensionContext = nil
         real_exit(vlaue: 0)
         
-        
-        
-//        DispatchQueue.global(qos: .default).async {
-////            NodeRunner.startEngine(withArguments: args)
-//
-//            let str = readLine()
-//
-//
-//            sleep(5)
-//
-//            self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
-//
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                output.closeConsolePipe()
-//                self.extensionContext = nil
-//                exit(0)
-//            }
-//
-//        }
     }
     
     private func run(command: String) -> Int32 {
-        NSLog("Running command: \(command)")
-
         // ios_system requires these to be set to nil before command execution
         thread_stdin = nil
         thread_stdout = nil
@@ -456,3 +418,4 @@ extension String {
 //    }
 //
 //}
+

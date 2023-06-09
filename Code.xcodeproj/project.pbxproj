@@ -749,6 +749,10 @@
 		A31D2D402A29A29200A5BF09 /* python3_ios-ios.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2D3F2A29A29100A5BF09 /* python3_ios-ios.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A31D2D422A29E83700A5BF09 /* python3_ios-pyobjus.pyobjus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2D412A29E83600A5BF09 /* python3_ios-pyobjus.pyobjus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A31D2D442A2A30F800A5BF09 /* python3_ios-pygame_all.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2D432A2A30F700A5BF09 /* python3_ios-pygame_all.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A31D2D472A2CFA0800A5BF09 /* ConstantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D2D462A2CFA0700A5BF09 /* ConstantManager.swift */; };
+		A31D2D482A2CFA0800A5BF09 /* ConstantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D2D462A2CFA0700A5BF09 /* ConstantManager.swift */; };
+		A31D2D492A2CFA0800A5BF09 /* ConstantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D2D462A2CFA0700A5BF09 /* ConstantManager.swift */; };
+		A31D2D4A2A2CFA0800A5BF09 /* ConstantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D2D462A2CFA0700A5BF09 /* ConstantManager.swift */; };
 		A323BA1B2A0AA13500E10379 /* AppReceiptValidator in Frameworks */ = {isa = PBXBuildFile; productRef = A323BA1A2A0AA13500E10379 /* AppReceiptValidator */; };
 		A323BA1D2A0AA18F00E10379 /* AppReceiptValidator in Frameworks */ = {isa = PBXBuildFile; productRef = A323BA1C2A0AA18F00E10379 /* AppReceiptValidator */; };
 		A323BA202A0B16F800E10379 /* PTTextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA1F2A0B16F800E10379 /* PTTextEditorView.swift */; };
@@ -2515,6 +2519,7 @@
 		A31D2D412A29E83600A5BF09 /* python3_ios-pyobjus.pyobjus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-pyobjus.pyobjus.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-pyobjus.pyobjus.framework"; sourceTree = "<group>"; };
 		A31D2D432A2A30F700A5BF09 /* python3_ios-pygame_all.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-pygame_all.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-pygame_all.framework"; sourceTree = "<group>"; };
 		A31D2D452A2A344F00A5BF09 /* freetype.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = freetype.framework; path = ../modules/pythoncc/frameworks/freetype.framework; sourceTree = "<group>"; };
+		A31D2D462A2CFA0700A5BF09 /* ConstantManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantManager.swift; sourceTree = "<group>"; };
 		A323BA1F2A0B16F800E10379 /* PTTextEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTTextEditorView.swift; sourceTree = "<group>"; };
 		A323BA222A0B80DB00E10379 /* LineNumberTextViewWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineNumberTextViewWrapper.m; sourceTree = "<group>"; };
 		A323BA232A0B80DB00E10379 /* LineNumberLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineNumberLayoutManager.h; sourceTree = "<group>"; };
@@ -18578,6 +18583,7 @@
 			children = (
 				A31D2D232A27A61500A5BF09 /* FullScreenCoverManager.swift */,
 				A31D2D262A27B42600A5BF09 /* SheetManager.swift */,
+				A31D2D462A2CFA0700A5BF09 /* ConstantManager.swift */,
 			);
 			path = manager;
 			sourceTree = "<group>";
@@ -46044,6 +46050,7 @@
 				A31D2CAE2A265DC200A5BF09 /* rectangles.c in Sources */,
 				A31D2D0C2A2724A000A5BF09 /* Runner.swift in Sources */,
 				A33FCB012A250DDC00BA5EE5 /* ShareViewController.swift in Sources */,
+				A31D2D4A2A2CFA0800A5BF09 /* ConstantManager.swift in Sources */,
 				A33FCB0E2A25154D00BA5EE5 /* python3.m in Sources */,
 				A31D2D0F2A272E8A00A5BF09 /* python.swift in Sources */,
 			);
@@ -46059,6 +46066,7 @@
 				A3441F7B2A0548F400CA7588 /* ActionRequestHandler.swift in Sources */,
 				A3592D152A0D476900A5A88D /* BackgroundCmdQueue.swift in Sources */,
 				A3C8EAA62A0EAE5300ADFE98 /* python.swift in Sources */,
+				A31D2D482A2CFA0800A5BF09 /* ConstantManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46202,6 +46210,7 @@
 				A3EFE86F2A1C9AA000237F66 /* HandleView.swift in Sources */,
 				A3E4AD3E29E476A800EDF69F /* FTPFileSystemProvider.swift in Sources */,
 				A3E4AD3F29E476A800EDF69F /* PDFViewerExtension.swift in Sources */,
+				A31D2D472A2CFA0800A5BF09 /* ConstantManager.swift in Sources */,
 				A3E4AD4029E476A800EDF69F /* SourceControlAuxiliaryExtension.swift in Sources */,
 				A3E4AD4129E476A800EDF69F /* View+cornerRadius.swift in Sources */,
 				A3E4AD4229E476A800EDF69F /* MonacoIntellisenseExtension.swift in Sources */,
@@ -46389,6 +46398,7 @@
 				A3EFE8702A1C9AA000237F66 /* HandleView.swift in Sources */,
 				A3EFE7672A1B914700237F66 /* FTPFileSystemProvider.swift in Sources */,
 				A3EFE7682A1B914700237F66 /* PDFViewerExtension.swift in Sources */,
+				A31D2D492A2CFA0800A5BF09 /* ConstantManager.swift in Sources */,
 				A3EFE7692A1B914700237F66 /* SourceControlAuxiliaryExtension.swift in Sources */,
 				A3EFE76A2A1B914700237F66 /* View+cornerRadius.swift in Sources */,
 				A3EFE76B2A1B914700237F66 /* MonacoIntellisenseExtension.swift in Sources */,

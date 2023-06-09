@@ -8,10 +8,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#include <stdio.h>
+//#include <stdio.h>
 #include <wchar.h>
 #include <Python.h>
 #include <pthread.h>
+#include <dlfcn.h>
 
 #undef swprintf
 //#undef printf
@@ -90,9 +91,9 @@ void initIntepreters(void) {
 //        wchar_t* name[] = {Py_DecodeLocale("python3", NULL), NULL};
 ////        PySys_SetArgv(1, name);
         Py_InitializeWithName("python3");
-//        PyEval_InitThreads();
+        PyEval_InitThreads();
         PyThread_init_thread();
-        return;
+        
 //
         
         main_state = PyThreadState_Get();
@@ -100,8 +101,6 @@ void initIntepreters(void) {
 
         subIntepreters[0] = main_state;
         irunning[0] = 0;
-        intepreterSize = 1;
-        return;
 //        PyThreadState* state = PyEval_SaveThread();
         
         
@@ -224,7 +223,7 @@ pymain_run_module(const wchar_t *modname, int set_argv0)
 
 int python3_run(int argc, char** argv) {
     initIntepreters();
-    /*
+    
 //    setvbuf(thread_stdout, NULL, _IONBF, 1024);
     
     PyThreadState* context = genPyIntepreter();
@@ -241,7 +240,7 @@ int python3_run(int argc, char** argv) {
     signal(SIGINT, &onSig);
     
     pthread_setspecific(pid_key, context);
-    */
+    
     wchar_t** wargv = NULL;
     if (argc > 1) {
         wargv = (wchar_t**)malloc(sizeof(wchar_t*) * (argc));
@@ -250,7 +249,7 @@ int python3_run(int argc, char** argv) {
         }
         wargv[argc-1] = NULL;
     }
-    /*
+    
 //    PyThreadState* cstate = NULL;
 //
 //    if (_PyThreadState_UncheckedGet() != NULL) {
@@ -265,7 +264,7 @@ int python3_run(int argc, char** argv) {
     }
 //    PyEval_RestoreThread(context);
     PyThreadState_Swap(context);
-//    PyGILState_STATE gstate = PyGILState_Ensure();
+    PyGILState_STATE gstate = PyGILState_Ensure();
 //    PyGILState_Release(PyGILState_UNLOCKED);
     
 //    PyEval_ReleaseThread(context);
@@ -273,7 +272,7 @@ int python3_run(int argc, char** argv) {
     
     
     pthread_cleanup_push(idleIntepreter, context);
-    */
+    
     
     if (argc > 1 && strcmp(argv[1], "-m") == 0) {
         PySys_SetArgv(argc-2, &wargv[1]);
@@ -414,10 +413,10 @@ int python3_run(int argc, char** argv) {
 //    }
 //
     
-//    PyGILState_Release(gstate);
+    PyGILState_Release(gstate);
 //    PyEval_SaveThread();
 //    PyThreadState_Swap(NULL);
-//    pthread_cleanup_pop(1);
+    pthread_cleanup_pop(1);
     
     return 0;
 }
@@ -512,15 +511,23 @@ NSString* pycompleteCode(NSString* code, NSString* path, int index, BOOL getdef,
     if (_completionState == NULL) {
         _completionState = genPyIntepreter();
     }
-    
+
     if (_completionState == NULL) {return @"";}
+
+//    PyThreadState* cstate = NULL;
+//
+//    if (_PyThreadState_UncheckedGet() != NULL) {
+//        cstate = PyEval_SaveThread();
+//    }
+//    PyEval_RestoreThread(_completionState);
     
-    PyThreadState* cstate = NULL;
+    
     
     if (_PyThreadState_UncheckedGet() != NULL) {
-        cstate = PyEval_SaveThread();
+        PyEval_SaveThread();
     }
-    PyEval_RestoreThread(_completionState);
+    PyThreadState_Swap(_completionState);
+    PyGILState_STATE gstate = PyGILState_Ensure();
     
     
     NSString* result = @"";
@@ -540,11 +547,75 @@ NSString* pycompleteCode(NSString* code, NSString* path, int index, BOOL getdef,
     result = [[NSString alloc] initWithCString:strResult encoding:NSUTF8StringEncoding];
     
     
-    PyEval_SaveThread();
+//    PyEval_SaveThread();
+//
+//    if (cstate != NULL) {
+//        PyEval_RestoreThread(cstate);
+//    }
     
-    if (cstate != NULL) {
-        PyEval_RestoreThread(cstate);
-    }
+    PyGILState_Release(gstate);
     
     return result;
 }
+
+//#undef write
+//#undef fwrite
+//#undef read
+//#undef fread
+//static ssize_t (*origin_write)(int fildes, const void *buf, size_t nbyte) = NULL;
+//static size_t (*origin_fwrite)(const void *restrict ptr, size_t size, size_t nitems, FILE *restrict stream) = NULL;
+//
+//static ssize_t (*origin_read)(int, void *, size_t) = NULL;
+//static size_t  (*origin_fread)(void * __restrict __ptr, size_t __size, size_t __nitems, FILE * __restrict __stream) = NULL;
+//
+//__attribute__((visibility("default"))) __attribute__((used))
+//ssize_t write(int fildes, const void *buf, size_t nbyte) {
+//    if (origin_write == NULL) {
+//        void* libsystem_b_handle = dlopen("/usr/lib/libSystem.B.dylib", RTLD_LAZY);
+//        origin_write = dlsym(libsystem_b_handle, "write");
+//    }
+//
+//    if (thread_stdout == NULL) thread_stdout = stdout;
+//    if (thread_stderr == NULL) thread_stderr = stderr;
+//    if (fildes == STDOUT_FILENO) return origin_write(fileno(thread_stdout), buf, nbyte);
+//    if (fildes == STDERR_FILENO) return origin_write(fileno(thread_stderr), buf, nbyte);
+//    return origin_write(fildes, buf, nbyte);
+//}
+//
+//__attribute__((visibility("default"))) __attribute__((used))
+//size_t fwrite(const void *restrict ptr, size_t size, size_t nitems, FILE *restrict stream) {
+//    if (origin_fwrite == NULL) {
+//        void* libsystem_b_handle = dlopen("/usr/lib/libSystem.B.dylib", RTLD_LAZY);
+//        origin_fwrite = dlsym(libsystem_b_handle, "fwrite");
+//    }
+//    if (thread_stdout == NULL) thread_stdout = stdout;
+//    if (thread_stderr == NULL) thread_stderr = stderr;
+//    if (fileno(stream) == STDOUT_FILENO) return origin_fwrite(ptr, size, nitems, thread_stdout);
+//    // iOS, debug:
+//    if (fileno(stream) == STDERR_FILENO) return origin_fwrite(ptr, size, nitems, thread_stderr);
+//    return origin_fwrite(ptr, size, nitems, stream);
+//}
+//
+//__attribute__((visibility("default"))) __attribute__((used))
+//ssize_t read(int fildes, void *buf, size_t nbyte) {
+//    if (origin_read == NULL) {
+//        void* libsystem_b_handle = dlopen("/usr/lib/libSystem.B.dylib", RTLD_LAZY);
+//        origin_read = dlsym(libsystem_b_handle, "read");
+//    }
+//
+//    if (thread_stdin == NULL) thread_stdin = stdin;
+//    if (fildes == STDIN_FILENO) return origin_read(fileno(thread_stdout), buf, nbyte);
+//    return origin_read(fildes, buf, nbyte);
+//}
+//
+//__attribute__((visibility("default"))) __attribute__((used))
+//size_t fread(void * __restrict ptr, size_t size, size_t nitems, FILE * __restrict stream) {
+//    if (origin_fread == NULL) {
+//        void* libsystem_b_handle = dlopen("/usr/lib/libSystem.B.dylib", RTLD_LAZY);
+//        origin_fread = dlsym(libsystem_b_handle, "fread");
+//    }
+//
+//    if (thread_stdin == NULL) thread_stdin = stdin;
+//    if (fileno(stream) == STDIN_FILENO) return origin_fread(ptr, size, nitems, thread_stdin);
+//    return origin_fread(ptr, size, nitems, stream);
+//}
