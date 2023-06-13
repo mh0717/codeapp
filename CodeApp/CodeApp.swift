@@ -230,10 +230,15 @@ struct CodeApp: App {
 
         let libraryURL = try! FileManager().url(
             for: .libraryDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        let docURL = try! FileManager().url(
+            for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        setenv("HOME", docURL.path, 1);
 
         // Main Python install: $APPDIR/Library/lib/python3.x
         let bundleUrl = Resources.pythonLibrary
         setenv("PYTHONHOME", bundleUrl.path.toCString(), 1)
+        
+        setenv("PATH", "\(bundleUrl.path)/bin", 1)
         // Compiled files: ~/Library/__pycache__
         setenv(
             "PYTHONPYCACHEPREFIX",
@@ -243,6 +248,8 @@ struct CodeApp: App {
         
         let pysite1 = URL(fileURLWithPath: Bundle.main.resourcePath!).appendingPathComponent("site-packages1")
         setenv("PYTHONPATH", pysite1.path.toCString(), 1)
+        
+        setenv("PYZMQ_BACKEND", "cython", 1)
         
         // matplotlib backend
         setenv("MPLBACKEND", "module://backend_ios", 1);
@@ -267,6 +274,12 @@ struct CodeApp: App {
         //        setenv("MAGIC", Bundle.main.resourcePath! + "/usr/share/magic.mgc", 1)
         joinMainThread = false
         numPythonInterpreters = 1
+        
+        wmessager.listenForMessage(withIdentifier: "RequestContainerStartExtension") { info in
+            if let info = info as? [String: Any] {
+                requestContainerStartExtension(info)
+            }
+        }
 
         let notificationName = "com.thebaselab.code.node.stdout" as CFString
         let notificationCenter = CFNotificationCenterGetDarwinNotifyCenter()

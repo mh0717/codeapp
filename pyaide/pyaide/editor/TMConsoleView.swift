@@ -38,60 +38,9 @@ class TMConsoleView: UIView, TerminalViewDelegate {
                     self?.feed(data)
                 }
             })
-//        var buffer = Data()
-        /*for i in 1...5 {
-            let tid = "\(self.executor!.persistentIdentifier).\(i).stdout"
-            binaryWMessager.listenForMessage(withIdentifier: tid) { [weak self] msg in
-//                print("tid: \(tid)")
-                if let content = msg as? Data {
-//                    print([UInt8](content)[content.count - 2])
-//                    print([UInt8](content)[content.count - 1])
-//                    let path = FileManager.default.currentDirectoryPath.appendingPathComponent(path: "host\(i).txt")
-//                    try? content.write(to: URL(fileURLWithPath: path), options: .atomic)
-                    if content.contains(where: {$0 == 0x0A}) {
-                        if let str = String(data: content, encoding: .utf8) {
-                            self?.terminalView.feed(text: str.replacingOccurrences(of: "\n", with: "\r\n"))
-                        } else {
-                            self?.terminalView.feed(byteArray: ([UInt8](content))[...])
-                        }
-//                        self?.terminalView.feed(byteArray: ([UInt8](content))[...])
-                        
-                    } else {
-                        self?.terminalView.feed(byteArray: ([UInt8](content))[...])
-                    }
-                    
-//                    buffer += content
-//                    if (buffer.last == 92) {
-//                        self?.terminalView.feed(byteArray: ([UInt8](buffer))[...])
-//                        buffer = Data()
-//                    }
-                }
-            }
-        }*/
-        
-        
+
         setupView()
         setupLayout()
-        
-//        guard let appGroupContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.mh.Python3IDE") else {
-//            return
-//        }
-//        let path = appGroupContainer.appendingPathComponent("protest.txt").path
-//
-//        let tqueue = DispatchQueue(label: "test process")
-//        tqueue.async {
-//            mkfifo(path, 0x1FF)
-//            let fileHandle = FileHandle(forWritingAtPath: path)
-//            fileHandle?.write("hello".data(using: .utf8)!)
-//            var count = 0
-//            let timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { Timer in
-//                fileHandle?.write("hello \(count)".data(using: .utf8)!)
-//                count += 1
-//            }
-//            let runloop = RunLoop.current
-//            runloop.add(timer, forMode: .default)
-//            runloop.run()
-//        }
     }
     
     required init?(coder: NSCoder) {
@@ -140,15 +89,6 @@ class TMConsoleView: UIView, TerminalViewDelegate {
     private var buffer = Data()
     private func feed(_ data: Data) {
         self.terminalView.feed(byteArray: [UInt8](data)[...])
-        print([UInt8](data[(data.count - 6)...]))
-        return
-        if (self.buffer.isEmpty) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                self.terminalView.feed(byteArray: [UInt8](self.buffer)[...])
-                self.buffer = Data()
-            }
-        }
-        self.buffer += data
     }
     
     func readLine() {
@@ -259,13 +199,13 @@ extension TMConsoleView {
     }
     
     func requestOpenLink(source: SwiftTerm.TerminalView, link: String, params: [String : String]) {
-        if let fixedup = link.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            if let url = NSURLComponents(string: fixedup) {
-                if let nested = url.url {
-                    UIApplication.shared.open (nested)
-                }
-            }
-        }
+//        if let fixedup = link.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+//            if let url = NSURLComponents(string: fixedup) {
+//                if let nested = url.url {
+//                    UIApplication.shared.open (nested)
+//                }
+//            }
+//        }
     }
     
     func clipboardCopy(source: SwiftTerm.TerminalView, content: Data) {

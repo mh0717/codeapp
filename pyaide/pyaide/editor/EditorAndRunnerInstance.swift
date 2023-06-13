@@ -77,7 +77,7 @@ func createEditorAndRunnerInstance(url: URL, app: MainApp) async throws -> TextE
             guard let bookmark = try? wview.consoleView.executor?.currentWorkingDirectory.bookmarkData() else  {return}
             guard let wbookmark = try? URL(string: editor.app?.workSpaceStorage.currentDirectory.url ?? FileManager.default.currentDirectoryPath)!.bookmarkData() else {return}
             let args = commands
-            let ntidentifier = wview.consoleView.executor?.persistentIdentifier ?? "ntidentifier"
+            let ntidentifier = wview.consoleView.executor?.remoteIdentifier ?? "ntidentifier"
             let columns = wview.consoleView.executor?.winsize.0 ?? 48
             let lines = wview.consoleView.executor?.winsize.1 ?? 80
             

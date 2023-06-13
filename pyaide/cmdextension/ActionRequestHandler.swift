@@ -15,6 +15,8 @@ import ios_system
 let sharedURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.mh.Python3IDE")!
 
 
+var requestInfo: [String: Any] = [:]
+
 @propertyWrapper
 struct Atomic<Value> {
 
@@ -114,6 +116,8 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
             return
         }
         
+        requestInfo = item.userInfo as! [String: Any]
+        
         numPythonInterpreters = 1
         
         replaceCommand("backgroundCmdQueue", "backgroundCmdQueue", true)
@@ -123,7 +127,7 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
         replaceCommand("mhecho", "mhecho", true)
         replaceCommand("six", "six", true)
         
-        joinMainThread = true
+        joinMainThread = false
         
         let ncid: String = item.userInfo?["identifier"] as! String
         
@@ -136,8 +140,12 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
 
         // Main Python install: $APPDIR/Library/lib/python3.x
         let pybundle = URL(fileURLWithPath: Bundle.main.resourcePath!).appendingPathComponent("../../pyhome")
+        let docURL = try! FileManager().url(
+            for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        setenv("HOME", docURL.path, 1);
         
         setenv("PYTHONHOME", pybundle.path.toCString(), 1)
+        setenv("PATH", "\(pybundle.path)/bin", 1)
         
         let pysite1 = URL(fileURLWithPath: Bundle.main.resourcePath!).appendingPathComponent("../../site-packages1")
         setenv("PYTHONPATH", pysite1.path.toCString(), 1)
@@ -147,9 +155,10 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
             (libraryURL.appendingPathComponent("__pycache__")).path.toCString(), 1)
         setenv("PYTHONUSERBASE", libraryURL.path.toCString(), 1)
         setenv("APPDIR", pybundle.deletingLastPathComponent().path.toCString(), 1)
-        
+        setenv("PYZMQ_BACKEND", "cython", 1)
         // matplotlib backend
         setenv("MPLBACKEND", "module://backend_ios", 1);
+        
         
         // Do not call super in an Action extension with no user interface
         self.extensionContext = context

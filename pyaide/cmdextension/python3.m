@@ -124,7 +124,7 @@ void initIntepreters(void) {
         
         PyThreadState_Swap(main_state);
         PyEval_SaveThread();
-        PyEval_RestoreThread(main_state);
+//        PyEval_RestoreThread(main_state);
         
         
         
@@ -222,7 +222,7 @@ pymain_run_module(const wchar_t *modname, int set_argv0)
 }
 
 int python3_run(int argc, char** argv) {
-    initIntepreters();
+//    initIntepreters();
     
 //    setvbuf(thread_stdout, NULL, _IONBF, 1024);
     
@@ -250,21 +250,22 @@ int python3_run(int argc, char** argv) {
         wargv[argc-1] = NULL;
     }
     
-//    PyThreadState* cstate = NULL;
-//
-//    if (_PyThreadState_UncheckedGet() != NULL) {
-//        cstate = PyEval_SaveThread();
-//    }
-//    PyEval_RestoreThread(context);
+    PyThreadState* cstate = NULL;
+
+    if (_PyThreadState_UncheckedGet() != NULL) {
+        cstate = PyEval_SaveThread();
+    }
+    PyEval_RestoreThread(context);
+    
     
 //    PyGILState_Ensure();
 //    PyThreadState_Swap(context);
-    if (_PyThreadState_UncheckedGet() != NULL) {
+    /*if (_PyThreadState_UncheckedGet() != NULL) {
         PyEval_SaveThread();
     }
-//    PyEval_RestoreThread(context);
-    PyThreadState_Swap(context);
-    PyGILState_STATE gstate = PyGILState_Ensure();
+    PyEval_RestoreThread(context);*/
+//    PyThreadState_Swap(context);
+//    PyGILState_STATE gstate = PyGILState_Ensure();
 //    PyGILState_Release(PyGILState_UNLOCKED);
     
 //    PyEval_ReleaseThread(context);
@@ -320,7 +321,7 @@ int python3_run(int argc, char** argv) {
         fprintf(thread_stdout, header, strlen(header));
         PyRun_InteractiveLoop(thread_stdin, "<stdin>");
     }
-    
+    /*
     /// 清理运行时产生的变量
     PyObject * poMainModule = PyImport_AddModule("__main__");
     PyObject * poAttrList = PyObject_Dir(poMainModule);
@@ -403,17 +404,20 @@ int python3_run(int argc, char** argv) {
         }
         Py_DECREF(delList);
         delList = NULL;
+    }*/
+
+
+    PyEval_SaveThread();
+
+    if (cstate != NULL) {
+        PyEval_RestoreThread(cstate);
     }
 
-
 //    PyEval_SaveThread();
-//
-//    if (cstate != NULL) {
-//        PyEval_RestoreThread(cstate);
-//    }
-//
+//    PyGILState_Release(gstate);
     
-    PyGILState_Release(gstate);
+    
+    
 //    PyEval_SaveThread();
 //    PyThreadState_Swap(NULL);
     pthread_cleanup_pop(1);

@@ -122,15 +122,95 @@ private func command(args: [String]) -> Int32 {
 
 private var isrunning = false
 
+//let config: [String: Any] = [
+//    "workingDirectoryBookmark": bookmark,
+//    "args": args,
+//    "identifier": ntidentifier,
+//    "workspace": wbookmark,
+//    "COLUMNS": "48",
+//    "LINES": "80",
+//]
+
 @_cdecl("python3")
 public func python3(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
     if (!isrunning) {
         isrunning = true
-        return Py_BytesMain(argc, argv)
+        let pin = thread_stdin
+        let pout = thread_stdout
+        let perr = thread_stderr
+        var isEnd = false
+        DispatchQueue.main.async {
+            thread_stdin = pin
+            thread_stdout = pout
+            thread_stderr = perr
+            Py_BytesMain(argc, argv)
+            isEnd = true
+        }
+        while !isEnd {
+            sleep(1)
+        }
+        return 0
     }
     
-    initIntepreters()
-    return python3_run(argc, argv)
+    
+    var isEnd = false
+    var info = requestInfo
+    let ntidentifier = UUID().uuidString
+    let args = convertCArguments(argc: argc, argv: argv)
+    info["identifier"] = ntidentifier
+    info["args"] = args
+    
+    
+    setvbuf(thread_stdout, nil, _IONBF, 0)
+    setvbuf(thread_stderr, nil, _IONBF, 0)
+    setvbuf(thread_stdin, nil, _IONBF, 0)
+    let inputPath = ConstantManager.appGroupContainer.appendingPathComponent("\(ntidentifier).input").path
+    let outputPath = ConstantManager.appGroupContainer.appendingPathComponent("\(ntidentifier).output").path
+    let inputQueue = DispatchQueue(label: "\(ntidentifier).input")
+    let outputQueue = DispatchQueue(label: "\(ntidentifier).output")
+    let inputHandle = FileHandle(fileDescriptor: fileno(thread_stdin))
+    let outputHandle = FileHandle(fileDescriptor: fileno(thread_stdout))
+    var remoteInputHandle: FileHandle? = nil
+    var remoteOutputHandle: FileHandle? = nil
+    inputQueue.async {
+        mkfifo(inputPath, 0x1FF)
+        remoteInputHandle = FileHandle(forWritingAtPath: inputPath)
+        inputHandle.readabilityHandler = {[weak remoteInputHandle] hd in
+            let data = hd.availableData
+            /// 分割发送，避免一次写入太大数据块错误
+            var index = 0
+            let bufferSize = 1024*4
+            while index <= data.count {
+                if (index + bufferSize <= data.count) {
+                    try? remoteInputHandle?.write(contentsOf: data[index..<index+bufferSize])
+                } else {
+                    try? remoteInputHandle?.write(contentsOf: data[index...])
+                }
+                index += bufferSize
+            }
+        }
+    }
+    outputQueue.async {
+        mkfifo(outputPath, 0x1FF)
+        remoteOutputHandle = FileHandle(forReadingAtPath: outputPath)!
+        remoteOutputHandle?.readabilityHandler = { hd in
+            let data = hd.availableData
+            try?  outputHandle.write(contentsOf: data)
+            if data.isEmpty {
+                isEnd = true
+            }
+        }
+        
+        
+    }
+    
+    wmessager.passMessage(message: info, identifier: "RequestContainerStartExtension")
+    
+    while !isEnd {
+        sleep(1)
+    }
+    
+    return 0
 }
 
 @_cdecl("pythonA")

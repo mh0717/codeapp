@@ -141,9 +141,9 @@ private func command(args: [String]) -> Int32 {
 @_cdecl("python3")
 public func python3(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
 //    return Py_BytesMain(argc, argv)
-//    let args = convertCArguments(argc: argc, argv: argv)!
-//
-//    return command(args: args)
+    let args = convertCArguments(argc: argc, argv: argv)!
+
+    return command(args: args)
     
     python3_run(argc, argv)
 }
@@ -292,4 +292,46 @@ private func uicommand(args: [String]) -> Int32 {
     let toVC = UIActivityViewController(activityItems: [item], applicationActivities: nil)
 //    present(toVC, animated: true, completion: nil)
     return 0
+}
+
+func requestContainerStartExtension(_ info: [String: Any]) {
+    let item = NSExtensionItem()
+    item.userInfo = info
+    
+    // We use a private API here to launch an extension programatically
+    let BLE: AnyClass = (NSClassFromString("TlNFeHRlbnNpb24=".base64Decoded()!)!)
+    let ext = Dynamic(BLE).extensionWithIdentifier("baobaowang.pyaide.cmdextension", error: nil)
+
+    ext.setRequestCancellationBlock(
+        { uuid, error in
+            if let uuid = uuid, let error = error {
+                print("Request \(uuid) cancelled. \(error)")
+            }
+        } as RequestCancellationBlock)
+
+    ext.setRequestInterruptionBlock(
+        { uuid in
+            if let uuid = uuid {
+                print("Request \(uuid) interrupted.")
+            }
+        } as RequestInterruptionBlock)
+
+    ext.setRequestCompletionBlock(
+        { uuid, extensionItems in
+            if let uuid = uuid {
+                print(
+                    "Request \(uuid) completed. Extension items: \(String(describing: extensionItems))"
+                )
+            }
+        } as RequestCompletionBlock)
+    
+    
+    ext.beginExtensionRequestWithInputItems(
+        [item],
+        completion: { uuid in
+            let pid = ext.pid(forRequestIdentifier: uuid)
+            if let uuid = uuid {
+                print("Started extension request: \(uuid). Extension PID is \(pid)")
+            }
+        } as RequestBeginBlock)
 }

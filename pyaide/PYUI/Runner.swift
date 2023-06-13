@@ -44,92 +44,13 @@ class OutputListener {
     var stderrBuffer = Data()
     
     init(_ ncidentifier: String) {
-        let ncid = ncidentifier
-        
-        DispatchQueue.main.async {
-            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) {[weak self] timer in
-                guard let self = self else {
-                    timer.invalidate()
-                    return
-                }
-                if (!self.stdoutBuffer.isEmpty) {
-                    let buffer = self.stdoutBuffer
-                    self.stdoutBuffer = Data()
-//                    let path = FileManager.default.currentDirectoryPath.appendingPathComponent(path: "ext\(self.stdoutIndex).txt")
-//                    try? buffer.write(to: URL(fileURLWithPath: path), options: .atomic)
-                    binaryWMessager.passMessage(message: buffer, identifier: "\(ncid).\(self.stdoutIndex).stdout")
-//                    self.stdoutBuffer = Data()
-                    
-                    if (self.stdoutIndex == 5) {
-                        self.stdoutIndex = 1
-                    }
-                    else {
-                        self.stdoutIndex += 1
-                    }
-                }
-            }
-        }
-        // Set up a read handler which fires when data is written to our inputPipe
-        inputPipe.fileHandleForReading.readabilityHandler = { fileHandle in
-            let data = fileHandle.availableData
-            if let string = String(data: data, encoding: String.Encoding.utf8) {
-                print(string)
-            }
-            DispatchQueue.main.async {
-                self.stdoutBuffer.append(data)
-            }
-            
-            
-//            if let string = String(data: data, encoding: String.Encoding.utf8) {
-//                wmessager.passMessage(message: string, identifier: "\(ncid).stdout")
-//            }
-            // Write input back to stdout
-//            strongSelf.outputPipe.fileHandleForWriting.write(data)
-        }
-        
-        
-        
-        inputErrorPipe.fileHandleForReading.readabilityHandler = { [weak self] fileHandle in
-            guard let strongSelf = self else { return }
-            
-            let data = fileHandle.availableData
-            if let string = String(data: data, encoding: String.Encoding.utf8) {
-                print(string)
-                wmessager.passMessage(message: string, identifier: "\(ncid).stdout")
-            }
-            
-            // Write input back to stdout
-//            strongSelf.outputErrorPipe.fileHandleForWriting.write(data)
-        }
-        
-        wmessager.listenForMessage(withIdentifier: "\(ncid).input") { [self] msg in
-            let msgstr = (msg as? String) ?? ""
-            let msgdata = msgstr.data(using: .utf8)!
-            Thread.detachNewThread { [self] in
-                myinputPipe.fileHandleForWriting.write(msgdata)
-            }
-        }
-        
-        wmessager.listenForMessage(withIdentifier: "\(ncid).winsize") { msg in
-            guard let msg = msg as? String, msg.contains(":") else {return}
-            let size = msg.split(separator: ":")
-            let COLUMNS: String = String(size.first ?? "80")
-            let LINES: String = String(size.last ?? "80")
-            
-            setenv("COLUMNS", COLUMNS, 1)
-            setenv("LINES", LINES, 1)
-            ios_setWindowSize(Int32(COLUMNS) ?? 80, Int32(LINES) ?? 80, ncid.toCString())
-        }
-        
-        
-        
         stdin_file = fdopen(myinputPipe.fileHandleForReading.fileDescriptor, "r")
         stdout_file = fdopen(inputPipe.fileHandleForWriting.fileDescriptor, "w")
         stderr_file = fdopen(inputErrorPipe.fileHandleForWriting.fileDescriptor, "w")
         
-        setvbuf(stdin_file, nil, _IOLBF, 1024);
-        setvbuf(stdout_file, nil, _IOLBF, 10240);
-        setvbuf(stderr_file, nil, _IOLBF, 1024);
+        setvbuf(stdin_file, nil, _IONBF, 1024);
+        setvbuf(stdout_file, nil, _IONBF, 10240);
+        setvbuf(stderr_file, nil, _IONBF, 1024);
     }
     
     /// Sets up the "tee" of piped output, intercepting stdout then passing it through.
@@ -164,10 +85,6 @@ func execute(_ config: [String: Any]) {
     
     replaceCommand("backgroundCmdQueue", "backgroundCmdQueue", true)
     replaceCommand("python3", "python3", true)
-//        replaceCommand("pythonA", "pythonA", true)
-//        replaceCommand("pythonB", "pythonB", true)
-//    replaceCommand("mhecho", "mhecho", true)
-//    replaceCommand("six", "six", true)
     
     joinMainThread = false
     
@@ -265,10 +182,75 @@ func execute(_ config: [String: Any]) {
         ios_setWindowSize(Int32(COLUMNS) ?? 80, Int32(LINES) ?? 80, ncid.toCString())
     }
     
+    wmessager.listenForMessage(withIdentifier: "\(ncid).winsize") { msg in
+        guard let msg = msg as? String, msg.contains(":") else {return}
+        let size = msg.split(separator: ":")
+        let COLUMNS: String = String(size.first ?? "80")
+        let LINES: String = String(size.last ?? "80")
+        
+        setenv("COLUMNS", COLUMNS, 1)
+        setenv("LINES", LINES, 1)
+        ios_setWindowSize(Int32(COLUMNS) ?? 80, Int32(LINES) ?? 80, ncid.toCString())
+    }
+    
     
     guard let args = config["args"] as? [String] else {
         return
     }
+    
+    let END_OF_TRANSMISSION:UInt8 = 4
+    var isEnd = false
+    var shouldEnd = false
+    
+    var remoteInputHandle: FileHandle? = nil
+    var remoteOutputHandle: FileHandle? = nil
+    
+    let inputPath = ConstantManager.appGroupContainer.appendingPathComponent("\(ncid).input").path
+    let outputPath = ConstantManager.appGroupContainer.appendingPathComponent("\(ncid).output").path
+    let inputQueue = DispatchQueue(label: "\(ncid).input")
+    let outputQueue = DispatchQueue(label: "\(ncid).output")
+    let inputHandle = output.myinputPipe.fileHandleForWriting
+    let outputHandle = output.inputPipe.fileHandleForReading
+    
+    inputQueue.async {
+        remoteInputHandle = FileHandle(forReadingAtPath: inputPath)
+        remoteInputHandle?.readabilityHandler = {hd in
+            let data = hd.availableData
+            try? inputHandle.write(contentsOf: data)
+        }
+    }
+    outputQueue.async {
+        remoteOutputHandle = FileHandle(forWritingAtPath: outputPath)
+        
+        outputHandle.readabilityHandler = {hd in
+            var data = [UInt8](hd.availableData)[...]
+            var eof = false
+            if shouldEnd && data.last == END_OF_TRANSMISSION {
+                if data.count == 1 {
+                    isEnd = true
+                    return
+                }
+                data = data[0...(data.count - 2)]
+                eof = true
+            }
+
+            var index = 0
+            let bufferSize = 1024*4
+            while index <= data.count {
+                
+                if (index + bufferSize <= data.count) {
+                    try? remoteOutputHandle?.write(contentsOf: data[index..<index+bufferSize])
+                } else {
+                    try? remoteOutputHandle?.write(contentsOf: data[index...])
+                }
+                index += bufferSize
+            }
+            if eof {
+                isEnd = true
+            }
+        }
+    }
+    
 //    let pypath = Bundle.main.url(forResource: "mysdl", withExtension: "py")?.path ?? ""
 //    let args = ["python3", "-u", pypath]
     let argc = args.count
@@ -281,20 +263,15 @@ func execute(_ config: [String: Any]) {
     let margv = UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>(mutating: argv.baseAddress)
     let ret = Py_BytesMain(Int32(argc), margv)
     argv.deallocate()
-//    let ret = run(command: args.joined(separator: " "))
-//        sleep(1)
-    usleep(1000*100)
-    fflush(thread_stdout)
-    fflush(thread_stderr)
-//        sleep(1)
-    usleep(1000*100)
-//    output.closeConsolePipe()
     
-//    self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
-    
-    sleep(1)
-//    self.extensionContext = nil
-//    real_exit(vlaue: 0)
+    shouldEnd = true
+    try? output.inputPipe.fileHandleForWriting.write(contentsOf: Data([END_OF_TRANSMISSION]))
+    while !isEnd {
+        fflush(thread_stdout)
+        fflush(thread_stderr)
+        usleep(1000*50)
+    }
+    usleep(1000*100)
 }
 
 

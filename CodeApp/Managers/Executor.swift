@@ -89,13 +89,13 @@ class Executor {
     }
 
     func kill() {
-        if nodeUUID != nil {
-            let notificationName = CFNotificationName(
-                "com.thebaselab.code.node.stop" as CFString)
-            let notificationCenter = CFNotificationCenterGetDarwinNotifyCenter()
-            CFNotificationCenterPostNotification(
-                notificationCenter, notificationName, nil, nil, false)
-        }
+//        if nodeUUID != nil {
+//            let notificationName = CFNotificationName(
+//                "com.thebaselab.code.node.stop" as CFString)
+//            let notificationCenter = CFNotificationCenterGetDarwinNotifyCenter()
+//            CFNotificationCenterPostNotification(
+//                notificationCenter, notificationName, nil, nil, false)
+//        }
 
         ios_switchSession(persistentIdentifier.toCString())
         ios_kill()
@@ -111,9 +111,9 @@ class Executor {
         }
 
         // For wasm
-        if state == .running {
-            stdinString += input + "\n"
-        }
+//        if state == .running {
+//            stdinString += input + "\n"
+//        }
 
         ios_switchSession(persistentIdentifier.toCString())
 

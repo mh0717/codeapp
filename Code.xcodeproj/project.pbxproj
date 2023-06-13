@@ -734,7 +734,6 @@
 		A31D2D0A2A268CA800A5BF09 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2CA42A265A6E00A5BF09 /* SDL2.framework */; };
 		A31D2D0C2A2724A000A5BF09 /* Runner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D2D0B2A2724A000A5BF09 /* Runner.swift */; };
 		A31D2D0E2A272A6400A5BF09 /* mysdl.py in Resources */ = {isa = PBXBuildFile; fileRef = A31D2D0D2A272A6400A5BF09 /* mysdl.py */; };
-		A31D2D0F2A272E8A00A5BF09 /* python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8EAA52A0EAE5300ADFE98 /* python.swift */; };
 		A31D2D102A272F4400A5BF09 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948D11FF2583F20C008F877A /* commandDictionary.plist */; };
 		A31D2D112A272F4900A5BF09 /* extraCommandsDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948D11FE2583F20C008F877A /* extraCommandsDictionary.plist */; };
 		A31D2D212A275EB600A5BF09 /* res in Resources */ = {isa = PBXBuildFile; fileRef = A31D2D202A275EB600A5BF09 /* res */; };
@@ -753,6 +752,16 @@
 		A31D2D482A2CFA0800A5BF09 /* ConstantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D2D462A2CFA0700A5BF09 /* ConstantManager.swift */; };
 		A31D2D492A2CFA0800A5BF09 /* ConstantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D2D462A2CFA0700A5BF09 /* ConstantManager.swift */; };
 		A31D2D4A2A2CFA0800A5BF09 /* ConstantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D2D462A2CFA0700A5BF09 /* ConstantManager.swift */; };
+		A31D2D4C2A338FD000A5BF09 /* TMConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EFE8602A1B9F7400237F66 /* TMConsoleView.swift */; };
+		A31D2D4D2A338FF500A5BF09 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D12212583F2A5008F877A /* Executor.swift */; };
+		A31D2D4F2A339CC400A5BF09 /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = A31D2D4E2A339CC400A5BF09 /* SwiftTerm */; };
+		A31D2D532A369EE100A5BF09 /* python3_ios-pvectorc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2D522A369EE000A5BF09 /* python3_ios-pvectorc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A31D2D552A369EF100A5BF09 /* python3_ios-pyemd.emd.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2D542A369EF000A5BF09 /* python3_ios-pyemd.emd.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A31D2D572A369EFF00A5BF09 /* python3_ios-pywt_all.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2D562A369EFE00A5BF09 /* python3_ios-pywt_all.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A31D2D592A369F0D00A5BF09 /* python3_ios-tornado.speedups.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2D582A369F0C00A5BF09 /* python3_ios-tornado.speedups.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A31D2D5B2A369F1400A5BF09 /* python3_ios-yaml._yaml.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2D5A2A369F1300A5BF09 /* python3_ios-yaml._yaml.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A31D2D5D2A369F1A00A5BF09 /* python3_ios-zmq_all.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2D5C2A369F1900A5BF09 /* python3_ios-zmq_all.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A31D2D5F2A37918A00A5BF09 /* python3_ios-psutil._psutil_osx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31D2D5E2A37918900A5BF09 /* python3_ios-psutil._psutil_osx.framework */; };
 		A323BA1B2A0AA13500E10379 /* AppReceiptValidator in Frameworks */ = {isa = PBXBuildFile; productRef = A323BA1A2A0AA13500E10379 /* AppReceiptValidator */; };
 		A323BA1D2A0AA18F00E10379 /* AppReceiptValidator in Frameworks */ = {isa = PBXBuildFile; productRef = A323BA1C2A0AA18F00E10379 /* AppReceiptValidator */; };
 		A323BA202A0B16F800E10379 /* PTTextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A323BA1F2A0B16F800E10379 /* PTTextEditorView.swift */; };
@@ -809,6 +818,8 @@
 		A3592D172A0D581000A5A88D /* CompletionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3592D162A0D581000A5A88D /* CompletionService.swift */; };
 		A3592D182A0D581000A5A88D /* CompletionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3592D162A0D581000A5A88D /* CompletionService.swift */; };
 		A36AD4C82A1F931500E54117 /* files.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4A625F5518700F1EF4E /* files.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A37053172A37952D00BD37AE /* python3_ios-psutil._psutil_posix.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A37053152A37952B00BD37AE /* python3_ios-psutil._psutil_posix.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A37053182A37952D00BD37AE /* python3_ios-psutil._psutil_osx.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A37053162A37952C00BD37AE /* python3_ios-psutil._psutil_osx.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A37962E529E6197B00D7FE90 /* python3_ios-_cffi_backend.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0F29E4903F005515EE /* python3_ios-_cffi_backend.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A37962E729E6197D00D7FE90 /* python3_ios-_decimal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C1229E49040005515EE /* python3_ios-_decimal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A37962E929E6197F00D7FE90 /* python3_ios-_opcode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3EE7C0729E4903B005515EE /* python3_ios-_opcode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -1876,6 +1887,14 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A37053172A37952D00BD37AE /* python3_ios-psutil._psutil_posix.framework in Embed Frameworks */,
+				A37053182A37952D00BD37AE /* python3_ios-psutil._psutil_osx.framework in Embed Frameworks */,
+				A31D2D5D2A369F1A00A5BF09 /* python3_ios-zmq_all.framework in Embed Frameworks */,
+				A31D2D5B2A369F1400A5BF09 /* python3_ios-yaml._yaml.framework in Embed Frameworks */,
+				A31D2D592A369F0D00A5BF09 /* python3_ios-tornado.speedups.framework in Embed Frameworks */,
+				A31D2D572A369EFF00A5BF09 /* python3_ios-pywt_all.framework in Embed Frameworks */,
+				A31D2D552A369EF100A5BF09 /* python3_ios-pyemd.emd.framework in Embed Frameworks */,
+				A31D2D532A369EE100A5BF09 /* python3_ios-pvectorc.framework in Embed Frameworks */,
 				A31D2D442A2A30F800A5BF09 /* python3_ios-pygame_all.framework in Embed Frameworks */,
 				A31D2D422A29E83700A5BF09 /* python3_ios-pyobjus.pyobjus.framework in Embed Frameworks */,
 				A31D2D402A29A29200A5BF09 /* python3_ios-ios.framework in Embed Frameworks */,
@@ -2520,6 +2539,15 @@
 		A31D2D432A2A30F700A5BF09 /* python3_ios-pygame_all.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-pygame_all.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-pygame_all.framework"; sourceTree = "<group>"; };
 		A31D2D452A2A344F00A5BF09 /* freetype.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = freetype.framework; path = ../modules/pythoncc/frameworks/freetype.framework; sourceTree = "<group>"; };
 		A31D2D462A2CFA0700A5BF09 /* ConstantManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantManager.swift; sourceTree = "<group>"; };
+		A31D2D522A369EE000A5BF09 /* python3_ios-pvectorc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-pvectorc.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-pvectorc.framework"; sourceTree = "<group>"; };
+		A31D2D542A369EF000A5BF09 /* python3_ios-pyemd.emd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-pyemd.emd.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-pyemd.emd.framework"; sourceTree = "<group>"; };
+		A31D2D562A369EFE00A5BF09 /* python3_ios-pywt_all.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-pywt_all.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-pywt_all.framework"; sourceTree = "<group>"; };
+		A31D2D582A369F0C00A5BF09 /* python3_ios-tornado.speedups.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-tornado.speedups.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-tornado.speedups.framework"; sourceTree = "<group>"; };
+		A31D2D5A2A369F1300A5BF09 /* python3_ios-yaml._yaml.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-yaml._yaml.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-yaml._yaml.framework"; sourceTree = "<group>"; };
+		A31D2D5C2A369F1900A5BF09 /* python3_ios-zmq_all.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-zmq_all.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-zmq_all.framework"; sourceTree = "<group>"; };
+		A31D2D5E2A37918900A5BF09 /* python3_ios-psutil._psutil_osx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-psutil._psutil_osx.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-psutil._psutil_osx.framework"; sourceTree = "<group>"; };
+		A31D2D602A3794CC00A5BF09 /* python3_ios-psutil._psutil_posix.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-psutil._psutil_posix.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-psutil._psutil_posix.framework"; sourceTree = "<group>"; };
+		A31D2D612A3794CD00A5BF09 /* python3_ios-psutil._psutil_osx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-psutil._psutil_osx.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-psutil._psutil_osx.framework"; sourceTree = "<group>"; };
 		A323BA1F2A0B16F800E10379 /* PTTextEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTTextEditorView.swift; sourceTree = "<group>"; };
 		A323BA222A0B80DB00E10379 /* LineNumberTextViewWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineNumberTextViewWrapper.m; sourceTree = "<group>"; };
 		A323BA232A0B80DB00E10379 /* LineNumberLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineNumberLayoutManager.h; sourceTree = "<group>"; };
@@ -2576,6 +2604,8 @@
 		A3592D112A0D280500A5A88D /* site-packages1 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "site-packages1"; sourceTree = "<group>"; };
 		A3592D132A0D476800A5A88D /* BackgroundCmdQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCmdQueue.swift; sourceTree = "<group>"; };
 		A3592D162A0D581000A5A88D /* CompletionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionService.swift; sourceTree = "<group>"; };
+		A37053152A37952B00BD37AE /* python3_ios-psutil._psutil_posix.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-psutil._psutil_posix.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-psutil._psutil_posix.framework"; sourceTree = "<group>"; };
+		A37053162A37952C00BD37AE /* python3_ios-psutil._psutil_osx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "python3_ios-psutil._psutil_osx.framework"; path = "../modules/pythoncc/cmds/Frameworks/python3_ios-psutil._psutil_osx.framework"; sourceTree = "<group>"; };
 		A388468B2A0819BE008F50FD /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = pyto/OpenSSL/libssl.a; sourceTree = "<group>"; };
 		A388468D2A0819C4008F50FD /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = pyto/OpenSSL/libcrypto.a; sourceTree = "<group>"; };
 		A38849C32A0A1B6B008F50FD /* PTEditorInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTEditorInstance.swift; sourceTree = "<group>"; };
@@ -17494,6 +17524,7 @@
 			files = (
 				A31D2CAB2A265D2B00A5BF09 /* SDL2.framework in Frameworks */,
 				A33FCB102A25176000BA5EE5 /* ios_system.framework in Frameworks */,
+				A31D2D4F2A339CC400A5BF09 /* SwiftTerm in Frameworks */,
 				A31D2CA82A265B6600A5BF09 /* python3_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -17540,6 +17571,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A31D2D5F2A37918A00A5BF09 /* python3_ios-psutil._psutil_osx.framework in Frameworks */,
 				A3EFE7932A1B914700237F66 /* Accelerate.framework in Frameworks */,
 				A3EFE7942A1B914700237F66 /* FilesProvider in Frameworks */,
 				A3EFE7952A1B914700237F66 /* ios_system.framework in Frameworks */,
@@ -17569,6 +17601,7 @@
 		24509F1455D67D501EFBD28C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A31D2D5E2A37918900A5BF09 /* python3_ios-psutil._psutil_osx.framework */,
 				A31D2CA62A265AA800A5BF09 /* SDL2.framework */,
 				A31D2CA42A265A6E00A5BF09 /* SDL2.framework */,
 				A33FCAAF2A24920E00BA5EE5 /* python3_ios-cv2.cv2.framework */,
@@ -17684,6 +17717,16 @@
 		944EEBE72563C381009D77FE = {
 			isa = PBXGroup;
 			children = (
+				A31D2D612A3794CD00A5BF09 /* python3_ios-psutil._psutil_osx.framework */,
+				A37053162A37952C00BD37AE /* python3_ios-psutil._psutil_osx.framework */,
+				A31D2D602A3794CC00A5BF09 /* python3_ios-psutil._psutil_posix.framework */,
+				A37053152A37952B00BD37AE /* python3_ios-psutil._psutil_posix.framework */,
+				A31D2D5C2A369F1900A5BF09 /* python3_ios-zmq_all.framework */,
+				A31D2D5A2A369F1300A5BF09 /* python3_ios-yaml._yaml.framework */,
+				A31D2D582A369F0C00A5BF09 /* python3_ios-tornado.speedups.framework */,
+				A31D2D562A369EFE00A5BF09 /* python3_ios-pywt_all.framework */,
+				A31D2D542A369EF000A5BF09 /* python3_ios-pyemd.emd.framework */,
+				A31D2D522A369EE000A5BF09 /* python3_ios-pvectorc.framework */,
 				A31D2D452A2A344F00A5BF09 /* freetype.framework */,
 				A31D2D432A2A30F700A5BF09 /* python3_ios-pygame_all.framework */,
 				A31D2D412A29E83600A5BF09 /* python3_ios-pyobjus.pyobjus.framework */,
@@ -45240,6 +45283,9 @@
 			dependencies = (
 			);
 			name = PYUI;
+			packageProductDependencies = (
+				A31D2D4E2A339CC400A5BF09 /* SwiftTerm */,
+			);
 			productName = PYUI;
 			productReference = A33FCAFE2A250DDC00BA5EE5 /* PYUI.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -46051,8 +46097,9 @@
 				A31D2D0C2A2724A000A5BF09 /* Runner.swift in Sources */,
 				A33FCB012A250DDC00BA5EE5 /* ShareViewController.swift in Sources */,
 				A31D2D4A2A2CFA0800A5BF09 /* ConstantManager.swift in Sources */,
+				A31D2D4D2A338FF500A5BF09 /* Executor.swift in Sources */,
 				A33FCB0E2A25154D00BA5EE5 /* python3.m in Sources */,
-				A31D2D0F2A272E8A00A5BF09 /* python.swift in Sources */,
+				A31D2D4C2A338FD000A5BF09 /* TMConsoleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47730,6 +47777,11 @@
 		9FE3E2AB298A169A00F63DD0 /* SwiftGit2 */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftGit2;
+		};
+		A31D2D4E2A339CC400A5BF09 /* SwiftTerm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3EFE8572A1B9EA200237F66 /* XCRemoteSwiftPackageReference "SwiftTerm" */;
+			productName = SwiftTerm;
 		};
 		A323BA1A2A0AA13500E10379 /* AppReceiptValidator */ = {
 			isa = XCSwiftPackageProductDependency;
