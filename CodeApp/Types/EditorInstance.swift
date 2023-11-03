@@ -92,7 +92,7 @@ class TextEditorInstance: EditorInstanceWithURL {
     var isSaving: Bool = false
 
     init(
-        editor: MonacoEditor,
+        editor: any View,
         url: URL,
         content: String,
         encoding: String.Encoding = .utf8,

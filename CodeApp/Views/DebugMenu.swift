@@ -32,6 +32,34 @@ struct DebugMenu: View {
                         try? await Task.sleep(nanoseconds: 10 * 1_000_000_000)
                     })
             }
+            #if PYDEAPP
+            Button("pydeUI") {
+                App.popupManager.showCover(content: AnyView(ShareSheet()))
+            }
+            #endif
         }
     }
 }
+
+
+#if PYDEAPP
+struct ShareSheet:UIViewControllerRepresentable{
+    
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        let provider = NSItemProvider(item: "run pydeUI" as NSSecureCoding, typeIdentifier: "mh.pydeApp.pydeUI")
+        let item = NSExtensionItem()
+        item.attributedTitle = NSAttributedString(string: "This is title")
+        item.accessibilityLabel = "run pyde ui"
+        item.attachments = [provider]
+        //你想分享的数据
+        let items:[Any] = [item]
+        
+        let controller = UIActivityViewController(activityItems: items, applicationActivities: /*[CustomUIActicity()]*/nil)
+        
+        return controller
+    }
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
+        
+    }
+}
+#endif

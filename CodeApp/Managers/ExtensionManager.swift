@@ -13,7 +13,26 @@ class ExtensionManager: ObservableObject {
     @Published var editorProviderManager = EditorProviderManager()
     @Published var statusBarManager = StatusBarManager()
     @Published var activityBarManager = ActivityBarManager()
-
+    
+    #if PYDEAPP
+    private var extensions: [CodeAppExtension] = [
+        MonacoEditorAuxiliaryExtension(),
+        MonacoIntellisenseExtension(),
+        RemoteExecutionExtension(),
+        PYLocalExecutionExtension(),
+        TerminalExtension(),
+        ImageViewerExtension(),
+        VideoViewerExtension(),
+        PDFViewerExtension(),
+        MarkdownViewerExtension(),
+        SourceControlAuxiliaryExtension(),
+        SimpleWebPreviewExtension(),
+        RemoteAuxiliaryExtension(),
+        
+        PYRunnerExtension(),
+        TMConsoleExtension(),
+    ]
+    #else
     private var extensions: [CodeAppExtension] = [
         MonacoEditorAuxiliaryExtension(),
         MonacoIntellisenseExtension(),
@@ -28,6 +47,8 @@ class ExtensionManager: ObservableObject {
         SimpleWebPreviewExtension(),
         RemoteAuxiliaryExtension(),
     ]
+    #endif
+    
 
     func registerExtension(ex: CodeAppExtension) {
         extensions.append(ex)

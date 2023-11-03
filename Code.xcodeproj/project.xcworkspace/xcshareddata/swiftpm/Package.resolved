@@ -23,9 +23,9 @@
         "package": "Dynamic",
         "repositoryURL": "https://github.com/mhdhejazi/Dynamic.git",
         "state": {
-          "branch": null,
-          "revision": "ab9a2570862d54aed2663691bb767f881226a12f",
-          "version": "1.2.0"
+          "branch": "master",
+          "revision": "772883073d044bc754d401cabb6574624eb3778f",
+          "version": null
         }
       },
       {
@@ -44,6 +44,15 @@
           "branch": null,
           "revision": "14f9eedb296c5b71fec971d8256ef3bfc20a2245",
           "version": "3.5.5"
+        }
+      },
+      {
+        "package": "KeyboardToolbar",
+        "repositoryURL": "https://github.com/simonbs/KeyboardToolbar.git",
+        "state": {
+          "branch": null,
+          "revision": "5f95f8e9af98f6163a58caaceaadc3bf720fd7bd",
+          "version": "0.1.1"
         }
       },
       {
@@ -80,6 +89,42 @@
           "branch": null,
           "revision": "bd86ca0141e3cfb333546de5a11ede63f0c4a0e6",
           "version": "4.0.0"
+        }
+      },
+      {
+        "package": "Runestone",
+        "repositoryURL": "https://github.com/simonbs/Runestone",
+        "state": {
+          "branch": null,
+          "revision": "00dee9fbc9c93b709f6b1b052bce84cb971e493a",
+          "version": "0.3.2"
+        }
+      },
+      {
+        "package": "SwiftTerm",
+        "repositoryURL": "https://github.com/migueldeicaza/SwiftTerm.git",
+        "state": {
+          "branch": null,
+          "revision": "0d31c2eea98e65ff1a34ec4a312099a8c25958b2",
+          "version": "1.2.1"
+        }
+      },
+      {
+        "package": "TreeSitter",
+        "repositoryURL": "https://github.com/simonbs/tree-sitter",
+        "state": {
+          "branch": null,
+          "revision": "f88ae4ebe351d8aa99c31a17111607017d805118",
+          "version": "0.20.9-beta-1"
+        }
+      },
+      {
+        "package": "TreeSitterLanguages",
+        "repositoryURL": "https://github.com/simonbs/TreeSitterLanguages.git",
+        "state": {
+          "branch": "main",
+          "revision": "7a186fe6f5ca6cb0ca332004b8f54b0fcea59212",
+          "version": null
         }
       },
       {

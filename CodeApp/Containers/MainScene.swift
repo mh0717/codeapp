@@ -95,6 +95,9 @@ struct MainScene: View {
             .environmentObject(App.stateManager)
             .environmentObject(App.alertManager)
             .environmentObject(App.safariManager)
+            #if PYDEAPP
+            .environmentObject(App.popupManager)
+            #endif
             .onAppear {
                 restoreSceneState()
                 App.extensionManager.initializeExtensions(app: App)
@@ -148,6 +151,10 @@ private struct MainView: View {
     @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var safariManager: SafariManager
     @EnvironmentObject var themeManager: ThemeManager
+    
+    #if PYDEAPP
+    @EnvironmentObject var popupManager: PopupManager
+    #endif
 
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.colorScheme) var colorScheme: ColorScheme
@@ -272,5 +279,14 @@ private struct MainView: View {
                 EmptyView()
             }
         }
+        #if PYDEAPP
+        .fullScreenCover(isPresented: $popupManager.showCover) {
+            popupManager.coverContent
+        }
+        .sheet(isPresented: $popupManager.showSheet, onDismiss: {
+        }) {
+            popupManager.sheetContent
+        }
+        #endif
     }
 }

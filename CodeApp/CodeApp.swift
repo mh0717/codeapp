@@ -11,6 +11,22 @@ import UIKit
 import WebKit
 import ios_system
 
+#if PYDEAPP
+import python3_objc
+import pydeCommon
+
+@_cdecl("python3")
+public func python3(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    return pymain(argc, argv)
+}
+
+
+@_cdecl("remote")
+public func myremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    return remote(argc: argc, argv: argv)
+}
+#endif
+
 @main
 struct CodeApp: App {
     @StateObject var themeManager = ThemeManager()
@@ -203,6 +219,40 @@ struct CodeApp: App {
         }
     }
 
+    #if PYDEAPP
+    init() {
+        UITableView.appearance().backgroundColor = UIColor.clear
+        UITableViewCell.appearance().backgroundColor = UIColor.clear
+        UITableView.appearance().separatorStyle = .none
+        UITextView.appearance().backgroundColor = .clear
+        
+        // Disable mini map and line number for iPhones
+        if UIScreen.main.traitCollection.horizontalSizeClass == .compact {
+            if UserDefaults.standard.object(forKey: "editorLineNumberEnabled") == nil {
+                UserDefaults.standard.setValue(false, forKey: "editorLineNumberEnabled")
+                UserDefaults.standard.setValue(false, forKey: "editorMiniMapEnabled")
+            }
+            if UserDefaults.standard.object(forKey: "compilerShowPath") == nil {
+                UserDefaults.standard.setValue(false, forKey: "compilerShowPath")
+            }
+        }
+
+        DispatchQueue.main.async {
+            wasmWebView.loadFileURL(
+                Resources.wasmHTML,
+                allowingReadAccessTo: Resources.wasmHTML)
+        }
+        
+        Repository.initialize_libgit2()
+        
+        initClientEnv()
+        
+        replaceCommand("python3", "python3", true)
+        replaceCommand("remote", "remote", true)
+        
+        signal(SIGPIPE, SIG_IGN);
+    }
+    #else
     init() {
         UITableView.appearance().backgroundColor = UIColor.clear
         UITableViewCell.appearance().backgroundColor = UIColor.clear
@@ -306,6 +356,7 @@ struct CodeApp: App {
         initializeEnvironment()
         Repository.initialize_libgit2()
     }
+    #endif
 
     var window: UIWindow? {
         guard let scene = UIApplication.shared.connectedScenes.first,

@@ -165,6 +165,13 @@ struct EditorView: View {
                             await App.saveCurrentFile()
                             try await App.monacoInstance.blur()
                         }
+                        else {
+                            #if PYDEAPP
+                            if let _ = App.activeTextEditor as? PYTextEditorInstance {
+                                await App.saveCurrentFile()
+                            }
+                            #endif
+                        }
                     }
                 }
             )

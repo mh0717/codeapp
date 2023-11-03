@@ -753,6 +753,231 @@
 		9FE3E2AA298A169300F63DD0 /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE3E2A9298A169300F63DD0 /* Dynamic */; };
 		9FE3E2AC298A169B00F63DD0 /* SwiftGit2 in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE3E2AB298A169A00F63DD0 /* SwiftGit2 */; };
 		9FE3E2AD298A16A300F63DD0 /* NMSSH.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942E321128093CA600233441 /* NMSSH.xcframework */; };
+		A36336D32AF226BA00085608 /* pyde in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; };
+		A36336D42AF226BA00085608 /* pyde in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A36336D62AF226BA00085608 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D52AF226BA00085608 /* pydeCommon */; };
+		A36336D72AF226BA00085608 /* pydeCommon in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D52AF226BA00085608 /* pydeCommon */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A36336D92AF226BA00085608 /* python3_objc in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D82AF226BA00085608 /* python3_objc */; };
+		A36336DA2AF226BA00085608 /* python3_objc in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D82AF226BA00085608 /* python3_objc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A36336DC2AF226BA00085608 /* python3_site in Frameworks */ = {isa = PBXBuildFile; productRef = A36336DB2AF226BA00085608 /* python3_site */; };
+		A36336DD2AF226BA00085608 /* python3_site in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336DB2AF226BA00085608 /* python3_site */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A36336DF2AF226BA00085608 /* python3_ui in Frameworks */ = {isa = PBXBuildFile; productRef = A36336DE2AF226BA00085608 /* python3_ui */; };
+		A36336E12AF226BA00085608 /* SDL2 in Frameworks */ = {isa = PBXBuildFile; productRef = A36336E02AF226BA00085608 /* SDL2 */; };
+		A36336E82AF22B3200085608 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
+		A36336EB2AF22B3200085608 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A36336EA2AF22B3200085608 /* Media.xcassets */; };
+		A36336ED2AF22B3200085608 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */; };
+		A36336EF2AF22B3200085608 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A36336EE2AF22B3200085608 /* Action.js */; };
+		A36336F32AF22B3200085608 /* pydeRemote.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A36336E62AF22B3200085608 /* pydeRemote.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A36336F82AF22C1500085608 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A36336F72AF22C1500085608 /* pydeCommon */; };
+		A36336FC2AF22C1500085608 /* python3_objc in Frameworks */ = {isa = PBXBuildFile; productRef = A36336FB2AF22C1500085608 /* python3_objc */; };
+		A36336FF2AF2310200085608 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948D11FF2583F20C008F877A /* commandDictionary.plist */; };
+		A36337052AF231D200085608 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
+		A36337082AF231D200085608 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A36337072AF231D200085608 /* Media.xcassets */; };
+		A363370A2AF231D200085608 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337092AF231D200085608 /* ActionViewController.swift */; };
+		A363370D2AF231D200085608 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A363370B2AF231D200085608 /* MainInterface.storyboard */; };
+		A36337112AF231D200085608 /* pydeUI.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A36337042AF231D200085608 /* pydeUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A36337162AF2329600085608 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A36337152AF2329600085608 /* pydeCommon */; };
+		A36337192AF2329600085608 /* python3_objc in Frameworks */ = {isa = PBXBuildFile; productRef = A36337182AF2329600085608 /* python3_objc */; };
+		A363371C2AF2329600085608 /* python3_ui in Frameworks */ = {isa = PBXBuildFile; productRef = A363371B2AF2329600085608 /* python3_ui */; };
+		A363371E2AF2329600085608 /* SDL2 in Frameworks */ = {isa = PBXBuildFile; productRef = A363371D2AF2329600085608 /* SDL2 */; };
+		A36337222AF237AA00085608 /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337212AF237AA00085608 /* PopupManager.swift */; };
+		A36337232AF23A6B00085608 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948D11FF2583F20C008F877A /* commandDictionary.plist */; };
+		A36337262AF2520D00085608 /* TMConsoleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337252AF2520D00085608 /* TMConsoleExtension.swift */; };
+		A36337282AF2955600085608 /* PYLocalExecutionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337272AF2955600085608 /* PYLocalExecutionExtension.swift */; };
+		A36337292AF2BFE900085608 /* ClangLib in Resources */ = {isa = PBXBuildFile; fileRef = 94CF58DE265E51B100CB6A4B /* ClangLib */; };
+		A363372A2AF2C06800085608 /* npm.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94369B4925EAB175008419A0 /* npm.bundle */; };
+		A363372C2AF3407C00085608 /* MirrorManocoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A363372B2AF3407C00085608 /* MirrorManocoEditor.swift */; };
+		A363372E2AF388DB00085608 /* PYTextEditorInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A363372D2AF388DB00085608 /* PYTextEditorInstance.swift */; };
+		A36337302AF3E9DF00085608 /* PYRunnerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A363372F2AF3E9DF00085608 /* PYRunnerExtension.swift */; };
+		A38272FE2AF4AD2F0096A7C9 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38272FD2AF4AD2F0096A7C9 /* ShareViewController.swift */; };
+		A38273012AF4AD2F0096A7C9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A38272FF2AF4AD2F0096A7C9 /* MainInterface.storyboard */; };
+		A38273052AF4AD2F0096A7C9 /* pydeShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A38272FB2AF4AD2F0096A7C9 /* pydeShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A3A87CEE2AF221D1002E3399 /* SourceControlUnsupportedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A0462A2804A70C00182275 /* SourceControlUnsupportedSection.swift */; };
+		A3A87CEF2AF221D1002E3399 /* GitHubSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777EE257B9193008FE7B2 /* GitHubSearchManager.swift */; };
+		A3A87CF02AF221D1002E3399 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7781F257BC5AA008FE7B2 /* MainScene.swift */; };
+		A3A87CF12AF221D1002E3399 /* RemoteConnectedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A045F92804842500182275 /* RemoteConnectedSection.swift */; };
+		A3A87CF22AF221D1002E3399 /* ActivityBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA122782A8B6C9700E7B417 /* ActivityBarManager.swift */; };
+		A3A87CF32AF221D1002E3399 /* HighlightedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777D8257B8AF1008FE7B2 /* HighlightedText.swift */; };
+		A3A87CF42AF221D1002E3399 /* SideBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A046002804865000182275 /* SideBarButton.swift */; };
+		A3A87CF52AF221D1002E3399 /* LocalGitCredentialsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA1227B2A8E03CC00E7B417 /* LocalGitCredentialsHelper.swift */; };
+		A3A87CF62AF221D1002E3399 /* LocalFileSystemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9419692A2802AB88008AAEB2 /* LocalFileSystemProvider.swift */; };
+		A3A87CF72AF221D1002E3399 /* SourceControlError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC03E65291F21BD00DECD1B /* SourceControlError.swift */; };
+		A3A87CF82AF221D1002E3399 /* DirectoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77822257BC7E5008FE7B2 /* DirectoryPickerView.swift */; };
+		A3A87CF92AF221D1002E3399 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77831257BDC50008FE7B2 /* SafariView.swift */; };
+		A3A87CFA2AF221D1002E3399 /* ExplorerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C75E5281587DB00D22B35 /* ExplorerCell.swift */; };
+		A3A87CFB2AF221D1002E3399 /* getRootDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7782C257BCEE2008FE7B2 /* getRootDirectory.swift */; };
+		A3A87CFC2AF221D1002E3399 /* RemoteTypeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A045F3280481A900182275 /* RemoteTypeLabel.swift */; };
+		A3A87CFD2AF221D1002E3399 /* DescriptionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A045FD2804853200182275 /* DescriptionText.swift */; };
+		A3A87CFE2AF221D1002E3399 /* PortForwardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC673802AA057F100346FD7 /* PortForwardContainer.swift */; };
+		A3A87CFF2AF221D1002E3399 /* SourceControlContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777DF257B8D8E008FE7B2 /* SourceControlContainer.swift */; };
+		A3A87D002AF221D1002E3399 /* shortcutsMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C893E5279D0C3000DFBF29 /* shortcutsMapping.swift */; };
+		A3A87D012AF221D1002E3399 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7FFB2268D085300369147 /* BottomBar.swift */; };
+		A3A87D022AF221D1002E3399 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777D5257B8A88008FE7B2 /* SearchBar.swift */; };
+		A3A87D032AF221D1002E3399 /* RemoteAuxiliaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA122712A8B5A2500E7B417 /* RemoteAuxiliaryExtension.swift */; };
+		A3A87D042AF221D1002E3399 /* Color+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3DDF0260344E700C4F2B1 /* Color+init.swift */; };
+		A3A87D052AF221D1002E3399 /* SourceControlTextFieldAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA939DC2A9317F800C239BF /* SourceControlTextFieldAlert.swift */; };
+		A3A87D062AF221D1002E3399 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5BD00292A08D600F20C4B /* AppError.swift */; };
+		A3A87D072AF221D1002E3399 /* PanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7780A257BBCAC008FE7B2 /* PanelView.swift */; };
+		A3A87D082AF221D1002E3399 /* UIApplication+getSafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947A9D8827D3C562007680C3 /* UIApplication+getSafeArea.swift */; };
+		A3A87D092AF221D1002E3399 /* SourceControlAuthenticationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F52704259F997200337306 /* SourceControlAuthenticationConfiguration.swift */; };
+		A3A87D0A2AF221D1002E3399 /* NotificationCentreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777C0257B752A008FE7B2 /* NotificationCentreView.swift */; };
+		A3A87D0B2AF221D1002E3399 /* DocumentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77828257BC951008FE7B2 /* DocumentPickerView.swift */; };
+		A3A87D0C2AF221D1002E3399 /* RemoteHostError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C2DF2291CB2B400BFF14C /* RemoteHostError.swift */; };
+		A3A87D0D2AF221D1002E3399 /* GitServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A0461228049A7A00182275 /* GitServiceProvider.swift */; };
+		A3A87D0E2AF221D1002E3399 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77833257BE2D8008FE7B2 /* EditorView.swift */; };
+		A3A87D0F2AF221D1002E3399 /* ExplorerFileTreeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC03E70291F6FE000DECD1B /* ExplorerFileTreeSection.swift */; };
+		A3A87D102AF221D1002E3399 /* HierarchyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944FC40A25C5F69D00C7C43C /* HierarchyList.swift */; };
+		A3A87D112AF221D1002E3399 /* WebViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5BCEE29249F0200F20C4B /* WebViewBase.swift */; };
+		A3A87D122AF221D1002E3399 /* PanelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5BCE42923897200F20C4B /* PanelManager.swift */; };
+		A3A87D132AF221D1002E3399 /* MarkdownViewerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAE4996292DD76A00B1B962 /* MarkdownViewerExtension.swift */; };
+		A3A87D142AF221D1002E3399 /* AheadBehindIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA1226D2A8B522100E7B417 /* AheadBehindIndicator.swift */; };
+		A3A87D152AF221D1002E3399 /* RemoteExecutionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F046C3929223D1600BDE4E9 /* RemoteExecutionExtension.swift */; };
+		A3A87D162AF221D1002E3399 /* EditorTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E478126502B6900A6110D /* EditorTab.swift */; };
+		A3A87D172AF221D1002E3399 /* SimpleWebPreviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0FAF32939AD86007170F5 /* SimpleWebPreviewExtension.swift */; };
+		A3A87D182AF221D1002E3399 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777F2257B91CA008FE7B2 /* RemoteImage.swift */; };
+		A3A87D192AF221D1002E3399 /* KeyChainAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942E31F728086FE800233441 /* KeyChainAccessor.swift */; };
+		A3A87D1A2AF221D1002E3399 /* SourceControlEmptySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A046272804A6B300182275 /* SourceControlEmptySection.swift */; };
+		A3A87D1B2AF221D1002E3399 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C2DE92918E19B00BFF14C /* Theme.swift */; };
+		A3A87D1C2AF221D1002E3399 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777F5257B9260008FE7B2 /* SettingsView.swift */; };
+		A3A87D1D2AF221D1002E3399 /* wasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF58E0265E8A4B00CB6A4B /* wasm.swift */; };
+		A3A87D1E2AF221D1002E3399 /* deferredRendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29759B2A1F488E007FDB3D /* deferredRendering.swift */; };
+		A3A87D1F2AF221D1002E3399 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947BF348262453040015DAEB /* SearchManager.swift */; };
+		A3A87D202AF221D1002E3399 /* ArchiveDir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7781D257BC473008FE7B2 /* ArchiveDir.swift */; };
+		A3A87D212AF221D1002E3399 /* MarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A5682A257CBDE4008A6530 /* MarkdownView.swift */; };
+		A3A87D222AF221D1002E3399 /* RemotePortForwardSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC6737D2AA03A4800346FD7 /* RemotePortForwardSection.swift */; };
+		A3A87D232AF221D1002E3399 /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F046C3429222D8E00BDE4E9 /* ExtensionManager.swift */; };
+		A3A87D242AF221D1002E3399 /* LocalExecutionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5BCFA2928E02300F20C4B /* LocalExecutionExtension.swift */; };
+		A3A87D252AF221D1002E3399 /* MonacoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777AB257B66CF008FE7B2 /* MonacoEditor.swift */; };
+		A3A87D262AF221D1002E3399 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F37391D293F37F8006886C1 /* ThemeManager.swift */; };
+		A3A87D272AF221D1002E3399 /* EditorProviderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5BCFD2929F0F300F20C4B /* EditorProviderManager.swift */; };
+		A3A87D282AF221D1002E3399 /* SearchUnsupportedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942E32062808805F00233441 /* SearchUnsupportedSection.swift */; };
+		A3A87D292AF221D1002E3399 /* hiddenSystemOverlays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A347BC293DE24B00A59658 /* hiddenSystemOverlays.swift */; };
+		A3A87D2A2AF221D1002E3399 /* hiddenScrollableContentBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C2DC72918A31000BFF14C /* hiddenScrollableContentBackground.swift */; };
+		A3A87D2B2AF221D1002E3399 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC03E68291F303900DECD1B /* Utilities.swift */; };
+		A3A87D2C2AF221D1002E3399 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D721DE268DA2B8007A63BD /* TopBar.swift */; };
+		A3A87D2D2AF221D1002E3399 /* EditorKeyboardToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9438C9A125CBD25F00335E82 /* EditorKeyboardToolBar.swift */; };
+		A3A87D2E2AF221D1002E3399 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777BD257B74EE008FE7B2 /* NotificationManager.swift */; };
+		A3A87D2F2AF221D1002E3399 /* URL+isDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF58DC265E4E0F00CB6A4B /* URL+isDirectory.swift */; };
+		A3A87D302AF221D1002E3399 /* TerminalProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9441129C28217D6A00A8F1D7 /* TerminalProvider.swift */; };
+		A3A87D312AF221D1002E3399 /* String.Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E3B96A25866C79006AC043 /* String.Encoding.swift */; };
+		A3A87D322AF221D1002E3399 /* SettingsThemeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3DDF72604F90800C4F2B1 /* SettingsThemeConfiguration.swift */; };
+		A3A87D332AF221D1002E3399 /* RemoteContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437153E26BF9FC3000376FB /* RemoteContainer.swift */; };
+		A3A87D342AF221D1002E3399 /* CloudCodeExecutionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77818257BC332008FE7B2 /* CloudCodeExecutionManager.swift */; };
+		A3A87D352AF221D1002E3399 /* KBWebViewBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FF3370284348F1003DE5DD /* KBWebViewBase.m */; };
+		A3A87D362AF221D1002E3399 /* CodeAppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F046C3C29223E1500BDE4E9 /* CodeAppExtension.swift */; };
+		A3A87D372AF221D1002E3399 /* TextEditorWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081B72925F8FB001D9373 /* TextEditorWithPlaceholder.swift */; };
+		A3A87D382AF221D1002E3399 /* String+toCString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B3CC425DEA89A00BC83B5 /* String+toCString.swift */; };
+		A3A87D392AF221D1002E3399 /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C2DF6291CCE9A00BFF14C /* Remote.swift */; };
+		A3A87D3A2AF221D1002E3399 /* CompactSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94795C4729314A0A0057C12F /* CompactSidebar.swift */; };
+		A3A87D3B2AF221D1002E3399 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D12212583F2A5008F877A /* Executor.swift */; };
+		A3A87D3C2AF221D1002E3399 /* RemoteAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9437155A26C3C745000376FB /* RemoteAuthView.swift */; };
+		A3A87D3D2AF221D1002E3399 /* CodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944EEBF32563C381009D77FE /* CodeApp.swift */; };
+		A3A87D3E2AF221D1002E3399 /* PortForwardServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC673832AA068EE00346FD7 /* PortForwardServiceProvider.swift */; };
+		A3A87D3F2AF221D1002E3399 /* openFilesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777DB257B8C99008FE7B2 /* openFilesApp.swift */; };
+		A3A87D402AF221D1002E3399 /* View+If.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3DDF9260526D200C4F2B1 /* View+If.swift */; };
+		A3A87D412AF221D1002E3399 /* WorkSpaceStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777A1257ABDC3008FE7B2 /* WorkSpaceStorage.swift */; };
+		A3A87D422AF221D1002E3399 /* RemoteListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A045ED280480E800182275 /* RemoteListSection.swift */; };
+		A3A87D432AF221D1002E3399 /* DirectoryFolderMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777A7257ABEBE008FE7B2 /* DirectoryFolderMonitor.swift */; };
+		A3A87D442AF221D1002E3399 /* ActivityBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94795C442931489C0057C12F /* ActivityBar.swift */; };
+		A3A87D452AF221D1002E3399 /* NSError+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948A5FE82A87B09500303C12 /* NSError+init.swift */; };
+		A3A87D462AF221D1002E3399 /* TerminalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5BCE829238B6C00F20C4B /* TerminalExtension.swift */; };
+		A3A87D472AF221D1002E3399 /* FileSystemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941969242802AB2C008AAEB2 /* FileSystemProvider.swift */; };
+		A3A87D482AF221D1002E3399 /* EditorReadOnlyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA122632A8B2A8C00E7B417 /* EditorReadOnlyLabel.swift */; };
+		A3A87D492AF221D1002E3399 /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941E53B528787D3100561C7E /* MenuButtonView.swift */; };
+		A3A87D4A2AF221D1002E3399 /* SettingsKeyboardShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C893E1279D09D400DFBF29 /* SettingsKeyboardShortcuts.swift */; };
+		A3A87D4B2AF221D1002E3399 /* SearchServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942E3200280877C900233441 /* SearchServiceProvider.swift */; };
+		A3A87D4C2AF221D1002E3399 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F52706259F9B4800337306 /* KeychainWrapper.swift */; };
+		A3A87D4D2AF221D1002E3399 /* GitHubSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A046092804955C00182275 /* GitHubSearchView.swift */; };
+		A3A87D4E2AF221D1002E3399 /* ExplorerEditorListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC03E6D291F6EE700DECD1B /* ExplorerEditorListSection.swift */; };
+		A3A87D4F2AF221D1002E3399 /* SpellChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942ACB9C281312900067114D /* SpellChecker.swift */; };
+		A3A87D502AF221D1002E3399 /* SFTPFileSystemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E6CC7A2806FBAF00939E4F /* SFTPFileSystemProvider.swift */; };
+		A3A87D512AF221D1002E3399 /* EditorTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7782F257BD680008FE7B2 /* EditorTabs.swift */; };
+		A3A87D522AF221D1002E3399 /* LocalGitServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944FC3FE25C543CC00C7C43C /* LocalGitServiceProvider.swift */; };
+		A3A87D532AF221D1002E3399 /* SourceControlIdentityConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9494A3A42587479F004A103E /* SourceControlIdentityConfiguration.swift */; };
+		A3A87D542AF221D1002E3399 /* SearchContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777D1257B8A32008FE7B2 /* SearchContainer.swift */; };
+		A3A87D552AF221D1002E3399 /* String+base64EncodedDecoded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777AF257B679C008FE7B2 /* String+base64EncodedDecoded.swift */; };
+		A3A87D562AF221D1002E3399 /* FileDisplayName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F6B50F280EFD07000DBAE2 /* FileDisplayName.swift */; };
+		A3A87D572AF221D1002E3399 /* RegularSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F170D032A89F88D00D6D7C1 /* RegularSidebar.swift */; };
+		A3A87D582AF221D1002E3399 /* FileIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77791257AB805008FE7B2 /* FileIcon.swift */; };
+		A3A87D592AF221D1002E3399 /* StatusBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA122582A8B17E400E7B417 /* StatusBarManager.swift */; };
+		A3A87D5A2AF221D1002E3399 /* ViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94801F94266FBC3500B29D80 /* ViewRepresentable.swift */; };
+		A3A87D5B2AF221D1002E3399 /* SourceControlEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FC220A257F7D2900B85D1B /* SourceControlEntry.swift */; };
+		A3A87D5C2AF221D1002E3399 /* DebugMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5BCF32927859600F20C4B /* DebugMenu.swift */; };
+		A3A87D5D2AF221D1002E3399 /* FTPFileSystemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941969282802AB64008AAEB2 /* FTPFileSystemProvider.swift */; };
+		A3A87D5E2AF221D1002E3399 /* String+throwingRemovingPercentEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F170D002A89CEB800D6D7C1 /* String+throwingRemovingPercentEncoding.swift */; };
+		A3A87D5F2AF221D1002E3399 /* PDFViewerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA8975292FB86700163800 /* PDFViewerExtension.swift */; };
+		A3A87D602AF221D1002E3399 /* SourceControlAuxiliaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAE499A292F530B00B1B962 /* SourceControlAuxiliaryExtension.swift */; };
+		A3A87D612AF221D1002E3399 /* View+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777B6257B6A43008FE7B2 /* View+cornerRadius.swift */; };
+		A3A87D622AF221D1002E3399 /* MonacoIntellisenseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B3CBA25DBCCDB00BC83B5 /* MonacoIntellisenseExtension.swift */; };
+		A3A87D632AF221D1002E3399 /* ActivityBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E6CC842807502A00939E4F /* ActivityBarItemView.swift */; };
+		A3A87D642AF221D1002E3399 /* RemoteCreateSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A045F02804816000182275 /* RemoteCreateSection.swift */; };
+		A3A87D652AF221D1002E3399 /* VideoViewerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAE4992292D153F00B1B962 /* VideoViewerExtension.swift */; };
+		A3A87D662AF221D1002E3399 /* SFTPTerminalServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944112A0282181E500A8F1D7 /* SFTPTerminalServiceProvider.swift */; };
+		A3A87D672AF221D1002E3399 /* URL+relativePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B3CB825DADCB900BC83B5 /* URL+relativePath.swift */; };
+		A3A87D682AF221D1002E3399 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942A1884285B90650018801F /* Secrets.swift */; };
+		A3A87D692AF221D1002E3399 /* SearchResultsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942E320328087FA400233441 /* SearchResultsSection.swift */; };
+		A3A87D6A2AF221D1002E3399 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F52708259F9B7800337306 /* KeychainItemAccessibility.swift */; };
+		A3A87D6B2AF221D1002E3399 /* ExplorerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777C3257B8042008FE7B2 /* ExplorerContainer.swift */; };
+		A3A87D6C2AF221D1002E3399 /* InfiniteProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9419692C2803117D008AAEB2 /* InfiniteProgressView.swift */; };
+		A3A87D6D2AF221D1002E3399 /* CheckoutMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA1226A2A8B519A00E7B417 /* CheckoutMenu.swift */; };
+		A3A87D6E2AF221D1002E3399 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7779E257ABD7A008FE7B2 /* MainApp.swift */; };
+		A3A87D6F2AF221D1002E3399 /* EncodingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0FAEF2938A14C007170F5 /* EncodingMenu.swift */; };
+		A3A87D702AF221D1002E3399 /* PanelSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77807257BBA8A008FE7B2 /* PanelSelector.swift */; };
+		A3A87D712AF221D1002E3399 /* MonacoEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA1225F2A8B29FB00E7B417 /* MonacoEditorExtension.swift */; };
+		A3A87D722AF221D1002E3399 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC03E732920CF1700DECD1B /* Notification.swift */; };
+		A3A87D732AF221D1002E3399 /* CodeAppContributionPointManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA1225B2A8B209500E7B417 /* CodeAppContributionPointManager.swift */; };
+		A3A87D742AF221D1002E3399 /* node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949B3CC625DEAAA600BC83B5 /* node.swift */; };
+		A3A87D752AF221D1002E3399 /* TerminalInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94801F92266FB5E400B29D80 /* TerminalInstance.swift */; };
+		A3A87D762AF221D1002E3399 /* convertCArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F2FEA826A2EB0E007EBC6D /* convertCArguments.swift */; };
+		A3A87D772AF221D1002E3399 /* SettingsFontPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FF337328435158003DE5DD /* SettingsFontPicker.swift */; };
+		A3A87D782AF221D1002E3399 /* NewFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77801257B960A008FE7B2 /* NewFileView.swift */; };
+		A3A87D792AF221D1002E3399 /* DefaultUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD5BCEB292495DF00F20C4B /* DefaultUIState.swift */; };
+		A3A87D7A2AF221D1002E3399 /* EditorInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A77795257ABB69008FE7B2 /* EditorInstance.swift */; };
+		A3A87D7B2AF221D1002E3399 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C2DEC2918EDC400BFF14C /* Resources.swift */; };
+		A3A87D7C2AF221D1002E3399 /* biometricType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E6CC872807632B00939E4F /* biometricType.swift */; };
+		A3A87D7D2AF221D1002E3399 /* SearchSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942E31FA280876AA00233441 /* SearchSection.swift */; };
+		A3A87D7E2AF221D1002E3399 /* EditorLineColumnIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA122662A8B2AC300E7B417 /* EditorLineColumnIndicator.swift */; };
+		A3A87D7F2AF221D1002E3399 /* Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94795C4A293259080057C12F /* Encoding.swift */; };
+		A3A87D802AF221D1002E3399 /* SourceControlSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A046242804A67100182275 /* SourceControlSection.swift */; };
+		A3A87D812AF221D1002E3399 /* SourceControlCloneSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A04606280493C600182275 /* SourceControlCloneSection.swift */; };
+		A3A87D822AF221D1002E3399 /* Libgit2Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081BA29260B00001D9373 /* Libgit2Error.swift */; };
+		A3A87D832AF221D1002E3399 /* SourceControlTemplateSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDAD1B8296EAC3C00E8AEB2 /* SourceControlTemplateSection.swift */; };
+		A3A87D842AF221D1002E3399 /* ImageViewerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAE498E292D062800B1B962 /* ImageViewerExtension.swift */; };
+		A3A87D852AF221D1002E3399 /* RemoteHostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A045F62804822400182275 /* RemoteHostCell.swift */; };
+		A3A87D862AF221D1002E3399 /* RemoteConnectedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA122752A8B5A4800E7B417 /* RemoteConnectedLabel.swift */; };
+		A3A87D872AF221D1002E3399 /* UserDefaults+Hosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FE0C93281E50F200C05529 /* UserDefaults+Hosts.swift */; };
+		A3A87D882AF221D1002E3399 /* ToolbarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F046C312922203E00BDE4E9 /* ToolbarManager.swift */; };
+		A3A87D8A2AF221D1002E3399 /* FilesProvider in Frameworks */ = {isa = PBXBuildFile; productRef = A3A87CE72AF221D1002E3399 /* FilesProvider */; };
+		A3A87D8B2AF221D1002E3399 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = A3A87CE12AF221D1002E3399 /* ZIPFoundation */; };
+		A3A87D8D2AF221D1002E3399 /* MarkdownView in Frameworks */ = {isa = PBXBuildFile; productRef = A3A87CE52AF221D1002E3399 /* MarkdownView */; };
+		A3A87D8E2AF221D1002E3399 /* GCDWebServers in Frameworks */ = {isa = PBXBuildFile; productRef = A3A87CEA2AF221D1002E3399 /* GCDWebServers */; };
+		A3A87D8F2AF221D1002E3399 /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = A3A87CE32AF221D1002E3399 /* Dynamic */; };
+		A3A87D902AF221D1002E3399 /* SwiftGit2 in Frameworks */ = {isa = PBXBuildFile; productRef = A3A87CE92AF221D1002E3399 /* SwiftGit2 */; };
+		A3A87D912AF221D1002E3399 /* NMSSH.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942E321128093CA600233441 /* NMSSH.xcframework */; };
+		A3A87D932AF221D1002E3399 /* Themes in Resources */ = {isa = PBXBuildFile; fileRef = 94127C3F280335C8008C7F82 /* Themes */; };
+		A3A87D942AF221D1002E3399 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944EEBFA2563C386009D77FE /* Preview Assets.xcassets */; };
+		A3A87D952AF221D1002E3399 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94A56832257CC3A1008A6530 /* Localizable.strings */; };
+		A3A87D962AF221D1002E3399 /* monaco-textmate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94A4438F25A44CDB006643FF /* monaco-textmate.bundle */; };
+		A3A87D972AF221D1002E3399 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9425205B263E103E0029427A /* InfoPlist.strings */; };
+		A3A87D982AF221D1002E3399 /* cacert.pem in Resources */ = {isa = PBXBuildFile; fileRef = 94B3D5D525F776A900C4F2B1 /* cacert.pem */; };
+		A3A87D992AF221D1002E3399 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948D11FF2583F20C008F877A /* commandDictionary.plist */; };
+		A3A87D9A2AF221D1002E3399 /* FiraCode-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 94FF33882843744C003DE5DD /* FiraCode-Regular.ttf */; };
+		A3A87D9C2AF221D1002E3399 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 941CF5FA2641CBDA001199C0 /* Settings.bundle */; };
+		A3A87D9D2AF221D1002E3399 /* extraCommandsDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948D11FE2583F20C008F877A /* extraCommandsDictionary.plist */; };
+		A3A87D9F2AF221D1002E3399 /* terminal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 948D12202583F24E008F877A /* terminal.bundle */; };
+		A3A87DA02AF221D1002E3399 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A56834257CC60E008A6530 /* LaunchScreen.storyboard */; };
+		A3A87DA12AF221D1002E3399 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944EEBF72563C386009D77FE /* Assets.xcassets */; };
+		A3A87DA32AF221D1002E3399 /* network_ios.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4AB25F5518700F1EF4E /* network_ios.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3A87DA42AF221D1002E3399 /* freetype.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94F2FEA326A2D44D007EBC6D /* freetype.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3A87DA52AF221D1002E3399 /* NMSSH.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 942E321128093CA600233441 /* NMSSH.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3A87DA62AF221D1002E3399 /* NodeMobile.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 945AEA3427ECCB3D00BA193E /* NodeMobile.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3A87DA72AF221D1002E3399 /* libpng.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94D7DEC02631D0CA00FA0760 /* libpng.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3A87DA82AF221D1002E3399 /* harfbuzz.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94D7DED42631D16C00FA0760 /* harfbuzz.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3A87DAA2AF221D1002E3399 /* ssh_cmd.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4A525F5518700F1EF4E /* ssh_cmd.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3A87DAB2AF221D1002E3399 /* files.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4A625F5518700F1EF4E /* files.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3A87DAC2AF221D1002E3399 /* awk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4A925F5518700F1EF4E /* awk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3A87DAD2AF221D1002E3399 /* text.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4AC25F5518700F1EF4E /* text.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3A87DAF2AF221D1002E3399 /* tar.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B3DDF42604D3C400C4F2B1 /* tar.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FFD081B82925F8FB001D9373 /* TextEditorWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081B72925F8FB001D9373 /* TextEditorWithPlaceholder.swift */; };
 		FFD081B92925F8FB001D9373 /* TextEditorWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081B72925F8FB001D9373 /* TextEditorWithPlaceholder.swift */; };
 		FFD081BB29260B00001D9373 /* Libgit2Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081BA29260B00001D9373 /* Libgit2Error.swift */; };
@@ -773,6 +998,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9419692E280316C7008AAEB2;
 			remoteInfo = CodeUI;
+		};
+		A36336F12AF22B3200085608 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A36336E52AF22B3200085608;
+			remoteInfo = pydeRemote;
+		};
+		A363370F2AF231D200085608 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A36337032AF231D200085608;
+			remoteInfo = pydeUI;
+		};
+		A38273032AF4AD2F0096A7C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A38272FA2AF4AD2F0096A7C9;
+			remoteInfo = pydeShare;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1201,6 +1447,64 @@
 			files = (
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A36336F92AF22C1500085608 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A363371F2AF2329600085608 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3A87DA22AF221D1002E3399 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A3A87DA32AF221D1002E3399 /* network_ios.xcframework in Embed Frameworks */,
+				A3A87DA42AF221D1002E3399 /* freetype.xcframework in Embed Frameworks */,
+				A3A87DA52AF221D1002E3399 /* NMSSH.xcframework in Embed Frameworks */,
+				A36336DD2AF226BA00085608 /* python3_site in Embed Frameworks */,
+				A3A87DA62AF221D1002E3399 /* NodeMobile.xcframework in Embed Frameworks */,
+				A36336D42AF226BA00085608 /* pyde in Embed Frameworks */,
+				A3A87DA72AF221D1002E3399 /* libpng.xcframework in Embed Frameworks */,
+				A3A87DA82AF221D1002E3399 /* harfbuzz.xcframework in Embed Frameworks */,
+				A3A87DAA2AF221D1002E3399 /* ssh_cmd.xcframework in Embed Frameworks */,
+				A3A87DAB2AF221D1002E3399 /* files.xcframework in Embed Frameworks */,
+				A3A87DAC2AF221D1002E3399 /* awk.xcframework in Embed Frameworks */,
+				A3A87DAD2AF221D1002E3399 /* text.xcframework in Embed Frameworks */,
+				A36336D72AF226BA00085608 /* pydeCommon in Embed Frameworks */,
+				A36336DA2AF226BA00085608 /* python3_objc in Embed Frameworks */,
+				A3A87DAF2AF221D1002E3399 /* tar.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3A87DB02AF221D1002E3399 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A36337112AF231D200085608 /* pydeUI.appex in Embed Foundation Extensions */,
+				A38273052AF4AD2F0096A7C9 /* pydeShare.appex in Embed Foundation Extensions */,
+				A36336F32AF22B3200085608 /* pydeRemote.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -1765,6 +2069,34 @@
 		9FDAD1B8296EAC3C00E8AEB2 /* SourceControlTemplateSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceControlTemplateSection.swift; sourceTree = "<group>"; };
 		9FE3E292298A14BC00F63DD0 /* CodeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE3E294298A14BC00F63DD0 /* CodeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeUITests.swift; sourceTree = "<group>"; };
+		A36336D12AF2268D00085608 /* pydeCommon */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = pydeCommon; path = ../../modules/pythoncc/pyde/pydeCommon; sourceTree = "<group>"; };
+		A36336E62AF22B3200085608 /* pydeRemote.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pydeRemote.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
+		A36336EA2AF22B3200085608 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
+		A36336EE2AF22B3200085608 /* Action.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Action.js; sourceTree = "<group>"; };
+		A36336F02AF22B3200085608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A36336FE2AF22CF700085608 /* pydeRemoteDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pydeRemoteDebug.entitlements; sourceTree = "<group>"; };
+		A36337042AF231D200085608 /* pydeUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pydeUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A36337072AF231D200085608 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		A36337092AF231D200085608 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		A363370C2AF231D200085608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		A363370E2AF231D200085608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A36337212AF237AA00085608 /* PopupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupManager.swift; sourceTree = "<group>"; };
+		A36337252AF2520D00085608 /* TMConsoleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMConsoleExtension.swift; sourceTree = "<group>"; };
+		A36337272AF2955600085608 /* PYLocalExecutionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYLocalExecutionExtension.swift; sourceTree = "<group>"; };
+		A363372B2AF3407C00085608 /* MirrorManocoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorManocoEditor.swift; sourceTree = "<group>"; };
+		A363372D2AF388DB00085608 /* PYTextEditorInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYTextEditorInstance.swift; sourceTree = "<group>"; };
+		A363372F2AF3E9DF00085608 /* PYRunnerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYRunnerExtension.swift; sourceTree = "<group>"; };
+		A36337322AF4197100085608 /* pydeUIDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pydeUIDebug.entitlements; sourceTree = "<group>"; };
+		A38272FB2AF4AD2F0096A7C9 /* pydeShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pydeShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A38272FD2AF4AD2F0096A7C9 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		A38273002AF4AD2F0096A7C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		A38273022AF4AD2F0096A7C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3A87DB42AF221D1002E3399 /* pydeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pydeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3A87DB52AF221D1002E3399 /* CodeUI copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CodeUI copy-Info.plist"; path = "/Users/huima/PythonSchool/pydeApp/CodeUI copy-Info.plist"; sourceTree = "<absolute>"; };
+		A3A87DB82AF22575002E3399 /* python3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = python3; path = ../../modules/pythoncc/python3; sourceTree = "<group>"; };
+		A3A87DB92AF2257D002E3399 /* pyde */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = pyde; path = ../../modules/pythoncc/pyde; sourceTree = "<group>"; };
 		FFD081B72925F8FB001D9373 /* TextEditorWithPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorWithPlaceholder.swift; sourceTree = "<group>"; };
 		FFD081BA29260B00001D9373 /* Libgit2Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Libgit2Error.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1827,6 +2159,55 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A36336E32AF22B3200085608 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A36336FC2AF22C1500085608 /* python3_objc in Frameworks */,
+				A36336E82AF22B3200085608 /* UniformTypeIdentifiers.framework in Frameworks */,
+				A36336F82AF22C1500085608 /* pydeCommon in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A36337012AF231D200085608 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A363371C2AF2329600085608 /* python3_ui in Frameworks */,
+				A363371E2AF2329600085608 /* SDL2 in Frameworks */,
+				A36337192AF2329600085608 /* python3_objc in Frameworks */,
+				A36337052AF231D200085608 /* UniformTypeIdentifiers.framework in Frameworks */,
+				A36337162AF2329600085608 /* pydeCommon in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A38272F82AF4AD2F0096A7C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3A87D892AF221D1002E3399 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3A87D8A2AF221D1002E3399 /* FilesProvider in Frameworks */,
+				A3A87D8B2AF221D1002E3399 /* ZIPFoundation in Frameworks */,
+				A36336D62AF226BA00085608 /* pydeCommon in Frameworks */,
+				A36336D92AF226BA00085608 /* python3_objc in Frameworks */,
+				A36336DC2AF226BA00085608 /* python3_site in Frameworks */,
+				A3A87D8D2AF221D1002E3399 /* MarkdownView in Frameworks */,
+				A3A87D8E2AF221D1002E3399 /* GCDWebServers in Frameworks */,
+				A36336D32AF226BA00085608 /* pyde in Frameworks */,
+				A3A87D8F2AF221D1002E3399 /* Dynamic in Frameworks */,
+				A3A87D902AF221D1002E3399 /* SwiftGit2 in Frameworks */,
+				A36336DF2AF226BA00085608 /* python3_ui in Frameworks */,
+				A3A87D912AF221D1002E3399 /* NMSSH.xcframework in Frameworks */,
+				A36336E12AF226BA00085608 /* SDL2 in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -1835,6 +2216,7 @@
 			children = (
 				942E321128093CA600233441 /* NMSSH.xcframework */,
 				945E7E3727CA79C900BA1D95 /* NodeMobile.xcframework */,
+				A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1881,6 +2263,9 @@
 		944EEBE72563C381009D77FE = {
 			isa = PBXGroup;
 			children = (
+				A36337322AF4197100085608 /* pydeUIDebug.entitlements */,
+				A36336FE2AF22CF700085608 /* pydeRemoteDebug.entitlements */,
+				A3A87DB62AF2253E002E3399 /* pydeApp */,
 				94FF338728437438003DE5DD /* Fonts */,
 				94B99D9527D4A622005B5E3A /* Packages */,
 				94A4438225A389FF006643FF /* README.md */,
@@ -1899,6 +2284,7 @@
 				9FE3E293298A14BC00F63DD0 /* CodeUITests */,
 				944EEBF12563C381009D77FE /* Products */,
 				24509F1455D67D501EFBD28C /* Frameworks */,
+				A3A87DB52AF221D1002E3399 /* CodeUI copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1909,6 +2295,10 @@
 				94369AFC25E3B933008419A0 /* extension.appex */,
 				94196B18280316C7008AAEB2 /* CodeUI.app */,
 				9FE3E292298A14BC00F63DD0 /* CodeUITests.xctest */,
+				A3A87DB42AF221D1002E3399 /* pydeApp.app */,
+				A36336E62AF22B3200085608 /* pydeRemote.appex */,
+				A36337042AF231D200085608 /* pydeUI.appex */,
+				A38272FB2AF4AD2F0096A7C9 /* pydeShare.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2790,6 +3180,73 @@
 			path = CodeUITests;
 			sourceTree = "<group>";
 		};
+		A36336E92AF22B3200085608 /* pydeRemote */ = {
+			isa = PBXGroup;
+			children = (
+				A36336EA2AF22B3200085608 /* Media.xcassets */,
+				A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */,
+				A36336EE2AF22B3200085608 /* Action.js */,
+				A36336F02AF22B3200085608 /* Info.plist */,
+			);
+			path = pydeRemote;
+			sourceTree = "<group>";
+		};
+		A36337062AF231D200085608 /* pydeUI */ = {
+			isa = PBXGroup;
+			children = (
+				A36337072AF231D200085608 /* Media.xcassets */,
+				A36337092AF231D200085608 /* ActionViewController.swift */,
+				A363370B2AF231D200085608 /* MainInterface.storyboard */,
+				A363370E2AF231D200085608 /* Info.plist */,
+			);
+			path = pydeUI;
+			sourceTree = "<group>";
+		};
+		A36337242AF251E500085608 /* pydeApp */ = {
+			isa = PBXGroup;
+			children = (
+				A36337252AF2520D00085608 /* TMConsoleExtension.swift */,
+				A36337212AF237AA00085608 /* PopupManager.swift */,
+				A36337272AF2955600085608 /* PYLocalExecutionExtension.swift */,
+				A363372B2AF3407C00085608 /* MirrorManocoEditor.swift */,
+				A363372D2AF388DB00085608 /* PYTextEditorInstance.swift */,
+				A363372F2AF3E9DF00085608 /* PYRunnerExtension.swift */,
+			);
+			path = pydeApp;
+			sourceTree = "<group>";
+		};
+		A38272FC2AF4AD2F0096A7C9 /* pydeShare */ = {
+			isa = PBXGroup;
+			children = (
+				A38272FD2AF4AD2F0096A7C9 /* ShareViewController.swift */,
+				A38272FF2AF4AD2F0096A7C9 /* MainInterface.storyboard */,
+				A38273022AF4AD2F0096A7C9 /* Info.plist */,
+			);
+			path = pydeShare;
+			sourceTree = "<group>";
+		};
+		A3A87DB62AF2253E002E3399 /* pydeApp */ = {
+			isa = PBXGroup;
+			children = (
+				A3A87DB72AF22553002E3399 /* Packages */,
+				A36337242AF251E500085608 /* pydeApp */,
+				A36336E92AF22B3200085608 /* pydeRemote */,
+				A38272FC2AF4AD2F0096A7C9 /* pydeShare */,
+				A36337062AF231D200085608 /* pydeUI */,
+			);
+			path = pydeApp;
+			sourceTree = "<group>";
+		};
+		A3A87DB72AF22553002E3399 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				A3A87DB82AF22575002E3399 /* python3 */,
+				A36336D12AF2268D00085608 /* pydeCommon */,
+				A3A87DB92AF2257D002E3399 /* pyde */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2894,13 +3351,113 @@
 			productReference = 9FE3E292298A14BC00F63DD0 /* CodeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A36336E52AF22B3200085608 /* pydeRemote */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A36336F42AF22B3200085608 /* Build configuration list for PBXNativeTarget "pydeRemote" */;
+			buildPhases = (
+				A36336E22AF22B3200085608 /* Sources */,
+				A36336E32AF22B3200085608 /* Frameworks */,
+				A36336E42AF22B3200085608 /* Resources */,
+				A36336F92AF22C1500085608 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pydeRemote;
+			packageProductDependencies = (
+				A36336F72AF22C1500085608 /* pydeCommon */,
+				A36336FB2AF22C1500085608 /* python3_objc */,
+			);
+			productName = pydeRemote;
+			productReference = A36336E62AF22B3200085608 /* pydeRemote.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		A36337032AF231D200085608 /* pydeUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A36337122AF231D300085608 /* Build configuration list for PBXNativeTarget "pydeUI" */;
+			buildPhases = (
+				A36337002AF231D200085608 /* Sources */,
+				A36337012AF231D200085608 /* Frameworks */,
+				A36337022AF231D200085608 /* Resources */,
+				A363371F2AF2329600085608 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pydeUI;
+			packageProductDependencies = (
+				A36337152AF2329600085608 /* pydeCommon */,
+				A36337182AF2329600085608 /* python3_objc */,
+				A363371B2AF2329600085608 /* python3_ui */,
+				A363371D2AF2329600085608 /* SDL2 */,
+			);
+			productName = pydeUI;
+			productReference = A36337042AF231D200085608 /* pydeUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		A38272FA2AF4AD2F0096A7C9 /* pydeShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A38273082AF4AD2F0096A7C9 /* Build configuration list for PBXNativeTarget "pydeShare" */;
+			buildPhases = (
+				A38272F72AF4AD2F0096A7C9 /* Sources */,
+				A38272F82AF4AD2F0096A7C9 /* Frameworks */,
+				A38272F92AF4AD2F0096A7C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pydeShare;
+			productName = pydeShare;
+			productReference = A38272FB2AF4AD2F0096A7C9 /* pydeShare.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		A3A87CE02AF221D1002E3399 /* pydeApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3A87DB12AF221D1002E3399 /* Build configuration list for PBXNativeTarget "pydeApp" */;
+			buildPhases = (
+				A3A87CEC2AF221D1002E3399 /* ShellScript */,
+				A3A87CED2AF221D1002E3399 /* Sources */,
+				A3A87D892AF221D1002E3399 /* Frameworks */,
+				A3A87D922AF221D1002E3399 /* Resources */,
+				A3A87DA22AF221D1002E3399 /* Embed Frameworks */,
+				A3A87DB02AF221D1002E3399 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A36336F22AF22B3200085608 /* PBXTargetDependency */,
+				A36337102AF231D200085608 /* PBXTargetDependency */,
+				A38273042AF4AD2F0096A7C9 /* PBXTargetDependency */,
+			);
+			name = pydeApp;
+			packageProductDependencies = (
+				A3A87CE12AF221D1002E3399 /* ZIPFoundation */,
+				A3A87CE32AF221D1002E3399 /* Dynamic */,
+				A3A87CE52AF221D1002E3399 /* MarkdownView */,
+				A3A87CE72AF221D1002E3399 /* FilesProvider */,
+				A3A87CE92AF221D1002E3399 /* SwiftGit2 */,
+				A3A87CEA2AF221D1002E3399 /* GCDWebServers */,
+				A36336D22AF226BA00085608 /* pyde */,
+				A36336D52AF226BA00085608 /* pydeCommon */,
+				A36336D82AF226BA00085608 /* python3_objc */,
+				A36336DB2AF226BA00085608 /* python3_site */,
+				A36336DE2AF226BA00085608 /* python3_ui */,
+				A36336E02AF226BA00085608 /* SDL2 */,
+			);
+			productName = testfield;
+			productReference = A3A87DB42AF221D1002E3399 /* pydeApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		944EEBE82563C381009D77FE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1410;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					9419692E280316C7008AAEB2 = {
@@ -2917,6 +3474,15 @@
 					9FE3E291298A14BC00F63DD0 = {
 						CreatedOnToolsVersion = 14.1;
 						TestTargetID = 9419692E280316C7008AAEB2;
+					};
+					A36336E52AF22B3200085608 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					A36337032AF231D200085608 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					A38272FA2AF4AD2F0096A7C9 = {
+						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
@@ -2944,6 +3510,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				A3A87CE02AF221D1002E3399 /* pydeApp */,
+				A36336E52AF22B3200085608 /* pydeRemote */,
+				A38272FA2AF4AD2F0096A7C9 /* pydeShare */,
+				A36337032AF231D200085608 /* pydeUI */,
 				944EEBEF2563C381009D77FE /* Code */,
 				9419692E280316C7008AAEB2 /* CodeUI */,
 				94369AFB25E3B933008419A0 /* extension */,
@@ -3013,6 +3583,56 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A36336E42AF22B3200085608 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A36336EF2AF22B3200085608 /* Action.js in Resources */,
+				A36336FF2AF2310200085608 /* commandDictionary.plist in Resources */,
+				A36336EB2AF22B3200085608 /* Media.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A36337022AF231D200085608 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A36337082AF231D200085608 /* Media.xcassets in Resources */,
+				A36337232AF23A6B00085608 /* commandDictionary.plist in Resources */,
+				A363370D2AF231D200085608 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A38272F92AF4AD2F0096A7C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A38273012AF4AD2F0096A7C9 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3A87D922AF221D1002E3399 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3A87D932AF221D1002E3399 /* Themes in Resources */,
+				A3A87D942AF221D1002E3399 /* Preview Assets.xcassets in Resources */,
+				A3A87D952AF221D1002E3399 /* Localizable.strings in Resources */,
+				A3A87D962AF221D1002E3399 /* monaco-textmate.bundle in Resources */,
+				A3A87D972AF221D1002E3399 /* InfoPlist.strings in Resources */,
+				A3A87D982AF221D1002E3399 /* cacert.pem in Resources */,
+				A3A87D992AF221D1002E3399 /* commandDictionary.plist in Resources */,
+				A3A87D9A2AF221D1002E3399 /* FiraCode-Regular.ttf in Resources */,
+				A3A87D9C2AF221D1002E3399 /* Settings.bundle in Resources */,
+				A3A87D9D2AF221D1002E3399 /* extraCommandsDictionary.plist in Resources */,
+				A363372A2AF2C06800085608 /* npm.bundle in Resources */,
+				A3A87D9F2AF221D1002E3399 /* terminal.bundle in Resources */,
+				A3A87DA02AF221D1002E3399 /* LaunchScreen.storyboard in Resources */,
+				A36337292AF2BFE900085608 /* ClangLib in Resources */,
+				A3A87DA12AF221D1002E3399 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -3045,6 +3665,24 @@
 			inputPaths = (
 			);
 			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=$PATH:/opt/homebrew/bin\nif command -v swift-format > /dev/null\nthen\n    swift-format format -i -r ${PROJECT_DIR}/CodeApp ${PROJECT_DIR}/CodeUITests ${PROJECT_DIR}/Extensions\n    swift-format lint -r -s ${PROJECT_DIR}/CodeApp ${PROJECT_DIR}/CodeUITests ${PROJECT_DIR}/Extensions\nelse\n    echo \"warning: swift-format not installed, install it by running brew install swift-format\"\nfi\n\n";
+		};
+		A3A87CEC2AF221D1002E3399 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -3397,6 +4035,198 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A36336E22AF22B3200085608 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A36336ED2AF22B3200085608 /* ActionRequestHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A36337002AF231D200085608 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A363370A2AF231D200085608 /* ActionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A38272F72AF4AD2F0096A7C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A38272FE2AF4AD2F0096A7C9 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3A87CED2AF221D1002E3399 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3A87CEE2AF221D1002E3399 /* SourceControlUnsupportedSection.swift in Sources */,
+				A3A87CEF2AF221D1002E3399 /* GitHubSearchManager.swift in Sources */,
+				A3A87CF02AF221D1002E3399 /* MainScene.swift in Sources */,
+				A3A87CF12AF221D1002E3399 /* RemoteConnectedSection.swift in Sources */,
+				A3A87CF22AF221D1002E3399 /* ActivityBarManager.swift in Sources */,
+				A3A87CF32AF221D1002E3399 /* HighlightedText.swift in Sources */,
+				A3A87CF42AF221D1002E3399 /* SideBarButton.swift in Sources */,
+				A3A87CF52AF221D1002E3399 /* LocalGitCredentialsHelper.swift in Sources */,
+				A3A87CF62AF221D1002E3399 /* LocalFileSystemProvider.swift in Sources */,
+				A36337262AF2520D00085608 /* TMConsoleExtension.swift in Sources */,
+				A3A87CF72AF221D1002E3399 /* SourceControlError.swift in Sources */,
+				A3A87CF82AF221D1002E3399 /* DirectoryPickerView.swift in Sources */,
+				A3A87CF92AF221D1002E3399 /* SafariView.swift in Sources */,
+				A3A87CFA2AF221D1002E3399 /* ExplorerCell.swift in Sources */,
+				A3A87CFB2AF221D1002E3399 /* getRootDirectory.swift in Sources */,
+				A3A87CFC2AF221D1002E3399 /* RemoteTypeLabel.swift in Sources */,
+				A3A87CFD2AF221D1002E3399 /* DescriptionText.swift in Sources */,
+				A3A87CFE2AF221D1002E3399 /* PortForwardContainer.swift in Sources */,
+				A3A87CFF2AF221D1002E3399 /* SourceControlContainer.swift in Sources */,
+				A3A87D002AF221D1002E3399 /* shortcutsMapping.swift in Sources */,
+				A3A87D012AF221D1002E3399 /* BottomBar.swift in Sources */,
+				A3A87D022AF221D1002E3399 /* SearchBar.swift in Sources */,
+				A3A87D032AF221D1002E3399 /* RemoteAuxiliaryExtension.swift in Sources */,
+				A3A87D042AF221D1002E3399 /* Color+init.swift in Sources */,
+				A3A87D052AF221D1002E3399 /* SourceControlTextFieldAlert.swift in Sources */,
+				A3A87D062AF221D1002E3399 /* AppError.swift in Sources */,
+				A3A87D072AF221D1002E3399 /* PanelView.swift in Sources */,
+				A3A87D082AF221D1002E3399 /* UIApplication+getSafeArea.swift in Sources */,
+				A3A87D092AF221D1002E3399 /* SourceControlAuthenticationConfiguration.swift in Sources */,
+				A3A87D0A2AF221D1002E3399 /* NotificationCentreView.swift in Sources */,
+				A3A87D0B2AF221D1002E3399 /* DocumentPickerView.swift in Sources */,
+				A3A87D0C2AF221D1002E3399 /* RemoteHostError.swift in Sources */,
+				A3A87D0D2AF221D1002E3399 /* GitServiceProvider.swift in Sources */,
+				A3A87D0E2AF221D1002E3399 /* EditorView.swift in Sources */,
+				A3A87D0F2AF221D1002E3399 /* ExplorerFileTreeSection.swift in Sources */,
+				A3A87D102AF221D1002E3399 /* HierarchyList.swift in Sources */,
+				A3A87D112AF221D1002E3399 /* WebViewBase.swift in Sources */,
+				A3A87D122AF221D1002E3399 /* PanelManager.swift in Sources */,
+				A3A87D132AF221D1002E3399 /* MarkdownViewerExtension.swift in Sources */,
+				A3A87D142AF221D1002E3399 /* AheadBehindIndicator.swift in Sources */,
+				A3A87D152AF221D1002E3399 /* RemoteExecutionExtension.swift in Sources */,
+				A3A87D162AF221D1002E3399 /* EditorTab.swift in Sources */,
+				A3A87D172AF221D1002E3399 /* SimpleWebPreviewExtension.swift in Sources */,
+				A3A87D182AF221D1002E3399 /* RemoteImage.swift in Sources */,
+				A3A87D192AF221D1002E3399 /* KeyChainAccessor.swift in Sources */,
+				A3A87D1A2AF221D1002E3399 /* SourceControlEmptySection.swift in Sources */,
+				A3A87D1B2AF221D1002E3399 /* Theme.swift in Sources */,
+				A3A87D1C2AF221D1002E3399 /* SettingsView.swift in Sources */,
+				A3A87D1D2AF221D1002E3399 /* wasm.swift in Sources */,
+				A3A87D1E2AF221D1002E3399 /* deferredRendering.swift in Sources */,
+				A3A87D1F2AF221D1002E3399 /* SearchManager.swift in Sources */,
+				A3A87D202AF221D1002E3399 /* ArchiveDir.swift in Sources */,
+				A3A87D212AF221D1002E3399 /* MarkdownView.swift in Sources */,
+				A3A87D222AF221D1002E3399 /* RemotePortForwardSection.swift in Sources */,
+				A3A87D232AF221D1002E3399 /* ExtensionManager.swift in Sources */,
+				A3A87D242AF221D1002E3399 /* LocalExecutionExtension.swift in Sources */,
+				A3A87D252AF221D1002E3399 /* MonacoEditor.swift in Sources */,
+				A3A87D262AF221D1002E3399 /* ThemeManager.swift in Sources */,
+				A3A87D272AF221D1002E3399 /* EditorProviderManager.swift in Sources */,
+				A3A87D282AF221D1002E3399 /* SearchUnsupportedSection.swift in Sources */,
+				A3A87D292AF221D1002E3399 /* hiddenSystemOverlays.swift in Sources */,
+				A3A87D2A2AF221D1002E3399 /* hiddenScrollableContentBackground.swift in Sources */,
+				A3A87D2B2AF221D1002E3399 /* Utilities.swift in Sources */,
+				A363372E2AF388DB00085608 /* PYTextEditorInstance.swift in Sources */,
+				A3A87D2C2AF221D1002E3399 /* TopBar.swift in Sources */,
+				A3A87D2D2AF221D1002E3399 /* EditorKeyboardToolBar.swift in Sources */,
+				A3A87D2E2AF221D1002E3399 /* NotificationManager.swift in Sources */,
+				A3A87D2F2AF221D1002E3399 /* URL+isDirectory.swift in Sources */,
+				A3A87D302AF221D1002E3399 /* TerminalProvider.swift in Sources */,
+				A3A87D312AF221D1002E3399 /* String.Encoding.swift in Sources */,
+				A3A87D322AF221D1002E3399 /* SettingsThemeConfiguration.swift in Sources */,
+				A3A87D332AF221D1002E3399 /* RemoteContainer.swift in Sources */,
+				A3A87D342AF221D1002E3399 /* CloudCodeExecutionManager.swift in Sources */,
+				A3A87D352AF221D1002E3399 /* KBWebViewBase.m in Sources */,
+				A3A87D362AF221D1002E3399 /* CodeAppExtension.swift in Sources */,
+				A3A87D372AF221D1002E3399 /* TextEditorWithPlaceholder.swift in Sources */,
+				A3A87D382AF221D1002E3399 /* String+toCString.swift in Sources */,
+				A3A87D392AF221D1002E3399 /* Remote.swift in Sources */,
+				A3A87D3A2AF221D1002E3399 /* CompactSidebar.swift in Sources */,
+				A3A87D3B2AF221D1002E3399 /* Executor.swift in Sources */,
+				A3A87D3C2AF221D1002E3399 /* RemoteAuthView.swift in Sources */,
+				A3A87D3D2AF221D1002E3399 /* CodeApp.swift in Sources */,
+				A3A87D3E2AF221D1002E3399 /* PortForwardServiceProvider.swift in Sources */,
+				A3A87D3F2AF221D1002E3399 /* openFilesApp.swift in Sources */,
+				A3A87D402AF221D1002E3399 /* View+If.swift in Sources */,
+				A3A87D412AF221D1002E3399 /* WorkSpaceStorage.swift in Sources */,
+				A3A87D422AF221D1002E3399 /* RemoteListSection.swift in Sources */,
+				A3A87D432AF221D1002E3399 /* DirectoryFolderMonitor.swift in Sources */,
+				A3A87D442AF221D1002E3399 /* ActivityBar.swift in Sources */,
+				A3A87D452AF221D1002E3399 /* NSError+init.swift in Sources */,
+				A3A87D462AF221D1002E3399 /* TerminalExtension.swift in Sources */,
+				A3A87D472AF221D1002E3399 /* FileSystemProvider.swift in Sources */,
+				A3A87D482AF221D1002E3399 /* EditorReadOnlyLabel.swift in Sources */,
+				A3A87D492AF221D1002E3399 /* MenuButtonView.swift in Sources */,
+				A36337222AF237AA00085608 /* PopupManager.swift in Sources */,
+				A3A87D4A2AF221D1002E3399 /* SettingsKeyboardShortcuts.swift in Sources */,
+				A3A87D4B2AF221D1002E3399 /* SearchServiceProvider.swift in Sources */,
+				A3A87D4C2AF221D1002E3399 /* KeychainWrapper.swift in Sources */,
+				A3A87D4D2AF221D1002E3399 /* GitHubSearchView.swift in Sources */,
+				A3A87D4E2AF221D1002E3399 /* ExplorerEditorListSection.swift in Sources */,
+				A3A87D4F2AF221D1002E3399 /* SpellChecker.swift in Sources */,
+				A3A87D502AF221D1002E3399 /* SFTPFileSystemProvider.swift in Sources */,
+				A3A87D512AF221D1002E3399 /* EditorTabs.swift in Sources */,
+				A3A87D522AF221D1002E3399 /* LocalGitServiceProvider.swift in Sources */,
+				A3A87D532AF221D1002E3399 /* SourceControlIdentityConfiguration.swift in Sources */,
+				A3A87D542AF221D1002E3399 /* SearchContainer.swift in Sources */,
+				A3A87D552AF221D1002E3399 /* String+base64EncodedDecoded.swift in Sources */,
+				A3A87D562AF221D1002E3399 /* FileDisplayName.swift in Sources */,
+				A3A87D572AF221D1002E3399 /* RegularSidebar.swift in Sources */,
+				A3A87D582AF221D1002E3399 /* FileIcon.swift in Sources */,
+				A3A87D592AF221D1002E3399 /* StatusBarManager.swift in Sources */,
+				A3A87D5A2AF221D1002E3399 /* ViewRepresentable.swift in Sources */,
+				A3A87D5B2AF221D1002E3399 /* SourceControlEntry.swift in Sources */,
+				A3A87D5C2AF221D1002E3399 /* DebugMenu.swift in Sources */,
+				A3A87D5D2AF221D1002E3399 /* FTPFileSystemProvider.swift in Sources */,
+				A3A87D5E2AF221D1002E3399 /* String+throwingRemovingPercentEncoding.swift in Sources */,
+				A3A87D5F2AF221D1002E3399 /* PDFViewerExtension.swift in Sources */,
+				A3A87D602AF221D1002E3399 /* SourceControlAuxiliaryExtension.swift in Sources */,
+				A3A87D612AF221D1002E3399 /* View+cornerRadius.swift in Sources */,
+				A363372C2AF3407C00085608 /* MirrorManocoEditor.swift in Sources */,
+				A3A87D622AF221D1002E3399 /* MonacoIntellisenseExtension.swift in Sources */,
+				A3A87D632AF221D1002E3399 /* ActivityBarItemView.swift in Sources */,
+				A3A87D642AF221D1002E3399 /* RemoteCreateSection.swift in Sources */,
+				A3A87D652AF221D1002E3399 /* VideoViewerExtension.swift in Sources */,
+				A3A87D662AF221D1002E3399 /* SFTPTerminalServiceProvider.swift in Sources */,
+				A3A87D672AF221D1002E3399 /* URL+relativePath.swift in Sources */,
+				A3A87D682AF221D1002E3399 /* Secrets.swift in Sources */,
+				A3A87D692AF221D1002E3399 /* SearchResultsSection.swift in Sources */,
+				A3A87D6A2AF221D1002E3399 /* KeychainItemAccessibility.swift in Sources */,
+				A3A87D6B2AF221D1002E3399 /* ExplorerContainer.swift in Sources */,
+				A3A87D6C2AF221D1002E3399 /* InfiniteProgressView.swift in Sources */,
+				A3A87D6D2AF221D1002E3399 /* CheckoutMenu.swift in Sources */,
+				A3A87D6E2AF221D1002E3399 /* MainApp.swift in Sources */,
+				A3A87D6F2AF221D1002E3399 /* EncodingMenu.swift in Sources */,
+				A3A87D702AF221D1002E3399 /* PanelSelector.swift in Sources */,
+				A36337302AF3E9DF00085608 /* PYRunnerExtension.swift in Sources */,
+				A3A87D712AF221D1002E3399 /* MonacoEditorExtension.swift in Sources */,
+				A3A87D722AF221D1002E3399 /* Notification.swift in Sources */,
+				A3A87D732AF221D1002E3399 /* CodeAppContributionPointManager.swift in Sources */,
+				A3A87D742AF221D1002E3399 /* node.swift in Sources */,
+				A3A87D752AF221D1002E3399 /* TerminalInstance.swift in Sources */,
+				A3A87D762AF221D1002E3399 /* convertCArguments.swift in Sources */,
+				A3A87D772AF221D1002E3399 /* SettingsFontPicker.swift in Sources */,
+				A3A87D782AF221D1002E3399 /* NewFileView.swift in Sources */,
+				A36337282AF2955600085608 /* PYLocalExecutionExtension.swift in Sources */,
+				A3A87D792AF221D1002E3399 /* DefaultUIState.swift in Sources */,
+				A3A87D7A2AF221D1002E3399 /* EditorInstance.swift in Sources */,
+				A3A87D7B2AF221D1002E3399 /* Resources.swift in Sources */,
+				A3A87D7C2AF221D1002E3399 /* biometricType.swift in Sources */,
+				A3A87D7D2AF221D1002E3399 /* SearchSection.swift in Sources */,
+				A3A87D7E2AF221D1002E3399 /* EditorLineColumnIndicator.swift in Sources */,
+				A3A87D7F2AF221D1002E3399 /* Encoding.swift in Sources */,
+				A3A87D802AF221D1002E3399 /* SourceControlSection.swift in Sources */,
+				A3A87D812AF221D1002E3399 /* SourceControlCloneSection.swift in Sources */,
+				A3A87D822AF221D1002E3399 /* Libgit2Error.swift in Sources */,
+				A3A87D832AF221D1002E3399 /* SourceControlTemplateSection.swift in Sources */,
+				A3A87D842AF221D1002E3399 /* ImageViewerExtension.swift in Sources */,
+				A3A87D852AF221D1002E3399 /* RemoteHostCell.swift in Sources */,
+				A3A87D862AF221D1002E3399 /* RemoteConnectedLabel.swift in Sources */,
+				A3A87D872AF221D1002E3399 /* UserDefaults+Hosts.swift in Sources */,
+				A3A87D882AF221D1002E3399 /* ToolbarManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -3409,6 +4239,21 @@
 			isa = PBXTargetDependency;
 			target = 9419692E280316C7008AAEB2 /* CodeUI */;
 			targetProxy = 9FE3E296298A14BC00F63DD0 /* PBXContainerItemProxy */;
+		};
+		A36336F22AF22B3200085608 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A36336E52AF22B3200085608 /* pydeRemote */;
+			targetProxy = A36336F12AF22B3200085608 /* PBXContainerItemProxy */;
+		};
+		A36337102AF231D200085608 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A36337032AF231D200085608 /* pydeUI */;
+			targetProxy = A363370F2AF231D200085608 /* PBXContainerItemProxy */;
+		};
+		A38273042AF4AD2F0096A7C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A38272FA2AF4AD2F0096A7C9 /* pydeShare */;
+			targetProxy = A38273032AF4AD2F0096A7C9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -3434,6 +4279,22 @@
 				4F30816829662CBF002708FD /* ja */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A363370B2AF231D200085608 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A363370C2AF231D200085608 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		A38272FF2AF4AD2F0096A7C9 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A38273002AF4AD2F0096A7C9 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -3852,6 +4713,299 @@
 			};
 			name = Release;
 		};
+		A36336F52AF22B3200085608 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = pydeRemoteDebug.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pydeApp/pydeRemote/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = pydeRemote;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.pydeRemote;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A36336F62AF22B3200085608 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 69R94YG49H;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pydeApp/pydeRemote/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = pydeRemote;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.pydeRemote;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A36337132AF231D300085608 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = pydeUIDebug.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pydeApp/pydeUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = pydeUI;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.pydeUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A36337142AF231D300085608 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 69R94YG49H;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pydeApp/pydeUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = pydeUI;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.pydeUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A38273062AF4AD2F0096A7C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pydeApp/pydeShare/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = pydeShare;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.pydeShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A38273072AF4AD2F0096A7C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 69R94YG49H;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = pydeApp/pydeShare/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = pydeShare;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.pydeShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A3A87DB22AF221D1002E3399 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Code App.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 87;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
+				ENABLE_BITCODE = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTING_SEARCH_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Resources/cpython",
+					"$(PROJECT_DIR)/Resources/NodeJS",
+				);
+				INFOPLIST_FILE = "CodeUI copy-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Pyde;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MARKETING_VERSION = 1.5.1;
+				OTHER_SWIFT_FLAGS = "-Xcc -Wno-incomplete-umbrella -DPYDEAPP";
+				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRIP_STYLE = "non-global";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "CodeApp/Utilities/CodeUI-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		A3A87DB32AF221D1002E3399 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Code App.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 87;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 69R94YG49H;
+				ENABLE_BITCODE = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTING_SEARCH_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Resources/cpython",
+					"$(PROJECT_DIR)/Resources/NodeJS",
+				);
+				GCC_OPTIMIZATION_LEVEL = s;
+				INFOPLIST_FILE = "CodeUI copy-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Pyde;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MARKETING_VERSION = 1.5.1;
+				OTHER_SWIFT_FLAGS = "-Xcc -Wno-incomplete-umbrella -DPYDEAPP";
+				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore thebaselab.VS-Code";
+				STRIP_STYLE = "non-global";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "CodeApp/Utilities/CodeUI-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3896,6 +5050,42 @@
 			buildConfigurations = (
 				9FE3E298298A14BC00F63DD0 /* Debug */,
 				9FE3E299298A14BC00F63DD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A36336F42AF22B3200085608 /* Build configuration list for PBXNativeTarget "pydeRemote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A36336F52AF22B3200085608 /* Debug */,
+				A36336F62AF22B3200085608 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A36337122AF231D300085608 /* Build configuration list for PBXNativeTarget "pydeUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A36337132AF231D300085608 /* Debug */,
+				A36337142AF231D300085608 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A38273082AF4AD2F0096A7C9 /* Build configuration list for PBXNativeTarget "pydeShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A38273062AF4AD2F0096A7C9 /* Debug */,
+				A38273072AF4AD2F0096A7C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3A87DB12AF221D1002E3399 /* Build configuration list for PBXNativeTarget "pydeApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3A87DB22AF221D1002E3399 /* Debug */,
+				A3A87DB32AF221D1002E3399 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3973,6 +5163,46 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.9.15;
+			};
+		};
+		A3A87CE22AF221D1002E3399 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.11;
+			};
+		};
+		A3A87CE42AF221D1002E3399 /* XCRemoteSwiftPackageReference "Dynamic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mhdhejazi/Dynamic.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+		A3A87CE62AF221D1002E3399 /* XCRemoteSwiftPackageReference "MarkdownView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/thebaselab/MarkdownView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		A3A87CE82AF221D1002E3399 /* XCRemoteSwiftPackageReference "FileProvider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/thebaselab/FileProvider";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		A3A87CEB2AF221D1002E3399 /* XCRemoteSwiftPackageReference "GCDWebServer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JacobHearst/GCDWebServer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -4064,6 +5294,83 @@
 		9FE3E2AB298A169A00F63DD0 /* SwiftGit2 */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftGit2;
+		};
+		A36336D22AF226BA00085608 /* pyde */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = pyde;
+		};
+		A36336D52AF226BA00085608 /* pydeCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = pydeCommon;
+		};
+		A36336D82AF226BA00085608 /* python3_objc */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = python3_objc;
+		};
+		A36336DB2AF226BA00085608 /* python3_site */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = python3_site;
+		};
+		A36336DE2AF226BA00085608 /* python3_ui */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = python3_ui;
+		};
+		A36336E02AF226BA00085608 /* SDL2 */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SDL2;
+		};
+		A36336F72AF22C1500085608 /* pydeCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = pydeCommon;
+		};
+		A36336FB2AF22C1500085608 /* python3_objc */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = python3_objc;
+		};
+		A36337152AF2329600085608 /* pydeCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = pydeCommon;
+		};
+		A36337182AF2329600085608 /* python3_objc */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = python3_objc;
+		};
+		A363371B2AF2329600085608 /* python3_ui */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = python3_ui;
+		};
+		A363371D2AF2329600085608 /* SDL2 */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SDL2;
+		};
+		A3A87CE12AF221D1002E3399 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3A87CE22AF221D1002E3399 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+		A3A87CE32AF221D1002E3399 /* Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3A87CE42AF221D1002E3399 /* XCRemoteSwiftPackageReference "Dynamic" */;
+			productName = Dynamic;
+		};
+		A3A87CE52AF221D1002E3399 /* MarkdownView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3A87CE62AF221D1002E3399 /* XCRemoteSwiftPackageReference "MarkdownView" */;
+			productName = MarkdownView;
+		};
+		A3A87CE72AF221D1002E3399 /* FilesProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3A87CE82AF221D1002E3399 /* XCRemoteSwiftPackageReference "FileProvider" */;
+			productName = FilesProvider;
+		};
+		A3A87CE92AF221D1002E3399 /* SwiftGit2 */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftGit2;
+		};
+		A3A87CEA2AF221D1002E3399 /* GCDWebServers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3A87CEB2AF221D1002E3399 /* XCRemoteSwiftPackageReference "GCDWebServer" */;
+			productName = GCDWebServers;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

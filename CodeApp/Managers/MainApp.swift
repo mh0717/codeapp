@@ -11,6 +11,9 @@ import SwiftGit2
 import SwiftUI
 import UniformTypeIdentifiers
 import ios_system
+#if PYDEAPP
+import pydeCommon
+#endif
 
 struct CheckoutDestination: Identifiable {
     var id = UUID()
@@ -69,6 +72,9 @@ class MainApp: ObservableObject {
     let stateManager = MainStateManager()
     let alertManager = AlertManager()
     let safariManager = SafariManager()
+    #if PYDEAPP
+    let popupManager = PopupManager()
+    #endif
 
     @Published var editors: [EditorInstance] = []
     var textEditors: [TextEditorInstance] {
@@ -110,6 +116,9 @@ class MainApp: ObservableObject {
     var editorTypesMonitor: FolderMonitor? = nil
     let deviceSupportsBiometricAuth: Bool = biometricAuthSupported()
     let sceneIdentifier = UUID()
+    #if PYDEAPP
+    let consoleInstance: ConsoleInstance
+    #endif
 
     private var NotificationCancellable: AnyCancellable? = nil
     private var CompilerCancellable: AnyCancellable? = nil
@@ -129,6 +138,10 @@ class MainApp: ObservableObject {
         self.workSpaceStorage = WorkSpaceStorage(url: rootDir)
 
         terminalInstance = TerminalInstance(root: rootDir)
+        
+        #if PYDEAPP
+        consoleInstance = ConsoleInstance(root: rootDir)
+        #endif
 
         terminalInstance.openEditor = { [weak self] url in
             if url.isDirectory {
@@ -195,6 +208,18 @@ class MainApp: ObservableObject {
                 stateManager.isSystemExtensionsInitialized = true
             }
         }
+        
+        #if PYDEAPP
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) {[weak self] timer in
+            guard let self else {
+                timer.invalidate()
+                return
+            }
+            Task {
+                await self.saveCurrentFile()
+            }
+        }
+        #endif
     }
 
     @MainActor
@@ -599,6 +624,41 @@ class MainApp: ObservableObject {
             self.notificationManager.showErrorMessage(error.localizedDescription)
         }
     }
+    #if PYDEAPP
+    func saveFile(_ editor: TextEditorInstance) {
+        Task {
+            await saveFile(editor)
+        }
+    }
+    func saveFile(_ editor: TextEditorInstance) async {
+        if editor.isSaved {
+            return
+        }
+        do {
+            try await saveTextEditor(editor: editor)
+        } catch AppError.fileModifiedByAnotherProcess {
+            self.notificationManager.postActionNotification(
+                title: AppError.fileModifiedByAnotherProcess.localizedDescription,
+                level: .error,
+                primary: {
+                    Task {
+                        try await self.compareWithContent(
+                            url: editor.url, content: editor.content)
+                    }
+                },
+                primaryTitle: "common.compare",
+                secondary: {
+                    Task {
+                        try await self.saveTextEditor(editor: editor, overwrite: true)
+                    }
+                },
+                secondaryTitle: "common.overwrite",
+                source: "Code App")
+        } catch {
+            self.notificationManager.showErrorMessage(error.localizedDescription)
+        }
+    }
+    #endif
 
     @MainActor
     func reloadDirectory() {
@@ -841,6 +901,21 @@ class MainApp: ObservableObject {
         }
         let attributes = try? await workSpaceStorage.attributesOfItem(at: url)
         let modificationDate = attributes?[.modificationDate] as? Date
+        
+        #if PYDEAPP
+        if (url.pathExtension.lowercased() == "py") {
+            let instance = await Task { @MainActor in
+                return PYTextEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate) { [weak self] state, content in
+                    if state == .modified, let content, let self {
+                        Task {
+                            try await self.monacoInstance.setValueForModel(url: url, value: content)
+                        }
+                    }
+                }
+            }.value
+            return instance
+        }
+        #endif
 
         return TextEditorInstance(
             editor: monacoInstance,
