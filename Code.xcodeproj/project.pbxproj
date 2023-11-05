@@ -968,9 +968,7 @@
 		A3A87DA02AF221D1002E3399 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A56834257CC60E008A6530 /* LaunchScreen.storyboard */; };
 		A3A87DA12AF221D1002E3399 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944EEBF72563C386009D77FE /* Assets.xcassets */; };
 		A3A87DA32AF221D1002E3399 /* network_ios.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4AB25F5518700F1EF4E /* network_ios.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A3A87DA42AF221D1002E3399 /* freetype.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94F2FEA326A2D44D007EBC6D /* freetype.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3A87DA52AF221D1002E3399 /* NMSSH.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 942E321128093CA600233441 /* NMSSH.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A3A87DA62AF221D1002E3399 /* NodeMobile.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 945AEA3427ECCB3D00BA193E /* NodeMobile.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3A87DA72AF221D1002E3399 /* libpng.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94D7DEC02631D0CA00FA0760 /* libpng.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3A87DA82AF221D1002E3399 /* harfbuzz.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94D7DED42631D16C00FA0760 /* harfbuzz.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3A87DAA2AF221D1002E3399 /* ssh_cmd.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4A525F5518700F1EF4E /* ssh_cmd.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -1476,10 +1474,8 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A3A87DA32AF221D1002E3399 /* network_ios.xcframework in Embed Frameworks */,
-				A3A87DA42AF221D1002E3399 /* freetype.xcframework in Embed Frameworks */,
 				A3A87DA52AF221D1002E3399 /* NMSSH.xcframework in Embed Frameworks */,
 				A36336DD2AF226BA00085608 /* python3_site in Embed Frameworks */,
-				A3A87DA62AF221D1002E3399 /* NodeMobile.xcframework in Embed Frameworks */,
 				A36336D42AF226BA00085608 /* pyde in Embed Frameworks */,
 				A3A87DA72AF221D1002E3399 /* libpng.xcframework in Embed Frameworks */,
 				A3A87DA82AF221D1002E3399 /* harfbuzz.xcframework in Embed Frameworks */,

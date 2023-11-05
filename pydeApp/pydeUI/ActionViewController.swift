@@ -202,7 +202,11 @@ class ActionViewController: UITabBarController {
 
 @_cdecl("python3")
 public func python3(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-    return python3_inmain(argc: argc, argv: argv)
+    if (argc == 1) {
+        return python3_exec(argc: argc, argv: argv)
+    } else {
+        return python3_inmain(argc: argc, argv: argv)
+    }
 }
 
 

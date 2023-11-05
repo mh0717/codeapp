@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftTerm
+import ios_system
 
 class PYRunnerExtension: CodeAppExtension {
     
@@ -15,7 +16,24 @@ class PYRunnerExtension: CodeAppExtension {
         
         let panel = Panel(
             labelId: "RUNNER",
-            mainView: AnyView(ConsoleWidget()),
+            mainView: AnyView(
+                ConsoleWidget()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(
+                        GeometryReader{ proxy in
+                            let size = proxy.size
+                            Color.red
+                                .onAppear{
+                                    NotificationCenter.default.post(name: .init("panel.size.changed"), object: size)
+                                    print("size: \(size)")
+                                }
+                                .onChange(of: size) { newValue in
+                                    NotificationCenter.default.post(name: .init("panel.size.changed"), object: size)
+                                    print("wsize: \(newValue)")
+                                }
+                        }
+                    )
+            ),
             toolBarView: AnyView(ToolbarView())
         )
         contribution.panel.registerPanel(panel: panel)
@@ -24,16 +42,22 @@ class PYRunnerExtension: CodeAppExtension {
     override func onWorkSpaceStorageChanged(newUrl: URL) {
         
     }
+    
+    func handleRunnerSizeChanged(_ size: CGSize) {
+        
+    }
 }
 
 private struct ToolbarView: View {
     @EnvironmentObject var App: MainApp
-
+    
     var body: some View {
         HStack(spacing: 12) {
             Button(
                 action: {
-                    App.terminalInstance.sendInterrupt()
+                    if let editor = App.activeEditor as? PYTextEditorInstance {
+                        editor.runnerView.kill()
+                    }
                 },
                 label: {
                     Text("^C")
