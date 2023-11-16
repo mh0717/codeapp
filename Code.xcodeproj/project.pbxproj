@@ -753,6 +753,7 @@
 		9FE3E2AA298A169300F63DD0 /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE3E2A9298A169300F63DD0 /* Dynamic */; };
 		9FE3E2AC298A169B00F63DD0 /* SwiftGit2 in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE3E2AB298A169A00F63DD0 /* SwiftGit2 */; };
 		9FE3E2AD298A16A300F63DD0 /* NMSSH.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942E321128093CA600233441 /* NMSSH.xcframework */; };
+		A349BF362B00ECDF00434BBB /* GitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349BF352B00ECDF00434BBB /* GitService.swift */; };
 		A36336D32AF226BA00085608 /* pyde in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; };
 		A36336D42AF226BA00085608 /* pyde in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A36336D62AF226BA00085608 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D52AF226BA00085608 /* pydeCommon */; };
@@ -770,7 +771,6 @@
 		A36336F32AF22B3200085608 /* pydeRemote.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A36336E62AF22B3200085608 /* pydeRemote.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A36336F82AF22C1500085608 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A36336F72AF22C1500085608 /* pydeCommon */; };
 		A36336FC2AF22C1500085608 /* python3_objc in Frameworks */ = {isa = PBXBuildFile; productRef = A36336FB2AF22C1500085608 /* python3_objc */; };
-		A36336FF2AF2310200085608 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948D11FF2583F20C008F877A /* commandDictionary.plist */; };
 		A36337052AF231D200085608 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
 		A36337082AF231D200085608 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A36337072AF231D200085608 /* Media.xcassets */; };
 		A363370A2AF231D200085608 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337092AF231D200085608 /* ActionViewController.swift */; };
@@ -781,7 +781,6 @@
 		A363371C2AF2329600085608 /* python3_ui in Frameworks */ = {isa = PBXBuildFile; productRef = A363371B2AF2329600085608 /* python3_ui */; };
 		A363371E2AF2329600085608 /* SDL2 in Frameworks */ = {isa = PBXBuildFile; productRef = A363371D2AF2329600085608 /* SDL2 */; };
 		A36337222AF237AA00085608 /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337212AF237AA00085608 /* PopupManager.swift */; };
-		A36337232AF23A6B00085608 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948D11FF2583F20C008F877A /* commandDictionary.plist */; };
 		A36337262AF2520D00085608 /* TMConsoleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337252AF2520D00085608 /* TMConsoleExtension.swift */; };
 		A36337282AF2955600085608 /* PYLocalExecutionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337272AF2955600085608 /* PYLocalExecutionExtension.swift */; };
 		A36337292AF2BFE900085608 /* ClangLib in Resources */ = {isa = PBXBuildFile; fileRef = 94CF58DE265E51B100CB6A4B /* ClangLib */; };
@@ -960,7 +959,6 @@
 		A3A87D962AF221D1002E3399 /* monaco-textmate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94A4438F25A44CDB006643FF /* monaco-textmate.bundle */; };
 		A3A87D972AF221D1002E3399 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9425205B263E103E0029427A /* InfoPlist.strings */; };
 		A3A87D982AF221D1002E3399 /* cacert.pem in Resources */ = {isa = PBXBuildFile; fileRef = 94B3D5D525F776A900C4F2B1 /* cacert.pem */; };
-		A3A87D992AF221D1002E3399 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948D11FF2583F20C008F877A /* commandDictionary.plist */; };
 		A3A87D9A2AF221D1002E3399 /* FiraCode-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 94FF33882843744C003DE5DD /* FiraCode-Regular.ttf */; };
 		A3A87D9C2AF221D1002E3399 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 941CF5FA2641CBDA001199C0 /* Settings.bundle */; };
 		A3A87D9D2AF221D1002E3399 /* extraCommandsDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948D11FE2583F20C008F877A /* extraCommandsDictionary.plist */; };
@@ -976,6 +974,10 @@
 		A3A87DAC2AF221D1002E3399 /* awk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4A925F5518700F1EF4E /* awk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3A87DAD2AF221D1002E3399 /* text.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4AC25F5518700F1EF4E /* text.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3A87DAF2AF221D1002E3399 /* tar.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B3DDF42604D3C400C4F2B1 /* tar.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3F32F662AF88CC000866ED0 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
+		A3F32F672AF88CC200866ED0 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
+		A3F32F682AF88CC300866ED0 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
+		A3F32F6C2AF9330900866ED0 /* ExplorerTagTreeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F32F6B2AF9330900866ED0 /* ExplorerTagTreeSection.swift */; };
 		FFD081B82925F8FB001D9373 /* TextEditorWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081B72925F8FB001D9373 /* TextEditorWithPlaceholder.swift */; };
 		FFD081B92925F8FB001D9373 /* TextEditorWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081B72925F8FB001D9373 /* TextEditorWithPlaceholder.swift */; };
 		FFD081BB29260B00001D9373 /* Libgit2Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081BA29260B00001D9373 /* Libgit2Error.swift */; };
@@ -2065,6 +2067,7 @@
 		9FDAD1B8296EAC3C00E8AEB2 /* SourceControlTemplateSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceControlTemplateSection.swift; sourceTree = "<group>"; };
 		9FE3E292298A14BC00F63DD0 /* CodeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE3E294298A14BC00F63DD0 /* CodeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeUITests.swift; sourceTree = "<group>"; };
+		A349BF352B00ECDF00434BBB /* GitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitService.swift; sourceTree = "<group>"; };
 		A36336D12AF2268D00085608 /* pydeCommon */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = pydeCommon; path = ../../modules/pythoncc/pyde/pydeCommon; sourceTree = "<group>"; };
 		A36336E62AF22B3200085608 /* pydeRemote.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pydeRemote.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
@@ -2093,6 +2096,8 @@
 		A3A87DB52AF221D1002E3399 /* CodeUI copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CodeUI copy-Info.plist"; path = "/Users/huima/PythonSchool/pydeApp/CodeUI copy-Info.plist"; sourceTree = "<absolute>"; };
 		A3A87DB82AF22575002E3399 /* python3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = python3; path = ../../modules/pythoncc/python3; sourceTree = "<group>"; };
 		A3A87DB92AF2257D002E3399 /* pyde */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = pyde; path = ../../modules/pythoncc/pyde; sourceTree = "<group>"; };
+		A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = commandDictionary.plist; path = ../../modules/pythoncc/pyde/commandDictionary.plist; sourceTree = "<group>"; };
+		A3F32F6B2AF9330900866ED0 /* ExplorerTagTreeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerTagTreeSection.swift; sourceTree = "<group>"; };
 		FFD081B72925F8FB001D9373 /* TextEditorWithPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorWithPlaceholder.swift; sourceTree = "<group>"; };
 		FFD081BA29260B00001D9373 /* Libgit2Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Libgit2Error.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3176,6 +3181,22 @@
 			path = CodeUITests;
 			sourceTree = "<group>";
 		};
+		A349BF332B00EC9400434BBB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A349BF342B00ECA300434BBB /* GitHistory */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A349BF342B00ECA300434BBB /* GitHistory */ = {
+			isa = PBXGroup;
+			children = (
+				A349BF352B00ECDF00434BBB /* GitService.swift */,
+			);
+			path = GitHistory;
+			sourceTree = "<group>";
+		};
 		A36336E92AF22B3200085608 /* pydeRemote */ = {
 			isa = PBXGroup;
 			children = (
@@ -3201,6 +3222,8 @@
 		A36337242AF251E500085608 /* pydeApp */ = {
 			isa = PBXGroup;
 			children = (
+				A349BF332B00EC9400434BBB /* Components */,
+				A3F32F6A2AF932F000866ED0 /* Views */,
 				A36337252AF2520D00085608 /* TMConsoleExtension.swift */,
 				A36337212AF237AA00085608 /* PopupManager.swift */,
 				A36337272AF2955600085608 /* PYLocalExecutionExtension.swift */,
@@ -3224,6 +3247,7 @@
 		A3A87DB62AF2253E002E3399 /* pydeApp */ = {
 			isa = PBXGroup;
 			children = (
+				A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */,
 				A3A87DB72AF22553002E3399 /* Packages */,
 				A36337242AF251E500085608 /* pydeApp */,
 				A36336E92AF22B3200085608 /* pydeRemote */,
@@ -3241,6 +3265,14 @@
 				A3A87DB92AF2257D002E3399 /* pyde */,
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		A3F32F6A2AF932F000866ED0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A3F32F6B2AF9330900866ED0 /* ExplorerTagTreeSection.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3584,7 +3616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A36336EF2AF22B3200085608 /* Action.js in Resources */,
-				A36336FF2AF2310200085608 /* commandDictionary.plist in Resources */,
+				A3F32F672AF88CC200866ED0 /* commandDictionary.plist in Resources */,
 				A36336EB2AF22B3200085608 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3594,7 +3626,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A36337082AF231D200085608 /* Media.xcassets in Resources */,
-				A36337232AF23A6B00085608 /* commandDictionary.plist in Resources */,
+				A3F32F682AF88CC300866ED0 /* commandDictionary.plist in Resources */,
 				A363370D2AF231D200085608 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3617,8 +3649,8 @@
 				A3A87D962AF221D1002E3399 /* monaco-textmate.bundle in Resources */,
 				A3A87D972AF221D1002E3399 /* InfoPlist.strings in Resources */,
 				A3A87D982AF221D1002E3399 /* cacert.pem in Resources */,
-				A3A87D992AF221D1002E3399 /* commandDictionary.plist in Resources */,
 				A3A87D9A2AF221D1002E3399 /* FiraCode-Regular.ttf in Resources */,
+				A3F32F662AF88CC000866ED0 /* commandDictionary.plist in Resources */,
 				A3A87D9C2AF221D1002E3399 /* Settings.bundle in Resources */,
 				A3A87D9D2AF221D1002E3399 /* extraCommandsDictionary.plist in Resources */,
 				A363372A2AF2C06800085608 /* npm.bundle in Resources */,
@@ -4068,6 +4100,7 @@
 				A3A87CF42AF221D1002E3399 /* SideBarButton.swift in Sources */,
 				A3A87CF52AF221D1002E3399 /* LocalGitCredentialsHelper.swift in Sources */,
 				A3A87CF62AF221D1002E3399 /* LocalFileSystemProvider.swift in Sources */,
+				A3F32F6C2AF9330900866ED0 /* ExplorerTagTreeSection.swift in Sources */,
 				A36337262AF2520D00085608 /* TMConsoleExtension.swift in Sources */,
 				A3A87CF72AF221D1002E3399 /* SourceControlError.swift in Sources */,
 				A3A87CF82AF221D1002E3399 /* DirectoryPickerView.swift in Sources */,
@@ -4105,6 +4138,7 @@
 				A3A87D182AF221D1002E3399 /* RemoteImage.swift in Sources */,
 				A3A87D192AF221D1002E3399 /* KeyChainAccessor.swift in Sources */,
 				A3A87D1A2AF221D1002E3399 /* SourceControlEmptySection.swift in Sources */,
+				A349BF362B00ECDF00434BBB /* GitService.swift in Sources */,
 				A3A87D1B2AF221D1002E3399 /* Theme.swift in Sources */,
 				A3A87D1C2AF221D1002E3399 /* SettingsView.swift in Sources */,
 				A3A87D1D2AF221D1002E3399 /* wasm.swift in Sources */,

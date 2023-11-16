@@ -164,6 +164,7 @@ class ActionViewController: UITabBarController {
         if newVcs.count > 1 {
             tabBar.isHidden = false
             newVcs.last?.title = "Window"
+//            selectedIndex = 1
         }
         
 //        let tv = UITextView(frame: CGRect(x: 0, y: 0, width: 320, height: 480))

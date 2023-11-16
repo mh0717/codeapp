@@ -46,7 +46,7 @@ class LocalGitServiceProvider: GitServiceProvider {
         loadDirectory(url: root)
     }
 
-    private func checkedRepository() throws -> Repository {
+    func checkedRepository() throws -> Repository {
         if let repository {
             return repository
         } else {
@@ -60,7 +60,7 @@ class LocalGitServiceProvider: GitServiceProvider {
             throw NSError(descriptionKey: "Signature is not configured")
         }
     }
-    private func WorkerQueueTask<T>(_ body: @escaping () throws -> T) async throws -> T {
+    func WorkerQueueTask<T>(_ body: @escaping () throws -> T) async throws -> T {
         return try await withCheckedThrowingContinuation { continuation in
             workerQueue.async {
                 do {

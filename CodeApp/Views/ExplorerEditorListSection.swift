@@ -13,54 +13,101 @@ struct ExplorerEditorListSection: View {
 
     let onOpenNewFile: () -> Void
     let onPickNewDirectory: () -> Void
-
+    @State var expanded: Bool = true
     var body: some View {
-        Section(
-            header:
-                Text("Open Editors")
-                .foregroundColor(Color(id: "sideBarSectionHeader.foreground"))
-        ) {
-            if App.editors.isEmpty {
-                SideBarButton("New File") {
-                    onOpenNewFile()
-                }
-                .listRowBackground(Color.clear)
-                .listRowSeparator(.hidden)
-
-                SideBarButton("New Folder") {
-                    Task {
+        if #available(iOS 17.0, *) {
+            Section(isExpanded: $expanded) {
+                if App.editors.isEmpty {
+                    SideBarButton("New File") {
+                        onOpenNewFile()
+                    }
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
+                    
+                    SideBarButton("New Folder") {
                         Task {
-                            guard let url = App.workSpaceStorage.currentDirectory._url else {
-                                return
+                            Task {
+                                guard let url = App.workSpaceStorage.currentDirectory._url else {
+                                    return
+                                }
+                                try await App.createFolder(at: url)
                             }
-                            try await App.createFolder(at: url)
                         }
                     }
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
+                    
+                    SideBarButton("common.open_folder") {
+                        onPickNewDirectory()
+                    }
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
                 }
-                .listRowBackground(Color.clear)
-                .listRowSeparator(.hidden)
-
-                SideBarButton("common.open_folder") {
-                    onPickNewDirectory()
-                }
-                .listRowBackground(Color.clear)
-                .listRowSeparator(.hidden)
-            }
-
-            ForEach(App.editors) { editor in
-                EditorCell(editor: editor)
-                    .frame(height: 16)
-                    .listRowBackground(
-                        editor == App.activeEditor
+                
+                ForEach(App.editors) { editor in
+                    EditorCell(editor: editor)
+                        .frame(height: 16)
+                        .listRowBackground(
+                            editor == App.activeEditor
                             ? Color.init(id: "list.inactiveSelectionBackground")
                                 .cornerRadius(10.0)
                             : Color.clear.cornerRadius(10.0)
-                    )
+                        )
+                        .listRowSeparator(.hidden)
+                }
+            } header: {
+                Text("Open Editors")
+                    .foregroundColor(Color(id: "sideBarSectionHeader.foreground"))
+            }
+        } else {
+            Section(
+                header:
+                    Text("Open Editors")
+                    .foregroundColor(Color(id: "sideBarSectionHeader.foreground"))
+            ) {
+                if App.editors.isEmpty {
+                    SideBarButton("New File") {
+                        onOpenNewFile()
+                    }
+                    .listRowBackground(Color.clear)
                     .listRowSeparator(.hidden)
+
+                    SideBarButton("New Folder") {
+                        Task {
+                            Task {
+                                guard let url = App.workSpaceStorage.currentDirectory._url else {
+                                    return
+                                }
+                                try await App.createFolder(at: url)
+                            }
+                        }
+                    }
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
+
+                    SideBarButton("common.open_folder") {
+                        onPickNewDirectory()
+                    }
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
+                }
+
+                ForEach(App.editors) { editor in
+                    EditorCell(editor: editor)
+                        .frame(height: 16)
+                        .listRowBackground(
+                            editor == App.activeEditor
+                                ? Color.init(id: "list.inactiveSelectionBackground")
+                                    .cornerRadius(10.0)
+                                : Color.clear.cornerRadius(10.0)
+                        )
+                        .listRowSeparator(.hidden)
+                }
             }
         }
     }
 }
+
 
 private struct EditorCell: View {
 

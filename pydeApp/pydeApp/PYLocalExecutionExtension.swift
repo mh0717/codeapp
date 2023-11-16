@@ -44,7 +44,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
 
     private func runCodeLocally(app: MainApp) async {
 
-        guard let activeTextEditor = app.activeTextEditor as? PYTextEditorInstance else {
+        guard let activeTextEditor = await app.activeTextEditor as? PYTextEditorInstance else {
             return
         }
         
@@ -80,7 +80,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
         guard let executor = await activeTextEditor.runnerView.executor else {return}
         let ntidentifier = executor.persistentIdentifier
         guard let bookmark = try? executor.currentWorkingDirectory.bookmarkData() else  {return}
-        guard let wbookmark = try? URL(string: app.workSpaceStorage.currentDirectory.url ?? FileManager.default.currentDirectoryPath)!.bookmarkData() else {return}
+        guard let wbookmark = try? await URL(string: app.workSpaceStorage.currentDirectory.url ?? FileManager.default.currentDirectoryPath)!.bookmarkData() else {return}
         let columns = executor.winsize.0
         let lines = executor.winsize.1
         

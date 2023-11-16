@@ -75,7 +75,7 @@ private func onCompareWithPreviousItemClick(app: MainApp) {
                     try await app.compareWithPrevious(url: url.standardizedFileURL)
                 })
         } catch {
-            app.notificationManager.showErrorMessage(error.localizedDescription)
+            await app.notificationManager.showErrorMessage(error.localizedDescription)
         }
     }
 }

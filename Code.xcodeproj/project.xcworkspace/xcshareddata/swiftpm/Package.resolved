@@ -29,6 +29,15 @@
         }
       },
       {
+        "package": "ExCodable",
+        "repositoryURL": "https://github.com/iwill/ExCodable.git",
+        "state": {
+          "branch": null,
+          "revision": "ca831ada0ec970b956d7c827429b57dc788141e6",
+          "version": "0.5.0"
+        }
+      },
+      {
         "package": "FilesProvider",
         "repositoryURL": "https://github.com/thebaselab/FileProvider",
         "state": {
@@ -98,6 +107,15 @@
           "branch": null,
           "revision": "00dee9fbc9c93b709f6b1b052bce84cb971e493a",
           "version": "0.3.2"
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "9dcaa4b333db437b0fbfaf453fad29069044a8b4",
+          "version": "6.6.0"
         }
       },
       {

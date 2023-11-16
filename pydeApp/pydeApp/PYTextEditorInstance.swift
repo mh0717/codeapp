@@ -11,6 +11,8 @@ import pydeCommon
 import pyde
 
 class PYTextEditorInstance: TextEditorInstance, RSCodeEditorDelegate {
+    @Published var tags: [CTag] = []
+    
     func onTextChanged(content: String) {
 //        let version = result["VersionID"] as! Int
 //        let content = result["currentContent"] as! String
@@ -28,6 +30,14 @@ class PYTextEditorInstance: TextEditorInstance, RSCodeEditorDelegate {
 //            )
         self.content = content
         currentVersionId += 1
+        
+        Task.init {[weak self] in
+            if let self, let tags = await requestCTagsService(url.path, content: content) {
+                await MainActor.run {
+                    self.tags = tags
+                }
+            }
+        }
     }
     
     func didEndEditing() {
@@ -67,6 +77,15 @@ class PYTextEditorInstance: TextEditorInstance, RSCodeEditorDelegate {
         rseditor.editorView.text = content
         rseditor.editorView.delegate = self
         runnerView.resetAndSetNewRootDirectory(url: url.deletingLastPathComponent())
+        
+        Task.init {[weak self] in
+            if let self, let tags = await requestCTagsService(url.path, content: content) {
+                await MainActor.run {
+                    self.tags = tags
+                    self.objectWillChange.send()
+                }
+            }
+        }
     }
 }
 

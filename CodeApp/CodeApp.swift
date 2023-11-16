@@ -25,6 +25,22 @@ public func python3(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer
 public func myremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
     return remote(argc: argc, argv: argv)
 }
+
+//var git_run_count = 0
+//@_cdecl("git")
+//public func git(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+//    ignoreSig13()
+//    
+//    if git_run_count == 0 {
+//        git_run_count += 1
+//        let fw_handle = dlopen("\(ConstantManager.appdir.path)/Frameworks/git.framework/git", RTLD_LAZY);
+//        let git_handle = dlsym(fw_handle, "main")
+//        let sgit = unsafeBitCast(git_handle, to: __main_t.self)
+//        return sgit(argc, argv)
+//    }
+//    
+//    return remote(argc: argc, argv: argv)
+//}
 #endif
 
 @main
@@ -249,6 +265,7 @@ struct CodeApp: App {
         
         replaceCommand("python3", "python3", true)
         replaceCommand("remote", "remote", true)
+//        replaceCommand("git", "git", true)
         
         signal(SIGPIPE, SIG_IGN);
     }
