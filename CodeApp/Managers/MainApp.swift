@@ -310,7 +310,7 @@ class MainApp: ObservableObject {
         extensionManager.activityBarManager.registerItem(item: explorer)
         extensionManager.activityBarManager.registerItem(item: search)
         extensionManager.activityBarManager.registerItem(item: sourceControl)
-        extensionManager.activityBarManager.registerItem(item: remote)
+//        extensionManager.activityBarManager.registerItem(item: remote)
 
     }
 

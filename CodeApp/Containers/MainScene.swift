@@ -182,14 +182,28 @@ private struct MainView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(spacing: 0) {
                         if horizontalSizeClass == .regular {
+                            #if PYDEAPP
+                            if isSideBarVisible {
+                                VStack(spacing: 0) {
+                                
+                                    PYActivityBar(togglePanel: openConsolePanel)
+                                        .environmentObject(extensionManager.activityBarManager)
+                                    
+                                    RegularSidebar(windowWidth: geometry.size.width)
+                                        .environmentObject(extensionManager.activityBarManager)
+                                }.fixedSize(horizontal: true, vertical: false)
+                            }
+                            #else
                             ActivityBar(togglePanel: openConsolePanel)
                                 .environmentObject(extensionManager.activityBarManager)
-
+                            
                             if isSideBarVisible {
                                 RegularSidebar(windowWidth: geometry.size.width)
                                     .environmentObject(extensionManager.activityBarManager)
                             }
+                            #endif
                         }
+                        
 
                         ZStack {
                             VStack(spacing: 0) {
@@ -218,8 +232,13 @@ private struct MainView: View {
                                     ? 10 : 0)
 
                             if isSideBarVisible && horizontalSizeClass == .compact {
+                                #if PYDEAPP
+                                PYCompactSidebar()
+                                    .environmentObject(extensionManager.activityBarManager)
+                                #else
                                 CompactSidebar()
                                     .environmentObject(extensionManager.activityBarManager)
+                                #endif
                             }
                         }
                     }

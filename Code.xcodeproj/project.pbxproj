@@ -980,6 +980,8 @@
 		A3F32F672AF88CC200866ED0 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A3F32F682AF88CC300866ED0 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A3F32F6C2AF9330900866ED0 /* ExplorerTagTreeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F32F6B2AF9330900866ED0 /* ExplorerTagTreeSection.swift */; };
+		A3F52F012B0BF16D001F096E /* PYActivityBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F52F002B0BF16D001F096E /* PYActivityBar.swift */; };
+		A3F52F032B0C0467001F096E /* PYCompactSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F52F022B0C0467001F096E /* PYCompactSidebar.swift */; };
 		FFD081B82925F8FB001D9373 /* TextEditorWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081B72925F8FB001D9373 /* TextEditorWithPlaceholder.swift */; };
 		FFD081B92925F8FB001D9373 /* TextEditorWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081B72925F8FB001D9373 /* TextEditorWithPlaceholder.swift */; };
 		FFD081BB29260B00001D9373 /* Libgit2Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081BA29260B00001D9373 /* Libgit2Error.swift */; };
@@ -2102,6 +2104,8 @@
 		A3A87DB92AF2257D002E3399 /* pyde */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = pyde; path = ../../modules/pythoncc/pyde; sourceTree = "<group>"; };
 		A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = commandDictionary.plist; path = ../../modules/pythoncc/pyde/commandDictionary.plist; sourceTree = "<group>"; };
 		A3F32F6B2AF9330900866ED0 /* ExplorerTagTreeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerTagTreeSection.swift; sourceTree = "<group>"; };
+		A3F52F002B0BF16D001F096E /* PYActivityBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYActivityBar.swift; sourceTree = "<group>"; };
+		A3F52F022B0C0467001F096E /* PYCompactSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCompactSidebar.swift; sourceTree = "<group>"; };
 		FFD081B72925F8FB001D9373 /* TextEditorWithPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorWithPlaceholder.swift; sourceTree = "<group>"; };
 		FFD081BA29260B00001D9373 /* Libgit2Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Libgit2Error.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3285,6 +3289,8 @@
 			isa = PBXGroup;
 			children = (
 				A3F32F6B2AF9330900866ED0 /* ExplorerTagTreeSection.swift */,
+				A3F52F002B0BF16D001F096E /* PYActivityBar.swift */,
+				A3F52F022B0C0467001F096E /* PYCompactSidebar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -4188,6 +4194,7 @@
 				A3A87D3A2AF221D1002E3399 /* CompactSidebar.swift in Sources */,
 				A3A87D3B2AF221D1002E3399 /* Executor.swift in Sources */,
 				A3A87D3C2AF221D1002E3399 /* RemoteAuthView.swift in Sources */,
+				A3F52F032B0C0467001F096E /* PYCompactSidebar.swift in Sources */,
 				A3A87D3D2AF221D1002E3399 /* CodeApp.swift in Sources */,
 				A3A87D3E2AF221D1002E3399 /* PortForwardServiceProvider.swift in Sources */,
 				A3A87D3F2AF221D1002E3399 /* openFilesApp.swift in Sources */,
@@ -4252,6 +4259,7 @@
 				A3A87D762AF221D1002E3399 /* convertCArguments.swift in Sources */,
 				A3A87D772AF221D1002E3399 /* SettingsFontPicker.swift in Sources */,
 				A3A87D782AF221D1002E3399 /* NewFileView.swift in Sources */,
+				A3F52F012B0BF16D001F096E /* PYActivityBar.swift in Sources */,
 				A36337282AF2955600085608 /* PYLocalExecutionExtension.swift in Sources */,
 				A30789782B094741001B6129 /* TagsIndicator.swift in Sources */,
 				A3A87D792AF221D1002E3399 /* DefaultUIState.swift in Sources */,

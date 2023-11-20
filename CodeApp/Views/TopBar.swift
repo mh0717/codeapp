@@ -22,6 +22,24 @@ struct TopBar: View {
 
     var body: some View {
         HStack(spacing: 0) {
+            #if PYDEAPP
+            if !isSideBarExpanded {
+                Button(action: {
+                    withAnimation(.easeIn(duration: 0.2)) {
+                        isSideBarExpanded.toggle()
+                    }
+                }) {
+                    Image(systemName: "sidebar.left")
+                        .font(.system(size: 17))
+                        .foregroundColor(Color.init("T1"))
+                        .padding(5)
+                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                        .hoverEffect(.highlight)
+                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
+                        .padding()
+                }
+            }
+            #else
             if !isSideBarExpanded && horizontalSizeClass == .compact {
                 Button(action: {
                     withAnimation(.easeIn(duration: 0.2)) {
@@ -38,7 +56,7 @@ struct TopBar: View {
                         .padding()
                 }
             }
-
+            #endif
             if horizontalSizeClass == .compact {
                 CompactEditorTabs()
                     .frame(maxWidth: .infinity)
@@ -65,19 +83,35 @@ struct TopBar: View {
                     ToolbarItemView(item: item)
                 }
             }
-
+            
+            #if PYDEAPP
             if App.activeTextEditor != nil {
-                Image(systemName: "doc.text.magnifyingglass").font(.system(size: 17))
-                    .foregroundColor(Color.init("T1")).padding(5)
-                    .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                    .hoverEffect(.highlight)
-                    .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
-                    .onTapGesture {
-                        App.monacoInstance.executeJavascript(command: "editor.focus()")
-                        App.monacoInstance.executeJavascript(
-                            command: "editor.getAction('actions.find').run()")
+                if let editor = App.activeEditor as? PYTextEditorInstance {
+                    if #available(iOS 16, *) {
+                        Image(systemName: "doc.text.magnifyingglass").font(.system(size: 17))
+                            .foregroundColor(Color.init("T1")).padding(5)
+                            .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                            .hoverEffect(.highlight)
+                            .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+                            .onTapGesture {
+                                editor.editorView.findInteraction?.presentFindNavigator(showingReplace: true)
+                            }
                     }
+                } else {
+                    Image(systemName: "doc.text.magnifyingglass").font(.system(size: 17))
+                        .foregroundColor(Color.init("T1")).padding(5)
+                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                        .hoverEffect(.highlight)
+                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+                        .onTapGesture {
+                            App.monacoInstance.executeJavascript(command: "editor.focus()")
+                            App.monacoInstance.executeJavascript(
+                                command: "editor.getAction('actions.find').run()")
+                        }
+                }
+                
             }
+            #endif
 
             Menu {
                 if App.activeTextEditor is DiffTextEditorInstnace {

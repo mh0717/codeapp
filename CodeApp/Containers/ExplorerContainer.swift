@@ -226,7 +226,6 @@ struct ExplorerContainer: View {
                     }
                 }
                 
-                Divider()
                 
 //                ScrollViewReader(content: { proxy in
 //                    DisclosureGroup(
