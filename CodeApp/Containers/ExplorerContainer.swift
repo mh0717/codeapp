@@ -9,6 +9,9 @@ import SwiftUI
 import UniformTypeIdentifiers
 import pydeCommon
 import SwiftGit2
+import Combine
+
+var cancellableSet: Set<AnyCancellable> = []
 
 struct ExplorerContainer: View {
 
@@ -97,6 +100,10 @@ struct ExplorerContainer: View {
     
     @State var history: [CMNode] = []
     
+    @State var tags: [CTag] = []
+    @State var mtitle: String = ""
+    
+    
     struct CMNode: Identifiable, Hashable {
         var anodes: [Int] = []
         var pnodes: [Int] = []
@@ -171,6 +178,7 @@ struct ExplorerContainer: View {
                             searchString: searchString, onDrag: onDragCell,
                             onDropToFolder: onDropToFolder)
                         
+                        ExplorerTagTreeSection()
                         
 //                        ForEach(history) { commit in
 //                            ZStack(alignment: .topLeading) {
@@ -193,18 +201,22 @@ struct ExplorerContainer: View {
 //                            }.id(commit)
 //                        }
                         
-                        OutlineGroup((App.activeEditor as? PYTextEditorInstance)?.tags ?? [], children: \.subTags) { tag in
-                            HStack() {
-                                tag.isGroup
-                                ? Image(systemName: "folder")
-                                : Image(systemName: "42.circle")
-                                Text("\(tag.name): \(tag.kind)")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color.init(id: "list.inactiveSelectionForeground"))
-                            }
-                            .frame(minHeight: 16)
-                            .id(tag)
-                        }
+//                        Section(header: Text("Outline")) {
+//                            OutlineGroup(App.tagsModel.tags , children: \.subTags) { tag in
+//                                HStack() {
+//                                    tag.isGroup
+//                                    ? Image(systemName: "folder")
+//                                    : Image(systemName: "42.circle")
+//                                    Text("\(tag.name): \(tag.kind)")
+//                                        .font(.subheadline)
+//                                        .foregroundColor(Color.init(id: "list.inactiveSelectionForeground"))
+//                                }
+//                                .frame(minHeight: 16)
+//                                .id(tag)
+//                            }
+//                            
+//                        }
+                        
                     }
                     .listStyle(SidebarListStyle())
                     .environment(\.defaultMinListRowHeight, 10)
@@ -215,12 +227,6 @@ struct ExplorerContainer: View {
                 }
                 
                 Divider()
-                    .onAppear() {
-//                        self.updateHistory()
-                    }
-                
-                
-                .id(App.activeEditor)
                 
 //                ScrollViewReader(content: { proxy in
 //                    DisclosureGroup(
@@ -249,8 +255,8 @@ struct ExplorerContainer: View {
 //                })
 //                
                 
-                WebView(url: ConstantManager.GIT_HISTORY_H5_RUL)
-                    .frame(minHeight: 250)
+//                WebView(url: ConstantManager.GIT_HISTORY_H5_RUL)
+//                    .frame(minHeight: 250)
                 
                 
                 HStack(spacing: 30) {

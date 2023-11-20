@@ -422,6 +422,12 @@ struct MonacoEditor: UIViewRepresentable {
                         "lineNumber": lineNumber, "column": column,
                         "sceneIdentifier": control.App.sceneIdentifier,
                     ])
+                #if PYDEAPP
+                if let editor = control.App.activeTextEditor {
+                    let position = editor.content.components(separatedBy: "\n")[..<(lineNumber-1)].reduce(0) {$0 + $1.count + 1} + column - 1
+                    editor.selectedRange = NSRange(location: position, length: 0)
+                }
+                #endif
             case "Content changed":
                 let version = result["VersionID"] as! Int
                 let content = result["currentContent"] as! String

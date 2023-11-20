@@ -753,6 +753,8 @@
 		9FE3E2AA298A169300F63DD0 /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE3E2A9298A169300F63DD0 /* Dynamic */; };
 		9FE3E2AC298A169B00F63DD0 /* SwiftGit2 in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE3E2AB298A169A00F63DD0 /* SwiftGit2 */; };
 		9FE3E2AD298A16A300F63DD0 /* NMSSH.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942E321128093CA600233441 /* NMSSH.xcframework */; };
+		A30789752B078C9E001B6129 /* TagsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30789742B078C9E001B6129 /* TagsComponent.swift */; };
+		A30789782B094741001B6129 /* TagsIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30789772B094741001B6129 /* TagsIndicator.swift */; };
 		A349BF362B00ECDF00434BBB /* GitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349BF352B00ECDF00434BBB /* GitService.swift */; };
 		A36336D32AF226BA00085608 /* pyde in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; };
 		A36336D42AF226BA00085608 /* pyde in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -2067,6 +2069,8 @@
 		9FDAD1B8296EAC3C00E8AEB2 /* SourceControlTemplateSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceControlTemplateSection.swift; sourceTree = "<group>"; };
 		9FE3E292298A14BC00F63DD0 /* CodeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE3E294298A14BC00F63DD0 /* CodeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeUITests.swift; sourceTree = "<group>"; };
+		A30789742B078C9E001B6129 /* TagsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsComponent.swift; sourceTree = "<group>"; };
+		A30789772B094741001B6129 /* TagsIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsIndicator.swift; sourceTree = "<group>"; };
 		A349BF352B00ECDF00434BBB /* GitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitService.swift; sourceTree = "<group>"; };
 		A36336D12AF2268D00085608 /* pydeCommon */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = pydeCommon; path = ../../modules/pythoncc/pyde/pydeCommon; sourceTree = "<group>"; };
 		A36336E62AF22B3200085608 /* pydeRemote.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pydeRemote.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3181,10 +3185,20 @@
 			path = CodeUITests;
 			sourceTree = "<group>";
 		};
+		A30789762B094726001B6129 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				A30789772B094741001B6129 /* TagsIndicator.swift */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
 		A349BF332B00EC9400434BBB /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A30789762B094726001B6129 /* Tag */,
 				A349BF342B00ECA300434BBB /* GitHistory */,
+				A30789742B078C9E001B6129 /* TagsComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -4199,6 +4213,7 @@
 				A3A87D522AF221D1002E3399 /* LocalGitServiceProvider.swift in Sources */,
 				A3A87D532AF221D1002E3399 /* SourceControlIdentityConfiguration.swift in Sources */,
 				A3A87D542AF221D1002E3399 /* SearchContainer.swift in Sources */,
+				A30789752B078C9E001B6129 /* TagsComponent.swift in Sources */,
 				A3A87D552AF221D1002E3399 /* String+base64EncodedDecoded.swift in Sources */,
 				A3A87D562AF221D1002E3399 /* FileDisplayName.swift in Sources */,
 				A3A87D572AF221D1002E3399 /* RegularSidebar.swift in Sources */,
@@ -4238,6 +4253,7 @@
 				A3A87D772AF221D1002E3399 /* SettingsFontPicker.swift in Sources */,
 				A3A87D782AF221D1002E3399 /* NewFileView.swift in Sources */,
 				A36337282AF2955600085608 /* PYLocalExecutionExtension.swift in Sources */,
+				A30789782B094741001B6129 /* TagsIndicator.swift in Sources */,
 				A3A87D792AF221D1002E3399 /* DefaultUIState.swift in Sources */,
 				A3A87D7A2AF221D1002E3399 /* EditorInstance.swift in Sources */,
 				A3A87D7B2AF221D1002E3399 /* Resources.swift in Sources */,

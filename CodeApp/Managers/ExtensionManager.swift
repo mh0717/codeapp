@@ -29,6 +29,7 @@ class ExtensionManager: ObservableObject {
         SimpleWebPreviewExtension(),
         RemoteAuxiliaryExtension(),
         
+        OutlineExtension(),
         PYRunnerExtension(),
         TMConsoleExtension(),
     ]

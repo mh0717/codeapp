@@ -8,6 +8,9 @@
 import Foundation
 import MarkdownView
 import SwiftUI
+#if PYDEAPP
+import pydeCommon
+#endif
 
 class EditorInstance: ObservableObject, Identifiable, Equatable, Hashable {
     static func == (lhs: EditorInstance, rhs: EditorInstance) -> Bool {
@@ -20,7 +23,7 @@ class EditorInstance: ObservableObject, Identifiable, Equatable, Hashable {
 
     @Published var title: String
     let id = UUID()
-    let view: AnyView
+    var view: AnyView
 
     init(view: AnyView, title: String) {
         self.view = view
@@ -77,8 +80,13 @@ class EditorInstanceWithURL: EditorInstance {
 class TextEditorInstance: EditorInstanceWithURL {
     @Published var lastSavedVersionId = 1
     @Published var currentVersionId = 1
+    
+    #if PYDEAPP
+    @Published var tags: [CTag] = []
+    @Published var selectedRange: NSRange = NSRange(location: 0, length: 0)
+    #endif
 
-    var content: String
+    @Published var content: String
     var encoding: String.Encoding = .utf8
     var isDeleted = false
     var lastSavedDate: Date? = nil
@@ -124,6 +132,13 @@ class TextEditorInstance: EditorInstanceWithURL {
         //     }
         // }
         // self.fileWatch?.startMonitoring()
+        
+        #if PYDEAPP
+        self.view = AnyView(VStack {
+            TagsIndicator(editor: self)
+            AnyView(editor)
+        })
+        #endif
     }
 }
 

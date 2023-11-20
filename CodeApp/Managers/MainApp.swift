@@ -74,6 +74,7 @@ class MainApp: ObservableObject {
     let safariManager = SafariManager()
     #if PYDEAPP
     let popupManager = PopupManager()
+    @Published var tagsModel = TagsModel()
     #endif
 
     @Published var editors: [EditorInstance] = []
@@ -141,6 +142,7 @@ class MainApp: ObservableObject {
         
         #if PYDEAPP
         consoleInstance = ConsoleInstance(root: rootDir)
+        tagsModel.listen(self)
         #endif
 
         terminalInstance.openEditor = { [weak self] url in

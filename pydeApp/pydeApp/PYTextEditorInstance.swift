@@ -9,40 +9,9 @@ import Foundation
 import SwiftUI
 import pydeCommon
 import pyde
+import Combine
 
-class PYTextEditorInstance: TextEditorInstance, RSCodeEditorDelegate {
-    @Published var tags: [CTag] = []
-    
-    func onTextChanged(content: String) {
-//        let version = result["VersionID"] as! Int
-//        let content = result["currentContent"] as! String
-//        control.App.activeTextEditor?.currentVersionId = version
-//        control.App.activeTextEditor?.content = content
-//
-//        let modelUri = result["URI"] as! String
-//        requestDiffUpdate(modelUri: modelUri)
-//
-//        let startOffset = result["startOffset"] as! Int
-//        let endOffset = result["endOffset"] as! Int
-//        if control.editorSpellCheckEnabled && control.editorSpellCheckOnContentChanged {
-//            control.checkSpelling(
-//                text: content, uri: modelUri, startOffset: startOffset, endOffset: endOffset
-//            )
-        self.content = content
-        currentVersionId += 1
-        
-        Task.init {[weak self] in
-            if let self, let tags = await requestCTagsService(url.path, content: content) {
-                await MainActor.run {
-                    self.tags = tags
-                }
-            }
-        }
-    }
-    
-    func didEndEditing() {
-        
-    }
+class PYTextEditorInstance: TextEditorInstance {
     
     let rseditor = RunestoneEditor()
     
@@ -57,6 +26,8 @@ class PYTextEditorInstance: TextEditorInstance, RSCodeEditorDelegate {
     var runnerView: ConsoleView {
         return runner.consoleView
     }
+    
+//    var rangeCancellable: AnyCancellable?
     
     init(
         url: URL,
@@ -75,22 +46,31 @@ class PYTextEditorInstance: TextEditorInstance, RSCodeEditorDelegate {
         )
         
         rseditor.editorView.text = content
-        rseditor.editorView.delegate = self
         runnerView.resetAndSetNewRootDirectory(url: url.deletingLastPathComponent())
         
-        Task.init {[weak self] in
-            if let self, let tags = await requestCTagsService(url.path, content: content) {
-                await MainActor.run {
-                    self.tags = tags
-                    self.objectWillChange.send()
-                }
-            }
-        }
+//        rangeCancellable = $selectedRange.sink {[weak editorView] range in
+//            guard let editorView else {return}
+//            if editorView.selectedRange != range {
+//                editorView.selectedRange = range
+//                editorView.textView.goToLine(<#T##Int#>)
+//            }
+//        }
+        
+//        self.view = AnyView(VStack {
+//            TagsIndicator(editor: self).environmentObject(self)
+//            rseditor
+//        }.environmentObject(self).id(UUID()))
+    }
+    
+    func goToLine(_ line: Int) {
+        editorView.goToLine(line)
     }
 }
 
 
 struct RunestoneEditor: UIViewRepresentable {
+   
+    
     @EnvironmentObject var App: MainApp
     @EnvironmentObject var themeManager: ThemeManager
 
@@ -119,6 +99,9 @@ struct RunestoneEditor: UIViewRepresentable {
     
     let editorView = RSCodeEditorView()
     
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(self, app: self.App)
+    }
     
     
     func makeUIView(context: Context) -> RSCodeEditorView {
@@ -129,29 +112,53 @@ struct RunestoneEditor: UIViewRepresentable {
         
     }
     
-//    class Coordinator: NSObject, RSCodeEditorDelegate {
-//        var control: RunestoneEditor
-//        var env: MainApp
-//
-//        init(_ control: RunestoneEditor, env: MainApp) {
-//            self.control = control
-//            self.env = env
-//            super.init()
-//        }
-//        
-//        func onTextChanged(content: String) {
-//            if let editor = env.activeTextEditor {
-//                editor.currentVersionId += 1
-//                editor.content = content
-//            }
-//        }
-//        
-//        func didEndEditing() {
-//            
-//        }
-//        
-//        
-//    }
+    class Coordinator: RSCodeEditorDelegate {
+        
+        
+        var control: RunestoneEditor
+        var App: MainApp
+
+        init(_ control: RunestoneEditor, app: MainApp) {
+            self.control = control
+            self.App = app
+            self.control.editorView.delegate = self
+        }
+        
+        func onTextChanged(content: String) {
+            if let editor = App.activeTextEditor {
+                editor.currentVersionId += 1
+                editor.content = content
+            }
+        }
+        
+        func onSelectionChanged(range: NSRange) {
+            if let editor = App.activeTextEditor {
+                editor.selectedRange = range
+                
+                let content = editor.content
+                let position = min(editor.selectedRange.upperBound, content.count)
+                var row: Int = 0
+                var col: Int = 0
+                let end = content.index(content.startIndex, offsetBy: position)
+                let lines = content[..<end].components(separatedBy: "\n")
+                row = lines.count
+                col = lines.last?.count ?? 0
+                
+                NotificationCenter.default.post(
+                    name: Notification.Name("monaco.cursor.position.changed"), object: nil,
+                    userInfo: [
+                        "lineNumber": row, "column": col,
+                        "sceneIdentifier": control.App.sceneIdentifier,
+                    ])
+            }
+        }
+        
+        func didEndEditing() {
+            
+        }
+        
+        
+    }
     
 }
 

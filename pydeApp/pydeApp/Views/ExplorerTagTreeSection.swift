@@ -12,87 +12,14 @@ struct ExplorerTagTreeSection: View {
 
     @EnvironmentObject var App: MainApp
     
-    
-    let root = TagItemRepresentable(type: "member", name: "", line: 0, subItems: [
-        TagItemRepresentable(type: "class", name: "Tree", line: 1),
-        TagItemRepresentable(type: "class", name: "Tree", line: 6, subItems: [
-            TagItemRepresentable(type: "class", name: "Tree", line: 7),
-            TagItemRepresentable(type: "class", name: "Dog", line: 8, subItems: [
-                TagItemRepresentable(type: "class", name: "Tree", line: 9),
-                TagItemRepresentable(type: "class", name: "Dog", line: 10),
-                TagItemRepresentable(type: "class", name: "House", line: 11),
-                TagItemRepresentable(type: "class", name: "Animal", line: 12),
-            ]),
-            TagItemRepresentable(type: "class", name: "House", line: 13),
-            TagItemRepresentable(type: "class", name: "Animal", line: 14),
-        ]),
-        TagItemRepresentable(type: "class", name: "Dog", line: 2),
-        TagItemRepresentable(type: "class", name: "House", line: 3),
-        TagItemRepresentable(type: "class", name: "Animal", line: 5),
-    ])
-    
-    let expansionStates: [AnyHashable: Bool] = [
-        "Dog:10": true,
-    ]
-    
-    @State var expanded: Bool = true
-    
     var body: some View {
-        let editor = App.activeTextEditor as? PYTextEditorInstance
-//        DisclosureGroup(
-//            isExpanded: $expanded,
-//            content: {
-////                OutlineGroup(editor?.tags ?? [], children: \.subTags) { tag in
-////                    HStack() {
-////                        tag.isGroup
-////                        ? Image(systemName: "folder")
-////                        : Image(systemName: "42.circle")
-////                        Text("\(tag.name): \(tag.kind)")
-////                            .font(.subheadline)
-////                            .foregroundColor(Color.init(id: "list.inactiveSelectionForeground"))
-////                    }
-////                    .frame(minHeight: 16)
-////                    .id(tag.id)
-////                }
-////                .listRowInsets(.init(top: 5, leading: -8, bottom: 5, trailing: 16))
-//                NodeOutlineGroup(node: CTag(name: "大纲", subTags: editor?.tags), childKeyPath: \.subTags) { tag in
-//                    HStack() {
-//                        tag.isGroup
-//                        ? Image(systemName: "folder")
-//                        : Image(systemName: "42.circle")
-//                        Text("\(tag.name): \(tag.kind)")
-//                            .font(.subheadline)
-//                            .foregroundColor(Color.init(id: "list.inactiveSelectionForeground"))
-//                    }
-//                    .frame(minHeight: 16)
-//                    .id(tag.id)
-//                }
-//            },
-//            label: {
-//                Text("大纲")
-//            }
-//        )
-//        NodeOutlineGroup(
-//            node: CTag(name: "大纲", line: -1, subTags: editor?.tags),
-//            childKeyPath: \.subTags, rowInsets: .init(top: 5, leading: -4, bottom: 5, trailing: 12)) { tag in
-//            HStack() {
-//                tag.line < 0
-//                ? nil
-//                : tag.isGroup
-//                ? Image(systemName: "folder")
-//                : Image(systemName: "42.circle")
-//                Text("\(tag.name): \(tag.kind)")
-//                    .font(.subheadline)
-//                    .foregroundColor(Color.init(id: "list.inactiveSelectionForeground"))
-//            }
-//            .frame(minHeight: 16)
-//            .id(tag.id)
-//        }
-//        .listRowBackground(
-//            Color.clear
-//        )
-//        .listRowSeparator(.hidden)
-//        .listRowInsets(.init(top: 5, leading: -8, bottom: 5, trailing: 16))
+        Section(
+            header:
+                Text( "大纲")
+                .foregroundColor(Color(id: "sideBarSectionHeader.foreground"))
+        ) {
+            TagsModelTreeView(tagsModel: App.tagsModel)
+        }
     }
 }
 
@@ -220,3 +147,59 @@ private struct GroupCell: View {
         .padding(5)
     }
 }
+
+
+//        DisclosureGroup(
+//            isExpanded: $expanded,
+//            content: {
+////                OutlineGroup(editor?.tags ?? [], children: \.subTags) { tag in
+////                    HStack() {
+////                        tag.isGroup
+////                        ? Image(systemName: "folder")
+////                        : Image(systemName: "42.circle")
+////                        Text("\(tag.name): \(tag.kind)")
+////                            .font(.subheadline)
+////                            .foregroundColor(Color.init(id: "list.inactiveSelectionForeground"))
+////                    }
+////                    .frame(minHeight: 16)
+////                    .id(tag.id)
+////                }
+////                .listRowInsets(.init(top: 5, leading: -8, bottom: 5, trailing: 16))
+//                NodeOutlineGroup(node: CTag(name: "大纲", subTags: editor?.tags), childKeyPath: \.subTags) { tag in
+//                    HStack() {
+//                        tag.isGroup
+//                        ? Image(systemName: "folder")
+//                        : Image(systemName: "42.circle")
+//                        Text("\(tag.name): \(tag.kind)")
+//                            .font(.subheadline)
+//                            .foregroundColor(Color.init(id: "list.inactiveSelectionForeground"))
+//                    }
+//                    .frame(minHeight: 16)
+//                    .id(tag.id)
+//                }
+//            },
+//            label: {
+//                Text("大纲")
+//            }
+//        )
+//        NodeOutlineGroup(
+//            node: CTag(name: "大纲", line: -1, subTags: App.tagsModel.tags),
+//            childKeyPath: \.subTags, rowInsets: .init(top: 5, leading: -4, bottom: 5, trailing: 12)) { tag in
+//            HStack() {
+//                tag.line < 0
+//                ? nil
+//                : tag.isGroup
+//                ? Image(systemName: "folder")
+//                : Image(systemName: "42.circle")
+//                Text("\(tag.name): \(tag.kind)")
+//                    .font(.subheadline)
+//                    .foregroundColor(Color.init(id: "list.inactiveSelectionForeground"))
+//            }
+//            .frame(minHeight: 16)
+//            .id(tag.id)
+//        }
+//        .listRowBackground(
+//            Color.clear
+//        )
+//        .listRowSeparator(.hidden)
+//        .listRowInsets(.init(top: 5, leading: -8, bottom: 5, trailing: 16))
