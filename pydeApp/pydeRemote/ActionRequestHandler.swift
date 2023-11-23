@@ -27,14 +27,24 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
 
 }
 
+var python3_count = 0
 
 @_cdecl("python3")
 public func python3(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-    if (argc == 1) {
-        return python3_exec(argc: argc, argv: argv)
+    python3_count += 1
+    if python3_count == 1 {
+        if (argc == 1) {
+            return python3_exec(argc: argc, argv: argv)
+        } else {
+            return python3_inmain(argc: argc, argv: argv)
+        }
     } else {
-        return python3_inmain(argc: argc, argv: argv)
+        guard let cmds = convertCArguments(argc: argc, argv: argv) else {
+            return -1
+        }
+        return remoteReqRemoteCommands(commands: [cmds.joined(separator: " ")])
     }
+    
     
 }
 

@@ -16,6 +16,11 @@ struct SourceControlContainer: View {
 
     @AppStorage("communityTemplatesEnabled") var communityTemplatesEnabled = true
     @State var showsPrompt = false
+    
+    #if PYDEAPP
+    @State var isGitHistoryExpanded = true
+    @State var gitHeight = 250.0
+    #endif
 
     func onInitializeRepository() async throws {
         guard let serviceProvider = App.workSpaceStorage.gitServiceProvider else {
@@ -430,50 +435,72 @@ struct SourceControlContainer: View {
     }
 
     var body: some View {
-        VStack(spacing: 0) {
-            //            InfinityProgressView(enabled: stateManager.gitServiceIsBusy)
-
-            List {
-                Group {
-                    if App.workSpaceStorage.gitServiceProvider == nil {
-                        SourceControlUnsupportedSection()
-                    } else if App.workSpaceStorage.gitServiceProvider!.hasRepository {
-                        SourceControlSection(
-                            onCommit: onCommit,
-                            onPush: onPush,
-                            onFetch: onFetch,
-                            onStageAllChanges: onStageAllChanges,
-                            onUnstage: onUnstage,
-                            onRevert: onRevert,
-                            onStage: onStage,
-                            onShowChangesInDiffEditor: onShowChangesInDiffEditor,
-                            onPull: onPull,
-                            onCreateBranch: onCreateBranch,
-                            onDeleteBranch: onDeleteBranch,
-                            onCreateTag: onCreateTag,
-                            onDeleteTag: onDeleteTag,
-                            onPushTag: onPushTag
-                        )
-                    } else {
-                        SourceControlEmptySection(onInitializeRepository: onInitializeRepository)
-                        SourceControlCloneSection(onClone: onClone)
-                        if communityTemplatesEnabled {
-                            SourceControlTemplateSection(onClone: onClone)
+        GeometryReader(content: { geometry in
+            VStack(spacing: 0) {
+                //            InfinityProgressView(enabled: stateManager.gitServiceIsBusy)
+                
+                List {
+                    Group {
+                        if App.workSpaceStorage.gitServiceProvider == nil {
+                            SourceControlUnsupportedSection()
+                        } else if App.workSpaceStorage.gitServiceProvider!.hasRepository {
+                            SourceControlSection(
+                                onCommit: onCommit,
+                                onPush: onPush,
+                                onFetch: onFetch,
+                                onStageAllChanges: onStageAllChanges,
+                                onUnstage: onUnstage,
+                                onRevert: onRevert,
+                                onStage: onStage,
+                                onShowChangesInDiffEditor: onShowChangesInDiffEditor,
+                                onPull: onPull,
+                                onCreateBranch: onCreateBranch,
+                                onDeleteBranch: onDeleteBranch,
+                                onCreateTag: onCreateTag,
+                                onDeleteTag: onDeleteTag,
+                                onPushTag: onPushTag
+                            )
+                        } else {
+                            SourceControlEmptySection(onInitializeRepository: onInitializeRepository)
+                            SourceControlCloneSection(onClone: onClone)
+                            if communityTemplatesEnabled {
+                                SourceControlTemplateSection(onClone: onClone)
+                            }
                         }
                     }
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Color.clear)
                 }
-                .listRowSeparator(.hidden)
-                .listRowBackground(Color.clear)
+#if PYDEAPP
+                DisclosureGroup(
+                    isExpanded: $isGitHistoryExpanded,
+                    content: {
+                        App.gitHistoryInstance
+                            .frame(minHeight: max(250, min(gitHeight, geometry.size.height * 0.5)))
+                    },
+                    label: {
+                        Text("Git History")
+                            .font(.headline)
+                            .gesture(
+                                DragGesture()
+                                    .onChanged { value in
+                                        let proposedNewHeight = gitHeight - value.translation.height
+                                        gitHeight = max(250, min(proposedNewHeight, geometry.size.height * 0.5))
+                                    }
+                            )
+                    }
+                )
+#endif
             }
-        }
-        .environment(\.defaultMinListRowHeight, 10)
-        .listStyle(SidebarListStyle())
-        .sheet(
-            isPresented: $showsPrompt,
-            content: {
-                NavigationView {
-                    SourceControlAuthenticationConfiguration()
-                }
-            })
+            .environment(\.defaultMinListRowHeight, 10)
+            .listStyle(SidebarListStyle())
+            .sheet(
+                isPresented: $showsPrompt,
+                content: {
+                    NavigationView {
+                        SourceControlAuthenticationConfiguration()
+                    }
+                })
+        })
     }
 }

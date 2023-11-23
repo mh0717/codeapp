@@ -179,6 +179,48 @@ class OutlineExtension: CodeAppExtension {
         )
         
         contribution.activityBar.registerItem(item: outline)
+//        
+//        let outline1 = ActivityBarItem(
+//            itemID: "OUTLINE1",
+//            iconSystemName: "text.alignleft",
+//            title: "Outline1",
+//            shortcutKey: "o",
+//            modifiers: [.command, .shift],
+//            view: AnyView(OutlineContainer()),
+//            contextMenuItems: nil,
+//            bubble: {nil},
+//            isVisible: { true }
+//        )
+//        
+//        contribution.activityBar.registerItem(item: outline1)
+//        
+//        let outline2 = ActivityBarItem(
+//            itemID: "OUTLINE2",
+//            iconSystemName: "text.alignright",
+//            title: "Outline2",
+//            shortcutKey: "o",
+//            modifiers: [.command, .shift],
+//            view: AnyView(OutlineContainer()),
+//            contextMenuItems: nil,
+//            bubble: {nil},
+//            isVisible: { true }
+//        )
+//        
+//        contribution.activityBar.registerItem(item: outline2)
+//        
+//        let outline3 = ActivityBarItem(
+//            itemID: "OUTLINE3",
+//            iconSystemName: "text.aligncenter",
+//            title: "Outline3",
+//            shortcutKey: "o",
+//            modifiers: [.command, .shift],
+//            view: AnyView(OutlineContainer()),
+//            contextMenuItems: nil,
+//            bubble: {nil},
+//            isVisible: { true }
+//        )
+//        
+//        contribution.activityBar.registerItem(item: outline3)
     }
     
     override func onWorkSpaceStorageChanged(newUrl: URL) {

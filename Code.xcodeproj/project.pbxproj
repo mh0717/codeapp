@@ -755,6 +755,10 @@
 		9FE3E2AD298A16A300F63DD0 /* NMSSH.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942E321128093CA600233441 /* NMSSH.xcframework */; };
 		A30789752B078C9E001B6129 /* TagsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30789742B078C9E001B6129 /* TagsComponent.swift */; };
 		A30789782B094741001B6129 /* TagsIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30789772B094741001B6129 /* TagsIndicator.swift */; };
+		A33A5FD02B0EF91200CB7CE1 /* python3_ui in Frameworks */ = {isa = PBXBuildFile; productRef = A33A5FCF2B0EF91200CB7CE1 /* python3_ui */; settings = {ATTRIBUTES = (Required, ); }; };
+		A33A5FD12B0EF91200CB7CE1 /* python3_ui in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A33A5FCF2B0EF91200CB7CE1 /* python3_ui */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A33A5FD32B0EF92100CB7CE1 /* python3_site in Frameworks */ = {isa = PBXBuildFile; productRef = A33A5FD22B0EF92100CB7CE1 /* python3_site */; settings = {ATTRIBUTES = (Required, ); }; };
+		A33A5FD42B0EF92100CB7CE1 /* python3_site in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A33A5FD22B0EF92100CB7CE1 /* python3_site */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A349BF362B00ECDF00434BBB /* GitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349BF352B00ECDF00434BBB /* GitService.swift */; };
 		A36336D32AF226BA00085608 /* pyde in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; };
 		A36336D42AF226BA00085608 /* pyde in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -762,10 +766,6 @@
 		A36336D72AF226BA00085608 /* pydeCommon in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D52AF226BA00085608 /* pydeCommon */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A36336D92AF226BA00085608 /* python3_objc in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D82AF226BA00085608 /* python3_objc */; };
 		A36336DA2AF226BA00085608 /* python3_objc in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D82AF226BA00085608 /* python3_objc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		A36336DC2AF226BA00085608 /* python3_site in Frameworks */ = {isa = PBXBuildFile; productRef = A36336DB2AF226BA00085608 /* python3_site */; };
-		A36336DD2AF226BA00085608 /* python3_site in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336DB2AF226BA00085608 /* python3_site */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		A36336DF2AF226BA00085608 /* python3_ui in Frameworks */ = {isa = PBXBuildFile; productRef = A36336DE2AF226BA00085608 /* python3_ui */; };
-		A36336E12AF226BA00085608 /* SDL2 in Frameworks */ = {isa = PBXBuildFile; productRef = A36336E02AF226BA00085608 /* SDL2 */; };
 		A36336E82AF22B3200085608 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
 		A36336EB2AF22B3200085608 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A36336EA2AF22B3200085608 /* Media.xcassets */; };
 		A36336ED2AF22B3200085608 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */; };
@@ -792,7 +792,6 @@
 		A36337302AF3E9DF00085608 /* PYRunnerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A363372F2AF3E9DF00085608 /* PYRunnerExtension.swift */; };
 		A38272FE2AF4AD2F0096A7C9 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38272FD2AF4AD2F0096A7C9 /* ShareViewController.swift */; };
 		A38273012AF4AD2F0096A7C9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A38272FF2AF4AD2F0096A7C9 /* MainInterface.storyboard */; };
-		A38273052AF4AD2F0096A7C9 /* pydeShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A38272FB2AF4AD2F0096A7C9 /* pydeShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A3A87CEE2AF221D1002E3399 /* SourceControlUnsupportedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A0462A2804A70C00182275 /* SourceControlUnsupportedSection.swift */; };
 		A3A87CEF2AF221D1002E3399 /* GitHubSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777EE257B9193008FE7B2 /* GitHubSearchManager.swift */; };
 		A3A87CF02AF221D1002E3399 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7781F257BC5AA008FE7B2 /* MainScene.swift */; };
@@ -982,6 +981,7 @@
 		A3F32F6C2AF9330900866ED0 /* ExplorerTagTreeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F32F6B2AF9330900866ED0 /* ExplorerTagTreeSection.swift */; };
 		A3F52F012B0BF16D001F096E /* PYActivityBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F52F002B0BF16D001F096E /* PYActivityBar.swift */; };
 		A3F52F032B0C0467001F096E /* PYCompactSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F52F022B0C0467001F096E /* PYCompactSidebar.swift */; };
+		A3F52F052B0C3EBD001F096E /* GitWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F52F042B0C3EBD001F096E /* GitWebView.swift */; };
 		FFD081B82925F8FB001D9373 /* TextEditorWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081B72925F8FB001D9373 /* TextEditorWithPlaceholder.swift */; };
 		FFD081B92925F8FB001D9373 /* TextEditorWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081B72925F8FB001D9373 /* TextEditorWithPlaceholder.swift */; };
 		FFD081BB29260B00001D9373 /* Libgit2Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD081BA29260B00001D9373 /* Libgit2Error.swift */; };
@@ -1481,7 +1481,6 @@
 			files = (
 				A3A87DA32AF221D1002E3399 /* network_ios.xcframework in Embed Frameworks */,
 				A3A87DA52AF221D1002E3399 /* NMSSH.xcframework in Embed Frameworks */,
-				A36336DD2AF226BA00085608 /* python3_site in Embed Frameworks */,
 				A36336D42AF226BA00085608 /* pyde in Embed Frameworks */,
 				A3A87DA72AF221D1002E3399 /* libpng.xcframework in Embed Frameworks */,
 				A3A87DA82AF221D1002E3399 /* harfbuzz.xcframework in Embed Frameworks */,
@@ -1491,7 +1490,9 @@
 				A3A87DAD2AF221D1002E3399 /* text.xcframework in Embed Frameworks */,
 				A36336D72AF226BA00085608 /* pydeCommon in Embed Frameworks */,
 				A36336DA2AF226BA00085608 /* python3_objc in Embed Frameworks */,
+				A33A5FD12B0EF91200CB7CE1 /* python3_ui in Embed Frameworks */,
 				A3A87DAF2AF221D1002E3399 /* tar.xcframework in Embed Frameworks */,
+				A33A5FD42B0EF92100CB7CE1 /* python3_site in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1503,7 +1504,6 @@
 			dstSubfolderSpec = 13;
 			files = (
 				A36337112AF231D200085608 /* pydeUI.appex in Embed Foundation Extensions */,
-				A38273052AF4AD2F0096A7C9 /* pydeShare.appex in Embed Foundation Extensions */,
 				A36336F32AF22B3200085608 /* pydeRemote.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
@@ -2106,6 +2106,7 @@
 		A3F32F6B2AF9330900866ED0 /* ExplorerTagTreeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerTagTreeSection.swift; sourceTree = "<group>"; };
 		A3F52F002B0BF16D001F096E /* PYActivityBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYActivityBar.swift; sourceTree = "<group>"; };
 		A3F52F022B0C0467001F096E /* PYCompactSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCompactSidebar.swift; sourceTree = "<group>"; };
+		A3F52F042B0C3EBD001F096E /* GitWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitWebView.swift; sourceTree = "<group>"; };
 		FFD081B72925F8FB001D9373 /* TextEditorWithPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorWithPlaceholder.swift; sourceTree = "<group>"; };
 		FFD081BA29260B00001D9373 /* Libgit2Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Libgit2Error.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2205,15 +2206,14 @@
 				A3A87D8B2AF221D1002E3399 /* ZIPFoundation in Frameworks */,
 				A36336D62AF226BA00085608 /* pydeCommon in Frameworks */,
 				A36336D92AF226BA00085608 /* python3_objc in Frameworks */,
-				A36336DC2AF226BA00085608 /* python3_site in Frameworks */,
 				A3A87D8D2AF221D1002E3399 /* MarkdownView in Frameworks */,
+				A33A5FD32B0EF92100CB7CE1 /* python3_site in Frameworks */,
 				A3A87D8E2AF221D1002E3399 /* GCDWebServers in Frameworks */,
 				A36336D32AF226BA00085608 /* pyde in Frameworks */,
 				A3A87D8F2AF221D1002E3399 /* Dynamic in Frameworks */,
 				A3A87D902AF221D1002E3399 /* SwiftGit2 in Frameworks */,
-				A36336DF2AF226BA00085608 /* python3_ui in Frameworks */,
 				A3A87D912AF221D1002E3399 /* NMSSH.xcframework in Frameworks */,
-				A36336E12AF226BA00085608 /* SDL2 in Frameworks */,
+				A33A5FD02B0EF91200CB7CE1 /* python3_ui in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3211,6 +3211,7 @@
 			isa = PBXGroup;
 			children = (
 				A349BF352B00ECDF00434BBB /* GitService.swift */,
+				A3F52F042B0C3EBD001F096E /* GitWebView.swift */,
 			);
 			path = GitHistory;
 			sourceTree = "<group>";
@@ -3472,6 +3473,7 @@
 				A3A87D922AF221D1002E3399 /* Resources */,
 				A3A87DA22AF221D1002E3399 /* Embed Frameworks */,
 				A3A87DB02AF221D1002E3399 /* Embed Foundation Extensions */,
+				A33A5FD52B0EFAAA00CB7CE1 /* delete unused dependencies */,
 			);
 			buildRules = (
 			);
@@ -3491,9 +3493,8 @@
 				A36336D22AF226BA00085608 /* pyde */,
 				A36336D52AF226BA00085608 /* pydeCommon */,
 				A36336D82AF226BA00085608 /* python3_objc */,
-				A36336DB2AF226BA00085608 /* python3_site */,
-				A36336DE2AF226BA00085608 /* python3_ui */,
-				A36336E02AF226BA00085608 /* SDL2 */,
+				A33A5FCF2B0EF91200CB7CE1 /* python3_ui */,
+				A33A5FD22B0EF92100CB7CE1 /* python3_site */,
 			);
 			productName = testfield;
 			productReference = A3A87DB42AF221D1002E3399 /* pydeApp.app */;
@@ -3720,6 +3721,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export PATH=$PATH:/opt/homebrew/bin\nif command -v swift-format > /dev/null\nthen\n    swift-format format -i -r ${PROJECT_DIR}/CodeApp ${PROJECT_DIR}/CodeUITests ${PROJECT_DIR}/Extensions\n    swift-format lint -r -s ${PROJECT_DIR}/CodeApp ${PROJECT_DIR}/CodeUITests ${PROJECT_DIR}/Extensions\nelse\n    echo \"warning: swift-format not installed, install it by running brew install swift-format\"\nfi\n\n";
+		};
+		A33A5FD52B0EFAAA00CB7CE1 /* delete unused dependencies */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "delete unused dependencies";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#install_name_tool -change  \"@rpath/python3_ui.framework/python3_ui\" \"/usr/lib/libSystem.B.dylib\" -change  \"@rpath/python3_site.framework/python3_site\" \"/usr/lib/libSystem.B.dylib\"  \"$BUILT_PRODUCTS_DIR/$TARGET_NAME.app/$TARGET_NAME\"\n";
 		};
 		A3A87CEC2AF221D1002E3399 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4183,6 +4202,7 @@
 				A3A87D2F2AF221D1002E3399 /* URL+isDirectory.swift in Sources */,
 				A3A87D302AF221D1002E3399 /* TerminalProvider.swift in Sources */,
 				A3A87D312AF221D1002E3399 /* String.Encoding.swift in Sources */,
+				A3F52F052B0C3EBD001F096E /* GitWebView.swift in Sources */,
 				A3A87D322AF221D1002E3399 /* SettingsThemeConfiguration.swift in Sources */,
 				A3A87D332AF221D1002E3399 /* RemoteContainer.swift in Sources */,
 				A3A87D342AF221D1002E3399 /* CloudCodeExecutionManager.swift in Sources */,
@@ -5349,6 +5369,14 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftGit2;
 		};
+		A33A5FCF2B0EF91200CB7CE1 /* python3_ui */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = python3_ui;
+		};
+		A33A5FD22B0EF92100CB7CE1 /* python3_site */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = python3_site;
+		};
 		A36336D22AF226BA00085608 /* pyde */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = pyde;
@@ -5360,18 +5388,6 @@
 		A36336D82AF226BA00085608 /* python3_objc */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = python3_objc;
-		};
-		A36336DB2AF226BA00085608 /* python3_site */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3_site;
-		};
-		A36336DE2AF226BA00085608 /* python3_ui */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3_ui;
-		};
-		A36336E02AF226BA00085608 /* SDL2 */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SDL2;
 		};
 		A36336F72AF22C1500085608 /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;

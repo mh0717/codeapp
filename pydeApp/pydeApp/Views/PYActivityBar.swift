@@ -34,35 +34,22 @@ struct PYActivityBar: View {
     }
 
     var body: some View {
+//        if #available(iOS 16, *) {
+//            ViewThatFits(in: .horizontal) {
+//                if items.count > 4 {
+//                    ForEach(items[..<3]) {
+//                        ActivityBarIconView(activityBarItem: $0)
+//                    }
+//            }
+//        } else {
+//            ForEach(items) {
+//                ActivityBarIconView(activityBarItem: $0)
+//            }
+//        }
         HStack(spacing: 0) {
-            if horizontalSizeClass == .regular {
-                Button(action: {
-                    withAnimation(.easeIn(duration: 0.2)) {
-                        isSideBarExpanded.toggle()
-                    }
-                }) {
-                    Image(systemName: "sidebar.left")
-                        .font(.system(size: 17))
-                        .foregroundColor(Color.init("T1"))
-                        .padding(5)
-                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                        .hoverEffect(.highlight)
-                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
-                        .padding()
-                }
-            }
-            
-            
             ForEach(items) {
                 ActivityBarIconView(activityBarItem: $0)
             }
-//            PanelToggleButton(togglePanel: togglePanel)
-//            ZStack {
-//                Color.black.opacity(0.001)
-//                Spacer()
-//            }.onTapGesture { removeFocus() }
-//            Spacer()
-//            ConfigurationToggleButton()
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: ACTIVITY_BAR_HEIGHT)
         .background(Color.init(id: "sideBar.background"))
