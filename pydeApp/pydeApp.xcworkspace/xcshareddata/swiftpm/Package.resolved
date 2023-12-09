@@ -1,0 +1,169 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CwlCatchException",
+        "repositoryURL": "https://github.com/mattgallagher/CwlCatchException.git",
+        "state": {
+          "branch": null,
+          "revision": "35f9e770f54ce62dd8526470f14c6e137cef3eea",
+          "version": "2.1.1"
+        }
+      },
+      {
+        "package": "CwlPreconditionTesting",
+        "repositoryURL": "https://github.com/mattgallagher/CwlPreconditionTesting.git",
+        "state": {
+          "branch": null,
+          "revision": "c21f7bab5ca8eee0a9998bbd17ca1d0eb45d4688",
+          "version": "2.1.0"
+        }
+      },
+      {
+        "package": "Dynamic",
+        "repositoryURL": "https://github.com/mhdhejazi/Dynamic.git",
+        "state": {
+          "branch": "master",
+          "revision": "772883073d044bc754d401cabb6574624eb3778f",
+          "version": null
+        }
+      },
+      {
+        "package": "ExCodable",
+        "repositoryURL": "https://github.com/iwill/ExCodable.git",
+        "state": {
+          "branch": null,
+          "revision": "ca831ada0ec970b956d7c827429b57dc788141e6",
+          "version": "0.5.0"
+        }
+      },
+      {
+        "package": "FilesProvider",
+        "repositoryURL": "https://github.com/thebaselab/FileProvider",
+        "state": {
+          "branch": "master",
+          "revision": "abf68a62541a4193c8d106367ddb3648e8ab693f",
+          "version": null
+        }
+      },
+      {
+        "package": "GCDWebServer",
+        "repositoryURL": "https://github.com/JacobHearst/GCDWebServer",
+        "state": {
+          "branch": null,
+          "revision": "14f9eedb296c5b71fec971d8256ef3bfc20a2245",
+          "version": "3.5.5"
+        }
+      },
+      {
+        "package": "KeyboardToolbar",
+        "repositoryURL": "https://github.com/simonbs/KeyboardToolbar.git",
+        "state": {
+          "branch": null,
+          "revision": "5f95f8e9af98f6163a58caaceaadc3bf720fd7bd",
+          "version": "0.1.1"
+        }
+      },
+      {
+        "package": "Clibgit2",
+        "repositoryURL": "https://github.com/thebaselab/LibGit2-On-iOS",
+        "state": {
+          "branch": "master",
+          "revision": "b368487aae224817eab09f52629d15aaf98c419e",
+          "version": null
+        }
+      },
+      {
+        "package": "MarkdownView",
+        "repositoryURL": "https://github.com/thebaselab/MarkdownView",
+        "state": {
+          "branch": "master",
+          "revision": "bf73bf35a97ec6c63c4d73d99a7273858ebf3be5",
+          "version": null
+        }
+      },
+      {
+        "package": "Nimble",
+        "repositoryURL": "https://github.com/Quick/Nimble.git",
+        "state": {
+          "branch": null,
+          "revision": "c93f16c25af5770f0d3e6af27c9634640946b068",
+          "version": "9.2.1"
+        }
+      },
+      {
+        "package": "Quick",
+        "repositoryURL": "https://github.com/Quick/Quick.git",
+        "state": {
+          "branch": null,
+          "revision": "bd86ca0141e3cfb333546de5a11ede63f0c4a0e6",
+          "version": "4.0.0"
+        }
+      },
+      {
+        "package": "Runestone",
+        "repositoryURL": "https://github.com/simonbs/Runestone",
+        "state": {
+          "branch": null,
+          "revision": "00dee9fbc9c93b709f6b1b052bce84cb971e493a",
+          "version": "0.3.2"
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "9dcaa4b333db437b0fbfaf453fad29069044a8b4",
+          "version": "6.6.0"
+        }
+      },
+      {
+        "package": "SwiftTerm",
+        "repositoryURL": "https://github.com/migueldeicaza/SwiftTerm.git",
+        "state": {
+          "branch": null,
+          "revision": "0d31c2eea98e65ff1a34ec4a312099a8c25958b2",
+          "version": "1.2.1"
+        }
+      },
+      {
+        "package": "TreeSitter",
+        "repositoryURL": "https://github.com/simonbs/tree-sitter",
+        "state": {
+          "branch": null,
+          "revision": "f88ae4ebe351d8aa99c31a17111607017d805118",
+          "version": "0.20.9-beta-1"
+        }
+      },
+      {
+        "package": "TreeSitterLanguages",
+        "repositoryURL": "https://github.com/simonbs/TreeSitterLanguages.git",
+        "state": {
+          "branch": "main",
+          "revision": "7a186fe6f5ca6cb0ca332004b8f54b0fcea59212",
+          "version": null
+        }
+      },
+      {
+        "package": "ZipArchive",
+        "repositoryURL": "https://github.com/ZipArchive/ZipArchive.git",
+        "state": {
+          "branch": null,
+          "revision": "38e0ce0598e06b034271f296a8e15b149c91aa19",
+          "version": "2.4.3"
+        }
+      },
+      {
+        "package": "ZIPFoundation",
+        "repositoryURL": "https://github.com/weichsel/ZIPFoundation.git",
+        "state": {
+          "branch": null,
+          "revision": "f6a22e7da26314b38bf9befce34ae8e4b2543090",
+          "version": "0.9.15"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -13,7 +13,7 @@ import UIKit
 private let EXTENSION_ID = "PYLOCAL_EXECUTION"
 
 private let LOCAL_EXECUTION_COMMANDS = [
-    "py": ["remote python3 -u {url}"],
+    "py": ["python3 -u {url}"],
     "ui.py": ["python3 -u {url}"],
     "js": ["node {url}"],
     "c": ["clang {url}", "wasm a.out"],

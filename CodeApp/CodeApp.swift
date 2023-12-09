@@ -17,9 +17,11 @@ import pydeCommon
 
 @_cdecl("python3")
 public func python3(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-    return pymain(argc, argv)
+//    initIntepreters()
+    return pydeMain(argc, argv)
+//    return python3_run(argc, argv)
+//    return pymain(argc, argv)
 }
-
 
 @_cdecl("remote")
 public func myremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
@@ -262,6 +264,9 @@ struct CodeApp: App {
         Repository.initialize_libgit2()
         
         initClientEnv()
+        
+        initDESubInterperters()
+//        initIntepreters()
         
         replaceCommand("python3", "python3", true)
         replaceCommand("remote", "remote", true)

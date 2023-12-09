@@ -759,6 +759,9 @@
 		A33A5FD12B0EF91200CB7CE1 /* python3_ui in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A33A5FCF2B0EF91200CB7CE1 /* python3_ui */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A33A5FD32B0EF92100CB7CE1 /* python3_site in Frameworks */ = {isa = PBXBuildFile; productRef = A33A5FD22B0EF92100CB7CE1 /* python3_site */; settings = {ATTRIBUTES = (Required, ); }; };
 		A33A5FD42B0EF92100CB7CE1 /* python3_site in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A33A5FD22B0EF92100CB7CE1 /* python3_site */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A33A5FE72B10B98800CB7CE1 /* PyPiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE12B10B98800CB7CE1 /* PyPiView.swift */; };
+		A33A5FE82B10B98800CB7CE1 /* PipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE22B10B98800CB7CE1 /* PipManager.swift */; };
+		A33A5FEB2B10B98800CB7CE1 /* PyPiPackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE52B10B98800CB7CE1 /* PyPiPackageView.swift */; };
 		A349BF362B00ECDF00434BBB /* GitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349BF352B00ECDF00434BBB /* GitService.swift */; };
 		A36336D32AF226BA00085608 /* pyde in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; };
 		A36336D42AF226BA00085608 /* pyde in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -781,7 +784,6 @@
 		A36337162AF2329600085608 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A36337152AF2329600085608 /* pydeCommon */; };
 		A36337192AF2329600085608 /* python3_objc in Frameworks */ = {isa = PBXBuildFile; productRef = A36337182AF2329600085608 /* python3_objc */; };
 		A363371C2AF2329600085608 /* python3_ui in Frameworks */ = {isa = PBXBuildFile; productRef = A363371B2AF2329600085608 /* python3_ui */; };
-		A363371E2AF2329600085608 /* SDL2 in Frameworks */ = {isa = PBXBuildFile; productRef = A363371D2AF2329600085608 /* SDL2 */; };
 		A36337222AF237AA00085608 /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337212AF237AA00085608 /* PopupManager.swift */; };
 		A36337262AF2520D00085608 /* TMConsoleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337252AF2520D00085608 /* TMConsoleExtension.swift */; };
 		A36337282AF2955600085608 /* PYLocalExecutionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337272AF2955600085608 /* PYLocalExecutionExtension.swift */; };
@@ -790,6 +792,7 @@
 		A363372C2AF3407C00085608 /* MirrorManocoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A363372B2AF3407C00085608 /* MirrorManocoEditor.swift */; };
 		A363372E2AF388DB00085608 /* PYTextEditorInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A363372D2AF388DB00085608 /* PYTextEditorInstance.swift */; };
 		A36337302AF3E9DF00085608 /* PYRunnerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A363372F2AF3E9DF00085608 /* PYRunnerExtension.swift */; };
+		A37827AF2B1573E1008A75F1 /* JupyterContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37827AE2B1573E1008A75F1 /* JupyterContainer.swift */; };
 		A38272FE2AF4AD2F0096A7C9 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38272FD2AF4AD2F0096A7C9 /* ShareViewController.swift */; };
 		A38273012AF4AD2F0096A7C9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A38272FF2AF4AD2F0096A7C9 /* MainInterface.storyboard */; };
 		A3A87CEE2AF221D1002E3399 /* SourceControlUnsupportedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A0462A2804A70C00182275 /* SourceControlUnsupportedSection.swift */; };
@@ -975,6 +978,10 @@
 		A3A87DAC2AF221D1002E3399 /* awk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4A925F5518700F1EF4E /* awk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3A87DAD2AF221D1002E3399 /* text.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4AC25F5518700F1EF4E /* text.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3A87DAF2AF221D1002E3399 /* tar.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B3DDF42604D3C400C4F2B1 /* tar.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3DDCB952B236D8B00EA74E5 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DDCB942B236D8B00EA74E5 /* SDL2.framework */; };
+		A3DDCB962B236DAC00EA74E5 /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3DDCB942B236D8B00EA74E5 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3DDCB982B2374B200EA74E5 /* VCInTabExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDCB972B2374B200EA74E5 /* VCInTabExtension.swift */; };
+		A3E889A82B12DF87007B34AF /* PipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E889A72B12DF87007B34AF /* PipService.swift */; };
 		A3F32F662AF88CC000866ED0 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A3F32F672AF88CC200866ED0 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A3F32F682AF88CC300866ED0 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -1479,6 +1486,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A3DDCB962B236DAC00EA74E5 /* SDL2.framework in Embed Frameworks */,
 				A3A87DA32AF221D1002E3399 /* network_ios.xcframework in Embed Frameworks */,
 				A3A87DA52AF221D1002E3399 /* NMSSH.xcframework in Embed Frameworks */,
 				A36336D42AF226BA00085608 /* pyde in Embed Frameworks */,
@@ -2073,6 +2081,9 @@
 		9FE3E294298A14BC00F63DD0 /* CodeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeUITests.swift; sourceTree = "<group>"; };
 		A30789742B078C9E001B6129 /* TagsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsComponent.swift; sourceTree = "<group>"; };
 		A30789772B094741001B6129 /* TagsIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsIndicator.swift; sourceTree = "<group>"; };
+		A33A5FE12B10B98800CB7CE1 /* PyPiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PyPiView.swift; sourceTree = "<group>"; };
+		A33A5FE22B10B98800CB7CE1 /* PipManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PipManager.swift; sourceTree = "<group>"; };
+		A33A5FE52B10B98800CB7CE1 /* PyPiPackageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PyPiPackageView.swift; sourceTree = "<group>"; };
 		A349BF352B00ECDF00434BBB /* GitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitService.swift; sourceTree = "<group>"; };
 		A36336D12AF2268D00085608 /* pydeCommon */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = pydeCommon; path = ../../modules/pythoncc/pyde/pydeCommon; sourceTree = "<group>"; };
 		A36336E62AF22B3200085608 /* pydeRemote.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pydeRemote.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2094,6 +2105,7 @@
 		A363372D2AF388DB00085608 /* PYTextEditorInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYTextEditorInstance.swift; sourceTree = "<group>"; };
 		A363372F2AF3E9DF00085608 /* PYRunnerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYRunnerExtension.swift; sourceTree = "<group>"; };
 		A36337322AF4197100085608 /* pydeUIDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pydeUIDebug.entitlements; sourceTree = "<group>"; };
+		A37827AE2B1573E1008A75F1 /* JupyterContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JupyterContainer.swift; sourceTree = "<group>"; };
 		A38272FB2AF4AD2F0096A7C9 /* pydeShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pydeShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38272FD2AF4AD2F0096A7C9 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		A38273002AF4AD2F0096A7C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -2102,6 +2114,9 @@
 		A3A87DB52AF221D1002E3399 /* CodeUI copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CodeUI copy-Info.plist"; path = "/Users/huima/PythonSchool/pydeApp/CodeUI copy-Info.plist"; sourceTree = "<absolute>"; };
 		A3A87DB82AF22575002E3399 /* python3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = python3; path = ../../modules/pythoncc/python3; sourceTree = "<group>"; };
 		A3A87DB92AF2257D002E3399 /* pyde */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = pyde; path = ../../modules/pythoncc/pyde; sourceTree = "<group>"; };
+		A3DDCB942B236D8B00EA74E5 /* SDL2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDL2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3DDCB972B2374B200EA74E5 /* VCInTabExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCInTabExtension.swift; sourceTree = "<group>"; };
+		A3E889A72B12DF87007B34AF /* PipService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipService.swift; sourceTree = "<group>"; };
 		A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = commandDictionary.plist; path = ../../modules/pythoncc/pyde/commandDictionary.plist; sourceTree = "<group>"; };
 		A3F32F6B2AF9330900866ED0 /* ExplorerTagTreeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerTagTreeSection.swift; sourceTree = "<group>"; };
 		A3F52F002B0BF16D001F096E /* PYActivityBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYActivityBar.swift; sourceTree = "<group>"; };
@@ -2184,7 +2199,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A363371C2AF2329600085608 /* python3_ui in Frameworks */,
-				A363371E2AF2329600085608 /* SDL2 in Frameworks */,
 				A36337192AF2329600085608 /* python3_objc in Frameworks */,
 				A36337052AF231D200085608 /* UniformTypeIdentifiers.framework in Frameworks */,
 				A36337162AF2329600085608 /* pydeCommon in Frameworks */,
@@ -2202,6 +2216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3DDCB952B236D8B00EA74E5 /* SDL2.framework in Frameworks */,
 				A3A87D8A2AF221D1002E3399 /* FilesProvider in Frameworks */,
 				A3A87D8B2AF221D1002E3399 /* ZIPFoundation in Frameworks */,
 				A36336D62AF226BA00085608 /* pydeCommon in Frameworks */,
@@ -2223,6 +2238,7 @@
 		24509F1455D67D501EFBD28C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3DDCB942B236D8B00EA74E5 /* SDL2.framework */,
 				942E321128093CA600233441 /* NMSSH.xcframework */,
 				945E7E3727CA79C900BA1D95 /* NodeMobile.xcframework */,
 				A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */,
@@ -3197,9 +3213,22 @@
 			path = Tag;
 			sourceTree = "<group>";
 		};
+		A33A5FDF2B109F1E00CB7CE1 /* pip */ = {
+			isa = PBXGroup;
+			children = (
+				A33A5FE52B10B98800CB7CE1 /* PyPiPackageView.swift */,
+				A33A5FE12B10B98800CB7CE1 /* PyPiView.swift */,
+				A33A5FE22B10B98800CB7CE1 /* PipManager.swift */,
+				A3E889A72B12DF87007B34AF /* PipService.swift */,
+			);
+			path = pip;
+			sourceTree = "<group>";
+		};
 		A349BF332B00EC9400434BBB /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A37827AD2B1573CE008A75F1 /* jupyter */,
+				A33A5FDF2B109F1E00CB7CE1 /* pip */,
 				A30789762B094726001B6129 /* Tag */,
 				A349BF342B00ECA300434BBB /* GitHistory */,
 				A30789742B078C9E001B6129 /* TagsComponent.swift */,
@@ -3249,8 +3278,17 @@
 				A363372B2AF3407C00085608 /* MirrorManocoEditor.swift */,
 				A363372D2AF388DB00085608 /* PYTextEditorInstance.swift */,
 				A363372F2AF3E9DF00085608 /* PYRunnerExtension.swift */,
+				A3DDCB972B2374B200EA74E5 /* VCInTabExtension.swift */,
 			);
 			path = pydeApp;
+			sourceTree = "<group>";
+		};
+		A37827AD2B1573CE008A75F1 /* jupyter */ = {
+			isa = PBXGroup;
+			children = (
+				A37827AE2B1573E1008A75F1 /* JupyterContainer.swift */,
+			);
+			path = jupyter;
 			sourceTree = "<group>";
 		};
 		A38272FC2AF4AD2F0096A7C9 /* pydeShare */ = {
@@ -3440,7 +3478,6 @@
 				A36337152AF2329600085608 /* pydeCommon */,
 				A36337182AF2329600085608 /* python3_objc */,
 				A363371B2AF2329600085608 /* python3_ui */,
-				A363371D2AF2329600085608 /* SDL2 */,
 			);
 			productName = pydeUI;
 			productReference = A36337042AF231D200085608 /* pydeUI.appex */;
@@ -4136,6 +4173,7 @@
 				A3A87CF12AF221D1002E3399 /* RemoteConnectedSection.swift in Sources */,
 				A3A87CF22AF221D1002E3399 /* ActivityBarManager.swift in Sources */,
 				A3A87CF32AF221D1002E3399 /* HighlightedText.swift in Sources */,
+				A33A5FE72B10B98800CB7CE1 /* PyPiView.swift in Sources */,
 				A3A87CF42AF221D1002E3399 /* SideBarButton.swift in Sources */,
 				A3A87CF52AF221D1002E3399 /* LocalGitCredentialsHelper.swift in Sources */,
 				A3A87CF62AF221D1002E3399 /* LocalFileSystemProvider.swift in Sources */,
@@ -4203,6 +4241,7 @@
 				A3A87D302AF221D1002E3399 /* TerminalProvider.swift in Sources */,
 				A3A87D312AF221D1002E3399 /* String.Encoding.swift in Sources */,
 				A3F52F052B0C3EBD001F096E /* GitWebView.swift in Sources */,
+				A3E889A82B12DF87007B34AF /* PipService.swift in Sources */,
 				A3A87D322AF221D1002E3399 /* SettingsThemeConfiguration.swift in Sources */,
 				A3A87D332AF221D1002E3399 /* RemoteContainer.swift in Sources */,
 				A3A87D342AF221D1002E3399 /* CloudCodeExecutionManager.swift in Sources */,
@@ -4222,6 +4261,7 @@
 				A3A87D412AF221D1002E3399 /* WorkSpaceStorage.swift in Sources */,
 				A3A87D422AF221D1002E3399 /* RemoteListSection.swift in Sources */,
 				A3A87D432AF221D1002E3399 /* DirectoryFolderMonitor.swift in Sources */,
+				A33A5FE82B10B98800CB7CE1 /* PipManager.swift in Sources */,
 				A3A87D442AF221D1002E3399 /* ActivityBar.swift in Sources */,
 				A3A87D452AF221D1002E3399 /* NSError+init.swift in Sources */,
 				A3A87D462AF221D1002E3399 /* TerminalExtension.swift in Sources */,
@@ -4276,6 +4316,7 @@
 				A3A87D732AF221D1002E3399 /* CodeAppContributionPointManager.swift in Sources */,
 				A3A87D742AF221D1002E3399 /* node.swift in Sources */,
 				A3A87D752AF221D1002E3399 /* TerminalInstance.swift in Sources */,
+				A3DDCB982B2374B200EA74E5 /* VCInTabExtension.swift in Sources */,
 				A3A87D762AF221D1002E3399 /* convertCArguments.swift in Sources */,
 				A3A87D772AF221D1002E3399 /* SettingsFontPicker.swift in Sources */,
 				A3A87D782AF221D1002E3399 /* NewFileView.swift in Sources */,
@@ -4293,7 +4334,9 @@
 				A3A87D812AF221D1002E3399 /* SourceControlCloneSection.swift in Sources */,
 				A3A87D822AF221D1002E3399 /* Libgit2Error.swift in Sources */,
 				A3A87D832AF221D1002E3399 /* SourceControlTemplateSection.swift in Sources */,
+				A37827AF2B1573E1008A75F1 /* JupyterContainer.swift in Sources */,
 				A3A87D842AF221D1002E3399 /* ImageViewerExtension.swift in Sources */,
+				A33A5FEB2B10B98800CB7CE1 /* PyPiPackageView.swift in Sources */,
 				A3A87D852AF221D1002E3399 /* RemoteHostCell.swift in Sources */,
 				A3A87D862AF221D1002E3399 /* RemoteConnectedLabel.swift in Sources */,
 				A3A87D872AF221D1002E3399 /* UserDefaults+Hosts.swift in Sources */,
@@ -5408,10 +5451,6 @@
 		A363371B2AF2329600085608 /* python3_ui */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = python3_ui;
-		};
-		A363371D2AF2329600085608 /* SDL2 */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SDL2;
 		};
 		A3A87CE12AF221D1002E3399 /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;

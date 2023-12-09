@@ -30,8 +30,11 @@ class ExtensionManager: ObservableObject {
         RemoteAuxiliaryExtension(),
         
         OutlineExtension(),
+        JupyterExtension(),
         PYRunnerExtension(),
         TMConsoleExtension(),
+        
+        VCInTabExtension(),
     ]
     #else
     private var extensions: [CodeAppExtension] = [

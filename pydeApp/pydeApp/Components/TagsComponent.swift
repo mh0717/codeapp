@@ -172,7 +172,8 @@ class OutlineExtension: CodeAppExtension {
             title: "Outline",
             shortcutKey: "o",
             modifiers: [.command, .shift],
-            view: AnyView(OutlineContainer()),
+//            view: AnyView(OutlineContainer()),
+            view: AnyView(PyPiView()),
             contextMenuItems: nil,
             bubble: {nil},
             isVisible: { true }

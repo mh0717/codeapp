@@ -33,60 +33,60 @@ class ActionViewController: UITabBarController {
     }
     
     private var consoleVC: ConsoleViewContrller?
-    
-    @objc
-    func frame() {
-        if SDL_Init(SDL_INIT_VIDEO) < 0 {
-            print("init error")
-        }
-        let window = SDL_CreateWindow(nil, 0, 0, 320, 480, SDL_WINDOW_ALLOW_HIGHDPI.rawValue)
-        var winw: Int32 = 0, winh: Int32 = 0
-        SDL_GetWindowSize(window, &winw, &winh)
-        print("win size: \(winw), \(winh)")
-        print("screen size: \(UIScreen.main.bounds.size), \(self.view.bounds.size)")
-        let renderer = SDL_CreateRenderer(window, -1, 0)
-        SDL_RenderSetLogicalSize(renderer, winw, winh)
-        SDL_ShowWindow(window)
-
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-        SDL_RenderClear(renderer);
-        SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
-        SDL_RenderClear(renderer)
-        SDL_RenderPresent(renderer)
-        SDL_RenderPresent(renderer)
-        
-        var evt: SDL_Event = SDL_Event()
-        
-        var isRunning = true
-        while isRunning {
-            while(SDL_PollEvent(&evt) != 0) {
-                print("type: \(evt.type)")
-                if (evt.type == SDL_QUIT.rawValue) {
-                    isRunning = false
-                }
-            }
-
-            let r = randomInt(50, 255);
-            let g = randomInt(50, 255);
-            let b = randomInt(50, 255);
-
-            SDL_SetRenderDrawColor(renderer, Uint8(r), Uint8(g), Uint8(b), 255);
-            SDL_RenderClear(renderer);
-            SDL_RenderPresent(renderer)
-            
-            SDL_Delay(16)
-            
-//                RunLoop.current.run(mode: .default, before: Date().advanced(by: 5))
-            
-//                SDL_Delay(1000)
-//                RunLoop.main.schedule(after: RunLoop.main.now.advanced(by: .nanoseconds(5)), tolerance: .milliseconds(5), options: .none) { [weak self] in
-//                    print("test: \(Date())")
+//    
+//    @objc
+//    func frame() {
+//        if SDL_Init(SDL_INIT_VIDEO) < 0 {
+//            print("init error")
+//        }
+//        let window = SDL_CreateWindow(nil, 0, 0, 320, 480, SDL_WINDOW_ALLOW_HIGHDPI.rawValue)
+//        var winw: Int32 = 0, winh: Int32 = 0
+//        SDL_GetWindowSize(window, &winw, &winh)
+//        print("win size: \(winw), \(winh)")
+//        print("screen size: \(UIScreen.main.bounds.size), \(self.view.bounds.size)")
+//        let renderer = SDL_CreateRenderer(window, -1, 0)
+//        SDL_RenderSetLogicalSize(renderer, winw, winh)
+//        SDL_ShowWindow(window)
+//
+//        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+//        SDL_RenderClear(renderer);
+//        SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
+//        SDL_RenderClear(renderer)
+//        SDL_RenderPresent(renderer)
+//        SDL_RenderPresent(renderer)
+//        
+//        var evt: SDL_Event = SDL_Event()
+//        
+//        var isRunning = true
+//        while isRunning {
+//            while(SDL_PollEvent(&evt) != 0) {
+//                print("type: \(evt.type)")
+//                if (evt.type == SDL_QUIT.rawValue) {
+//                    isRunning = false
 //                }
-        }
-        print("end")
-        SDL_Quit()
-    }
-    
+//            }
+//
+//            let r = randomInt(50, 255);
+//            let g = randomInt(50, 255);
+//            let b = randomInt(50, 255);
+//
+//            SDL_SetRenderDrawColor(renderer, Uint8(r), Uint8(g), Uint8(b), 255);
+//            SDL_RenderClear(renderer);
+//            SDL_RenderPresent(renderer)
+//            
+//            SDL_Delay(16)
+//            
+////                RunLoop.current.run(mode: .default, before: Date().advanced(by: 5))
+//            
+////                SDL_Delay(1000)
+////                RunLoop.main.schedule(after: RunLoop.main.now.advanced(by: .nanoseconds(5)), tolerance: .milliseconds(5), options: .none) { [weak self] in
+////                    print("test: \(Date())")
+////                }
+//        }
+//        print("end")
+//        SDL_Quit()
+//    }
+//    
     
 
     override func viewDidLoad() {
@@ -105,7 +105,7 @@ class ActionViewController: UITabBarController {
         setupView()
         
         
-        update_sdl_winsize(self.view.bounds)
+//        update_sdl_winsize(self.view.bounds)
         NotificationCenter.default.addObserver(self, selector: #selector(handleRefreshSDL), name: Notification.Name("SDL_REFRESH_WINDOWS"), object: nil)
         
         if let context = self.extensionContext, context.inputItems.count == 1 {
@@ -151,7 +151,7 @@ class ActionViewController: UITabBarController {
     
     
     override func viewDidLayoutSubviews() {
-        update_sdl_winsize(self.view.bounds)
+//        update_sdl_winsize(self.view.bounds)
     }
     
     @objc func handleRefreshSDL(notify: Notification) {
