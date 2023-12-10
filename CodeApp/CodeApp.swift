@@ -28,6 +28,15 @@ public func myremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointe
     return remote(argc: argc, argv: argv)
 }
 
+@_cdecl("open")
+public func pyde_open(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    guard let cmds = convertCArguments(argc: argc, argv: argv) else {
+        return -1
+    }
+    wmessager.passMessage(message: cmds, identifier: ConstantManager.PYDE_OPEN_COMMAND_MSG);
+    return 1
+}
+
 //var git_run_count = 0
 //@_cdecl("git")
 //public func git(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
@@ -270,6 +279,7 @@ struct CodeApp: App {
         
         replaceCommand("python3", "python3", true)
         replaceCommand("remote", "remote", true)
+        replaceCommand("open", "open", true)
 //        replaceCommand("git", "git", true)
         
         signal(SIGPIPE, SIG_IGN);

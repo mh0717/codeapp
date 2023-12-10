@@ -981,6 +981,7 @@
 		A3DDCB952B236D8B00EA74E5 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DDCB942B236D8B00EA74E5 /* SDL2.framework */; };
 		A3DDCB962B236DAC00EA74E5 /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3DDCB942B236D8B00EA74E5 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3DDCB982B2374B200EA74E5 /* VCInTabExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDCB972B2374B200EA74E5 /* VCInTabExtension.swift */; };
+		A3DDCBA22B25666100EA74E5 /* PYPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDCBA12B25666100EA74E5 /* PYPanel.swift */; };
 		A3E889A82B12DF87007B34AF /* PipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E889A72B12DF87007B34AF /* PipService.swift */; };
 		A3F32F662AF88CC000866ED0 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A3F32F672AF88CC200866ED0 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -2116,6 +2117,7 @@
 		A3A87DB92AF2257D002E3399 /* pyde */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = pyde; path = ../../modules/pythoncc/pyde; sourceTree = "<group>"; };
 		A3DDCB942B236D8B00EA74E5 /* SDL2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDL2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3DDCB972B2374B200EA74E5 /* VCInTabExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCInTabExtension.swift; sourceTree = "<group>"; };
+		A3DDCBA12B25666100EA74E5 /* PYPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPanel.swift; sourceTree = "<group>"; };
 		A3E889A72B12DF87007B34AF /* PipService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipService.swift; sourceTree = "<group>"; };
 		A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = commandDictionary.plist; path = ../../modules/pythoncc/pyde/commandDictionary.plist; sourceTree = "<group>"; };
 		A3F32F6B2AF9330900866ED0 /* ExplorerTagTreeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerTagTreeSection.swift; sourceTree = "<group>"; };
@@ -3330,6 +3332,7 @@
 				A3F32F6B2AF9330900866ED0 /* ExplorerTagTreeSection.swift */,
 				A3F52F002B0BF16D001F096E /* PYActivityBar.swift */,
 				A3F52F022B0C0467001F096E /* PYCompactSidebar.swift */,
+				A3DDCBA12B25666100EA74E5 /* PYPanel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -4301,6 +4304,7 @@
 				A3A87D652AF221D1002E3399 /* VideoViewerExtension.swift in Sources */,
 				A3A87D662AF221D1002E3399 /* SFTPTerminalServiceProvider.swift in Sources */,
 				A3A87D672AF221D1002E3399 /* URL+relativePath.swift in Sources */,
+				A3DDCBA22B25666100EA74E5 /* PYPanel.swift in Sources */,
 				A3A87D682AF221D1002E3399 /* Secrets.swift in Sources */,
 				A3A87D692AF221D1002E3399 /* SearchResultsSection.swift in Sources */,
 				A3A87D6A2AF221D1002E3399 /* KeychainItemAccessibility.swift in Sources */,

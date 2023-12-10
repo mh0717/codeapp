@@ -95,6 +95,13 @@ class VCInTabExtension: CodeAppExtension {
                 }
             }
         }
+        
+        NotificationCenter.default.addObserver(forName: .init("UI_OPEN_FILE_IN_TAB"), object: nil, queue: nil) { notify in
+            guard let url = notify.userInfo?["url"] as? URL else { return }
+            DispatchQueue.main.async {
+                app.openFile(url: url, alwaysInNewTab: true)
+            }
+        }
     }
     
 //    deinit {

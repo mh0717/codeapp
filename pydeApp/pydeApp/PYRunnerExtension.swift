@@ -36,7 +36,7 @@ class PYRunnerExtension: CodeAppExtension {
             ),
             toolBarView: AnyView(ToolbarView())
         )
-        contribution.panel.registerPanel(panel: panel)
+//        contribution.panel.registerPanel(panel: panel)
     }
     
     override func onWorkSpaceStorageChanged(newUrl: URL) {
@@ -82,7 +82,8 @@ private struct ConsoleWidget: View {
 
     var body: some View {
         if let editor = $App.activeEditor.wrappedValue as? PYTextEditorInstance {
-            editor.runnerWidget
+//            editor.runnerWidget
+            ProgressView()
         } else {
             ProgressView()
         }

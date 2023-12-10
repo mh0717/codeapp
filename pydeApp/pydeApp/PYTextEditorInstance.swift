@@ -13,18 +13,19 @@ import Combine
 
 class PYTextEditorInstance: TextEditorInstance {
     
-    let rseditor = RunestoneEditor()
+//    let rseditor = RunestoneEditor()
     
     var editorView: RSCodeEditorView {
-        return rseditor.editorView
+        return codeWidget.editor.editorView
     }
     
-    let runner = PYRunnerWidget()
-    
-    lazy var runnerWidget: AnyView = AnyView(runner.id(UUID()))
+//    let runner = PYRunnerWidget()
+//    
+//    lazy var runnerWidget: AnyView = AnyView(runner.id(UUID()))
+    let codeWidget = PYCodeWidget()
     
     var runnerView: ConsoleView {
-        return runner.consoleView
+        return codeWidget.runner.consoleView
     }
     
 //    var rangeCancellable: AnyCancellable?
@@ -37,7 +38,7 @@ class PYTextEditorInstance: TextEditorInstance {
         fileDidChange: ((FileState, String?) -> Void)? = nil
     ) {
         super.init(
-            editor: rseditor.id(UUID()),
+            editor: codeWidget.id(UUID()),
             url: url,
             content: content,
             encoding: encoding,
@@ -45,7 +46,7 @@ class PYTextEditorInstance: TextEditorInstance {
             fileDidChange: fileDidChange
         )
         
-        rseditor.editorView.text = content
+        editorView.text = content
         runnerView.resetAndSetNewRootDirectory(url: url.deletingLastPathComponent())
         
 //        rangeCancellable = $selectedRange.sink {[weak editorView] range in
@@ -179,3 +180,52 @@ struct PYRunnerWidget: UIViewRepresentable {
 }
 
 
+struct PYCodeWidget: View {
+    
+    let editor = RunestoneEditor()
+    let runner = PYRunnerWidget()
+    
+    let panelManager = PanelManager()
+    
+    var body: some View {
+        GeometryReader { geometry in
+            VStack(spacing: 0) {
+                editor
+                PYPanelView(currentPanelId: "RUNNER", windowHeight: geometry.size.height)
+                    .environmentObject(panelManager)
+            }
+        }
+        .onAppear {
+            if !panelManager.panels.isEmpty {
+                return
+            }
+            let runnerPanel = Panel(
+                labelId: "RUNNER",
+                mainView: AnyView(
+                    runner
+                ),
+                toolBarView: AnyView(
+                    HStack(spacing: 12) {
+                    Button(
+                        action: {
+                            runner.consoleView.kill()
+                        },
+                        label: {
+                            Text("^C")
+                        }
+                    ).keyboardShortcut("c", modifiers: [.control])
+
+                    Button(
+                        action: {
+                            runner.consoleView.clear()
+                        },
+                        label: {
+                            Image(systemName: "trash")
+                        }
+                    ).keyboardShortcut("k", modifiers: [.command])
+                })
+            )
+            panelManager.registerPanel(panel: runnerPanel)
+        }
+    }
+}

@@ -219,13 +219,17 @@ private struct MainView: View {
                                         ).environmentObject(App)
                                     }
                                     .environmentObject(extensionManager.editorProviderManager)
-
+                                
+                                
+                                #if PYDEAPP
+                                #else
                                 if isPanelVisible {
                                     PanelView(
                                         windowHeight: geometry.size.height
                                     )
                                     .environmentObject(extensionManager.panelManager)
                                 }
+                                #endif
                             }
                             .blur(
                                 radius: (horizontalSizeClass == .compact && isSideBarVisible)
