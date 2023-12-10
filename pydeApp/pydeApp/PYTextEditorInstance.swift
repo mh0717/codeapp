@@ -182,6 +182,8 @@ struct PYRunnerWidget: UIViewRepresentable {
 
 struct PYCodeWidget: View {
     
+    @SceneStorage("panel.visible") var showsPanel: Bool = DefaultUIState.PANEL_IS_VISIBLE
+    
     let editor = RunestoneEditor()
     let runner = PYRunnerWidget()
     
@@ -191,8 +193,10 @@ struct PYCodeWidget: View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
                 editor
-                PYPanelView(currentPanelId: "RUNNER", windowHeight: geometry.size.height)
-                    .environmentObject(panelManager)
+                if showsPanel {
+                    PYPanelView(currentPanelId: "RUNNER", windowHeight: geometry.size.height)
+                        .environmentObject(panelManager)
+                }
             }
         }
         .onAppear {

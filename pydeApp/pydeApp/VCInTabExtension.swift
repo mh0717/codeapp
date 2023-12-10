@@ -1,5 +1,6 @@
-import MarkdownView
+
 import SwiftUI
+import SafariServices
 
 // TODO: Localization
 
@@ -59,6 +60,8 @@ class VCInTabEditorInstance: EditorInstanceWithURL {
 }
 
 class VCInTabExtension: CodeAppExtension {
+    
+    static var _showCount = 0
 
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
         
@@ -98,9 +101,20 @@ class VCInTabExtension: CodeAppExtension {
         
         NotificationCenter.default.addObserver(forName: .init("UI_OPEN_FILE_IN_TAB"), object: nil, queue: nil) { notify in
             guard let url = notify.userInfo?["url"] as? URL else { return }
-            DispatchQueue.main.async {
-                app.openFile(url: url, alwaysInNewTab: true)
+            if url.scheme != nil, url.scheme!.starts(with: "file") {
+                DispatchQueue.main.async {
+                    app.openFile(url: url, alwaysInNewTab: true)
+                }
+            } else {
+                VCInTabExtension._showCount += 1
+                let title = url.lastPathComponent.isEmpty ? "#web\(VCInTabExtension._showCount)" : url.lastPathComponent
+                let vc = SFSafariViewController(url: url)
+                let instance = VCInTabEditorInstance(url: url, title: title, vc: vc)
+                DispatchQueue.main.async {
+                    app.appendAndFocusNewEditor(editor: instance, alwaysInNewTab: true)
+                }
             }
+            
         }
     }
     
