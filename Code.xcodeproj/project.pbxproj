@@ -978,6 +978,12 @@
 		A3A87DAC2AF221D1002E3399 /* awk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4A925F5518700F1EF4E /* awk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3A87DAD2AF221D1002E3399 /* text.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4AC25F5518700F1EF4E /* text.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3A87DAF2AF221D1002E3399 /* tar.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B3DDF42604D3C400C4F2B1 /* tar.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3B0F0B32B29D9A90001D220 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B22B29D9A90001D220 /* ios_system */; };
+		A3B0F0B42B29D9A90001D220 /* ios_system in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B22B29D9A90001D220 /* ios_system */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A3B0F0B62B29DA8F0001D220 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B52B29DA8F0001D220 /* ios_system */; };
+		A3B0F0B72B29DA8F0001D220 /* ios_system in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B52B29DA8F0001D220 /* ios_system */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A3B0F0B92B29DAA60001D220 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B82B29DAA60001D220 /* ios_system */; };
+		A3B0F0BA2B29DAA60001D220 /* ios_system in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B82B29DAA60001D220 /* ios_system */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A3DDCB952B236D8B00EA74E5 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DDCB942B236D8B00EA74E5 /* SDL2.framework */; };
 		A3DDCB962B236DAC00EA74E5 /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3DDCB942B236D8B00EA74E5 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3DDCB982B2374B200EA74E5 /* VCInTabExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDCB972B2374B200EA74E5 /* VCInTabExtension.swift */; };
@@ -1467,6 +1473,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A3B0F0B72B29DA8F0001D220 /* ios_system in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1477,6 +1484,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A3B0F0BA2B29DAA60001D220 /* ios_system in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1496,6 +1504,7 @@
 				A3A87DAA2AF221D1002E3399 /* ssh_cmd.xcframework in Embed Frameworks */,
 				A3A87DAB2AF221D1002E3399 /* files.xcframework in Embed Frameworks */,
 				A3A87DAC2AF221D1002E3399 /* awk.xcframework in Embed Frameworks */,
+				A3B0F0B42B29D9A90001D220 /* ios_system in Embed Frameworks */,
 				A3A87DAD2AF221D1002E3399 /* text.xcframework in Embed Frameworks */,
 				A36336D72AF226BA00085608 /* pydeCommon in Embed Frameworks */,
 				A36336DA2AF226BA00085608 /* python3_objc in Embed Frameworks */,
@@ -2082,6 +2091,7 @@
 		9FE3E294298A14BC00F63DD0 /* CodeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeUITests.swift; sourceTree = "<group>"; };
 		A30789742B078C9E001B6129 /* TagsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsComponent.swift; sourceTree = "<group>"; };
 		A30789772B094741001B6129 /* TagsIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsIndicator.swift; sourceTree = "<group>"; };
+		A32DE5322B29B7CE00A1E20B /* ios_system.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ios_system.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33A5FE12B10B98800CB7CE1 /* PyPiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PyPiView.swift; sourceTree = "<group>"; };
 		A33A5FE22B10B98800CB7CE1 /* PipManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PipManager.swift; sourceTree = "<group>"; };
 		A33A5FE52B10B98800CB7CE1 /* PyPiPackageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PyPiPackageView.swift; sourceTree = "<group>"; };
@@ -2115,6 +2125,7 @@
 		A3A87DB52AF221D1002E3399 /* CodeUI copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CodeUI copy-Info.plist"; path = "/Users/huima/PythonSchool/pydeApp/CodeUI copy-Info.plist"; sourceTree = "<absolute>"; };
 		A3A87DB82AF22575002E3399 /* python3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = python3; path = ../../modules/pythoncc/python3; sourceTree = "<group>"; };
 		A3A87DB92AF2257D002E3399 /* pyde */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = pyde; path = ../../modules/pythoncc/pyde; sourceTree = "<group>"; };
+		A3B0F0B12B29D95F0001D220 /* ios_system */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ios_system; path = ../../modules/pythoncc/ios_system; sourceTree = "<group>"; };
 		A3DDCB942B236D8B00EA74E5 /* SDL2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDL2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3DDCB972B2374B200EA74E5 /* VCInTabExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCInTabExtension.swift; sourceTree = "<group>"; };
 		A3DDCBA12B25666100EA74E5 /* PYPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPanel.swift; sourceTree = "<group>"; };
@@ -2191,6 +2202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A36336FC2AF22C1500085608 /* python3_objc in Frameworks */,
+				A3B0F0B62B29DA8F0001D220 /* ios_system in Frameworks */,
 				A36336E82AF22B3200085608 /* UniformTypeIdentifiers.framework in Frameworks */,
 				A36336F82AF22C1500085608 /* pydeCommon in Frameworks */,
 			);
@@ -2202,6 +2214,7 @@
 			files = (
 				A363371C2AF2329600085608 /* python3_ui in Frameworks */,
 				A36337192AF2329600085608 /* python3_objc in Frameworks */,
+				A3B0F0B92B29DAA60001D220 /* ios_system in Frameworks */,
 				A36337052AF231D200085608 /* UniformTypeIdentifiers.framework in Frameworks */,
 				A36337162AF2329600085608 /* pydeCommon in Frameworks */,
 			);
@@ -2225,6 +2238,7 @@
 				A36336D92AF226BA00085608 /* python3_objc in Frameworks */,
 				A3A87D8D2AF221D1002E3399 /* MarkdownView in Frameworks */,
 				A33A5FD32B0EF92100CB7CE1 /* python3_site in Frameworks */,
+				A3B0F0B32B29D9A90001D220 /* ios_system in Frameworks */,
 				A3A87D8E2AF221D1002E3399 /* GCDWebServers in Frameworks */,
 				A36336D32AF226BA00085608 /* pyde in Frameworks */,
 				A3A87D8F2AF221D1002E3399 /* Dynamic in Frameworks */,
@@ -2240,6 +2254,7 @@
 		24509F1455D67D501EFBD28C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A32DE5322B29B7CE00A1E20B /* ios_system.framework */,
 				A3DDCB942B236D8B00EA74E5 /* SDL2.framework */,
 				942E321128093CA600233441 /* NMSSH.xcframework */,
 				945E7E3727CA79C900BA1D95 /* NodeMobile.xcframework */,
@@ -3319,6 +3334,7 @@
 		A3A87DB72AF22553002E3399 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				A3B0F0B12B29D95F0001D220 /* ios_system */,
 				A3A87DB82AF22575002E3399 /* python3 */,
 				A36336D12AF2268D00085608 /* pydeCommon */,
 				A3A87DB92AF2257D002E3399 /* pyde */,
@@ -3458,6 +3474,7 @@
 			packageProductDependencies = (
 				A36336F72AF22C1500085608 /* pydeCommon */,
 				A36336FB2AF22C1500085608 /* python3_objc */,
+				A3B0F0B52B29DA8F0001D220 /* ios_system */,
 			);
 			productName = pydeRemote;
 			productReference = A36336E62AF22B3200085608 /* pydeRemote.appex */;
@@ -3481,6 +3498,7 @@
 				A36337152AF2329600085608 /* pydeCommon */,
 				A36337182AF2329600085608 /* python3_objc */,
 				A363371B2AF2329600085608 /* python3_ui */,
+				A3B0F0B82B29DAA60001D220 /* ios_system */,
 			);
 			productName = pydeUI;
 			productReference = A36337042AF231D200085608 /* pydeUI.appex */;
@@ -3535,6 +3553,7 @@
 				A36336D82AF226BA00085608 /* python3_objc */,
 				A33A5FCF2B0EF91200CB7CE1 /* python3_ui */,
 				A33A5FD22B0EF92100CB7CE1 /* python3_site */,
+				A3B0F0B22B29D9A90001D220 /* ios_system */,
 			);
 			productName = testfield;
 			productReference = A3A87DB42AF221D1002E3399 /* pydeApp.app */;
@@ -5068,6 +5087,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 				STRIP_STYLE = "non-global";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -5117,6 +5137,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore thebaselab.VS-Code";
+				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 				STRIP_STYLE = "non-global";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -5484,6 +5505,18 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A3A87CEB2AF221D1002E3399 /* XCRemoteSwiftPackageReference "GCDWebServer" */;
 			productName = GCDWebServers;
+		};
+		A3B0F0B22B29D9A90001D220 /* ios_system */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ios_system;
+		};
+		A3B0F0B52B29DA8F0001D220 /* ios_system */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ios_system;
+		};
+		A3B0F0B82B29DAA60001D220 /* ios_system */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ios_system;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

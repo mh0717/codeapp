@@ -21,6 +21,7 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
         
         replaceCommand("python3", "python3", true)
         replaceCommand("rremote", "rremote", true)
+        replaceCommand("open", "open", true)
         
         initRemoteEnv()
         
@@ -65,4 +66,14 @@ public func rremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer
     }
     cmds.removeFirst()
     return remoteReqRemoteCommands(commands: [cmds.joined(separator: " ")])
+}
+
+
+@_cdecl("open")
+public func pyde_open(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    guard let cmds = convertCArguments(argc: argc, argv: argv) else {
+        return -1
+    }
+    wmessager.passMessage(message: cmds, identifier: ConstantManager.PYDE_OPEN_COMMAND_MSG);
+    return 1
 }

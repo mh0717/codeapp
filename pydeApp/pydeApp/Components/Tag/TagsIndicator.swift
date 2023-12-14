@@ -68,35 +68,80 @@ struct TagsIndicator: View {
         }
         let contors = indicators
         
-        return ScrollView(.horizontal) {
-            HStack(alignment: .center, spacing: 2) {
-                ForEach(contors) { tag in
-                    Button(tag.name) {
-                        expandedStates = [:]
-                        if let p = tag.parent {
-                            expandedStates[p] = true
-                        }
-                        popupedState[tag] = true
+        var path = editor.url.path
+        path = path.replacingOccurrences(of: App.workSpaceStorage.currentDirectory.url, with: "")
+        path = path.replacingOccurrences(of: ConstantManager.documentURL.path, with: "Documents")
+        path = path.replacingOccurrences(of: ConstantManager.appdir.path, with: "pyde.app")
+        path = path.replacingOccurrences(of: ConstantManager.appGroupContainer.path, with: "Container")
+        path = path.replacingOccurrences(of: ConstantManager.iCloudContainerURL?.path ?? "", with: "iCloud")
+        if path.starts(with: "/") {
+            path.removeFirst()
+        }
+        let paths = path.split(separator: "/")
+        
+        return VStack(alignment: .leading, spacing: 0) {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(alignment: .center, spacing: 0) {
+                    ForEach(paths, id: \.self) {path in
+                        Text(path)
+                            .foregroundColor(
+                                Color.init(id: "panelTitle.activeForeground")
+                            )
+                            .font(.system(size: 12, weight: .light))
+                            .padding(EdgeInsets(top: 0, leading: 2, bottom: 0, trailing: 2))
+                    }.separator(showLast: true) { tag in
+                        Image(systemName: "chevron.right")
+                            .font(.system(size: 12, weight: .light))
                     }
-                    .popover(isPresented: binding(for: tag), content: {
-                        ScrollViewReader { proxy in
-                            List {
-                                TagsTreeView(tags: tag.parent?.subTags ?? rootTag.subTags ?? [tag],
-                                             expansionStates: $expandedStates, expanded: false,
-                                             selectedTag: _ctag, onTap: {tag in
-                                    indicators.forEach({item in popupedState[item] = false})
-                                })
-                            }.listStyle(.sidebar)
-                                .frame(minWidth: 300, minHeight: 300)
-                                .onAppear {
-                                    proxy.scrollTo(_ctag)
-                                }
-                        }.presentationCompactAdaptation()
-                    })
-                }.separator(showLast: false) { tag in
-                    Text(">")
+                    
+                    ForEach(contors) { tag in
+                        HStack(alignment: .center, spacing: 0) {
+                            Text(tag.name)
+                                .foregroundColor(
+                                    Color.init(id: "panelTitle.activeForeground")
+                                )
+                                .font(.system(size: 12, weight: .light))
+                                
+                                
+                        }.frame(height: 20)
+                            .background(Color.init(id: "editor.background"))
+                            .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
+//                            .background(Color.red)
+                            .onTapGesture {
+                            expandedStates = [:]
+                            if let p = tag.parent {
+                                expandedStates[p] = true
+                            }
+                            popupedState[tag] = true
+                        }
+                        .popover(isPresented: binding(for: tag), content: {
+                            ScrollViewReader { proxy in
+                                List {
+                                    TagsTreeView(tags: tag.parent?.subTags ?? rootTag.subTags ?? [tag],
+                                                 expansionStates: $expandedStates, expanded: false,
+                                                 selectedTag: _ctag, onTap: {tag in
+                                        indicators.forEach({item in popupedState[item] = false})
+                                    })
+                                }.listStyle(.sidebar)
+                                    .frame(minWidth: 300, minHeight: 300)
+                                    .onAppear {
+                                        proxy.scrollTo(_ctag)
+                                    }
+                            }.presentationCompactAdaptation()
+                        })
+                    }.separator(showLast: false) { tag in
+                        Image(systemName: "chevron.right")
+                            .font(.system(size: 12, weight: .light))
+                    }
                 }
-            }.padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 10))
+                .frame(height: 20)
+//                .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+                .background(Color.init(id: "editor.background"))
+            }
+            Rectangle()
+                .frame(minWidth: 0, maxWidth: .infinity, maxHeight: 1)
+                .foregroundColor(
+                    Color.init(id: "panel.border"))
         }
         
     }
