@@ -787,7 +787,6 @@
 		A36337222AF237AA00085608 /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337212AF237AA00085608 /* PopupManager.swift */; };
 		A36337262AF2520D00085608 /* TMConsoleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337252AF2520D00085608 /* TMConsoleExtension.swift */; };
 		A36337282AF2955600085608 /* PYLocalExecutionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337272AF2955600085608 /* PYLocalExecutionExtension.swift */; };
-		A36337292AF2BFE900085608 /* ClangLib in Resources */ = {isa = PBXBuildFile; fileRef = 94CF58DE265E51B100CB6A4B /* ClangLib */; };
 		A363372A2AF2C06800085608 /* npm.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94369B4925EAB175008419A0 /* npm.bundle */; };
 		A363372C2AF3407C00085608 /* MirrorManocoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A363372B2AF3407C00085608 /* MirrorManocoEditor.swift */; };
 		A363372E2AF388DB00085608 /* PYTextEditorInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A363372D2AF388DB00085608 /* PYTextEditorInstance.swift */; };
@@ -966,7 +965,6 @@
 		A3A87D9A2AF221D1002E3399 /* FiraCode-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 94FF33882843744C003DE5DD /* FiraCode-Regular.ttf */; };
 		A3A87D9C2AF221D1002E3399 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 941CF5FA2641CBDA001199C0 /* Settings.bundle */; };
 		A3A87D9D2AF221D1002E3399 /* extraCommandsDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948D11FE2583F20C008F877A /* extraCommandsDictionary.plist */; };
-		A3A87D9F2AF221D1002E3399 /* terminal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 948D12202583F24E008F877A /* terminal.bundle */; };
 		A3A87DA02AF221D1002E3399 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A56834257CC60E008A6530 /* LaunchScreen.storyboard */; };
 		A3A87DA12AF221D1002E3399 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944EEBF72563C386009D77FE /* Assets.xcassets */; };
 		A3A87DA32AF221D1002E3399 /* network_ios.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4AB25F5518700F1EF4E /* network_ios.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -3530,8 +3528,8 @@
 				A3A87D892AF221D1002E3399 /* Frameworks */,
 				A3A87D922AF221D1002E3399 /* Resources */,
 				A3A87DA22AF221D1002E3399 /* Embed Frameworks */,
-				A3A87DB02AF221D1002E3399 /* Embed Foundation Extensions */,
 				A33A5FD52B0EFAAA00CB7CE1 /* delete unused dependencies */,
+				A3A87DB02AF221D1002E3399 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -3734,9 +3732,7 @@
 				A3A87D9C2AF221D1002E3399 /* Settings.bundle in Resources */,
 				A3A87D9D2AF221D1002E3399 /* extraCommandsDictionary.plist in Resources */,
 				A363372A2AF2C06800085608 /* npm.bundle in Resources */,
-				A3A87D9F2AF221D1002E3399 /* terminal.bundle in Resources */,
 				A3A87DA02AF221D1002E3399 /* LaunchScreen.storyboard in Resources */,
-				A36337292AF2BFE900085608 /* ClangLib in Resources */,
 				A3A87DA12AF221D1002E3399 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3797,7 +3793,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#install_name_tool -change  \"@rpath/python3_ui.framework/python3_ui\" \"/usr/lib/libSystem.B.dylib\" -change  \"@rpath/python3_site.framework/python3_site\" \"/usr/lib/libSystem.B.dylib\"  \"$BUILT_PRODUCTS_DIR/$TARGET_NAME.app/$TARGET_NAME\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ninstall_name_tool -change  \"@rpath/python3_ui.framework/python3_ui\" \"/usr/lib/libSystem.B.dylib\"  \"$BUILT_PRODUCTS_DIR/$TARGET_NAME.app/$TARGET_NAME\"\n";
 		};
 		A3A87CEC2AF221D1002E3399 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

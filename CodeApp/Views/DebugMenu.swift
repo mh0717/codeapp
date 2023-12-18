@@ -37,24 +37,31 @@ struct DebugMenu: View {
                     })
             }
             #if PYDEAPP
-            Button("pydeUI") {
-                App.popupManager.showCover(content: AnyView(ShareSheet()))
-            }
-            Button("ctags") {
-                Task.init {
-                    if let tags = await testCTagsServiceStart() {
-                        App.notificationManager
-                            .showInformationMessage(tags.map{"\($0.kind):\($0.name)"}.joined(separator: ", "))
+            Button("copySite") {
+                App.notificationManager.showAsyncNotification(title: "copySite...", task: {
+                    Task {
+                        copySitePackagesToContainer()
                     }
-                }
+                })
             }
-            Button("histor") {
-                Task.init {
-                    if let commit = try await App.workSpaceStorage.gitServiceProvider?.history() {
-                        App.notificationManager.showInformationMessage("\(try commit.next()?.get().message ?? "")")
-                    }
-                }
-            }
+//            Button("pydeUI") {
+//                App.popupManager.showCover(content: AnyView(ShareSheet()))
+//            }
+//            Button("ctags") {
+//                Task.init {
+//                    if let tags = await testCTagsServiceStart() {
+//                        App.notificationManager
+//                            .showInformationMessage(tags.map{"\($0.kind):\($0.name)"}.joined(separator: ", "))
+//                    }
+//                }
+//            }
+//            Button("histor") {
+//                Task.init {
+//                    if let commit = try await App.workSpaceStorage.gitServiceProvider?.history() {
+//                        App.notificationManager.showInformationMessage("\(try commit.next()?.get().message ?? "")")
+//                    }
+//                }
+//            }
             #endif
         }
     }

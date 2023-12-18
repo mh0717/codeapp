@@ -15,15 +15,23 @@ fileprivate let USING_MULTI_INTERPRETERS = true
 class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
     
     func beginRequest(with context: NSExtensionContext) {
-        DispatchQueue.main.async {
-            print(RunLoop.current)
-        }
         
-        replaceCommand("python3", "python3", true)
-        replaceCommand("rremote", "rremote", true)
-        replaceCommand("open", "open", true)
+        replaceCommand("python3", "python3", false)
+        replaceCommand("pythonA", "pythonA", false)
+        replaceCommand("rremote", "rremote", false)
+        replaceCommand("open", "open", false)
+        replaceCommand("openurl", "openurl", false)
         
         initRemoteEnv()
+        
+        
+        if let item = context.inputItems.first as? NSExtensionItem,
+        let requestInfo = item.userInfo as? [String: Any],
+           let commands = requestInfo["commands"] as? [String] {
+            if commands.contains(where: {$0.hasPrefix("python") || $0.hasPrefix("jupyter")}) {
+                initDESubInterperters()
+            }
+        }
         
         remoteExeCommands(context: context)
     }
@@ -32,8 +40,29 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
 
 var python3_count = 0
 
+var python3_inited = false
+
 @_cdecl("python3")
 public func python3(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    return pydeMain(argc, argv)
+    
+//    if !python3_inited {
+////        DispatchQueue.main.async {
+//            
+//            
+//            
+//            
+//            initIntepreters()
+//            python3_inited = true
+////        }
+//        
+//        while !python3_inited {
+//            sleep(1)
+//        }
+//    }
+    
+//    return python3_run(argc, argv)
+//    return pydeMain(argc, argv)
 //    if USING_MULTI_INTERPRETERS {
 //        initIntepreters()
 //        return python3_run(argc, argv)
@@ -58,6 +87,11 @@ public func python3(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer
     
 }
 
+@_cdecl("pythonA")
+public func pythonA(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    return pythonAMain(argc, argv)
+}
+
 
 @_cdecl("rremote")
 public func rremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
@@ -71,6 +105,15 @@ public func rremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer
 
 @_cdecl("open")
 public func pyde_open(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    guard let cmds = convertCArguments(argc: argc, argv: argv) else {
+        return -1
+    }
+    wmessager.passMessage(message: cmds, identifier: ConstantManager.PYDE_OPEN_COMMAND_MSG);
+    return 1
+}
+
+@_cdecl("openurl")
+public func pyde_openurl(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
     guard let cmds = convertCArguments(argc: argc, argv: argv) else {
         return -1
     }

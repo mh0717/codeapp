@@ -23,6 +23,11 @@ public func python3(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer
 //    return pymain(argc, argv)
 }
 
+@_cdecl("pythonA")
+public func pythonA(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    return pythonAMain(argc, argv)
+}
+
 @_cdecl("remote")
 public func myremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
     return remote(argc: argc, argv: argv)
@@ -30,6 +35,15 @@ public func myremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointe
 
 @_cdecl("open")
 public func pyde_open(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    guard let cmds = convertCArguments(argc: argc, argv: argv) else {
+        return -1
+    }
+    wmessager.passMessage(message: cmds, identifier: ConstantManager.PYDE_OPEN_COMMAND_MSG);
+    return 1
+}
+
+@_cdecl("openurl")
+public func pyde_openurl(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
     guard let cmds = convertCArguments(argc: argc, argv: argv) else {
         return -1
     }
@@ -264,22 +278,29 @@ struct CodeApp: App {
             }
         }
 
-        DispatchQueue.main.async {
-            wasmWebView.loadFileURL(
-                Resources.wasmHTML,
-                allowingReadAccessTo: Resources.wasmHTML)
-        }
+//        DispatchQueue.main.async {
+//            wasmWebView.loadFileURL(
+//                Resources.wasmHTML,
+//                allowingReadAccessTo: Resources.wasmHTML)
+//        }
         
         Repository.initialize_libgit2()
         
         initClientEnv()
         
-        initDESubInterperters()
+        DispatchQueue.main.async {
+            initDESubInterperters()
+        }
+        
+        
+//        initDESubInterperters()
 //        initIntepreters()
         
-        replaceCommand("python3", "python3", true)
-        replaceCommand("remote", "remote", true)
-        replaceCommand("open", "open", true)
+        replaceCommand("python3", "python3", false)
+        replaceCommand("pythonA", "pythonA", false)
+        replaceCommand("remote", "remote", false)
+        replaceCommand("open", "open", false)
+        replaceCommand("openurl", "openurl", false)
 //        replaceCommand("git", "git", true)
         
         signal(SIGPIPE, SIG_IGN);

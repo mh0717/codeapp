@@ -3,7 +3,7 @@ import SwiftUI
 import SafariServices
 import ios_system
 
-// TODO: Localization
+private let EXTENSION_ID = "VCInTabExtension"
 
 private struct VCInTab: UIViewControllerRepresentable {
     
@@ -66,6 +66,29 @@ class VCInTabExtension: CodeAppExtension {
     
 
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
+        let toolbarItem = ToolbarItem(
+            extenionID: EXTENSION_ID,
+            icon: "xmark",
+            onClick: {
+                Task {
+                    if let editor = app.activeEditor {
+                        await app.closeEditor(editor: editor)
+                    }
+                }
+            },
+            shortCut: .init("w", modifiers: [.command]),
+            panelToFocusOnTap: nil,
+            shouldDisplay: {
+                guard let editor = app.activeEditor else { return false }
+                
+                if editor is VCInTabEditorInstance ||
+                    editor is CVInTabEditorInstance {
+                    return true
+                }
+                return false
+            }
+        )
+        contribution.toolBar.registerItem(item: toolbarItem)
         
         NotificationCenter.default.addObserver(forName: .init("UI_SHOW_VC_IN_TAB"), object: nil, queue: nil) { notify in
             guard let vc = notify.userInfo?["vc"] as? UIViewController else {return}
@@ -103,11 +126,8 @@ class VCInTabExtension: CodeAppExtension {
         
         NotificationCenter.default.addObserver(forName: .init("UI_OPEN_FILE_IN_TAB"), object: nil, queue: nil) { notify in
             guard let url = notify.userInfo?["url"] as? URL else { return }
-            if url.scheme != nil, url.scheme!.starts(with: "file") {
-                DispatchQueue.main.async {
-                    app.openFile(url: url, alwaysInNewTab: true)
-                }
-            } else {
+            
+            if url.scheme == "http" || url.scheme == "https" {
                 VCInTabExtension._showCount += 1
                 let title = url.lastPathComponent.isEmpty ? "#web\(VCInTabExtension._showCount)" : url.lastPathComponent
                 DispatchQueue.main.async {
@@ -115,8 +135,26 @@ class VCInTabExtension: CodeAppExtension {
                     let instance = VCInTabEditorInstance(url: url, title: title, vc: vc)
                     app.appendAndFocusNewEditor(editor: instance, alwaysInNewTab: true)
                 }
+                return
             }
             
+            if url.path.contains("Jupyter/runtime/nbserver") {
+                VCInTabExtension._showCount += 1
+                let title = url.lastPathComponent.isEmpty ? "#web\(VCInTabExtension._showCount)" : url.lastPathComponent
+                DispatchQueue.main.async {
+                    let vc = SFSafariViewController(url: URL(string: "http://localhost:8888/")!)
+                    let instance = VCInTabEditorInstance(url: url, title: title, vc: vc)
+                    app.appendAndFocusNewEditor(editor: instance, alwaysInNewTab: true)
+                }
+                return
+            }
+            
+            if FileManager.default.fileExists(atPath: url.path) {
+                DispatchQueue.main.async {
+                    app.openFile(url: url, alwaysInNewTab: true)
+                }
+                return
+            }
         }
         
         
@@ -124,6 +162,7 @@ class VCInTabExtension: CodeAppExtension {
         NotificationCenter.default.addObserver(forName: .init("PYDE_UI_SHOW_IMAGE"), object: nil, queue: nil) { notify in
 //            print(notify)
 //            print(notify.userInfo as Any)
+            
             VCInTabExtension._showCount += 1
             guard let image = notify.userInfo?["image"] as? UIImage else {return}
             var title = notify.userInfo?["title"] as? String
