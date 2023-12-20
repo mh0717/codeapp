@@ -39,5 +39,5 @@ protocol GitServiceProvider {
     func deleteBranch(branch: Branch) async throws
     func createTag(at: OID, tagName: String, annotation: String?) async throws
     func deleteTag(tag: TagReference) async throws
-    func history() async throws -> CommitIterator
+//    func history() async throws -> CommitIterator
 }

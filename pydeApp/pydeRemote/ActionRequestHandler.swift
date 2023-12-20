@@ -25,13 +25,13 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
         initRemoteEnv()
         
         
-        if let item = context.inputItems.first as? NSExtensionItem,
-        let requestInfo = item.userInfo as? [String: Any],
-           let commands = requestInfo["commands"] as? [String] {
-            if commands.contains(where: {$0.hasPrefix("python") || $0.hasPrefix("jupyter")}) {
-                initDESubInterperters()
-            }
-        }
+//        if let item = context.inputItems.first as? NSExtensionItem,
+//        let requestInfo = item.userInfo as? [String: Any],
+//           let commands = requestInfo["commands"] as? [String] {
+//            if commands.contains(where: {$0.hasPrefix("python") || $0.hasPrefix("jupyter")}) {
+//                initDESubInterperters()
+//            }
+//        }
         
         remoteExeCommands(context: context)
     }
@@ -44,7 +44,14 @@ var python3_inited = false
 
 @_cdecl("python3")
 public func python3(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-    return pydeMain(argc, argv)
+    python3_count += 1
+    if python3_count == 1 {
+        return python3_exec(argc: argc, argv: argv)
+    } else {
+        return pythonAMain(argc, argv)
+    }
+//    return python3_exec(argc: argc, argv: argv)
+//    return pydeMain(argc, argv)
     
 //    if !python3_inited {
 ////        DispatchQueue.main.async {
@@ -70,11 +77,12 @@ public func python3(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer
     
     python3_count += 1
     if python3_count == 1 {
-//        if (argc == 1) {
-//            return python3_exec(argc: argc, argv: argv)
-//        } else {
+        if (argc == 1) {
+            return python3_exec(argc: argc, argv: argv)
+        } else {
 //            return python3_inmain(argc: argc, argv: argv)
-//        }
+            return pythonAMain(argc, argv)
+        }
         /// 如果跑到主线程，主线程退出后收不到通知，造成无法退出，这里先跑到其它线程
         return python3_exec(argc: argc, argv: argv)
     } else {

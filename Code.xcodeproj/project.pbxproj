@@ -972,7 +972,6 @@
 		A3A87DA72AF221D1002E3399 /* libpng.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94D7DEC02631D0CA00FA0760 /* libpng.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3A87DA82AF221D1002E3399 /* harfbuzz.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94D7DED42631D16C00FA0760 /* harfbuzz.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3A87DAA2AF221D1002E3399 /* ssh_cmd.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4A525F5518700F1EF4E /* ssh_cmd.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A3A87DAB2AF221D1002E3399 /* files.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4A625F5518700F1EF4E /* files.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3A87DAC2AF221D1002E3399 /* awk.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4A925F5518700F1EF4E /* awk.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3A87DAD2AF221D1002E3399 /* text.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4AC25F5518700F1EF4E /* text.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3A87DAF2AF221D1002E3399 /* tar.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B3DDF42604D3C400C4F2B1 /* tar.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -1500,7 +1499,6 @@
 				A3A87DA72AF221D1002E3399 /* libpng.xcframework in Embed Frameworks */,
 				A3A87DA82AF221D1002E3399 /* harfbuzz.xcframework in Embed Frameworks */,
 				A3A87DAA2AF221D1002E3399 /* ssh_cmd.xcframework in Embed Frameworks */,
-				A3A87DAB2AF221D1002E3399 /* files.xcframework in Embed Frameworks */,
 				A3A87DAC2AF221D1002E3399 /* awk.xcframework in Embed Frameworks */,
 				A3B0F0B42B29D9A90001D220 /* ios_system in Embed Frameworks */,
 				A3A87DAD2AF221D1002E3399 /* text.xcframework in Embed Frameworks */,
@@ -4537,7 +4535,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 87;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 69R94YG49H;
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4552,7 +4550,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.6.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "thebaselab.VS-Code.extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "mh.VS-Code.extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -4730,7 +4728,7 @@
 				CURRENT_PROJECT_VERSION = 87;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 69R94YG49H;
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTING_SEARCH_PATHS = NO;
@@ -4750,7 +4748,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 1.5.1;
 				OTHER_SWIFT_FLAGS = "-Xcc -Wno-incomplete-umbrella";
-				PRODUCT_BUNDLE_IDENTIFIER = "thebaselab.VS-Code";
+				PRODUCT_BUNDLE_IDENTIFIER = "mh.VS-Code";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_STYLE = "non-global";
@@ -4776,7 +4774,7 @@
 				CURRENT_PROJECT_VERSION = 87;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 69R94YG49H;
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTING_SEARCH_PATHS = NO;
