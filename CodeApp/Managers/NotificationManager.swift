@@ -117,5 +117,15 @@ class NotificationManager: ObservableObject {
                     data: NotificationData.init(title: mes, level: .error, style: .basic)))
         }
     }
-
+    
+    #if PYDEAPP
+    func showSucessMessage(_ mes: String, _ arguments: CVarArg...) {
+        let mes = String(format: NSLocalizedString(mes, comment: ""), arguments)
+        DispatchQueue.main.async {
+            self.notifications.append(
+                NotificationEntry.init(
+                    data: NotificationData.init(title: mes, level: .success, style: .basic)))
+        }
+    }
+    #endif
 }

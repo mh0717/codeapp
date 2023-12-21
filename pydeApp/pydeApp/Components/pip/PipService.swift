@@ -272,7 +272,7 @@ class PipService {
         }
         #endif
         
-        let output = await executeCommand("remote pip3 uninstall \(name)  --no-color --disable-pip-version-check --no-python-version-warning")
+        let output = await executeCommand("remote pip3 uninstall -y \(name)  --no-color --disable-pip-version-check --no-python-version-warning")
         return true
     }
     
@@ -296,7 +296,7 @@ class PipService {
     }
     #endif
 
-    let output = await executeCommand("remote pip3 install \(package)  --no-color --disable-pip-version-check --no-python-version-warning")
+    let output = await executeCommand("remote pip3 install --user \(package)  --no-color --disable-pip-version-check --no-python-version-warning")
     return true
     }
     
@@ -384,6 +384,7 @@ class PipService {
         PipPackage("pyemd", "0.5.1"),
         PipPackage("pyerfa", "2.0.0.3.post1.dev0+ge33ee55.d20230610"),
         PipPackage("pygame", "2.4.0"),
+        PipPackage("pyproject-toml", "0.0.10"),
         PipPackage("Pygments", "2.15.1"),
         PipPackage("Pygments", "2.15.1"),
         PipPackage("pyobjus", "1.2.2"),
@@ -404,6 +405,7 @@ class PipService {
         PipPackage("rfc3986-validator", "0.1.1"),
         PipPackage("rubicon-objc", "0.4.6"),
         PipPackage("scikit-learn", "1.3.dev0"),
+        PipPackage("setuptools", "68.2.2"),
         PipPackage("SciPy", "1.10.2.dev0+2408.7f2ac69"),
         PipPackage("Send2Trash", "1.8.2"),
         PipPackage("six", "1.16.0"),
@@ -413,6 +415,7 @@ class PipService {
         PipPackage("statsmodels", "0.13.5"),
         PipPackage("terminado", "0.17.1"),
         PipPackage("tinycss2", "1.2.1"),
+        PipPackage("toml", "0.10.2"),
         PipPackage("tornado", "6.3.2"),
         PipPackage("traitlets", "5.9.0"),
         PipPackage("tzdata", "2022.7"),
@@ -422,7 +425,8 @@ class PipService {
         PipPackage("wcwidth", "0.2.6"),
         PipPackage("webcolors", "1.13"),
         PipPackage("webencodings", "0.5.1"),
-        PipPackage("websocket-client", "1.5.3")
+        PipPackage("websocket-client", "1.5.3"),
+        PipPackage("wheel", "0.36.2")
     ]
 }
 

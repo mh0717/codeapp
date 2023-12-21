@@ -42,11 +42,10 @@ struct PipPackage: Identifiable, Equatable {
     init(_ name: String, _ version: String) {
         self.name = name
         self.version = version
+        self.id = UUID().uuidString
     }
     
-    var id: String {
-        name
-    }
+    let id: String
     
     let name: String
     let version: String
@@ -119,6 +118,7 @@ class PipModelManager: ObservableObject {
     
     init() {
         Task {
+            try? await Task.sleep(nanoseconds: 1000 * 1000 * 1000)
             await self.fetchInstalledPackages()
             await self.fetchUpdates()
         }
@@ -169,7 +169,9 @@ class PipModelManager: ObservableObject {
     
     func uninstallPackage(_ name: String) async -> Bool {
         if await PipService.uninstallPackage(name) {
-            self.installedPackages.removeAll(where: {$0.name == name})
+            await MainActor.run {
+                self.installedPackages.removeAll(where: {$0.name == name})
+            }
             return true
         }
         
@@ -178,7 +180,9 @@ class PipModelManager: ObservableObject {
     
     func updatePackages(_ packages: [String]) async -> Bool {
         if await PipService.updatePackages(packages) {
-            self.updatablePackages.removeAll(where: {packages.contains($0.name)})
+            await MainActor.run {
+                self.updatablePackages.removeAll(where: {packages.contains($0.name)})
+            }
             return true
         }
         
@@ -193,6 +197,7 @@ class PipModelManager: ObservableObject {
                 return true
             }
             #endif
+            try? await Task.sleep(nanoseconds: 1000 * 1000 * 100)
             await fetchInstalledPackages()
             return true
         }

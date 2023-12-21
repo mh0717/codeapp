@@ -71,19 +71,43 @@ struct PipOpButton: View {
                 switch op {
                 case .install:
                     App.notificationManager.showAsyncNotification(title: "正在安装: \(package)", task: {
-                        let _ = await pipModelManager.installPackage(package)
+                        let result = await pipModelManager.installPackage(package)
+                        if result {
+                            App.notificationManager.showErrorMessage("%@ 安装成功", package)
+                        } else {
+                            App.notificationManager.showErrorMessage("%@ 安装失败", package)
+                        }
+                        running = false
                     })
                 case .uninstall:
                     App.notificationManager.showAsyncNotification(title: "正在删除: \(package)", task: {
-                        let _ = await pipModelManager.uninstallPackage(package)
+                        let result = await pipModelManager.uninstallPackage(package)
+                        if result {
+                            App.notificationManager.showErrorMessage("%@ 删除成功", package)
+                        } else {
+                            App.notificationManager.showErrorMessage("%@ 删除失败", package)
+                        }
+                        running = false
                     })
                 case .update:
                     App.notificationManager.showAsyncNotification(title: "正在更新: \(package)", task: {
-                        let _ = await pipModelManager.updatePackages([package])
+                        let result = await pipModelManager.updatePackages([package])
+                        if result {
+                            App.notificationManager.showErrorMessage("%@ 更新成功", package)
+                        } else {
+                            App.notificationManager.showErrorMessage("%@ 更新失败", package)
+                        }
+                        running = false
                     })
                 case .updateAll:
                     App.notificationManager.showAsyncNotification(title: "正在更新: \(package)", task: {
-                        let _ = await pipModelManager.updatePackages(package.components(separatedBy: ","))
+                        let result = await pipModelManager.updatePackages(package.components(separatedBy: ","))
+                        if result {
+                            App.notificationManager.showErrorMessage("%@ 更新成功", package)
+                        } else {
+                            App.notificationManager.showErrorMessage("%@ 更新失败", package)
+                        }
+                        running = false
                     })
                 }
                 
@@ -155,7 +179,7 @@ struct PipShow: View {
                 }
             }
         }.onAppear {
-            if info != nil {return}
+            if info != nil && !info!.isEmpty {return}
             Task {
                 let output = await PipService.fetchLocalPackageInfo(package)
                 let shorten = ShortenFilePaths(in: output)
@@ -277,7 +301,7 @@ public struct PyPiView: View {
         }
         .onAppear {
             Task {
-                
+                await pipManager.fetchInstalledPackages()
             }
         }.listStyle(SidebarListStyle())
     }
@@ -318,6 +342,6 @@ struct PYSearchBar: View {
 
 
 func isXCPreview() -> Bool {
-    return true
+//    return true
     return ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
 }
