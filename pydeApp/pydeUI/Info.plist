@@ -18,7 +18,7 @@
             $extensionItem.attachments,
             $attachment,
             (
-            ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "mh.pydeApp.pydeUI"
+            ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;mh.pydeApp.pydeUI&quot;
             )
             ).@count == 1
             ).@count == 1</string>

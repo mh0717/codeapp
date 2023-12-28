@@ -99,15 +99,23 @@ class PYLocalExecutionExtension: CodeAppExtension {
         item.accessibilityLabel = "run pyde ui"
         item.userInfo = config
         item.attachments = [provider]
-       
+        
+        let url = activeTextEditor.url.appendingPathComponent("ui")
         
         DispatchQueue.main.async {
-            app.popupManager.showCover(
-                content: AnyView(VCRepresentable(
-                    UIActivityViewController(activityItems: [item], applicationActivities: nil)
-                ))
-            )
+            let vc = UIActivityViewController(activityItems: [item], applicationActivities: nil)
+            let instance = VCInTabEditorInstance(url: url, title: "ui: window", vc: vc)
+            app.appendAndFocusNewEditor(editor: instance, alwaysInNewTab: true)
         }
+       
+        
+//        DispatchQueue.main.async {
+//            app.popupManager.showCover(
+//                content: AnyView(VCRepresentable(
+//                    UIActivityViewController(activityItems: [item], applicationActivities: nil)
+//                ))
+//            )
+//        }
     }
 }
 

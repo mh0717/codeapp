@@ -981,6 +981,9 @@
 		A3B0F0B72B29DA8F0001D220 /* ios_system in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B52B29DA8F0001D220 /* ios_system */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A3B0F0B92B29DAA60001D220 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B82B29DAA60001D220 /* ios_system */; };
 		A3B0F0BA2B29DAA60001D220 /* ios_system in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B82B29DAA60001D220 /* ios_system */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A3D1C9A92B35D802001505C7 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
+		A3D1C9B62B374883001505C7 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
+		A3D1C9BA2B3B54BA001505C7 /* terminal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 948D12202583F24E008F877A /* terminal.bundle */; };
 		A3DDCB952B236D8B00EA74E5 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DDCB942B236D8B00EA74E5 /* SDL2.framework */; };
 		A3DDCB962B236DAC00EA74E5 /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3DDCB942B236D8B00EA74E5 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3DDCB982B2374B200EA74E5 /* VCInTabExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDCB972B2374B200EA74E5 /* VCInTabExtension.swift */; };
@@ -2122,6 +2125,9 @@
 		A3A87DB82AF22575002E3399 /* python3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = python3; path = ../../modules/pythoncc/python3; sourceTree = "<group>"; };
 		A3A87DB92AF2257D002E3399 /* pyde */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = pyde; path = ../../modules/pythoncc/pyde; sourceTree = "<group>"; };
 		A3B0F0B12B29D95F0001D220 /* ios_system */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ios_system; path = ../../modules/pythoncc/ios_system; sourceTree = "<group>"; };
+		A3D1C9A82B35D802001505C7 /* Python.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Python.swift; sourceTree = "<group>"; };
+		A3D1C9B82B390A87001505C7 /* pydeRemoteRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pydeRemoteRelease.entitlements; sourceTree = "<group>"; };
+		A3D1C9B92B390A9A001505C7 /* pydeUIRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pydeUIRelease.entitlements; sourceTree = "<group>"; };
 		A3DDCB942B236D8B00EA74E5 /* SDL2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDL2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3DDCB972B2374B200EA74E5 /* VCInTabExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCInTabExtension.swift; sourceTree = "<group>"; };
 		A3DDCBA12B25666100EA74E5 /* PYPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPanel.swift; sourceTree = "<group>"; };
@@ -2301,6 +2307,8 @@
 		944EEBE72563C381009D77FE = {
 			isa = PBXGroup;
 			children = (
+				A3D1C9B92B390A9A001505C7 /* pydeUIRelease.entitlements */,
+				A3D1C9B82B390A87001505C7 /* pydeRemoteRelease.entitlements */,
 				A36337322AF4197100085608 /* pydeUIDebug.entitlements */,
 				A36336FE2AF22CF700085608 /* pydeRemoteDebug.entitlements */,
 				A3A87DB62AF2253E002E3399 /* pydeApp */,
@@ -3292,6 +3300,7 @@
 				A363372D2AF388DB00085608 /* PYTextEditorInstance.swift */,
 				A363372F2AF3E9DF00085608 /* PYRunnerExtension.swift */,
 				A3DDCB972B2374B200EA74E5 /* VCInTabExtension.swift */,
+				A3D1C9A82B35D802001505C7 /* Python.swift */,
 			);
 			path = pydeApp;
 			sourceTree = "<group>";
@@ -3724,6 +3733,7 @@
 				A3A87D952AF221D1002E3399 /* Localizable.strings in Resources */,
 				A3A87D962AF221D1002E3399 /* monaco-textmate.bundle in Resources */,
 				A3A87D972AF221D1002E3399 /* InfoPlist.strings in Resources */,
+				A3D1C9BA2B3B54BA001505C7 /* terminal.bundle in Resources */,
 				A3A87D982AF221D1002E3399 /* cacert.pem in Resources */,
 				A3A87D9A2AF221D1002E3399 /* FiraCode-Regular.ttf in Resources */,
 				A3F32F662AF88CC000866ED0 /* commandDictionary.plist in Resources */,
@@ -4160,6 +4170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A36336ED2AF22B3200085608 /* ActionRequestHandler.swift in Sources */,
+				A3D1C9B62B374883001505C7 /* Python.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4304,6 +4315,7 @@
 				A3A87D592AF221D1002E3399 /* StatusBarManager.swift in Sources */,
 				A3A87D5A2AF221D1002E3399 /* ViewRepresentable.swift in Sources */,
 				A3A87D5B2AF221D1002E3399 /* SourceControlEntry.swift in Sources */,
+				A3D1C9A92B35D802001505C7 /* Python.swift in Sources */,
 				A3A87D5C2AF221D1002E3399 /* DebugMenu.swift in Sources */,
 				A3A87D5D2AF221D1002E3399 /* FTPFileSystemProvider.swift in Sources */,
 				A3A87D5E2AF221D1002E3399 /* String+throwingRemovingPercentEncoding.swift in Sources */,
@@ -4850,6 +4862,7 @@
 		A36336F52AF22B3200085608 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeRemoteDebug.entitlements;
@@ -4858,6 +4871,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				EXCLUDED_ARCHS = x86_64;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pydeApp/pydeRemote/Info.plist;
@@ -4884,13 +4898,16 @@
 		A36336F62AF22B3200085608 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_ENTITLEMENTS = pydeRemoteRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 69R94YG49H;
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				EXCLUDED_ARCHS = x86_64;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pydeApp/pydeRemote/Info.plist;
@@ -4904,6 +4921,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.pydeRemote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -4916,6 +4934,7 @@
 		A36337132AF231D300085608 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeUIDebug.entitlements;
@@ -4924,6 +4943,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				EXCLUDED_ARCHS = x86_64;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pydeApp/pydeUI/Info.plist;
@@ -4950,13 +4970,16 @@
 		A36337142AF231D300085608 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_ENTITLEMENTS = pydeUIRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 69R94YG49H;
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				EXCLUDED_ARCHS = x86_64;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pydeApp/pydeUI/Info.plist;
@@ -4970,6 +4993,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.pydeUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -4982,6 +5006,7 @@
 		A38273062AF4AD2F0096A7C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -4989,6 +5014,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				EXCLUDED_ARCHS = x86_64;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pydeApp/pydeShare/Info.plist;
@@ -5015,13 +5041,15 @@
 		A38273072AF4AD2F0096A7C9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 69R94YG49H;
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				EXCLUDED_ARCHS = x86_64;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pydeApp/pydeShare/Info.plist;
@@ -5035,6 +5063,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.pydeShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -5048,6 +5077,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -5062,6 +5092,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTING_SEARCH_PATHS = NO;
+				EXCLUDED_ARCHS = x86_64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -5097,20 +5128,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Code App.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 87;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 69R94YG49H;
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTING_SEARCH_PATHS = NO;
+				EXCLUDED_ARCHS = x86_64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -5127,10 +5160,11 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 1.5.1;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-Xcc -Wno-incomplete-umbrella -DPYDEAPP";
 				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore thebaselab.VS-Code";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 				STRIP_STYLE = "non-global";
 				SUPPORTS_MACCATALYST = NO;

@@ -52,7 +52,7 @@ class PipService {
         }
         #endif
         let output = await executeCommand("remote pip3 list --format json --no-color --disable-pip-version-check --no-python-version-warning")
-        guard let output else {return []}
+        guard let output, !output.isEmpty else {return []}
         
         var outputJson: String = ""
         do {
@@ -94,7 +94,7 @@ class PipService {
         }
         #endif
         
-        let output = await executeCommand("remote pip3 list --outdated --format json --no-color --disable-pip-version-check --no-python-version-warning")
+        let output = await executeCommand("pip3 list --outdated --format json --no-color --disable-pip-version-check --no-python-version-warning")
         guard let output else {return []}
         
         var outputJson: String = ""

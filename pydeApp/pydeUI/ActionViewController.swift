@@ -92,6 +92,9 @@ class ActionViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.modalPresentationStyle = .currentContext
+        self.preferredContentSize = CGSizeMake(800, 600)
+        
         replaceCommand("python3", "python3", true)
         replaceCommand("rremote", "rremote", true)
         initRemoteEnv()
@@ -108,9 +111,9 @@ class ActionViewController: UITabBarController {
 //        update_sdl_winsize(self.view.bounds)
         NotificationCenter.default.addObserver(self, selector: #selector(handleRefreshSDL), name: Notification.Name("SDL_REFRESH_WINDOWS"), object: nil)
         
-        if let context = self.extensionContext, context.inputItems.count == 1 {
-            remoteExeCommands(context: context, executor: consoleVC?.termView.executor)
-        }
+//        if let context = self.extensionContext, context.inputItems.count == 1 {
+//            remoteExeCommands(context: context, executor: consoleVC?.termView.executor)
+//        }
         
 //        self.performSelector(onMainThread: #selector(frame), with: nil, waitUntilDone: false)
 //        RunLoop.main.schedule {

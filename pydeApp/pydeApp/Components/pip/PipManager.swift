@@ -119,8 +119,8 @@ class PipModelManager: ObservableObject {
     init() {
         Task {
             try? await Task.sleep(nanoseconds: 1000 * 1000 * 1000)
-            await self.fetchInstalledPackages()
-            await self.fetchUpdates()
+//            await self.fetchInstalledPackages()
+//            await self.fetchUpdates()
         }
         
         Task {

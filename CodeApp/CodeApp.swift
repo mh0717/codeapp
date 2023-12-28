@@ -11,65 +11,6 @@ import UIKit
 import WebKit
 import ios_system
 
-#if PYDEAPP
-import python3_objc
-import pydeCommon
-
-@_cdecl("python3")
-public func python3(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-//    initIntepreters()
-    return pydeMain(argc, argv)
-//    return python3_run(argc, argv)
-//    return pymain(argc, argv)
-}
-
-@_cdecl("pythonA")
-public func pythonA(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-    return pythonAMain(argc, argv)
-}
-
-@_cdecl("remote")
-public func myremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-    return remote(argc: argc, argv: argv)
-}
-
-@_cdecl("open")
-public func pyde_open(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-    guard let cmds = convertCArguments(argc: argc, argv: argv) else {
-        return -1
-    }
-    wmessager.passMessage(message: cmds, identifier: ConstantManager.PYDE_OPEN_COMMAND_MSG);
-    return 1
-}
-
-@_cdecl("openurl")
-public func pyde_openurl(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-    guard let cmds = convertCArguments(argc: argc, argv: argv) else {
-        return -1
-    }
-    wmessager.passMessage(message: cmds, identifier: ConstantManager.PYDE_OPEN_COMMAND_MSG);
-    return 1
-}
-
-
-
-//var git_run_count = 0
-//@_cdecl("git")
-//public func git(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-//    ignoreSig13()
-//    
-//    if git_run_count == 0 {
-//        git_run_count += 1
-//        let fw_handle = dlopen("\(ConstantManager.appdir.path)/Frameworks/git.framework/git", RTLD_LAZY);
-//        let git_handle = dlsym(fw_handle, "main")
-//        let sgit = unsafeBitCast(git_handle, to: __main_t.self)
-//        return sgit(argc, argv)
-//    }
-//    
-//    return remote(argc: argc, argv: argv)
-//}
-#endif
-
 @main
 struct CodeApp: App {
     @StateObject var themeManager = ThemeManager()
@@ -288,22 +229,11 @@ struct CodeApp: App {
         
         Repository.initialize_libgit2()
         
-        initClientEnv()
+        
         
         DispatchQueue.main.async {
-            initDESubInterperters()
+            initPyDE()
         }
-        
-        
-//        initDESubInterperters()
-//        initIntepreters()
-        
-        replaceCommand("python3", "python3", false)
-        replaceCommand("pythonA", "pythonA", false)
-        replaceCommand("remote", "remote", false)
-        replaceCommand("open", "open", false)
-        replaceCommand("openurl", "openurl", false)
-//        replaceCommand("git", "git", true)
         
         signal(SIGPIPE, SIG_IGN);
     }

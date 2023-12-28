@@ -5,7 +5,7 @@ import ios_system
 
 private let EXTENSION_ID = "VCInTabExtension"
 
-private struct VCInTab: UIViewControllerRepresentable {
+struct VCInTab: UIViewControllerRepresentable {
     
     @EnvironmentObject var App: MainApp
     
