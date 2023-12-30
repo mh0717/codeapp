@@ -16,22 +16,10 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
     
     func beginRequest(with context: NSExtensionContext) {
         
-//        replaceCommand("python3", "python3", false)
-//        replaceCommand("pythonA", "pythonA", false)
-//        replaceCommand("rremote", "rremote", false)
-//        replaceCommand("open", "open", false)
-//        replaceCommand("openurl", "openurl", false)
-//        
-//        initRemoteEnv()
-        
         
         if let item = context.inputItems.first as? NSExtensionItem,
            let requestInfo = item.userInfo as? [String: Any] {
             if let env = requestInfo["env"] as? [String], !env.isEmpty {
-                //                let envp = UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>.allocate(capacity: 2)
-                //                envp[0] = "__test__=1".utf8CString
-                //                envp[1] = nil
-                //                storeEnvironment(envp)
                 env.forEach { item in
                     ios_putenv(item.utf8CString)
                 }
@@ -40,9 +28,6 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
             
             
             if let commands = requestInfo["commands"] as? [String] {
-//                if commands.contains(where: {$0.hasPrefix("python") || $0.hasPrefix("jupyter")}) {
-//                    initDESubInterperters()
-//                }
                 print(commands)
             }
         }

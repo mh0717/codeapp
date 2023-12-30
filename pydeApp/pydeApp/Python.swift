@@ -84,6 +84,8 @@ public func initPyDE() {
     
     initDEMainIntp()
     replaceCommand("python3", "python3Main", false)
+    
+//    UIViewController.swizzIt()
 }
 
 public func initRemotePython3Sub() {

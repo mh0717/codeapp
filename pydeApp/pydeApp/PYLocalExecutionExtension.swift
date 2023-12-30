@@ -9,6 +9,7 @@ import Foundation
 import pydeCommon
 import SwiftUI
 import UIKit
+import python3_objc
 
 private let EXTENSION_ID = "PYLOCAL_EXECUTION"
 
@@ -102,20 +103,21 @@ class PYLocalExecutionExtension: CodeAppExtension {
         
         let url = activeTextEditor.url.appendingPathComponent("ui")
         
-        DispatchQueue.main.async {
-            let vc = UIActivityViewController(activityItems: [item], applicationActivities: nil)
-            let instance = VCInTabEditorInstance(url: url, title: "ui: window", vc: vc)
-            app.appendAndFocusNewEditor(editor: instance, alwaysInNewTab: true)
-        }
-       
         
 //        DispatchQueue.main.async {
-//            app.popupManager.showCover(
-//                content: AnyView(VCRepresentable(
-//                    UIActivityViewController(activityItems: [item], applicationActivities: nil)
-//                ))
-//            )
+//            let vc = UIActivityViewController(activityItems: [item], applicationActivities: nil)
+//            let instance = VCInTabEditorInstance(url: url, title: "ui: window", vc: vc)
+//            app.appendAndFocusNewEditor(editor: instance, alwaysInNewTab: true)
 //        }
+       
+        
+        DispatchQueue.main.async {
+            app.popupManager.showSheet(
+                content: AnyView(VCRepresentable(
+                    UIActivityViewController(activityItems: [item], applicationActivities: nil)
+                ))
+            )
+        }
     }
 }
 
