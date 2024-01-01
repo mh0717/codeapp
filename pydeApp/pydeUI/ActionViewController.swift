@@ -7,7 +7,6 @@
 
 import UIKit
 
-import python3_ui
 import pydeCommon
 import ios_system
 
@@ -99,9 +98,9 @@ class ActionViewController: UITabBarController {
         
         initRemotePython3Sub()
         
-//        Thread.detachNewThread {
-//            remoteExeCommands(context: self.extensionContext!)
-//        }
+        Thread.detachNewThread {
+            remoteExeCommands(context: self.extensionContext!)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {

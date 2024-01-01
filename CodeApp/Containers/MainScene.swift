@@ -210,15 +210,19 @@ private struct MainView: View {
                                 TopBar(openConsolePanel: openConsolePanel)
                                     .environmentObject(extensionManager.toolbarManager)
                                     .frame(height: 40)
-
-                                EditorView()
-                                    .disabled(horizontalSizeClass == .compact && isSideBarVisible)
-                                    .sheet(isPresented: $stateManager.showsNewFileSheet) {
-                                        NewFileView(
-                                            targetUrl: App.workSpaceStorage.currentDirectory.url
-                                        ).environmentObject(App)
-                                    }
-                                    .environmentObject(extensionManager.editorProviderManager)
+                                
+                                GeometryReader {geometry -> AnyView in
+                                    setenv("SDL_SCREEN_SIZE", "\(Int(geometry.size.width)):\(Int(geometry.size.height))", 1)
+                                    return AnyView(EditorView()
+                                        .disabled(horizontalSizeClass == .compact && isSideBarVisible)
+                                        .sheet(isPresented: $stateManager.showsNewFileSheet) {
+                                            NewFileView(
+                                                targetUrl: App.workSpaceStorage.currentDirectory.url
+                                            ).environmentObject(App)
+                                        }
+                                        .environmentObject(extensionManager.editorProviderManager))
+                                }
+                                
                                 
                                 
                                 #if PYDEAPP
