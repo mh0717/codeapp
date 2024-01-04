@@ -53,7 +53,7 @@ class PYTextEditorInstance: TextEditorInstance {
 //            guard let editorView else {return}
 //            if editorView.selectedRange != range {
 //                editorView.selectedRange = range
-//                editorView.textView.goToLine(<#T##Int#>)
+//                editorView.textView.goToLine(T##Int)
 //            }
 //        }
         
@@ -169,8 +169,20 @@ struct RunestoneEditor: UIViewRepresentable {
             }
         }
         
+        func didBeginEditing() {
+            let notification = Notification(
+                name: Notification.Name("rseditor.focus"),
+                userInfo: ["sceneIdentifier": control.App.sceneIdentifier]
+            )
+            NotificationCenter.default.post(notification)
+        }
+        
         func didEndEditing() {
-            
+            let notification = Notification(
+                name: Notification.Name("rseditor.unfocus"),
+                userInfo: ["sceneIdentifier": control.App.sceneIdentifier]
+            )
+            NotificationCenter.default.post(notification)
         }
         
         
@@ -188,13 +200,13 @@ struct PYRunnerWidget: UIViewRepresentable {
     let consoleView = ConsoleView(root: URL(fileURLWithPath:  FileManager.default.currentDirectoryPath))
     
     func makeUIView(context: Context) -> ConsoleView {
-        updateUIView(consoleView, context: context)
         return consoleView
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
 //        consoleView.terminalView.font = codeThemeManager.theme.font
         let theme = colorScheme == .dark ? codeThemeManager.darkTheme : codeThemeManager.lightTheme
+        consoleView.backgroundColor = theme.backgroundColor
         consoleView.terminalView.backgroundColor = theme.backgroundColor
         consoleView.terminalView.nativeForegroundColor = theme.textColor
         consoleView.terminalView.nativeBackgroundColor = theme.backgroundColor
@@ -206,6 +218,9 @@ struct PYRunnerWidget: UIViewRepresentable {
 struct PYCodeWidget: View {
     
     @SceneStorage("panel.visible") var showsPanel: Bool = DefaultUIState.PANEL_IS_VISIBLE
+    @SceneStorage("panel.height") var panelHeight: Double = DefaultUIState.PANEL_HEIGHT
+    @EnvironmentObject var App: MainApp
+    @AppStorage("setting.panel.hide.when.editor.focus") var shouldHidePanel: Bool = true
     
     let editor = RunestoneEditor()
     let runner = PYRunnerWidget()
@@ -216,12 +231,36 @@ struct PYCodeWidget: View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
                 editor
-                if showsPanel {
-                    PYPanelView(currentPanelId: "RUNNER", windowHeight: geometry.size.height)
-                        .environmentObject(panelManager)
-                }
+                PYPanelView(currentPanelId: "RUNNER", windowHeight: geometry.size.height)
+                    .environmentObject(panelManager)
             }
         }
+        .onReceive(
+            NotificationCenter.default.publisher(
+                for: Notification.Name("rseditor.focus"),
+                object: nil),
+            perform: { notification in
+                guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
+                    sceneIdentifier == App.sceneIdentifier
+                else { return }
+                if shouldHidePanel {
+                    showsPanel = false
+                }
+            }
+        )
+        .onReceive(
+            NotificationCenter.default.publisher(
+                for: Notification.Name("rseditor.unfocus"),
+                object: nil),
+            perform: { notification in
+                guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
+                    sceneIdentifier == App.sceneIdentifier
+                else { return }
+                if shouldHidePanel && !showsPanel {
+                    showsPanel = true
+                }
+            }
+        )
         .onAppear {
             if !panelManager.panels.isEmpty {
                 return
@@ -250,6 +289,16 @@ struct PYCodeWidget: View {
                             Image(systemName: "trash")
                         }
                     ).keyboardShortcut("k", modifiers: [.command])
+                        
+                    Button(
+                        action: {
+                            _ = runner.consoleView.terminalView.resignFirstResponder()
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                        },
+                        label: {
+                            Image(systemName: "keyboard.chevron.compact.down")
+                        }
+                    )
                 })
             )
             panelManager.registerPanel(panel: runnerPanel)

@@ -103,9 +103,12 @@ struct PYPanelView: View {
     var windowHeight: CGFloat
 
     func evaluateProposedHeight(proposal: CGFloat) {
-        if proposal < PANEL_MINIMUM_HEIGHT {
-            showsPanel = false
-            panelHeight = DefaultUIState.PANEL_HEIGHT
+        if !showsPanel {
+            showsPanel = true
+        }
+        
+        if proposal <= 15 {
+            panelHeight = 15 //DefaultUIState.PANEL_HEIGHT
         } else if proposal > maxHeight {
             panelHeight = maxHeight
         } else {
@@ -137,23 +140,25 @@ struct PYPanelView: View {
                 .gesture(
                     DragGesture()
                         .onChanged { value in
-                            let proposedNewHeight = panelHeight - value.translation.height
+                            let proposedNewHeight = (showsPanel ? panelHeight : 15) - value.translation.height
                             evaluateProposedHeight(proposal: proposedNewHeight)
                         }
                 )
-
-            HStack {
-                if let currentPanel = currentPanel {
-                    currentPanel.mainView
-                        .padding(.horizontal)
-                } else {
-                    Text("Empty Panel")
-                }
-            }.frame(maxHeight: .infinity)
+            
+            if showsPanel && panelHeight >= 15 {
+                HStack {
+                    if let currentPanel = currentPanel {
+                        currentPanel.mainView
+                            .padding(.horizontal)
+                    } else {
+                        Text("Empty Panel")
+                    }
+                }.frame(maxHeight: .infinity)
+            }
         }
         .foregroundColor(Color(id: "panelTitle.activeForeground"))
         .font(.system(size: 12, weight: .light))
-            .frame(height: min(CGFloat(panelHeight), maxHeight))
+        .frame(height: showsPanel ? min(CGFloat(panelHeight), maxHeight) : 15)
             .background(Color.init(id: "editor.background"))
             
     }

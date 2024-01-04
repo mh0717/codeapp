@@ -227,6 +227,7 @@ private struct StackedImageIconView: View {
 private struct ToolbarItemView: View {
 
     @SceneStorage("panel.visible") var showsPanel: Bool = DefaultUIState.PANEL_IS_VISIBLE
+    @SceneStorage("panel.height") var panelHeight: Double = DefaultUIState.PANEL_HEIGHT
     @SceneStorage("panel.focusedId") var currentPanel: String = DefaultUIState.PANEL_FOCUSED_ID
 
     let item: ToolbarItem
@@ -236,6 +237,9 @@ private struct ToolbarItemView: View {
             if let panelToFocus = item.panelToFocusOnTap {
                 showsPanel = true
                 currentPanel = panelToFocus
+                if panelHeight < 200 {
+                    panelHeight = 200
+                }
             }
             item.onClick()
         }) {
