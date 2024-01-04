@@ -93,10 +93,13 @@ struct RunestoneEditor: UIViewRepresentable {
     @AppStorage("toolBarEnabled") var toolBarEnabled: Bool = true
     @AppStorage("editorSmoothScrolling") var editorSmoothScrolling: Bool = false
     @AppStorage("editorReadOnly") var editorReadOnly = false
-    @AppStorage("editorSpellCheckEnabled") var editorSpellCheckEnabled = false
-    @AppStorage("editorSpellCheckOnContentChanged") var editorSpellCheckOnContentChanged = true
+//    @AppStorage("editorSpellCheckEnabled") var editorSpellCheckEnabled = false
+//    @AppStorage("editorSpellCheckOnContentChanged") var editorSpellCheckOnContentChanged = true
     @AppStorage("stateRestorationEnabled") var stateRestorationEnabled = true
     @SceneStorage("activeEditor.monaco.state") var activeEditorMonacoState: String?
+    
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @ObservedObject var codeThemeManager = rscodeThemeManager
     
     let editorView = RSCodeEditorView()
     
@@ -106,10 +109,20 @@ struct RunestoneEditor: UIViewRepresentable {
     
     
     func makeUIView(context: Context) -> RSCodeEditorView {
+        updateUIView(editorView, context: context)
         return editorView
     }
     
     func updateUIView(_ uiView: RSCodeEditorView, context: Context) {
+        editorView.textView.isEditable = !editorReadOnly
+        editorView.textView.isLineWrappingEnabled = (editorWordWrap != "off")
+        editorView.textView.showLineNumbers = editorLineNumberEnabled
+        editorView.textView.tabSymbol = String(repeating: " ", count: edtorTabSize)
+        if colorScheme == .dark {
+            editorView.applyTheme(codeThemeManager.darkTheme)
+        } else {
+            editorView.applyTheme(codeThemeManager.lightTheme)
+        }
         
     }
     
@@ -124,6 +137,8 @@ struct RunestoneEditor: UIViewRepresentable {
             self.App = app
             self.control.editorView.delegate = self
         }
+        
+        
         
         func onTextChanged(content: String) {
             if let editor = App.activeTextEditor {
@@ -167,15 +182,23 @@ struct RunestoneEditor: UIViewRepresentable {
 struct PYRunnerWidget: UIViewRepresentable {
     
     @EnvironmentObject var App: MainApp
+    @ObservedObject var codeThemeManager = rscodeThemeManager
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     let consoleView = ConsoleView(root: URL(fileURLWithPath:  FileManager.default.currentDirectoryPath))
     
     func makeUIView(context: Context) -> ConsoleView {
+        updateUIView(consoleView, context: context)
         return consoleView
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
-        
+//        consoleView.terminalView.font = codeThemeManager.theme.font
+        let theme = colorScheme == .dark ? codeThemeManager.darkTheme : codeThemeManager.lightTheme
+        consoleView.terminalView.backgroundColor = theme.backgroundColor
+        consoleView.terminalView.nativeForegroundColor = theme.textColor
+        consoleView.terminalView.nativeBackgroundColor = theme.backgroundColor
+        consoleView.terminalView.selectedTextBackgroundColor = theme.markedTextBackgroundColor
     }
 }
 

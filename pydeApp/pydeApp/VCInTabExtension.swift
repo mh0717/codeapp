@@ -105,7 +105,9 @@ class VCInTabExtension: CodeAppExtension {
             }
             let url = URL(string: "showvc://vc\(VCInTabExtension._showCount)")!
             let instance = VCInTabEditorInstance(url: url, title: "window", vc: vc)
+            instance.keepAlive = true
             DispatchQueue.main.async {
+                app.popupManager.showSheet = false
                 app.appendAndFocusNewEditor(editor: instance, alwaysInNewTab: true)
             }
         }

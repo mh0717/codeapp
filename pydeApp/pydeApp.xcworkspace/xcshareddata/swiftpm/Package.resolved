@@ -47,15 +47,6 @@
         }
       },
       {
-        "package": "GCDWebServer",
-        "repositoryURL": "https://github.com/JacobHearst/GCDWebServer",
-        "state": {
-          "branch": null,
-          "revision": "14f9eedb296c5b71fec971d8256ef3bfc20a2245",
-          "version": "3.5.5"
-        }
-      },
-      {
         "package": "KeyboardToolbar",
         "repositoryURL": "https://github.com/simonbs/KeyboardToolbar.git",
         "state": {
@@ -105,8 +96,8 @@
         "repositoryURL": "https://github.com/simonbs/Runestone",
         "state": {
           "branch": null,
-          "revision": "00dee9fbc9c93b709f6b1b052bce84cb971e493a",
-          "version": "0.3.2"
+          "revision": "688fa07d1c4bffd9ab12baa8fb712274b92b0a68",
+          "version": "0.3.4"
         }
       },
       {
@@ -132,8 +123,8 @@
         "repositoryURL": "https://github.com/simonbs/tree-sitter",
         "state": {
           "branch": null,
-          "revision": "f88ae4ebe351d8aa99c31a17111607017d805118",
-          "version": "0.20.9-beta-1"
+          "revision": "8456f7eb7a70addb3c0af8a757f1997ae9af3ed6",
+          "version": "0.20.9-beta-2"
         }
       },
       {

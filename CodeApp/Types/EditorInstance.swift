@@ -29,6 +29,10 @@ class EditorInstance: ObservableObject, Identifiable, Equatable, Hashable {
         self.view = view
         self.title = title
     }
+    
+    #if PYDEAPP
+    var keepAlive = false
+    #endif
 }
 
 class EditorInstanceWithURL: EditorInstance {
@@ -134,10 +138,25 @@ class TextEditorInstance: EditorInstanceWithURL {
         // self.fileWatch?.startMonitoring()
         
         #if PYDEAPP
-        self.view = AnyView(VStack(spacing: 0) {
-            TagsIndicator(editor: self)
-            AnyView(editor)
-        })
+//        self.view = AnyView(ZStack {
+//            VStack(spacing: 0) {
+//                TagsIndicator(editor: self).background(Color.red)
+//                Spacer()
+//            }
+//            
+//            VStack(spacing: 0) {
+//                Text("Tagindicator")
+//                    .font(.system(size: 12, weight: .light))
+//                    .foregroundColor(Color.clear)
+//                    .frame(minHeight: 28)
+//                Rectangle()
+//                    .frame(minWidth: 0, maxWidth: .infinity,minHeight: 1, maxHeight: 1)
+//                    .foregroundColor(
+//                        Color.init(id: "panel.border"))
+//                AnyView(editor)
+//            }
+//            
+//        })
         #endif
     }
 }

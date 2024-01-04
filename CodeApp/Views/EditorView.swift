@@ -73,6 +73,14 @@ struct EditorView: View {
                 }.foregroundColor(.clear).font(.system(size: 1))
 
                 Color.init(id: "editor.background")
+                
+                #if PYDEAPP
+                
+                    ForEach(App.editors.filter({$0.keepAlive}), id: \.self) { editor in
+                        editor.view.opacity(editor == App.activeEditor ? 1.0 : 0.0)
+                    }
+                
+                #endif
 
                 if !App.stateManager.isMonacoEditorInitialized {
                     App.monacoInstance
@@ -81,7 +89,7 @@ struct EditorView: View {
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .background(Color.init(id: "editor.background"))
                         }
-                } else if let editor = App.activeEditor {
+                } else if let editor = App.activeEditor, !editor.keepAlive {
                     ZStack {
 
                         VStack {
@@ -115,13 +123,17 @@ struct EditorView: View {
                         editor.view
                     }
                 } else {
-                    DescriptionText("You don't have any open editor.")
+                    if App.activeEditor == nil {
+                        DescriptionText("You don't have any open editor.")
+                    }
+                    
                 }
 
-                VStack {
-                    InfinityProgressView(enabled: App.workSpaceStorage.editorIsBusy)
-                    Spacer()
-                }
+//                VStack {
+//                    InfinityProgressView(enabled: App.workSpaceStorage.editorIsBusy)
+//                        .opacity(App.workSpaceStorage.editorIsBusy ? 1.0 : 0.0)
+//                    Spacer()
+//                }
 
             }
             .onReceive(

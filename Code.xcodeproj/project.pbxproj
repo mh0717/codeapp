@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		94127C40280335C8008C7F82 /* Themes in Resources */ = {isa = PBXBuildFile; fileRef = 94127C3F280335C8008C7F82 /* Themes */; };
 		94127C41280335C8008C7F82 /* Themes in Resources */ = {isa = PBXBuildFile; fileRef = 94127C3F280335C8008C7F82 /* Themes */; };
-		94127C43280336B6008C7F82 /* GCDWebServers in Frameworks */ = {isa = PBXBuildFile; productRef = 94127C42280336B6008C7F82 /* GCDWebServers */; };
 		941969252802AB2C008AAEB2 /* FileSystemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941969242802AB2C008AAEB2 /* FileSystemProvider.swift */; };
 		941969292802AB64008AAEB2 /* FTPFileSystemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941969282802AB64008AAEB2 /* FTPFileSystemProvider.swift */; };
 		9419692B2802AB88008AAEB2 /* LocalFileSystemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9419692A2802AB88008AAEB2 /* LocalFileSystemProvider.swift */; };
@@ -498,7 +497,6 @@
 		94795C4929314A0A0057C12F /* CompactSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94795C4729314A0A0057C12F /* CompactSidebar.swift */; };
 		94795C4B293259080057C12F /* Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94795C4A293259080057C12F /* Encoding.swift */; };
 		94795C4C293259080057C12F /* Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94795C4A293259080057C12F /* Encoding.swift */; };
-		94798713280330080055B838 /* GCDWebServers in Frameworks */ = {isa = PBXBuildFile; productRef = 94798712280330080055B838 /* GCDWebServers */; };
 		947A9D8927D3C562007680C3 /* UIApplication+getSafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947A9D8827D3C562007680C3 /* UIApplication+getSafeArea.swift */; };
 		947BF349262453040015DAEB /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947BF348262453040015DAEB /* SearchManager.swift */; };
 		94801F93266FB5E400B29D80 /* TerminalInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94801F92266FB5E400B29D80 /* TerminalInstance.swift */; };
@@ -749,7 +747,6 @@
 		9FE3E2A2298A167200F63DD0 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE3E2A1298A167200F63DD0 /* ZIPFoundation */; };
 		9FE3E2A3298A167800F63DD0 /* ios_system.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4B025F5518700F1EF4E /* ios_system.xcframework */; };
 		9FE3E2A5298A167F00F63DD0 /* MarkdownView in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE3E2A4298A167F00F63DD0 /* MarkdownView */; };
-		9FE3E2A7298A168400F63DD0 /* GCDWebServers in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE3E2A6298A168400F63DD0 /* GCDWebServers */; };
 		9FE3E2AA298A169300F63DD0 /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE3E2A9298A169300F63DD0 /* Dynamic */; };
 		9FE3E2AC298A169B00F63DD0 /* SwiftGit2 in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE3E2AB298A169A00F63DD0 /* SwiftGit2 */; };
 		9FE3E2AD298A16A300F63DD0 /* NMSSH.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942E321128093CA600233441 /* NMSSH.xcframework */; };
@@ -949,7 +946,6 @@
 		A3A87D8A2AF221D1002E3399 /* FilesProvider in Frameworks */ = {isa = PBXBuildFile; productRef = A3A87CE72AF221D1002E3399 /* FilesProvider */; };
 		A3A87D8B2AF221D1002E3399 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = A3A87CE12AF221D1002E3399 /* ZIPFoundation */; };
 		A3A87D8D2AF221D1002E3399 /* MarkdownView in Frameworks */ = {isa = PBXBuildFile; productRef = A3A87CE52AF221D1002E3399 /* MarkdownView */; };
-		A3A87D8E2AF221D1002E3399 /* GCDWebServers in Frameworks */ = {isa = PBXBuildFile; productRef = A3A87CEA2AF221D1002E3399 /* GCDWebServers */; };
 		A3A87D8F2AF221D1002E3399 /* Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = A3A87CE32AF221D1002E3399 /* Dynamic */; };
 		A3A87D902AF221D1002E3399 /* SwiftGit2 in Frameworks */ = {isa = PBXBuildFile; productRef = A3A87CE92AF221D1002E3399 /* SwiftGit2 */; };
 		A3A87D912AF221D1002E3399 /* NMSSH.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942E321128093CA600233441 /* NMSSH.xcframework */; };
@@ -979,6 +975,12 @@
 		A3BB55302B3E405100A3E0B9 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
 		A3BB55322B4307B400A3E0B9 /* python3_ui in Frameworks */ = {isa = PBXBuildFile; productRef = A3BB55312B4307B400A3E0B9 /* python3_ui */; };
 		A3BB55332B4307B400A3E0B9 /* python3_ui in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A3BB55312B4307B400A3E0B9 /* python3_ui */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A3BB55352B4317C100A3E0B9 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3BB55342B4317C100A3E0B9 /* pydeCommon */; };
+		A3BB55392B4317C800A3E0B9 /* python3_objc in Frameworks */ = {isa = PBXBuildFile; productRef = A3BB55382B4317C800A3E0B9 /* python3_objc */; };
+		A3BB553D2B4317DB00A3E0B9 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3BB553C2B4317DB00A3E0B9 /* ios_system */; };
+		A3BB553F2B43180500A3E0B9 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
+		A3BB55402B4318C700A3E0B9 /* pydeShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A38272FB2AF4AD2F0096A7C9 /* pydeShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A3BB55422B44666500A3E0B9 /* RSCodeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB55412B44666500A3E0B9 /* RSCodeTheme.swift */; };
 		A3D1C9A92B35D802001505C7 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
 		A3D1C9B62B374883001505C7 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
 		A3D1C9BA2B3B54BA001505C7 /* terminal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 948D12202583F24E008F877A /* terminal.bundle */; };
@@ -1516,10 +1518,21 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				A3BB55402B4318C700A3E0B9 /* pydeShare.appex in Embed Foundation Extensions */,
 				A36337112AF231D200085608 /* pydeUI.appex in Embed Foundation Extensions */,
 				A36336F32AF22B3200085608 /* pydeRemote.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3BB55362B4317C100A3E0B9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -2121,6 +2134,7 @@
 		A3A87DB82AF22575002E3399 /* python3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = python3; path = ../../modules/pythoncc/python3; sourceTree = "<group>"; };
 		A3A87DB92AF2257D002E3399 /* pyde */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = pyde; path = ../../modules/pythoncc/pyde; sourceTree = "<group>"; };
 		A3B0F0B12B29D95F0001D220 /* ios_system */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ios_system; path = ../../modules/pythoncc/ios_system; sourceTree = "<group>"; };
+		A3BB55412B44666500A3E0B9 /* RSCodeTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCodeTheme.swift; sourceTree = "<group>"; };
 		A3D1C9A82B35D802001505C7 /* Python.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Python.swift; sourceTree = "<group>"; };
 		A3D1C9B82B390A87001505C7 /* pydeRemoteRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pydeRemoteRelease.entitlements; sourceTree = "<group>"; };
 		A3D1C9B92B390A9A001505C7 /* pydeUIRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pydeUIRelease.entitlements; sourceTree = "<group>"; };
@@ -2146,7 +2160,6 @@
 				94196990280316C7008AAEB2 /* ZIPFoundation in Frameworks */,
 				94196991280316C7008AAEB2 /* ios_system.xcframework in Frameworks */,
 				94196993280316C7008AAEB2 /* MarkdownView in Frameworks */,
-				94127C43280336B6008C7F82 /* GCDWebServers in Frameworks */,
 				94196995280316C7008AAEB2 /* Dynamic in Frameworks */,
 				94196998280316C7008AAEB2 /* SwiftGit2 in Frameworks */,
 				94465DDC28094920001DACDF /* NMSSH.xcframework in Frameworks */,
@@ -2173,7 +2186,6 @@
 				94465DDA2809491B001DACDF /* NMSSH.xcframework in Frameworks */,
 				94C893BF2793D2FB00DFBF29 /* openssl.xcframework in Frameworks */,
 				94A7418C25F74A85007A9728 /* Dynamic in Frameworks */,
-				94798713280330080055B838 /* GCDWebServers in Frameworks */,
 				94C893BC2793D17C00DFBF29 /* libssh2.xcframework in Frameworks */,
 				94B99D9D27D4AA57005B5E3A /* SwiftGit2 in Frameworks */,
 				945AEA3527ECCB3D00BA193E /* NodeMobile.xcframework in Frameworks */,
@@ -2186,7 +2198,6 @@
 			files = (
 				9FE3E2AD298A16A300F63DD0 /* NMSSH.xcframework in Frameworks */,
 				9FE3E2A3298A167800F63DD0 /* ios_system.xcframework in Frameworks */,
-				9FE3E2A7298A168400F63DD0 /* GCDWebServers in Frameworks */,
 				9FE3E2AA298A169300F63DD0 /* Dynamic in Frameworks */,
 				9FE3E2A0298A166800F63DD0 /* FilesProvider in Frameworks */,
 				9FE3E2A2298A167200F63DD0 /* ZIPFoundation in Frameworks */,
@@ -2221,6 +2232,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3BB553D2B4317DB00A3E0B9 /* ios_system in Frameworks */,
+				A3BB55392B4317C800A3E0B9 /* python3_objc in Frameworks */,
+				A3BB55352B4317C100A3E0B9 /* pydeCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2237,7 +2251,6 @@
 				A33A5FD32B0EF92100CB7CE1 /* python3_site in Frameworks */,
 				A3B0F0B32B29D9A90001D220 /* ios_system in Frameworks */,
 				A3BB55322B4307B400A3E0B9 /* python3_ui in Frameworks */,
-				A3A87D8E2AF221D1002E3399 /* GCDWebServers in Frameworks */,
 				A36336D32AF226BA00085608 /* pyde in Frameworks */,
 				A3A87D8F2AF221D1002E3399 /* Dynamic in Frameworks */,
 				A3A87D902AF221D1002E3399 /* SwiftGit2 in Frameworks */,
@@ -3295,6 +3308,7 @@
 				A363372D2AF388DB00085608 /* PYTextEditorInstance.swift */,
 				A363372F2AF3E9DF00085608 /* PYRunnerExtension.swift */,
 				A3DDCB972B2374B200EA74E5 /* VCInTabExtension.swift */,
+				A3BB55412B44666500A3E0B9 /* RSCodeTheme.swift */,
 				A3D1C9A82B35D802001505C7 /* Python.swift */,
 			);
 			path = pydeApp;
@@ -3378,7 +3392,6 @@
 				94196935280316C7008AAEB2 /* MarkdownView */,
 				94196937280316C7008AAEB2 /* FilesProvider */,
 				94196939280316C7008AAEB2 /* SwiftGit2 */,
-				94127C42280336B6008C7F82 /* GCDWebServers */,
 			);
 			productName = testfield;
 			productReference = 94196B18280316C7008AAEB2 /* CodeUI.app */;
@@ -3424,7 +3437,6 @@
 				948F174726B6A5AB00B277FC /* MarkdownView */,
 				948F174D26B91C2600B277FC /* FilesProvider */,
 				94B99D9C27D4AA57005B5E3A /* SwiftGit2 */,
-				94798712280330080055B838 /* GCDWebServers */,
 			);
 			productName = testfield;
 			productReference = 944EEBF02563C381009D77FE /* Code.app */;
@@ -3449,7 +3461,6 @@
 				9FE3E29F298A166800F63DD0 /* FilesProvider */,
 				9FE3E2A1298A167200F63DD0 /* ZIPFoundation */,
 				9FE3E2A4298A167F00F63DD0 /* MarkdownView */,
-				9FE3E2A6298A168400F63DD0 /* GCDWebServers */,
 				9FE3E2A9298A169300F63DD0 /* Dynamic */,
 				9FE3E2AB298A169A00F63DD0 /* SwiftGit2 */,
 			);
@@ -3510,12 +3521,18 @@
 				A38272F72AF4AD2F0096A7C9 /* Sources */,
 				A38272F82AF4AD2F0096A7C9 /* Frameworks */,
 				A38272F92AF4AD2F0096A7C9 /* Resources */,
+				A3BB55362B4317C100A3E0B9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = pydeShare;
+			packageProductDependencies = (
+				A3BB55342B4317C100A3E0B9 /* pydeCommon */,
+				A3BB55382B4317C800A3E0B9 /* python3_objc */,
+				A3BB553C2B4317DB00A3E0B9 /* ios_system */,
+			);
 			productName = pydeShare;
 			productReference = A38272FB2AF4AD2F0096A7C9 /* pydeShare.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -3546,7 +3563,6 @@
 				A3A87CE52AF221D1002E3399 /* MarkdownView */,
 				A3A87CE72AF221D1002E3399 /* FilesProvider */,
 				A3A87CE92AF221D1002E3399 /* SwiftGit2 */,
-				A3A87CEA2AF221D1002E3399 /* GCDWebServers */,
 				A36336D22AF226BA00085608 /* pyde */,
 				A36336D52AF226BA00085608 /* pydeCommon */,
 				A36336D82AF226BA00085608 /* python3_objc */,
@@ -3611,7 +3627,6 @@
 				94A7418A25F74A85007A9728 /* XCRemoteSwiftPackageReference "Dynamic" */,
 				948F174626B6A5AB00B277FC /* XCRemoteSwiftPackageReference "MarkdownView" */,
 				948F174C26B91C2600B277FC /* XCRemoteSwiftPackageReference "FileProvider" */,
-				94798711280330080055B838 /* XCRemoteSwiftPackageReference "GCDWebServer" */,
 			);
 			productRefGroup = 944EEBF12563C381009D77FE /* Products */;
 			projectDirPath = "";
@@ -4182,6 +4197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A38272FE2AF4AD2F0096A7C9 /* ShareViewController.swift in Sources */,
+				A3BB553F2B43180500A3E0B9 /* Python.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4290,6 +4306,7 @@
 				A3A87D472AF221D1002E3399 /* FileSystemProvider.swift in Sources */,
 				A3A87D482AF221D1002E3399 /* EditorReadOnlyLabel.swift in Sources */,
 				A3A87D492AF221D1002E3399 /* MenuButtonView.swift in Sources */,
+				A3BB55422B44666500A3E0B9 /* RSCodeTheme.swift in Sources */,
 				A36337222AF237AA00085608 /* PopupManager.swift in Sources */,
 				A3A87D4A2AF221D1002E3399 /* SettingsKeyboardShortcuts.swift in Sources */,
 				A3A87D4B2AF221D1002E3399 /* SearchServiceProvider.swift in Sources */,
@@ -4607,6 +4624,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -4641,6 +4659,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -4662,6 +4681,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = arm64;
 			};
 			name = Debug;
 		};
@@ -4669,6 +4689,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -4703,6 +4724,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -4715,10 +4737,12 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = arm64;
 			};
 			name = Release;
 		};
@@ -4866,7 +4890,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				EXCLUDED_ARCHS = x86_64;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pydeApp/pydeRemote/Info.plist;
@@ -4902,7 +4926,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				EXCLUDED_ARCHS = x86_64;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pydeApp/pydeRemote/Info.plist;
@@ -4938,7 +4962,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				EXCLUDED_ARCHS = x86_64;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pydeApp/pydeUI/Info.plist;
@@ -4974,7 +4998,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				EXCLUDED_ARCHS = x86_64;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pydeApp/pydeUI/Info.plist;
@@ -5009,7 +5033,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				EXCLUDED_ARCHS = x86_64;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pydeApp/pydeShare/Info.plist;
@@ -5044,7 +5068,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				EXCLUDED_ARCHS = x86_64;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pydeApp/pydeShare/Info.plist;
@@ -5087,7 +5111,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTING_SEARCH_PATHS = NO;
-				EXCLUDED_ARCHS = x86_64;
+				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -5138,7 +5162,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTING_SEARCH_PATHS = NO;
-				EXCLUDED_ARCHS = x86_64;
+				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -5290,14 +5314,6 @@
 				kind = branch;
 			};
 		};
-		94798711280330080055B838 /* XCRemoteSwiftPackageReference "GCDWebServer" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/JacobHearst/GCDWebServer";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
 		948F174626B6A5AB00B277FC /* XCRemoteSwiftPackageReference "MarkdownView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/thebaselab/MarkdownView";
@@ -5362,22 +5378,9 @@
 				kind = branch;
 			};
 		};
-		A3A87CEB2AF221D1002E3399 /* XCRemoteSwiftPackageReference "GCDWebServer" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/JacobHearst/GCDWebServer";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		94127C42280336B6008C7F82 /* GCDWebServers */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 94798711280330080055B838 /* XCRemoteSwiftPackageReference "GCDWebServer" */;
-			productName = GCDWebServers;
-		};
 		94196931280316C7008AAEB2 /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 94196932280316C7008AAEB2 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
@@ -5401,11 +5404,6 @@
 		94196939280316C7008AAEB2 /* SwiftGit2 */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftGit2;
-		};
-		94798712280330080055B838 /* GCDWebServers */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 94798711280330080055B838 /* XCRemoteSwiftPackageReference "GCDWebServer" */;
-			productName = GCDWebServers;
 		};
 		948F174726B6A5AB00B277FC /* MarkdownView */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -5445,11 +5443,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 948F174626B6A5AB00B277FC /* XCRemoteSwiftPackageReference "MarkdownView" */;
 			productName = MarkdownView;
-		};
-		9FE3E2A6298A168400F63DD0 /* GCDWebServers */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 94798711280330080055B838 /* XCRemoteSwiftPackageReference "GCDWebServer" */;
-			productName = GCDWebServers;
 		};
 		9FE3E2A9298A169300F63DD0 /* Dynamic */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -5516,11 +5509,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftGit2;
 		};
-		A3A87CEA2AF221D1002E3399 /* GCDWebServers */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A3A87CEB2AF221D1002E3399 /* XCRemoteSwiftPackageReference "GCDWebServer" */;
-			productName = GCDWebServers;
-		};
 		A3B0F0B22B29D9A90001D220 /* ios_system */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
@@ -5536,6 +5524,18 @@
 		A3BB55312B4307B400A3E0B9 /* python3_ui */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = python3_ui;
+		};
+		A3BB55342B4317C100A3E0B9 /* pydeCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = pydeCommon;
+		};
+		A3BB55382B4317C800A3E0B9 /* python3_objc */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = python3_objc;
+		};
+		A3BB553C2B4317DB00A3E0B9 /* ios_system */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ios_system;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
