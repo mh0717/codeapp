@@ -324,9 +324,16 @@ struct PYSearchBar: View {
             .autocapitalization(.none)
             .disableAutocorrection(true)
             
+            Button {
+                text = ""
+            } label: {
+                Image(systemName: "xmark.circle.fill")
+                    .opacity(text.isEmpty ? 0 : 1)
+            }
+            
         }
             .padding(7)
-            .padding(.horizontal, 25)
+            .padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 5))
             .background(Color(.secondarySystemFill))
             .cornerRadius(8)
             .padding(.horizontal, 10)
