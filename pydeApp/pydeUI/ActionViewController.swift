@@ -34,16 +34,11 @@ class ActionViewController: UITabBarController {
     private var consoleVC: ConsoleViewContrller?
     
     private var vcs: [UIViewController] = []
+    
+    var ntidentifier: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.modalPresentationStyle = .currentContext
-        self.preferredContentSize = CGSizeMake(800, 600)
-        
-//        replaceCommand("python3", "python3", true)
-//        replaceCommand("rremote", "rremote", true)
-//        initRemoteEnv()
         
         tabBar.isHidden = true
         tabBar.isTranslucent = true
@@ -83,6 +78,9 @@ class ActionViewController: UITabBarController {
         
         if let item = extensionContext!.inputItems.first as? NSExtensionItem,
            let requestInfo = item.userInfo as? [String: Any] {
+            if let ntid = requestInfo["identifier"] as? String {
+                self.ntidentifier = ntid
+            }
             if let env = requestInfo["env"] as? [String], !env.isEmpty {
                 env.forEach { item in
                     putenv(item.utf8CString)
@@ -137,6 +135,11 @@ class ActionViewController: UITabBarController {
     }
     
     @objc func handleExit() {
+        if let ntid = self.ntidentifier {
+            wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_DONE_EXIT(ntid))
+        }
+        
+        
         Thread.detachNewThread {
             sleep(1)
             real_exit(vlaue: 0)

@@ -55,7 +55,7 @@ public func pyde_open(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePoint
         return -1
     }
     wmessager.passMessage(message: cmds, identifier: ConstantManager.PYDE_OPEN_COMMAND_MSG);
-    return 1
+    return 0
 }
 
 @_cdecl("openurl")
@@ -64,7 +64,15 @@ public func pyde_openurl(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePo
         return -1
     }
     wmessager.passMessage(message: cmds, identifier: ConstantManager.PYDE_OPEN_COMMAND_MSG);
-    return 1
+    return 0
+}
+
+@_cdecl("readremote")
+public func pyde_readremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    guard let cmds = convertCArguments(argc: argc, argv: argv) else {
+        return -1
+    }
+    return readRemote()
 }
 
 
@@ -76,6 +84,7 @@ public func initPyDE() {
     replaceCommand("remote", "remote", false)
     replaceCommand("open", "open", false)
     replaceCommand("openurl", "openurl", false)
+    replaceCommand("readremote", "readremote", false)
     
 //    initDESubIntp()
 //    replaceCommand("python3", "python3Sub", false)
@@ -115,4 +124,52 @@ public func rremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer
     }
     cmds.removeFirst()
     return remoteReqRemoteCommands(commands: [cmds.joined(separator: " ")])
+}
+
+
+@_cdecl("python3RunInMain")
+public func python3RunInMain(argc: Int32, argv:UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    setvbuf(thread_stdout, nil, _IONBF, 0)
+    setvbuf(thread_stderr, nil, _IONBF, 0)
+//    setvbuf(thread_stdin, nil, _IONBF, 0)
+    
+    let stdin = thread_stdin
+    let stdout = thread_stdout
+    let stderr = thread_stderr
+    var result: Int32 = 0
+    
+    if (Thread.isMainThread) {
+        return python3_exec(argc: argc, argv: argv)
+    }
+    
+    var isEnd = false
+    let timer = Timer(timeInterval: 0.1, repeats: false) { _ in
+        thread_stdin = stdin
+        thread_stdout = stdout
+        thread_stderr = stderr
+        result = python3_exec(argc: argc, argv: argv)
+        isEnd = true
+    }
+    RunLoop.main.add(timer, forMode: .default)
+//    Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
+//        thread_stdin = stdin
+//        thread_stdout = stdout
+//        thread_stderr = stderr
+//        result = Py_BytesMain(argc, argv)
+//        isEnd = true
+//    }
+//    RunLoop.main.schedule {
+//        thread_stdin = stdin
+//        thread_stdout = stdout
+//        thread_stderr = stderr
+//        result = Py_BytesMain(argc, argv)
+//        isEnd = true
+//    }
+    
+    
+    
+    while !isEnd {
+        usleep(100)
+    }
+    return result
 }

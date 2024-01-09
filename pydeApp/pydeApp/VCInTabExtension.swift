@@ -2,6 +2,8 @@
 import SwiftUI
 import SafariServices
 import ios_system
+import pydeCommon
+import flet
 
 private let EXTENSION_ID = "VCInTabExtension"
 
@@ -64,6 +66,32 @@ class VCInTabExtension: CodeAppExtension {
     
     static var _showCount = 0
     
+    private func openFletd(args: [String], app: MainApp) {
+        let flutterEngine = FlutterEngine(name: args[0], project: nil, allowHeadlessExecution: false)
+        
+        flutterEngine.run(withEntrypoint: "main", libraryURI: nil, initialRoute: "/", entrypointArgs: args)
+        GeneratedPluginRegistrant.register(with: flutterEngine)
+        let vc = FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
+        
+        if let editor = app.editors.first(where: { ins in
+            if let tabIns = ins as? VCInTabEditorInstance, tabIns.vc == vc {
+                return true
+            }
+            return false
+        }) {
+            DispatchQueue.main.async {
+                app.setActiveEditor(editor: editor)
+            }
+            return
+        }
+        let url = URL(string: "showvc://vc\(VCInTabExtension._showCount)")!
+        let instance = VCInTabEditorInstance(url: url, title: "window", vc: vc)
+        instance.keepAlive = true
+        DispatchQueue.main.async {
+            app.appendAndFocusNewEditor(editor: instance, alwaysInNewTab: true)
+        }
+    }
+    
 
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
         let toolbarItem = ToolbarItem(
@@ -89,6 +117,20 @@ class VCInTabExtension: CodeAppExtension {
             }
         )
         contribution.toolBar.registerItem(item: toolbarItem)
+        
+        wmessager.listenForMessage(withIdentifier: ConstantManager.PYDE_OPEN_COMMAND_MSG) { args in
+            guard let args = args as? [String], !args.isEmpty else {return}
+            if args[1] == "-a" {
+                let command = args[2]
+                if command == "fletd" {
+                    self.openFletd(args: [String](args[3...]), app: app)
+                    return
+                }
+            }
+            let path = args.last!
+            guard let url = path.contains(":") ? URL(string: path) : URL(fileURLWithPath: path) else {return}
+            NotificationCenter.default.post(name: .init("UI_OPEN_FILE_IN_TAB"), object: nil, userInfo: ["url": url])
+        }
         
         NotificationCenter.default.addObserver(forName: .init("UI_SHOW_VC_IN_TAB"), object: nil, queue: nil) { notify in
             guard let vc = notify.userInfo?["vc"] as? UIViewController else {return}
@@ -283,5 +325,13 @@ class CVInTabEditorInstance: EditorInstanceWithURL {
     init(url: URL, title: String, vc: UIViewController) {
         self.vc = vc
         super.init(view: AnyView(CVInTab(vc: vc).id(UUID())), title: title, url: url)
+    }
+}
+
+
+extension FlutterViewController {
+    @objc
+    func handleExit() {
+        self.engine?.destroyContext()
     }
 }

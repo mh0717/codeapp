@@ -312,7 +312,11 @@ private struct MainView: View {
         }
         .sheet(isPresented: $popupManager.showSheet, onDismiss: {
         }) {
-            popupManager.sheetContent
+            if #available(iOS 16.0, *) {
+                popupManager.sheetContent.presentationDetents([.medium])
+            } else {
+                // Fallback on earlier versions
+            }
         }
         #endif
     }

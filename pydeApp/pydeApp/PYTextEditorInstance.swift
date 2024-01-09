@@ -236,6 +236,13 @@ struct PYCodeWidget: View {
             }
         }
         .onReceive(
+            NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification),
+            perform: { _ in
+                if editor.editorView.textView.isEditing {
+                    editor.editorView.textView.scrollRangeToVisible(editor.editorView.textView.selectedRange)
+                }
+        })
+        .onReceive(
             NotificationCenter.default.publisher(
                 for: Notification.Name("rseditor.focus"),
                 object: nil),
