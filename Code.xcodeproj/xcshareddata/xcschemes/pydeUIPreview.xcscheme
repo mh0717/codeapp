@@ -45,7 +45,7 @@
       shouldAutocreateTestPlan = "YES">
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = ""
       selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       launchStyle = "0"
@@ -57,9 +57,9 @@
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
       <RemoteRunnable
-         runnableDebuggingMode = "0"
+         runnableDebuggingMode = "1"
          BundleIdentifier = "mh.pydeApp"
-         RemotePath = "/var/containers/Bundle/Application/8A25FCEC-0CD2-47BE-BB40-6FA3F07A8831/pydeApp.app">
+         RemotePath = "/Users/huima/Library/Developer/CoreSimulator/Devices/2D62E809-ED0D-46DC-BCED-DA6A378E7E77/data/Containers/Bundle/Application/449F5276-26D3-48D8-964F-6F345EF147A8/pydeApp.app">
       </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference

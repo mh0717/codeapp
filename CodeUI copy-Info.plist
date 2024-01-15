@@ -108,6 +108,7 @@
 			<array>
 				<string>public.data</string>
 				<string>public.content</string>
+				<string>public.folder</string>
 			</array>
 			<key>UTTypeDescription</key>
 			<string>Python UI Runner</string>
@@ -120,6 +121,26 @@
 				<key>public.filename-extension</key>
 				<array>
 					<string>pyui</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+				<string>public.content</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Python flet file</string>
+			<key>UTTypeIconFiles</key>
+			<array/>
+			<key>UTTypeIdentifier</key>
+			<string>com.pyde.flet</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>flet</string>
 				</array>
 			</dict>
 		</dict>

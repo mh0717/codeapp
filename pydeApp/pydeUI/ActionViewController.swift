@@ -36,6 +36,7 @@ class ActionViewController: UITabBarController {
     private var vcs: [UIViewController] = []
     
     var ntidentifier: String?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,10 +59,17 @@ class ActionViewController: UITabBarController {
             }
             
             DispatchQueue.main.async {
+                vc.title = "test"
                 self.vcs.append(vc)
                 self.viewControllers = self.vcs
                 self.selectedViewController = vc
-                self.tabBar.isHidden = false
+                self.tabBar.isHidden = self.vcs.count <= 1
+                
+                print(vc.self)
+                if NSStringFromClass(type(of: vc)) == "FlutterViewController" {
+                    NotificationCenter.default.post(name: UIApplication.willEnterForegroundNotification, object: nil, userInfo: nil)
+                    vc.perform(Selector("surfaceUpdated:"), with: true)
+                }
             }
         }
         
@@ -73,6 +81,7 @@ class ActionViewController: UITabBarController {
                 if self.selectedIndex >= self.viewControllers!.count {
                     self.selectedIndex = self.viewControllers!.count - 1
                 }
+                self.tabBar.isHidden = self.vcs.count <= 1
             }
         }
         
@@ -122,10 +131,20 @@ class ActionViewController: UITabBarController {
         
 //        self.extensionContext.
         
-        consoleVC = ConsoleViewContrller(root: Bundle.main.bundleURL)
-        consoleVC?.title = "控制台"
-        self.vcs.append(consoleVC!)
-        self.viewControllers = self.vcs
+//        consoleVC = ConsoleViewContrller(root: Bundle.main.bundleURL)
+//        consoleVC?.title = "控制台"
+//        self.vcs.append(consoleVC!)
+//        self.viewControllers = self.vcs
+        
+//        let flutterEngine = FlutterEngine(name: "/", project: nil, allowHeadlessExecution: false)
+//        flutterEngine.run(withEntrypoint: "main", libraryURI: nil, initialRoute: "/", entrypointArgs: ["/", ""])
+//        GeneratedPluginRegistrant.register(with: flutterEngine)
+//        let vc = FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
+//        vc.view.backgroundColor = UIColor.red
+//        vc.title = "First"
+//        self.vcs.append(vc)
+//        self.viewControllers = self.vcs
+//        self.selectedViewController = vc
     }
     
     
@@ -135,9 +154,11 @@ class ActionViewController: UITabBarController {
     }
     
     @objc func handleExit() {
+        
         if let ntid = self.ntidentifier {
             wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_DONE_EXIT(ntid))
         }
+        wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_UI_DONE_EXIT)
         
         
         Thread.detachNewThread {
@@ -165,29 +186,4 @@ class ActionViewController: UITabBarController {
         
     }
 
-}
-
-
-//@_cdecl("python3")
-//public func python3(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-//    if (argc == 1) {
-//        return python3_exec(argc: argc, argv: argv)
-//    } else {
-//        return python3_inmain(argc: argc, argv: argv)
-//    }
-//}
-//
-//
-//@_cdecl("rremote")
-//public func rremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-//    guard var cmds = convertCArguments(argc: argc, argv: argv) else {
-//        return -1
-//    }
-//    cmds.removeFirst()
-//    return remoteReqRemoteCommands(commands: [cmds.joined(separator: " ")])
-//}
-
-
-@objc class MyVC: UIViewController {
-    
 }

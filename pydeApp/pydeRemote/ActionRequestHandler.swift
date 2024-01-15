@@ -15,7 +15,7 @@ fileprivate let USING_MULTI_INTERPRETERS = true
 class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
     
     func beginRequest(with context: NSExtensionContext) {
-        
+        replaceCommand("flet", "flet", false)
         
         if let item = context.inputItems.first as? NSExtensionItem,
            let requestInfo = item.userInfo as? [String: Any] {
@@ -38,9 +38,18 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
 
 }
 
-var python3_count = 0
+@_cdecl("flet")
+public func flet(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    guard var cmds = convertCArguments(argc: argc, argv: argv) else {
+        return -1
+    }
+    wmessager.passMessage(message: ["open", "-a"] + cmds, identifier: ConstantManager.PYDE_OPEN_COMMAND_MSG)
+    return 0;
+}
 
-var python3_inited = false
+//var python3_count = 0
+//
+//var python3_inited = false
 
 //@_cdecl("python3")
 //public func python3(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {

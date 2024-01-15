@@ -11,6 +11,8 @@ import QuickLook
 import pydeCommon
 import ios_system
 
+var watcher: FolderMonitor?
+
 class PreviewViewController: UITabBarController, QLPreviewingController {
     
     private var vcs: [UIViewController] = []
@@ -34,7 +36,6 @@ class PreviewViewController: UITabBarController, QLPreviewingController {
         tabBar.isTranslucent = true
         
         setenv("SDL_SCREEN_SIZE", "\(Int(self.view.bounds.width)):\(Int(self.view.bounds.height))", 1)
-//        setenv("SDL_SCREEN_SIZE", "320:480", 1)
         
         setupView()
         
@@ -94,20 +95,20 @@ class PreviewViewController: UITabBarController, QLPreviewingController {
     
     
     override func viewDidLayoutSubviews() {
-//        setenv("SDL_SCREEN_SIZE", "\(Int(self.view.bounds.width)):\(Int(self.view.bounds.height))", 1)
+        setenv("SDL_SCREEN_SIZE", "\(Int(self.view.bounds.width)):\(Int(self.view.bounds.height))", 1)
     }
     
     @objc func handleExit() {
-//        if let ntid = self.ntidentifier {
-//            wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_DONE_EXIT(ntid))
-//        }
+        if let id = self.requestInfo?["identifier"] as? String{
+            wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_DONE_EXIT(id))
+        }
         
         
         Thread.detachNewThread {
             sleep(1)
             real_exit(vlaue: 0)
         }
-        self.extensionContext!.completeRequest(returningItems: nil) {_ in
+        self.extensionContext?.completeRequest(returningItems: nil) {_ in
             real_exit(vlaue: 0)
         }
         
@@ -122,13 +123,51 @@ class PreviewViewController: UITabBarController, QLPreviewingController {
     
 
     func preparePreviewOfFile(at url: URL, completionHandler handler: @escaping (Error?) -> Void) {
+        url.startAccessingSecurityScopedResource()
+        FileManager.default.changeCurrentDirectoryPath(url.path)
+        initRemotePython3Sub()
         
-        // Add the supported content types to the QLSupportedContentTypes array in the Info.plist of the extension.
+        let path = url.path + "/main.py"
+        let data = try? Data(contentsOf: URL(fileURLWithPath: path))
+        print(data)
+        let dirArr = try? FileManager.default.contentsOfDirectory(atPath: url.path)
+        print(dirArr)
         
-        // Perform any setup necessary in order to prepare the view.
         
-        // Call the completion handler so Quick Look knows that the preview is fully loaded.
-        // Quick Look will display a loading spinner while the completion handler is not called.
+        var requestInfo: [String: Any]? = [
+            "identifier": "uuuu-uuuu",
+            "commands": ["python3 -u \(url.path)/main.py"],
+            "workingDirectoryBookmark": Data(),
+            "workspace": Data()
+        ]
+        Thread.detachNewThread {
+            remoteExe(requestInfo: requestInfo!)
+            sleep(1)
+            real_exit(vlaue: 0)
+        }
+        handler(nil)
+        if true {
+            return
+        }
+        
+//        if let watcher {
+//            handler(MultipleWindowError.MultipleWindow)
+//            return
+//        }
+//        
+//        watcher = FolderMonitor(url: url)
+//        watcher?.folderDidChange = {_ in
+//            if !FileManager.default.fileExists(atPath: url.path) {
+//                self.handleExit()
+//            }
+//        }
+//        watcher?.startMonitoring()
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            if !FileManager.default.fileExists(atPath: url.path) {
+                self.handleExit()
+            }
+        }
         
         self.requestInfo = NSKeyedUnarchiver.unarchiveObject(withFile: url.path) as? [String: Any]
         
@@ -176,4 +215,74 @@ class PreviewViewController: UITabBarController, QLPreviewingController {
 //        }
     }
 
+}
+
+enum MultipleWindowError: Error {
+    case MultipleWindow
+}
+
+
+class FolderMonitor {
+    // MARK: Properties
+
+    /// A file descriptor for the monitored directory.
+    private var monitoredFolderFileDescriptor: CInt = -1
+    /// A dispatch queue used for sending file changes in the directory.
+    private let folderMonitorQueue = DispatchQueue(
+        label: "FolderMonitorQueue", attributes: .concurrent)
+    /// A dispatch source to monitor a file descriptor created from the directory.
+    private var folderMonitorSource: DispatchSourceFileSystemObject?
+    /// URL for the directory being monitored.
+    var url: Foundation.URL
+
+    var folderDidChange: ((Date) -> Void)?
+    // MARK: Initializers
+    init(url: Foundation.URL) {
+        self.url = url
+    }
+
+    deinit {
+        self.stopMonitoring()
+    }
+
+    // MARK: Monitoring
+    /// Listen for changes to the directory (if we are not already).
+    func startMonitoring() {
+        guard folderMonitorSource == nil && monitoredFolderFileDescriptor == -1 else {
+            return
+        }
+        // Open the directory referenced by URL for monitoring only.
+        monitoredFolderFileDescriptor = open(url.path, O_EVTONLY)
+
+        guard monitoredFolderFileDescriptor != -1 else { return }
+
+        // Define a dispatch source monitoring the directory for additions, deletions, and renamings.
+        folderMonitorSource = DispatchSource.makeFileSystemObjectSource(
+            fileDescriptor: monitoredFolderFileDescriptor, eventMask: .write,
+            queue: folderMonitorQueue)
+        // Define the block to call when a file change is detected.
+        folderMonitorSource?.setEventHandler { [weak self] in
+            guard let strongSelf = self else { return }
+            guard
+                let attributes = try? FileManager.default.attributesOfItem(
+                    atPath: strongSelf.url.path)
+            else { return }
+            if let lastModified = attributes[.modificationDate] as? Date {
+                strongSelf.folderDidChange?(lastModified)
+            }
+        }
+        // Define a cancel handler to ensure the directory is closed when the source is cancelled.
+        folderMonitorSource?.setCancelHandler { [weak self] in
+            guard let strongSelf = self else { return }
+            close(strongSelf.monitoredFolderFileDescriptor)
+            strongSelf.monitoredFolderFileDescriptor = -1
+            strongSelf.folderMonitorSource = nil
+        }
+        // Start monitoring the directory via the source.
+        folderMonitorSource?.resume()
+    }
+    /// Stop listening for changes to the directory, if the source has been created.
+    func stopMonitoring() {
+        folderMonitorSource?.cancel()
+    }
 }

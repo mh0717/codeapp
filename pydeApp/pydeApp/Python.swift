@@ -9,6 +9,7 @@ import Foundation
 import python3_objc
 import pydeCommon
 import ios_system
+import UIKit
 
 @_cdecl("python3Main")
 public func python3Main(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
@@ -51,10 +52,10 @@ public func myremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointe
 
 @_cdecl("open")
 public func pyde_open(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-    guard let cmds = convertCArguments(argc: argc, argv: argv) else {
+    guard let args = convertCArguments(argc: argc, argv: argv) else {
         return -1
     }
-    wmessager.passMessage(message: cmds, identifier: ConstantManager.PYDE_OPEN_COMMAND_MSG);
+    wmessager.passMessage(message: args, identifier: ConstantManager.PYDE_OPEN_COMMAND_MSG);
     return 0
 }
 

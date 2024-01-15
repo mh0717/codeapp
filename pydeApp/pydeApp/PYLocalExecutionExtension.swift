@@ -12,14 +12,15 @@ import UIKit
 import python3_objc
 import ios_system
 import QuickLook
+import Dynamic
 
 fileprivate var isPythonUIRunning = false
 
 private let EXTENSION_ID = "PYLOCAL_EXECUTION"
 
 private let LOCAL_EXECUTION_COMMANDS = [
-    "py": ["python3 -u {url}"],
-    "ui.py": ["python3 -u {url}"],
+    "py": ["remote python3 -u \"{url}\""],
+    "ui.py": ["python3 -u \"{url}\""],
     "js": ["node {url}"],
     "c": ["clang {url}", "wasm a.out"],
     "cpp": ["clang++ {url}", "wasm a.out"],
@@ -50,10 +51,13 @@ class PYLocalExecutionExtension: CodeAppExtension {
             isPythonUIRunning = false
         }
     }
+    
 
     private func runCodeLocally(app: MainApp) async {
+        
+        testTest()
 
-        guard let activeTextEditor = await app.activeTextEditor as? PYTextEditorInstance else {
+        guard let activeTextEditor = app.activeTextEditor as? PYTextEditorInstance else {
             return
         }
         
@@ -113,25 +117,29 @@ class PYLocalExecutionExtension: CodeAppExtension {
         ]
         
 //        let name = activeTextEditor.url.lastPathComponent.replacingFirstOccurrence(of: ".ui.py", with: "")
-//        let uid = UUID().uuidString
-//        let dir = ConstantManager.appGroupContainer.appendingPathComponent(uid)
-//        try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
-//        let fileUrl = dir.appendingPathComponent("\(name).pyui")
-//        NSKeyedArchiver.archiveRootObject(config, toFile: fileUrl.path)
-//        let vc = await PYQLUIPreviewController(fileUrl, ntidentifier)
-////        NotificationCen/*ter.default.post(name: Notification.Name("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": vc])*/
+////        let dir = ConstantManager.appGroupContainer.appendingPathComponent(uid)
+////        try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
 //        
-//        DispatchQueue.main.async {
-//            if #available(iOS 16.0, *) {
-//                app.popupManager.showSheet(
-//                    content: AnyView(VCRepresentable(
-//                        vc
-//                    ).presentationDetents([.height(400)]))
-//                )
-//            } else {
-//                // Fallback on earlier versions
-//            }
-//        }
+//        let dir = URL(string: app.workSpaceStorage.currentDirectory.url)!
+//        let linkDir = ConstantManager.appGroupContainer.appendingPathComponent("\(UUID().uuidString).pyui")
+//        try? FileManager.default.linkItem(at: dir, to: linkDir)
+////        let fileUrl = sceneUrl.appendingPathComponent("\(name).pyui")
+////        NSKeyedArchiver.archiveRootObject(config, toFile: fileUrl.path)
+//        
+//        let vc = await PYQLUIPreviewController(linkDir, ntidentifier)
+//        NotificationCenter.default.post(name: Notification.Name("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": vc])
+//        
+////        DispatchQueue.main.async {
+////            if #available(iOS 16.0, *) {
+////                app.popupManager.showCover(
+////                    content: AnyView(VCRepresentable(
+////                        vc
+////                    ))/*.presentationDetents([.height(400)]))*/
+////                )
+////            } else {
+////                // Fallback on earlier versions
+////            }
+////        }
 //        executor.evaluateCommands(["readremote"])
 //        return
         
@@ -148,17 +156,83 @@ class PYLocalExecutionExtension: CodeAppExtension {
         
 //        DispatchQueue.main.async {
 //            let vc = UIActivityViewController(activityItems: [item], applicationActivities: nil)
-//            let instance = VCInTabEditorInstance(url: url, title: "ui: window", vc: vc)
-//            app.appendAndFocusNewEditor(editor: instance, alwaysInNewTab: true)
+//            vc.view.alpha = 0
+//            vc.view.isHidden = true
+////            let instance = VCInTabEditorInstance(url: url, title: "ui: window", vc: vc)
+////            app.appendAndFocusNewEditor(editor: instance, alwaysInNewTab: true)
+//            
+////            DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(100))) {
+//                let presenter = vc.value(forKey: "_mainPresenter") as? NSObject
+//                let interactor = presenter?.value(forKey: "_interactor") as? NSObject
+//                let manager = interactor?.value(forKey: "_serviceManager") as? NSObject
+//                
+//                let myreq = Dynamic("UISUIActivityExtensionItemDataRequest").new() as? NSObject
+//                myreq?.setValue(NSUUID(), forKey: "activityUUID")
+//                myreq?.setValue("mh.pydeApp.pydeUI", forKey: "activityType")
+//                myreq?.setValue(NSClassFromString("UIApplicationExtensionActivity"), forKey: "classForPreparingExtensionItemData")
+//                myreq?.setValue(5, forKey: "maxPreviews")
+//                print(manager)
+//                print(myreq)
+//                manager?.perform(Selector("performExtensionActivityInHostWithBundleID:request:"), with: "mh.pydeApp.pydeUI", with: nil)
+////            }
 //        }
-       
+//        return
         
         DispatchQueue.main.async {
-            app.popupManager.showSheet(
-                content: AnyView(VCRepresentable(
-                    UIActivityViewController(activityItems: [item], applicationActivities: nil)
-                ))
-            )
+            let vc = UIActivityViewController(activityItems: [item], applicationActivities: nil)
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                let instance = VCInTabEditorInstance(url: url, title: "ui: window", vc: vc)
+                app.appendAndFocusNewEditor(editor: instance, alwaysInNewTab: true)
+                
+                var observation: Any? = nil
+                observation = NotificationCenter.default.addObserver(forName: .init("UI_SHOW_VC_IN_TAB"), object: nil, queue: nil) { notificatin in
+                    NotificationCenter.default.removeObserver(observation)
+                    app.closeEditor(editor: instance)
+                }
+                
+            } else {
+                if #available(iOS 16.0, *) {
+                    app.popupManager.showSheet(
+                        content: AnyView(VCRepresentable(vc).presentationDetents([.fraction(0.01)]))
+                    )
+                } else {
+                    app.popupManager.showSheet(
+                        content: AnyView(VCRepresentable(vc))
+                    )
+                }
+                
+                var observation: Any? = nil
+                observation = NotificationCenter.default.addObserver(forName: .init("UI_SHOW_VC_IN_TAB"), object: nil, queue: nil) { notificatin in
+                    NotificationCenter.default.removeObserver(observation)
+                    app.popupManager.showSheet = false
+                }
+            }
+            
+
+            
+            DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(100))) {
+                do {
+                    try ObjC.catchException {
+                        let presenter = vc.value(forKey: "_mainPresenter") as? NSObject
+                        let interactor = presenter?.value(forKey: "_interactor") as? NSObject
+                        let manager = interactor?.value(forKey: "_serviceManager") as? NSObject
+                        manager?.perform(Selector("performExtensionActivityInHostWithBundleID:request:"), with: "mh.pydeApp.pydeUI", with: nil)
+                    }
+                } catch {
+                    print(error)
+                    return
+                }
+                
+                
+//                let myreq = Dynamic("UISUIActivityExtensionItemDataRequest").new() as? NSObject
+//                myreq?.setValue(NSUUID(), forKey: "activityUUID")
+//                myreq?.setValue("mh.pydeApp.pydeUI", forKey: "activityType")
+//                myreq?.setValue(NSClassFromString("UIApplicationExtensionActivity"), forKey: "classForPreparingExtensionItemData")
+                
+                
+                
+                
+            }
         }
         
         executor.evaluateCommands(["readremote"])
@@ -223,6 +297,8 @@ class PYQLUIPreviewController: QLPreviewController, QLPreviewControllerDataSourc
         wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_UI_FORCE_EXIT)
         DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(200))) {
             wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_DONE_EXIT(id))
+            
+            try? FileManager.default.removeItem(at: self.fileUrl)
         }
     }
     
