@@ -2189,6 +2189,7 @@
 		A364431F2B4EFB8C00B40880 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		A36443212B4EFB8C00B40880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A36443282B4EFC1300B40880 /* FletPreview.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FletPreview.entitlements; sourceTree = "<group>"; };
+		A36443422B57FB9F00B40880 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A37827AE2B1573E1008A75F1 /* JupyterContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JupyterContainer.swift; sourceTree = "<group>"; };
 		A38272FB2AF4AD2F0096A7C9 /* pydeShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pydeShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38272FD2AF4AD2F0096A7C9 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -3458,6 +3459,7 @@
 				A36337062AF231D200085608 /* pydeUI */,
 				A3A91A1E2B49D6D7007E8C76 /* pydeUIPreview */,
 				A36443192B4EFB8C00B40880 /* FletPreview */,
+				A36443422B57FB9F00B40880 /* README.md */,
 			);
 			path = pydeApp;
 			sourceTree = "<group>";

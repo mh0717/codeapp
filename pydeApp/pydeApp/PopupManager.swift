@@ -28,6 +28,18 @@ class PopupManager: ObservableObject {
         self.sheetContent = content
         showSheet = true
     }
+    
+    @Published var showOutside: Bool = false
+    
+    var outsideContent: AnyView = AnyView(EmptyView())
+
+    func showOutside(content: AnyView) {
+        self.outsideContent = content
+        showOutside = true
+    }
+    
+    
+    @Environment(\.dismiss) public var dismiss
 }
 
 

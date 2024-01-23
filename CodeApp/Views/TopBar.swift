@@ -224,6 +224,10 @@ private struct StackedImageIconView: View {
     }
 }
 
+#if PYDEAPP
+private var popoverView: AnyView? = nil
+#endif
+
 private struct ToolbarItemView: View {
 
     @SceneStorage("panel.visible") var showsPanel: Bool = DefaultUIState.PANEL_IS_VISIBLE
@@ -231,7 +235,10 @@ private struct ToolbarItemView: View {
     @SceneStorage("panel.focusedId") var currentPanel: String = DefaultUIState.PANEL_FOCUSED_ID
 
     let item: ToolbarItem
-
+    #if PYDEAPP
+    @State var showPopover = false
+    #endif
+    
     var body: some View {
         Button(action: {
             if let panelToFocus = item.panelToFocusOnTap {
@@ -239,6 +246,16 @@ private struct ToolbarItemView: View {
                 currentPanel = panelToFocus
                 if panelHeight < 200 {
                     panelHeight = 200
+                }
+            }
+            if let popover = item.popover {
+                let cancelable = {
+                    showPopover = false
+                }
+                if let pview = popover(cancelable) {
+                    popoverView = pview
+                    showPopover = true
+                    return
                 }
             }
             item.onClick()
@@ -255,5 +272,12 @@ private struct ToolbarItemView: View {
         .if(item.shortCut != nil) {
             $0.keyboardShortcut(item.shortCut!.key, modifiers: item.shortCut!.modifiers)
         }
+        #if PYDEAPP
+        .if(item.popover != nil) {
+            $0.popover(isPresented: $showPopover, content: {
+                popoverView
+            })
+        }
+        #endif
     }
 }

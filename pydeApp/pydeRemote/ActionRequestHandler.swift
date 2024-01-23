@@ -25,12 +25,15 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
                 }
             }
             
-            
-            
             if let commands = requestInfo["commands"] as? [String] {
-                print(commands)
+                
+                NotificationCenter.default.addObserver(forName: .init("UI_SHOW_VC_IN_TAB"), object: nil, queue: nil) { notify in
+                    wmessager.passMessage(message: commands, identifier: ConstantManager.PYDE_ASK_RUN_IN_UI)
+                }
             }
         }
+        
+        
         
         initRemotePython3Sub()
         remoteExeCommands(context: context)

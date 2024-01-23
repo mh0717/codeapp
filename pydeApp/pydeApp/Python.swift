@@ -50,7 +50,7 @@ public func myremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointe
     return remote(argc: argc, argv: argv)
 }
 
-@_cdecl("open")
+@_cdecl("pyde_open")
 public func pyde_open(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
     guard let args = convertCArguments(argc: argc, argv: argv) else {
         return -1
@@ -83,7 +83,7 @@ public func initPyDE() {
     replaceCommand("pythonA", "pythonA", false)
     replaceCommand("pythonB", "pythonB", false)
     replaceCommand("remote", "remote", false)
-    replaceCommand("open", "open", false)
+    replaceCommand("open", "pyde_open", false)
     replaceCommand("openurl", "openurl", false)
     replaceCommand("readremote", "readremote", false)
     
@@ -103,7 +103,7 @@ public func initRemotePython3Sub() {
     
     replaceCommand("pythonA", "pythonA", false)
     replaceCommand("pythonB", "pythonB", false)
-    replaceCommand("open", "open", false)
+    replaceCommand("open", "pyde_open", false)
     replaceCommand("openurl", "openurl", false)
     replaceCommand("rremote", "rremote", false)
     

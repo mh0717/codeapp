@@ -34,6 +34,7 @@ class ActionViewController: UITabBarController {
     private var consoleVC: ConsoleViewContrller?
     
     private var vcs: [UIViewController] = []
+    private var activityView: UIActivityIndicatorView?
     
     var ntidentifier: String?
     
@@ -59,11 +60,16 @@ class ActionViewController: UITabBarController {
             }
             
             DispatchQueue.main.async {
+                if let activityView = self.activityView {
+                    activityView.removeFromSuperview()
+                    self.activityView = nil
+                }
                 vc.title = "test"
                 self.vcs.append(vc)
                 self.viewControllers = self.vcs
                 self.selectedViewController = vc
                 self.tabBar.isHidden = self.vcs.count <= 1
+                self.preferredContentSize = vc.preferredContentSize;
                 
                 print(vc.self)
                 if NSStringFromClass(type(of: vc)) == "FlutterViewController" {
@@ -115,9 +121,22 @@ class ActionViewController: UITabBarController {
     }
     
     func setupView() {
+        self.view.backgroundColor = UIColor.systemBackground
+        
+        let activityView = UIActivityIndicatorView(style: .large)
+        activityView.startAnimating()
+        self.view.addSubview(activityView)
+        activityView.translatesAutoresizingMaskIntoConstraints = false
+        let centerX = NSLayoutConstraint(item: activityView, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0)
+        let centerY = NSLayoutConstraint(item: activityView, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
+        view.addConstraint(centerX)
+        view.addConstraint(centerY)
+        self.activityView = activityView
+        
+        
         let exitBtn = UIButton(type: .close)
-        exitBtn.setTitleColor(UIColor.white, for: .normal)
-        exitBtn.setTitleShadowColor(UIColor.black, for: .normal)
+//        exitBtn.setTitleColor(UIColor.red, for: .normal)
+//        exitBtn.setTitleShadowColor(UIColor.black, for: .normal)
         exitBtn.addTarget(self, action: #selector(handleExit), for: .touchUpInside)
         self.view.addSubview(exitBtn)
         
@@ -125,9 +144,11 @@ class ActionViewController: UITabBarController {
         NSLayoutConstraint.activate([
             exitBtn.widthAnchor.constraint(equalToConstant: 30),
             exitBtn.heightAnchor.constraint(equalToConstant: 30),
-            exitBtn.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+            exitBtn.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
             exitBtn.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10)
         ])
+        
+//        self.preferredContentSize = CGSize(width: 10000, height: 10000)
         
 //        self.extensionContext.
         

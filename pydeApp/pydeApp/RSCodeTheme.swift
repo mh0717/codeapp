@@ -40,6 +40,7 @@ public class RSCodeTheme: EditorTheme {
     public let numberColor: UIColor
     public let keywordColor: UIColor
     public let variableBuildinColor: UIColor
+    public let variableColor: UIColor
     
 //    private func toUIColor(_ color: String) -> UIColor {
 //        return UIColor()
@@ -88,7 +89,11 @@ public class RSCodeTheme: EditorTheme {
         numberColor = toUIColor(tokenColors["Number"] ?? "#15b8ae")
         keywordColor = toUIColor(tokenColors["Keyword"] ?? "#007aae")
         variableBuildinColor = toUIColor(tokenColors["Variable"] ?? "#019d76")
-        
+        if let variable = tokenColors["Variable"] {
+            variableColor = toUIColor(variable)
+        } else {
+            variableColor = textColor
+        }
         
     }
 
@@ -115,6 +120,10 @@ public class RSCodeTheme: EditorTheme {
             return keywordColor
         case .variableBuiltin:
             return variableBuildinColor
+        case .variable:
+            return variableColor
+        case .constructor:
+            return functionColor
         }
     }
 

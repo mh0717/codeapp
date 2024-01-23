@@ -313,12 +313,10 @@ private struct MainView: View {
         .sheet(isPresented: $popupManager.showSheet, onDismiss: {
         }) {
             popupManager.sheetContent
-//            if #available(iOS 16.0, *) {
-//                popupManager.sheetContent.presentationDetents([.fraction(0)])
-//            } else {
-//                
-//            }
         }
+        .popover(isPresented: $popupManager.showOutside, content: {
+            popupManager.outsideContent
+        })
         #endif
     }
 }

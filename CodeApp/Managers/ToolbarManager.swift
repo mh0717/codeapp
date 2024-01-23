@@ -16,6 +16,7 @@ struct ToolbarItem: Identifiable {
     var shortCut: KeyboardShortcut?
     var panelToFocusOnTap: String?
     var shouldDisplay: () -> Bool
+    var popover: ((_ dismiss:@escaping () -> Void) -> AnyView?)?
 }
 
 class ToolbarManager: CodeAppContributionPointManager {

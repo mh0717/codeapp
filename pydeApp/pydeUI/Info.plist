@@ -4,8 +4,6 @@
 <dict>
 	<key>NSExtension</key>
 	<dict>
-		<key>NSExtensionActionWantsFullScreenPresentation</key>
-		<true/>
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>NSExtensionActivationRule</key>
@@ -18,7 +16,7 @@
             $extensionItem.attachments,
             $attachment,
             (
-            ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;mh.pydeApp.pydeUI&quot;
+            ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "mh.pydeApp.pydeUI"
             )
             ).@count == 1
             ).@count == 1</string>
@@ -27,6 +25,8 @@
 		<string>MainInterface</string>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.ui-services</string>
+		<key>_NSExtensionActionWantsFullScreenPresentation</key>
+		<true/>
 		<key>__NSExtensionPointIdentifier</key>
 		<string>com.apple.app.ui-extension.multiple-instances</string>
 		<key>__NSExtensionPrincipalClass</key>
