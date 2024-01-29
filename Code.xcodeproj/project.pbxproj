@@ -795,6 +795,7 @@
 		A36443312B4EFCE500B40880 /* python3_objc in Frameworks */ = {isa = PBXBuildFile; productRef = A36443302B4EFCE500B40880 /* python3_objc */; };
 		A36443402B553A2A00B40880 /* flet in Frameworks */ = {isa = PBXBuildFile; productRef = A364433F2B553A2A00B40880 /* flet */; };
 		A36443412B553A2A00B40880 /* flet in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A364433F2B553A2A00B40880 /* flet */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A36443452B65664300B40880 /* IAPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36443442B65664300B40880 /* IAPView.swift */; };
 		A37827AF2B1573E1008A75F1 /* JupyterContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37827AE2B1573E1008A75F1 /* JupyterContainer.swift */; };
 		A38272FE2AF4AD2F0096A7C9 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38272FD2AF4AD2F0096A7C9 /* ShareViewController.swift */; };
 		A38273012AF4AD2F0096A7C9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A38272FF2AF4AD2F0096A7C9 /* MainInterface.storyboard */; };
@@ -2190,6 +2191,7 @@
 		A36443212B4EFB8C00B40880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A36443282B4EFC1300B40880 /* FletPreview.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FletPreview.entitlements; sourceTree = "<group>"; };
 		A36443422B57FB9F00B40880 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A36443442B65664300B40880 /* IAPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPView.swift; sourceTree = "<group>"; };
 		A37827AE2B1573E1008A75F1 /* JupyterContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JupyterContainer.swift; sourceTree = "<group>"; };
 		A38272FB2AF4AD2F0096A7C9 /* pydeShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pydeShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38272FD2AF4AD2F0096A7C9 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -3361,6 +3363,7 @@
 		A349BF332B00EC9400434BBB /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A36443432B65661A00B40880 /* ipa */,
 				A37827AD2B1573CE008A75F1 /* jupyter */,
 				A33A5FDF2B109F1E00CB7CE1 /* pip */,
 				A30789762B094726001B6129 /* Tag */,
@@ -3428,6 +3431,14 @@
 				A36443212B4EFB8C00B40880 /* Info.plist */,
 			);
 			path = FletPreview;
+			sourceTree = "<group>";
+		};
+		A36443432B65661A00B40880 /* ipa */ = {
+			isa = PBXGroup;
+			children = (
+				A36443442B65664300B40880 /* IAPView.swift */,
+			);
+			path = ipa;
 			sourceTree = "<group>";
 		};
 		A37827AD2B1573CE008A75F1 /* jupyter */ = {
@@ -4513,6 +4524,7 @@
 				A3A87D402AF221D1002E3399 /* View+If.swift in Sources */,
 				A3A87D412AF221D1002E3399 /* WorkSpaceStorage.swift in Sources */,
 				A3A87D422AF221D1002E3399 /* RemoteListSection.swift in Sources */,
+				A36443452B65664300B40880 /* IAPView.swift in Sources */,
 				A3A87D432AF221D1002E3399 /* DirectoryFolderMonitor.swift in Sources */,
 				A33A5FE82B10B98800CB7CE1 /* PipManager.swift in Sources */,
 				A3A87D442AF221D1002E3399 /* ActivityBar.swift in Sources */,

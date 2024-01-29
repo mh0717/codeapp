@@ -19,7 +19,7 @@ fileprivate var isPythonUIRunning = false
 private let EXTENSION_ID = "PYLOCAL_EXECUTION"
 
 private let LOCAL_EXECUTION_COMMANDS = [
-    "py": ["remote python3 -u \"{url}\""],
+    "py": ["python3 -u {url}"],
     "ui.py": ["python3 -u {url}"],
 //    "js": ["node {url}"],
 //    "c": ["clang {url}", "wasm a.out"],
@@ -180,6 +180,14 @@ class PYLocalExecutionExtension: CodeAppExtension {
             }
         }
         
+        let compilerShowPath = UserDefaults.standard.bool(forKey: "compilerShowPath")
+        if compilerShowPath {
+            editor.runnerView.feed(text: commands.joined(separator: " && "))
+        } else {
+            let commandName = commands.first?.components(separatedBy: " ").first ?? editor.languageIdentifier
+            editor.runnerView.feed(text: commandName)
+        }
+        editor.runnerView.feed(text: "\r\n")
         editor.runnerView.executor?.evaluateCommands(["readremote"])
         
 //        return popoverView
@@ -202,16 +210,20 @@ class PYLocalExecutionExtension: CodeAppExtension {
             return
         }
         
-        if ([
+        if !editor.content.contains("__thread__") && ([
             "__ui__",
-            "import sdl",
+            "import sdl2",
             "import kivy",
             "import pygame",
             "import flet",
-            "from sdl import",
-            "from kivy import",
-            "from kivy import",
-            "from flet import"].contains(where: {editor.content.contains($0)})) {
+            "from sdl2 ",
+            "from sdl2.",
+            "from pygame ",
+            "from pygame.",
+            "from kivy ",
+            "from kivy.",
+            "from flet ",
+            "from flet."].contains(where: {editor.content.contains($0)})) {
             runUICode(app: app, editor: editor, dismiss: {})
             return
         }
@@ -229,16 +241,21 @@ class PYLocalExecutionExtension: CodeAppExtension {
         }
 
         let compilerShowPath = UserDefaults.standard.bool(forKey: "compilerShowPath")
-//        if compilerShowPath {
-//            app.terminalInstance.executeScript(
-//                "localEcho.println(`\(parsedCommands.joined(separator: " && "))`);readLine('');")
-//        } else {
-//            let commandName =
-//                parsedCommands.first?.components(separatedBy: " ").first
-//                ?? activeTextEditor.languageIdentifier
-//            app.terminalInstance.executeScript("localEcho.println(`\(commandName)`);readLine('');")
-//        }
-        editor.runnerView.executor?.evaluateCommands(parsedCommands)
+        if compilerShowPath {
+            editor.runnerView.feed(text: parsedCommands.joined(separator: " && "))
+        } else {
+            let commandName = parsedCommands.first?.components(separatedBy: " ").first ?? editor.languageIdentifier
+            editor.runnerView.feed(text: commandName)
+        }
+        editor.runnerView.feed(text: "\r\n")
+        
+        if editor.content.contains("__thread__") {
+            editor.runnerView.executor?.evaluateCommands(parsedCommands)
+        } else {
+            editor.runnerView.executor?.dispatchBlock(command: {clientReqCommands(commands: parsedCommands)}, name: parsedCommands.joined(separator: " "))
+        }
+        
+        
         
 //        if isPythonUIRunning {
 //            await activeTextEditor.runnerView.executor?.evaluateCommands(["echo 请关闭其它解释器！"])

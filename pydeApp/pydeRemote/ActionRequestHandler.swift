@@ -15,10 +15,13 @@ fileprivate let USING_MULTI_INTERPRETERS = true
 class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
     
     func beginRequest(with context: NSExtensionContext) {
+        ConstantManager.pydeEnv = .remote
         replaceCommand("flet", "flet", false)
         
         if let item = context.inputItems.first as? NSExtensionItem,
            let requestInfo = item.userInfo as? [String: Any] {
+            pydeReqInfo = requestInfo
+            
             if let env = requestInfo["env"] as? [String], !env.isEmpty {
                 env.forEach { item in
                     ios_putenv(item.utf8CString)

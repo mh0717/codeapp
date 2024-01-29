@@ -50,6 +50,8 @@ class ActionViewController: UITabBarController {
         
         setupView()
         
+        ConstantManager.pydeEnv = .remoteUI
+        
         NotificationCenter.default.addObserver(forName: .init("UI_SHOW_VC_IN_TAB"), object: nil, queue: nil) { notify in
             guard let vc = notify.userInfo?["vc"] as? UIViewController else {return}
             if self.vcs.contains(vc) {
@@ -93,6 +95,8 @@ class ActionViewController: UITabBarController {
         
         if let item = extensionContext!.inputItems.first as? NSExtensionItem,
            let requestInfo = item.userInfo as? [String: Any] {
+            pydeReqInfo = requestInfo
+            
             if let ntid = requestInfo["identifier"] as? String {
                 self.ntidentifier = ntid
             }
