@@ -231,11 +231,14 @@ class PYLocalExecutionExtension: CodeAppExtension {
         guard let commands = LOCAL_EXECUTION_COMMANDS[editor.languageIdentifier] else {
             return
         }
+        
+        let predicate = NSPredicate(format: "SELF MATCHES %@", ".*print +[^(].*")
+        let isPy2 = predicate.evaluate(with: editor.content)
 
         app.saveCurrentFile()
 
         let sanitizedUrl = editor.url.path.replacingOccurrences(of: " ", with: #"\ "#)
-        let parsedCommands = commands
+        let parsedCommands = (isPy2 ? commands.map({$0.replacingFirstOccurrence(of: "python3", with: "python2")}) : commands)
         .map {
             $0.replacingOccurrences(of: "{url}", with: sanitizedUrl)
         }
