@@ -112,16 +112,32 @@ struct TagsTreeView: View {
             expandStates: $expansionStates,
             defaultExpanded: expanded,
             rowContent: { tag in
-                HStack() {
-                    tag.isGroup
-                    ? Image(systemName: "folder")
-                    : Image(systemName: "42.circle")
+                HStack(spacing: 0) {
+//                    tag.isGroup
+//                    ? Image(systemName: "folder")
+//                    : Image(systemName: "\(tag.kind.first?.lowercased() ?? "questionmark").circle")
+                    Image(systemName: "\(tag.kind.first?.lowercased() ?? "questionmark").square")
+                        .foregroundColor(.gray)
+                        .font(.subheadline)
+                        .padding(.init(top: 0, leading: 0, bottom: 0, trailing: 5))
                     
-                    Text("\(tag.name): \(tag.kind)")
+                    Text(tag.name)
                         .font(.subheadline)
                         .foregroundColor(Color.init(id: "list.inactiveSelectionForeground"))
+                    
+                    
+//                    Text(": " + tag.kind)
+//                        .font(.subheadline)
+//                        .foregroundColor(Color.init(id: "list.inactiveSelectionForeground").opacity(0.4))
+                    Spacer()
                 }
-                .frame(height: 16)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(
+                        tag == selectedTag
+                            ? Color.init(id: "list.inactiveSelectionBackground")
+                                .cornerRadius(10.0)
+                            : Color.clear.cornerRadius(10.0)
+                )
                 .listRowBackground(
                         tag == selectedTag
                             ? Color.init(id: "list.inactiveSelectionBackground")
@@ -162,19 +178,48 @@ struct OutlineContainer: View {
     }
 }
 
+//struct PipScreenView: View {
+//    @State var shotting = false
+//    @State var index = 0
+//    var body: some View {
+//        ScreenshotableView(shotting: $shotting) { image in
+//            print(image)
+//            if let data = image.pngData() {
+//                try? data.write(to: URL(fileURLWithPath: "/Users/huima/pips/pip\(index).png"))
+//                index += 1
+//            }
+//        } content: { style in
+//            PyPiView().tint(.gray).padding(.init(top: 10, leading: 0, bottom: 0, trailing: 0))
+//        }.onReceive(NotificationCenter.default.publisher(for: .init("RenderPipScreen"))) { _ in
+//            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+//                shotting = true
+//            }
+//        }.padding(.init(top: 0, leading: 0, bottom: 200, trailing: 0))
+//
+//    }
+//}
+
 
 class OutlineExtension: CodeAppExtension {
     
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
         let outline = ActivityBarItem(
             itemID: "OUTLINE",
-            iconSystemName: "text.justify",
+//            iconSystemName: "text.justify",
+            iconSystemName: "shippingbox",
             title: "Outline",
             shortcutKey: "o",
             modifiers: [.command, .shift],
-//            view: AnyView(OutlineContainer()),
-            view: AnyView(PyPiView()),
-            contextMenuItems: nil,
+            view: AnyView(OutlineContainer()),
+//            view: AnyView(PyPiView()),
+//            view: AnyView(PipScreenView()),
+            contextMenuItems: {
+                return [
+                    ContextMenuItem(action: {
+                        NotificationCenter.default.post(name: .init("RenderPipScreen"), object: nil)
+                    }, text: "screen", imageSystemName: "")
+                ]
+            },
             bubble: {nil},
             isVisible: { true }
         )

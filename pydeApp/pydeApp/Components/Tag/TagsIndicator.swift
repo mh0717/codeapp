@@ -79,15 +79,14 @@ struct TagsIndicator: View {
         }
         let paths = path.split(separator: "/")
         
-        return 
-//        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(alignment: .center, spacing: 0) {
+        return ScrollView(.horizontal, showsIndicators: true) {
+            HStack(spacing: 0) {
                 ForEach(paths, id: \.self) {path in
                     Text(path)
                         .foregroundColor(
                             Color.init(id: "panelTitle.activeForeground")
                         )
-                        .font(.system(size: 12, weight: .light))
+                        .font(.system(size: 14, weight: .light))
                         .padding(EdgeInsets(top: 0, leading: 2, bottom: 0, trailing: 2))
                 }.separator(showLast: true) { tag in
                     Image(systemName: "chevron.right")
@@ -96,15 +95,22 @@ struct TagsIndicator: View {
                 
                 ForEach(contors) { tag in
                     HStack(alignment: .center, spacing: 0) {
+                        if !tag.kind.isEmpty {
+                            Image(systemName: "\(tag.kind.first?.lowercased() ?? "questionmark").square")
+                                .foregroundColor(
+                                    Color.init(id: "panelTitle.activeForeground")
+                                )
+                                .padding(.init(top: 00, leading: 0, bottom: 0, trailing: 2))
+                        }
+                        
+                        
                         Text(tag.name)
                             .foregroundColor(
                                 Color.init(id: "panelTitle.activeForeground")
                             )
-                            .font(.system(size: 12, weight: .light))
-                            
-                            
+                            .font(.system(size: 14, weight: .light))
                     }
-                    .frame(height: 28)
+                    .frame(height: 30)
                         .background(Color.init(id: "editor.background"))
                         .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
 //                            .background(Color.red)
@@ -116,17 +122,20 @@ struct TagsIndicator: View {
                         popupedState[tag] = true
                     }
                     .popover(isPresented: binding(for: tag), content: {
+                        let tags = tag.parent?.subTags ?? rootTag.subTags ?? [tag]
                         ScrollViewReader { proxy in
                             List {
-                                TagsTreeView(tags: tag.parent?.subTags ?? rootTag.subTags ?? [tag],
-                                             expansionStates: $expandedStates, expanded: false,
-                                             selectedTag: _ctag, onTap: {tag in
+                                TagsTreeView(tags: tags,
+                                             expansionStates: $expandedStates, 
+                                             expanded: false,
+                                             selectedTag: tag,
+                                             onTap: {tag in
                                     indicators.forEach({item in popupedState[item] = false})
                                 })
                             }.listStyle(.sidebar)
-                                .frame(minWidth: 300, minHeight: 300)
+                                .frame(minWidth: 300, minHeight: max(CGFloat(tags.count) * 44 + 70, 300.0))
                                 .onAppear {
-                                    proxy.scrollTo(_ctag)
+                                    proxy.scrollTo(tag)
                                 }
                         }.presentationCompactAdaptation()
                     })
@@ -134,9 +143,11 @@ struct TagsIndicator: View {
                     Image(systemName: "chevron.right")
                         .font(.system(size: 12, weight: .light))
                 }
-//            }
+            }
 //            .padding(EdgeInsets(top: 0, leading: 10, bottom: 30, trailing: 10))
 //            .background(Color.init(id: "editor.background"))
+        }.onTapGesture {
+            
         }
     }
 }

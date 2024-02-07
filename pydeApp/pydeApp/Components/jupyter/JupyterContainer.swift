@@ -58,22 +58,22 @@ struct JupyterContainer: View {
                     .cornerRadius(15)
                     
                     
-                    Button(action: {
-                        App.safariManager.showSafari(
-                            url: URL(
-                                string:
-                                    "https://code.thebaselab.com/guides/connecting-to-a-remote-server-ssh-ftp#set-up-your-remote-server"
-                            )!)
-                    }) {
-                        Text("remote.setup_remote_server")
-                            .font(.footnote)
-                            .foregroundColor(.blue)
-                    }
+//                    Button(action: {
+//                        App.safariManager.showSafari(
+//                            url: URL(
+//                                string:
+//                                    "https://code.thebaselab.com/guides/connecting-to-a-remote-server-ssh-ftp#set-up-your-remote-server"
+//                            )!)
+//                    }) {
+//                        Text("remote.setup_remote_server")
+//                            .font(.footnote)
+//                            .foregroundColor(.blue)
+//                    }
                     
-                    Toggle("保持前台", isOn: $jupyterManager.play_ws)
+                    Toggle("Keep Activation", isOn: $jupyterManager.play_ws)
                     
                     
-                    Toggle("公开访问", isOn: $jupyterManager.public_server)
+                    Toggle("Public", isOn: $jupyterManager.public_server)
                         .disabled(jupyterManager.running)
                     
                     if jupyterManager.running {
@@ -103,15 +103,15 @@ struct JupyterContainer: View {
                             if jupyterManager.running {
                                 jupyterManager.closeNotebook()
                             } else {
-                                jupyterManager.openNotebook()
+                                jupyterManager.openNotebook(URL(string: App.workSpaceStorage.currentDirectory.url))
                             }
                         },
                         label: {
                             HStack {
                                 Spacer()
                                 Text(jupyterManager.running
-                                     ? "停止"
-                                     : "启动")
+                                     ? "Stop"
+                                     : "Start")
                                 .lineLimit(1)
                                 .foregroundColor(.white)
                                 .font(.subheadline)
@@ -134,7 +134,7 @@ struct JupyterContainer: View {
                             label: {
                                 HStack {
                                     Spacer()
-                                    Text("打开JupyterNotebook")
+                                    Text("Open Notebook")
                                     .lineLimit(1)
                                     .foregroundColor(.white)
                                     .font(.subheadline)
@@ -193,9 +193,13 @@ class JupytterManager: ObservableObject {
     let passwdSalt = "bfa0495a0305"
     
     
-    func openNotebook() {
+    func openNotebook(_ wkurl: URL? = nil) {
         if runnerView.executor?.state != .idle {
             return
+        }
+        
+        if let url = wkurl {
+            runnerView.resetAndSetNewRootDirectory(url: url)
         }
         
         ip = getIPAddress()

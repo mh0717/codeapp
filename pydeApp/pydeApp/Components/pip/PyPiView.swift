@@ -10,6 +10,7 @@ import Foundation
 import SwiftUI
 import Combine
 import pydeCommon
+import pyde
 
 let DidRunPipNotificationName = Notification.Name("DidRunPipNotification")
 
@@ -44,8 +45,11 @@ struct PipOpButton: View {
     
     let package: String
     let op: Operation
+    let version: String?
     
     @State var running = false
+    
+    @State var showTerminal = false
     
     var body: some View {
         Button() {
@@ -70,42 +74,66 @@ struct PipOpButton: View {
                 #endif
                 switch op {
                 case .install:
-                    App.notificationManager.showAsyncNotification(title: "正在安装: \(package)", task: {
-                        let result = await pipModelManager.installPackage(package)
+                    let runnerWidget = PYRunnerWidget()
+                    App.popupManager.showSheet(content: AnyView(
+                        NavigationView(content: {
+                            runnerWidget.navigationTitle(Text("pip install \(package)")).padding().toolbar(content: {
+                                SwiftUI.ToolbarItem(placement: .navigationBarTrailing) {
+                                    Button("Done") {
+                                        App.popupManager.showSheet = false
+                                    }
+                                }
+                            })
+                        })
+                        
+                    ))
+                    
+                    App.notificationManager.showAsyncNotification(title: "Installing %@", task: {
+                        _ = await withCheckedContinuation { continuation in
+                            let cmd = version == nil ? "pip3 install \(package)" : "pip3 install \(package)==\(version!)"
+                            runnerWidget.consoleView.feed(text: "\(cmd)\r\n")
+                            runnerWidget.consoleView.executor?.dispatch(command: "remote \(cmd) --user", completionHandler: { rlt in
+                                continuation.resume(returning: true)
+                            })
+                            
+                        }
+                        await pipModelManager.fetchInstalledPackages()
+                        let result = pipModelManager.installedPackages.contains(where: {$0.name == package})
+//                        let result = await pipModelManager.installPackage(package)
                         if result {
-                            App.notificationManager.showErrorMessage("%@ 安装成功", package)
+                            App.notificationManager.showErrorMessage("Successfully installed %@", package)
                         } else {
-                            App.notificationManager.showErrorMessage("%@ 安装失败", package)
+                            App.notificationManager.showErrorMessage("Failed to install %@", package)
                         }
                         running = false
-                    })
+                    }, package)
                 case .uninstall:
-                    App.notificationManager.showAsyncNotification(title: "正在删除: \(package)", task: {
+                    App.notificationManager.showAsyncNotification(title: "Uninstall \(package)", task: {
                         let result = await pipModelManager.uninstallPackage(package)
                         if result {
-                            App.notificationManager.showErrorMessage("%@ 删除成功", package)
+                            App.notificationManager.showErrorMessage("Successfully uninstalled %@", package)
                         } else {
-                            App.notificationManager.showErrorMessage("%@ 删除失败", package)
+                            App.notificationManager.showErrorMessage("Failed to uninstall %@", package)
                         }
                         running = false
                     })
                 case .update:
-                    App.notificationManager.showAsyncNotification(title: "正在更新: \(package)", task: {
+                    App.notificationManager.showAsyncNotification(title: "Updating %@", task: {
                         let result = await pipModelManager.updatePackages([package])
                         if result {
-                            App.notificationManager.showErrorMessage("%@ 更新成功", package)
+                            App.notificationManager.showErrorMessage("Successfully Updated %@", package)
                         } else {
-                            App.notificationManager.showErrorMessage("%@ 更新失败", package)
+                            App.notificationManager.showErrorMessage("Failed to update %@", package)
                         }
                         running = false
-                    })
+                    }, package)
                 case .updateAll:
-                    App.notificationManager.showAsyncNotification(title: "正在更新: \(package)", task: {
+                    App.notificationManager.showAsyncNotification(title: "Updating %@", task: {
                         let result = await pipModelManager.updatePackages(package.components(separatedBy: ","))
                         if result {
-                            App.notificationManager.showErrorMessage("%@ 更新成功", package)
+                            App.notificationManager.showErrorMessage("Successfully Updated %@", package)
                         } else {
-                            App.notificationManager.showErrorMessage("%@ 更新失败", package)
+                            App.notificationManager.showErrorMessage("Failed to update %@", package)
                         }
                         running = false
                     })
@@ -117,20 +145,20 @@ struct PipOpButton: View {
                 switch op {
                 case .install:
                     running
-                    ? Text("安装中", comment: "删除中")
-                    : Text("安装", comment: "删除")
+                    ? Text("Installing", comment: "删除中")
+                    : Text("Install", comment: "删除")
                 case .uninstall:
                     running
-                    ? Text("删除中", comment: "删除中")
-                    : Text("删除", comment: "删除")
+                    ? Text("Uninstalling", comment: "删除中")
+                    : Text("Uninstall", comment: "删除")
                 case .update:
                     running
-                    ? Text("更新中", comment: "更新中")
-                    : Text("更新", comment: "更新")
+                    ? Text("Updating", comment: "更新中")
+                    : Text("Update", comment: "更新")
                 case .updateAll:
                     running
-                    ? Text("更新中", comment: "更新中")
-                    : Text("更新", comment: "更新")
+                    ? Text("Updating", comment: "更新中")
+                    : Text("Update", comment: "更新")
                 }
             } icon: {
                 Group {
@@ -173,7 +201,7 @@ struct PipShow: View {
                 ActivityIndicator(isAnimating: .constant(true), style: .medium)
             } else {
                 VStack(alignment: .leading) {
-                    PipOpButton(package: package, op: op)
+                    PipOpButton(package: package, op: op, version: nil)
                     
                     Text(info!).font(.custom("Menlo", size: UIFont.systemFontSize)).textSelection(.enabled)
                 }
@@ -219,7 +247,7 @@ public struct PyPiView: View {
                     if !pipManager.updatablePackages.isEmpty {
                         
                         Section {
-                            PipOpButton(package: pipManager.updatablePackages.map({$0.name}).joined(separator: ","), op: .updateAll)
+                            PipOpButton(package: pipManager.updatablePackages.map({$0.name}).joined(separator: ","), op: .updateAll, version: nil)
                             
                             ForEach(pipManager.updatablePackages) { pkg in
                                 DisclosureGroup {
@@ -237,7 +265,7 @@ public struct PyPiView: View {
                             }
                         } header: {
                             HStack {
-                                Text("pypi.updates", comment: "Updatable packages")
+                                Text("Update", comment: "Updatable packages")
                                 ZStack {
                                     Circle().fill(.red).frame(width: 25, height: 25)
                                     Text("\(pipManager.updatablePackages.count)").foregroundColor(.white).font(.system(size: 15))
@@ -262,7 +290,7 @@ public struct PyPiView: View {
                             }
                         }
                     } header: {
-                        Text("pypi.installed", comment: "Installed packages")
+                        Text("Installed packages", comment: "已经安装的库")
                     }.listRowSeparator(.hidden).listRowBackground(Color.clear)
                     
                     Section {
@@ -290,7 +318,7 @@ public struct PyPiView: View {
                             }
                         }
                     } header: {
-                        Text("pypi.bundled", comment: "Bundled packages")
+                        Text("Bunded packages", comment: "内置的库")
                     }.listRowSeparator(.hidden).listRowBackground(Color.clear)
                 }
                 .listRowSeparator(.hidden)
@@ -320,7 +348,7 @@ struct PYSearchBar: View {
             .foregroundColor(.secondary)
             .padding(.horizontal, -20)
             
-            TextField(NSLocalizedString("search", comment: "Placeholder of the search bar"), text: $text)
+            TextField(NSLocalizedString("search", comment: "搜索占位符"), text: $text)
             .autocapitalization(.none)
             .disableAutocorrection(true)
             

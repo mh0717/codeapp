@@ -51,6 +51,8 @@ private struct PanelTabLabel: View {
     }
 }
 
+private let PANEL_MINI_HEIGHT = 20.0
+
 private struct PanelTabs: View {
     @EnvironmentObject var panelManager: PanelManager
 
@@ -107,8 +109,8 @@ struct PYPanelView: View {
             showsPanel = true
         }
         
-        if proposal <= 15 {
-            panelHeight = 15 //DefaultUIState.PANEL_HEIGHT
+        if proposal <= PANEL_MINI_HEIGHT {
+            panelHeight = PANEL_MINI_HEIGHT //DefaultUIState.PANEL_HEIGHT
         } else if proposal > maxHeight {
             panelHeight = maxHeight
         } else {
@@ -140,12 +142,12 @@ struct PYPanelView: View {
                 .gesture(
                     DragGesture()
                         .onChanged { value in
-                            let proposedNewHeight = (showsPanel ? panelHeight : 15) - value.translation.height
+                            let proposedNewHeight = (showsPanel ? panelHeight : PANEL_MINI_HEIGHT) - value.translation.height
                             evaluateProposedHeight(proposal: proposedNewHeight)
                         }
                 )
             
-            if showsPanel && panelHeight >= 15 {
+            if showsPanel && panelHeight >= PANEL_MINI_HEIGHT {
                 HStack {
                     if let currentPanel = currentPanel {
                         currentPanel.mainView
@@ -158,7 +160,7 @@ struct PYPanelView: View {
         }
         .foregroundColor(Color(id: "panelTitle.activeForeground"))
         .font(.system(size: 12, weight: .light))
-        .frame(height: showsPanel ? min(CGFloat(panelHeight), maxHeight) : 15)
+        .frame(height: showsPanel ? min(CGFloat(panelHeight), maxHeight) : PANEL_MINI_HEIGHT)
             .background(Color.init(id: "editor.background"))
             
     }

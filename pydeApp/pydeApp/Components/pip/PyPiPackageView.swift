@@ -75,12 +75,14 @@ struct PyPiPackageView: View {
                         Text(selectedVersion ?? package.stableVersion ?? "").font(.title3)
                         Image(systemName: "chevron.up.chevron.down")
                     }
+                }.onAppear {
+                    selectedVersion = package.versions.first
                 }
             }
             
             isBundled || isInstalled
-            ? PipOpButton(package: packageName, op: .uninstall)
-            : PipOpButton(package: packageName, op: .install)
+            ? PipOpButton(package: packageName, op: .uninstall, version: nil)
+            : PipOpButton(package: packageName, op: .install, version: selectedVersion)
             
             
             
