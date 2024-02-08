@@ -138,6 +138,11 @@ class TextEditorInstance: EditorInstanceWithURL {
         // self.fileWatch?.startMonitoring()
         
         #if PYDEAPP
+        self.view = AnyView(VStack(spacing: 0, content: {
+            TagsIndicator(editor: self)
+            
+            AnyView(editor)
+        }))
 //        self.view = AnyView(ZStack {
 //            VStack(spacing: 0) {
 //                TagsIndicator(editor: self).background(Color.red)
