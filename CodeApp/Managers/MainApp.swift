@@ -919,6 +919,13 @@ class MainApp: ObservableObject {
             }.value
             return instance
         }
+        
+        if (url.pathExtension.lowercased() == "ipynb") {
+            let instance = await Task { @MainActor in
+                return NBPreviewEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate)
+            }.value
+            return instance
+        }
         #endif
 
         return TextEditorInstance(

@@ -60,6 +60,7 @@ struct EditorTab: View {
                     .foregroundColor(
                         Color.init(id: isActive ? "tab.activeForeground" : "tab.inactiveForeground")
                     )
+                    .frame(maxWidth: 200)
                 }.keyboardShortcut(EditorTab.keyForInt(int: index + 1), modifiers: .command)
 
                 Group {

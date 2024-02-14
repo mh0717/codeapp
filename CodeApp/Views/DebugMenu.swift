@@ -37,6 +37,14 @@ struct DebugMenu: View {
                     })
             }
             #if PYDEAPP
+            Button("大纲") {
+                App.popupManager.showCover(content: AnyView(IAPView()))
+            }
+            
+            Button("大纲Sheet") {
+                App.popupManager.showSheet(content: AnyView(IAPView()))
+            }
+            
             Button("copySite") {
                 App.notificationManager.showAsyncNotification(title: "copySite...", task: {
                     Task {

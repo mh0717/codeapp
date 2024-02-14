@@ -21,6 +21,7 @@ private let EXTENSION_ID = "PYLOCAL_EXECUTION"
 private let LOCAL_EXECUTION_COMMANDS = [
     "py": ["python3 -u {url}"],
     "ui.py": ["python3 -u {url}"],
+    "ipynb": ["jupyter-nbconvert --execute --allow-errors --stdout --to markdown {url}"],// --allow-errors
 //    "js": ["node {url}"],
 //    "c": ["clang {url}", "wasm a.out"],
 //    "cpp": ["clang++ {url}", "wasm a.out"],
@@ -88,7 +89,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
         }
     }
     
-    private func getRemoteConfig(editor: PYTextEditorInstance, commands: [String], app: MainApp) -> [String: Any]? {
+    private func getRemoteConfig(editor: WithRunnerEditorInstance, commands: [String], app: MainApp) -> [String: Any]? {
         guard let executor = editor.runnerView.executor else {return nil}
         let ntidentifier = executor.persistentIdentifier
         guard let bookmark = try? executor.currentWorkingDirectory.bookmarkData() else  {return nil}
@@ -111,7 +112,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
         return config
     }
     
-    private func runUICode(app: MainApp, editor:PYTextEditorInstance, dismiss:@escaping () -> Void) -> AnyView? {
+    private func runUICode(app: MainApp, editor:WithRunnerEditorInstance, dismiss:@escaping () -> Void) -> AnyView? {
 //        guard let editor = app.activeTextEditor as? PYTextEditorInstance else {
 //            return nil
 //        }
@@ -196,7 +197,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
     
 
     private func runCodeLocally(app: MainApp) {
-        guard let editor = app.activeTextEditor as? PYTextEditorInstance else {
+        guard let editor = app.activeTextEditor as? WithRunnerEditorInstance else {
             return
         }
         

@@ -57,6 +57,13 @@ struct TopBar: View {
                 }
             }
             #endif
+            
+            #if PYDEAPP
+            ScrollView(.horizontal, showsIndicators: false) {
+                EditorTabs()
+            }
+            Spacer()
+            #else
             if horizontalSizeClass == .compact {
                 CompactEditorTabs()
                     .frame(maxWidth: .infinity)
@@ -77,6 +84,7 @@ struct TopBar: View {
                     Spacer()
                 }
             }
+            #endif
 
             ForEach(toolBarManager.items) { item in
                 if item.shouldDisplay() {

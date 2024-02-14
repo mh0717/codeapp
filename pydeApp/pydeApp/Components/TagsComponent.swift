@@ -165,7 +165,7 @@ struct OutlineContainer: View {
             List {
                 Section(
                     header:
-                        Text( "大纲")
+                        Text( "Outline")
                         .foregroundColor(Color(id: "sideBarSectionHeader.foreground"))
                 ) {
                     TagsModelTreeView(tagsModel: App.tagsModel)

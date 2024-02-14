@@ -11,22 +11,22 @@ import pydeCommon
 import pyde
 import Combine
 
-class PYTextEditorInstance: TextEditorInstance {
+class PYTextEditorInstance: WithRunnerEditorInstance {
     
-//    let rseditor = RunestoneEditor()
+    let editor = RunestoneEditor()
     
     var editorView: RSCodeEditorView {
-        return codeWidget.editor.editorView
+        return editor.editorView
     }
     
 //    let runner = PYRunnerWidget()
 //    
 //    lazy var runnerWidget: AnyView = AnyView(runner.id(UUID()))
-    let codeWidget = PYCodeWidget()
-    
-    var runnerView: ConsoleView {
-        return codeWidget.runner.consoleView
-    }
+//    let codeWidget = PYCodeWidget()
+//    
+//    var runnerView: ConsoleView {
+//        return runner.consoleView
+//    }
     
 //    var rangeCancellable: AnyCancellable?
     
@@ -38,16 +38,16 @@ class PYTextEditorInstance: TextEditorInstance {
         fileDidChange: ((FileState, String?) -> Void)? = nil
     ) {
         super.init(
-            editor: codeWidget.id(UUID()),
             url: url,
             content: content,
             encoding: encoding,
             lastSavedDate: lastSavedDate,
+            editorView: AnyView(editor),
             fileDidChange: fileDidChange
         )
         
         editorView.text = content
-        runnerView.resetAndSetNewRootDirectory(url: url.deletingLastPathComponent())
+//        runnerView.resetAndSetNewRootDirectory(url: url.deletingLastPathComponent())
         
 //        rangeCancellable = $selectedRange.sink {[weak editorView] range in
 //            guard let editorView else {return}
@@ -213,6 +213,7 @@ struct PYRunnerWidget: UIViewRepresentable {
         consoleView.terminalView.selectedTextBackgroundColor = theme.markedTextBackgroundColor
     }
 }
+
 
 
 struct PYCodeWidget: View {

@@ -1,0 +1,238 @@
+//
+//  NBPreviewExtension.swift
+//  pydeApp
+//
+//  Created by Huima on 2024/2/12.
+//
+
+import SwiftUI
+import UIKit
+import pydeCommon
+import pyde
+
+
+
+
+class WithRunnerEditorInstance: TextEditorInstance {
+    
+    let runner = PYRunnerWidget()
+      
+    var runnerView: ConsoleView {
+        return runner.consoleView
+    }
+    
+    init(
+        url: URL,
+        content: String,
+        encoding: String.Encoding = .utf8,
+        lastSavedDate: Date? = nil,
+        editorView: AnyView,
+        fileDidChange: ((FileState, String?) -> Void)? = nil
+    ) {
+        super.init(
+            editor: EditorAndRunnerWidget(editor: editorView, runner: runner).id(UUID()),
+            url: url,
+            content: content,
+            encoding: encoding,
+            lastSavedDate: lastSavedDate,
+            fileDidChange: fileDidChange
+        )
+        
+        runnerView.resetAndSetNewRootDirectory(url: url.deletingLastPathComponent())
+    }
+}
+
+
+
+
+
+struct EditorAndRunnerWidget: View {
+    
+    @SceneStorage("panel.visible") var showsPanel: Bool = DefaultUIState.PANEL_IS_VISIBLE
+    @SceneStorage("panel.height") var panelHeight: Double = DefaultUIState.PANEL_HEIGHT
+    @EnvironmentObject var App: MainApp
+    @AppStorage("setting.panel.hide.when.editor.focus") var shouldHidePanel: Bool = true
+    
+    let editor: any View
+    let runner: PYRunnerWidget
+    
+    let panelManager = PanelManager()
+    
+    var body: some View {
+        GeometryReader { geometry in
+            VStack(spacing: 0) {
+                AnyView(editor)
+                PYPanelView(currentPanelId: "RUNNER", windowHeight: geometry.size.height)
+                    .environmentObject(panelManager)
+            }
+        }
+//        .onReceive(
+//            NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification),
+//            perform: { _ in
+//                if editor.editorView.textView.isEditing {
+//                    editor.editorView.textView.scrollRangeToVisible(editor.editorView.textView.selectedRange)
+//                }
+//        })
+        .onReceive(
+            NotificationCenter.default.publisher(
+                for: Notification.Name("rseditor.focus"),
+                object: nil),
+            perform: { notification in
+                guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
+                    sceneIdentifier == App.sceneIdentifier
+                else { return }
+                if shouldHidePanel {
+                    showsPanel = false
+                }
+            }
+        )
+        .onReceive(
+            NotificationCenter.default.publisher(
+                for: Notification.Name("rseditor.unfocus"),
+                object: nil),
+            perform: { notification in
+                guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
+                    sceneIdentifier == App.sceneIdentifier
+                else { return }
+                if shouldHidePanel && !showsPanel {
+                    showsPanel = true
+                }
+            }
+        )
+        .onAppear {
+            if !panelManager.panels.isEmpty {
+                return
+            }
+            let runnerPanel = Panel(
+                labelId: "RUNNER",
+                mainView: AnyView(
+                    runner
+                ),
+                toolBarView: AnyView(
+                    HStack(spacing: 12) {
+                    Button(
+                        action: {
+                            runner.consoleView.kill()
+                        },
+                        label: {
+                            Text("^C")
+                        }
+                    ).keyboardShortcut("c", modifiers: [.control])
+
+                    Button(
+                        action: {
+                            runner.consoleView.clear()
+                        },
+                        label: {
+                            Image(systemName: "trash")
+                        }
+                    ).keyboardShortcut("k", modifiers: [.command])
+                        
+                    Button(
+                        action: {
+                            _ = runner.consoleView.terminalView.resignFirstResponder()
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                        },
+                        label: {
+                            Image(systemName: "keyboard.chevron.compact.down")
+                        }
+                    )
+                })
+            )
+            panelManager.registerPanel(panel: runnerPanel)
+        }
+    }
+}
+
+
+private var nbtemplate: String?
+
+struct NBViewReprestable: UIViewRepresentable {
+    
+    let webView: WKWebView = WKWebView(frame: .zero)
+    
+    func makeUIView(context: Context) -> WKWebView {
+        return webView
+    }
+    
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        
+    }
+}
+
+
+class NBPreviewEditorInstance: WithRunnerEditorInstance  {
+    let webViewRepresent = NBViewReprestable()
+    
+    init(
+        url: URL,
+        content: String,
+        encoding: String.Encoding = .utf8,
+        lastSavedDate: Date? = nil,
+        fileDidChange: ((FileState, String?) -> Void)? = nil
+    ) {
+        super.init(
+            url: url,
+            content: content,
+            encoding: encoding,
+            lastSavedDate: lastSavedDate,
+            editorView: AnyView(webViewRepresent),
+            fileDidChange: fileDidChange
+        )
+        
+        loadNBContent(nbContent: content)
+    }
+
+    func loadNBContent(nbContent: String) {
+        if nbtemplate == nil {
+            nbtemplate = try? String(contentsOf: ConstantManager.NBTEMPLATE_URL)
+        }
+        let htmlString = nbtemplate?.replacingOccurrences(of: "%nbcontent%", with: nbContent)
+        webViewRepresent.webView.loadHTMLString(htmlString ?? "", baseURL: url)
+//        webViewRepresent.webView.loadHTMLString("Test", baseURL: url)
+    }
+}
+
+
+//class NBViewerExtension: CodeAppExtension {
+//
+//    private func loadHTML(url: URL, app: MainApp, webView: WKWebView) {
+//        if nbtemplate == nil {
+//            nbtemplate = try? String(contentsOf: ConstantManager.NBTEMPLATE_URL)
+//        }
+//        
+//        
+//        app.workSpaceStorage.contents(at: url) { data, error in
+//            guard let data else {
+//                return
+//            }
+//            let nbContent = String(data: data, encoding: .utf8) ?? ""
+//            let htmlString = nbtemplate?.replacingOccurrences(of: "%notebook-json%", with: nbContent)
+//            webView.loadHTMLString(htmlString ?? "", baseURL: nil)
+//        }
+//    }
+//
+//    override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
+//        
+//        
+//
+//        let provider = EditorProvider(
+//            registeredFileExtensions: ["ipynb"],
+//            onCreateEditor: { [weak self] url in
+//                
+//                
+//
+//                let editorInstance = NBPreviewEditorInstance(url: url, content: "")
+//
+//                self?.loadHTML(url: url, app: app, webView: editorInstance.webViewRepresent.webView)
+////                editorInstance.fileWatch?.folderDidChange = { _ in
+////                    self?.loadHTML(url: url, app: app, webView: editorInstance.webViewRepresent.webView)
+////                }
+////                editorInstance.fileWatch?.startMonitoring()
+//
+//                return editorInstance
+//            }
+//        )
+//        contribution.editorProvider.register(provider: provider)
+//    }
+//}
