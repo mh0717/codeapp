@@ -35,6 +35,7 @@ class ExtensionManager: ObservableObject {
         TMConsoleExtension(),
         
         VCInTabExtension(),
+        MonacoCompletionExtension(),
     ]
     #else
     private var extensions: [CodeAppExtension] = [

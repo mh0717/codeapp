@@ -802,6 +802,7 @@
 		A3A3DED82B795CB6004A7C39 /* NBPreviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3DED72B795CB6004A7C39 /* NBPreviewExtension.swift */; };
 		A3A3DEDA2B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A3DED92B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework */; };
 		A3A3DEDB2B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3A3DED92B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A3A3DEDD2B85B8C7004A7C39 /* MonacoCompletionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3DEDC2B85B8C7004A7C39 /* MonacoCompletionExtension.swift */; };
 		A3A87CEE2AF221D1002E3399 /* SourceControlUnsupportedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A0462A2804A70C00182275 /* SourceControlUnsupportedSection.swift */; };
 		A3A87CEF2AF221D1002E3399 /* GitHubSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777EE257B9193008FE7B2 /* GitHubSearchManager.swift */; };
 		A3A87CF02AF221D1002E3399 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7781F257BC5AA008FE7B2 /* MainScene.swift */; };
@@ -2204,6 +2205,7 @@
 		A38273022AF4AD2F0096A7C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3A3DED72B795CB6004A7C39 /* NBPreviewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBPreviewExtension.swift; sourceTree = "<group>"; };
 		A3A3DED92B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "python3_ios-materialyoucolor.quantize.celebi.xcframework"; path = "../modules/pythoncc/PYXCFrameworks/python3_ios-materialyoucolor.quantize.celebi.xcframework"; sourceTree = "<group>"; };
+		A3A3DEDC2B85B8C7004A7C39 /* MonacoCompletionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonacoCompletionExtension.swift; sourceTree = "<group>"; };
 		A3A87DB42AF221D1002E3399 /* pydeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pydeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3A87DB52AF221D1002E3399 /* CodeUI copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CodeUI copy-Info.plist"; path = "/Users/huima/PythonSchool/pydeApp/CodeUI copy-Info.plist"; sourceTree = "<absolute>"; };
 		A3A87DB82AF22575002E3399 /* python3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = python3; path = ../../modules/pythoncc/python3; sourceTree = "<group>"; };
@@ -3435,6 +3437,7 @@
 				A3BB55412B44666500A3E0B9 /* RSCodeTheme.swift */,
 				A3D1C9A82B35D802001505C7 /* Python.swift */,
 				A3A3DED72B795CB6004A7C39 /* NBPreviewExtension.swift */,
+				A3A3DEDC2B85B8C7004A7C39 /* MonacoCompletionExtension.swift */,
 			);
 			path = pydeApp;
 			sourceTree = "<group>";
@@ -4628,6 +4631,7 @@
 				A3A87D852AF221D1002E3399 /* RemoteHostCell.swift in Sources */,
 				A3A87D862AF221D1002E3399 /* RemoteConnectedLabel.swift in Sources */,
 				A3A87D872AF221D1002E3399 /* UserDefaults+Hosts.swift in Sources */,
+				A3A3DEDD2B85B8C7004A7C39 /* MonacoCompletionExtension.swift in Sources */,
 				A3A87D882AF221D1002E3399 /* ToolbarManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
