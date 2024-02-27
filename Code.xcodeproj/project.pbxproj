@@ -758,7 +758,6 @@
 		A33A5FE82B10B98800CB7CE1 /* PipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE22B10B98800CB7CE1 /* PipManager.swift */; };
 		A33A5FEB2B10B98800CB7CE1 /* PyPiPackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE52B10B98800CB7CE1 /* PyPiPackageView.swift */; };
 		A349BF362B00ECDF00434BBB /* GitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349BF352B00ECDF00434BBB /* GitService.swift */; };
-		A35A8F1B2B6BEFD30040AAA6 /* PydeLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A35A8F1A2B6BEFD30040AAA6 /* PydeLocalizable.strings */; };
 		A36336D32AF226BA00085608 /* pyde in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; };
 		A36336D42AF226BA00085608 /* pyde in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A36336D62AF226BA00085608 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D52AF226BA00085608 /* pydeCommon */; };
@@ -803,6 +802,8 @@
 		A3A3DEDA2B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A3DED92B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework */; };
 		A3A3DEDB2B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3A3DED92B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A3A3DEDD2B85B8C7004A7C39 /* MonacoCompletionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3DEDC2B85B8C7004A7C39 /* MonacoCompletionExtension.swift */; };
+		A3A3DEDF2B8A50A3004A7C39 /* QuickPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3DEDE2B8A50A3004A7C39 /* QuickPreview.swift */; };
+		A3A3DEE02B8C815A004A7C39 /* PydeLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3A3DEE22B8C815A004A7C39 /* PydeLocalizable.strings */; };
 		A3A87CEE2AF221D1002E3399 /* SourceControlUnsupportedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A0462A2804A70C00182275 /* SourceControlUnsupportedSection.swift */; };
 		A3A87CEF2AF221D1002E3399 /* GitHubSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777EE257B9193008FE7B2 /* GitHubSearchManager.swift */; };
 		A3A87CF02AF221D1002E3399 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7781F257BC5AA008FE7B2 /* MainScene.swift */; };
@@ -2169,7 +2170,6 @@
 		A33A5FE22B10B98800CB7CE1 /* PipManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PipManager.swift; sourceTree = "<group>"; };
 		A33A5FE52B10B98800CB7CE1 /* PyPiPackageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PyPiPackageView.swift; sourceTree = "<group>"; };
 		A349BF352B00ECDF00434BBB /* GitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitService.swift; sourceTree = "<group>"; };
-		A35A8F1A2B6BEFD30040AAA6 /* PydeLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = PydeLocalizable.strings; sourceTree = "<group>"; };
 		A36336D12AF2268D00085608 /* pydeCommon */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = pydeCommon; path = ../../modules/pythoncc/pyde/pydeCommon; sourceTree = "<group>"; };
 		A36336E62AF22B3200085608 /* pydeRemote.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pydeRemote.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
@@ -2206,6 +2206,9 @@
 		A3A3DED72B795CB6004A7C39 /* NBPreviewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBPreviewExtension.swift; sourceTree = "<group>"; };
 		A3A3DED92B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "python3_ios-materialyoucolor.quantize.celebi.xcframework"; path = "../modules/pythoncc/PYXCFrameworks/python3_ios-materialyoucolor.quantize.celebi.xcframework"; sourceTree = "<group>"; };
 		A3A3DEDC2B85B8C7004A7C39 /* MonacoCompletionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonacoCompletionExtension.swift; sourceTree = "<group>"; };
+		A3A3DEDE2B8A50A3004A7C39 /* QuickPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickPreview.swift; sourceTree = "<group>"; };
+		A3A3DEE12B8C815A004A7C39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PydeLocalizable.strings; sourceTree = "<group>"; };
+		A3A3DEE32B8C8163004A7C39 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/PydeLocalizable.strings"; sourceTree = "<group>"; };
 		A3A87DB42AF221D1002E3399 /* pydeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pydeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3A87DB52AF221D1002E3399 /* CodeUI copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CodeUI copy-Info.plist"; path = "/Users/huima/PythonSchool/pydeApp/CodeUI copy-Info.plist"; sourceTree = "<absolute>"; };
 		A3A87DB82AF22575002E3399 /* python3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = python3; path = ../../modules/pythoncc/python3; sourceTree = "<group>"; };
@@ -3395,7 +3398,7 @@
 		A35A8F192B6BEF720040AAA6 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				A35A8F1A2B6BEFD30040AAA6 /* PydeLocalizable.strings */,
+				A3A3DEE22B8C815A004A7C39 /* PydeLocalizable.strings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -3438,6 +3441,7 @@
 				A3D1C9A82B35D802001505C7 /* Python.swift */,
 				A3A3DED72B795CB6004A7C39 /* NBPreviewExtension.swift */,
 				A3A3DEDC2B85B8C7004A7C39 /* MonacoCompletionExtension.swift */,
+				A3A3DEDE2B8A50A3004A7C39 /* QuickPreview.swift */,
 			);
 			path = pydeApp;
 			sourceTree = "<group>";
@@ -3978,7 +3982,7 @@
 				A3A87D9C2AF221D1002E3399 /* Settings.bundle in Resources */,
 				A3A87D9D2AF221D1002E3399 /* extraCommandsDictionary.plist in Resources */,
 				A363372A2AF2C06800085608 /* npm.bundle in Resources */,
-				A35A8F1B2B6BEFD30040AAA6 /* PydeLocalizable.strings in Resources */,
+				A3A3DEE02B8C815A004A7C39 /* PydeLocalizable.strings in Resources */,
 				A3A87DA02AF221D1002E3399 /* LaunchScreen.storyboard in Resources */,
 				A3A87DA12AF221D1002E3399 /* Assets.xcassets in Resources */,
 			);
@@ -4520,6 +4524,7 @@
 				A3A87D2A2AF221D1002E3399 /* hiddenScrollableContentBackground.swift in Sources */,
 				A3A87D2B2AF221D1002E3399 /* Utilities.swift in Sources */,
 				A363372E2AF388DB00085608 /* PYTextEditorInstance.swift in Sources */,
+				A3A3DEDF2B8A50A3004A7C39 /* QuickPreview.swift in Sources */,
 				A3A87D2C2AF221D1002E3399 /* TopBar.swift in Sources */,
 				A3A87D2D2AF221D1002E3399 /* EditorKeyboardToolBar.swift in Sources */,
 				A3A87D2E2AF221D1002E3399 /* NotificationManager.swift in Sources */,
@@ -4732,6 +4737,15 @@
 				A38273002AF4AD2F0096A7C9 /* Base */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		A3A3DEE22B8C815A004A7C39 /* PydeLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3A3DEE12B8C815A004A7C39 /* en */,
+				A3A3DEE32B8C8163004A7C39 /* zh-Hans */,
+			);
+			name = PydeLocalizable.strings;
 			sourceTree = "<group>";
 		};
 		A3A91A232B49D6D7007E8C76 /* MainInterface.storyboard */ = {

@@ -11,6 +11,35 @@ import pydeCommon
 import pyde
 import Combine
 
+class PYPlainTextEditorInstance: TextEditorInstance {
+    let editor = RunestoneEditor()
+    
+    var editorView: RSCodeEditorView {
+        return editor.editorView
+    }
+    
+    init(
+        url: URL,
+        content: String,
+        encoding: String.Encoding = .utf8,
+        lastSavedDate: Date? = nil,
+        fileDidChange: ((FileState, String?) -> Void)? = nil
+    ) {
+        super.init(
+            editor: AnyView(editor).id(UUID()),
+            url: url,
+            content: content,
+            encoding: encoding,
+            lastSavedDate: lastSavedDate,
+            fileDidChange: fileDidChange
+        )
+        
+        editorView.text = content
+        editorView.url = url
+    }
+}
+
+
 class PYTextEditorInstance: WithRunnerEditorInstance {
     
     let editor = RunestoneEditor()
@@ -47,6 +76,7 @@ class PYTextEditorInstance: WithRunnerEditorInstance {
         )
         
         editorView.text = content
+        editorView.url = url
 //        runnerView.resetAndSetNewRootDirectory(url: url.deletingLastPathComponent())
         
 //        rangeCancellable = $selectedRange.sink {[weak editorView] range in

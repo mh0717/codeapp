@@ -409,6 +409,14 @@ struct MonacoEditor: UIViewRepresentable {
                     userInfo: ["sceneIdentifier": control.App.sceneIdentifier]
                 )
                 NotificationCenter.default.post(notification)
+            #if PYDEAPP
+            case "blur":
+                let notification = Notification(
+                    name: Notification.Name("editor.unfocus"),
+                    userInfo: ["sceneIdentifier": control.App.sceneIdentifier]
+                )
+                NotificationCenter.default.post(notification)
+            #endif
             case "Request Diff Update":
                 if let modelUri = result["URI"] as? String {
                     requestDiffUpdate(modelUri: modelUri, force: true)

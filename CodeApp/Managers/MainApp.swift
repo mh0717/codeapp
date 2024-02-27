@@ -907,25 +907,35 @@ class MainApp: ObservableObject {
         let modificationDate = attributes?[.modificationDate] as? Date
         
         #if PYDEAPP
-        if (url.pathExtension.lowercased() == "py") {
-            let instance = await Task { @MainActor in
-                return PYTextEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate) { [weak self] state, content in
-                    if state == .modified, let content, let self {
-                        Task {
-                            try await self.monacoInstance.setValueForModel(url: url, value: content)
-                        }
-                    }
-                }
-            }.value
-            return instance
-        }
         
         if (url.pathExtension.lowercased() == "ipynb") {
             let instance = await Task { @MainActor in
                 return NBPreviewEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate)
             }.value
             return instance
+        } else  if (url.pathExtension.lowercased() == "py") {
+            let instance = await Task { @MainActor in
+                return PYTextEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate) { [weak self] state, content in
+//                    if state == .modified, let content, let self {
+//                        Task {
+//                            try await self.monacoInstance.setValueForModel(url: url, value: content)
+//                        }
+//                    }
+                }
+            }.value
+            return instance
         }
+        
+        let instance = await Task { @MainActor in
+            return PYPlainTextEditorInstance(
+                url: url,
+                content: content,
+                encoding: encoding,
+                lastSavedDate: modificationDate
+            )
+        }.value
+        return instance
+        
         #endif
 
         return TextEditorInstance(
@@ -993,6 +1003,94 @@ class MainApp: ObservableObject {
             try await openFile(url: url, alwaysInNewTab: alwaysInNewTab)
         }
     }
+    
+    #if PYDEAPP
+    func openFileInMonaco(url: URL, alwaysInNewTab: Bool = false) {
+        Task {
+            try await openFileInMonaco(url: url, alwaysInNewTab: alwaysInNewTab)
+        }
+    }
+    
+    @MainActor
+    @discardableResult
+    func openFileInMonaco(url: URL, alwaysInNewTab: Bool = false) async throws -> EditorInstance {
+        guard stateManager.isMonacoEditorInitialized else {
+            urlQueue.append(url)
+            throw AppError.editorIsNotReady
+        }
+        var url = url.standardizedFileURL
+        if url.pathExtension == "icloud" {
+            let originalFileName = String(
+                url.lastPathComponent.dropFirst(".".count).dropLast(".icloud".count))
+            url = url.deletingLastPathComponent().appendingPathComponent(originalFileName)
+        }
+        if let existingEditor = try? openEditorForURL(url: url) {
+            return existingEditor
+        }
+        // TODO: Avoid reading the same file twice
+        do {
+            let textEditor = try await createMonacoTextEditorFromURL(url: url)
+            appendAndFocusNewEditor(editor: textEditor, alwaysInNewTab: alwaysInNewTab)
+            return textEditor
+        } catch NSFileProviderError.serverUnreachable {
+            throw NSFileProviderError(.serverUnreachable)
+        } catch {
+            // Otherwise, fallback to using extensions
+            let editor = try createExtensionEditorFromURL(url: url)
+            appendAndFocusNewEditor(editor: editor, alwaysInNewTab: alwaysInNewTab)
+            return editor
+        }
+    }
+    
+    @MainActor
+    private func createMonacoTextEditorFromURL(url: URL) async throws -> TextEditorInstance {
+        // TODO: A more efficient way to determine whether file is supported
+        let contentData: Data? = try await workSpaceStorage.contents(
+            at: url
+        )
+
+        guard let contentData, let (content, encoding) = try? decodeStringData(data: contentData)
+        else {
+            throw AppError.unknownFileFormat
+        }
+        let attributes = try? await workSpaceStorage.attributesOfItem(at: url)
+        let modificationDate = attributes?[.modificationDate] as? Date
+        
+        if (url.pathExtension.lowercased() == "ipynb") {
+            let instance = await Task { @MainActor in
+                return NBPreviewEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate)
+            }.value
+            return instance
+        } else  if (url.pathExtension.lowercased() == "py") {
+            return WithRunnerEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate, editorView: AnyView(monacoInstance), fileDidChange: { [weak self] state, content in
+                if state == .modified, let content, let self {
+                    Task {
+                        try await self.monacoInstance.setValueForModel(url: url, value: content)
+                    }
+                }
+            })
+        }
+        
+        
+
+        return TextEditorInstance(
+            editor: monacoInstance,
+            url: url,
+            content: content,
+            encoding: encoding,
+            lastSavedDate: modificationDate,
+            // TODO: Update using updateUIView?
+            fileDidChange: { [weak self] state, content in
+                if state == .modified, let content, let self {
+                    Task {
+                        try await self.monacoInstance.setValueForModel(url: url, value: content)
+                    }
+                }
+            }
+        )
+
+    }
+    #endif
 
     @MainActor
     @discardableResult

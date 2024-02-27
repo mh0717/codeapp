@@ -120,10 +120,12 @@ public class RSCodeTheme: EditorTheme {
             return keywordColor
         case .variableBuiltin:
             return variableBuildinColor
-        case .variable:
-            return variableColor
+//        case .variable:
+//            return variableColor
         case .constructor:
             return functionColor
+        default:
+            return textColor
         }
     }
 

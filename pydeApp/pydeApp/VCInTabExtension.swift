@@ -57,7 +57,14 @@ class VCInTabEditorInstance: EditorInstanceWithURL {
 
     init(url: URL, title: String, vc: UIViewController) {
         self.vc = vc
-        super.init(view: AnyView(VCInTab(vc: vc).id(UUID())), title: title, url: url)
+        let stitle = (vc.title != nil && !vc.title!.isEmpty) ? vc.title! : title
+        super.init(view: AnyView(VCInTab(vc: vc).id(UUID())), title: stitle, url: url)
+        
+        _ = self.vc.observe(\UIViewController.title) { [weak self] vc, _ in
+            if let self {
+                self.title = (vc.title != nil && !vc.title!.isEmpty) ? vc.title! : title
+            }
+        }
     }
 }
 
@@ -67,29 +74,30 @@ class VCInTabExtension: CodeAppExtension {
     
 
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
-        let toolbarItem = ToolbarItem(
-            extenionID: EXTENSION_ID,
-            icon: "xmark",
-            onClick: {
-                Task {
-                    if let editor = app.activeEditor {
-                        await app.closeEditor(editor: editor)
-                    }
-                }
-            },
-            shortCut: .init("w", modifiers: [.command]),
-            panelToFocusOnTap: nil,
-            shouldDisplay: {
-                guard let editor = app.activeEditor else { return false }
-                
-                if editor is VCInTabEditorInstance ||
-                    editor is CVInTabEditorInstance {
-                    return true
-                }
-                return false
-            }
-        )
-        contribution.toolBar.registerItem(item: toolbarItem)
+//        let toolbarItem = ToolbarItem(
+//            extenionID: EXTENSION_ID,
+//            icon: "xmark",
+//            onClick: {
+//                Task {
+//                    if let editor = app.activeEditor {
+//                        await app.closeEditor(editor: editor)
+//                    }
+//                }
+//            },
+//            shortCut: .init("w", modifiers: [.command]),
+//            panelToFocusOnTap: nil,
+//            shouldDisplay: {
+//                return true
+////                guard let editor = app.activeEditor else { return false }
+////                
+////                if editor is VCInTabEditorInstance ||
+////                    editor is CVInTabEditorInstance {
+////                    return true
+////                }
+////                return false
+//            }
+//        )
+//        contribution.toolBar.registerItem(item: toolbarItem)
         
         wmessager.listenForMessage(withIdentifier: ConstantManager.PYDE_OPEN_COMMAND_MSG) { args in
             guard let args = args as? [String], !args.isEmpty else {return}
@@ -117,8 +125,9 @@ class VCInTabExtension: CodeAppExtension {
                 }
                 return
             }
+            VCInTabExtension._showCount += 1
             let url = URL(string: "showvc://vc\(VCInTabExtension._showCount)")!
-            let instance = VCInTabEditorInstance(url: url, title: "window", vc: vc)
+            let instance = VCInTabEditorInstance(url: url, title: "#win\(VCInTabExtension._showCount)", vc: vc)
             instance.keepAlive = keepAlive
             DispatchQueue.main.async {
                 app.popupManager.showSheet = false

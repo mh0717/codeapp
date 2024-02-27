@@ -60,7 +60,6 @@ struct EditorTab: View {
                     .foregroundColor(
                         Color.init(id: isActive ? "tab.activeForeground" : "tab.inactiveForeground")
                     )
-                    .frame(maxWidth: 200)
                 }.keyboardShortcut(EditorTab.keyForInt(int: index + 1), modifiers: .command)
 
                 Group {
@@ -84,7 +83,7 @@ struct EditorTab: View {
                             }
                     } else if isActive {
                         Image(systemName: "xmark")
-                            .font(.system(size: 8))
+                            .font(.system(size: 11))
                             .foregroundColor(
                                 Color.init(
                                     id: isActive ? "tab.activeForeground" : "tab.inactiveForeground"
@@ -92,7 +91,6 @@ struct EditorTab: View {
                             )
                             .frame(width: 26, height: 26)
                     }
-
                 }
                 .contentShape(RoundedRectangle(cornerRadius: 2, style: .continuous))
                 .hoverEffect(.highlight)

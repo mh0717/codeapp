@@ -340,6 +340,11 @@
               Event: "focus",
             });
           });
+          inputareaElement?.addEventListener("blur", (event) => {
+            window.webkit.messageHandlers.toggleMessageHandler.postMessage({
+              Event: "blur",
+            });
+          });
         });
 
         instance.onDidChangeCursorPosition((event) => {

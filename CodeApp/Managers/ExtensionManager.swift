@@ -18,24 +18,26 @@ class ExtensionManager: ObservableObject {
     private var extensions: [CodeAppExtension] = [
         MonacoEditorAuxiliaryExtension(),
         MonacoIntellisenseExtension(),
-        RemoteExecutionExtension(),
-        PYLocalExecutionExtension(),
+//        RemoteExecutionExtension(),
         TerminalExtension(),
         ImageViewerExtension(),
         VideoViewerExtension(),
         PDFViewerExtension(),
         MarkdownViewerExtension(),
         SourceControlAuxiliaryExtension(),
-        SimpleWebPreviewExtension(),
-        RemoteAuxiliaryExtension(),
+//        SimpleWebPreviewExtension(),
+//        RemoteAuxiliaryExtension(),
+        
+        VCInTabExtension(),
+        MonacoCompletionExtension(),
+        PYLocalExecutionExtension(),
         
         OutlineExtension(),
         JupyterExtension(),
         PYRunnerExtension(),
         TMConsoleExtension(),
         
-        VCInTabExtension(),
-        MonacoCompletionExtension(),
+        
     ]
     #else
     private var extensions: [CodeAppExtension] = [

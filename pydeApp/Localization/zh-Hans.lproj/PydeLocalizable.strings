@@ -1,0 +1,11 @@
+/* 
+  PydeLocalizable.strings
+  Code
+
+  Created by Huima on 2024/2/1.
+  
+*/
+
+"Open with QuickLook" = "快速查看";
+"Open with Monaco Editor" = "使用Monaco编译器打开";
+"Open with PYEditor" = "使用PYEditor编辑器打开";

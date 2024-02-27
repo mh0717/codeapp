@@ -13,6 +13,8 @@ import pyde
 
 
 
+
+
 class WithRunnerEditorInstance: TextEditorInstance {
     
     let runner = PYRunnerWidget()
@@ -88,7 +90,33 @@ struct EditorAndRunnerWidget: View {
         )
         .onReceive(
             NotificationCenter.default.publisher(
+                for: Notification.Name("editor.focus"),
+                object: nil),
+            perform: { notification in
+                guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
+                    sceneIdentifier == App.sceneIdentifier
+                else { return }
+                if shouldHidePanel {
+                    showsPanel = false
+                }
+            }
+        )
+        .onReceive(
+            NotificationCenter.default.publisher(
                 for: Notification.Name("rseditor.unfocus"),
+                object: nil),
+            perform: { notification in
+                guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
+                    sceneIdentifier == App.sceneIdentifier
+                else { return }
+                if shouldHidePanel && !showsPanel {
+                    showsPanel = true
+                }
+            }
+        )
+        .onReceive(
+            NotificationCenter.default.publisher(
+                for: Notification.Name("editor.unfocus"),
                 object: nil),
             perform: { notification in
                 guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,

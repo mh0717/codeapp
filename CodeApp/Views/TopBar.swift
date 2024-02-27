@@ -58,12 +58,6 @@ struct TopBar: View {
             }
             #endif
             
-            #if PYDEAPP
-            ScrollView(.horizontal, showsIndicators: false) {
-                EditorTabs()
-            }
-            Spacer()
-            #else
             if horizontalSizeClass == .compact {
                 CompactEditorTabs()
                     .frame(maxWidth: .infinity)
@@ -74,8 +68,20 @@ struct TopBar: View {
                             EditorTabs()
                             Spacer()
                         }
-                        CompactEditorTabs()
-                            .frame(maxWidth: .infinity)
+                        HStack {
+                            CompactEditorTabs()
+                                .frame(maxWidth: .infinity)
+                            Image(systemName: "xmark").font(.system(size: 17))
+                                .foregroundColor(Color.init("T1")).padding(5)
+                                .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                                .hoverEffect(.highlight)
+                                .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+                                .onTapGesture {
+                                    if let editor = App.activeEditor {
+                                        App.closeEditor(editor: editor)
+                                    }
+                                }
+                        }
                     }
                 } else {
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -84,7 +90,6 @@ struct TopBar: View {
                     Spacer()
                 }
             }
-            #endif
 
             ForEach(toolBarManager.items) { item in
                 if item.shouldDisplay() {
@@ -93,32 +98,43 @@ struct TopBar: View {
             }
             
             #if PYDEAPP
-            if App.activeTextEditor != nil {
-                if let editor = App.activeEditor as? PYTextEditorInstance {
-                    if #available(iOS 16, *) {
-                        Image(systemName: "doc.text.magnifyingglass").font(.system(size: 17))
-                            .foregroundColor(Color.init("T1")).padding(5)
-                            .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                            .hoverEffect(.highlight)
-                            .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
-                            .onTapGesture {
-                                editor.editorView.findInteraction?.presentFindNavigator(showingReplace: true)
-                            }
-                    }
-                } else {
-                    Image(systemName: "doc.text.magnifyingglass").font(.system(size: 17))
-                        .foregroundColor(Color.init("T1")).padding(5)
-                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                        .hoverEffect(.highlight)
-                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
-                        .onTapGesture {
-                            App.monacoInstance.executeJavascript(command: "editor.focus()")
-                            App.monacoInstance.executeJavascript(
-                                command: "editor.getAction('actions.find').run()")
-                        }
+//            if App.activeTextEditor != nil {
+//                if let editor = App.activeEditor as? PYTextEditorInstance {
+//                    if #available(iOS 16, *) {
+//                        Image(systemName: "doc.text.magnifyingglass").font(.system(size: 17))
+//                            .foregroundColor(Color.init("T1")).padding(5)
+//                            .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+//                            .hoverEffect(.highlight)
+//                            .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+//                            .onTapGesture {
+//                                editor.editorView.findInteraction?.presentFindNavigator(showingReplace: true)
+//                            }
+//                    }
+//                } else {
+//                    Image(systemName: "doc.text.magnifyingglass").font(.system(size: 17))
+//                        .foregroundColor(Color.init("T1")).padding(5)
+//                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+//                        .hoverEffect(.highlight)
+//                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+//                        .onTapGesture {
+//                            App.monacoInstance.executeJavascript(command: "editor.focus()")
+//                            App.monacoInstance.executeJavascript(
+//                                command: "editor.getAction('actions.find').run()")
+//                        }
+//                }
+//                
+//            }
+            #else
+            Image(systemName: "doc.text.magnifyingglass").font(.system(size: 17))
+                .foregroundColor(Color.init("T1")).padding(5)
+                .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                .hoverEffect(.highlight)
+                .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+                .onTapGesture {
+                    App.monacoInstance.executeJavascript(command: "editor.focus()")
+                    App.monacoInstance.executeJavascript(
+                        command: "editor.getAction('actions.find').run()")
                 }
-                
-            }
             #endif
 
             Menu {

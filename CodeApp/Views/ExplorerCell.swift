@@ -40,6 +40,10 @@ private struct FileCell: View {
     @State var showsDirectoryPicker = false
     @FocusState var focusedField: Field?
     @State var isRenaming: Bool = false
+    
+    #if PYDEAPP
+    @AppStorage("openWithMonoco") var openWithMonoco: Bool = false
+    #endif
 
     init(item: WorkSpaceStorage.FileItemRepresentable) {
         self.item = item
@@ -68,9 +72,22 @@ private struct FileCell: View {
         guard let url = item._url else { return }
         Task {
             do {
+                #if PYDEAPP
+                if openWithMonoco {
+                    _ = try await App.openFileInMonaco(url: url, alwaysInNewTab: true)
+                } else {
+                    _ = try await App.openFile(url: url, alwaysInNewTab: true)
+                }
+                #else
                 _ = try await App.openFile(url: url)
+                #endif
             } catch {
+                #if PYDEAPP
+                let vc = QuickPreviewController(url)
+                NotificationCenter.default.post(name: Notification.Name("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": vc])
+                #else
                 App.notificationManager.showErrorMessage(error.localizedDescription)
+                #endif
             }
         }
     }
@@ -327,6 +344,37 @@ private struct ContextMenu: View {
         Group {
 
             if item.subFolderItems == nil {
+                #if PYDEAPP
+                Button(action: {
+                    if let url = item._url {
+                        App.openFileInMonaco(url: url, alwaysInNewTab: true)
+                    }
+                }) {
+                    Text("Open with Monaco Editor")
+                    Image(systemName: "doc.plaintext")
+                }
+                
+                Button(action: {
+                    if let url = item._url {
+                        App.openFile(url: url, alwaysInNewTab: true)
+                    }
+                }) {
+                    Text("Open with PYEditor")
+                    Image(systemName: "doc.text")
+                }
+                
+                Button {
+                    if let url = item._url {
+                        let vc = QuickPreviewController(url)    
+                        NotificationCenter.default.post(name: Notification.Name("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": vc])
+                    }
+                    
+                } label: {
+                    Text("Open with QuickLook")
+                    Image(systemName: "eye")
+                }
+
+                #else
                 Button(action: {
                     if let url = item._url {
                         App.openFile(url: url, alwaysInNewTab: true)
@@ -335,6 +383,7 @@ private struct ContextMenu: View {
                     Text("Open in Tab")
                     Image(systemName: "doc.plaintext")
                 }
+                #endif
             }
 
             Button(action: {

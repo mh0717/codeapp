@@ -35,7 +35,7 @@ class MonacoCompletionExtension: CodeAppExtension {
 //
 //        }
         
-        func toKind(_ kind: String) -> String {
+        func toKind(_ kind: String) -> Int {
 //            Class
 //            Function
 //            Keyword
@@ -45,20 +45,26 @@ class MonacoCompletionExtension: CodeAppExtension {
 //            Module
             switch kind {
             case "class":
-                return "monaco.languages.CompletionItemKind.Class"
+//                return "monaco.languages.CompletionItemKind.Class"
+                return 5
             case "instance":
-                return "monaco.languages.CompletionItemKind.Reference"
+//                return "monaco.languages.CompletionItemKind.Reference"
+                return 21
             case "keyword":
-                return "monaco.languages.CompletionItemKind.Keyword"
+//                return "monaco.languages.CompletionItemKind.Keyword"
+                return 17
             case "function":
-                return "monaco.languages.CompletionItemKind.Function"
+//                return "monaco.languages.CompletionItemKind.Function"
+                return 1
             case "module":
-                return "monaco.languages.CompletionItemKind.Module"
+//                return "monaco.languages.CompletionItemKind.Module"
+                return 8
             case "statement":
-                return "monaco.languages.CompletionItemKind.Reference"
+//                return "monaco.languages.CompletionItemKind.Reference"
+                return 21
             default:
-                return "monaco.languages.CompletionItemKind.Text"
-                
+//                return "monaco.languages.CompletionItemKind.Text"
+                return 18
             }
         }
         
@@ -81,7 +87,7 @@ class MonacoCompletionExtension: CodeAppExtension {
                     let items = completionResult?.suggestions.enumerated().map({ (index, item) in
                         [
                             "label": item,
-//                            "kind": toKind(completionResult?.suggestionsType[item] ?? ""),
+                            "kind": toKind(completionResult?.suggestionsType[item] ?? ""),
                             "insertText": item,
 //                            "documentation": ""
                         ]
