@@ -61,6 +61,7 @@ struct TopBar: View {
             if horizontalSizeClass == .compact {
                 CompactEditorTabs()
                     .frame(maxWidth: .infinity)
+                
             } else {
                 if #available(iOS 16.0, *) {
                     ViewThatFits(in: .horizontal) {
@@ -71,16 +72,6 @@ struct TopBar: View {
                         HStack {
                             CompactEditorTabs()
                                 .frame(maxWidth: .infinity)
-                            Image(systemName: "xmark").font(.system(size: 17))
-                                .foregroundColor(Color.init("T1")).padding(5)
-                                .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                                .hoverEffect(.highlight)
-                                .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
-                                .onTapGesture {
-                                    if let editor = App.activeEditor {
-                                        App.closeEditor(editor: editor)
-                                    }
-                                }
                         }
                     }
                 } else {
@@ -124,6 +115,70 @@ struct TopBar: View {
 //                }
 //                
 //            }
+            
+            if App.activeTextEditor is DiffTextEditorInstnace {
+                Image(systemName: "doc.text").font(.system(size: 17))
+                    .foregroundColor(Color.init("T1")).padding(5)
+                    .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                    .hoverEffect(.highlight)
+                    .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+                    .onTapGesture {
+                        App.monacoInstance.applyOptions(options: "renderSideBySide: false")
+                    }
+            }
+            
+            if App.editors.count > 0 {
+                Image(systemName: "xmark").font(.system(size: 17))
+                    .foregroundColor(Color.init("T1")).padding(5)
+                    .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                    .hoverEffect(.highlight)
+                    .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+                    .onTapGesture {
+                        if let editor = App.activeEditor {
+                            App.closeEditor(editor: editor)
+                        }
+                    }
+                    .contextMenu {
+                        Button(role: .destructive) {
+                            App.closeAllEditors()
+                        } label: {
+                            Label("Close All", systemImage: "xmark")
+                        }
+                        Button(role: .destructive) {
+                            App.loadFolder(url: getRootDirectory())
+                            DispatchQueue.main.async {
+                                App.showWelcomeMessage()
+                            }
+                        } label: {
+                            Label("Close Workspace", systemImage: "xmark")
+                        }
+                    }
+            }
+            
+            if App.editors.count == 0 {
+                Menu {
+                    Button(role: .destructive) {
+                        App.closeAllEditors()
+                    } label: {
+                        Label("Close All", systemImage: "xmark")
+                    }
+                    Button(role: .destructive) {
+                        App.loadFolder(url: getRootDirectory())
+                        DispatchQueue.main.async {
+                            App.showWelcomeMessage()
+                        }
+                    } label: {
+                        Label("Close Workspace", systemImage: "xmark")
+                    }
+                } label: {
+                    Image(systemName: "xmark").font(.system(size: 17))
+                        .foregroundColor(Color.init("T1")).padding(5)
+                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                        .hoverEffect(.highlight)
+                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+                }
+
+            }
             #else
             Image(systemName: "doc.text.magnifyingglass").font(.system(size: 17))
                 .foregroundColor(Color.init("T1")).padding(5)
@@ -135,7 +190,6 @@ struct TopBar: View {
                     App.monacoInstance.executeJavascript(
                         command: "editor.getAction('actions.find').run()")
                 }
-            #endif
 
             Menu {
                 if App.activeTextEditor is DiffTextEditorInstnace {
@@ -195,7 +249,6 @@ struct TopBar: View {
                         Label("Settings", systemImage: "slider.horizontal.3")
                     }
                 }
-
                 #if DEBUG
                     DebugMenu()
                 #endif
@@ -222,7 +275,7 @@ struct TopBar: View {
                         .environmentObject(App)
                 }
             }
-
+            #endif
         }
     }
 }

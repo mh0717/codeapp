@@ -535,11 +535,11 @@ struct MonacoEditor: UIViewRepresentable {
 
         @objc func handleToolbarChanges(notification: Notification) {
             if let key = notification.userInfo?["enabled"] as? Bool {
-                if key {
-                    injectBarButtons()
-                } else {
-                    control.monacoWebView.addInputAccessoryView(toolbar: UIView.init())
-                }
+//                if key {
+//                    injectBarButtons()
+//                } else {
+//                    control.monacoWebView.addInputAccessoryView(toolbar: UIView.init())
+//                }
             }
         }
 
@@ -549,7 +549,7 @@ struct MonacoEditor: UIViewRepresentable {
             toolbar.view.frame = CGRect(
                 x: 0, y: 0, width: (control.monacoWebView.bounds.width), height: 40)
 
-            control.monacoWebView.addInputAccessoryView(toolbar: toolbar.view)
+//            control.monacoWebView.addInputAccessoryView(toolbar: toolbar.view)
         }
 
         var control: MonacoEditor
@@ -603,11 +603,11 @@ struct MonacoEditor: UIViewRepresentable {
             monacoWebView.isMessageHandlerAdded = true
         }
 
-        if toolBarEnabled {
-            context.coordinator.injectBarButtons()
-        } else {
-            monacoWebView.addInputAccessoryView(toolbar: UIView.init())
-        }
+//        if toolBarEnabled {
+//            context.coordinator.injectBarButtons()
+//        } else {
+//            monacoWebView.addInputAccessoryView(toolbar: UIView.init())
+//        }
 
         NotificationCenter.default.addObserver(
             context.coordinator,

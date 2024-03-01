@@ -396,8 +396,8 @@
             filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/Executor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
             landmarkName = "onStderr(_:)"
             landmarkType = "7">
             <Locations>
@@ -429,6 +429,21 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "211"
                   endingLineNumber = "211"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "57AE0F90-253B-4D4D-9DB0-D7CE91B2AFD0 - 3deb794d615ecf61"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pydeCommon.Executor.onStderr(__C.NSFileHandle) -&gt; ()"
+                  moduleName = "pydeCommon"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/Executor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
                   offsetFromSymbolStart = "88">
                </Location>
             </Locations>
@@ -1649,8 +1664,8 @@
             filePath = "../../modules/pythoncc/pyde/Sources/pyde/editor/TMConsoleView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "handleLine(_:)"
             landmarkType = "7">
             <Locations>
@@ -1684,6 +1699,21 @@
                   endingLineNumber = "102"
                   offsetFromSymbolStart = "52">
                </Location>
+               <Location
+                  uuid = "A4AF1445-8DC2-4C91-82F5-FF01C0F86B74 - 5ab139d5ea31ef59"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pyde.TMConsoleView.handleLine(Swift.String) -&gt; ()"
+                  moduleName = "pyde"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/Sources/pyde/editor/TMConsoleView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "80">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1697,8 +1727,8 @@
             filePath = "../../modules/pythoncc/pyde/Sources/pyde/editor/TMConsoleView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
             landmarkName = "_enter()"
             landmarkType = "7">
             <Locations>
@@ -1732,6 +1762,21 @@
                   endingLineNumber = "268"
                   offsetFromSymbolStart = "152">
                </Location>
+               <Location
+                  uuid = "CD98A7FF-4E0F-41AA-AFFF-0B80651AEC7A - df85f7bf47d4ffd9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pyde.TMConsoleView._enter() -&gt; ()"
+                  moduleName = "pyde"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/Sources/pyde/editor/TMConsoleView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "289"
+                  endingLineNumber = "289"
+                  offsetFromSymbolStart = "108">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1745,8 +1790,8 @@
             filePath = "../../modules/pythoncc/pyde/Sources/pyde/editor/TMConsoleView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "send(source:data:)"
             landmarkType = "7">
             <Locations>
@@ -1795,6 +1840,21 @@
                   endingLineNumber = "159"
                   offsetFromSymbolStart = "400">
                </Location>
+               <Location
+                  uuid = "A73C3E48-F5A8-4565-A0F3-102861BFC6B5 - 50cb27167f1e89bc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pyde.TMConsoleView.send(source: SwiftTerm.TerminalView, data: Swift.ArraySlice&lt;Swift.UInt8&gt;) -&gt; ()"
+                  moduleName = "pyde"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/Sources/pyde/editor/TMConsoleView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "177"
+                  endingLineNumber = "177"
+                  offsetFromSymbolStart = "416">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1808,8 +1868,8 @@
             filePath = "../../modules/pythoncc/pyde/Sources/pyde/editor/TMConsoleView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "handleLine(_:)"
             landmarkType = "7">
             <Locations>
@@ -1843,6 +1903,21 @@
                   endingLineNumber = "118"
                   offsetFromSymbolStart = "380">
                </Location>
+               <Location
+                  uuid = "17B08827-1570-4219-9D98-EF3C1DED2453 - 5ab139d5ea31eecd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pyde.TMConsoleView.handleLine(Swift.String) -&gt; ()"
+                  moduleName = "pyde"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/Sources/pyde/editor/TMConsoleView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "1228">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1856,8 +1931,8 @@
             filePath = "../../modules/pythoncc/pyde/Sources/pyde/editor/TMConsoleView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "_enter()"
             landmarkType = "7">
             <Locations>
@@ -1890,6 +1965,21 @@
                   startingLineNumber = "272"
                   endingLineNumber = "272"
                   offsetFromSymbolStart = "224">
+               </Location>
+               <Location
+                  uuid = "71D5C697-6734-49A5-BA35-A0ECD03092E3 - df85f7bf47d4fff6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pyde.TMConsoleView._enter() -&gt; ()"
+                  moduleName = "pyde"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/Sources/pyde/editor/TMConsoleView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "290"
+                  endingLineNumber = "290"
+                  offsetFromSymbolStart = "480">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3573,99 +3663,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F93E5955-431A-4B66-A4B5-BD58FE2B25ED"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "pydeApp/MonacoCompletionExtension.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "userContentController(_:didReceive:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F93E5955-431A-4B66-A4B5-BD58FE2B25ED - 185b8c6590a928c6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for pydeApp.MonacoCompletionExtension.Coordinator.userContentController(_: __C.WKUserContentController, didReceive: __C.WKScriptMessage) async -&gt; (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.String&gt;)"
-                  moduleName = "pydeApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/MonacoCompletionExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "5668">
-               </Location>
-               <Location
-                  uuid = "F93E5955-431A-4B66-A4B5-BD58FE2B25ED - 429cce8c4f0be8d8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for pydeApp.MonacoCompletionExtension.Coordinator.userContentController(_: __C.WKUserContentController, didReceive: __C.WKScriptMessage) async -&gt; (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.String&gt;)"
-                  moduleName = "pydeApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/MonacoCompletionExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "1220">
-               </Location>
-               <Location
-                  uuid = "F93E5955-431A-4B66-A4B5-BD58FE2B25ED - 185b8c6590a928c6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for pydeApp.MonacoCompletionExtension.Coordinator.userContentController(_: __C.WKUserContentController, didReceive: __C.WKScriptMessage) async -&gt; (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.String&gt;)"
-                  moduleName = "pydeApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/MonacoCompletionExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "5184">
-               </Location>
-               <Location
-                  uuid = "F93E5955-431A-4B66-A4B5-BD58FE2B25ED - 185b8c6590a92c5b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for pydeApp.MonacoCompletionExtension.Coordinator.userContentController(_: __C.WKUserContentController, didReceive: __C.WKScriptMessage) async -&gt; (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.String&gt;)"
-                  moduleName = "pydeApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/MonacoCompletionExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "93"
-                  endingLineNumber = "93"
-                  offsetFromSymbolStart = "5184">
-               </Location>
-               <Location
-                  uuid = "F93E5955-431A-4B66-A4B5-BD58FE2B25ED - 185b8c6590a92c81"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for pydeApp.MonacoCompletionExtension.Coordinator.userContentController(_: __C.WKUserContentController, didReceive: __C.WKScriptMessage) async -&gt; (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.String&gt;)"
-                  moduleName = "pydeApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/MonacoCompletionExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "5184">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "3CF8C8FD-9CE5-4543-A4A5-C7F3E3550840"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -3709,6 +3706,38 @@
             endingLineNumber = "113"
             landmarkName = "showErrorMessage(_:_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8B8DAF24-07A1-4323-ABFC-ACA3FD03BF34"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../modules/pythoncc/pyde/Sources/pyde/editor/TMConsoleView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "send(source:data:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "25B56448-BF8E-4BFD-A9DF-1DE339172AA7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../KeyboardToolbar/Sources/KeyboardToolbar/Views/KeyboardToolButton.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "intrinsicContentSize"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

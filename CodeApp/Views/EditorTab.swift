@@ -82,6 +82,8 @@ struct EditorTab: View {
                                 }
                             }
                     } else if isActive {
+                        #if PYDEAPP
+                        #else
                         Image(systemName: "xmark")
                             .font(.system(size: 11))
                             .foregroundColor(
@@ -90,6 +92,7 @@ struct EditorTab: View {
                                 )
                             )
                             .frame(width: 26, height: 26)
+                        #endif
                     }
                 }
                 .contentShape(RoundedRectangle(cornerRadius: 2, style: .continuous))
