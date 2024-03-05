@@ -804,6 +804,7 @@
 		A3A3DEDD2B85B8C7004A7C39 /* MonacoCompletionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3DEDC2B85B8C7004A7C39 /* MonacoCompletionExtension.swift */; };
 		A3A3DEDF2B8A50A3004A7C39 /* QuickPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3DEDE2B8A50A3004A7C39 /* QuickPreview.swift */; };
 		A3A3DEE02B8C815A004A7C39 /* PydeLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3A3DEE22B8C815A004A7C39 /* PydeLocalizable.strings */; };
+		A3A3DF002B937645004A7C39 /* PYSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3DEFF2B937645004A7C39 /* PYSettingsView.swift */; };
 		A3A87CEE2AF221D1002E3399 /* SourceControlUnsupportedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A0462A2804A70C00182275 /* SourceControlUnsupportedSection.swift */; };
 		A3A87CEF2AF221D1002E3399 /* GitHubSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777EE257B9193008FE7B2 /* GitHubSearchManager.swift */; };
 		A3A87CF02AF221D1002E3399 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7781F257BC5AA008FE7B2 /* MainScene.swift */; };
@@ -2209,6 +2210,7 @@
 		A3A3DEDE2B8A50A3004A7C39 /* QuickPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickPreview.swift; sourceTree = "<group>"; };
 		A3A3DEE12B8C815A004A7C39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PydeLocalizable.strings; sourceTree = "<group>"; };
 		A3A3DEE32B8C8163004A7C39 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/PydeLocalizable.strings"; sourceTree = "<group>"; };
+		A3A3DEFF2B937645004A7C39 /* PYSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSettingsView.swift; sourceTree = "<group>"; };
 		A3A87DB42AF221D1002E3399 /* pydeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pydeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3A87DB52AF221D1002E3399 /* CodeUI copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CodeUI copy-Info.plist"; path = "/Users/huima/PythonSchool/pydeApp/CodeUI copy-Info.plist"; sourceTree = "<absolute>"; };
 		A3A87DB82AF22575002E3399 /* python3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = python3; path = ../../modules/pythoncc/python3; sourceTree = "<group>"; };
@@ -3530,6 +3532,7 @@
 				A3F52F002B0BF16D001F096E /* PYActivityBar.swift */,
 				A3F52F022B0C0467001F096E /* PYCompactSidebar.swift */,
 				A3DDCBA12B25666100EA74E5 /* PYPanel.swift */,
+				A3A3DEFF2B937645004A7C39 /* PYSettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -4459,6 +4462,7 @@
 			files = (
 				A3A87CEE2AF221D1002E3399 /* SourceControlUnsupportedSection.swift in Sources */,
 				A3A87CEF2AF221D1002E3399 /* GitHubSearchManager.swift in Sources */,
+				A3A3DF002B937645004A7C39 /* PYSettingsView.swift in Sources */,
 				A3A87CF02AF221D1002E3399 /* MainScene.swift in Sources */,
 				A3A87CF12AF221D1002E3399 /* RemoteConnectedSection.swift in Sources */,
 				A3A87CF22AF221D1002E3399 /* ActivityBarManager.swift in Sources */,

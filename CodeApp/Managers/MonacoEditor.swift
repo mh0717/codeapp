@@ -24,7 +24,7 @@ struct MonacoEditor: UIViewRepresentable {
     @AppStorage("editorLineNumberEnabled") var editorLineNumberEnabled: Bool = true
     @AppStorage("editorShowKeyboardButtonEnabled") var editorShowKeyboardButtonEnabled: Bool = true
     @AppStorage("editorTabSize") var edtorTabSize: Int = 4
-    @AppStorage("editorRenderWhitespace") var renderWhitespace: Int = 2
+    @AppStorage("editorRenderWhitespace") var renderWhitespace: Int = 0
     @AppStorage("editorLightTheme") var editorLightTheme: String = "Default"
     @AppStorage("editorDarkTheme") var editorDarkTheme: String = "Default"
     @AppStorage("editorWordWrap") var editorWordWrap: String = "off"

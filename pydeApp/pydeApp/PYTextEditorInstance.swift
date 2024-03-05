@@ -115,7 +115,7 @@ struct RunestoneEditor: UIViewRepresentable {
     @AppStorage("editorLineNumberEnabled") var editorLineNumberEnabled: Bool = true
     @AppStorage("editorShowKeyboardButtonEnabled") var editorShowKeyboardButtonEnabled: Bool = true
     @AppStorage("editorTabSize") var edtorTabSize: Int = 4
-    @AppStorage("editorRenderWhitespace") var renderWhitespace: Int = 2
+    @AppStorage("editorRenderWhitespace") var renderWhitespace: Int = 0
     @AppStorage("editorLightTheme") var editorLightTheme: String = "Default"
     @AppStorage("editorDarkTheme") var editorDarkTheme: String = "Default"
     @AppStorage("editorWordWrap") var editorWordWrap: String = "off"
@@ -133,12 +133,17 @@ struct RunestoneEditor: UIViewRepresentable {
     
     let editorView = RSCodeEditorView()
     
+    var text: String? = nil
+    
     func makeCoordinator() -> Coordinator {
         return Coordinator(self, app: self.App)
     }
     
     
     func makeUIView(context: Context) -> RSCodeEditorView {
+        if editorView.text.count == 0, let text {
+            editorView.text = text
+        }
         updateUIView(editorView, context: context)
         return editorView
     }
@@ -146,8 +151,19 @@ struct RunestoneEditor: UIViewRepresentable {
     func updateUIView(_ uiView: RSCodeEditorView, context: Context) {
         editorView.textView.isEditable = !editorReadOnly
         editorView.textView.isLineWrappingEnabled = (editorWordWrap != "off")
+        editorView.textView.lineBreakMode = .byWordWrapping
         editorView.textView.showLineNumbers = editorLineNumberEnabled
         editorView.textView.tabSymbol = String(repeating: " ", count: edtorTabSize)
+        editorView.enableCharactorPair = bracketCompletionEnabled
+        if renderWhitespace == 0 {
+            editorView.textView.showSpaces = false
+            editorView.textView.showTabs = false
+            editorView.textView.showLineBreaks = false
+        } else {
+            editorView.textView.showSpaces = true
+            editorView.textView.showTabs = true
+            editorView.textView.showLineBreaks = true
+        }
         if colorScheme == .dark {
             editorView.applyTheme(codeThemeManager.darkTheme)
         } else {

@@ -23,7 +23,7 @@ struct SettingsView: View {
     @AppStorage("editorTabSize") var edtorTabSize: Int = 4
     @AppStorage("consoleFontSize") var consoleFontSize: Int = 14
     @AppStorage("preferredColorScheme") var preferredColorScheme: Int = 0
-    @AppStorage("editorRenderWhitespace") var renderWhitespace: Int = 2
+    @AppStorage("editorRenderWhitespace") var renderWhitespace: Int = 0
     @AppStorage("editorWordWrap") var editorWordWrap: String = "off"
     @AppStorage("explorer.showHiddenFiles") var showHiddenFiles: Bool = false
     @AppStorage("toolBarEnabled") var toolBarEnabled: Bool = true

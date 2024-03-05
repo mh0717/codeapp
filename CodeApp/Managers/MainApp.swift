@@ -77,6 +77,8 @@ class MainApp: ObservableObject {
     @Published var tagsModel = TagsModel()
     let gitHistoryInstance = GitWebView()
     let gitDiffInstance = GitWebView()
+    
+    @AppStorage("codeEditor") var codeEditor = "PYCode Editor"
     #endif
 
     @Published var editors: [EditorInstance] = []
@@ -312,8 +314,10 @@ class MainApp: ObservableObject {
         extensionManager.activityBarManager.registerItem(item: explorer)
         extensionManager.activityBarManager.registerItem(item: search)
         extensionManager.activityBarManager.registerItem(item: sourceControl)
+        #if PYDEAPP
+        #else
         extensionManager.activityBarManager.registerItem(item: remote)
-
+        #endif
     }
 
     @MainActor
@@ -907,34 +911,37 @@ class MainApp: ObservableObject {
         let modificationDate = attributes?[.modificationDate] as? Date
         
         #if PYDEAPP
-        
-        if (url.pathExtension.lowercased() == "ipynb") {
+        if codeEditor == "PYCode Editor" {
+            
+            
+            if (url.pathExtension.lowercased() == "ipynb") {
+                let instance = await Task { @MainActor in
+                    return NBPreviewEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate)
+                }.value
+                return instance
+            } else  if (url.pathExtension.lowercased() == "py") {
+                let instance = await Task { @MainActor in
+                    return PYTextEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate) { [weak self] state, content in
+                        //                    if state == .modified, let content, let self {
+                        //                        Task {
+                        //                            try await self.monacoInstance.setValueForModel(url: url, value: content)
+                        //                        }
+                        //                    }
+                    }
+                }.value
+                return instance
+            }
+            
             let instance = await Task { @MainActor in
-                return NBPreviewEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate)
-            }.value
-            return instance
-        } else  if (url.pathExtension.lowercased() == "py") {
-            let instance = await Task { @MainActor in
-                return PYTextEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate) { [weak self] state, content in
-//                    if state == .modified, let content, let self {
-//                        Task {
-//                            try await self.monacoInstance.setValueForModel(url: url, value: content)
-//                        }
-//                    }
-                }
+                return PYPlainTextEditorInstance(
+                    url: url,
+                    content: content,
+                    encoding: encoding,
+                    lastSavedDate: modificationDate
+                )
             }.value
             return instance
         }
-        
-        let instance = await Task { @MainActor in
-            return PYPlainTextEditorInstance(
-                url: url,
-                content: content,
-                encoding: encoding,
-                lastSavedDate: modificationDate
-            )
-        }.value
-        return instance
         
         #endif
 
