@@ -83,6 +83,7 @@ struct IAPView: View {
                             }
                             Section(header: Text("信号分解")) {
                                 PkgCell(title: "pyemd")
+                                PkgCell(title: "pywt")
                             }
                             Section(header: Text("其它")) {
                                 PkgCell(title: "pyzmq")
