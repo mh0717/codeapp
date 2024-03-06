@@ -3705,6 +3705,21 @@
                   endingLineNumber = "542"
                   offsetFromSymbolStart = "1408">
                </Location>
+               <Location
+                  uuid = "3CF8C8FD-9CE5-4543-A4A5-C7F3E3550840 - e8fbef00850242d8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in pydeApp.MainApp.reloadCurrentFileWithEncoding(encoding: Swift.String.Encoding) -&gt; ()"
+                  moduleName = "pydeApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/CodeApp/Managers/MainApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "532"
+                  endingLineNumber = "532"
+                  offsetFromSymbolStart = "1408">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -3753,6 +3768,21 @@
                   endingLineNumber = "554"
                   offsetFromSymbolStart = "500">
                </Location>
+               <Location
+                  uuid = "12480611-8CDF-4B8C-8996-B53E4536791D - e8fbef0085024044"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in pydeApp.MainApp.reloadCurrentFileWithEncoding(encoding: Swift.String.Encoding) -&gt; ()"
+                  moduleName = "pydeApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/CodeApp/Managers/MainApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "544"
+                  endingLineNumber = "544"
+                  offsetFromSymbolStart = "500">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -3786,22 +3816,6 @@
             endingLineNumber = "212"
             landmarkName = "send(source:data:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "25B56448-BF8E-4BFD-A9DF-1DE339172AA7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../KeyboardToolbar/Sources/KeyboardToolbar/Views/KeyboardToolButton.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "intrinsicContentSize"
-            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

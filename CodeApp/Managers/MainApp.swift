@@ -911,15 +911,15 @@ class MainApp: ObservableObject {
         let modificationDate = attributes?[.modificationDate] as? Date
         
         #if PYDEAPP
+        if (url.pathExtension.lowercased() == "ipynb") {
+            let instance = await Task { @MainActor in
+                return NBPreviewEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate)
+            }.value
+            return instance
+        }
+        
         if codeEditor == "PYCode Editor" {
-            
-            
-            if (url.pathExtension.lowercased() == "ipynb") {
-                let instance = await Task { @MainActor in
-                    return NBPreviewEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate)
-                }.value
-                return instance
-            } else  if (url.pathExtension.lowercased() == "py") {
+            if (url.pathExtension.lowercased() == "py") {
                 let instance = await Task { @MainActor in
                     return PYTextEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate) { [weak self] state, content in
                         //                    if state == .modified, let content, let self {
@@ -929,6 +929,16 @@ class MainApp: ObservableObject {
                         //                    }
                     }
                 }.value
+                
+                let fileName = url.lastPathComponent
+                let argsName = ".\(fileName).args"
+                let argsUrl = url.deletingLastPathComponent().appendingPathComponent(argsName)
+                if let argsData = try? await workSpaceStorage.contents(at: argsUrl) {
+                    if let args = String(data: argsData, encoding: .utf8) {
+                        instance.runArgs = args
+                    }
+                }
+                
                 return instance
             }
             
@@ -941,6 +951,8 @@ class MainApp: ObservableObject {
                 )
             }.value
             return instance
+        } else {
+            return try await createMonacoTextEditorFromURL(url: url)
         }
         
         #endif
@@ -1069,13 +1081,23 @@ class MainApp: ObservableObject {
             }.value
             return instance
         } else  if (url.pathExtension.lowercased() == "py") {
-            return WithRunnerEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate, editorView: AnyView(monacoInstance), fileDidChange: { [weak self] state, content in
+            let instance = WithRunnerEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate, editorView: AnyView(monacoInstance), fileDidChange: { [weak self] state, content in
                 if state == .modified, let content, let self {
                     Task {
                         try await self.monacoInstance.setValueForModel(url: url, value: content)
                     }
                 }
             })
+            
+            let fileName = url.lastPathComponent
+            let argsName = ".\(fileName).args"
+            let argsUrl = url.deletingLastPathComponent().appendingPathComponent(argsName)
+            if let argsData = try? await workSpaceStorage.contents(at: argsUrl) {
+                if let args = String(data: argsData, encoding: .utf8) {
+                    instance.runArgs = args
+                }
+            }
+            return instance
         }
         
         

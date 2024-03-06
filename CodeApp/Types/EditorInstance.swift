@@ -88,6 +88,7 @@ class TextEditorInstance: EditorInstanceWithURL {
     #if PYDEAPP
     @Published var tags: [CTag] = []
     @Published var selectedRange: NSRange = NSRange(location: 0, length: 0)
+    var runArgs: String = ""
     #endif
 
     @Published var content: String

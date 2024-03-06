@@ -19,8 +19,8 @@ fileprivate var isPythonUIRunning = false
 private let EXTENSION_ID = "PYLOCAL_EXECUTION"
 
 private let LOCAL_EXECUTION_COMMANDS = [
-    "py": ["python3 -u {url}"],
-    "ui.py": ["python3 -u {url}"],
+    "py": ["python3 -u {url} {args}"],
+    "ui.py": ["python3 -u {url} {args}"],
     "ipynb": ["jupyter-nbconvert --execute --allow-errors --stdout --to markdown {url}"],// --allow-errors
 //    "js": ["node {url}"],
 //    "c": ["clang {url}", "wasm a.out"],
@@ -128,9 +128,11 @@ class PYLocalExecutionExtension: CodeAppExtension {
         
         app.saveCurrentFile()
         
+        let args = editor.runArgs.replacingOccurrences(of: "\n", with: " ")
         let sanitizedUrl = editor.url.path.replacingOccurrences(of: " ", with: #"\ "#)
         let commands = LOCAL_EXECUTION_COMMANDS["ui.py"]!.map {
             $0.replacingOccurrences(of: "{url}", with: sanitizedUrl)
+                .replacingOccurrences(of: "{args}", with: args)
         }
         
         guard let config = getRemoteConfig(editor: editor, commands: commands, app: app) else {
@@ -238,10 +240,12 @@ class PYLocalExecutionExtension: CodeAppExtension {
 
         app.saveCurrentFile()
 
+        let args = editor.runArgs.replacingOccurrences(of: "\n", with: " ")
         let sanitizedUrl = editor.url.path.replacingOccurrences(of: " ", with: #"\ "#)
         let parsedCommands = (isPy2 ? commands.map({$0.replacingFirstOccurrence(of: "python3", with: "python2")}) : commands)
         .map {
             $0.replacingOccurrences(of: "{url}", with: sanitizedUrl)
+                .replacingOccurrences(of: "{args}", with: args)
         }
 
         let compilerShowPath = UserDefaults.standard.bool(forKey: "compilerShowPath")

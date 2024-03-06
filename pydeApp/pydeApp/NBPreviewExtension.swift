@@ -168,7 +168,76 @@ struct EditorAndRunnerWidget: View {
                 })
             )
             panelManager.registerPanel(panel: runnerPanel)
+            
+            let paramsPanel = Panel(
+                labelId: "ARGS",
+                mainView: AnyView(
+                    ParamsView()
+                ),
+                toolBarView: AnyView(
+                    HStack(spacing: 12) {
+
+                    Button(
+                        action: {
+                            
+                        },
+                        label: {
+                            Image(systemName: "trash")
+                        }
+                    ).keyboardShortcut("k", modifiers: [.command])
+                        
+                    Button(
+                        action: {
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                        },
+                        label: {
+                            Image(systemName: "keyboard.chevron.compact.down")
+                        }
+                    )
+                })
+            )
+            panelManager.registerPanel(panel: paramsPanel)
         }
+    }
+}
+
+struct ParamsView: View {
+    @EnvironmentObject var App: MainApp
+    @ObservedObject var codeThemeManager = rscodeThemeManager
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
+    @State var lastArgs = ""
+    @FocusState private var isFocused: Bool
+    
+    var body: some View {
+        TextEditor(text: Binding(get: {
+            App.activeTextEditor?.runArgs ?? ""
+        }, set: { value in
+            App.activeTextEditor?.runArgs = value
+        }))
+            .background(Color((colorScheme == .dark ? codeThemeManager.darkTheme : codeThemeManager.lightTheme).backgroundColor)) // To see this
+            .focused($isFocused)
+            .onChange(of: isFocused) { isFocused in
+                guard let editor = App.activeTextEditor else {return}
+                if isFocused {
+                    lastArgs = editor.runArgs
+                    return
+                }
+                if lastArgs == editor.runArgs {return}
+                
+                let fileName = editor.url.lastPathComponent
+                let argsName = ".\(fileName).args"
+                let argsUrl = editor.url.deletingLastPathComponent().appendingPathComponent(argsName)
+                Task {
+                    do {
+                        guard let argsData = editor.runArgs.data(using: .utf8) else {return}
+                        try await App.workSpaceStorage.write(at: argsUrl, content: argsData, atomically: true, overwrite: true)
+                    } catch {
+                        print(error)
+                    }
+                    
+                }
+            }
     }
 }
 
