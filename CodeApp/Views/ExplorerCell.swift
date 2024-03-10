@@ -344,44 +344,43 @@ private struct ContextMenu: View {
         Group {
 
             if item.subFolderItems == nil {
-                #if PYDEAPP
-                Button(action: {
-                    if let url = item._url {
-                        App.openFileInMonaco(url: url, alwaysInNewTab: true)
-                    }
-                }) {
-                    Text("Open with Monaco Editor")
-                    Image(systemName: "doc.plaintext")
-                }
+//                Button(action: {
+//                    if let url = item._url {
+//                        App.openFile(url: url, alwaysInNewTab: true)
+//                    }
+//                }) {
+//                    Text("Open in Tab")
+//                    Image(systemName: "doc.plaintext")
+//                }
                 
-                Button(action: {
-                    if let url = item._url {
-                        App.openFile(url: url, alwaysInNewTab: true)
-                    }
-                }) {
-                    Text("Open with PYEditor")
-                    Image(systemName: "doc.text")
-                }
+                #if PYDEAPP
+//                Button(action: {
+//                    if let url = item._url {
+//                        App.openFileInMonaco(url: url, alwaysInNewTab: true)
+//                    }
+//                }) {
+//                    Text("Open with Monaco Editor")
+//                    Image(systemName: "doc.plaintext")
+//                }
+//
+//                Button(action: {
+//                    if let url = item._url {
+//                        App.openFile(url: url, alwaysInNewTab: true)
+//                    }
+//                }) {
+//                    Text("Open with PYEditor")
+//                    Image(systemName: "doc.text")
+//                }
                 
                 Button {
                     if let url = item._url {
-                        let vc = QuickPreviewController(url)    
+                        let vc = QuickPreviewController(url)
                         NotificationCenter.default.post(name: Notification.Name("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": vc])
                     }
                     
                 } label: {
-                    Text("Open with QuickLook")
+                    Text(localizedString(forKey: "Open with QuickLook"))
                     Image(systemName: "eye")
-                }
-
-                #else
-                Button(action: {
-                    if let url = item._url {
-                        App.openFile(url: url, alwaysInNewTab: true)
-                    }
-                }) {
-                    Text("Open in Tab")
-                    Image(systemName: "doc.plaintext")
                 }
                 #endif
             }
