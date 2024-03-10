@@ -188,16 +188,16 @@ struct PYSettingsView: View {
                             VStack(alignment: .leading, spacing: 0) {
                                 Picker(
                                     selection: $codeEditor,
-                                    label: Text("Editor Selection")
+                                    label: Text(localizedString(forKey:"Editor Selection"))
                                 ) {
                                     ForEach(
                                         editors,
                                         id: \.self
                                     ) { item in
-                                        Text(item)
+                                        Text(localizedString(forKey: item))
                                     }
                                 }
-                                Text("Monaco Editor for hardware keyboard\nPYCode Editor for software keyboard").font(.system(size: 13)).opacity(0.5)
+                                Text(localizedString(forKey:"Monaco Editor is more suitable for hardware keyboard\nPYCode Editor is more suitable for software keyboard")).font(.system(size: 13)).opacity(0.5)
                             }
                             
                         }

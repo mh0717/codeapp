@@ -805,6 +805,9 @@
 		A3A3DEDF2B8A50A3004A7C39 /* QuickPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3DEDE2B8A50A3004A7C39 /* QuickPreview.swift */; };
 		A3A3DEE02B8C815A004A7C39 /* PydeLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3A3DEE22B8C815A004A7C39 /* PydeLocalizable.strings */; };
 		A3A3DF002B937645004A7C39 /* PYSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3DEFF2B937645004A7C39 /* PYSettingsView.swift */; };
+		A3A3DF0D2B99ADA3004A7C39 /* TortoiseGraphics in Frameworks */ = {isa = PBXBuildFile; productRef = A3A3DF0C2B99ADA3004A7C39 /* TortoiseGraphics */; };
+		A3A3DF0E2B99ADA3004A7C39 /* TortoiseGraphics in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A3A3DF0C2B99ADA3004A7C39 /* TortoiseGraphics */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A3A3DF102B9B6E07004A7C39 /* LocalizedUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3DF0F2B9B6E07004A7C39 /* LocalizedUtils.swift */; };
 		A3A87CEE2AF221D1002E3399 /* SourceControlUnsupportedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A0462A2804A70C00182275 /* SourceControlUnsupportedSection.swift */; };
 		A3A87CEF2AF221D1002E3399 /* GitHubSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777EE257B9193008FE7B2 /* GitHubSearchManager.swift */; };
 		A3A87CF02AF221D1002E3399 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7781F257BC5AA008FE7B2 /* MainScene.swift */; };
@@ -1525,6 +1528,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A3A3DF0E2B99ADA3004A7C39 /* TortoiseGraphics in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2211,6 +2215,8 @@
 		A3A3DEE12B8C815A004A7C39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PydeLocalizable.strings; sourceTree = "<group>"; };
 		A3A3DEE32B8C8163004A7C39 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/PydeLocalizable.strings"; sourceTree = "<group>"; };
 		A3A3DEFF2B937645004A7C39 /* PYSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSettingsView.swift; sourceTree = "<group>"; };
+		A3A3DF0B2B99AD82004A7C39 /* TortoiseGraphics */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TortoiseGraphics; path = ../../modules/pythoncc/pyde/TortoiseGraphics; sourceTree = "<group>"; };
+		A3A3DF0F2B9B6E07004A7C39 /* LocalizedUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedUtils.swift; sourceTree = "<group>"; };
 		A3A87DB42AF221D1002E3399 /* pydeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pydeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3A87DB52AF221D1002E3399 /* CodeUI copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CodeUI copy-Info.plist"; path = "/Users/huima/PythonSchool/pydeApp/CodeUI copy-Info.plist"; sourceTree = "<absolute>"; };
 		A3A87DB82AF22575002E3399 /* python3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = python3; path = ../../modules/pythoncc/python3; sourceTree = "<group>"; };
@@ -2314,6 +2320,7 @@
 			files = (
 				A36337192AF2329600085608 /* python3_objc in Frameworks */,
 				A3B0F0B92B29DAA60001D220 /* ios_system in Frameworks */,
+				A3A3DF0D2B99ADA3004A7C39 /* TortoiseGraphics in Frameworks */,
 				A36337162AF2329600085608 /* pydeCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3444,6 +3451,7 @@
 				A3A3DED72B795CB6004A7C39 /* NBPreviewExtension.swift */,
 				A3A3DEDC2B85B8C7004A7C39 /* MonacoCompletionExtension.swift */,
 				A3A3DEDE2B8A50A3004A7C39 /* QuickPreview.swift */,
+				A3A3DF0F2B9B6E07004A7C39 /* LocalizedUtils.swift */,
 			);
 			path = pydeApp;
 			sourceTree = "<group>";
@@ -3505,6 +3513,7 @@
 		A3A87DB72AF22553002E3399 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				A3A3DF0B2B99AD82004A7C39 /* TortoiseGraphics */,
 				A30950AE2B4CF2B90039EA50 /* flet */,
 				A3B0F0B12B29D95F0001D220 /* ios_system */,
 				A3A87DB82AF22575002E3399 /* python3 */,
@@ -3679,6 +3688,7 @@
 				A36337152AF2329600085608 /* pydeCommon */,
 				A36337182AF2329600085608 /* python3_objc */,
 				A3B0F0B82B29DAA60001D220 /* ios_system */,
+				A3A3DF0C2B99ADA3004A7C39 /* TortoiseGraphics */,
 			);
 			productName = pydeUI;
 			productReference = A36337042AF231D200085608 /* pydeUI.appex */;
@@ -4579,6 +4589,7 @@
 				A3A87D532AF221D1002E3399 /* SourceControlIdentityConfiguration.swift in Sources */,
 				A3A87D542AF221D1002E3399 /* SearchContainer.swift in Sources */,
 				A30789752B078C9E001B6129 /* TagsComponent.swift in Sources */,
+				A3A3DF102B9B6E07004A7C39 /* LocalizedUtils.swift in Sources */,
 				A3A87D552AF221D1002E3399 /* String+base64EncodedDecoded.swift in Sources */,
 				A3A87D562AF221D1002E3399 /* FileDisplayName.swift in Sources */,
 				A3A87D572AF221D1002E3399 /* RegularSidebar.swift in Sources */,
@@ -5961,6 +5972,10 @@
 		A364433F2B553A2A00B40880 /* flet */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = flet;
+		};
+		A3A3DF0C2B99ADA3004A7C39 /* TortoiseGraphics */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TortoiseGraphics;
 		};
 		A3A87CE12AF221D1002E3399 /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;

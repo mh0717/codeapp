@@ -116,7 +116,7 @@ class ActionViewController: UITabBarController {
         initRemotePython3Sub()
         
         Thread.detachNewThread {
-            remoteExeCommands(context: self.extensionContext!)
+            remoteExeCommands(context: self.extensionContext!, exit: false)
         }
     }
     
