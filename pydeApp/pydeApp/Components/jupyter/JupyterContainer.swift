@@ -70,10 +70,10 @@ struct JupyterContainer: View {
 //                            .foregroundColor(.blue)
 //                    }
                     
-                    Toggle("Keep Activation", isOn: $jupyterManager.play_ws)
+//                    Toggle(localizedString(forKey: "Keep Activation"), isOn: $jupyterManager.play_ws)
                     
                     
-                    Toggle("Public", isOn: $jupyterManager.public_server)
+                    Toggle(localizedString(forKey: "Public Access"), isOn: $jupyterManager.public_server)
                         .disabled(jupyterManager.running)
                     
                     if jupyterManager.running {
@@ -110,8 +110,8 @@ struct JupyterContainer: View {
                             HStack {
                                 Spacer()
                                 Text(jupyterManager.running
-                                     ? "Stop"
-                                     : "Start")
+                                     ? localizedString(forKey: "Stop Server")
+                                     : localizedString(forKey: "Start Server"))
                                 .lineLimit(1)
                                 .foregroundColor(.white)
                                 .font(.subheadline)
@@ -134,7 +134,7 @@ struct JupyterContainer: View {
                             label: {
                                 HStack {
                                     Spacer()
-                                    Text("Open Notebook")
+                                    Text(localizedString(forKey: "Open Notebook Homepage"))
                                     .lineLimit(1)
                                     .foregroundColor(.white)
                                     .font(.subheadline)
@@ -226,7 +226,8 @@ class JupytterManager: ObservableObject {
         let command = "remote jupyter-notebook"
         
         running = true
-        
+        runnerView.clear()
+        runnerView.terminalView.isUserInteractionEnabled = false
         runnerView.executor?.dispatch(command: command, isInteractive: false, completionHandler: { [self] _ in
             DispatchQueue.main.async { [self] in
                 running = false

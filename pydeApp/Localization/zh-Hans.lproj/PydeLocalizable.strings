@@ -8,4 +8,17 @@
 
 "Open with QuickLook" = "快速查看";
 "Open with Monaco Editor" = "使用Monaco编译器打开";
-"Open with PYEditor" = "使用PYEditor编辑器打开";
+"Open with PYCode Editor" = "使用PYCode编辑器打开";
+
+"Editor Selection" = "编辑器选择";
+"Monaco Editor" = "Monaco编辑器";
+"PYCode Editor" = "PYCode编辑器";
+"Monaco Editor is more suitable for hardware keyboard\nPYCode Editor is more suitable for software keyboard" = "Monaco编辑器: 适用于外接键盘\nPYCode编辑器: 适用于软键盘";
+
+
+"Keep Activation" = "后台保活";
+"Public Access" = "公开访问";
+"Stop Server" = "停止";
+"Start Server" = "启动";
+"Open Notebook Homepage" = "打开Notebook主页";
+
