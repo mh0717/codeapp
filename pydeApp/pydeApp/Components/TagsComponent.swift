@@ -165,7 +165,7 @@ struct OutlineContainer: View {
             List {
                 Section(
                     header:
-                        Text( "Outline")
+                        Text(localizedString(forKey: "Outline"))
                         .foregroundColor(Color(id: "sideBarSectionHeader.foreground"))
                 ) {
                     TagsModelTreeView(tagsModel: App.tagsModel)
@@ -200,76 +200,76 @@ struct OutlineContainer: View {
 //}
 
 
-class OutlineExtension: CodeAppExtension {
-    
-    override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
-        let outline = ActivityBarItem(
-            itemID: "OUTLINE",
-//            iconSystemName: "text.justify",
-            iconSystemName: "shippingbox",
-            title: "Outline",
-            shortcutKey: "o",
-            modifiers: [.command, .shift],
-            view: AnyView(OutlineContainer()),
-//            view: AnyView(PyPiView()),
-//            view: AnyView(PipScreenView()),
-            contextMenuItems: {
-                return [
-                    ContextMenuItem(action: {
-                        NotificationCenter.default.post(name: .init("RenderPipScreen"), object: nil)
-                    }, text: "screen", imageSystemName: "")
-                ]
-            },
-            bubble: {nil},
-            isVisible: { true }
-        )
-        
-        contribution.activityBar.registerItem(item: outline)
-//        
-//        let outline1 = ActivityBarItem(
-//            itemID: "OUTLINE1",
-//            iconSystemName: "text.alignleft",
-//            title: "Outline1",
+//class OutlineExtension: CodeAppExtension {
+//    
+//    override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
+//        let outline = ActivityBarItem(
+//            itemID: "OUTLINE",
+////            iconSystemName: "text.justify",
+//            iconSystemName: "shippingbox",
+//            title: "Outline",
 //            shortcutKey: "o",
 //            modifiers: [.command, .shift],
 //            view: AnyView(OutlineContainer()),
-//            contextMenuItems: nil,
+////            view: AnyView(PyPiView()),
+////            view: AnyView(PipScreenView()),
+//            contextMenuItems: {
+//                return [
+//                    ContextMenuItem(action: {
+//                        NotificationCenter.default.post(name: .init("RenderPipScreen"), object: nil)
+//                    }, text: "screen", imageSystemName: "")
+//                ]
+//            },
 //            bubble: {nil},
 //            isVisible: { true }
 //        )
 //        
-//        contribution.activityBar.registerItem(item: outline1)
+//        contribution.activityBar.registerItem(item: outline)
+////        
+////        let outline1 = ActivityBarItem(
+////            itemID: "OUTLINE1",
+////            iconSystemName: "text.alignleft",
+////            title: "Outline1",
+////            shortcutKey: "o",
+////            modifiers: [.command, .shift],
+////            view: AnyView(OutlineContainer()),
+////            contextMenuItems: nil,
+////            bubble: {nil},
+////            isVisible: { true }
+////        )
+////        
+////        contribution.activityBar.registerItem(item: outline1)
+////        
+////        let outline2 = ActivityBarItem(
+////            itemID: "OUTLINE2",
+////            iconSystemName: "text.alignright",
+////            title: "Outline2",
+////            shortcutKey: "o",
+////            modifiers: [.command, .shift],
+////            view: AnyView(OutlineContainer()),
+////            contextMenuItems: nil,
+////            bubble: {nil},
+////            isVisible: { true }
+////        )
+////        
+////        contribution.activityBar.registerItem(item: outline2)
+////        
+////        let outline3 = ActivityBarItem(
+////            itemID: "OUTLINE3",
+////            iconSystemName: "text.aligncenter",
+////            title: "Outline3",
+////            shortcutKey: "o",
+////            modifiers: [.command, .shift],
+////            view: AnyView(OutlineContainer()),
+////            contextMenuItems: nil,
+////            bubble: {nil},
+////            isVisible: { true }
+////        )
+////        
+////        contribution.activityBar.registerItem(item: outline3)
+//    }
+//    
+//    override func onWorkSpaceStorageChanged(newUrl: URL) {
 //        
-//        let outline2 = ActivityBarItem(
-//            itemID: "OUTLINE2",
-//            iconSystemName: "text.alignright",
-//            title: "Outline2",
-//            shortcutKey: "o",
-//            modifiers: [.command, .shift],
-//            view: AnyView(OutlineContainer()),
-//            contextMenuItems: nil,
-//            bubble: {nil},
-//            isVisible: { true }
-//        )
-//        
-//        contribution.activityBar.registerItem(item: outline2)
-//        
-//        let outline3 = ActivityBarItem(
-//            itemID: "OUTLINE3",
-//            iconSystemName: "text.aligncenter",
-//            title: "Outline3",
-//            shortcutKey: "o",
-//            modifiers: [.command, .shift],
-//            view: AnyView(OutlineContainer()),
-//            contextMenuItems: nil,
-//            bubble: {nil},
-//            isVisible: { true }
-//        )
-//        
-//        contribution.activityBar.registerItem(item: outline3)
-    }
-    
-    override func onWorkSpaceStorageChanged(newUrl: URL) {
-        
-    }
-}
+//    }
+//}

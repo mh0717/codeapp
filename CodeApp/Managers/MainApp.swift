@@ -310,13 +310,57 @@ class MainApp: ObservableObject {
             bubble: { self.workSpaceStorage.remoteConnected ? .text("") : nil },
             isVisible: { true }
         )
-
+        
+        #if PYDEAPP
+        #else
         extensionManager.activityBarManager.registerItem(item: explorer)
         extensionManager.activityBarManager.registerItem(item: search)
         extensionManager.activityBarManager.registerItem(item: sourceControl)
-        #if PYDEAPP
-        #else
         extensionManager.activityBarManager.registerItem(item: remote)
+        #endif
+        
+        #if PYDEAPP
+        let jupyter = ActivityBarItem(
+            itemID: "JUPYTER",
+            iconSystemName: "note",
+            title: "JUPYTER",
+            shortcutKey: "n",
+            modifiers: [.command, .shift],
+            view: AnyView(JupyterContainer(jupyterManager: JupyterExtension.jupyterManager)),
+            contextMenuItems: nil,
+            bubble: {nil},
+            isVisible: { true }
+        )
+        JupyterExtension.jupyterManager.runner.consoleView.resetAndSetNewRootDirectory(url: URL(fileURLWithPath: self.workSpaceStorage.currentDirectory.url))
+        
+        let pip = ActivityBarItem(
+            itemID: "Pip",
+            iconSystemName: "shippingbox",
+            title: "Pip",
+            shortcutKey: "p",
+            modifiers: [.command, .shift],
+            view: AnyView(PyPiView()),
+            bubble: {nil},
+            isVisible: { true }
+        )
+        
+        let outline = ActivityBarItem(
+            itemID: "OUTLINE",
+            iconSystemName: "text.justify",
+            title: "Outline",
+            shortcutKey: "o",
+            modifiers: [.command, .shift],
+            view: AnyView(OutlineContainer()),
+            bubble: {nil},
+            isVisible: { true }
+        )
+        
+        extensionManager.activityBarManager.registerItem(item: explorer)
+        extensionManager.activityBarManager.registerItem(item: outline)
+        extensionManager.activityBarManager.registerItem(item: pip)
+        extensionManager.activityBarManager.registerItem(item: jupyter)
+        extensionManager.activityBarManager.registerItem(item: sourceControl)
+        extensionManager.activityBarManager.registerItem(item: search)
         #endif
     }
 

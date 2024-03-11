@@ -238,26 +238,26 @@ class JupytterManager: ObservableObject {
 
 class JupyterExtension: CodeAppExtension {
     
-    let jupyterManager = JupytterManager()
+    public static let jupyterManager = JupytterManager()
     
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
-        let outline = ActivityBarItem(
-            itemID: "JUPYTER",
-            iconSystemName: "book.pages",
-            title: "JUPYTER",
-            shortcutKey: "n",
-            modifiers: [.command, .shift],
-            view: AnyView(JupyterContainer(jupyterManager: jupyterManager)),
-            contextMenuItems: nil,
-            bubble: {nil},
-            isVisible: { true }
-        )
-        jupyterManager.runner.consoleView.resetAndSetNewRootDirectory(url: URL(fileURLWithPath: app.workSpaceStorage.currentDirectory.url))
-        contribution.activityBar.registerItem(item: outline)
+//        let outline = ActivityBarItem(
+//            itemID: "JUPYTER",
+//            iconSystemName: "note",
+//            title: "JUPYTER",
+//            shortcutKey: "n",
+//            modifiers: [.command, .shift],
+//            view: AnyView(JupyterContainer(jupyterManager: jupyterManager)),
+//            contextMenuItems: nil,
+//            bubble: {nil},
+//            isVisible: { true }
+//        )
+//        jupyterManager.runner.consoleView.resetAndSetNewRootDirectory(url: URL(fileURLWithPath: app.workSpaceStorage.currentDirectory.url))
+//        contribution.activityBar.registerItem(item: outline)
     }
     
     override func onWorkSpaceStorageChanged(newUrl: URL) {
-        jupyterManager.runner.consoleView.executor?.setNewWorkingDirectory(url: newUrl)
+        JupyterExtension.jupyterManager.runner.consoleView.executor?.setNewWorkingDirectory(url: newUrl)
     }
 }
 

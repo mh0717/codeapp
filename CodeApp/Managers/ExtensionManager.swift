@@ -32,7 +32,6 @@ class ExtensionManager: ObservableObject {
         MonacoCompletionExtension(),
         PYLocalExecutionExtension(),
         
-        OutlineExtension(),
         JupyterExtension(),
         PYRunnerExtension(),
         TMConsoleExtension(),

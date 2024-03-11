@@ -88,7 +88,7 @@ struct PipOpButton: View {
                         
                     ))
                     
-                    App.notificationManager.showAsyncNotification(title: "Installing %@", task: {
+                    App.notificationManager.showAsyncNotification(title: localizedString(forKey: "Installing %@"), task: {
                         _ = await withCheckedContinuation { continuation in
                             let cmd = version == nil ? "pip3 install \(package)" : "pip3 install \(package)==\(version!)"
                             runnerWidget.consoleView.feed(text: "\(cmd)\r\n")
@@ -101,39 +101,39 @@ struct PipOpButton: View {
                         let result = pipModelManager.installedPackages.contains(where: {$0.name == package})
 //                        let result = await pipModelManager.installPackage(package)
                         if result {
-                            App.notificationManager.showErrorMessage("Successfully installed %@", package)
+                            App.notificationManager.showErrorMessage(localizedString(forKey: "Successfully installed %@"), package)
                         } else {
-                            App.notificationManager.showErrorMessage("Failed to install %@", package)
+                            App.notificationManager.showErrorMessage(localizedString(forKey: "Failed to install %@"), package)
                         }
                         running = false
                     }, package)
                 case .uninstall:
-                    App.notificationManager.showAsyncNotification(title: "Uninstall \(package)", task: {
+                    App.notificationManager.showAsyncNotification(title: localizedString(forKey: "Uninstalling %@"), task: {
                         let result = await pipModelManager.uninstallPackage(package)
                         if result {
-                            App.notificationManager.showErrorMessage("Successfully uninstalled %@", package)
+                            App.notificationManager.showErrorMessage(localizedString(forKey: "Successfully uninstalled %@"), package)
                         } else {
-                            App.notificationManager.showErrorMessage("Failed to uninstall %@", package)
+                            App.notificationManager.showErrorMessage(localizedString(forKey: "Failed to uninstall %@"), package)
                         }
                         running = false
-                    })
+                    }, package)
                 case .update:
-                    App.notificationManager.showAsyncNotification(title: "Updating %@", task: {
+                    App.notificationManager.showAsyncNotification(title: localizedString(forKey: "Updating %@"), task: {
                         let result = await pipModelManager.updatePackages([package])
                         if result {
-                            App.notificationManager.showErrorMessage("Successfully Updated %@", package)
+                            App.notificationManager.showErrorMessage(localizedString(forKey: "Successfully Updated %@"), package)
                         } else {
-                            App.notificationManager.showErrorMessage("Failed to update %@", package)
+                            App.notificationManager.showErrorMessage(localizedString(forKey: "Failed to update %@"), package)
                         }
                         running = false
                     }, package)
                 case .updateAll:
-                    App.notificationManager.showAsyncNotification(title: "Updating %@", task: {
+                    App.notificationManager.showAsyncNotification(title: localizedString(forKey: "Updating all %@"), task: {
                         let result = await pipModelManager.updatePackages(package.components(separatedBy: ","))
                         if result {
-                            App.notificationManager.showErrorMessage("Successfully Updated %@", package)
+                            App.notificationManager.showErrorMessage(localizedString(forKey: "Successfully updated %@"), package)
                         } else {
-                            App.notificationManager.showErrorMessage("Failed to update %@", package)
+                            App.notificationManager.showErrorMessage(localizedString(forKey: "Failed to update %@"), package)
                         }
                         running = false
                     })
@@ -145,20 +145,20 @@ struct PipOpButton: View {
                 switch op {
                 case .install:
                     running
-                    ? Text("Installing", comment: "删除中")
-                    : Text("Install", comment: "删除")
+                    ? Text(localizedString("Installing...", comment: "删除中"))
+                    : Text(localizedString("Install", comment: "删除"))
                 case .uninstall:
                     running
-                    ? Text("Uninstalling", comment: "删除中")
-                    : Text("Uninstall", comment: "删除")
+                    ? Text(localizedString("Uninstalling...", comment: "删除中"))
+                    : Text(localizedString("Uninstall", comment: "删除"))
                 case .update:
                     running
-                    ? Text("Updating", comment: "更新中")
-                    : Text("Update", comment: "更新")
+                    ? Text(localizedString("Updating...", comment: "更新中"))
+                    : Text(localizedString("Update", comment: "更新"))
                 case .updateAll:
                     running
-                    ? Text("Updating", comment: "更新中")
-                    : Text("Update", comment: "更新")
+                    ? Text(localizedString("Updating all ...", comment: "更新中"))
+                    : Text(localizedString("Update all", comment: "更新"))
                 }
             } icon: {
                 Group {
@@ -225,108 +225,156 @@ public struct PyPiView: View {
     @ObservedObject var pipManager = pipModelManager
     
     public var body: some View {
-        VStack {
-            PYSearchBar(text: $pipManager.queryString)
+        List {
+            Section {
+                PYSearchBar(text: $pipManager.queryString)
+            } header: {
+                Text("Pip")
+            }.listRowSeparator(.hidden).listRowBackground(Color.clear)
+            
             if !pipManager.queryString.isEmpty {
-                List(pipManager.queryPackages, id: \.self, rowContent: { item in
-                    DisclosureGroup {
-                        PyPiPackageView(packageName: item)
-                    } label: {
-                        HStack{
-                            Image(systemName: "shippingbox")
-                            if item.lowercased() == pipManager.queryString.lowercased() {
-                                Text(item).fontWeight(.bold).foregroundColor(.primary)
-                            } else {
-                                Text(item).foregroundColor(.primary)
-                            }
-                        }
-                    }.listRowBackground(Color.clear).listRowSeparator(.hidden)
-                }).listStyle(.sidebar)
-            } else {
-                List {
-                    if !pipManager.updatablePackages.isEmpty {
-                        
-                        Section {
-                            PipOpButton(package: pipManager.updatablePackages.map({$0.name}).joined(separator: ","), op: .updateAll, version: nil)
-                            
-                            ForEach(pipManager.updatablePackages) { pkg in
-                                DisclosureGroup {
-                                    PipShow(package: pkg.name, op: .update)
-                                } label: {
-                                    VStack {
-                                        HStack {
-                                            Image(systemName: "shippingbox")
-                                            Text(pkg.name).foregroundColor(.primary)
-                                            Spacer()
-                                            Text(pkg.version).foregroundColor(.secondary)
-                                        }
-                                    }
+                Section {
+                    ForEach(pipManager.queryPackages, id: \.self, content: { item in
+                        DisclosureGroup {
+                            PyPiPackageView(packageName: item)
+                        } label: {
+                            HStack{
+                                Image(systemName: "shippingbox")
+                                if item.lowercased() == pipManager.queryString.lowercased() {
+                                    Text(item).fontWeight(.bold).foregroundColor(.primary)
+                                } else {
+                                    Text(item).foregroundColor(.primary)
                                 }
                             }
-                        } header: {
-                            HStack {
-                                Text("Update", comment: "Updatable packages")
-                                ZStack {
-                                    Circle().fill(.red).frame(width: 25, height: 25)
-                                    Text("\(pipManager.updatablePackages.count)").foregroundColor(.white).font(.system(size: 15))
-                                }
-                            }
-                        }.listRowSeparator(.hidden).listRowBackground(Color.clear)
-                    }
-                    
-                    Section {
-                        ForEach(pipManager.installedPackages) { pkg in
-                            DisclosureGroup {
-                                PipShow(package: pkg.name, op: .uninstall)
-                            } label: {
-                                VStack {
-                                    HStack {
-                                        Image(systemName: "shippingbox")
-                                        Text(pkg.name).foregroundColor(.primary)
-                                        Spacer()
-                                        Text(pkg.version).foregroundColor(.secondary)
-                                    }
-                                }
-                            }
-                        }
-                    } header: {
-                        Text("Installed packages", comment: "已经安装的库")
-                    }.listRowSeparator(.hidden).listRowBackground(Color.clear)
-                    
-                    Section {
-                        ForEach(pipManager.bundledPackage) { pkg in
-                            DisclosureGroup {
-                                PipShow(package: pkg.name, op: .uninstall)
-                            } label: {
-                                VStack {
-                                    HStack {
-                                        //                                            if Python.shared.fullVersionExclusives.contains(pkg.name) {
-                                        //                                                Image(systemName: "lock\(isLiteVersion.boolValue ? "" : ".open").fill").foregroundColor(isLiteVersion.boolValue ? .red : .green)
-                                        //                                            }
-                                        Image(systemName: "shippingbox")
-                                        Text(pkg.name).foregroundColor(.primary)
-                                        Spacer()
-                                        Text(pkg.version).foregroundColor(.secondary)
-                                    }
-                                    //                                        if Python.shared.fullVersionExclusives.contains(pkg.name) {
-                                    //                                            HStack {
-                                    //                                                Text("pypi.fullversion", comment: "The subtitle of a package that is full version exclusive").foregroundColor(.secondary)
-                                    //                                                Spacer()
-                                    //                                            }
-                                    //                                        }
-                                }
-                            }
-                        }
-                    } header: {
-                        Text("Bunded packages", comment: "内置的库")
-                    }.listRowSeparator(.hidden).listRowBackground(Color.clear)
+                        }.listRowBackground(Color.clear).listRowSeparator(.hidden)
+                    }).listStyle(.sidebar)
+                } header: {
+                    Text(localizedString(forKey: "Search Result"))
                 }
-                .listRowSeparator(.hidden)
-                .listStyle(.sidebar)
-                .listRowSeparator(.hidden)
-                .listRowBackground(Color.clear)
+            } else {
+                
+                
+//                if !pipManager.updatablePackages.isEmpty {
+//                    
+//                    Section {
+//                        PipOpButton(package: pipManager.updatablePackages.map({$0.name}).joined(separator: ","), op: .updateAll, version: nil)
+//                        
+//                        ForEach(pipManager.updatablePackages) { pkg in
+//                            DisclosureGroup {
+//                                PipShow(package: pkg.name, op: .update)
+//                            } label: {
+//                                VStack {
+//                                    HStack {
+//                                        Image(systemName: "shippingbox")
+//                                        Text(pkg.name).foregroundColor(.primary)
+//                                        Spacer()
+//                                        Text(pkg.version).foregroundColor(.secondary)
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    } header: {
+//                        HStack {
+//                            Text(localizedString(forKey:"Update"))
+//                            ZStack {
+//                                Circle().fill(.red).frame(width: 25, height: 25)
+//                                Text("\(pipManager.updatablePackages.count)").foregroundColor(.white).font(.system(size: 15))
+//                            }
+//                        }
+//                    }.listRowSeparator(.hidden).listRowBackground(Color.clear)
+//                }
+                
+                ExpandedSection(
+                    header: Text(localizedString(forKey:"Installed packages"))
+                        .foregroundColor(Color(id: "sideBarSectionHeader.foreground")),
+                    content: ForEach(pipManager.installedPackages) { pkg in
+                        DisclosureGroup {
+                            PipShow(package: pkg.name, op: .uninstall)
+                        } label: {
+                            VStack {
+                                HStack {
+                                    Image(systemName: "shippingbox")
+                                    Text(pkg.name).foregroundColor(.primary)
+                                    Spacer()
+                                    Text(pkg.version).foregroundColor(.secondary)
+                                }
+                            }
+                        }
+                    }
+                ).listRowSeparator(.hidden).listRowBackground(Color.clear)
+                
+                ExpandedSection(
+                    header: Text(localizedString(forKey: "Bunded packages"))
+                        .foregroundColor(Color(id: "sideBarSectionHeader.foreground")),
+                    content: ForEach(pipManager.bundledPackage) { pkg in
+                        DisclosureGroup {
+                            PipShow(package: pkg.name, op: .uninstall)
+                        } label: {
+                            VStack {
+                                HStack {
+                                    Image(systemName: "shippingbox")
+                                    Text(pkg.name).foregroundColor(.primary)
+                                    Spacer()
+                                    Text(pkg.version).foregroundColor(.secondary)
+                                }
+                            }
+                        }
+                    }
+                ).listRowSeparator(.hidden).listRowBackground(Color.clear)
+                
+//                Section {
+//                    ForEach(pipManager.installedPackages) { pkg in
+//                        DisclosureGroup {
+//                            PipShow(package: pkg.name, op: .uninstall)
+//                        } label: {
+//                            VStack {
+//                                HStack {
+//                                    Image(systemName: "shippingbox")
+//                                    Text(pkg.name).foregroundColor(.primary)
+//                                    Spacer()
+//                                    Text(pkg.version).foregroundColor(.secondary)
+//                                }
+//                            }
+//                        }
+//                    }
+//                } header: {
+//                    Text(localizedString(forKey:"Installed packages"))
+//                }.listRowSeparator(.hidden).listRowBackground(Color.clear)
+                
+//                Section {
+//                    ForEach(pipManager.bundledPackage) { pkg in
+//                        DisclosureGroup {
+//                            PipShow(package: pkg.name, op: .uninstall)
+//                        } label: {
+//                            VStack {
+//                                HStack {
+//                                    //                                            if Python.shared.fullVersionExclusives.contains(pkg.name) {
+//                                    //                                                Image(systemName: "lock\(isLiteVersion.boolValue ? "" : ".open").fill").foregroundColor(isLiteVersion.boolValue ? .red : .green)
+//                                    //                                            }
+//                                    Image(systemName: "shippingbox")
+//                                    Text(pkg.name).foregroundColor(.primary)
+//                                    Spacer()
+//                                    Text(pkg.version).foregroundColor(.secondary)
+//                                }
+//                                //                                        if Python.shared.fullVersionExclusives.contains(pkg.name) {
+//                                //                                            HStack {
+//                                //                                                Text("pypi.fullversion", comment: "The subtitle of a package that is full version exclusive").foregroundColor(.secondary)
+//                                //                                                Spacer()
+//                                //                                            }
+//                                //                                        }
+//                            }
+//                        }
+//                    }
+//                } header: {
+//                    Text(localizedString(forKey: "Bunded packages"))
+//                }.listRowSeparator(.hidden).listRowBackground(Color.clear)
+                
             }
         }
+        .listRowSeparator(.hidden)
+        .listStyle(.sidebar)
+        .listRowSeparator(.hidden)
+        .listRowBackground(Color.clear)
         .onAppear {
             Task {
                 await pipManager.fetchInstalledPackages()
@@ -348,7 +396,7 @@ struct PYSearchBar: View {
             .foregroundColor(.secondary)
             .padding(.horizontal, -20)
             
-            TextField(NSLocalizedString("search", comment: "搜索占位符"), text: $text)
+            TextField(localizedString(forKey: "Search"), text: $text)
             .autocapitalization(.none)
             .disableAutocorrection(true)
             
@@ -360,11 +408,11 @@ struct PYSearchBar: View {
             }
             
         }
-            .padding(7)
+            .padding(.vertical, 7)
             .padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 5))
             .background(Color(.secondarySystemFill))
             .cornerRadius(8)
-            .padding(.horizontal, 10)
+//            .padding(.horizontal, 10)
     }
 }
 

@@ -201,21 +201,6 @@ struct ExplorerContainer: View {
 //                            }.id(commit)
 //                        }
                         
-//                        Section(header: Text("Outline")) {
-//                            OutlineGroup(App.tagsModel.tags , children: \.subTags) { tag in
-//                                HStack() {
-//                                    tag.isGroup
-//                                    ? Image(systemName: "folder")
-//                                    : Image(systemName: "42.circle")
-//                                    Text("\(tag.name): \(tag.kind)")
-//                                        .font(.subheadline)
-//                                        .foregroundColor(Color.init(id: "list.inactiveSelectionForeground"))
-//                                }
-//                                .frame(minHeight: 16)
-//                                .id(tag)
-//                            }
-//                            
-//                        }
                         
                     }
                     .listStyle(SidebarListStyle())

@@ -22,3 +22,29 @@
 "Start Server" = "启动";
 "Open Notebook Homepage" = "打开Notebook主页";
 
+"Outline" = "大纲";
+
+"Search" = "搜索";
+"Search Result" = "搜索结果";
+"Update" = "更新";
+"Installed packages" = "已安装的库";
+"Bunded packages" = "打包好的库";
+"Installing %@" = "正在安装 %@";
+"Successfully installed %@" = "已成功安装 %@";
+"Failed to install %@" = "安装失败 %@";
+"Uninstalling %@" = "正在卸载 %@";
+"Successfully uninstalled %@" = "已成功卸载 %@";
+"Failed to uninstall %@" = "卸载失败 %@";
+"Updating %@" = "正在更新 %@";
+"Successfully Updated %@" = "已成功更新 %@";
+"Failed to update %@" = "更新失败 %@";
+"Updating all %@" = "正在更新全部 %@";
+"Successfully updated %@" = "已成功更新 %@";
+"Failed to update %@" = "更新失败 %@";
+"Installing..." = "安装中...";
+"Install" = "安装";
+"Uninstalling..." = "卸载中...";
+"Uninstall" = "卸载";
+"Updating..." = "更新中...";
+"Updating all ..." = "正在更新全部...";
+"Update all" = "更新全部";
