@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A3A87CE02AF221D1002E3399"
-               BuildableName = "pydeApp.app"
-               BlueprintName = "pydeApp"
+               BuildableName = "iPyDE.app"
+               BlueprintName = "iPyDE"
                ReferencedContainer = "container:Code.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,8 +44,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A3A87CE02AF221D1002E3399"
-            BuildableName = "pydeApp.app"
-            BlueprintName = "pydeApp"
+            BuildableName = "iPyDE.app"
+            BlueprintName = "iPyDE"
             ReferencedContainer = "container:Code.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -65,8 +65,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A3A87CE02AF221D1002E3399"
-            BuildableName = "pydeApp.app"
-            BlueprintName = "pydeApp"
+            BuildableName = "iPyDE.app"
+            BlueprintName = "iPyDE"
             ReferencedContainer = "container:Code.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

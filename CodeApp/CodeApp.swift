@@ -14,6 +14,10 @@ import ios_system
 @main
 struct CodeApp: App {
     @StateObject var themeManager = ThemeManager()
+    
+    #if PYDEAPP
+    @StateObject var iapManager = IapManager.instance
+    #endif
 
     func versionNumberIncreased() -> Bool {
         if let lastReadVersion = UserDefaults.standard.string(forKey: "changelog.lastread") {
@@ -359,6 +363,9 @@ struct CodeApp: App {
                 .ignoresSafeArea(.container, edges: .bottom)
                 .preferredColorScheme(themeManager.colorSchemePreference)
                 .environmentObject(themeManager)
+            #if PYDEAPP
+                .environmentObject(iapManager)
+            #endif
         }
     }
 }

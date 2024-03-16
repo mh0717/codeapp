@@ -154,6 +154,7 @@ private struct MainView: View {
     
     #if PYDEAPP
     @EnvironmentObject var popupManager: PopupManager
+    @EnvironmentObject var iapManager: IapManager
     #endif
 
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -279,9 +280,9 @@ private struct MainView: View {
             let appVersion =
                 Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0"
 
-            if changeLogLastReadVersion != appVersion {
-                stateManager.showsChangeLog.toggle()
-            }
+//            if changeLogLastReadVersion != appVersion {
+//                stateManager.showsChangeLog.toggle()
+//            }
 
             changeLogLastReadVersion = appVersion
         }
@@ -317,6 +318,22 @@ private struct MainView: View {
         .popover(isPresented: $popupManager.showOutside, content: {
             popupManager.outsideContent
         })
+        .fullScreenCover(isPresented: $iapManager.showIap) {
+            IAPView()
+        }
+//        .sheet(
+//            isPresented: $App.showIAP) {
+//                    IAPView()
+//                }
+//        .fullScreenCover(
+//            isPresented: Binding(
+//                get: {
+//                    return /*!App.stateManager.showsChangeLog && !App.isPurchased && !App.isTrialing && */App.showIAP
+//                }, set: {value in
+//                    App.showIAP = value
+//                })) {
+//                    IAPView()
+//                }
         #endif
     }
 }

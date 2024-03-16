@@ -7,7 +7,7 @@
 
 import UIKit
 import ios_system
-import python3_objc
+import python3Objc
 import pydeCommon
 
 fileprivate let USING_MULTI_INTERPRETERS = true

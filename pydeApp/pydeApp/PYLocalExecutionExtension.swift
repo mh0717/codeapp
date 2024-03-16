@@ -9,7 +9,7 @@ import Foundation
 import pydeCommon
 import SwiftUI
 import UIKit
-import python3_objc
+import python3Objc
 import ios_system
 import QuickLook
 import Dynamic

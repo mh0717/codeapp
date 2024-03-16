@@ -472,24 +472,24 @@ struct SourceControlContainer: View {
                     .listRowBackground(Color.clear)
                 }
 #if PYDEAPP
-                DisclosureGroup(
-                    isExpanded: $isGitHistoryExpanded,
-                    content: {
-                        App.gitHistoryInstance
-                            .frame(minHeight: max(250, min(gitHeight, geometry.size.height * 0.5)))
-                    },
-                    label: {
-                        Text("Git History")
-                            .font(.headline)
-                            .gesture(
-                                DragGesture()
-                                    .onChanged { value in
-                                        let proposedNewHeight = gitHeight - value.translation.height
-                                        gitHeight = max(250, min(proposedNewHeight, geometry.size.height * 0.5))
-                                    }
-                            )
-                    }
-                )
+//                DisclosureGroup(
+//                    isExpanded: $isGitHistoryExpanded,
+//                    content: {
+//                        App.gitHistoryInstance
+//                            .frame(minHeight: max(250, min(gitHeight, geometry.size.height * 0.5)))
+//                    },
+//                    label: {
+//                        Text("Git History")
+//                            .font(.headline)
+//                            .gesture(
+//                                DragGesture()
+//                                    .onChanged { value in
+//                                        let proposedNewHeight = gitHeight - value.translation.height
+//                                        gitHeight = max(250, min(proposedNewHeight, geometry.size.height * 0.5))
+//                                    }
+//                            )
+//                    }
+//                )
 #endif
             }
             .environment(\.defaultMinListRowHeight, 10)

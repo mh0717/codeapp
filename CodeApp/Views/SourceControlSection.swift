@@ -127,7 +127,7 @@ private struct MainSection: View {
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
             }
-            .frame(minHeight: 25)
+            .frame(minHeight: 45)
             .padding(.horizontal, 4)
             .background(Color.init(id: "input.background"))
             .cornerRadius(15)

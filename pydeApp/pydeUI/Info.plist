@@ -7,8 +7,6 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>NSExtensionActivationRule</key>
-			<string>TRUEPREDICATE</string>
-			<key>NSExtensionActivationRule1</key>
 			<string>SUBQUERY (
             extensionItems,
             $extensionItem,
@@ -20,6 +18,8 @@
             )
             ).@count == 1
             ).@count == 1</string>
+			<key>NSExtensionActivationRule12</key>
+			<string>TRUEPREDICATE</string>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>
 		<string>MainInterface</string>

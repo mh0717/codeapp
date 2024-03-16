@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import python3_objc
+import python3Objc
 import pydeCommon
 import ios_system
 import UIKit

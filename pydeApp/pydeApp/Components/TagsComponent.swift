@@ -33,6 +33,16 @@ class TagsModel: ObservableObject {
                 currentEditor = editor as? TextEditorInstance
                 self.expansionStates = [:]
                 self.tags = currentEditor?.tags ?? []
+                
+                if let currentEditor, currentEditor.tags.isEmpty {
+                    Task {
+                        if let tags = await requestCTagsService(currentEditor.url.path, content: currentEditor.content) {
+                            DispatchQueue.main.async { [weak currentEditor] in
+                                currentEditor?.tags = tags
+                            }
+                        }
+                    }
+                }
             })
             .filter({$0 is TextEditorInstance})
             .map({$0 as! TextEditorInstance})

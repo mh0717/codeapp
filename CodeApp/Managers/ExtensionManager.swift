@@ -35,7 +35,7 @@ class ExtensionManager: ObservableObject {
         JupyterExtension(),
         PYRunnerExtension(),
         TMConsoleExtension(),
-        
+        IAPExtension(),
         
     ]
     #else

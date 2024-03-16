@@ -6,4 +6,16 @@
   
 */
 
+"PYCode Welcome Message" =
+"# PYCode
+##### **v1.0.0 (March 2024)**
+#### Start
+[New file](https://ipyde.com/code/newfile)
+[Open file](https://ipyde.com/code/openfile)
+[Open folder](https://ipyde.com/code/openfolder)
+
+#### Help
+[Email](mailto:ipyde@163.com)
+";
+
 "Open with QuickLook" = "QuickLook";

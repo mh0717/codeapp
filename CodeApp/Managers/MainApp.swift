@@ -366,6 +366,31 @@ class MainApp: ObservableObject {
 
     @MainActor
     func showWelcomeMessage() {
+        #if PYDEAPP
+        let instnace = EditorInstance(
+            view: AnyView(
+                PYWelcomeView(
+                    onCreateNewFile: {
+                        self.stateManager.showsNewFileSheet.toggle()
+                    },
+                    onSelectFolderAsWorkspaceStorage: { url in
+                        self.loadFolder(url: url, resetEditors: true)
+                    },
+                    onSelectFolder: {
+                        self.stateManager.showsDirectoryPicker.toggle()
+                    },
+                    onSelectFile: {
+                        self.stateManager.showsFilePicker.toggle()
+                    },
+                    onNavigateToCloneSection: {
+                        // TODO: Modify SceneStorage?
+                    }
+                )
+
+            ), title: NSLocalizedString("Welcome", comment: ""))
+
+        appendAndFocusNewEditor(editor: instnace, alwaysInNewTab: true)
+        #else
         let instnace = EditorInstance(
             view: AnyView(
                 WelcomeView(
@@ -389,6 +414,7 @@ class MainApp: ObservableObject {
             ), title: NSLocalizedString("Welcome", comment: ""))
 
         appendAndFocusNewEditor(editor: instnace, alwaysInNewTab: true)
+        #endif
     }
 
     func updateView() {

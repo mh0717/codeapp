@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 import pydeCommon
-import python3_objc
+import python3Objc
 import CryptoKit
 
 struct JupyterContainer: View {
@@ -227,7 +227,7 @@ class JupytterManager: ObservableObject {
         
         running = true
         runnerView.clear()
-        runnerView.terminalView.isUserInteractionEnabled = false
+//        runnerView.terminalView.isUserInteractionEnabled = false
         runnerView.executor?.dispatch(command: command, isInteractive: false, completionHandler: { [self] _ in
             DispatchQueue.main.async { [self] in
                 running = false

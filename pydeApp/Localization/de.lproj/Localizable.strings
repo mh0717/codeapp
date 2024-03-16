@@ -1,0 +1,566 @@
+/*
+  Localizable.strings
+  Code App
+
+  Created by Ken Chung on 6/12/2020.
+  
+*/
+
+"Welcome Message" =
+"# Code App
+##### **v1.5.1 (October 2023)**
+#### Start
+[Neue Datei](https://thebaselab.com/code/newfile)
+[Datei öffnen](https://thebaselab.com/code/openfile)
+[Ordner öffnen](https://thebaselab.com/code/openfolder)
+
+#### Hilfe
+[Dokumentation](https://code.thebaselab.com)
+[GitHub](https://github.com/thebaselab/codeapp)
+[E-Mail](mailto:support@thebaselab.com)
+[Twitter](https://twitter.com/thebaselab)
+";
+
+"Changelog.message" =
+"
+### 1.5.1 (Oktober 2023)
+- Behebt Probleme mit der FTP-Remote
+– Behebt einen Fehler, bei dem die Registerkarte „Portweiterleitung“ immer im kompakten Bildschirm angezeigt wird
+
+### 1.5.0 (October 2023)
+- Portweiterleitung in SSH Remote
+– Behebt ein Problem, bei dem bestimmte SSH-Remotes nicht authentifiziert werden können
+– Option zum Auflösen des Home-Pfads beim Herstellen einer Verbindung zu einer Fernbedienung
+
+### 1.4.7 (September 2023)
+- Behebt einige Probleme in der SSH-Remote
+
+### 1.4.6 (August 2023)
+- Versionskontrolle
+   - Authentifizierung
+     - SSH-Schlüsselauthentifizierung
+     - Mehrere Anmeldeinformationen
+   - Neue Eigenschaften
+     - Von der Fernbedienung ziehen
+     - Konfliktlösung
+     - Zweige und Tags erstellen/löschen
+     - Tags verschieben
+     - lg2-Befehl
+- Weitere Verbesserungen
+   - Einstellbare Seitenleistenbreite
+   - bits/stdc++.h-Header in Clang
+   – Option zur Verwendung eines Remote-C-Compilers anstelle des lokalen
+   – Behebt einen Fehler, bei dem Schlüsseldateien nicht importiert werden konnten
+   - Unterstützung für den iOS-Sperrmodus
+   
+### v1.4.5 (July 2023)
+- Behandeln Sie iCloud-Dateien ordnungsgemäß
+- Verbesserungen der Benutzeroberfläche
+
+### v1.4.4 (May 2023)
+- Option zum Deaktivieren von Schriftligaturen
+- Privater In-Memory-SSH-Schlüssel
+- andere Verbesserungen
+
+### v1.4.3 (January 2023)
+- Fehlerbehebung
+- Japanische Lokalisierung
+- Community-Vorlagen
+
+### v1.4.1 (December 2022)
+- Fehlerbehebung
+
+### v1.4.0 (December 2022)
+- PDF-Vorschau
+- Allgemeine Leistungs- und Stabilitätsverbesserungents
+- Split-View-Unterstützung
+
+### v1.3.6 (October 2022)
+- Aktualisieren Sie Node.js auf v16.17.0
+- Syntax-Highlighting für Svelte
+- Neue Editorthemen
+- Behandeln Sie Terminalterminierungssignale richtig
+- Unterstützt das Öffnen von Verzeichnissen mit dem Befehl `Code`.
+- Beheben Sie einen Fehler, der verhindert, dass Emmet funktioniert
+### v1.3.5 (September 2022)
+- Verbesserungen der Benutzeroberfläche
+- Unterstützung für das Verschieben von Dateien im Explorer
+- Unterstützung für das Herunterladen von Dateien von Remote-Servern
+- Möglichkeit, verschiedene Fernbedienungen für Git-Push auszuwählen
+### v1.3.4 (June 2022)
+- Terminal support for SFTP
+- Support for Fira Code and custom fonts
+- Korean localization
+- New documentation website
+- General improvements
+### v1.3.3 (May 2022)
+- Bug fixes
+### v1.3.2 (May 2022)
+- Fixes a bug that prevents existing users to access themes
+### v1.3.1 (May 2022)
+- Bug fixes
+- You can now use custom Java entry class name
+- Introducing Code+ - A subscription service that allows us to bring Code to everyone and unlocks all themes. Existing users continue to have full access to the app.
+### v1.3.0 (May 2022)
+- Remote Support (SFTP and FTP)
+- Dynamic Type support
+- Experimental feature: Spell check for text files
+### v1.2.13 (March 2022)
+- Compatibility with iOS 15.4
+- Internationalization support for Node.js
+### v1.2.12 (March 2022)
+- Critical bug fix
+### v1.2.10 (March 2022)
+- Custom keyboard shortcuts
+- Text selection by sliding over line numbers
+- UI improvements
+- Fixes problems where editor sometimes would not load
+- Node.js 16.13.2
+### v1.2.9 (January 2022)
+- Fixes problems where:
+  - certain keys do not work on European keyboard layouts (#237)
+  - `curl` no longer works (#330)
+  - a default argument makes some npm commands crash (#326)
+### v1.2.8 (December 2021)
+- Fixes problems where:
+  - ssh-keygen causes terminal to stall (#314)
+  - editor sometimes show a blank screen
+- Adds syntax highlighting for Terraform (#319)
+### v1.2.7 (December 2021)
+- General improvements
+### v1.2.6 (September 2021)
+- Compatibility with the latest iOS version
+- Other improvements
+### v1.2.5 (July 2021)
+- Terminal
+  - Fixed some problems regarding clang / clang++
+### v1.2.4 (June 2021)
+- Editor
+  - Fixed a problem where mouse / trackpad selection no longer works
+  - Updated to TypeScript definition to 4.2.4
+- Interface
+  - New compact side-bar design for iPhone
+  - Ability to reorder editor tabs
+  - Improved readability for Xcode Theme
+  - Ability to duplicate files or folders in context menu
+- Performance
+  - Enhanced performance when opening SMB drives from Files App
+- Git
+  - Improved compatability with various repositories remotes
+  - In-line Diff indicators
+  - Experimental Git CLI tool
+- Terminal
+  - Autocompletion for file path
+  - Open code in editor with `code <file>`
+- Runtime
+  - Clang (Run C program with `clang main.c` and `./a.out`)
+  - Clang++ (Run C++ program with `clang++ main.cpp` and `./a.out`)
+  - PHP (Run PHP program with `php` and host a web-server with `php -S localhost:<port>`)
+
+---
+
+### v1.2.3 (April 2021)
+- Editor
+  - 6 Additional Color Themes
+  - Read-only mode
+  - Built-in types for Node.js
+  - Support for @types definitions
+- Explorer
+  - Multi-file searching
+- Python Runtime
+  - Built-in Matplotlib, Pandas
+- Other
+  - UI State Restoration
+  - Localisation for German
+  - Bug fixes and other improvements
+
+---
+
+### v1.2.1 (March 2021)
+- Node.js runtime
+  - Run Javascript offline
+  - Install npm modules
+  - Install Javascript commands globally (tsc, prettier etc.)
+  - New terminal commands: npm, npx, node
+- Python 3.9.2 runtime
+  - Run Python offline
+  - Install modules with pip
+  - Install Python commands globally
+  - New terminal commands: pip, python, python3
+- Editor
+  - `Problems` tab
+  - New Markdown style
+  - Syntax highlighting for Vue
+  - Smooth Scrolling option for devices with high refresh rate
+- Terminal
+  - Now supports light colour scheme
+- File explorer
+  - Reduced row height
+- Bug fixes
+
+---
+
+### v1.1.9 (February 2021)
+- Language
+  - Faster execution
+- Bug fixes
+
+---
+
+### v1.1.8 (February 2021)
+- Text Editor
+  - Migration to TextMate grammar (More advanced syntax highlighting)
+  - Support for more languages (Groovy, HLSL, Log, Makefile, Shaderlab, Fortran, Matlab)
+  - Fixed a bug where the editor sometimes does not to pointer clicks
+  - New keyboard toolbar
+- Version Control
+  - Improved performance and reliability
+  - Staging changes
+  - Switching branch
+  - Detached head mode
+  - Revert changes
+- Language
+  - Support for Groovy
+- Built-in Terminal
+  - Support for SSH
+  - Bug fixes
+- Explorer
+  - Folding states for directories are now perserved when the sidebar is toogled off
+  - Ability to expand folder by tapping on the folder name
+- Other
+  - Width of the sidebar is reduced
+  - Theme is now temporaily removed to support the new syntax highlighting system
+  - JSON Intellisense is temporaily disabled
+
+---
+
+### v1.1.7 (January 2021)
+- Text Editor
+  - Changes are now written to disk when you run your code or dismiss the keyboard
+  - Fixed a problem where virtual keyboard sometimes does not show up
+- Version Control
+  - Ability to clone private repositories
+  - Ability to push, pull and sync from remotes
+  - Fixed a problem where cloned repository is not properly named
+- Built-in Terminal
+  - 70+ Linux commands (ls, cd, nslookup etc.)
+  - Bash-like user primitives such as piping, history and completion
+  - Press tab to show all available commands
+- Explorer
+  - Files and directories are now sorted alphabetically
+  - Files or directories starting with a dot are now hidden by default
+  - Ability to select items with a Two-Finger pan gesture
+- Other improvements
+  - You can now open files with Code App from Files app or other Apps directly
+  - You can now hold the app icon from Home Screen to reveal recent documents
+  - Fixed a typo
+";
+
+"Send us an email" = "Senden Sie uns eine E-Mail";
+"Open an issue on GitHub" = "Öffnen Sie einen Issue auf GitHub";
+"Clear console" = "Konsole löschen";
+"Kill Process" = "Prozess beenden";
+"Sync" = "Sync";
+"Synchronize Changes" = "Änderungen synchronisieren";
+"You don't have any open editor." = "Sie haben keinen offenen Editor.";
+"This will pull remote changes down to your local repository and then push local commits to the upstream branch. Conflicts will be merged and overriden by the local copy." = "Dadurch werden Remote-Änderungen in Ihr lokales Repository übertragen und lokale Commits an den Upstream-Zweig weitergeleitet. Konflikte werden von der lokalen Kopie zusammengeführt und überschrieben.";
+"User Name" = "Benutzername";
+"Show hidden files" = "Versteckte Dateien anzeigen";
+"Erase" = "Löschen";
+"This will erase all user settings, including author identity and credentials." = "Dadurch werden alle Benutzereinstellungen gelöscht, einschließlich der Autorenidentität und der Anmeldeinformationen.";
+"Erase all settings" = "Alle Einstellungen löschen";
+"Release Notes" = "Versionshinweise";
+
+"New File" = "Neue Datei";
+"Open File" = "Datei öffnen";
+"Open Editors" = "Editor öffnen";
+"EXPLORER" = "EXPLORER";
+"Explorer" = "Explorer";
+"SEARCH" = "SUCHEN";
+"Search" = "Suche";
+"Results" = "Ergebnisse";
+"Search Text" = "Suchtext";
+"Search File" = "Datei suchen";
+"Quick add" = "Schnell hinzufügen";
+"Custom" = "Benutzerdefiniert";
+"Where" = "Woher";
+"Current Folder" = "Aktueller Ordner";
+"Add File" = "Datei hinzufügen";
+"INPUT" = "INPUT";
+"PROBLEMS" = "PROBLEME";
+"OUTPUT" = "OUTPUT";
+"Options" = "Optionen";
+"Close All" = "Alles schliessen";
+"Close Workspace" = "Arbeitsbereich schliessen";
+"Preview in Safari" = "Vorschau in Safari";
+"Mini Map" = "Minikarte";
+"Line Numbers" = "Zeilennummern";
+"OTHERS" = "ANDERE";
+"Tab Size" = "Tab Grösse";
+
+"Settings" = "Einstellungen";
+"General" = "Allgemein";
+"Editor" = "Editor";
+"Compiler" = "Compiler";
+"Accent" = "Akzent";
+"Font Size" = "Schriftgröße";
+"Editor Font Size" = "Schriftgröße des Editors";
+"Terminal Font Size" = "Terminal-Schriftgröße";
+"Bracket Completion" = "Klammervervollständigung";
+"Theme" = "Theme";
+"Rate Code App" = "Code App bewerten";
+"About" = "Über uns";
+"Version" = "Version";
+
+"Done" = "Fertig";
+
+"Recent" = "vor Kurzem";
+"Show in Files App" = "In Dateien anzeigen";
+"Copy Relative Path" = "Relativen Pfad kopieren";
+"Delete" = "Löschen";
+"Color Scheme" = "Farbschema";
+"Dark Theme" = "Dark Theme";
+"Dark Themes" = "Dark Themes";
+"Light Theme" = "Light Theme";
+"Light Themes" = "Light Themes";
+"Text Wrap" = "Textumbruch";
+"Render Whitespace" = "Leerzeichen machen";
+
+"Share" = "Teilen";
+"Rename" = "Umbenennen";
+"Assign as workspace folder" = "Als Arbeitsbereichsordner zuweisen";
+"Select for compare" = "Zum Vergleich auswählen";
+"Compare with selected" = "Vergleiche mit ausgewählten";
+"Version Control" = "Versionskontrolle";
+"Author Identity" = "Author Identität";
+"Authentication" = "Authentifizierung";
+"Name" = "Name";
+"Email address" = "E-Mail-Adresse";
+"Save" = "Speichern";
+"Close Editor" = "Editor schliessen";
+"Zoom in" = "Vergrössern";
+"Zoom out" = "Verkleinern";
+"Show Explorer" = "Zeige Explorer";
+"Show Search" = "Zeige Suche";
+"Show Source Control" = "Zeige Source Control";
+"User Settings" = "Benutzereinstellungen";
+"Show Panel" = "Zeige Panel";
+"Hide Panel" = "Verstecke Panel";
+"Run Code" = "Code ausführen";
+"New Folder" = "Neuer Ordner";
+
+"The folder currently opened doesn't have a git repository." = "Der aktuell geöffnete Ordner hat kein Git-Repository.";
+"Example: https://github.com/thebaselab/codeapp.git" = "Beispiel: https://github.com/thebaselab/codeapp.git";
+"Initialize Repository" = "Repository initialisieren";
+"Clone Repository" = "Repository klonen";
+"TERMINAL" = "TERMINAL";
+"Keyboard Toolbar (Effective in next launch)" = "Tastaturleiste (wirksam beim nächsten Start)";
+"Always Open In New Tab" = "Immer in neuem Tab öffnen";
+"Changes" = "Änderungen";
+"Message (⌘Enter to commit)" = "Nachricht (⌘Enter zum committen)";
+"Staged Changes" = "Inszenierte Änderungen";
+"No changes are made in the working directory." = "Im Arbeitsverzeichnis werden keine Änderungen vorgenommen";
+"Git checkout: Uncommitted Changes" = "Git checkout: Uncommitted Changes";
+"Uncommited changes will be lost. Do you wish to proceed?" = "Nicht festgeschriebene Änderungen gehen verloren. Möchten Sie fortfahren?";
+"No changes are made in this file" = "In dieser Datei werden keine Änderungen vorgenommen";
+
+"Smooth Scrolling" = "flüssiges Scrollen";
+"Stage All Changes" = "Stage All Changes";
+"Push" = "Push";
+"Fetch" = "Fetch";
+
+"Welcome" = "Willkommen";
+"Licenses" = "Lizenzen";
+"Version" = "Ausführung";
+"Code App by thebaselab" = "Code App von thebaselab";
+"Themes" = "Themen";
+"Read-only Mode" = "schreibgeschützter Modus";
+"Show Welcome Page" = "Begrüßungsseite anzeigen";
+"UI State Restoration" = "Wiederherstellung des UI-Status";
+"Open in Tab" = "Öffnen Sie in Tab";
+"Show Command in Terminal" = "Befehl im Terminal anzeigen";
+"Duplicate" = "Duplikat";
+"Console Font Size" = "Konsolen-Schriftgröße";
+
+"Custom Keyboard Shortcuts" = "Benutzerdefinierte Tastaturkürzel";
+
+"Remotes" = "Remotes";
+"You don't have any saved remote." = "Sie haben keine gespeicherten Remote.";
+"New remote" = "Neuer remote";
+"Protocol" = "Protokoll";
+"Address" = "Adresse";
+"Port" = "Port";
+"Username" = "Benutzername";
+"Password" = "Passwort";
+"Use key authentication" = "Verwendet Schlüsselauthentifizierung";
+"Remember address" = "Adresse speichern";
+"Connect" = "Verbinden";
+"Disconnect" = "Trennen";
+"Current Remote" = "Aktueller remote";
+"Remember credentials" = "Anmeldeinformationen speichern";
+"Key passphrase" = "Schlüssel-Passphrase";
+"Show public key" = "öffentlichen Schlüssel anzeigen";
+
+"Expermimental Features" = "Experimentelle Funktionen";
+"Enable spell check in text files" = "Rechtschreibprüfung in Textdateien aktivieren";
+"Spell checking on content changed" = "Rechtschreibprüfung bei Inhaltänderung";
+
+"common.configure" = "";
+"common.open_folder" = "Ordner öffnen";
+"common.compare" = "Vergleichen";
+"common.overwrite" = "Überschreiben";
+"common.save" = "Speichern";
+"common.dont_save" = "Nicht speichern";
+"common.cancel" = "Abbrechen";
+"common.revert" = "Rückgängig machen";
+"common.delete" = "Löschen";
+"common.reset" = "Zurücksetzen";
+"common.done" = "Fertig";
+"common.import" = "Importieren";
+"common.add" = "Hinzufügen";
+"common.create" = "Erstellen";
+"common.remove" = "Entfernen";
+
+"notification.source" = "Quelle: %@";
+
+"subscription.codeplus" = "Code+";
+"subscription.title %@" = "12 Monate für %@";
+"subscription.message" = "Machen Sie Code für alle verfügbar und schalten Sie alle Themen frei. Der Code bleibt Open Source und vorhandene Funktionen bleiben ohne Abonnement verfügbar.";
+"subscription.payment.description %@ %@" = "Beginnend am %@, Ihre Mitgliedschaft wird automatisch um %@ pro Jahr aktualisiert, bis Sie sie abbestellen.";
+"subscription.payment.disallowed" = "Ihre Geräte-Konfiguration erlaubt keine Zahlungen.";
+"subscription.join" = "Code+ beitreten";
+"terms_of_use" = "Nutzungsbedingungen";
+"code.and.privacy" = "Datenschutz-Bestimmungen";
+"credentials.note" = "Anmeldedaten werden in der Secure Enclave auf Ihrem Gerät gespeichert. Wir haben keinen Zugriff darauf.";
+"settings.editor.font" = "Editor-Schriftart";
+"settings.editor.font.reset" = "Standard";
+"settings.editor.font.ligatures" = "Schrift Ligaturen";
+"settings.editor.font.show_all_fonts" = "Alle Schriftarten anzeigen";
+"panels.no_panel_selected" = "Kein Panel ausgewählt";
+"sidebar.no_section_selected" = "Kein Abschnitt ausgewählt";
+
+"errors.script_already_running" = "Ein Skript wird bereits ausgeführt. Beenden Sie es, bevor Sie ein anderes ausführen.";
+"errors.fs.not_implemented" = "Diese Funktion ist noch nicht implementiert.";
+"errors.fs.scheme_not_registered" = "Das Dateisystem-Schema ist nicht registriert.";
+"errors.fs.invalid_host" = "Ungültiger Hostname.";
+"errors.fs.unspported_encoding" = "Nicht unterstützte Zeichenkodierung.";
+"errors.fs.unknown" = "Unbekannter Fehler.";
+"errors.fs.connection_failure" = "Verbindungsfehler.";
+"errors.fs.authentication_failure" = "Authentifizierungsfehler.";
+"errors.fs.attempting_to_copy_parent_to_child" = "Versuch, ein Verzeichnis in sich selbst zu kopieren.";
+"errors.fs.attempting_to_copy_oneself" = "Sie versuchen, sich selbst zu kopieren.";
+"errors.fs.already_connecting_to_a_host" = "Es wird bereits eine Verbindung zu einem Host hergestellt.";
+"errors.source_control.authentication_failed" = "Authentifizierung fehlgeschlagen: Möglicherweise müssen Sie Ihre Git-Anmeldeinformationen konfigurieren.";
+"errors.source_control.clone_authentication_failed" = "Authentifizierung fehlgeschlagen: Entweder ist die Repository-URL falsch oder Sie müssen Ihre Git-Anmeldeinformationen konfigurieren.";
+"errors.source_control.no_staged_changes" = "Es gibt keine inszenierten Änderungen.";
+"errors.source_control.empty_commit_message" = "Commit-Nachricht darf nicht leer sein";
+"errors.source_control.invalid_url" = "ungültige URL";
+"errors.unknown_file_format" = "Unbekanntes Dateiformat.";
+"errors.editor_does_not_exist" = "Der Editor existiert nicht.";
+"errors.editor_is_not_ready" = "Der Editor ist nicht bereit.";
+"errors.failed_to_save_file.encoding.failed" = "Fehler beim Speichern der Datei. Die Zeichenkodierung ist möglicherweise nicht unterstützt.";
+"errors.file_modified_by_another_process" = "Die Datei wurde von einem anderen Prozess geändert.";
+"errors.failed_to_import_key" = "Fehler beim Importieren des Schlüssels.";
+"errors.port_forward.service_unavailable" = "Dienst nicht verfügbar";
+"errors.port_forward.invalid_address" = "Ungültige Adresse";
+"errors.port_forward.address_already_in_use" = "Errno 48: Adresse wird bereits verwendet";
+
+"file.copy" = "Kopieren nach..";
+"file.download" = "Herunterladen auf..";
+"file.confirm_save %@" = "Möchten Sie die Änderungen an %@ speichern?";
+"file.confirm_delete %@" = "Möchten Sie %@ wirklich löschen?";
+"file.reopen_with_encoding" = "Mit Zeichenkodierung erneut öffnen";
+"file.download_now" = "Jetzt herunterladen";
+
+"actions.new_window" = "Neues Fenster";
+
+"remote.connecting" = "Verbindung zum Host herstellen";
+"remote.connected" = "Erfolgreich verbunden";
+"remote.ssh_key_not_found" = "SSH-Schlüssel nicht in Documents/.ssh/id_rsa gefunden. Generieren Sie eine, indem Sie ssh-keygen im Terminal ausführen.";
+"remote.reload_key" = "Schlüssel neu laden";
+
+"source_control.title" = "Quellcodeverwaltung";
+"source_control.username" = "Benutzername";
+"source_control.password_based_authentication" = "Authentifizierung mit Passwort";
+"source_control.ssh_authentication" = "SSH-Authentifizierung";
+"source_control.private_key_content" = "Inhalt des privaten Schlüssels";
+"source_control.editing_ssh_private_key" = "Bearbeiten des SSH-Privatschlüssels";
+"source_control.pat" = "persönliches Zugangstoken";
+"source_control.pat_or_password" = "persönliches Zugangstoken oder Passwort";
+"source_control.ssh_key_reset_confirmation" = "Möchten Sie den SSH-Schlüssel wirklich zurücksetzen?";
+"source_control.url_specific_credentials" = "URL-spezifische Anmeldeinformationen";
+"source_control.add_new_credentials" = "Neue Anmeldeinformationen hinzufügen";
+"source_control.git_authentication" = "Git-Authentifizierung";
+"source_control.repository_initialized" = "Repository initialisiert";
+"source_control.commit_succeeded" = "Commit erfolgreich";
+"source_control.uploading_objects" = "Hochladen von Objekten";
+"source_control.pushing_to_remote" = "Pushen zu remote";
+"source_control.push_succeeded" = "Push erfolgreich";
+"source_control.fetching_from_origin" = "Vom Ursprung abrufen";
+"source_control.fetch_succeeded" = "Abruf erfolgreich";
+"source_control.clone_succeeded" = "Klonen war erfolgreich";
+"source_control.cloning_into" = "Klonen in %@";
+"source_control.error" = "Klonfehler: %@";
+"source_control.revert_succeeded" = "Zurücksetzen erfolgreich";
+"source_control.remote_credentials" = "Remote-Anmeldeinformationen";
+"source_control.credentials.note" = "In vielen Fällen müssen Sie zur Authentifizierung ein persönliches Zugriffstoken anstelle eines Kennworts verwenden. Um mehr darüber zu erfahren:";
+"source_control.confirm_revert %@" = "Möchten Sie %@ wirklich zurücksetzen?";
+"source_control.retrieving_changes" = "Änderungen abrufen";
+"source_control.community_templates" = "Community-Vorlagen";
+"source_control.community_templates.description" = "Community-Vorlagen sind Repositories auf GitHub mit dem Tag #codeapp-template. Sie können dies im Einstellungsmenü deaktivieren.";
+"source_control.clone" = "Klonen";
+"source_control.pull" = "Pull";
+"source_control.pulling_from_remote" = "Vom Remote-Server abrufen";
+"source_control.pull_succeeded" = "Pull erfolgreich";
+"source_control.checkout.select_branch_or_tag" = "Wählen Sie einen Branch oder Tag aus";
+"source_control.public_key" = "Öffentlicher Schlüssel";
+"source_control.editing_public_key" = "Bearbeiten des öffentlichen Schlüssels";
+"source_control.key_content" = "Schlüsselinhalt";
+"source_control.private_key" = "Privater Schlüssel";
+"source_control.passphrase_optional" = "Passphrase (optional)";
+"source_control.hostname" = "Hostname";
+"source_control.credentials" = "Anmeldeinformationen";
+"source_control.new_credentials" = "Neue Anmeldeinformationen";
+"source_control.hostname_based_credentials" = "Hostname-basierte Anmeldeinformationen";
+"source_control.add_key_based_credentials" = "Schlüsselbasierte Anmeldeinformationen hinzufügen";
+"source_control.add_password_based_credentials" = "Passwortbasierte Anmeldeinformationen hinzufügen";
+"source_control.create_branch" = "Branch erstellen";
+"source_control.branch_name" = "Branch-Name";
+"source_control.branch" = "Branch";
+"source_control.confirm_delete_branch %@" = "Möchten Sie den Branch %@ wirklich löschen?";
+"source_control.branch_deleted" = "Branch %@ gelöscht";
+"source_control.tag" = "Tag";
+"source_control.create_tag" = "Tag erstellen";
+"source_control.tag_name" = "Tag-Name";
+"source_control.annotation_optional" = "Annotation (optional)";
+"source_control.tag_created" = "Tag %@ erstellt";
+"source_control.confirm_delete_tag" = "Möchten Sie den Tag %@ wirklich löschen?";
+"source_control.tag_deleted" = "Tag %@ gelöscht";
+"source_control.pushing_tag_to_remote" = "Tag %@ zu %@ pushen";
+"source_control.push" = "Push";
+"source_control.commit" = "Commit";
+"source_control.message_command_enter_to_commit" = "Nachricht (⌘Enter zum committen)";
+
+"panel.problems.no_problems_detected" = "keine Probleme im Arbeitsbereich erkannt.";
+"panel.execution.press_play_to_execute_code" = "Drücken Sie die Wiedergabetaste, um den Code auszuführen. Die Programmeingabe muss vor der Ausführung ausgefüllt werden.";
+"panel.execution.program_input" = "Programmeingabe..";
+"panel.execution.input" = "Eingabe";
+"panel.execution.output" = "Ausgabe";
+"panel.execution.split_view" = "Split View";
+"panel.execution.title" = "Ausführung";
+
+"local.execution.title" = "Lokale Ausführung";
+
+"remote.setup_remote_server" = "Dokumentation zur Fernzugriffsfunktion";
+"remote.private_key_content" = "Inhalt des privaten Schlüssels";
+"remote.setup_note" = "Um Schlüsselpaare zu generieren, führen Sie ssh-keygen im Terminal aus. Lassen Sie die Passphrase leer, falls keine vorhanden ist.";
+"remote.import_from_file" = "Importieren aus Datei";
+"remote.port_forward.new_port_forward" = "Neue Portweiterleitung";
+"remote.port_forward.local_port_or_address" = "Lokaler Port oder Adresse";
+"remote.port_forward.remote_port_or_address" = "Remote-Port oder Adresse";
+"remote.port_forward.port_forwarding" = "Portweiterleitung";
+"remote.port_forward.configure_description" = "Um eine Portweiterleitung zu konfigurieren, geben Sie die lokale und die Remote-Adresse ein. Wenn Sie eine Adresse eingeben, wird der Port 22 verwendet.";
+"remote.port_forward.address_example" = "z.B. 6000 oder 127.0.0.1:6000";
+"remote.settings.ssh_remote" = "SSH Remote";
+"remote.settings.resolve_home_path" = "Pfad auflösen";
+

@@ -752,8 +752,6 @@
 		9FE3E2AD298A16A300F63DD0 /* NMSSH.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942E321128093CA600233441 /* NMSSH.xcframework */; };
 		A30789752B078C9E001B6129 /* TagsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30789742B078C9E001B6129 /* TagsComponent.swift */; };
 		A30789782B094741001B6129 /* TagsIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30789772B094741001B6129 /* TagsIndicator.swift */; };
-		A33A5FD32B0EF92100CB7CE1 /* python3_site in Frameworks */ = {isa = PBXBuildFile; productRef = A33A5FD22B0EF92100CB7CE1 /* python3_site */; settings = {ATTRIBUTES = (Required, ); }; };
-		A33A5FD42B0EF92100CB7CE1 /* python3_site in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A33A5FD22B0EF92100CB7CE1 /* python3_site */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A33A5FE72B10B98800CB7CE1 /* PyPiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE12B10B98800CB7CE1 /* PyPiView.swift */; };
 		A33A5FE82B10B98800CB7CE1 /* PipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE22B10B98800CB7CE1 /* PipManager.swift */; };
 		A33A5FEB2B10B98800CB7CE1 /* PyPiPackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE52B10B98800CB7CE1 /* PyPiPackageView.swift */; };
@@ -762,21 +760,17 @@
 		A36336D42AF226BA00085608 /* pyde in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A36336D62AF226BA00085608 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D52AF226BA00085608 /* pydeCommon */; };
 		A36336D72AF226BA00085608 /* pydeCommon in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D52AF226BA00085608 /* pydeCommon */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		A36336D92AF226BA00085608 /* python3_objc in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D82AF226BA00085608 /* python3_objc */; };
-		A36336DA2AF226BA00085608 /* python3_objc in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D82AF226BA00085608 /* python3_objc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A36336E82AF22B3200085608 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
 		A36336EB2AF22B3200085608 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A36336EA2AF22B3200085608 /* Media.xcassets */; };
 		A36336ED2AF22B3200085608 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */; };
 		A36336EF2AF22B3200085608 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A36336EE2AF22B3200085608 /* Action.js */; };
 		A36336F32AF22B3200085608 /* pydeRemote.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A36336E62AF22B3200085608 /* pydeRemote.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A36336F82AF22C1500085608 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A36336F72AF22C1500085608 /* pydeCommon */; };
-		A36336FC2AF22C1500085608 /* python3_objc in Frameworks */ = {isa = PBXBuildFile; productRef = A36336FB2AF22C1500085608 /* python3_objc */; };
 		A36337082AF231D200085608 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A36337072AF231D200085608 /* Media.xcassets */; };
 		A363370A2AF231D200085608 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337092AF231D200085608 /* ActionViewController.swift */; };
 		A363370D2AF231D200085608 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A363370B2AF231D200085608 /* MainInterface.storyboard */; };
 		A36337112AF231D200085608 /* pydeUI.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A36337042AF231D200085608 /* pydeUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A36337162AF2329600085608 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A36337152AF2329600085608 /* pydeCommon */; };
-		A36337192AF2329600085608 /* python3_objc in Frameworks */ = {isa = PBXBuildFile; productRef = A36337182AF2329600085608 /* python3_objc */; };
 		A36337222AF237AA00085608 /* PopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337212AF237AA00085608 /* PopupManager.swift */; };
 		A36337262AF2520D00085608 /* TMConsoleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337252AF2520D00085608 /* TMConsoleExtension.swift */; };
 		A36337282AF2955600085608 /* PYLocalExecutionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337272AF2955600085608 /* PYLocalExecutionExtension.swift */; };
@@ -788,7 +782,6 @@
 		A364431B2B4EFB8C00B40880 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A364431A2B4EFB8C00B40880 /* PreviewViewController.swift */; };
 		A364431D2B4EFB8C00B40880 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A364431C2B4EFB8C00B40880 /* PreviewProvider.swift */; };
 		A36443202B4EFB8C00B40880 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A364431E2B4EFB8C00B40880 /* MainInterface.storyboard */; };
-		A36443242B4EFB8C00B40880 /* FletPreview.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A36443172B4EFB8B00B40880 /* FletPreview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A364432A2B4EFCD700B40880 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A36443292B4EFCD700B40880 /* ios_system */; };
 		A364432E2B4EFCDE00B40880 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A364432D2B4EFCDE00B40880 /* pydeCommon */; };
 		A36443312B4EFCE500B40880 /* python3_objc in Frameworks */ = {isa = PBXBuildFile; productRef = A36443302B4EFCE500B40880 /* python3_objc */; };
@@ -806,9 +799,9 @@
 		A3A3DEE02B8C815A004A7C39 /* PydeLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3A3DEE22B8C815A004A7C39 /* PydeLocalizable.strings */; };
 		A3A3DF002B937645004A7C39 /* PYSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3DEFF2B937645004A7C39 /* PYSettingsView.swift */; };
 		A3A3DF0D2B99ADA3004A7C39 /* TortoiseGraphics in Frameworks */ = {isa = PBXBuildFile; productRef = A3A3DF0C2B99ADA3004A7C39 /* TortoiseGraphics */; };
-		A3A3DF0E2B99ADA3004A7C39 /* TortoiseGraphics in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A3A3DF0C2B99ADA3004A7C39 /* TortoiseGraphics */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A3A3DF102B9B6E07004A7C39 /* LocalizedUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3DF0F2B9B6E07004A7C39 /* LocalizedUtils.swift */; };
 		A3A3DF122B9E874E004A7C39 /* ExpandedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3DF112B9E874E004A7C39 /* ExpandedSection.swift */; };
+		A3A3DF152B9F4734004A7C39 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3A3DF172B9F4734004A7C39 /* Localizable.strings */; };
 		A3A87CEE2AF221D1002E3399 /* SourceControlUnsupportedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A0462A2804A70C00182275 /* SourceControlUnsupportedSection.swift */; };
 		A3A87CEF2AF221D1002E3399 /* GitHubSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777EE257B9193008FE7B2 /* GitHubSearchManager.swift */; };
 		A3A87CF02AF221D1002E3399 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7781F257BC5AA008FE7B2 /* MainScene.swift */; };
@@ -972,9 +965,7 @@
 		A3A87D912AF221D1002E3399 /* NMSSH.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942E321128093CA600233441 /* NMSSH.xcframework */; };
 		A3A87D932AF221D1002E3399 /* Themes in Resources */ = {isa = PBXBuildFile; fileRef = 94127C3F280335C8008C7F82 /* Themes */; };
 		A3A87D942AF221D1002E3399 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944EEBFA2563C386009D77FE /* Preview Assets.xcassets */; };
-		A3A87D952AF221D1002E3399 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94A56832257CC3A1008A6530 /* Localizable.strings */; };
 		A3A87D962AF221D1002E3399 /* monaco-textmate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94A4438F25A44CDB006643FF /* monaco-textmate.bundle */; };
-		A3A87D972AF221D1002E3399 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9425205B263E103E0029427A /* InfoPlist.strings */; };
 		A3A87D982AF221D1002E3399 /* cacert.pem in Resources */ = {isa = PBXBuildFile; fileRef = 94B3D5D525F776A900C4F2B1 /* cacert.pem */; };
 		A3A87D9A2AF221D1002E3399 /* FiraCode-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 94FF33882843744C003DE5DD /* FiraCode-Regular.ttf */; };
 		A3A87D9C2AF221D1002E3399 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 941CF5FA2641CBDA001199C0 /* Settings.bundle */; };
@@ -993,25 +984,19 @@
 		A3A91A202B49D6D7007E8C76 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A91A1F2B49D6D7007E8C76 /* PreviewViewController.swift */; };
 		A3A91A222B49D6D7007E8C76 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A91A212B49D6D7007E8C76 /* PreviewProvider.swift */; };
 		A3A91A252B49D6D7007E8C76 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3A91A232B49D6D7007E8C76 /* MainInterface.storyboard */; };
-		A3A91A292B49D6D7007E8C76 /* pydeUIPreview.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A3A91A1B2B49D6D7007E8C76 /* pydeUIPreview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A3A91A2E2B49D8FF007E8C76 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3A91A2D2B49D8FF007E8C76 /* ios_system */; };
 		A3A91A322B49D906007E8C76 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3A91A312B49D906007E8C76 /* pydeCommon */; };
 		A3A91A352B49D910007E8C76 /* python3_objc in Frameworks */ = {isa = PBXBuildFile; productRef = A3A91A342B49D910007E8C76 /* python3_objc */; };
 		A3A91A372B49D995007E8C76 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
 		A3A91A3A2B4A002A007E8C76 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A3A91A3B2B4A002D007E8C76 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
-		A3B0F0B32B29D9A90001D220 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B22B29D9A90001D220 /* ios_system */; };
-		A3B0F0B42B29D9A90001D220 /* ios_system in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B22B29D9A90001D220 /* ios_system */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A3B0F0B62B29DA8F0001D220 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B52B29DA8F0001D220 /* ios_system */; };
 		A3B0F0B92B29DAA60001D220 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B82B29DAA60001D220 /* ios_system */; };
 		A3BB55302B3E405100A3E0B9 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
-		A3BB55322B4307B400A3E0B9 /* python3_ui in Frameworks */ = {isa = PBXBuildFile; productRef = A3BB55312B4307B400A3E0B9 /* python3_ui */; };
-		A3BB55332B4307B400A3E0B9 /* python3_ui in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A3BB55312B4307B400A3E0B9 /* python3_ui */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A3BB55352B4317C100A3E0B9 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3BB55342B4317C100A3E0B9 /* pydeCommon */; };
 		A3BB55392B4317C800A3E0B9 /* python3_objc in Frameworks */ = {isa = PBXBuildFile; productRef = A3BB55382B4317C800A3E0B9 /* python3_objc */; };
 		A3BB553D2B4317DB00A3E0B9 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3BB553C2B4317DB00A3E0B9 /* ios_system */; };
 		A3BB553F2B43180500A3E0B9 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
-		A3BB55402B4318C700A3E0B9 /* pydeShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A38272FB2AF4AD2F0096A7C9 /* pydeShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A3BB55422B44666500A3E0B9 /* RSCodeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BB55412B44666500A3E0B9 /* RSCodeTheme.swift */; };
 		A3D1C9A92B35D802001505C7 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
 		A3D1C9B62B374883001505C7 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
@@ -1021,6 +1006,19 @@
 		A3DDCB982B2374B200EA74E5 /* VCInTabExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDCB972B2374B200EA74E5 /* VCInTabExtension.swift */; };
 		A3DDCBA22B25666100EA74E5 /* PYPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DDCBA12B25666100EA74E5 /* PYPanel.swift */; };
 		A3E889A82B12DF87007B34AF /* PipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E889A72B12DF87007B34AF /* PipService.swift */; };
+		A3F239712B9FEBE8006F6D7B /* PYWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F239702B9FEBE8006F6D7B /* PYWelcomeView.swift */; };
+		A3F239902BA09907006F6D7B /* RMStore in Frameworks */ = {isa = PBXBuildFile; productRef = A3F2398F2BA09907006F6D7B /* RMStore */; };
+		A3F239912BA09907006F6D7B /* RMStore in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A3F2398F2BA09907006F6D7B /* RMStore */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A3F239942BA35CBC006F6D7B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3F239962BA35CBC006F6D7B /* InfoPlist.strings */; };
+		A3F239992BA46BCE006F6D7B /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A3F239982BA46BCE006F6D7B /* python3Objc */; };
+		A3F2399A2BA46BCE006F6D7B /* python3Objc in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A3F239982BA46BCE006F6D7B /* python3Objc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A3F2399C2BA46BF1006F6D7B /* python3FWS in Frameworks */ = {isa = PBXBuildFile; productRef = A3F2399B2BA46BF1006F6D7B /* python3FWS */; };
+		A3F2399D2BA46BF1006F6D7B /* python3FWS in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A3F2399B2BA46BF1006F6D7B /* python3FWS */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A3F2399F2BA46C01006F6D7B /* python3Site in Frameworks */ = {isa = PBXBuildFile; productRef = A3F2399E2BA46C01006F6D7B /* python3Site */; };
+		A3F239A02BA46C01006F6D7B /* python3Site in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A3F2399E2BA46C01006F6D7B /* python3Site */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A3F239A22BA46CD0006F6D7B /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A3F239A12BA46CD0006F6D7B /* python3Objc */; };
+		A3F239A52BA46D4E006F6D7B /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A3F239A42BA46D4E006F6D7B /* python3Objc */; };
+		A3F239A82BA49D39006F6D7B /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3F239A72BA49D39006F6D7B /* ios_system */; };
 		A3F32F662AF88CC000866ED0 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A3F32F672AF88CC200866ED0 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A3F32F682AF88CC300866ED0 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -1062,27 +1060,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = A36337032AF231D200085608;
 			remoteInfo = pydeUI;
-		};
-		A36443222B4EFB8C00B40880 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A36443162B4EFB8B00B40880;
-			remoteInfo = FletPreview;
-		};
-		A38273032AF4AD2F0096A7C9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A38272FA2AF4AD2F0096A7C9;
-			remoteInfo = pydeShare;
-		};
-		A3A91A272B49D6D7007E8C76 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A3A91A1A2B49D6D7007E8C76;
-			remoteInfo = pydeUIPreview;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1529,7 +1506,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A3A3DF0E2B99ADA3004A7C39 /* TortoiseGraphics in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1553,19 +1529,19 @@
 				A3DDCB962B236DAC00EA74E5 /* SDL2.framework in Embed Frameworks */,
 				A3A87DA32AF221D1002E3399 /* network_ios.xcframework in Embed Frameworks */,
 				A3A87DA52AF221D1002E3399 /* NMSSH.xcframework in Embed Frameworks */,
+				A3F239912BA09907006F6D7B /* RMStore in Embed Frameworks */,
 				A36336D42AF226BA00085608 /* pyde in Embed Frameworks */,
+				A3F2399D2BA46BF1006F6D7B /* python3FWS in Embed Frameworks */,
 				A3A87DA72AF221D1002E3399 /* libpng.xcframework in Embed Frameworks */,
 				A3A87DA82AF221D1002E3399 /* harfbuzz.xcframework in Embed Frameworks */,
 				A3A87DAA2AF221D1002E3399 /* ssh_cmd.xcframework in Embed Frameworks */,
 				A3A3DEDB2B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework in Embed Frameworks */,
 				A3A87DAC2AF221D1002E3399 /* awk.xcframework in Embed Frameworks */,
-				A3B0F0B42B29D9A90001D220 /* ios_system in Embed Frameworks */,
+				A3F239A02BA46C01006F6D7B /* python3Site in Embed Frameworks */,
 				A3A87DAD2AF221D1002E3399 /* text.xcframework in Embed Frameworks */,
 				A36336D72AF226BA00085608 /* pydeCommon in Embed Frameworks */,
-				A36336DA2AF226BA00085608 /* python3_objc in Embed Frameworks */,
-				A3BB55332B4307B400A3E0B9 /* python3_ui in Embed Frameworks */,
+				A3F2399A2BA46BCE006F6D7B /* python3Objc in Embed Frameworks */,
 				A3A87DAF2AF221D1002E3399 /* tar.xcframework in Embed Frameworks */,
-				A33A5FD42B0EF92100CB7CE1 /* python3_site in Embed Frameworks */,
 				A36443412B553A2A00B40880 /* flet in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1577,9 +1553,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A36443242B4EFB8C00B40880 /* FletPreview.appex in Embed Foundation Extensions */,
-				A3BB55402B4318C700A3E0B9 /* pydeShare.appex in Embed Foundation Extensions */,
-				A3A91A292B49D6D7007E8C76 /* pydeUIPreview.appex in Embed Foundation Extensions */,
 				A36337112AF231D200085608 /* pydeUI.appex in Embed Foundation Extensions */,
 				A36336F32AF22B3200085608 /* pydeRemote.appex in Embed Foundation Extensions */,
 			);
@@ -2219,7 +2192,9 @@
 		A3A3DF0B2B99AD82004A7C39 /* TortoiseGraphics */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TortoiseGraphics; path = ../../modules/pythoncc/pyde/TortoiseGraphics; sourceTree = "<group>"; };
 		A3A3DF0F2B9B6E07004A7C39 /* LocalizedUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedUtils.swift; sourceTree = "<group>"; };
 		A3A3DF112B9E874E004A7C39 /* ExpandedSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedSection.swift; sourceTree = "<group>"; };
-		A3A87DB42AF221D1002E3399 /* pydeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pydeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3A3DF162B9F4734004A7C39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A3A3DF182B9F4737004A7C39 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		A3A87DB42AF221D1002E3399 /* iPyDE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPyDE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3A87DB52AF221D1002E3399 /* CodeUI copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CodeUI copy-Info.plist"; path = "/Users/huima/PythonSchool/pydeApp/CodeUI copy-Info.plist"; sourceTree = "<absolute>"; };
 		A3A87DB82AF22575002E3399 /* python3 */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = python3; path = ../../modules/pythoncc/python3; sourceTree = "<group>"; };
 		A3A87DB92AF2257D002E3399 /* pyde */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = pyde; path = ../../modules/pythoncc/pyde; sourceTree = "<group>"; };
@@ -2241,6 +2216,10 @@
 		A3DDCB972B2374B200EA74E5 /* VCInTabExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCInTabExtension.swift; sourceTree = "<group>"; };
 		A3DDCBA12B25666100EA74E5 /* PYPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPanel.swift; sourceTree = "<group>"; };
 		A3E889A72B12DF87007B34AF /* PipService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipService.swift; sourceTree = "<group>"; };
+		A3F239702B9FEBE8006F6D7B /* PYWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYWelcomeView.swift; sourceTree = "<group>"; };
+		A3F2398E2BA068F6006F6D7B /* RMStore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RMStore; path = ../../modules/pythoncc/pyde/RMStore; sourceTree = "<group>"; };
+		A3F239952BA35CBC006F6D7B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A3F239972BA35CBE006F6D7B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = commandDictionary.plist; path = ../../modules/pythoncc/pyde/commandDictionary.plist; sourceTree = "<group>"; };
 		A3F32F6B2AF9330900866ED0 /* ExplorerTagTreeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerTagTreeSection.swift; sourceTree = "<group>"; };
 		A3F52F002B0BF16D001F096E /* PYActivityBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYActivityBar.swift; sourceTree = "<group>"; };
@@ -2309,9 +2288,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A36336FC2AF22C1500085608 /* python3_objc in Frameworks */,
 				A3B0F0B62B29DA8F0001D220 /* ios_system in Frameworks */,
 				A36336E82AF22B3200085608 /* UniformTypeIdentifiers.framework in Frameworks */,
+				A3F239A22BA46CD0006F6D7B /* python3Objc in Frameworks */,
 				A36336F82AF22C1500085608 /* pydeCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2320,9 +2299,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A36337192AF2329600085608 /* python3_objc in Frameworks */,
 				A3B0F0B92B29DAA60001D220 /* ios_system in Frameworks */,
 				A3A3DF0D2B99ADA3004A7C39 /* TortoiseGraphics in Frameworks */,
+				A3F239A52BA46D4E006F6D7B /* python3Objc in Frameworks */,
 				A36337162AF2329600085608 /* pydeCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2355,18 +2334,19 @@
 				A3DDCB952B236D8B00EA74E5 /* SDL2.framework in Frameworks */,
 				A36443402B553A2A00B40880 /* flet in Frameworks */,
 				A3A87D8A2AF221D1002E3399 /* FilesProvider in Frameworks */,
+				A3F239902BA09907006F6D7B /* RMStore in Frameworks */,
 				A3A3DEDA2B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework in Frameworks */,
+				A3F2399F2BA46C01006F6D7B /* python3Site in Frameworks */,
 				A3A87D8B2AF221D1002E3399 /* ZIPFoundation in Frameworks */,
 				A36336D62AF226BA00085608 /* pydeCommon in Frameworks */,
-				A36336D92AF226BA00085608 /* python3_objc in Frameworks */,
 				A3A87D8D2AF221D1002E3399 /* MarkdownView in Frameworks */,
-				A33A5FD32B0EF92100CB7CE1 /* python3_site in Frameworks */,
-				A3B0F0B32B29D9A90001D220 /* ios_system in Frameworks */,
-				A3BB55322B4307B400A3E0B9 /* python3_ui in Frameworks */,
+				A3F239A82BA49D39006F6D7B /* ios_system in Frameworks */,
 				A36336D32AF226BA00085608 /* pyde in Frameworks */,
 				A3A87D8F2AF221D1002E3399 /* Dynamic in Frameworks */,
 				A3A87D902AF221D1002E3399 /* SwiftGit2 in Frameworks */,
+				A3F239992BA46BCE006F6D7B /* python3Objc in Frameworks */,
 				A3A87D912AF221D1002E3399 /* NMSSH.xcframework in Frameworks */,
+				A3F2399C2BA46BF1006F6D7B /* python3FWS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2478,7 +2458,7 @@
 				94369AFC25E3B933008419A0 /* extension.appex */,
 				94196B18280316C7008AAEB2 /* CodeUI.app */,
 				9FE3E292298A14BC00F63DD0 /* CodeUITests.xctest */,
-				A3A87DB42AF221D1002E3399 /* pydeApp.app */,
+				A3A87DB42AF221D1002E3399 /* iPyDE.app */,
 				A36336E62AF22B3200085608 /* pydeRemote.appex */,
 				A36337042AF231D200085608 /* pydeUI.appex */,
 				A38272FB2AF4AD2F0096A7C9 /* pydeShare.appex */,
@@ -3410,6 +3390,8 @@
 			isa = PBXGroup;
 			children = (
 				A3A3DEE22B8C815A004A7C39 /* PydeLocalizable.strings */,
+				A3A3DF172B9F4734004A7C39 /* Localizable.strings */,
+				A3F239962BA35CBC006F6D7B /* InfoPlist.strings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -3515,6 +3497,7 @@
 		A3A87DB72AF22553002E3399 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				A3F2398E2BA068F6006F6D7B /* RMStore */,
 				A3A3DF0B2B99AD82004A7C39 /* TortoiseGraphics */,
 				A30950AE2B4CF2B90039EA50 /* flet */,
 				A3B0F0B12B29D95F0001D220 /* ios_system */,
@@ -3545,6 +3528,7 @@
 				A3DDCBA12B25666100EA74E5 /* PYPanel.swift */,
 				A3A3DEFF2B937645004A7C39 /* PYSettingsView.swift */,
 				A3A3DF112B9E874E004A7C39 /* ExpandedSection.swift */,
+				A3F239702B9FEBE8006F6D7B /* PYWelcomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -3666,8 +3650,8 @@
 			name = pydeRemote;
 			packageProductDependencies = (
 				A36336F72AF22C1500085608 /* pydeCommon */,
-				A36336FB2AF22C1500085608 /* python3_objc */,
 				A3B0F0B52B29DA8F0001D220 /* ios_system */,
+				A3F239A12BA46CD0006F6D7B /* python3Objc */,
 			);
 			productName = pydeRemote;
 			productReference = A36336E62AF22B3200085608 /* pydeRemote.appex */;
@@ -3689,9 +3673,9 @@
 			name = pydeUI;
 			packageProductDependencies = (
 				A36337152AF2329600085608 /* pydeCommon */,
-				A36337182AF2329600085608 /* python3_objc */,
 				A3B0F0B82B29DAA60001D220 /* ios_system */,
 				A3A3DF0C2B99ADA3004A7C39 /* TortoiseGraphics */,
+				A3F239A42BA46D4E006F6D7B /* python3Objc */,
 			);
 			productName = pydeUI;
 			productReference = A36337042AF231D200085608 /* pydeUI.appex */;
@@ -3743,9 +3727,9 @@
 			productReference = A38272FB2AF4AD2F0096A7C9 /* pydeShare.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		A3A87CE02AF221D1002E3399 /* pydeApp */ = {
+		A3A87CE02AF221D1002E3399 /* iPyDE */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A3A87DB12AF221D1002E3399 /* Build configuration list for PBXNativeTarget "pydeApp" */;
+			buildConfigurationList = A3A87DB12AF221D1002E3399 /* Build configuration list for PBXNativeTarget "iPyDE" */;
 			buildPhases = (
 				A3A87CEC2AF221D1002E3399 /* ShellScript */,
 				A3A87CED2AF221D1002E3399 /* Sources */,
@@ -3760,11 +3744,8 @@
 			dependencies = (
 				A36336F22AF22B3200085608 /* PBXTargetDependency */,
 				A36337102AF231D200085608 /* PBXTargetDependency */,
-				A38273042AF4AD2F0096A7C9 /* PBXTargetDependency */,
-				A3A91A282B49D6D7007E8C76 /* PBXTargetDependency */,
-				A36443232B4EFB8C00B40880 /* PBXTargetDependency */,
 			);
-			name = pydeApp;
+			name = iPyDE;
 			packageProductDependencies = (
 				A3A87CE12AF221D1002E3399 /* ZIPFoundation */,
 				A3A87CE32AF221D1002E3399 /* Dynamic */,
@@ -3773,14 +3754,15 @@
 				A3A87CE92AF221D1002E3399 /* SwiftGit2 */,
 				A36336D22AF226BA00085608 /* pyde */,
 				A36336D52AF226BA00085608 /* pydeCommon */,
-				A36336D82AF226BA00085608 /* python3_objc */,
-				A33A5FD22B0EF92100CB7CE1 /* python3_site */,
-				A3B0F0B22B29D9A90001D220 /* ios_system */,
-				A3BB55312B4307B400A3E0B9 /* python3_ui */,
 				A364433F2B553A2A00B40880 /* flet */,
+				A3F2398F2BA09907006F6D7B /* RMStore */,
+				A3F239982BA46BCE006F6D7B /* python3Objc */,
+				A3F2399B2BA46BF1006F6D7B /* python3FWS */,
+				A3F2399E2BA46C01006F6D7B /* python3Site */,
+				A3F239A72BA49D39006F6D7B /* ios_system */,
 			);
 			productName = testfield;
-			productReference = A3A87DB42AF221D1002E3399 /* pydeApp.app */;
+			productReference = A3A87DB42AF221D1002E3399 /* iPyDE.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A3A91A1A2B49D6D7007E8C76 /* pydeUIPreview */ = {
@@ -3870,7 +3852,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A3A87CE02AF221D1002E3399 /* pydeApp */,
+				A3A87CE02AF221D1002E3399 /* iPyDE */,
 				A36336E52AF22B3200085608 /* pydeRemote */,
 				A38272FA2AF4AD2F0096A7C9 /* pydeShare */,
 				A36337032AF231D200085608 /* pydeUI */,
@@ -3988,15 +3970,15 @@
 			files = (
 				A3A87D932AF221D1002E3399 /* Themes in Resources */,
 				A3A87D942AF221D1002E3399 /* Preview Assets.xcassets in Resources */,
-				A3A87D952AF221D1002E3399 /* Localizable.strings in Resources */,
 				A3A87D962AF221D1002E3399 /* monaco-textmate.bundle in Resources */,
-				A3A87D972AF221D1002E3399 /* InfoPlist.strings in Resources */,
 				A3D1C9BA2B3B54BA001505C7 /* terminal.bundle in Resources */,
+				A3F239942BA35CBC006F6D7B /* InfoPlist.strings in Resources */,
 				A3A87D982AF221D1002E3399 /* cacert.pem in Resources */,
 				A3A87D9A2AF221D1002E3399 /* FiraCode-Regular.ttf in Resources */,
 				A3F32F662AF88CC000866ED0 /* commandDictionary.plist in Resources */,
 				A3A87D9C2AF221D1002E3399 /* Settings.bundle in Resources */,
 				A3A87D9D2AF221D1002E3399 /* extraCommandsDictionary.plist in Resources */,
+				A3A3DF152B9F4734004A7C39 /* Localizable.strings in Resources */,
 				A363372A2AF2C06800085608 /* npm.bundle in Resources */,
 				A3A3DEE02B8C815A004A7C39 /* PydeLocalizable.strings in Resources */,
 				A3A87DA02AF221D1002E3399 /* LaunchScreen.storyboard in Resources */,
@@ -4069,7 +4051,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ninstall_name_tool -change  \"@rpath/python3_ui.framework/python3_ui\" \"/usr/lib/libSystem.B.dylib\"  \"$BUILT_PRODUCTS_DIR/$TARGET_NAME.app/$TARGET_NAME\"\n#install_name_tool -change  \"@rpath/pyde.framework/pyde\" \"/usr/lib/libSystem.B.dylib\"  \"$BUILT_PRODUCTS_DIR/$TARGET_NAME.app/$TARGET_NAME\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ninstall_name_tool -change  \"@rpath/python3FWS.framework/python3FWS\" \"/usr/lib/libSystem.B.dylib\"  \"$BUILT_PRODUCTS_DIR/$TARGET_NAME.app/$TARGET_NAME\"\n#install_name_tool -change  \"@rpath/pyde.framework/pyde\" \"/usr/lib/libSystem.B.dylib\"  \"$BUILT_PRODUCTS_DIR/$TARGET_NAME.app/$TARGET_NAME\"\n";
 		};
 		A3A87CEC2AF221D1002E3399 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4613,6 +4595,7 @@
 				A3A87D642AF221D1002E3399 /* RemoteCreateSection.swift in Sources */,
 				A3A87D652AF221D1002E3399 /* VideoViewerExtension.swift in Sources */,
 				A3A87D662AF221D1002E3399 /* SFTPTerminalServiceProvider.swift in Sources */,
+				A3F239712B9FEBE8006F6D7B /* PYWelcomeView.swift in Sources */,
 				A3A87D672AF221D1002E3399 /* URL+relativePath.swift in Sources */,
 				A3DDCBA22B25666100EA74E5 /* PYPanel.swift in Sources */,
 				A3A87D682AF221D1002E3399 /* Secrets.swift in Sources */,
@@ -4693,21 +4676,6 @@
 			target = A36337032AF231D200085608 /* pydeUI */;
 			targetProxy = A363370F2AF231D200085608 /* PBXContainerItemProxy */;
 		};
-		A36443232B4EFB8C00B40880 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A36443162B4EFB8B00B40880 /* FletPreview */;
-			targetProxy = A36443222B4EFB8C00B40880 /* PBXContainerItemProxy */;
-		};
-		A38273042AF4AD2F0096A7C9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A38272FA2AF4AD2F0096A7C9 /* pydeShare */;
-			targetProxy = A38273032AF4AD2F0096A7C9 /* PBXContainerItemProxy */;
-		};
-		A3A91A282B49D6D7007E8C76 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A3A91A1A2B49D6D7007E8C76 /* pydeUIPreview */;
-			targetProxy = A3A91A272B49D6D7007E8C76 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -4767,12 +4735,30 @@
 			name = PydeLocalizable.strings;
 			sourceTree = "<group>";
 		};
+		A3A3DF172B9F4734004A7C39 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3A3DF162B9F4734004A7C39 /* en */,
+				A3A3DF182B9F4737004A7C39 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		A3A91A232B49D6D7007E8C76 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A3A91A242B49D6D7007E8C76 /* Base */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		A3F239962BA35CBC006F6D7B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3F239952BA35CBC006F6D7B /* en */,
+				A3F239972BA35CBE006F6D7B /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -4994,7 +4980,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -5055,7 +5041,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -5225,7 +5211,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.pydeRemote;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython.pydeRemote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -5242,10 +5228,12 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeRemoteRelease.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = KQ2S7RKY3D;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
@@ -5262,8 +5250,10 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.pydeRemote;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython.pydeRemote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = SketchPythonRemote;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemote;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -5297,7 +5287,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.pydeUI;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython.pydeUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -5314,10 +5304,12 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeUIRelease.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = KQ2S7RKY3D;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
@@ -5334,8 +5326,10 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.pydeUI;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython.pydeUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = SketchPythonUI;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonUI;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -5367,7 +5361,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.FletPreview;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython.FletPreview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -5401,7 +5395,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.FletPreview;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython.FletPreview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -5436,7 +5430,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.pydeShare;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython.pydeShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -5473,7 +5467,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.pydeShare;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython.pydeShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -5494,7 +5488,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Code App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 87;
+				CURRENT_PROJECT_VERSION = 5;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -5509,16 +5503,17 @@
 					"$(PROJECT_DIR)/Resources/NodeJS",
 				);
 				INFOPLIST_FILE = "CodeUI copy-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Pyde;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				INFOPLIST_KEY_CFBundleDisplayName = iPyDE;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.2.1;
 				OTHER_SWIFT_FLAGS = "-Xcc -Wno-incomplete-umbrella -DPYDEAPP";
-				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_BITCODE_FROM_COPIED_FILES = NO;
@@ -5543,12 +5538,14 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Code App.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 87;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 5;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = KQ2S7RKY3D;
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTING_SEARCH_PATHS = NO;
@@ -5562,19 +5559,21 @@
 				);
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = "CodeUI copy-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Pyde;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				INFOPLIST_KEY_CFBundleDisplayName = iPyDE;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.2.1;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-Xcc -Wno-incomplete-umbrella -DPYDEAPP";
-				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = BaobaoWangSketchPython;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = BaobaoWangSketchPython;
 				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 				STRIP_STYLE = "non-global";
 				SUPPORTS_MACCATALYST = NO;
@@ -5610,7 +5609,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.pydeUIPreview;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython.pydeUIPreview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -5644,7 +5643,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mh.pydeApp.pydeUIPreview;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython.pydeUIPreview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -5737,7 +5736,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A3A87DB12AF221D1002E3399 /* Build configuration list for PBXNativeTarget "pydeApp" */ = {
+		A3A87DB12AF221D1002E3399 /* Build configuration list for PBXNativeTarget "iPyDE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A3A87DB22AF221D1002E3399 /* Debug */,
@@ -5929,10 +5928,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftGit2;
 		};
-		A33A5FD22B0EF92100CB7CE1 /* python3_site */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3_site;
-		};
 		A36336D22AF226BA00085608 /* pyde */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = pyde;
@@ -5941,25 +5936,13 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = pydeCommon;
 		};
-		A36336D82AF226BA00085608 /* python3_objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3_objc;
-		};
 		A36336F72AF22C1500085608 /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = pydeCommon;
 		};
-		A36336FB2AF22C1500085608 /* python3_objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3_objc;
-		};
 		A36337152AF2329600085608 /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = pydeCommon;
-		};
-		A36337182AF2329600085608 /* python3_objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3_objc;
 		};
 		A36443292B4EFCD700B40880 /* ios_system */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -6017,10 +6000,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = python3_objc;
 		};
-		A3B0F0B22B29D9A90001D220 /* ios_system */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ios_system;
-		};
 		A3B0F0B52B29DA8F0001D220 /* ios_system */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
@@ -6028,10 +6007,6 @@
 		A3B0F0B82B29DAA60001D220 /* ios_system */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
-		};
-		A3BB55312B4307B400A3E0B9 /* python3_ui */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3_ui;
 		};
 		A3BB55342B4317C100A3E0B9 /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -6042,6 +6017,34 @@
 			productName = python3_objc;
 		};
 		A3BB553C2B4317DB00A3E0B9 /* ios_system */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ios_system;
+		};
+		A3F2398F2BA09907006F6D7B /* RMStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RMStore;
+		};
+		A3F239982BA46BCE006F6D7B /* python3Objc */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = python3Objc;
+		};
+		A3F2399B2BA46BF1006F6D7B /* python3FWS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = python3FWS;
+		};
+		A3F2399E2BA46C01006F6D7B /* python3Site */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = python3Site;
+		};
+		A3F239A12BA46CD0006F6D7B /* python3Objc */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = python3Objc;
+		};
+		A3F239A42BA46D4E006F6D7B /* python3Objc */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = python3Objc;
+		};
+		A3F239A72BA49D39006F6D7B /* ios_system */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
 		};
