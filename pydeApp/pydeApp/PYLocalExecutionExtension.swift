@@ -139,7 +139,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             return nil
         }
         
-        let provider = NSItemProvider(item: "provider" as NSSecureCoding, typeIdentifier: "mh.pydeApp.pydeUI")
+        let provider = NSItemProvider(item: "provider" as NSSecureCoding, typeIdentifier: "baobaowang.SketchPython.pydeUI")
         let item = NSExtensionItem()
         item.attributedTitle = NSAttributedString(string: "This is title")
         item.accessibilityLabel = "run pyde ui"
@@ -147,7 +147,10 @@ class PYLocalExecutionExtension: CodeAppExtension {
         item.attachments = [provider]
         
         
-        let vc = UIActivityViewController(activityItems: [item], applicationActivities: nil)
+        let vc = UIActivityViewController(activityItems: [item, MyActivityItemSource(title: "title", text: "text")], applicationActivities: nil)
+        vc.completionWithItemsHandler = { _, _, _, _ in
+            editor.runnerView.executor?.kill()
+        }
 //        let popoverView = AnyView(VCRepresentable(vc))
         
         if UIDevice.current.userInterfaceIdiom == .phone {
@@ -168,7 +171,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
                     let presenter = vc.value(forKey: "_mainPresenter") as? NSObject
                     let interactor = presenter?.value(forKey: "_interactor") as? NSObject
                     let manager = interactor?.value(forKey: "_serviceManager") as? NSObject
-                    manager?.perform(Selector("performExtensionActivityInHostWithBundleID:request:"), with: "mh.pydeApp.pydeUI", with: nil)
+                    manager?.perform(Selector("performExtensionActivityInHostWithBundleID:request:"), with: "baobaowang.SketchPython.pydeUI", with: nil)
                     
                 }
             } catch {
@@ -321,12 +324,12 @@ class PYLocalExecutionExtension: CodeAppExtension {
 ////                
 ////                let myreq = Dynamic("UISUIActivityExtensionItemDataRequest").new() as? NSObject
 ////                myreq?.setValue(NSUUID(), forKey: "activityUUID")
-////                myreq?.setValue("mh.pydeApp.pydeUI", forKey: "activityType")
+////                myreq?.setValue("baobaowang.SketchPython.pydeUI", forKey: "activityType")
 ////                myreq?.setValue(NSClassFromString("UIApplicationExtensionActivity"), forKey: "classForPreparingExtensionItemData")
 ////                myreq?.setValue(5, forKey: "maxPreviews")
 ////                print(manager)
 ////                print(myreq)
-////                manager?.perform(Selector("performExtensionActivityInHostWithBundleID:request:"), with: "mh.pydeApp.pydeUI", with: nil)
+////                manager?.perform(Selector("performExtensionActivityInHostWithBundleID:request:"), with: "baobaowang.SketchPython.pydeUI", with: nil)
 //////            }
 ////        }
 ////        return
@@ -377,7 +380,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
 //                        let presenter = vc.value(forKey: "_mainPresenter") as? NSObject
 //                        let interactor = presenter?.value(forKey: "_interactor") as? NSObject
 //                        let manager = interactor?.value(forKey: "_serviceManager") as? NSObject
-//                        manager?.perform(Selector("performExtensionActivityInHostWithBundleID:request:"), with: "mh.pydeApp.pydeUI", with: nil)
+//                        manager?.perform(Selector("performExtensionActivityInHostWithBundleID:request:"), with: "baobaowang.SketchPython.pydeUI", with: nil)
 //                    }
 //                } catch {
 //                    print(error)
@@ -387,7 +390,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
 //                
 ////                let myreq = Dynamic("UISUIActivityExtensionItemDataRequest").new() as? NSObject
 ////                myreq?.setValue(NSUUID(), forKey: "activityUUID")
-////                myreq?.setValue("mh.pydeApp.pydeUI", forKey: "activityType")
+////                myreq?.setValue("baobaowang.SketchPython.pydeUI", forKey: "activityType")
 ////                myreq?.setValue(NSClassFromString("UIApplicationExtensionActivity"), forKey: "classForPreparingExtensionItemData")
 //                
 //                
@@ -398,6 +401,127 @@ class PYLocalExecutionExtension: CodeAppExtension {
 //        
 //        
     }
+}
+
+class RunUIActivity: UIActivity {
+//    override var activityType: UIActivity.ActivityType? {
+//        return UIActivity.ActivityType("baobaowang.SketchPython.pydeUI")
+//    }
+    
+    override var activityTitle: String? {
+        return "Chose \"Run iPyDE UI Script\" Action"
+    }
+    
+    override var activityImage: UIImage? {
+        return UIImage(systemName: "apple.terminal")
+    }
+    
+    ///此处对要分享的内容做操作
+    override func prepare(withActivityItems activityItems: [Any]) {
+       activityDidFinish(true)
+    }
+    ///此处预判断下，是否允许进行分享
+    override func canPerform(withActivityItems activityItems: [Any]) -> Bool {
+        return true
+    }
+}
+
+class CustomUIActicity: UIActivity {
+    
+    override var activityTitle: String? {
+        return "选择pydeUI"
+    }
+    
+    //提供的服务类型的标识符
+    override var activityType: UIActivity.ActivityType? {
+        return UIActivity.ActivityType("pydeUI")
+    }
+    //分享类型
+    override class var activityCategory: UIActivity.Category {
+        return .action
+    }
+    ///此处对要分享的内容做操作
+    override func prepare(withActivityItems activityItems: [Any]) {
+       activityDidFinish(true)
+    }
+    ///此处预判断下，是否允许进行分享
+    override func canPerform(withActivityItems activityItems: [Any]) -> Bool {
+        return true
+    }
+}
+
+import LinkPresentation
+class CustomeExtensionItem: NSExtensionItem {
+    var title: String
+    var text: String
+    
+    init(title: String, text: String) {
+        self.title = title
+        self.text = text
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        return text
+    }
+    
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        return text
+    }
+    
+    func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivity.ActivityType?) -> String {
+        return title
+    }
+
+    func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
+        let metadata = LPLinkMetadata()
+        metadata.title = title
+        metadata.iconProvider = NSItemProvider(object: UIImage(systemName: "text.bubble")!)
+        //This is a bit ugly, though I could not find other ways to show text content below title.
+        //https://stackoverflow.com/questions/60563773/ios-13-share-sheet-changing-subtitle-item-description
+        //You may need to escape some special characters like "/".
+        metadata.originalURL = URL(fileURLWithPath: text)
+        return metadata
+    }
+}
+
+class MyActivityItemSource: NSObject, UIActivityItemSource {
+    var title: String
+    var text: String
+    
+    init(title: String, text: String) {
+        self.title = title
+        self.text = text
+        super.init()
+    }
+    
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        return text
+    }
+    
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        return text
+    }
+    
+    func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivity.ActivityType?) -> String {
+        return title
+    }
+
+    func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
+        let metadata = LPLinkMetadata()
+        metadata.title = title
+        metadata.iconProvider = NSItemProvider(object: UIImage(systemName: "text.bubble")!)
+        //This is a bit ugly, though I could not find other ways to show text content below title.
+        //https://stackoverflow.com/questions/60563773/ios-13-share-sheet-changing-subtitle-item-description
+        //You may need to escape some special characters like "/".
+        metadata.originalURL = URL(fileURLWithPath: text)
+        return metadata
+    }
+
 }
 
 class ConsoleInstance {

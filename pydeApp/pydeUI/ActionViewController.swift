@@ -14,11 +14,15 @@ import ios_system
 // com.apple.app.ui-extension.multiple-instances
 // com.apple.ui-services
 
+var isRunning = false
+
 func randomInt(_ min: UInt32, _ max: UInt32) -> UInt32 {
     return min + arc4random() % (max - min + 1)
 }
 
 class ActionViewController: UITabBarController {
+    
+    private var shouldExit = false
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -51,6 +55,25 @@ class ActionViewController: UITabBarController {
         setupView()
         
         ConstantManager.pydeEnv = .remoteUI
+        
+        if isRunning {
+            let alertController = UIAlertController(
+                    title: "",
+                    message: "Python3 run with UI is alread running, please quit the running instance",
+                    preferredStyle: .alert)
+            let okAction = UIAlertAction(
+                    title: "OK",
+                    style: .default,
+                    handler: {
+                    (action: UIAlertAction!) -> Void in
+                        self.handleExit()
+                })
+                alertController.addAction(okAction)
+            present(alertController, animated: true)
+            return
+        }
+        isRunning = true
+        shouldExit = true
         
         NotificationCenter.default.addObserver(forName: .init("UI_SHOW_VC_IN_TAB"), object: nil, queue: nil) { notify in
             guard let vc = notify.userInfo?["vc"] as? UIViewController else {return}
@@ -93,7 +116,14 @@ class ActionViewController: UITabBarController {
             }
         }
         
-        if let item = extensionContext!.inputItems.first as? NSExtensionItem,
+        if let item = extensionContext!.inputItems.first(where: { item in
+            if let eitem = item as? NSExtensionItem,
+               let userInfo = eitem.userInfo as? [String: Any],
+               let _ = userInfo["commands"] as? [String] {
+                return true
+            }
+            return false
+        }) as? NSExtensionItem,
            let requestInfo = item.userInfo as? [String: Any] {
             pydeReqInfo = requestInfo
             
@@ -179,6 +209,15 @@ class ActionViewController: UITabBarController {
     }
     
     @objc func handleExit() {
+        if !shouldExit {
+            if let ntid = self.ntidentifier {
+                wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_DONE_EXIT(ntid))
+            }
+            self.extensionContext?.completeRequest(returningItems: nil) {_ in
+                
+            }
+            return
+        }
         
         if let ntid = self.ntidentifier {
             wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_DONE_EXIT(ntid))
@@ -190,7 +229,7 @@ class ActionViewController: UITabBarController {
             sleep(1)
             real_exit(vlaue: 0)
         }
-        self.extensionContext!.completeRequest(returningItems: nil) {_ in
+        self.extensionContext?.completeRequest(returningItems: nil) {_ in
             real_exit(vlaue: 0)
         }
         

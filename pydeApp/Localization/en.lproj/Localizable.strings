@@ -8,7 +8,7 @@
 
 "Welcome Message" =
 "# iPyDE
-##### **v1.5.1 (October 2023)**
+##### **v1.2.1 (March 2024)**
 #### Start
 [New file](https://ipyde.com/ipyde/newfile)
 [Open file](https://ipyde.com/ipyde/openfile)
@@ -238,3 +238,7 @@ are licensed under [BSD-3-Clause License](https://en.wikipedia.org/wiki/BSD_lice
 "remote.port_forward.address_example" = "e.g. 6000 or 127.0.0.1:6000";
 "remote.settings.ssh_remote" = "SSH Remote";
 "remote.settings.resolve_home_path" = "Resolve home path";
+
+
+"iap.restore" = "Restore";
+"iap.unlock" = "Unlock Preminum for";

@@ -14,23 +14,17 @@
             $extensionItem.attachments,
             $attachment,
             (
-            ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "baobaowang.SketchPython.pydeUI"
+            ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "baobaowang.SketchPython.pydeRemote"
             )
             ).@count == 1
             ).@count == 1</string>
-			<key>NSExtensionActivationRule2</key>
-			<string>TRUEPREDICATE</string>
 		</dict>
-		<key>NSExtensionMainStoryboard</key>
-		<string>MainInterface</string>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.ui-services</string>
-		<key>_NSExtensionActionWantsFullScreenPresentation</key>
-		<true/>
-		<key>__NSExtensionPointIdentifier</key>
+		<key>NSExtensionPointIdentifier1</key>
 		<string>com.apple.app.ui-extension.multiple-instances</string>
-		<key>__NSExtensionPrincipalClass</key>
-		<string>pydeUI.ActionViewController</string>
+		<key>NSExtensionPrincipalClass</key>
+		<string>$(PRODUCT_MODULE_NAME).ActionRequestHandler</string>
 	</dict>
 </dict>
 </plist>

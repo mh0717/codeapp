@@ -102,6 +102,13 @@ struct PYActivityBar: View {
                             Label("actions.new_window", systemImage: "square.split.2x1")
                         }
                     }
+                    
+                    Button {
+                        App.popupManager.showSheet(content: AnyView(PyRuntimesView()))
+                    } label: {
+                        Label("Runtimes", systemImage: "server.rack")
+                    }
+
 
                     Button(action: {
                         stateManager.showsSettingsSheet.toggle()

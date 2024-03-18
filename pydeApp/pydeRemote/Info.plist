@@ -7,6 +7,18 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>NSExtensionActivationRule</key>
+			<string>SUBQUERY (
+            extensionItems,
+            $extensionItem,
+            SUBQUERY (
+            $extensionItem.attachments,
+            $attachment,
+            (
+            ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "baobaowang.SketchPython.pydeRemote"
+            )
+            ).@count == 1
+            ).@count == 1</string>
+			<key>NSExtensionActivationRule1</key>
 			<dict>
 				<key>NSExtensionActivationSupportsFileWithMaxCount</key>
 				<integer>0</integer>

@@ -296,7 +296,7 @@ class PipService {
     }
     #endif
 
-    let output = await executeCommand("remote pip3 install --user \(package)  --no-color --disable-pip-version-check --no-python-version-warning")
+    let output = await executeCommand("remote pythonA -m pip install --user \(package)  --no-color --disable-pip-version-check --no-python-version-warning")
     return true
     }
     

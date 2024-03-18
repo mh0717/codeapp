@@ -58,8 +58,8 @@
       launchAutomaticallySubstyle = "2">
       <RemoteRunnable
          runnableDebuggingMode = "1"
-         BundleIdentifier = "mh.pydeApp"
-         RemotePath = "/Users/huima/Library/Developer/CoreSimulator/Devices/2D62E809-ED0D-46DC-BCED-DA6A378E7E77/data/Containers/Bundle/Application/3E041F8E-395E-4FCD-936D-807108B4B378/pydeApp.app">
+         BundleIdentifier = "baobaowang.SketchPython"
+         RemotePath = "/Users/huima/Library/Developer/CoreSimulator/Devices/2D62E809-ED0D-46DC-BCED-DA6A378E7E77/data/Containers/Bundle/Application/A4DBC2B6-1D7D-425A-9DE5-850C74C04E89/iPyDE.app">
       </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference

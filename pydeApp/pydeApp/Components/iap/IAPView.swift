@@ -24,9 +24,9 @@ class IAPExtension: CodeAppExtension {
         }
     }
     
-    override func onWorkSpaceStorageChanged(newUrl: URL) {
-        
-    }
+//    override func onWorkSpaceStorageChanged(newUrl: URL) {
+//        
+//    }
 }
 
 class IapManager: ObservableObject {
@@ -78,7 +78,9 @@ class IapManager: ObservableObject {
         
         RMStore.default().requestProducts([ConstantManager.IAP_UNLOCK_ID]) { products, _ in
             if let product = RMStore.default().product(forIdentifier: ConstantManager.IAP_UNLOCK_ID) {
-                self.product = product
+                DispatchQueue.main.async {
+                    self.product = product
+                }
             }
         } failure: { err in
             
@@ -226,13 +228,13 @@ struct IAPView: View {
     var body: some View {
         HStack {
             VStack {
-                Text("Pyde Premium").font(.largeTitle)
-                Text("解锁使用Pyde全功能版")
+                Text("iPyDE Premium").font(.largeTitle)
+                Text("Unlock Preminum to get access to all these features")
                 TabView() {
                     VStack {
                         
                         List {
-                            Section(header: Text("数据分析")) {
+                            Section(header: Text("Data Analysis")) {
                                 PkgCell(title: "Numpy")
                                 PkgCell(title: "Pandas")
                                 PkgCell(title: "Matplotlib")
@@ -244,7 +246,7 @@ struct IAPView: View {
                                 PkgCell(title: "lxml")
                                 PkgCell(title: "yaml")
                             }
-                            Section(header: Text("图像处理")) {
+                            Section(header: Text("Image Processing")) {
                                 PkgCell(title: "Pillow")
                                 PkgCell(title: "OpenCV")
                                 PkgCell(title: "SKImage")
@@ -252,47 +254,47 @@ struct IAPView: View {
                                 PkgCell(title: "contourpy")
                                 
                             }
-                            Section(header: Text("游戏开发")) {
+                            Section(header: Text("Game Develop")) {
                                 PkgCell(title: "SDL2")
                                 PkgCell(title: "PyGame")
                             }
-                            Section(header: Text("UI开发")) {
+                            Section(header: Text("UI Develop")) {
                                 PkgCell(title: "Kivy")
                                 PkgCell(title: "Imgui")
                                 PkgCell(title: "Flet")
                             }
-                            Section(header: Text("生物信息学 ")) {
+                            Section(header: Text("Bioinformatics")) {
                                 PkgCell(title: "BioPython")
                             }
-                            Section(header: Text("天文学")) {
+                            Section(header: Text("Astronomy")) {
                                 PkgCell(title: "PyErfa")
                                 PkgCell(title: "astropy")
                             }
-                            Section(header: Text("自然语言处理")) {
+                            Section(header: Text("Natural Language Processing")) {
                                 PkgCell(title: "pygensim")
                             }
-                            Section(header: Text("地理信息系统 GIS")) {
+                            Section(header: Text("GIS")) {
                                 PkgCell(title: "pyproj")
                                 PkgCell(title: "rasterstats")
                                 PkgCell(title: "fiona")
                                 PkgCell(title: "pyproj")
                                 PkgCell(title: "rasterio")
                             }
-                            Section(header: Text("量子计算")) {
+                            Section(header: Text("Quantum Computing")) {
                                 PkgCell(title: "qutip")
                             }
-                            Section(header: Text("信号分解")) {
+                            Section(header: Text("Signal Decomposition")) {
                                 PkgCell(title: "pyemd")
                                 PkgCell(title: "pywt")
                             }
-                            Section(header: Text("其它")) {
+                            Section(header: Text("Other")) {
                                 PkgCell(title: "pyzmq")
                                 PkgCell(title: "psutil")
                             }
                         }
                         .listStyle(.sidebar)
                         .listRowSeparator(.hidden)
-                        Text("25+ C扩展库").padding()
+                        Text("25+ C extension library").padding()
                         Text("")
                         Text("")
                     }
@@ -314,7 +316,7 @@ struct IAPView: View {
                             Text("pygame")
                             Text("kivy")
                         }
-                        Text("100+ 常用库").padding()
+                        Text("100+ bundled libraries").padding()
                         Text("")
                         Text("")
                     }
@@ -327,7 +329,7 @@ struct IAPView: View {
                             UIImage(named: "iap_pip4.png", in: resourceBundle, with: nil)!,
                             UIImage(named: "iap_pip5.png", in: resourceBundle, with: nil)!,
                         ])
-                        Text("Pip安装纯Python库").padding()
+                        Text("Pip installation of pure Python libraries").padding()
                         Text("")
                         Text("")
                     }
@@ -345,7 +347,7 @@ struct IAPView: View {
                             UIImage(named: "iap_run10.png", in: resourceBundle, with: nil)!,
                             UIImage(named: "iap_run6.png", in: resourceBundle, with: nil)!,
                         ])
-                        Text("本地运行Python代码").padding()
+                        Text("Run Python code locally").padding()
                         Text("")
                         Text("")
                     }
@@ -360,7 +362,7 @@ struct IAPView: View {
                             UIImage(named: "iap_code6.png", in: resourceBundle, with: nil)!,
                             UIImage(named: "iap_code7.png", in: resourceBundle, with: nil)!,
                         ])
-                        Text("语法高亮及代码补全").padding()
+                        Text("Highlighting and Completion").padding()
                         Text("")
                         Text("")
                     }
@@ -370,7 +372,7 @@ struct IAPView: View {
                             UIImage(named: "iap_outline1.png", in: resourceBundle, with: nil)!,
                             UIImage(named: "iap_outline2.png", in: resourceBundle, with: nil)!,
                         ])
-                        Text("大纲").padding()
+                        Text("Generate outline using ctags").padding()
                         Text("")
                         Text("")
                     }
@@ -385,7 +387,7 @@ struct IAPView: View {
                             UIImage(named: "iap_theme6.png", in: resourceBundle, with: nil)!,
                             UIImage(named: "iap_theme7.png", in: resourceBundle, with: nil)!,
                         ])
-                        Text("10+主题").padding()
+                        Text("10+ Themes").padding()
                         Text("")
                         Text("")
                     }
@@ -397,7 +399,7 @@ struct IAPView: View {
                             UIImage(named: "iap_nb3.png", in: resourceBundle, with: nil)!,
                             UIImage(named: "iap_nb4.png", in: resourceBundle, with: nil)!,
                         ])
-                        Text("本地运行Jupyter Notebook").padding()
+                        Text("Run Jupyter Notebook locally").padding()
                         Text("")
                         Text("")
                     }
@@ -410,7 +412,7 @@ struct IAPView: View {
                             UIImage(named: "iap_search3.png", in: resourceBundle, with: nil)!,
                             UIImage(named: "iap_search4.png", in: resourceBundle, with: nil)!,
                         ])
-                        Text("全局搜索").padding()
+                        Text("Multifile Search").padding()
                         Text("")
                         Text("")
                     }
@@ -421,7 +423,7 @@ struct IAPView: View {
                             UIImage(named: "iap_git2.png", in: resourceBundle, with: nil)!,
                             UIImage(named: "iap_git3.png", in: resourceBundle, with: nil)!,
                         ])
-                        Text("Git版本控制 | Clone, Commit, Push").padding()
+                        Text("Git Version Control | Clone, Commit, Push").padding()
                         Text("")
                         Text("")
                     }
@@ -430,7 +432,7 @@ struct IAPView: View {
                         ImageSquenceAnimation(images: [
                             UIImage(named: "iap_cmd1.png", in: resourceBundle, with: nil)!,
                         ])
-                        Text("内置终端,100+命令").padding()
+                        Text("Built in Terminal, 100+ commands").padding()
                         Text("")
                         Text("")
                     }
@@ -476,7 +478,7 @@ struct IAPView: View {
                     }
                 }, label: {
                     Label(title: {
-                        Text("解锁会员: \(iapManager.product != nil ? RMStore.localizedPrice(of: iapManager.product) : "?")")
+                        Text(localizedString(forKey: "iap.unlock") + " " + (iapManager.product != nil ? RMStore.localizedPrice(of: iapManager.product) : "?"))
                     }) {
                         if iapManager.purchasing {
                             ActivityIndicator(isAnimating: .constant(true), style: .medium)
@@ -489,10 +491,10 @@ struct IAPView: View {
                     .tint(.orange)
                     .padding(.horizontal)
                     .alert(isPresented: $showNotPayAlert) {
-                        Alert(title: Text("Not Pay"), message: Text("Not Pay Message"))
+                        Alert(title: Text("In-App Purchase Not Allowed"), message: Text("Please goto【Setting】open In-App Purchase"))
                     }
                     .alert(isPresented: $showPayFailedAlert) {
-                        Alert(title: Text("Failed"))
+                        Alert(title: Text("Unlock failed"))
                     }
                 
                 HStack() {
@@ -502,7 +504,7 @@ struct IAPView: View {
                         }
                     }, label: {
                         Text(
-                            iapManager.isTrialing ? "试用中" : iapManager.isTrialed ? "试用结束" : "试用"
+                            iapManager.isTrialing ? "In trial" : iapManager.isTrialed ? "Trial ended" : "Trial"
                         )
                             .frame(maxWidth: .infinity)
                     })
@@ -524,7 +526,7 @@ struct IAPView: View {
 
                     }, label: {
                         Label(title: {
-                            Text("恢复")
+                            Text("iap.restore")
                         }) {
                             if iapManager.restoring {
                                 ActivityIndicator(isAnimating: .constant(true), style: .medium)
@@ -532,13 +534,15 @@ struct IAPView: View {
                         }
                             .frame(maxWidth: .infinity)
                     })
-                }.padding(.horizontal)
+                }
                 
                 .buttonStyle(.borderedProminent)
                 .tint(.blue)
                 .padding(.horizontal)
+                
             }
             .frame(maxWidth: 480)
+            .padding(.vertical)
         }
         
     }

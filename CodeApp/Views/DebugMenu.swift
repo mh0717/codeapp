@@ -80,7 +80,7 @@ struct DebugMenu: View {
 struct ShareSheet:UIViewControllerRepresentable{
     
     func makeUIViewController(context: Context) -> UIActivityViewController {
-        let provider = NSItemProvider(item: "run pydeUI" as NSSecureCoding, typeIdentifier: "mh.pydeApp.pydeUI")
+        let provider = NSItemProvider(item: "run pydeUI" as NSSecureCoding, typeIdentifier: "baobaowang.SketchPython.pydeUI")
         let item = NSExtensionItem()
         item.attributedTitle = NSAttributedString(string: "This is title")
         item.accessibilityLabel = "run pyde ui"

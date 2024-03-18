@@ -8,7 +8,7 @@
 
 "Welcome Message" =
 "# iPyDE
-##### **v1.5.1 (2023 年 10 月)**
+##### **v1.2.1 (2024 年 3 月)**
 #### 开始
 [新文件](https://ipyde.com/ipyde/newfile)
 [打开文件](https://ipyde.com/ipyde/openfile)
@@ -331,3 +331,37 @@
 "remote.settings.ssh_remote" = "SSH 远程";
 "remote.settings.resolve_home_path" = "解析主目录路径";
 
+
+"iPyDE Premium" = "iPyDE 会员";
+"Unlock Preminum to get access to all these features" = "解锁使用全部功能";
+"Data Analysis" = "数据分析";
+"Image Processing" = "图像处理";
+"Game Develop" = "游戏开发";
+"UI Develop" = "UI开发";
+"Bioinformatics" = "生物信息学";
+"Astronomy" = "天文学";
+"Natural Language Processing" = "自然语言处理";
+"GIS" = "地理信息系统";
+"Quantum Computing" = "量子计算";
+"Signal Decomposition" = "信号分解";
+"Other" = "其它";
+"25+ C extension library" = "25+ C扩展库";
+"100+ bundled libraries" = "100+ 内置库";
+"Pip installation of pure Python libraries" = "Pip安装纯Python库";
+"Run Python code locally" = "本地运行Python代码";
+"Highlighting and Completion" = "语法高亮及自动补全";
+"Generate outline using ctags" = "大纲 (ctags生成)";
+"10+ Themes" = "10+ 主题";
+"Run Jupyter Notebook locally" = "本地运行Jupyter Notebook";
+"Multifile Search" = "多文件搜索";
+"Git Version Control | Clone, Commit, Push" = "Git版本控制 | Clone, Commit, Push";
+"Built in Terminal, 100+ commands" = "内置终端 100+ 命令";
+
+"iap.restore" = "恢复";
+"Trial ended" = "试用结束";
+"In trial" = "试用中";
+"Trial" = "试用";
+"iap.unlock" = "解锁会员:";
+"Unlock failed" = "解锁失败";
+"In-App Purchase Not Allowed" = "应用内购买不允许";
+"Please goto【Setting】open In-App Purchase" = "请在【设置】打开应用内购买";
