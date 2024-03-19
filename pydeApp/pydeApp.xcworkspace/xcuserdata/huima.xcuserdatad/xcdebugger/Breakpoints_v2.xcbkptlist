@@ -609,303 +609,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "012EEC68-4B1B-4C24-9A1F-626674378690"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "640"
-            endingLineNumber = "640"
-            landmarkName = "remoteReqRemoteCommands(commands:)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "012EEC68-4B1B-4C24-9A1F-626674378690 - e52f69ad02a8e831"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "634"
-                  endingLineNumber = "634"
-                  offsetFromSymbolStart = "8640">
-               </Location>
-               <Location
-                  uuid = "012EEC68-4B1B-4C24-9A1F-626674378690 - e52f69ad02a8e831"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "634"
-                  endingLineNumber = "634"
-                  offsetFromSymbolStart = "8212">
-               </Location>
-               <Location
-                  uuid = "012EEC68-4B1B-4C24-9A1F-626674378690 - e52f69ad02a8e8f7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "628"
-                  endingLineNumber = "628"
-                  offsetFromSymbolStart = "8212">
-               </Location>
-               <Location
-                  uuid = "012EEC68-4B1B-4C24-9A1F-626674378690 - e52f69ad02a8e810"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "635"
-                  endingLineNumber = "635"
-                  offsetFromSymbolStart = "8212">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2D564383-5FAF-4883-A22D-78E15D3FC58C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "623"
-            endingLineNumber = "623"
-            landmarkName = "remoteReqRemoteCommands(commands:)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "2D564383-5FAF-4883-A22D-78E15D3FC58C - e7306991b0db898b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.NSFileHandle) -&gt; () in closure #2 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "618"
-                  endingLineNumber = "618"
-                  offsetFromSymbolStart = "188">
-               </Location>
-               <Location
-                  uuid = "2D564383-5FAF-4883-A22D-78E15D3FC58C - e7306991b0db89e8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.NSFileHandle) -&gt; () in closure #2 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "617"
-                  endingLineNumber = "617"
-                  offsetFromSymbolStart = "424">
-               </Location>
-               <Location
-                  uuid = "2D564383-5FAF-4883-A22D-78E15D3FC58C - e7306991b0db88a2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.NSFileHandle) -&gt; () in closure #2 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "611"
-                  endingLineNumber = "611"
-                  offsetFromSymbolStart = "424">
-               </Location>
-               <Location
-                  uuid = "2D564383-5FAF-4883-A22D-78E15D3FC58C - e7306991b0db898b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.NSFileHandle) -&gt; () in closure #2 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "618"
-                  endingLineNumber = "618"
-                  offsetFromSymbolStart = "424">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B5731286-4F34-4C92-BB08-3DFFB4791EF4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "649"
-            endingLineNumber = "649"
-            landmarkName = "remoteReqRemoteCommands(commands:)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "B5731286-4F34-4C92-BB08-3DFFB4791EF4 - e52f69ad02a8eee8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "643"
-                  endingLineNumber = "643"
-                  offsetFromSymbolStart = "9428">
-               </Location>
-               <Location
-                  uuid = "B5731286-4F34-4C92-BB08-3DFFB4791EF4 - e52f69ad02a8efae"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "637"
-                  endingLineNumber = "637"
-                  offsetFromSymbolStart = "9428">
-               </Location>
-               <Location
-                  uuid = "B5731286-4F34-4C92-BB08-3DFFB4791EF4 - e52f69ad02a8eec7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "644"
-                  endingLineNumber = "644"
-                  offsetFromSymbolStart = "9428">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "62AB00AF-1816-4941-A1F9-929D950A6609"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "633"
-            endingLineNumber = "633"
-            landmarkName = "remoteReqRemoteCommands(commands:)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "62AB00AF-1816-4941-A1F9-929D950A6609 - e52f69ad02a8e8f7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "628"
-                  endingLineNumber = "628"
-                  offsetFromSymbolStart = "8020">
-               </Location>
-               <Location
-                  uuid = "62AB00AF-1816-4941-A1F9-929D950A6609 - 237abb4e7e8f131f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (Any) -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "627"
-                  endingLineNumber = "627"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  uuid = "62AB00AF-1816-4941-A1F9-929D950A6609 - 237abb4e7e8f13d9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (Any) -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "621"
-                  endingLineNumber = "621"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  uuid = "62AB00AF-1816-4941-A1F9-929D950A6609 - 237abb4e7e8f12f0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (Any) -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "628"
-                  endingLineNumber = "628"
-                  offsetFromSymbolStart = "60">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "52154EA2-2539-4652-BD7A-840296A74969"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -2377,6 +2080,36 @@
                   endingLineNumber = "152"
                   offsetFromSymbolStart = "420">
                </Location>
+               <Location
+                  uuid = "A289B69B-3A47-405D-A0CF-C9CFA5E71B13 - 3a7164ba7842f9f9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (__C.NSTimer) -&gt; () in pydeRemoteC.python3RunInMain(argc: Swift.Int32, argv: Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Int8&gt;&gt;&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "pydeRemoteC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Python.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "152"
+                  endingLineNumber = "152"
+                  offsetFromSymbolStart = "420">
+               </Location>
+               <Location
+                  uuid = "A289B69B-3A47-405D-A0CF-C9CFA5E71B13 - 3a7164ba7842c1fa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (__C.NSTimer) -&gt; () in pydeRemoteF.python3RunInMain(argc: Swift.Int32, argv: Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Int8&gt;&gt;&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "pydeRemoteF"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Python.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "152"
+                  endingLineNumber = "152"
+                  offsetFromSymbolStart = "420">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -2507,6 +2240,36 @@
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 @Sendable (__C.NSTimer) -&gt; () in pydeRemoteB.python3RunInMain(argc: Swift.Int32, argv: Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Int8&gt;&gt;&gt;&gt;) -&gt; Swift.Int32"
                   moduleName = "pydeRemoteB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Python.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "344">
+               </Location>
+               <Location
+                  uuid = "B9840FD6-C86E-4628-B7D4-54FBE5A42DCE - 3a7164ba7842f99e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (__C.NSTimer) -&gt; () in pydeRemoteC.python3RunInMain(argc: Swift.Int32, argv: Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Int8&gt;&gt;&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "pydeRemoteC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Python.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "344">
+               </Location>
+               <Location
+                  uuid = "B9840FD6-C86E-4628-B7D4-54FBE5A42DCE - 3a7164ba7842c19d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (__C.NSTimer) -&gt; () in pydeRemoteF.python3RunInMain(argc: Swift.Int32, argv: Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Int8&gt;&gt;&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "pydeRemoteF"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Python.swift"
                   startingColumnNumber = "9223372036854775807"
@@ -3119,6 +2882,38 @@
             endingLineNumber = "151"
             landmarkName = "purchase()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "130280DE-D954-45F3-98F8-C404DD35B993 - 80b1b23b6325792f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.SKPaymentTransaction&gt;) -&gt; () in closure #4 (Swift.UnsafeContinuation&lt;Swift.Optional&lt;Swift.Bool&gt;, Swift.Error&gt;) -&gt; () in iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "130280DE-D954-45F3-98F8-C404DD35B993 - 80b1b23b632579e9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.SKPaymentTransaction&gt;) -&gt; () in closure #4 (Swift.UnsafeContinuation&lt;Swift.Optional&lt;Swift.Bool&gt;, Swift.Error&gt;) -&gt; () in iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3135,6 +2930,38 @@
             endingLineNumber = "161"
             landmarkName = "purchase()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "363B3C8A-25BF-41E2-AEDE-2BCC7028564B - 5698d71c1487910"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 @Swift.MainActor @Sendable () -&gt; () in iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "363B3C8A-25BF-41E2-AEDE-2BCC7028564B - 5698d71c1487952"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 @Swift.MainActor @Sendable () -&gt; () in iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3302,6 +3129,81 @@
                   endingLineNumber = "159"
                   offsetFromSymbolStart = "40">
                </Location>
+               <Location
+                  uuid = "EA330F59-1CD6-4BFE-9F22-E43C430CB864 - f143dbfbd57ce31b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "EA330F59-1CD6-4BFE-9F22-E43C430CB864 - 948cc7d4d4ccef5c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(10) await resume partial function for iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "EA330F59-1CD6-4BFE-9F22-E43C430CB864 - 26af96a91b724e4d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "EA330F59-1CD6-4BFE-9F22-E43C430CB864 - 8cb9d493596fb44f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(13) suspend resume partial function for iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  uuid = "EA330F59-1CD6-4BFE-9F22-E43C430CB864 - 5698d71c1487952"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 @Swift.MainActor @Sendable () -&gt; () in iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "40">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -3319,6 +3221,38 @@
             endingLineNumber = "168"
             landmarkName = "purchase()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4D43D83E-7F01-4C3A-A611-DF2BB305146D - 26af96a91b724913"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "166"
+                  endingLineNumber = "166"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "4D43D83E-7F01-4C3A-A611-DF2BB305146D - 26af96a91b724955"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3335,6 +3269,38 @@
             endingLineNumber = "181"
             landmarkName = "restore()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8FBE5B38-CE1D-45E7-BE2A-010576CA8CDB - 4bd733b2d8ecd656"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in closure #2 (Swift.UnsafeContinuation&lt;Swift.Optional&lt;Swift.Bool&gt;, Swift.Error&gt;) -&gt; () in iPyDE.IapManager.restore() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "179"
+                  endingLineNumber = "179"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "8FBE5B38-CE1D-45E7-BE2A-010576CA8CDB - 4bd733b2d8ecd694"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in closure #2 (Swift.UnsafeContinuation&lt;Swift.Optional&lt;Swift.Bool&gt;, Swift.Error&gt;) -&gt; () in iPyDE.IapManager.restore() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "181"
+                  endingLineNumber = "181"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3351,82 +3317,36 @@
             endingLineNumber = "184"
             landmarkName = "restore()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B3CD33C0-FE60-4B86-A508-445F3AE27018"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "clientReqCommands(commands:)"
-            landmarkType = "9">
             <Locations>
                <Location
-                  uuid = "B3CD33C0-FE60-4B86-A508-445F3AE27018 - c83e237c08ecd4ed"
+                  uuid = "16C510C5-5DA5-4C71-BE52-90B7D558A280 - ae2fe361d5e723a0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.clientReqCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #2 (Swift.UnsafeContinuation&lt;Swift.Optional&lt;Swift.Bool&gt;, Swift.Error&gt;) -&gt; () in iPyDE.IapManager.restore() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "127"
-                  endingLineNumber = "127"
-                  offsetFromSymbolStart = "11788">
+                  startingLineNumber = "182"
+                  endingLineNumber = "182"
+                  offsetFromSymbolStart = "40">
                </Location>
                <Location
-                  uuid = "B3CD33C0-FE60-4B86-A508-445F3AE27018 - c83e237c08ecd298"
+                  uuid = "16C510C5-5DA5-4C71-BE52-90B7D558A280 - ae2fe361d5e723e6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.clientReqCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #2 (Swift.UnsafeContinuation&lt;Swift.Optional&lt;Swift.Bool&gt;, Swift.Error&gt;) -&gt; () in iPyDE.IapManager.restore() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
-                  offsetFromSymbolStart = "11356">
-               </Location>
-               <Location
-                  uuid = "B3CD33C0-FE60-4B86-A508-445F3AE27018 - c83e237c08ecd298"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.clientReqCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
-                  offsetFromSymbolStart = "11428">
-               </Location>
-               <Location
-                  uuid = "B3CD33C0-FE60-4B86-A508-445F3AE27018 - c83e237c08ecd25e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.clientReqCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "140"
-                  endingLineNumber = "140"
-                  offsetFromSymbolStart = "11432">
+                  startingLineNumber = "184"
+                  endingLineNumber = "184"
+                  offsetFromSymbolStart = "40">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3506,26 +3426,8 @@
                   endingLineNumber = "680"
                   offsetFromSymbolStart = "600">
                </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E0B69BD1-8E99-40D9-8471-6A6AC724FEB6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "655"
-            endingLineNumber = "655"
-            landmarkName = "clientHandleReqRemoteCommmand(_:)"
-            landmarkType = "9">
-            <Locations>
                <Location
-                  uuid = "E0B69BD1-8E99-40D9-8471-6A6AC724FEB6 - 95eda88bba51fc4f"
+                  uuid = "240AA7F4-EA41-4DB6-AC7E-82D3DE97EBC5 - 95eda88bba510031"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -3535,795 +3437,9 @@
                   urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "651"
-                  endingLineNumber = "651"
-                  offsetFromSymbolStart = "3652">
-               </Location>
-               <Location
-                  uuid = "E0B69BD1-8E99-40D9-8471-6A6AC724FEB6 - 95eda88bba51ff8d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.clientHandleReqRemoteCommmand(Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "649"
-                  endingLineNumber = "649"
-                  offsetFromSymbolStart = "3324">
-               </Location>
-               <Location
-                  uuid = "E0B69BD1-8E99-40D9-8471-6A6AC724FEB6 - 95eda88bba51ff47"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.clientHandleReqRemoteCommmand(Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "643"
-                  endingLineNumber = "643"
-                  offsetFromSymbolStart = "3648">
-               </Location>
-               <Location
-                  uuid = "E0B69BD1-8E99-40D9-8471-6A6AC724FEB6 - 95eda88bba51ff47"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.clientHandleReqRemoteCommmand(Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "643"
-                  endingLineNumber = "643"
-                  offsetFromSymbolStart = "3584">
-               </Location>
-               <Location
-                  uuid = "E0B69BD1-8E99-40D9-8471-6A6AC724FEB6 - 95eda88bba51ffae"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.clientHandleReqRemoteCommmand(Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "650"
-                  endingLineNumber = "650"
-                  offsetFromSymbolStart = "3584">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F701386A-6F36-45D2-9554-D7E31516B5B7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "614"
-            endingLineNumber = "614"
-            landmarkName = "remoteReqRemoteCommands(commands:)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "F701386A-6F36-45D2-9554-D7E31516B5B7 - c18c396794469e56"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "608"
-                  endingLineNumber = "608"
-                  offsetFromSymbolStart = "980">
-               </Location>
-               <Location
-                  uuid = "F701386A-6F36-45D2-9554-D7E31516B5B7 - c18c396794469e77"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "609"
-                  endingLineNumber = "609"
-                  offsetFromSymbolStart = "956">
-               </Location>
-               <Location
-                  uuid = "F701386A-6F36-45D2-9554-D7E31516B5B7 - c18c39679446910d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "603"
-                  endingLineNumber = "603"
-                  offsetFromSymbolStart = "956">
-               </Location>
-               <Location
-                  uuid = "F701386A-6F36-45D2-9554-D7E31516B5B7 - c18c396794469e14"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "610"
-                  endingLineNumber = "610"
-                  offsetFromSymbolStart = "956">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BBA9CE06-2F2A-46B6-995A-1B6231298AA1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "602"
-            endingLineNumber = "602"
-            landmarkName = "remoteReqRemoteCommands(commands:)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "BBA9CE06-2F2A-46B6-995A-1B6231298AA1 - e7306991b0db86bd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.NSFileHandle) -&gt; () in closure #1 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "596"
-                  endingLineNumber = "596"
-                  offsetFromSymbolStart = "188">
-               </Location>
-               <Location
-                  uuid = "BBA9CE06-2F2A-46B6-995A-1B6231298AA1 - e7306991b0db86bd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.NSFileHandle) -&gt; () in closure #1 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "596"
-                  endingLineNumber = "596"
-                  offsetFromSymbolStart = "176">
-               </Location>
-               <Location
-                  uuid = "BBA9CE06-2F2A-46B6-995A-1B6231298AA1 - e7306991b0db8677"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.NSFileHandle) -&gt; () in closure #1 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "590"
-                  endingLineNumber = "590"
-                  offsetFromSymbolStart = "176">
-               </Location>
-               <Location
-                  uuid = "BBA9CE06-2F2A-46B6-995A-1B6231298AA1 - e7306991b0db875c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.NSFileHandle) -&gt; () in closure #1 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "597"
-                  endingLineNumber = "597"
-                  offsetFromSymbolStart = "176">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8723B555-6089-4244-A797-38BBA8919892"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "580"
-            endingLineNumber = "580"
-            landmarkName = "remoteReqRemoteCommands(commands:)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "8723B555-6089-4244-A797-38BBA8919892 - e52f69ad02a8e7ac"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "575"
-                  endingLineNumber = "575"
-                  offsetFromSymbolStart = "5632">
-               </Location>
-               <Location
-                  uuid = "8723B555-6089-4244-A797-38BBA8919892 - e52f69ad02a8e7cd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "574"
-                  endingLineNumber = "574"
-                  offsetFromSymbolStart = "5552">
-               </Location>
-               <Location
-                  uuid = "8723B555-6089-4244-A797-38BBA8919892 - 50c1caaea17d24f1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "574"
-                  endingLineNumber = "574"
-                  offsetFromSymbolStart = "152">
-               </Location>
-               <Location
-                  uuid = "8723B555-6089-4244-A797-38BBA8919892 - c18c3967944692f0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "574"
-                  endingLineNumber = "574"
-                  offsetFromSymbolStart = "152">
-               </Location>
-               <Location
-                  uuid = "8723B555-6089-4244-A797-38BBA8919892 - e7306991b0db8467"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.NSFileHandle) -&gt; () in closure #2 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "574"
-                  endingLineNumber = "574"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  uuid = "8723B555-6089-4244-A797-38BBA8919892 - 237abb4e7e8f1dca"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (Any) -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "574"
-                  endingLineNumber = "574"
-                  offsetFromSymbolStart = "28">
-               </Location>
-               <Location
-                  uuid = "8723B555-6089-4244-A797-38BBA8919892 - e52f69ad02a8e0b3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "568"
-                  endingLineNumber = "568"
-                  offsetFromSymbolStart = "5552">
-               </Location>
-               <Location
-                  uuid = "8723B555-6089-4244-A797-38BBA8919892 - 50c1caaea17d238f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "568"
-                  endingLineNumber = "568"
-                  offsetFromSymbolStart = "152">
-               </Location>
-               <Location
-                  uuid = "8723B555-6089-4244-A797-38BBA8919892 - c18c39679446958e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "568"
-                  endingLineNumber = "568"
-                  offsetFromSymbolStart = "152">
-               </Location>
-               <Location
-                  uuid = "8723B555-6089-4244-A797-38BBA8919892 - e7306991b0db8319"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.NSFileHandle) -&gt; () in closure #2 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "568"
-                  endingLineNumber = "568"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  uuid = "8723B555-6089-4244-A797-38BBA8919892 - 237abb4e7e8f1ab4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (Any) -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "568"
-                  endingLineNumber = "568"
-                  offsetFromSymbolStart = "28">
-               </Location>
-               <Location
-                  uuid = "8723B555-6089-4244-A797-38BBA8919892 - e52f69ad02a8e7ac"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "575"
-                  endingLineNumber = "575"
-                  offsetFromSymbolStart = "5552">
-               </Location>
-               <Location
-                  uuid = "8723B555-6089-4244-A797-38BBA8919892 - 50c1caaea17d2490"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "575"
-                  endingLineNumber = "575"
-                  offsetFromSymbolStart = "152">
-               </Location>
-               <Location
-                  uuid = "8723B555-6089-4244-A797-38BBA8919892 - c18c396794469291"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "575"
-                  endingLineNumber = "575"
-                  offsetFromSymbolStart = "152">
-               </Location>
-               <Location
-                  uuid = "8723B555-6089-4244-A797-38BBA8919892 - e7306991b0db8406"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.NSFileHandle) -&gt; () in closure #2 @Sendable () -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "575"
-                  endingLineNumber = "575"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  uuid = "8723B555-6089-4244-A797-38BBA8919892 - 237abb4e7e8f1dab"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (Any) -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "575"
-                  endingLineNumber = "575"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9B509E8B-3026-4714-BE31-85148F61B071"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
-            landmarkName = "remoteExe(requestInfo:executor:exit:)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "9B509E8B-3026-4714-BE31-85148F61B071 - 5e613413b6182db4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteExe(requestInfo: Swift.Dictionary&lt;Swift.String, Any&gt;, executor: Swift.Optional&lt;pydeCommon.Executor&gt;, exit: Swift.Bool) -&gt; ()"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "349"
-                  endingLineNumber = "349"
-                  offsetFromSymbolStart = "19824">
-               </Location>
-               <Location
-                  uuid = "9B509E8B-3026-4714-BE31-85148F61B071 - 5e613413b6182db4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteExe(requestInfo: Swift.Dictionary&lt;Swift.String, Any&gt;, executor: Swift.Optional&lt;pydeCommon.Executor&gt;, exit: Swift.Bool) -&gt; ()"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "349"
-                  endingLineNumber = "349"
-                  offsetFromSymbolStart = "1704">
-               </Location>
-               <Location
-                  uuid = "9B509E8B-3026-4714-BE31-85148F61B071 - 5e613413b6182cce"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteExe(requestInfo: Swift.Dictionary&lt;Swift.String, Any&gt;, executor: Swift.Optional&lt;pydeCommon.Executor&gt;, exit: Swift.Bool) -&gt; ()"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "343"
-                  endingLineNumber = "343"
-                  offsetFromSymbolStart = "1704">
-               </Location>
-               <Location
-                  uuid = "9B509E8B-3026-4714-BE31-85148F61B071 - 5e613413b6182dd7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteExe(requestInfo: Swift.Dictionary&lt;Swift.String, Any&gt;, executor: Swift.Optional&lt;pydeCommon.Executor&gt;, exit: Swift.Bool) -&gt; ()"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "350"
-                  endingLineNumber = "350"
-                  offsetFromSymbolStart = "1704">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "07F07F0D-0B9C-44B4-AEF0-BC7D5C591205"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "353"
-            endingLineNumber = "353"
-            landmarkName = "remoteExe(requestInfo:executor:exit:)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "07F07F0D-0B9C-44B4-AEF0-BC7D5C591205 - 5e613413b6182c4a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteExe(requestInfo: Swift.Dictionary&lt;Swift.String, Any&gt;, executor: Swift.Optional&lt;pydeCommon.Executor&gt;, exit: Swift.Bool) -&gt; ()"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "347"
-                  endingLineNumber = "347"
-                  offsetFromSymbolStart = "1704">
-               </Location>
-               <Location
-                  uuid = "07F07F0D-0B9C-44B4-AEF0-BC7D5C591205 - 5e613413b6182c4a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteExe(requestInfo: Swift.Dictionary&lt;Swift.String, Any&gt;, executor: Swift.Optional&lt;pydeCommon.Executor&gt;, exit: Swift.Bool) -&gt; ()"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "347"
-                  endingLineNumber = "347"
-                  offsetFromSymbolStart = "1112">
-               </Location>
-               <Location
-                  uuid = "07F07F0D-0B9C-44B4-AEF0-BC7D5C591205 - 5e613413b6182c8c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteExe(requestInfo: Swift.Dictionary&lt;Swift.String, Any&gt;, executor: Swift.Optional&lt;pydeCommon.Executor&gt;, exit: Swift.Bool) -&gt; ()"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "341"
-                  endingLineNumber = "341"
-                  offsetFromSymbolStart = "1112">
-               </Location>
-               <Location
-                  uuid = "07F07F0D-0B9C-44B4-AEF0-BC7D5C591205 - 5e613413b6182d95"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteExe(requestInfo: Swift.Dictionary&lt;Swift.String, Any&gt;, executor: Swift.Optional&lt;pydeCommon.Executor&gt;, exit: Swift.Bool) -&gt; ()"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "348"
-                  endingLineNumber = "348"
-                  offsetFromSymbolStart = "1112">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A8957DF1-3532-4D43-89E9-94DA5884B8F8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
-            landmarkName = "remoteExe(requestInfo:executor:exit:)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "A8957DF1-3532-4D43-89E9-94DA5884B8F8 - 5e613413b6182d53"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteExe(requestInfo: Swift.Dictionary&lt;Swift.String, Any&gt;, executor: Swift.Optional&lt;pydeCommon.Executor&gt;, exit: Swift.Bool) -&gt; ()"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "354"
-                  endingLineNumber = "354"
-                  offsetFromSymbolStart = "3380">
-               </Location>
-               <Location
-                  uuid = "A8957DF1-3532-4D43-89E9-94DA5884B8F8 - 5e613413b6182d53"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteExe(requestInfo: Swift.Dictionary&lt;Swift.String, Any&gt;, executor: Swift.Optional&lt;pydeCommon.Executor&gt;, exit: Swift.Bool) -&gt; ()"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "354"
-                  endingLineNumber = "354"
-                  offsetFromSymbolStart = "2300">
-               </Location>
-               <Location
-                  uuid = "A8957DF1-3532-4D43-89E9-94DA5884B8F8 - 5e613413b6182d95"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteExe(requestInfo: Swift.Dictionary&lt;Swift.String, Any&gt;, executor: Swift.Optional&lt;pydeCommon.Executor&gt;, exit: Swift.Bool) -&gt; ()"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "348"
-                  endingLineNumber = "348"
-                  offsetFromSymbolStart = "2300">
-               </Location>
-               <Location
-                  uuid = "A8957DF1-3532-4D43-89E9-94DA5884B8F8 - 5e613413b6182d72"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteExe(requestInfo: Swift.Dictionary&lt;Swift.String, Any&gt;, executor: Swift.Optional&lt;pydeCommon.Executor&gt;, exit: Swift.Bool) -&gt; ()"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "355"
-                  endingLineNumber = "355"
-                  offsetFromSymbolStart = "2300">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "39FF00F3-D0A7-4F2A-9C77-91598BBD5646"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "631"
-            endingLineNumber = "631"
-            landmarkName = "remoteReqRemoteCommands(commands:)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "39FF00F3-D0A7-4F2A-9C77-91598BBD5646 - 237abb4e7e8f135d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (Any) -&gt; () in pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "625"
-                  endingLineNumber = "625"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  uuid = "39FF00F3-D0A7-4F2A-9C77-91598BBD5646 - e52f69ad02a8e95a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "625"
-                  endingLineNumber = "625"
-                  offsetFromSymbolStart = "7780">
-               </Location>
-               <Location
-                  uuid = "39FF00F3-D0A7-4F2A-9C77-91598BBD5646 - e52f69ad02a8ea00"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "619"
-                  endingLineNumber = "619"
-                  offsetFromSymbolStart = "7780">
-               </Location>
-               <Location
-                  uuid = "39FF00F3-D0A7-4F2A-9C77-91598BBD5646 - e52f69ad02a8e939"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteReqRemoteCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "626"
-                  endingLineNumber = "626"
-                  offsetFromSymbolStart = "7780">
+                  startingLineNumber = "685"
+                  endingLineNumber = "685"
+                  offsetFromSymbolStart = "600">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -4401,6 +3517,21 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "697"
                   endingLineNumber = "697"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "714CDC46-4D9D-4ED1-A46F-7AB8B148A14E - eb83f73500a84435"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Swift.Optional&lt;Foundation.UUID&gt;) -&gt; () in pydeCommon.clientHandleReqRemoteCommmand(Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
+                  moduleName = "pydeCommon"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "702"
+                  endingLineNumber = "702"
                   offsetFromSymbolStart = "196">
                </Location>
             </Locations>
@@ -4481,6 +3612,21 @@
                   endingLineNumber = "705"
                   offsetFromSymbolStart = "212">
                </Location>
+               <Location
+                  uuid = "98CCCC78-DCE9-4C47-802B-AE8C27EC0902 - 8dae03d416666709"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 (Swift.Optional&lt;Foundation.UUID&gt;, Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in pydeCommon.clientHandleReqRemoteCommmand(Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
+                  moduleName = "pydeCommon"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "710"
+                  endingLineNumber = "710"
+                  offsetFromSymbolStart = "212">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -4559,6 +3705,21 @@
                   endingLineNumber = "717"
                   offsetFromSymbolStart = "244">
                </Location>
+               <Location
+                  uuid = "1EC14C91-EB77-48E7-890B-45A9A73100A9 - 846d2789c291b7a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #6 (Swift.Optional&lt;Foundation.UUID&gt;) -&gt; () in pydeCommon.clientHandleReqRemoteCommmand(Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
+                  moduleName = "pydeCommon"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "722"
+                  endingLineNumber = "722"
+                  offsetFromSymbolStart = "244">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -4620,6 +3781,21 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "177"
                   endingLineNumber = "177"
+                  offsetFromSymbolStart = "524">
+               </Location>
+               <Location
+                  uuid = "66191935-B9F0-425F-85B3-1EBCFA908C87 - 5642a5df595119e1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Foundation.UUID&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in pydeCommon.clientReqCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
+                  moduleName = "pydeCommon"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "182"
+                  endingLineNumber = "182"
                   offsetFromSymbolStart = "524">
                </Location>
             </Locations>
@@ -4685,6 +3861,21 @@
                   endingLineNumber = "188"
                   offsetFromSymbolStart = "228">
                </Location>
+               <Location
+                  uuid = "6947AEAC-B616-4749-B38E-AB56B6AAC60A - b90a5046ead9c2c0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (Swift.Optional&lt;Foundation.UUID&gt;) -&gt; () in pydeCommon.clientReqCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
+                  moduleName = "pydeCommon"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "193"
+                  endingLineNumber = "193"
+                  offsetFromSymbolStart = "228">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -4748,53 +3939,20 @@
                   endingLineNumber = "204"
                   offsetFromSymbolStart = "308">
                </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "83EBC6B9-FAF1-42C2-A116-2801091A9FF6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "killRemotes()"
-            landmarkType = "9">
-            <Locations>
                <Location
-                  uuid = "83EBC6B9-FAF1-42C2-A116-2801091A9FF6 - 4604ba748284b04b"
+                  uuid = "2E2E5AF7-50DE-4EB4-8CB0-AC01768F4A48 - 4bbe36a774469de6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.killRemotes() -&gt; Swift.Int32"
+                  symbolName = "closure #4 (Swift.Optional&lt;Foundation.UUID&gt;, Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in pydeCommon.clientReqCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
                   moduleName = "pydeCommon"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "136"
-                  endingLineNumber = "136"
-                  offsetFromSymbolStart = "28">
-               </Location>
-               <Location
-                  uuid = "83EBC6B9-FAF1-42C2-A116-2801091A9FF6 - 4604ba748284b101"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.killRemotes() -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "130"
-                  endingLineNumber = "130"
-                  offsetFromSymbolStart = "28">
+                  startingLineNumber = "209"
+                  endingLineNumber = "209"
+                  offsetFromSymbolStart = "308">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -4907,6 +4065,21 @@
                   endingLineNumber = "713"
                   offsetFromSymbolStart = "2772">
                </Location>
+               <Location
+                  uuid = "CF1ED764-3C55-4E2E-827B-F7B44D32F0E7 - 95eda88bba5104f2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pydeCommon.clientHandleReqRemoteCommmand(Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
+                  moduleName = "pydeCommon"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "718"
+                  endingLineNumber = "718"
+                  offsetFromSymbolStart = "2772">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -4993,62 +4166,62 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "20EA3AFB-E2DC-44BB-95D8-BF76FBE78FEC"
+            uuid = "66A84799-8872-4088-A115-67FF22E4F6B8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
+            filePath = "pydeApp/Python.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "330"
-            endingLineNumber = "330"
-            landmarkName = "remoteExeCommands(context:executor:exit:)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "python3SubProcess(argc:argv:)"
             landmarkType = "9">
             <Locations>
                <Location
-                  uuid = "20EA3AFB-E2DC-44BB-95D8-BF76FBE78FEC - a648881c4aff28e4"
+                  uuid = "66A84799-8872-4088-A115-67FF22E4F6B8 - 142db525abf43f10"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteExeCommands(context: __C.NSExtensionContext, executor: Swift.Optional&lt;pydeCommon.Executor&gt;, exit: Swift.Bool) -&gt; ()"
-                  moduleName = "pydeCommon"
+                  symbolName = "pydeRemoteC.python3SubProcess(argc: Swift.Int32, argv: Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Int8&gt;&gt;&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "pydeRemoteC"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Python.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "325"
-                  endingLineNumber = "325"
-                  offsetFromSymbolStart = "96">
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "464">
                </Location>
                <Location
-                  uuid = "20EA3AFB-E2DC-44BB-95D8-BF76FBE78FEC - a648881c4aff28e4"
+                  uuid = "66A84799-8872-4088-A115-67FF22E4F6B8 - 5d47babb7ddf0216"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteExeCommands(context: __C.NSExtensionContext, executor: Swift.Optional&lt;pydeCommon.Executor&gt;, exit: Swift.Bool) -&gt; ()"
-                  moduleName = "pydeCommon"
+                  symbolName = "pydeRemoteF.python3SubProcess(argc: Swift.Int32, argv: Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Int8&gt;&gt;&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "pydeRemoteF"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Python.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "325"
-                  endingLineNumber = "325"
-                  offsetFromSymbolStart = "108">
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "464">
                </Location>
                <Location
-                  uuid = "20EA3AFB-E2DC-44BB-95D8-BF76FBE78FEC - 84b0d182eca444fd"
+                  uuid = "66A84799-8872-4088-A115-67FF22E4F6B8 - af9c4cdc9de4875d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Any) -&gt; Swift.Bool in pydeCommon.remoteExeCommands(context: __C.NSExtensionContext, executor: Swift.Optional&lt;pydeCommon.Executor&gt;, exit: Swift.Bool) -&gt; ()"
-                  moduleName = "pydeCommon"
+                  symbolName = "iPyDE.python3SubProcess(argc: Swift.Int32, argv: Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Int8&gt;&gt;&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "iPyDE"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Python.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "326"
-                  endingLineNumber = "326"
-                  offsetFromSymbolStart = "64">
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "464">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -5056,49 +4229,159 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "75559321-4E4C-44DC-A47E-18008F4F4BC4"
+            uuid = "FEA299E3-7527-4AA1-880C-722A52E22DC3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
+            filePath = "pydeApp/Python.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "517"
-            endingLineNumber = "517"
-            landmarkName = "remoteExe(requestInfo:executor:exit:)"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "python3SubProcess(argc:argv:)"
             landmarkType = "9">
             <Locations>
                <Location
-                  uuid = "75559321-4E4C-44DC-A47E-18008F4F4BC4 - 5e613413b61811a8"
+                  uuid = "FEA299E3-7527-4AA1-880C-722A52E22DC3 - 142db525abf43e56"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteExe(requestInfo: Swift.Dictionary&lt;Swift.String, Any&gt;, executor: Swift.Optional&lt;pydeCommon.Executor&gt;, exit: Swift.Bool) -&gt; ()"
-                  moduleName = "pydeCommon"
+                  symbolName = "pydeRemoteC.python3SubProcess(argc: Swift.Int32, argv: Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Int8&gt;&gt;&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "pydeRemoteC"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Python.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "505"
-                  endingLineNumber = "505"
-                  offsetFromSymbolStart = "16840">
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "160">
                </Location>
                <Location
-                  uuid = "75559321-4E4C-44DC-A47E-18008F4F4BC4 - 5e613413b61816b1"
+                  uuid = "FEA299E3-7527-4AA1-880C-722A52E22DC3 - 5d47babb7ddf0350"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "pydeCommon.remoteExe(requestInfo: Swift.Dictionary&lt;Swift.String, Any&gt;, executor: Swift.Optional&lt;pydeCommon.Executor&gt;, exit: Swift.Bool) -&gt; ()"
-                  moduleName = "pydeCommon"
+                  symbolName = "pydeRemoteF.python3SubProcess(argc: Swift.Int32, argv: Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Int8&gt;&gt;&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "pydeRemoteF"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Python.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "512"
-                  endingLineNumber = "512"
-                  offsetFromSymbolStart = "16840">
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "FEA299E3-7527-4AA1-880C-722A52E22DC3 - af9c4cdc9de4861b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iPyDE.python3SubProcess(argc: Swift.Int32, argv: Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Int8&gt;&gt;&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Python.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "160">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "766FFDE5-03C1-4A20-85E4-608C40F898A9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pydeApp/Python.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "pythonA(argc:argv:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "766FFDE5-03C1-4A20-85E4-608C40F898A9 - f35c1cbe57ecde21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pydeRemoteC.pythonA(argc: Swift.Int32, argv: Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Int8&gt;&gt;&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "pydeRemoteC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Python.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "766FFDE5-03C1-4A20-85E4-608C40F898A9 - c9c310757735e727"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pydeRemoteF.pythonA(argc: Swift.Int32, argv: Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Int8&gt;&gt;&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "pydeRemoteF"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Python.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "766FFDE5-03C1-4A20-85E4-608C40F898A9 - 4c6af51b9f313f9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iPyDE.pythonA(argc: Swift.Int32, argv: Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Int8&gt;&gt;&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Python.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "43FD0085-9EEE-4186-AB1C-E82545C4FCEF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../CodeApp/Views/CompactSidebar.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "889869A3-3664-4F45-801F-BDA2413A4467"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../CodeApp/Views/CompactSidebar.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

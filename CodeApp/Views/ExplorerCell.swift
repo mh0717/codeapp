@@ -284,7 +284,11 @@ private struct FolderCell: View {
         }
         .padding(5)
         .sheet(isPresented: $showingNewFileSheet) {
+            #if PYDEAPP
+            PYNewFileView(targetUrl: item.url).environmentObject(App)
+            #else
             NewFileView(targetUrl: item.url).environmentObject(App)
+            #endif
         }
         .sheet(isPresented: $showsDirectoryPicker) {
             DirectoryPickerView(onOpen: { url in

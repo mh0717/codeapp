@@ -1089,6 +1089,7 @@
 		A3F23A7E2BA75822006F6D7B /* pydeRemoteF.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A3F23A602BA757EA006F6D7B /* pydeRemoteF.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A3F23A812BA75822006F6D7B /* pydeRemoteG.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A3F23A762BA757EE006F6D7B /* pydeRemoteG.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A3F23A852BA75CD6006F6D7B /* PyRuntimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F23A842BA75CD6006F6D7B /* PyRuntimes.swift */; };
+		A3F23A872BA9E665006F6D7B /* PYNewFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F23A862BA9E665006F6D7B /* PYNewFileView.swift */; };
 		A3F32F662AF88CC000866ED0 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A3F32F672AF88CC200866ED0 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A3F32F682AF88CC300866ED0 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -2423,6 +2424,7 @@
 		A3F23A762BA757EE006F6D7B /* pydeRemoteG.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pydeRemoteG.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F23A772BA757EE006F6D7B /* pydeRemote copy 4-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "pydeRemote copy 4-Info.plist"; path = "/Users/huima/PythonSchool/pydeApp/pydeRemote copy 4-Info.plist"; sourceTree = "<absolute>"; };
 		A3F23A842BA75CD6006F6D7B /* PyRuntimes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PyRuntimes.swift; sourceTree = "<group>"; };
+		A3F23A862BA9E665006F6D7B /* PYNewFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNewFileView.swift; sourceTree = "<group>"; };
 		A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = commandDictionary.plist; path = ../../modules/pythoncc/pyde/commandDictionary.plist; sourceTree = "<group>"; };
 		A3F32F6B2AF9330900866ED0 /* ExplorerTagTreeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerTagTreeSection.swift; sourceTree = "<group>"; };
 		A3F52F002B0BF16D001F096E /* PYActivityBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYActivityBar.swift; sourceTree = "<group>"; };
@@ -3824,6 +3826,7 @@
 				A3A3DEFF2B937645004A7C39 /* PYSettingsView.swift */,
 				A3A3DF112B9E874E004A7C39 /* ExpandedSection.swift */,
 				A3F239702B9FEBE8006F6D7B /* PYWelcomeView.swift */,
+				A3F23A862BA9E665006F6D7B /* PYNewFileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -5031,6 +5034,7 @@
 				A3A87D0C2AF221D1002E3399 /* RemoteHostError.swift in Sources */,
 				A3A87D0D2AF221D1002E3399 /* GitServiceProvider.swift in Sources */,
 				A3A87D0E2AF221D1002E3399 /* EditorView.swift in Sources */,
+				A3F23A872BA9E665006F6D7B /* PYNewFileView.swift in Sources */,
 				A3A87D0F2AF221D1002E3399 /* ExplorerFileTreeSection.swift in Sources */,
 				A3A87D102AF221D1002E3399 /* HierarchyList.swift in Sources */,
 				A3A87D112AF221D1002E3399 /* WebViewBase.swift in Sources */,

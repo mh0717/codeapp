@@ -217,9 +217,15 @@ private struct MainView: View {
                                     return AnyView(EditorView()
                                         .disabled(horizontalSizeClass == .compact && isSideBarVisible)
                                         .sheet(isPresented: $stateManager.showsNewFileSheet) {
+                                            #if PYDEAPP
+                                            PYNewFileView(
+                                                targetUrl: App.workSpaceStorage.currentDirectory.url
+                                            ).environmentObject(App)
+                                            #else
                                             NewFileView(
                                                 targetUrl: App.workSpaceStorage.currentDirectory.url
                                             ).environmentObject(App)
+                                            #endif
                                         }
                                         .environmentObject(extensionManager.editorProviderManager))
                                 }
