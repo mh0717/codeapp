@@ -53,6 +53,8 @@
 	<true/>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>You have not enabled the media permission, you can import images to the document directory after enabling, and then you can use Python to process further</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Allow access to the location, you can further process it with Python after opening</string>
 	<key>NSCameraUsageDescription</key>
 	<string>You have not turned on the album permission. After you turn it on, you can take pictures and import pictures to the document directory, and then you can use the Python image library for further processing</string>
 	<key>NSFaceIDUsageDescription</key>
@@ -65,6 +67,8 @@
 	<string>Authorize sports and health permissions, after opening you can further process through Python</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Access to Photo Library is required to save images.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires access to the photo library</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Need your consent to use voice recognition</string>
 	<key>UIAppFonts</key>

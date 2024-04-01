@@ -33,8 +33,17 @@ struct PYNewFileView: View {
         }
 
         switch lang {
+        case 0:
+            name = "example.py"
+            content = """
+                # Created on \(UIDevice.current.name).
+                
+                print("Hello World!")
+                
+                """
+
         case 1:
-            name = "example_sdl2.py"
+            name = "example_sdl2.ui.py"
             content = """
                 # Created on \(UIDevice.current.name).
 
@@ -78,7 +87,7 @@ struct PYNewFileView: View {
                 
                 """
         case 2:
-            name = "example_pygame.py"
+            name = "example_pygame.ui.py"
             content = """
                 # Created on \(UIDevice.current.name).
 
@@ -113,7 +122,7 @@ struct PYNewFileView: View {
                 
                 """
         case 3:
-            name = "example_kivy"
+            name = "example_kivy.ui.py"
             content = """
                 # Created on \(UIDevice.current.name).
 
@@ -400,6 +409,7 @@ struct PYNewFileView: View {
     }
 
     let languageMapping: [LanguageTemplateMapping] = [
+        .init(code: 0, name: "Python"),
         .init(code: 1, name: "SDL2"),
         .init(code: 2, name: "PyGame"),
         .init(code: 3, name: "Kivy"),

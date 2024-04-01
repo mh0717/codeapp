@@ -164,10 +164,22 @@ class VCInTabExtension: CodeAppExtension {
             }
             
             if url.path.contains("Jupyter/runtime/nbserver") {
+                var localUrl = "http://localhost:\(JupyterExtension.jupyterManager.port)/tree"
+                do {
+                    let content = try String(contentsOf: url)
+                    let lines = content.components(separatedBy: "\n")
+                    for line in lines {
+                        if line.contains("\"http://"), let name = line.slice(from: "\"http://", to: "\"") {
+                            localUrl = "http://\(name)"
+                        }
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
                 VCInTabExtension._showCount += 1
                 let title = url.lastPathComponent.isEmpty ? "#web\(VCInTabExtension._showCount)" : url.lastPathComponent
                 DispatchQueue.main.async {
-                    let vc = SFSafariViewController(url: URL(string: "http://localhost:8888/")!)
+                    let vc = SFSafariViewController(url: URL(string: localUrl)!)
                     let instance = VCInTabEditorInstance(url: url, title: title, vc: vc)
                     app.appendAndFocusNewEditor(editor: instance, alwaysInNewTab: true)
                 }

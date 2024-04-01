@@ -5941,8 +5941,8 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeUIRelease.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -6125,7 +6125,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Code App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 21;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -6148,7 +6148,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.1.2;
 				OTHER_SWIFT_FLAGS = "-Xcc -Wno-incomplete-umbrella -DPYDEAPP";
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -6175,10 +6175,10 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Code App.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 21;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -6204,7 +6204,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.1.2;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-Xcc -Wno-incomplete-umbrella -DPYDEAPP";
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython;
@@ -6332,8 +6332,8 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeRemoteRelease.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -6357,7 +6357,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython.pydeRemoteA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = SketchPythonRemote;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemote;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemoteA;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -6408,8 +6408,8 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeRemoteRelease.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -6433,7 +6433,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython.pydeRemoteB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = SketchPythonRemote;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemote;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemoteB;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -6484,8 +6484,8 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeRemoteRelease.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -6509,7 +6509,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython.pydeRemoteC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = SketchPythonRemote;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemote;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemoteC;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -6560,8 +6560,8 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeRemoteRelease.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -6585,7 +6585,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython.pydeRemoteD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = SketchPythonRemote;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemote;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemoteD;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -6636,8 +6636,8 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeRemoteRelease.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -6661,7 +6661,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython.pydeRemoteE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = SketchPythonRemote;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemote;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemoteE;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -6712,8 +6712,8 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeRemoteRelease.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -6737,7 +6737,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython.pydeRemoteF;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = SketchPythonRemote;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemote;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemoteF;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -6788,8 +6788,8 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeRemoteRelease.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -6813,7 +6813,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.SketchPython.pydeRemoteG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = SketchPythonRemote;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemote;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemoteG;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

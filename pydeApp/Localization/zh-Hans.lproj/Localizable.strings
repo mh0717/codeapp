@@ -365,3 +365,9 @@
 "Unlock failed" = "解锁失败";
 "In-App Purchase Not Allowed" = "应用内购买不允许";
 "Please goto【Setting】open In-App Purchase" = "请在【设置】打开应用内购买";
+
+
+"Python3 Interpreters" = "Python3解释器";
+"Interpreter: " = "解释器: ";
+"New Terminal" = "新建终端";
+"Open Examples" = "打开 Examples";
