@@ -22,6 +22,13 @@ public func python3Sub(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePoin
     return pydeMainInSubIntp(argc, argv)
 }
 
+@_cdecl("python3Process")
+public func python3Process(argc: Int32, argv:UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    let cmds = __concatenateArgv(argv)
+    let cmdStr = String(cString: cmds!)
+    return clientReqCommands(commands: [cmdStr])
+}
+
 private var _python3SubProcessCount = 0
 @_cdecl("python3SubProcess")
 public func python3SubProcess(argc: Int32, argv:UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
@@ -92,8 +99,12 @@ public func initPyDE() {
     
     
     
-    initDEMainIntp()
-    replaceCommand("python3", "python3Main", false)
+//    initDEMainIntp()
+//    replaceCommand("python3", "python3Main", false)
+    
+    replaceCommand("python3", "python3Process", false)
+    replaceCommand("python", "python3Process", false)
+    replaceCommand("python3.11", "python3Process", false)
     
 //    UIViewController.swizzIt()
 }

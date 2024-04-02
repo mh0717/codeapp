@@ -323,6 +323,55 @@ struct PYNewFileView: View {
                 
                 
                 """
+        case 11:
+            name = "example_flask.py"
+            content = """
+                # Created on \(UIDevice.current.name)
+                
+                from flask import Flask
+                import webbrowser
+
+                app = Flask(__name__)
+
+                @app.route("/")
+                def hello_world():
+                    return "<p>Hello, World!</p>"
+
+                webbrowser.open('http://127.0.0.1:5000')
+                app.run()
+                
+                """
+        case 12:
+            name = "example_django.py"
+            content = """
+                import sys
+                
+                from django.conf import settings
+                from django.urls import path
+                from django.http import HttpResponse
+                
+                import webbrowser
+                
+                settings.configure(
+                    DEBUG=True,  # For debugging
+                    SECRET_KEY="a-bad-secret",  # Insecure! change this
+                    ROOT_URLCONF=__name__,
+                )
+                
+                def home(request):
+                    return HttpResponse("Welcome!")
+                
+                urlpatterns = [
+                    path("", home),
+                ]
+                
+                if __name__ == "__main__":
+                    webbrowser.open('http://127.0.0.1:8080')
+                
+                    from django.core.management import execute_from_command_line
+                    execute_from_command_line(sys.argv + ['runserver', '8080', '--noreload'])
+                
+                """
         case 62:
             name = "Main.java"
             content = """
@@ -415,6 +464,8 @@ struct PYNewFileView: View {
         .init(code: 3, name: "Kivy"),
         .init(code: 4, name: "Imgui"),
         .init(code: 5, name: "Flet"),
+        .init(code: 11, name: "Flask"),
+        .init(code: 12, name: "Django")
     ]
 
     var body: some View {
