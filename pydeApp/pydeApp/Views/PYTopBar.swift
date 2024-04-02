@@ -286,13 +286,14 @@ struct PYTopBar: View {
                             try await App.createFolder(at: url)
                         }
                     } label: {
-                        Label("New Folder", systemImage: "folder.badge.gear")
+                        Label("New Folder", systemImage: "folder.badge.plus")
                     }
                     
                     Button {
+                        djangoName = ""
                         showingNewDjangoAlert.toggle()
                     } label: {
-                        Label("New Django Project", systemImage: "doc.badge.plus")
+                        Label("New Django Project", systemImage: "folder.badge.gear")
                     }
                     
                     Button {
@@ -304,6 +305,8 @@ struct PYTopBar: View {
                     } label: {
                         Label("New Terminal", systemImage: "apple.terminal")
                     }
+                    
+                    Divider()
 
                     Button(action: {
                         stateManager.showsSettingsSheet.toggle()
@@ -339,8 +342,8 @@ struct PYTopBar: View {
             }
             .alert("", isPresented: $showingNewDjangoAlert){
                 TextField("Enter django project name", text: $djangoName)
-                    .autocorrectionDisabled()
-                    .autocapitalization(.none)
+                    .autocorrectionDisabled(true)
+                    .textInputAutocapitalization(.never)
                 Button("common.create", action: onNewDjango)
                 Button("common.cancel") {
                     showingNewDjangoAlert.toggle()

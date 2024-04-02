@@ -217,6 +217,8 @@ struct ParamsView: View {
         }))
             .background(Color((colorScheme == .dark ? codeThemeManager.darkTheme : codeThemeManager.lightTheme).backgroundColor)) // To see this
             .focused($isFocused)
+            .autocorrectionDisabled(true)
+            .textInputAutocapitalization(.never)
             .onChange(of: isFocused) { isFocused in
                 guard let editor = App.activeTextEditor else {return}
                 if isFocused {
