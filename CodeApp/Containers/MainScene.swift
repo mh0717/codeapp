@@ -208,9 +208,15 @@ private struct MainView: View {
 
                         ZStack {
                             VStack(spacing: 0) {
+                                #if PYDEAPP
+                                PYTopBar(openConsolePanel: openConsolePanel)
+                                    .environmentObject(extensionManager.toolbarManager)
+                                    .frame(height: 40)
+                                #else
                                 TopBar(openConsolePanel: openConsolePanel)
                                     .environmentObject(extensionManager.toolbarManager)
                                     .frame(height: 40)
+                                #endif
                                 
                                 GeometryReader {geometry -> AnyView in
                                     setenv("SDL_SCREEN_SIZE", "\(Int(geometry.size.width)):\(Int(geometry.size.height))", 1)

@@ -367,7 +367,9 @@
 "Please goto【Setting】open In-App Purchase" = "请在【设置】打开应用内购买";
 
 
-"Python3 Interpreters" = "Python3解释器";
+"Python3 Interpreters Manage" = "Python3解释器管理";
 "Interpreter: " = "解释器: ";
 "New Terminal" = "新建终端";
 "Open Examples" = "打开 Examples";
+"New Django Project" = "新建Django工程";
+"Enter django project name" = "输入django工程名称";
