@@ -53,7 +53,7 @@ class GitHubSearchManager: ObservableObject {
     }
 
     func listTemplates() {
-        let query = "topic:codeapp-template sort:stars"
+        let query = "topic:ipyde-template sort:stars"
         Task {
             let templates = try await executeQuery(query: query)
             await MainActor.run {

@@ -463,9 +463,12 @@ struct SourceControlContainer: View {
                         } else {
                             SourceControlEmptySection(onInitializeRepository: onInitializeRepository)
                             SourceControlCloneSection(onClone: onClone)
+                            #if PYDEAPP
+                            #else
                             if communityTemplatesEnabled {
                                 SourceControlTemplateSection(onClone: onClone)
                             }
+                            #endif
                         }
                     }
                     .listRowSeparator(.hidden)
