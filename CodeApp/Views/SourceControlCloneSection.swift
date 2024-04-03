@@ -56,9 +56,10 @@ struct SourceControlCloneSection: View {
                 .background(Color.init(id: "input.background"))
                 .cornerRadius(15)
 
-            DescriptionText("Example: https://github.com/thebaselab/codeapp.git")
+            DescriptionText("Example: https://github.com/numpy/numpy.git")
 
             GitHubSearchView(onClone: onClone)
         }
     }
 }
+// Example: https://github.com/thebaselab/codeapp.git

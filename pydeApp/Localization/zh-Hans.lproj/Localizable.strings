@@ -136,7 +136,7 @@
 "New Folder" = "新建文件夹";
 
 "The folder currently opened doesn't have a git repository." = "当前打开的文件夹没有 Git 存储库。";
-"Example: https://github.com/thebaselab/codeapp.git" = "例子: https://github.com/thebaselab/codeapp.git";
+"Example: https://github.com/numpy/numpy.git" = "例子: https://github.com/numpy/numpy.git";
 "Initialize Repository" = "初始化存储库";
 "Clone Repository" = "克隆存储库";
 "TERMINAL" = "终端";
