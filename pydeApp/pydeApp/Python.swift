@@ -139,8 +139,18 @@ public func rremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer
 }
 
 
+private var _python3RunInMainCount = 0
 @_cdecl("python3RunInMain")
 public func python3RunInMain(argc: Int32, argv:UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    
+    if _python3RunInMainCount > 0 {
+        let cmds = __concatenateArgv(argv)
+        let cmdStr = String(cString: cmds!)
+        return remoteReqRemoteCommands(commands: [cmdStr])
+    }
+    
+    _python3RunInMainCount += 1
+    
     setvbuf(thread_stdout, nil, _IONBF, 0)
     setvbuf(thread_stderr, nil, _IONBF, 0)
 //    setvbuf(thread_stdin, nil, _IONBF, 0)

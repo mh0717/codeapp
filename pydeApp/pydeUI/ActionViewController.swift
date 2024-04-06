@@ -96,6 +96,8 @@ class ActionViewController: UITabBarController {
                 self.tabBar.isHidden = self.vcs.count <= 1
                 self.preferredContentSize = vc.preferredContentSize;
                 
+                self.selectedViewController?.addObserver(self, forKeyPath: "preferredContentSize", context: nil)
+                
                 print(vc.self)
                 if NSStringFromClass(type(of: vc)) == "FlutterViewController" {
                     NotificationCenter.default.post(name: UIApplication.willEnterForegroundNotification, object: nil, userInfo: nil)
@@ -107,6 +109,7 @@ class ActionViewController: UITabBarController {
         NotificationCenter.default.addObserver(forName: .init("UI_HIDE_VC_IN_TAB"), object: nil, queue: nil) { notify in
             guard let vc = notify.userInfo?["vc"] as? UIViewController else {return}
             DispatchQueue.main.async {
+                vc.removeObserver(self, forKeyPath: "preferredContentSize")
                 self.vcs.removeAll(where: {$0==vc})
                 self.viewControllers = self.vcs
                 if self.selectedIndex >= self.viewControllers!.count {
@@ -144,6 +147,7 @@ class ActionViewController: UITabBarController {
         }
         
         initRemotePython3Sub()
+        replaceCommand("python3", "python3RunInMain", false)
         
         Thread.detachNewThread {
             remoteExeCommands(context: self.extensionContext!, exit: false)
@@ -152,6 +156,12 @@ class ActionViewController: UITabBarController {
     
     override func viewDidDisappear(_ animated: Bool) {
         handleExit()
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if let vc = selectedViewController, let ovc = object as? UIViewController, vc == ovc {
+            self.preferredContentSize = vc.preferredContentSize
+        }
     }
     
     func setupView() {
