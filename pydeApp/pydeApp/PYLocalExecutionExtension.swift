@@ -223,6 +223,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             "import pygame",
             "import flet",
             "import turtle",
+            "import toga",
             "from sdl2 ",
             "from sdl2.",
             "from pygame ",
@@ -231,7 +232,9 @@ class PYLocalExecutionExtension: CodeAppExtension {
             "from kivy.",
             "from flet ",
             "from flet.",
-            "from turtle "
+            "from turtle ",
+            "from toga ",
+            "from toga."
         ].contains(where: {editor.content.contains($0)})) {
             runUICode(app: app, editor: editor, dismiss: {})
             return

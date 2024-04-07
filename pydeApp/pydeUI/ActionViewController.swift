@@ -146,8 +146,9 @@ class ActionViewController: UITabBarController {
             }
         }
         
-        initRemotePython3Sub()
-        replaceCommand("python3", "python3RunInMain", false)
+//        initRemotePython3Sub()
+//        replaceCommand("python3", "python3RunInMain", false)
+        initPydeUI()
         
         Thread.detachNewThread {
             remoteExeCommands(context: self.extensionContext!, exit: false)
