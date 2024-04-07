@@ -323,6 +323,25 @@ struct PYNewFileView: View {
                 
                 
                 """
+        case 6:
+            name = "example_toga.ui.py"
+            content = """
+                # Created on \(UIDevice.current.name)
+                
+                import toga
+
+                class MyApp(toga.App):
+                    def startup(self):
+                        self.main_window = toga.MainWindow()
+                        self.main_window.content = toga.Box(children=[toga.Label("Hello!")])
+                        self.main_window.show()
+
+                if __name__ == '__main__':
+                    app = MyApp("Realistic App", "org.beeware.realistic")
+                    app.main_loop()
+                
+                
+                """
         case 11:
             name = "example_flask.py"
             content = """
@@ -464,6 +483,7 @@ struct PYNewFileView: View {
         .init(code: 3, name: "Kivy"),
         .init(code: 4, name: "Imgui"),
         .init(code: 5, name: "Flet"),
+        .init(code: 6, name: "Toga"),
         .init(code: 11, name: "Flask"),
         .init(code: 12, name: "Django")
     ]
