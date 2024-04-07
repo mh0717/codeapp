@@ -328,6 +328,9 @@ struct PYCodeWidget: View {
                     HStack(spacing: 12) {
                     Button(
                         action: {
+                            if let path = App.activeTextEditor?.url.path, path.hasSuffix(".ui.py") {
+                                wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_UI_FORCE_EXIT)
+                            }
                             runner.consoleView.kill()
                         },
                         label: {

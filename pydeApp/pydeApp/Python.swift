@@ -168,7 +168,7 @@ public func initRemotePython3Sub() {
 }
 
 public func initPydeUI() {
-    initRemoteEnv()
+    initRemoteUIEnv()
     
     replaceCommand("pythonA", "pythonA", false)
     replaceCommand("pythonB", "pythonB", false)
