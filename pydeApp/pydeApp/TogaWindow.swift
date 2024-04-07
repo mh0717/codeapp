@@ -64,3 +64,38 @@ class TogaWindow: NSObject {
         NotificationCenter.default.post(name: .init("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": self.rootViewController as Any])
     }
 }
+
+
+extension UIViewController {
+    @objc
+    func present() {
+        NotificationCenter.default.post(name: .init("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": self])
+    }
+    
+    @objc
+    func dismiss() {
+        NotificationCenter.default.post(name: .init("UI_HIDE_VC_IN_TAB"), object: nil, userInfo: ["vc": self])
+    }
+}
+
+extension UIView {
+    @objc
+    func present() {
+        if let vc = self.next as? UIViewController {
+            NotificationCenter.default.post(name: .init("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": vc])
+            return
+        }
+        
+        let vc = UIViewController()
+        vc.view = self
+        NotificationCenter.default.post(name: .init("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": vc])
+    }
+    
+    @objc
+    func dismiss() {
+        if let vc = self.next as? UIViewController {
+            NotificationCenter.default.post(name: .init("UI_HIDE_VC_IN_TAB"), object: nil, userInfo: ["vc": vc])
+            return
+        }
+    }
+}
