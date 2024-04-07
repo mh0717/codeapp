@@ -19,6 +19,7 @@ public func python3Main(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePoi
 private var _runMainInMainCount = 0
 @_cdecl("python3MainInMainThread")
 public func python3MainInMainThread(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    initDEMainIntp()
     
     if _runMainInMainCount > 0 {
         return pydeMainInMainIntp(argc, argv)
@@ -176,8 +177,8 @@ public func initPydeUI() {
     replaceCommand("openurl", "openurl", false)
     replaceCommand("rremote", "rremote", false)
     
-    
-    initDEMainIntp()
+//    replaceCommand("python3", "python3RunInMain", false)
+//    initDEMainIntp()
     replaceCommand("python3", "python3MainInMainThread", false)
 }
 
