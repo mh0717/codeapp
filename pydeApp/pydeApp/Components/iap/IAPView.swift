@@ -259,9 +259,12 @@ struct IAPView: View {
                                 PkgCell(title: "PyGame")
                             }
                             Section(header: Text("UI Develop")) {
+                                PkgCell(title: "PyGame_gui")
                                 PkgCell(title: "Kivy")
+                                PkgCell(title: "KivyMD")
                                 PkgCell(title: "Imgui")
                                 PkgCell(title: "Flet")
+                                PkgCell(title: "Toga")
                             }
                             Section(header: Text("Bioinformatics")) {
                                 PkgCell(title: "BioPython")
