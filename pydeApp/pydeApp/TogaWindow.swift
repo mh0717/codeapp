@@ -88,6 +88,9 @@ extension UIView {
         
         let vc = UIViewController()
         vc.view = self
+        if self.bounds.width > 10 && self.bounds.height > 10 {
+            vc.preferredContentSize = self.bounds.size
+        }
         NotificationCenter.default.post(name: .init("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": vc])
     }
     
