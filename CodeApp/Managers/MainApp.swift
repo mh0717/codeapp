@@ -1276,6 +1276,10 @@ class MainApp: ObservableObject {
         }
 
         editors.remove(at: index)
+        
+        #if PYDEAPP
+        editor.dispose()
+        #endif
     }
 
     func isUibiquitousItem(at url: URL) -> Bool {

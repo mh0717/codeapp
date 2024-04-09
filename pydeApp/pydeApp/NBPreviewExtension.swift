@@ -42,6 +42,19 @@ class WithRunnerEditorInstance: TextEditorInstance {
         
         runnerView.resetAndSetNewRootDirectory(url: url.deletingLastPathComponent())
     }
+    
+    override func dispose() {
+        super.dispose()
+        runnerView.kill()
+        runnerView.clear()
+        runnerView.removeFromSuperview()
+    }
+    
+    #if DEBUG
+    deinit {
+        print("withrunnerEditorInstance deinit")
+    }
+    #endif
 }
 
 
@@ -55,7 +68,7 @@ struct EditorAndRunnerWidget: View {
     @EnvironmentObject var App: MainApp
     @AppStorage("setting.panel.hide.when.editor.focus") var shouldHidePanel: Bool = true
     
-    let editor: any View
+    let editor: AnyView
     let runner: PYRunnerWidget
     
     let panelManager = PanelManager()
@@ -63,7 +76,7 @@ struct EditorAndRunnerWidget: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
-                AnyView(editor)
+                editor
                 PYPanelView(currentPanelId: "RUNNER", windowHeight: geometry.size.height)
                     .environmentObject(panelManager)
             }
@@ -197,6 +210,9 @@ struct EditorAndRunnerWidget: View {
                 })
             )
             panelManager.registerPanel(panel: paramsPanel)
+        }
+        .onDisappear() {
+            panelManager.panels.removeAll()
         }
     }
 }

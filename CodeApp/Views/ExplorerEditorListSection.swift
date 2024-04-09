@@ -114,13 +114,15 @@ private struct EditorCell: View {
     @EnvironmentObject var App: MainApp
     @Environment(\.colorScheme) var colorScheme: ColorScheme
 
-    var editor: EditorInstance
+    weak var editor: EditorInstance?
     var editorURL: URL? {
         (editor as? EditorInstanceWithURL)?.url
     }
 
     func onOpenEditor() {
-        App.setActiveEditor(editor: editor)
+        if let editor {
+            App.setActiveEditor(editor: editor)
+        }
     }
 
     func onOpenInFilesApp() {
@@ -148,14 +150,14 @@ private struct EditorCell: View {
         Button(action: onOpenEditor) {
             ZStack {
                 HStack {
-                    FileIcon(url: editor.title, iconSize: 14)
+                    FileIcon(url: editor?.title ?? "", iconSize: 14)
 
                     if let editorURL,
                         let status = App.gitTracks[editorURL.standardizedFileURL]
                     {
-                        FileDisplayName(gitStatus: status, name: editor.title)
+                        FileDisplayName(gitStatus: status, name: editor?.title ?? "")
                     } else {
-                        FileDisplayName(gitStatus: nil, name: editor.title)
+                        FileDisplayName(gitStatus: nil, name: editor?.title ?? "")
                     }
 
                 }.padding(5)

@@ -48,17 +48,6 @@ class PYTextEditorInstance: WithRunnerEditorInstance {
         return editor.editorView
     }
     
-//    let runner = PYRunnerWidget()
-//    
-//    lazy var runnerWidget: AnyView = AnyView(runner.id(UUID()))
-//    let codeWidget = PYCodeWidget()
-//    
-//    var runnerView: ConsoleView {
-//        return runner.consoleView
-//    }
-    
-//    var rangeCancellable: AnyCancellable?
-    
     init(
         url: URL,
         content: String,
@@ -77,25 +66,23 @@ class PYTextEditorInstance: WithRunnerEditorInstance {
         
         editorView.text = content
         editorView.url = url
-//        runnerView.resetAndSetNewRootDirectory(url: url.deletingLastPathComponent())
-        
-//        rangeCancellable = $selectedRange.sink {[weak editorView] range in
-//            guard let editorView else {return}
-//            if editorView.selectedRange != range {
-//                editorView.selectedRange = range
-//                editorView.textView.goToLine(T##Int)
-//            }
-//        }
-        
-//        self.view = AnyView(VStack {
-//            TagsIndicator(editor: self).environmentObject(self)
-//            rseditor
-//        }.environmentObject(self).id(UUID()))
     }
     
     func goToLine(_ line: Int) {
         editorView.goToLine(line)
     }
+    
+    override func dispose() {
+        super.dispose()
+        
+        editorView.removeFromSuperview()
+    }
+    
+    #if DEBUG
+    deinit {
+        print("textEditorInstance edinit")
+    }
+    #endif
 }
 
 
@@ -170,6 +157,10 @@ struct RunestoneEditor: UIViewRepresentable {
             editorView.applyTheme(codeThemeManager.lightTheme)
         }
         
+    }
+    
+    static func dismantleUIView(_ uiView: RSCodeEditorView, coordinator: Coordinator) {
+        print("dismantleUIView rseditorview")
     }
     
     class Coordinator: RSCodeEditorDelegate {
@@ -258,107 +249,108 @@ struct PYRunnerWidget: UIViewRepresentable {
         consoleView.terminalView.nativeBackgroundColor = theme.backgroundColor
         consoleView.terminalView.selectedTextBackgroundColor = theme.markedTextBackgroundColor
     }
+    
 }
 
 
 
-struct PYCodeWidget: View {
-    
-    @SceneStorage("panel.visible") var showsPanel: Bool = DefaultUIState.PANEL_IS_VISIBLE
-    @SceneStorage("panel.height") var panelHeight: Double = DefaultUIState.PANEL_HEIGHT
-    @EnvironmentObject var App: MainApp
-    @AppStorage("setting.panel.hide.when.editor.focus") var shouldHidePanel: Bool = true
-    
-    let editor = RunestoneEditor()
-    let runner = PYRunnerWidget()
-    
-    let panelManager = PanelManager()
-    
-    var body: some View {
-        GeometryReader { geometry in
-            VStack(spacing: 0) {
-                editor
-                PYPanelView(currentPanelId: "RUNNER", windowHeight: geometry.size.height)
-                    .environmentObject(panelManager)
-            }
-        }
-        .onReceive(
-            NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification),
-            perform: { _ in
-                if editor.editorView.textView.isEditing {
-                    editor.editorView.textView.scrollRangeToVisible(editor.editorView.textView.selectedRange)
-                }
-        })
-        .onReceive(
-            NotificationCenter.default.publisher(
-                for: Notification.Name("rseditor.focus"),
-                object: nil),
-            perform: { notification in
-                guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
-                    sceneIdentifier == App.sceneIdentifier
-                else { return }
-                if shouldHidePanel {
-                    showsPanel = false
-                }
-            }
-        )
-        .onReceive(
-            NotificationCenter.default.publisher(
-                for: Notification.Name("rseditor.unfocus"),
-                object: nil),
-            perform: { notification in
-                guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
-                    sceneIdentifier == App.sceneIdentifier
-                else { return }
-                if shouldHidePanel && !showsPanel {
-                    showsPanel = true
-                }
-            }
-        )
-        .onAppear {
-            if !panelManager.panels.isEmpty {
-                return
-            }
-            let runnerPanel = Panel(
-                labelId: "RUNNER",
-                mainView: AnyView(
-                    runner
-                ),
-                toolBarView: AnyView(
-                    HStack(spacing: 12) {
-                    Button(
-                        action: {
-                            if let path = App.activeTextEditor?.url.path, path.hasSuffix(".ui.py") {
-                                wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_UI_FORCE_EXIT)
-                            }
-                            runner.consoleView.kill()
-                        },
-                        label: {
-                            Text("^C")
-                        }
-                    ).keyboardShortcut("c", modifiers: [.control])
-
-                    Button(
-                        action: {
-                            runner.consoleView.clear()
-                        },
-                        label: {
-                            Image(systemName: "trash")
-                        }
-                    ).keyboardShortcut("k", modifiers: [.command])
-                        
-                    Button(
-                        action: {
-                            _ = runner.consoleView.terminalView.resignFirstResponder()
-                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                        },
-                        label: {
-                            Image(systemName: "keyboard.chevron.compact.down")
-                        }
-                    )
-                })
-            )
-            panelManager.registerPanel(panel: runnerPanel)
-        }
-    }
-}
+//struct PYCodeWidget: View {
+//    
+//    @SceneStorage("panel.visible") var showsPanel: Bool = DefaultUIState.PANEL_IS_VISIBLE
+//    @SceneStorage("panel.height") var panelHeight: Double = DefaultUIState.PANEL_HEIGHT
+//    @EnvironmentObject var App: MainApp
+//    @AppStorage("setting.panel.hide.when.editor.focus") var shouldHidePanel: Bool = true
+//    
+//    let editor = RunestoneEditor()
+//    let runner = PYRunnerWidget()
+//    
+//    let panelManager = PanelManager()
+//    
+//    var body: some View {
+//        GeometryReader { geometry in
+//            VStack(spacing: 0) {
+//                editor
+//                PYPanelView(currentPanelId: "RUNNER", windowHeight: geometry.size.height)
+//                    .environmentObject(panelManager)
+//            }
+//        }
+//        .onReceive(
+//            NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification),
+//            perform: { _ in
+//                if editor.editorView.textView.isEditing {
+//                    editor.editorView.textView.scrollRangeToVisible(editor.editorView.textView.selectedRange)
+//                }
+//        })
+//        .onReceive(
+//            NotificationCenter.default.publisher(
+//                for: Notification.Name("rseditor.focus"),
+//                object: nil),
+//            perform: { notification in
+//                guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
+//                    sceneIdentifier == App.sceneIdentifier
+//                else { return }
+//                if shouldHidePanel {
+//                    showsPanel = false
+//                }
+//            }
+//        )
+//        .onReceive(
+//            NotificationCenter.default.publisher(
+//                for: Notification.Name("rseditor.unfocus"),
+//                object: nil),
+//            perform: { notification in
+//                guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
+//                    sceneIdentifier == App.sceneIdentifier
+//                else { return }
+//                if shouldHidePanel && !showsPanel {
+//                    showsPanel = true
+//                }
+//            }
+//        )
+//        .onAppear {
+//            if !panelManager.panels.isEmpty {
+//                return
+//            }
+//            let runnerPanel = Panel(
+//                labelId: "RUNNER",
+//                mainView: AnyView(
+//                    runner
+//                ),
+//                toolBarView: AnyView(
+//                    HStack(spacing: 12) {
+//                    Button(
+//                        action: {
+//                            if let path = App.activeTextEditor?.url.path, path.hasSuffix(".ui.py") {
+//                                wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_UI_FORCE_EXIT)
+//                            }
+//                            runner.consoleView.kill()
+//                        },
+//                        label: {
+//                            Text("^C")
+//                        }
+//                    ).keyboardShortcut("c", modifiers: [.control])
+//
+//                    Button(
+//                        action: {
+//                            runner.consoleView.clear()
+//                        },
+//                        label: {
+//                            Image(systemName: "trash")
+//                        }
+//                    ).keyboardShortcut("k", modifiers: [.command])
+//                        
+//                    Button(
+//                        action: {
+//                            _ = runner.consoleView.terminalView.resignFirstResponder()
+//                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+//                        },
+//                        label: {
+//                            Image(systemName: "keyboard.chevron.compact.down")
+//                        }
+//                    )
+//                })
+//            )
+//            panelManager.registerPanel(panel: runnerPanel)
+//        }
+//    }
+//}

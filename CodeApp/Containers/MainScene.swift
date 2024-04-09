@@ -212,6 +212,9 @@ private struct MainView: View {
                                 PYTopBar(openConsolePanel: openConsolePanel)
                                     .environmentObject(extensionManager.toolbarManager)
                                     .frame(height: 40)
+                                if let editor = App.activeTextEditor {
+                                    TagsIndicator(editor: editor)
+                                }
                                 #else
                                 TopBar(openConsolePanel: openConsolePanel)
                                     .environmentObject(extensionManager.toolbarManager)

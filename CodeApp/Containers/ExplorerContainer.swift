@@ -94,72 +94,6 @@ struct ExplorerContainer: View {
             proxy.scrollTo(url.absoluteString, anchor: .top)
         }
     }
-//    
-//    @State var outlineHeight = 200.0
-//    @State var tagsExpanded: Bool = true
-//    
-//    @State var history: [CMNode] = []
-//    
-//    @State var tags: [CTag] = []
-//    @State var mtitle: String = ""
-//    
-//    
-//    struct CMNode: Identifiable, Hashable {
-//        var anodes: [Int] = []
-//        var pnodes: [Int] = []
-//        var nextAnodes: [Int] = []
-//        var msg: String = ""
-//        var id: Int = 0
-//    }
-//    @MainActor
-//    func updateHistory() async {
-//        var clist: [CMNode] = []
-//        var lastNode: CMNode?
-//        var list: [Commit] = []
-//        if let commites = try? await App.workSpaceStorage.gitServiceProvider?.history() {
-//            while let item = commites.next(), let commit = try? item.get() {
-//                var cnode = CMNode()
-//                cnode.msg = commit.message
-//                cnode.id = commit.oid.hashValue
-//                cnode.pnodes = commit.parents.map({$0.hashValue})
-//                if var lastNode {
-//                    lastNode.anodes.forEach { item in
-//                        if !cnode.anodes.contains(item) {
-//                            cnode.anodes.append(item)
-//                        }
-//                    }
-//                    
-//                    lastNode.pnodes.forEach({item in
-//                        if !cnode.anodes.contains(item) {
-//                            cnode.anodes.append(item)
-//                        }
-//                    })
-////                    lastNode.anodes.forEach { item in
-////                        if !cnode.anodes.contains(item) {
-////                            cnode.anodes.append(item)
-////                        }
-////                    }
-//                    cnode.anodes.removeAll(where: {$0 == lastNode.id})
-//                    if (!cnode.anodes.contains(cnode.id)) {
-//                        cnode.anodes.append(cnode.id)
-//                    }
-//                    lastNode.nextAnodes = cnode.anodes
-//                    clist[clist.count - 1] = lastNode
-//                } else {
-//                    cnode.anodes = [cnode.id]
-//                }
-//                lastNode = cnode
-//                clist.append(cnode)
-//            }
-//            self.history = clist
-//        }
-//    }
-//    
-//    func updateHistory() {
-//        Task.init {
-//            await self.updateHistory()
-//        }
-//    }
 
     var body: some View {
         
@@ -178,30 +112,6 @@ struct ExplorerContainer: View {
                             searchString: searchString, onDrag: onDragCell,
                             onDropToFolder: onDropToFolder)
                         
-//                        ExplorerTagTreeSection()
-                        
-//                        ForEach(history) { commit in
-//                            ZStack(alignment: .topLeading) {
-//                                HStack(spacing: 0) {
-//                                    ForEach(commit.anodes.indices) {index in
-//                                        Divider()
-//                                        Text((commit.anodes[index] == commit.id) ? "O" : " ")
-//                                            .frame(width: 16).padding(EdgeInsets(top: 0, leading: -8, bottom: 0, trailing: 8))
-//                                    }.id(commit)
-//                                    Text(commit.msg).lineLimit(1)
-//                                }.id(commit)
-//                                ForEach(0..<commit.pnodes.count) { index in
-//                                    let cindex = commit.anodes.firstIndex(of: commit.id) ?? 0
-//                                    let tindex = commit.nextAnodes.firstIndex(of: commit.pnodes[index]) ?? 0
-//                                    Path { path in
-//                                        path.move(to: CGPoint(x: cindex * 15, y: 20))
-//                                        path.addLine(to: CGPoint(x: tindex * 15, y: 40))
-//                                    }.stroke(Color.red, lineWidth: 3)
-//                                }
-//                            }.id(commit)
-//                        }
-                        
-                        
                     }
                     .listStyle(SidebarListStyle())
                     .environment(\.defaultMinListRowHeight, 10)
@@ -210,38 +120,6 @@ struct ExplorerContainer: View {
                         scrollToActiveEditor(proxy: proxy)
                     }
                 }
-                
-                
-//                ScrollViewReader(content: { proxy in
-//                    DisclosureGroup(
-//                        isExpanded: $tagsExpanded,
-//                        content: {
-//                            List {
-//                                
-//                            }
-//                            .listRowSeparator(.hidden)
-//                            .listStyle(SidebarListStyle())
-//                            .frame(minHeight: max(80, min(outlineHeight, geometry.size.height * 0.5)))
-//                            .id(App.activeEditor)
-//                        },
-//                        label: {
-//                            Text("\(App.activeEditor?.title ?? ""): \(geometry.size.height)")
-//                                .gesture(
-//                                    DragGesture()
-//                                        .onChanged { value in
-//                                            let proposedNewHeight = outlineHeight - value.translation.height
-//                                            outlineHeight = max(80, min(proposedNewHeight, geometry.size.height * 0.5))
-//                                        }
-//                                )
-//                        }
-//                    )
-//                    .id(App.activeEditor)
-//                })
-//                
-                
-//                WebView(url: ConstantManager.GIT_HISTORY_H5_RUL)
-//                    .frame(minHeight: 250)
-                
                 
                 HStack(spacing: 30) {
                     if editMode == EditMode.inactive {

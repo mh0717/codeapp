@@ -69,7 +69,10 @@ struct TagsIndicator: View {
         let contors = indicators
         
         var path = editor.url.path
-        path = path.replacingOccurrences(of: App.workSpaceStorage.currentDirectory.url, with: "")
+        if let cpath = URL(string: App.workSpaceStorage.currentDirectory.url)?.path {
+            path = path.replacingOccurrences(of: cpath, with: "")
+        }
+        
         path = path.replacingOccurrences(of: ConstantManager.documentURL.path, with: "Documents")
         path = path.replacingOccurrences(of: ConstantManager.appdir.path, with: "pyde.app")
         path = path.replacingOccurrences(of: ConstantManager.appGroupContainer.path, with: "Container")
