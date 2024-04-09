@@ -275,7 +275,7 @@ struct PYTopBar: View {
                     }
                     Divider()
                     Button {
-                        App.stateManager.showsFilePicker.toggle()
+                        App.stateManager.showsNewFileSheet.toggle()
                     } label: {
                         Label("New File", systemImage: "doc.badge.plus")
                     }
@@ -297,11 +297,8 @@ struct PYTopBar: View {
                     }
                     
                     Button {
-                        let widget = PYRunnerWidget()
-                        widget.consoleView.resetAndSetNewRootDirectory(url: URL(string: App.workSpaceStorage.currentDirectory.url)!)
-                        App.appendAndFocusNewEditor(editor: EditorInstance(
-                            view: AnyView(widget), title: "Terminal"
-                        ), alwaysInNewTab: true)
+                        let editor = PYTerminalEditorInstance(URL(string: App.workSpaceStorage.currentDirectory.url)!)
+                        App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
                     } label: {
                         Label("New Terminal", systemImage: "apple.terminal")
                     }
@@ -316,6 +313,18 @@ struct PYTopBar: View {
                 }
                 #if DEBUG
                     DebugMenu()
+                
+                Button(action: {
+                    App.loadFolder(url: ConstantManager.appGroupContainer)
+                }) {
+                    Label("Open GropuContainer", systemImage: "folder")
+                }
+                
+                Button(action: {
+                    App.loadFolder(url: ConstantManager.appdir)
+                }) {
+                    Label("Open Bundle", systemImage: "folder")
+                }
                 #endif
 
             } label: {
