@@ -990,6 +990,7 @@
 		A3A91A3A2B4A002A007E8C76 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A3A91A3B2B4A002D007E8C76 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A3AFD14F2BC5201F004C9F10 /* PYTerminalEditorInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFD14E2BC5201F004C9F10 /* PYTerminalEditorInstance.swift */; };
+		A3AFD1512BC522D6004C9F10 /* PYSafariEditorInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFD1502BC522D6004C9F10 /* PYSafariEditorInstance.swift */; };
 		A3B0F0B62B29DA8F0001D220 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B52B29DA8F0001D220 /* ios_system */; };
 		A3B0F0B92B29DAA60001D220 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B82B29DAA60001D220 /* ios_system */; };
 		A3BB55302B3E405100A3E0B9 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
@@ -2401,6 +2402,7 @@
 		A3A91A392B49FFF6007E8C76 /* pydeUIPreviewDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pydeUIPreviewDebug.entitlements; sourceTree = "<group>"; };
 		A3AB64C02B4B5388009AEA1E /* pydeShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pydeShare.entitlements; sourceTree = "<group>"; };
 		A3AFD14E2BC5201F004C9F10 /* PYTerminalEditorInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYTerminalEditorInstance.swift; sourceTree = "<group>"; };
+		A3AFD1502BC522D6004C9F10 /* PYSafariEditorInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSafariEditorInstance.swift; sourceTree = "<group>"; };
 		A3B0F0B12B29D95F0001D220 /* ios_system */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ios_system; path = ../../modules/pythoncc/ios_system; sourceTree = "<group>"; };
 		A3BB55412B44666500A3E0B9 /* RSCodeTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCodeTheme.swift; sourceTree = "<group>"; };
 		A3D1C9A82B35D802001505C7 /* Python.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Python.swift; sourceTree = "<group>"; };
@@ -3742,6 +3744,7 @@
 				A3A3DF0F2B9B6E07004A7C39 /* LocalizedUtils.swift */,
 				A3D8B0D62BC10FD300C30B26 /* TogaWindow.swift */,
 				A3AFD14E2BC5201F004C9F10 /* PYTerminalEditorInstance.swift */,
+				A3AFD1502BC522D6004C9F10 /* PYSafariEditorInstance.swift */,
 			);
 			path = pydeApp;
 			sourceTree = "<group>";
@@ -5138,6 +5141,7 @@
 				A3A87D592AF221D1002E3399 /* StatusBarManager.swift in Sources */,
 				A3A87D5A2AF221D1002E3399 /* ViewRepresentable.swift in Sources */,
 				A3A87D5B2AF221D1002E3399 /* SourceControlEntry.swift in Sources */,
+				A3AFD1512BC522D6004C9F10 /* PYSafariEditorInstance.swift in Sources */,
 				A3D1C9A92B35D802001505C7 /* Python.swift in Sources */,
 				A3A87D5C2AF221D1002E3399 /* DebugMenu.swift in Sources */,
 				A3A87D5D2AF221D1002E3399 /* FTPFileSystemProvider.swift in Sources */,

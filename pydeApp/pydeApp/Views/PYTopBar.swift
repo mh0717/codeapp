@@ -23,6 +23,8 @@ struct PYTopBar: View {
     let openConsolePanel: () -> Void
     
     @State private var showingNewDjangoAlert = false
+    @State private var safariUrl = ""
+    @State private var showingNewSafariAlert = false
     @State private var djangoName = ""
     
     func onNewDjango() {
@@ -47,6 +49,21 @@ struct PYTopBar: View {
             ios_waitpid(pid)
             ios_releaseThreadId(pid)
         })
+    }
+    
+    func onNewSafari() {
+        if safariUrl.isEmpty {
+            return
+        }
+        
+        if !safariUrl.hasPrefix("http://") && !safariUrl.hasPrefix("https://") {
+            safariUrl = "http://\(safariUrl)"
+        }
+        
+        if let url = URL(string: safariUrl) {
+            let editor = PYSafariEditorInstance(url)
+            App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+        }
     }
 
     var body: some View {
@@ -297,6 +314,12 @@ struct PYTopBar: View {
                     }
                     
                     Button {
+                        showingNewSafariAlert.toggle()
+                    } label: {
+                        Label("New Safari Browser", systemImage: "safari")
+                    }
+                    
+                    Button {
                         let editor = PYTerminalEditorInstance(URL(string: App.workSpaceStorage.currentDirectory.url)!)
                         App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
                     } label: {
@@ -349,13 +372,22 @@ struct PYTopBar: View {
                         .environmentObject(App)
                 }
             }
-            .alert("", isPresented: $showingNewDjangoAlert){
+            .alert("New Django Project", isPresented: $showingNewDjangoAlert){
                 TextField("Enter django project name", text: $djangoName)
                     .autocorrectionDisabled(true)
                     .textInputAutocapitalization(.never)
                 Button("common.create", action: onNewDjango)
                 Button("common.cancel") {
                     showingNewDjangoAlert.toggle()
+                }
+            }
+            .alert("New Safari Browser", isPresented: $showingNewSafariAlert){
+                TextField("Enter website url", text: $safariUrl)
+                    .autocorrectionDisabled(true)
+                    .textInputAutocapitalization(.never)
+                Button("common.create", action: onNewSafari)
+                Button("common.cancel") {
+                    showingNewSafariAlert.toggle()
                 }
             }
             #else
