@@ -6,13 +6,14 @@
 //
 import SwiftUI
 
-
+private var _terminalCount = 0
 class PYTerminalEditorInstance: EditorInstance {
     let widget = PYRunnerWidget()
     
     init(_ rootDir: URL) {
+        _terminalCount += 1
         widget.consoleView.resetAndSetNewRootDirectory(url: rootDir)
-        super.init(view: AnyView(widget), title: "Terminal")
+        super.init(view: AnyView(widget), title: "Terminal#\(_terminalCount)")
     }
     
     override func dispose() {

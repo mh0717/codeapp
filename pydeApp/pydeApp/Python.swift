@@ -124,6 +124,13 @@ public func pyde_readremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutabl
 }
 
 
+@_cdecl("clear")
+public func clear__(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    vfprintf(thread_stdout, "\u{1B}[2J\u{1B}[0;0H", getVaList([]))
+    return 0
+}
+
+
 public func initPyDE() {
     initClientEnv()
     
@@ -133,6 +140,7 @@ public func initPyDE() {
     replaceCommand("open", "pyde_open", false)
     replaceCommand("openurl", "openurl", false)
     replaceCommand("readremote", "readremote", false)
+    replaceCommand("clear", "clear", false)
     
 //    initDESubIntp()
 //    replaceCommand("python3", "python3Sub", false)
@@ -157,6 +165,7 @@ public func initRemotePython3Sub() {
     replaceCommand("open", "pyde_open", false)
     replaceCommand("openurl", "openurl", false)
     replaceCommand("rremote", "rremote", false)
+    replaceCommand("clear", "clear", false)
     
     replaceCommand("python3", "python3SubProcess", false)
     
@@ -176,6 +185,7 @@ public func initPydeUI() {
     replaceCommand("open", "pyde_open", false)
     replaceCommand("openurl", "openurl", false)
     replaceCommand("rremote", "rremote", false)
+    replaceCommand("clear", "clear", false)
     
 //    replaceCommand("python3", "python3RunInMain", false)
 //    initDEMainIntp()
