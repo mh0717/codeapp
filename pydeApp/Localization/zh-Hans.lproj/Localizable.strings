@@ -290,7 +290,7 @@
 "source_control.confirm_revert %@" = "您确定要还原 %@ 吗？";
 "source_control.retrieving_changes" = "检索变更中";
 "source_control.community_templates" = "社区模板";
-"source_control.community_templates.description" = "社区模板是 GitHub 上带有#codeapp-template 标签的存储库。 您可以在设置菜单中禁用此功能。";
+"source_control.community_templates.description" = "社区模板是 GitHub 上带有#ipyde-template 标签的存储库。 您可以在设置菜单中禁用此功能。";
 "source_control.clone" = "克隆";
 "source_control.pull" = "拉取";
 "source_control.pulling_from_remote" = "拉取中";

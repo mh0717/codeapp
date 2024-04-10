@@ -172,8 +172,8 @@ struct PYSettingsView: View {
                         NavigationLink(destination: SourceControlAuthenticationConfiguration()) {
                             Text("Authentication")
                         }
-                        //                    Toggle(
-                        //                        "source_control.community_templates", isOn: $communityTemplatesEnabled)
+                        Toggle(
+                            "source_control.community_templates", isOn: $communityTemplatesEnabled)
                     }
                     
                     Section(header: Text(NSLocalizedString("EXPLORER", comment: ""))) {
