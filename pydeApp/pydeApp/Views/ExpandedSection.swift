@@ -29,3 +29,24 @@ struct ExpandedSection<Header, Content>: View  where Header: View, Content: View
         }
     }
 }
+
+struct PYExpandedSection<Header, Content>: View  where Header: View, Content: View{
+    let header: Header
+    @ViewBuilder let content: Content
+    @State var expanded: Bool = true
+    var body: some View {
+        if #available(iOS 17.0, *) {
+            Section(isExpanded: $expanded) {
+                content
+            } header: {
+                header
+            }
+        } else {
+            Section(
+                header: header
+            ) {
+                content
+            }
+        }
+    }
+}

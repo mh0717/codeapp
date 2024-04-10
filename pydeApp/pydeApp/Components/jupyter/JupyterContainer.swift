@@ -17,128 +17,144 @@ struct JupyterContainer: View {
     
     @ObservedObject var jupyterManager: JupytterManager
     
-    @State var firstRuned = false
+    @State var consoleHeight: Double = 1000
     
     
     var body: some View {
         GeometryReader {greader in
             List {
-                Section(
-                    header:
-                        Text("Jupyter Notebook")
-                        .foregroundColor(Color(id: "sideBarSectionHeader.foreground"))
-                ) {
-                    Group {
+                PYExpandedSection(
+                    header: Text("Jupyter Notebook"),
+                    content: {
                         Group {
-                            HStack {
-                                Image(systemName: "network")
-                                    .foregroundColor(.gray)
-                                    .font(.subheadline)
-                                
-                                TextField("Port", text: $jupyterManager.port)
-                                    .keyboardType(.numberPad)
-                                    .disabled(jupyterManager.running)
-                            }
-                            
-                            HStack {
-                                Image(systemName: "key")
-                                    .foregroundColor(.gray)
-                                    .font(.subheadline)
-                                
-                                SecureField(
-                                    "Password",
-                                    text: $jupyterManager.password
-                                ).disabled(jupyterManager.running)
-                            }
-                            
-                        }
-                    }
-                    .padding(7)
-                    .background(Color.init(id: "input.background"))
-                    .cornerRadius(15)
-                    
-//                    Toggle(localizedString(forKey: "Keep Activation"), isOn: $jupyterManager.play_ws)
-                    
-                    
-                    Toggle(localizedString(forKey: "Public Access"), isOn: $jupyterManager.public_server)
-                        .disabled(jupyterManager.running)
-                    
-                    if jupyterManager.running {
-                        let url = jupyterManager.public_server
-                            ? "http://\(jupyterManager.ip):\(jupyterManager.port)"
-                            : "http://localhost:\(jupyterManager.port)"
-                        Menu {
-                            Button("Open Url") {
-                                if let url = URL(string: "http://localhost:\(jupyterManager.port)") {
-                                    App.appendAndFocusNewEditor(editor: PYSafariEditorInstance(url), alwaysInNewTab: true)
+                            Group {
+                                HStack {
+                                    Image(systemName: "network")
+                                        .foregroundColor(.gray)
+                                        .font(.subheadline)
+                                    
+                                    TextField("Port", text: $jupyterManager.port)
+                                        .keyboardType(.numberPad)
+                                        .disabled(jupyterManager.running)
                                 }
+                                
+                                HStack {
+                                    Image(systemName: "key")
+                                        .foregroundColor(.gray)
+                                        .font(.subheadline)
+                                    
+                                    SecureField(
+                                        "Password",
+                                        text: $jupyterManager.password
+                                    ).disabled(jupyterManager.running)
+                                }
+                                
                             }
-                            Button("Copy to Pasteboard") {
-                                UIPasteboard.general.string = url
-                            }
-                        } label: {
+                        }
+                        .padding(7)
+                        .background(Color.init(id: "input.background"))
+                        .cornerRadius(15)
+                        
+    //                    Toggle(localizedString(forKey: "Keep Activation"), isOn: $jupyterManager.play_ws)
+                        
+                        
+                        Toggle(localizedString(forKey: "Public Access"), isOn: $jupyterManager.public_server)
+                            .disabled(jupyterManager.running)
+                        
+                        if jupyterManager.running {
+                            let url = jupyterManager.public_server
+                                ? "http://\(jupyterManager.ip):\(jupyterManager.port)"
+                                : "http://localhost:\(jupyterManager.port)"
+    //                        Menu {
+    //                            Button("Open Url") {
+    //                                if let url = URL(string: "http://localhost:\(jupyterManager.port)") {
+    //                                    App.appendAndFocusNewEditor(editor: PYSafariEditorInstance(url), alwaysInNewTab: true)
+    //                                }
+    //                            }
+    //                            Button("Copy to Pasteboard") {
+    //                                UIPasteboard.general.string = url
+    //                            }
+    //                        } label: {
+    //                            Text(url)
+    //                                .font(.footnote)
+    //                                .foregroundColor(.blue)
+    //                        }.frame(height: 30)
                             Text(url)
                                 .font(.footnote)
                                 .foregroundColor(.blue)
+                                .frame(height: 30)
+                                .listRowSpacing(0)
                         }
-                    }
-                    
-                    
-                    Button(
-                        action: {
-                            #if DEBUG
-                            if isXCPreview() {
-                                withAnimation(.easeIn) {
-                                    jupyterManager.running = !jupyterManager.running
+                        
+                        
+                        Button(
+                            action: {
+                                #if DEBUG
+                                if isXCPreview() {
+                                    withAnimation(.easeIn) {
+                                        jupyterManager.running = !jupyterManager.running
+                                    }
+                                    return
                                 }
-                                return
+                                #endif
+                                jupyterManager.firstRuned = true
+                                if jupyterManager.running {
+                                    jupyterManager.closeNotebook()
+                                } else {
+                                    jupyterManager.openNotebook(URL(string: App.workSpaceStorage.currentDirectory.url))
+                                }
+                            },
+                            label: {
+                                HStack {
+                                    Spacer()
+                                    Text(jupyterManager.running
+                                         ? localizedString(forKey: "Stop Server")
+                                         : localizedString(forKey: "Start Server"))
+                                    .lineLimit(1)
+                                    .foregroundColor(.white)
+                                    .font(.subheadline)
+                                    Spacer()
+                                }
+                                .foregroundColor(Color.init("T1"))
+                                .padding(4)
+                                .background(
+                                    Color.init(id: "button.background")
+                                )
+                                .cornerRadius(10.0)
                             }
-                            #endif
-                            firstRuned = true
-                            if jupyterManager.running {
-                                jupyterManager.closeNotebook()
-                            } else {
-                                jupyterManager.openNotebook(URL(string: App.workSpaceStorage.currentDirectory.url))
-                            }
-                        },
-                        label: {
-                            HStack {
-                                Spacer()
-                                Text(jupyterManager.running
-                                     ? localizedString(forKey: "Stop Server")
-                                     : localizedString(forKey: "Start Server"))
-                                .lineLimit(1)
-                                .foregroundColor(.white)
-                                .font(.subheadline)
-                                Spacer()
-                            }
-                            .foregroundColor(Color.init("T1"))
-                            .padding(4)
-                            .background(
-                                Color.init(id: "button.background")
-                            )
-                            .cornerRadius(10.0)
-                        }
-                    )
-                }
+                        )
+                    }
+                )
                 .listRowSeparator(.hidden)
                 .listRowBackground(Color.clear)
                 
-                if firstRuned {
+                if jupyterManager.firstRuned {
                     jupyterManager.runner
-                        .frame(height: greader.size.height)
+                        .frame(height: greader.size.height - 80)
                         .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                         .listRowSeparator(.hidden)
                         .listRowBackground(Color.clear)
+//                        .background {
+//                            GeometryReader { proxy -> Color in
+//                                DispatchQueue.main.async {
+//                                    print(proxy.frame(in: .global))
+//                                    consoleHeight = greader.size.height -  (proxy.frame(in: .global).origin.y - greader.frame(in: .global).origin.y) - 10
+//                                    print(consoleHeight)
+//                                }
+//                                return Color.clear
+//                            }
+//                        }
                 }
                 
             }
+            .listStyle(SidebarListStyle())
         }
     }
 }
 
 class JupytterManager: ObservableObject {
     @Published var running: Bool = false
+    @Published var firstRuned: Bool = false
     
     @AppStorage("jupyter_server_password") var password: String = ""
     @AppStorage("jupyter_server_port") var port: String = "8888"
