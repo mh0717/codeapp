@@ -176,12 +176,12 @@ class VCInTabExtension: CodeAppExtension {
                 } catch {
                     print(error.localizedDescription)
                 }
-                VCInTabExtension._showCount += 1
-                let title = url.lastPathComponent.isEmpty ? "#web\(VCInTabExtension._showCount)" : url.lastPathComponent
+                localUrl = localUrl.replacingOccurrences(of: "0.0.0.0", with: "localhost")
                 DispatchQueue.main.async {
-                    let vc = SFSafariViewController(url: URL(string: localUrl)!)
-                    let instance = VCInTabEditorInstance(url: url, title: title, vc: vc)
-                    app.appendAndFocusNewEditor(editor: instance, alwaysInNewTab: true)
+                    if let url = URL(string: localUrl) {
+                        app.appendAndFocusNewEditor(editor: PYSafariEditorInstance(url), alwaysInNewTab: true)
+                    }
+                    
                 }
                 return
             }

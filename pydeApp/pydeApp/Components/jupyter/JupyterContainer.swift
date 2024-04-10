@@ -15,9 +15,9 @@ struct JupyterContainer: View {
     
     @EnvironmentObject var App: MainApp
     
-    
-    
     @ObservedObject var jupyterManager: JupytterManager
+    
+    @State var firstRuned = false
     
     
     var body: some View {
@@ -57,19 +57,6 @@ struct JupyterContainer: View {
                     .background(Color.init(id: "input.background"))
                     .cornerRadius(15)
                     
-                    
-//                    Button(action: {
-//                        App.safariManager.showSafari(
-//                            url: URL(
-//                                string:
-//                                    "https://code.thebaselab.com/guides/connecting-to-a-remote-server-ssh-ftp#set-up-your-remote-server"
-//                            )!)
-//                    }) {
-//                        Text("remote.setup_remote_server")
-//                            .font(.footnote)
-//                            .foregroundColor(.blue)
-//                    }
-                    
 //                    Toggle(localizedString(forKey: "Keep Activation"), isOn: $jupyterManager.play_ws)
                     
                     
@@ -77,13 +64,20 @@ struct JupyterContainer: View {
                         .disabled(jupyterManager.running)
                     
                     if jupyterManager.running {
-                        Button(action: {
-                            
-                        }) {
-                            Text(
-                                jupyterManager.public_server
-                                ? "\(jupyterManager.ip):\(jupyterManager.port)"
-                                : "localhost:\(jupyterManager.port)")
+                        let url = jupyterManager.public_server
+                            ? "http://\(jupyterManager.ip):\(jupyterManager.port)"
+                            : "http://localhost:\(jupyterManager.port)"
+                        Menu {
+                            Button("Open Url") {
+                                if let url = URL(string: "http://localhost:\(jupyterManager.port)") {
+                                    App.appendAndFocusNewEditor(editor: PYSafariEditorInstance(url), alwaysInNewTab: true)
+                                }
+                            }
+                            Button("Copy to Pasteboard") {
+                                UIPasteboard.general.string = url
+                            }
+                        } label: {
+                            Text(url)
                                 .font(.footnote)
                                 .foregroundColor(.blue)
                         }
@@ -100,6 +94,7 @@ struct JupyterContainer: View {
                                 return
                             }
                             #endif
+                            firstRuned = true
                             if jupyterManager.running {
                                 jupyterManager.closeNotebook()
                             } else {
@@ -125,35 +120,11 @@ struct JupyterContainer: View {
                             .cornerRadius(10.0)
                         }
                     )
-                    
-                    if jupyterManager.running {
-                        Button(
-                            action: {
-                                wmessager.passMessage(message: ["openurl", "http://localhost:\(jupyterManager.port)/tree"], identifier: ConstantManager.PYDE_OPEN_COMMAND_MSG);
-                            },
-                            label: {
-                                HStack {
-                                    Spacer()
-                                    Text(localizedString(forKey: "Open Notebook Homepage"))
-                                    .lineLimit(1)
-                                    .foregroundColor(.white)
-                                    .font(.subheadline)
-                                    Spacer()
-                                }
-                                .foregroundColor(Color.init("T1"))
-                                .padding(4)
-                                .background(
-                                    Color.init(id: "button.background")
-                                )
-                                .cornerRadius(10.0)
-                            }
-                        )
-                    }
                 }
                 .listRowSeparator(.hidden)
                 .listRowBackground(Color.clear)
                 
-                if jupyterManager.running {
+                if firstRuned {
                     jupyterManager.runner
                         .frame(height: greader.size.height)
                         .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
