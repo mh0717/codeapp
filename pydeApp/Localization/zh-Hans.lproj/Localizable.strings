@@ -378,3 +378,6 @@
 
 "Open Url" = "打开链接";
 "Copy to Pasteboard" = "拷贝到剪切板";
+"RUNNER" = "运行";
+"ARGS" = "参数";
+"Input run args" = "输入运行参数";

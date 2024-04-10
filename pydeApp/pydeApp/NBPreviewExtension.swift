@@ -68,6 +68,8 @@ struct EditorAndRunnerWidget: View {
     @EnvironmentObject var App: MainApp
     @AppStorage("setting.panel.hide.when.editor.focus") var shouldHidePanel: Bool = true
     
+    @AppStorage("consoleFontSize") var consoleFontSize: Int = 14
+    
     let editor: AnyView
     let runner: PYRunnerWidget
     
@@ -190,14 +192,14 @@ struct EditorAndRunnerWidget: View {
                 toolBarView: AnyView(
                     HStack(spacing: 12) {
 
-                    Button(
-                        action: {
-                            
-                        },
-                        label: {
-                            Image(systemName: "trash")
-                        }
-                    ).keyboardShortcut("k", modifiers: [.command])
+//                    Button(
+//                        action: {
+//                            
+//                        },
+//                        label: {
+//                            Image(systemName: "trash")
+//                        }
+//                    ).keyboardShortcut("k", modifiers: [.command])
                         
                     Button(
                         action: {
@@ -221,20 +223,44 @@ struct ParamsView: View {
     @EnvironmentObject var App: MainApp
     @ObservedObject var codeThemeManager = rscodeThemeManager
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @AppStorage("consoleFontSize") var consoleFontSize: Int = 14
     
     @State var lastArgs = ""
     @FocusState private var isFocused: Bool
+    
+    @State var showPlaceHolder = false
     
     var body: some View {
         TextEditor(text: Binding(get: {
             App.activeTextEditor?.runArgs ?? ""
         }, set: { value in
             App.activeTextEditor?.runArgs = value
+            if value.isEmpty {
+                showPlaceHolder = true
+            } else {
+                showPlaceHolder = false
+            }
         }))
             .background(Color((colorScheme == .dark ? codeThemeManager.darkTheme : codeThemeManager.lightTheme).backgroundColor)) // To see this
             .focused($isFocused)
             .autocorrectionDisabled(true)
             .textInputAutocapitalization(.never)
+            .font(.system(size: CGFloat(consoleFontSize)))
+            .overlay(alignment: .topLeading, content: {
+                Text(showPlaceHolder ? NSLocalizedString("Input run args", comment: "") : "")
+                    .font(.system(size: CGFloat(consoleFontSize)))
+                    .opacity(0.6)
+                    .padding(7)
+                    .disabled(true)
+                    .allowsHitTesting(false)
+            })
+            .onAppear {
+                if let args = App.activeTextEditor?.runArgs, !args.isEmpty {
+                    showPlaceHolder = false
+                } else {
+                    showPlaceHolder = true
+                }
+            }
             .onChange(of: isFocused) { isFocused in
                 guard let editor = App.activeTextEditor else {return}
                 if isFocused {

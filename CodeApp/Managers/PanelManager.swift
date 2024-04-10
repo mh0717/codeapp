@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-private let DEFAULT_FOCUSED_PANEL_ID = "TERMINAL"
+private let DEFAULT_FOCUSED_PANEL_ID = "RUNNER"
 
 struct Panel {
     let labelId: String
