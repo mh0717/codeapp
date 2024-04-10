@@ -293,6 +293,7 @@ struct IAPView: View {
                             Section(header: Text("Other")) {
                                 PkgCell(title: "pyzmq")
                                 PkgCell(title: "psutil")
+                                PkgCell(title: "fontTools")
                             }
                         }
                         .listStyle(.sidebar)
