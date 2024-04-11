@@ -13,7 +13,7 @@ class PYTerminalEditorInstance: EditorInstance {
     init(_ rootDir: URL) {
         _terminalCount += 1
         widget.consoleView.resetAndSetNewRootDirectory(url: rootDir)
-        super.init(view: AnyView(widget), title: "Terminal#\(_terminalCount)")
+        super.init(view: AnyView(widget), title: "\(NSLocalizedString("TERMINAL", comment: ""))#\(_terminalCount)")
     }
     
     override func dispose() {
