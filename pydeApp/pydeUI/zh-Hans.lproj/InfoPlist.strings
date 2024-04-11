@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Code
+
+  Created by Huima on 2024/4/11.
+  
+*/
+"CFBundleDisplayName" = "运行iPyDE UI脚本";
+"CFBundleName" = "pydeUI";

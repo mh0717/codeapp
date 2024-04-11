@@ -141,17 +141,15 @@ class PYLocalExecutionExtension: CodeAppExtension {
         
         let provider = NSItemProvider(item: "provider" as NSSecureCoding, typeIdentifier: "baobaowang.SketchPython.pydeUI")
         let item = NSExtensionItem()
-        item.attributedTitle = NSAttributedString(string: "This is title")
-        item.accessibilityLabel = "run pyde ui"
         item.userInfo = config
         item.attachments = [provider]
         
         
-        let vc = UIActivityViewController(activityItems: [item, MyActivityItemSource(title: "title", text: "text")], applicationActivities: nil)
+        let vc = UIActivityViewController(activityItems: [item, MyActivityItemSource(title: NSLocalizedString("Run iPyDE UI Script", comment: ""), text: NSLocalizedString("Choose \"Run iPyDE UI Script\" to run", comment: ""))], applicationActivities: nil)
         vc.completionWithItemsHandler = { _, _, _, _ in
             editor.runnerView.executor?.kill()
         }
-//        let popoverView = AnyView(VCRepresentable(vc))
+        let popoverView = AnyView(VCRepresentable(vc))
         
         if UIDevice.current.userInterfaceIdiom == .phone {
             if #available(iOS 16.0, *) {
@@ -163,6 +161,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             let popoverView = AnyView(VCRepresentable(vc))
             app.popupManager.showOutside(content: popoverView)
         }
+        
         
         DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(50))) {
             

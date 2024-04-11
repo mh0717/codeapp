@@ -62,11 +62,11 @@ class ActionViewController: UITabBarController {
                     message: "Python3 run with UI is alread running, please quit the running instance",
                     preferredStyle: .alert)
             let okAction = UIAlertAction(
-                    title: "OK",
-                    style: .default,
+                    title: "Exit",
+                    style: .destructive,
                     handler: {
                     (action: UIAlertAction!) -> Void in
-                        self.handleExit()
+                        real_exit(vlaue: -1)
                 })
                 alertController.addAction(okAction)
             present(alertController, animated: true)

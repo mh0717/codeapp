@@ -381,3 +381,6 @@
 "RUNNER" = "运行";
 "ARGS" = "参数";
 "Input run args" = "输入运行参数";
+
+"Run iPyDE UI Script" = "运行iPyDE UI脚本";
+"Choose \"Run iPyDE UI Script\" to run" = "请选择 \"运行iPyDE UI脚本\" 运行";
