@@ -70,6 +70,9 @@ struct EditorAndRunnerWidget: View {
     
     @AppStorage("consoleFontSize") var consoleFontSize: Int = 14
     
+    @State var restoreShowPanel = false
+    @State var isEditing = false
+    
     let editor: AnyView
     let runner: PYRunnerWidget
     
@@ -92,15 +95,25 @@ struct EditorAndRunnerWidget: View {
 //        })
         .onReceive(
             NotificationCenter.default.publisher(
+                for: UIResponder.keyboardWillShowNotification),
+            perform: { notification in
+                if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect, keyboardFrame.size.height > 150 {
+                    restoreShowPanel = false
+                    if shouldHidePanel && showsPanel {
+                        showsPanel = false
+                        restoreShowPanel = true
+                    }
+                }
+            })
+        .onReceive(
+            NotificationCenter.default.publisher(
                 for: Notification.Name("rseditor.focus"),
                 object: nil),
             perform: { notification in
                 guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
                     sceneIdentifier == App.sceneIdentifier
                 else { return }
-                if shouldHidePanel {
-                    showsPanel = false
-                }
+                isEditing = true
             }
         )
         .onReceive(
@@ -111,9 +124,7 @@ struct EditorAndRunnerWidget: View {
                 guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
                     sceneIdentifier == App.sceneIdentifier
                 else { return }
-                if shouldHidePanel {
-                    showsPanel = false
-                }
+                isEditing = true
             }
         )
         .onReceive(
@@ -124,7 +135,8 @@ struct EditorAndRunnerWidget: View {
                 guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
                     sceneIdentifier == App.sceneIdentifier
                 else { return }
-                if shouldHidePanel && !showsPanel {
+                isEditing = false
+                if shouldHidePanel && restoreShowPanel && !showsPanel {
                     showsPanel = true
                 }
             }
@@ -137,7 +149,7 @@ struct EditorAndRunnerWidget: View {
                 guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
                     sceneIdentifier == App.sceneIdentifier
                 else { return }
-                if shouldHidePanel && !showsPanel {
+                if shouldHidePanel && restoreShowPanel && !showsPanel {
                     showsPanel = true
                 }
             }
@@ -191,24 +203,6 @@ struct EditorAndRunnerWidget: View {
                 ),
                 toolBarView: AnyView(
                     HStack(spacing: 12) {
-
-//                    Button(
-//                        action: {
-//                            
-//                        },
-//                        label: {
-//                            Image(systemName: "trash")
-//                        }
-//                    ).keyboardShortcut("k", modifiers: [.command])
-                        
-//                    Button(
-//                        action: {
-//                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-//                        },
-//                        label: {
-//                            Image(systemName: "keyboard.chevron.compact.down")
-//                        }
-//                    )
                 })
             )
             panelManager.registerPanel(panel: paramsPanel)
