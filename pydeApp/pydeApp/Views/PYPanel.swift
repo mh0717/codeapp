@@ -134,8 +134,16 @@ struct PYPanelView: View {
 
                 currentPanel?
                     .toolBarView
-                    .padding(.horizontal)
+//                    .padding(.leading)
                     .environmentObject(panelManager)
+                
+                Spacer().frame(width: 12)
+                
+                Button {
+                    showsPanel = !showsPanel
+                } label: {
+                    Image(systemName: "rectangle.bottomthird.inset.filled")
+                }.padding(.trailing)
 
             }.frame(height: 14).padding(.vertical, 5)
                 .background(Color.init(id: "editor.background"))

@@ -171,15 +171,15 @@ struct EditorAndRunnerWidget: View {
                         }
                     ).keyboardShortcut("k", modifiers: [.command])
                         
-                    Button(
-                        action: {
-                            _ = runner.consoleView.terminalView.resignFirstResponder()
-                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                        },
-                        label: {
-                            Image(systemName: "keyboard.chevron.compact.down")
-                        }
-                    )
+//                    Button(
+//                        action: {
+//                            _ = runner.consoleView.terminalView.resignFirstResponder()
+//                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+//                        },
+//                        label: {
+//                            Image(systemName: "keyboard.chevron.compact.down")
+//                        }
+//                    )
                 })
             )
             panelManager.registerPanel(panel: runnerPanel)
@@ -201,14 +201,14 @@ struct EditorAndRunnerWidget: View {
 //                        }
 //                    ).keyboardShortcut("k", modifiers: [.command])
                         
-                    Button(
-                        action: {
-                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                        },
-                        label: {
-                            Image(systemName: "keyboard.chevron.compact.down")
-                        }
-                    )
+//                    Button(
+//                        action: {
+//                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+//                        },
+//                        label: {
+//                            Image(systemName: "keyboard.chevron.compact.down")
+//                        }
+//                    )
                 })
             )
             panelManager.registerPanel(panel: paramsPanel)
