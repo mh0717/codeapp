@@ -8,7 +8,7 @@
 import Foundation
 import pydeCommon
 
-class PipService {
+public class PipService {
     static func fetchIndexPackages() async -> [String] {
         #if DEBUG
         if isXCPreview() {
@@ -300,6 +300,59 @@ class PipService {
     return true
     }
     
+    
+    static private var downloadingPyPICache = false
+    static func updatePyPiCache() {
+        guard !downloadingPyPICache else {
+            return
+        }
+        
+        downloadingPyPICache = true
+        
+        let task = UIApplication.shared.beginBackgroundTask(expirationHandler: nil)
+        
+        URLSession.shared.downloadTask(with: URL(string: "https://pypi.org/simple")!) { (fileURL, _, error) in
+            
+            self.downloadingPyPICache = false
+            
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let url = fileURL {
+                
+                let cacheURL = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)[0].appendingPathComponent("pypi_index.html")
+                if FileManager.default.fileExists(atPath: cacheURL.path) {
+                    try? FileManager.default.removeItem(at: cacheURL)
+                }
+                
+                do {
+                    try FileManager.default.copyItem(at: url, to: cacheURL)
+                } catch {
+                    print(error.localizedDescription)
+                }
+                
+                #if targetEnvironment(simulator)
+                do {
+                    let content = try String(contentsOf: url)
+                    let lines = content.components(separatedBy: "\n")
+                    var packages = [String]()
+                    for line in lines {
+                        if line.contains("/simple/"), let name = line.slice(from: "/\">", to: "<") {
+                            packages.append(name)
+                        }
+                    }
+                    let str = packages.joined(separator: "\n")
+                    try str.write(to: URL(fileURLWithPath: "/Users/huima/PythonSchool/modules/pythoncc/pyde/Sources/pyde/h5/pypi_index.txt"), atomically: true, encoding: .utf8)
+                } catch {
+                    print(error.localizedDescription)
+                }
+                
+                #endif
+            }
+            
+            UIApplication.shared.endBackgroundTask(task)
+        }.resume()
+    }
+    
     static var bundledPackage: [PipPackage] = [
         PipPackage("anyio", "3.7.0"),
         PipPackage("appnope", "0.1.3"),
@@ -493,6 +546,8 @@ fileprivate extension URLSession {
     }
 
 }
+
+
 
 
 #if DEBUG

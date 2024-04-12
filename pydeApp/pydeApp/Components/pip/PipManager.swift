@@ -123,14 +123,23 @@ class PipModelManager: ObservableObject {
 //            await self.fetchUpdates()
         }
         
-        Task {
-            await self.fetchIndex()
-        }
-        
+//        Task {
+//            await self.fetchIndex()
+//        }
+//        
         $queryString
             .map({$0.trimmingCharacters(in: .whitespaces)})
+            .filter({!$0.isEmpty})
             .removeDuplicates()
             .debounce(for: .seconds(1), scheduler: DispatchQueue.global())
+            .map({
+                if self.packages.isEmpty {
+                    Task {
+                        await self.fetchIndex()
+                    }
+                }
+                return $0
+            })
             .flatMap({ [self] query in
                 $packages.map({filterQuery($0, query)})
             })

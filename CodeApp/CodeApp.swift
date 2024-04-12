@@ -237,6 +237,8 @@ struct CodeApp: App {
         
         DispatchQueue.main.async {
             initPyDE()
+            
+            PipService.updatePyPiCache()
         }
         
         signal(SIGPIPE, SIG_IGN);
