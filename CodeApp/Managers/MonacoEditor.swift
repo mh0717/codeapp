@@ -585,6 +585,12 @@ struct MonacoEditor: UIViewRepresentable {
                 }
                 try await onRequestNewTextModel(
                     url: activeTextEditor.url, value: activeTextEditor.content)
+                #if PYDEAPP
+                if !editorReadOnly {
+                    executeJavascript(
+                        command: "editor.updateOptions({ readOnly: \(String(activeTextEditor.readOnly)) })")
+                }
+                #endif
             }
         }
     }

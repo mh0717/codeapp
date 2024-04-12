@@ -137,6 +137,11 @@ struct RunestoneEditor: UIViewRepresentable {
     
     func updateUIView(_ uiView: RSCodeEditorView, context: Context) {
         editorView.textView.isEditable = !editorReadOnly
+        if let editor = App.activeTextEditor {
+            if editor.readOnly {
+                editorView.textView.isEditable = false
+            }
+        }
         editorView.textView.isLineWrappingEnabled = (editorWordWrap != "off")
         editorView.textView.lineBreakMode = .byWordWrapping
         editorView.textView.showLineNumbers = editorLineNumberEnabled

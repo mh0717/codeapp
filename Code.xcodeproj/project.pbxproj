@@ -991,6 +991,7 @@
 		A3A91A3B2B4A002D007E8C76 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A3AFD14F2BC5201F004C9F10 /* PYTerminalEditorInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFD14E2BC5201F004C9F10 /* PYTerminalEditorInstance.swift */; };
 		A3AFD1512BC522D6004C9F10 /* PYSafariEditorInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFD1502BC522D6004C9F10 /* PYSafariEditorInstance.swift */; };
+		A3AFD15A2BC8305B004C9F10 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3AFD15C2BC8305B004C9F10 /* InfoPlist.strings */; };
 		A3B0F0B62B29DA8F0001D220 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B52B29DA8F0001D220 /* ios_system */; };
 		A3B0F0B92B29DAA60001D220 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B82B29DAA60001D220 /* ios_system */; };
 		A3BB55302B3E405100A3E0B9 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
@@ -2403,6 +2404,8 @@
 		A3AB64C02B4B5388009AEA1E /* pydeShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pydeShare.entitlements; sourceTree = "<group>"; };
 		A3AFD14E2BC5201F004C9F10 /* PYTerminalEditorInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYTerminalEditorInstance.swift; sourceTree = "<group>"; };
 		A3AFD1502BC522D6004C9F10 /* PYSafariEditorInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSafariEditorInstance.swift; sourceTree = "<group>"; };
+		A3AFD15B2BC8305B004C9F10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A3AFD15D2BC83065004C9F10 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		A3B0F0B12B29D95F0001D220 /* ios_system */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ios_system; path = ../../modules/pythoncc/ios_system; sourceTree = "<group>"; };
 		A3BB55412B44666500A3E0B9 /* RSCodeTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCodeTheme.swift; sourceTree = "<group>"; };
 		A3D1C9A82B35D802001505C7 /* Python.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Python.swift; sourceTree = "<group>"; };
@@ -3720,6 +3723,7 @@
 				A36337092AF231D200085608 /* ActionViewController.swift */,
 				A363370B2AF231D200085608 /* MainInterface.storyboard */,
 				A363370E2AF231D200085608 /* Info.plist */,
+				A3AFD15C2BC8305B004C9F10 /* InfoPlist.strings */,
 			);
 			path = pydeUI;
 			sourceTree = "<group>";
@@ -4427,6 +4431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A36337082AF231D200085608 /* Media.xcassets in Resources */,
+				A3AFD15A2BC8305B004C9F10 /* InfoPlist.strings in Resources */,
 				A3F32F682AF88CC300866ED0 /* commandDictionary.plist in Resources */,
 				A363370D2AF231D200085608 /* MainInterface.storyboard in Resources */,
 			);
@@ -5405,6 +5410,15 @@
 				A3A91A242B49D6D7007E8C76 /* Base */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		A3AFD15C2BC8305B004C9F10 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3AFD15B2BC8305B004C9F10 /* en */,
+				A3AFD15D2BC83065004C9F10 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		A3F239962BA35CBC006F6D7B /* InfoPlist.strings */ = {

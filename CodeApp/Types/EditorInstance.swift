@@ -93,6 +93,7 @@ class TextEditorInstance: EditorInstanceWithURL {
     @Published var tags: [CTag] = []
     @Published var selectedRange: NSRange = NSRange(location: 0, length: 0)
     var runArgs: String = ""
+    var readOnly: Bool = false
     #endif
 
     @Published var content: String
@@ -143,6 +144,15 @@ class TextEditorInstance: EditorInstanceWithURL {
         // self.fileWatch?.startMonitoring()
         
         #if PYDEAPP
+        if !FileManager.default.isWritableFile(atPath: url.path) {
+            readOnly = true
+        }
+        if url.isContained(in: Bundle.main.bundleURL) {
+            readOnly = true
+        }
+        #if targetEnvironment(simulator)
+//        readOnly = false
+        #endif
 //        self.view = AnyView(VStack(spacing: 0, content: {
 ////            TagsIndicator(editor: self)
 //            
