@@ -75,7 +75,7 @@ public class PipService {
             var list = [PipPackage]()
             for package in packages {
                 if let name = package["name"], let version = package["version"] {
-                    if !bundledPackage.contains(where: {$0.name == name && $0.version == version}) {
+                    if !pipBundledPackage.contains(where: {$0.name == name && $0.version == version}) {
                         list.append(PipPackage(name, version))
                     }
                 }
@@ -120,7 +120,7 @@ public class PipService {
             var list = [PipPackage]()
             for package in packages {
                 if let name = package["name"], let version = package["version"] {
-                    if !bundledPackage.contains(where: {$0.name == name && $0.version == version}) {
+                    if !pipBundledPackage.contains(where: {$0.name == name && $0.version == version}) {
                         list.append(PipPackage(name, version))
                     }
                 }
@@ -272,7 +272,7 @@ public class PipService {
         }
         #endif
         
-        let output = await executeCommand("remote pip3 uninstall -y \(name)  --no-color --disable-pip-version-check --no-python-version-warning")
+        _ = await executeCommand("remote pip3 uninstall -y \(name)  --no-color --disable-pip-version-check --no-python-version-warning")
         return true
     }
     
@@ -284,7 +284,7 @@ public class PipService {
         }
         #endif
 
-        let output = await executeCommand("remote pip3 update \(packages.joined(separator: " "))  --no-color --disable-pip-version-check --no-python-version-warning")
+        _ = await executeCommand("remote pip3 update \(packages.joined(separator: " "))  --no-color --disable-pip-version-check --no-python-version-warning")
         return true
     }
     
@@ -296,7 +296,7 @@ public class PipService {
     }
     #endif
 
-    let output = await executeCommand("remote pythonA -m pip install --user \(package)  --no-color --disable-pip-version-check --no-python-version-warning")
+        _ = await executeCommand("remote pythonA -m pip install --user \(package)  --no-color --disable-pip-version-check --no-python-version-warning")
     return true
     }
     
@@ -351,136 +351,31 @@ public class PipService {
             
             UIApplication.shared.endBackgroundTask(task)
         }.resume()
+        
+        #if targetEnvironment(simulator)
+        Task {
+            let packages = await fetchInstalledPackages()
+            let url = URL(fileURLWithPath: "/Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/pip/PipBundledPackages.swift")
+            try?
+            """
+            //
+            //  PipBundledPackages.swift
+            //  iPyDE
+            //
+            //  Created by Huima on 2024/4/13.
+            //
+
+            import Foundation
+
+            public let pipBundledPackage: [PipPackage] = [
+            \(packages.map({"    PipPackage(\"\($0.name)\", \"\($0.version)\"),"}).joined(separator: "\n"))
+            ]
+            """.write(to: url, atomically: true, encoding: .utf8)
+        }
+        #endif
     }
     
-    static var bundledPackage: [PipPackage] = [
-        PipPackage("anyio", "3.7.0"),
-        PipPackage("appnope", "0.1.3"),
-        PipPackage("argon2-cffi", "21.3.0"),
-        PipPackage("argon2-cffi-bindings", "21.2.1.dev66"),
-        PipPackage("arrow", "1.2.3"),
-        PipPackage("astropy", "5.2.1"),
-        PipPackage("asttokens", "2.2.1"),
-        PipPackage("attrs", "23.1.0"),
-        PipPackage("backcall", "0.2.0"),
-        PipPackage("beautifulsoup4", "4.12.2"),
-        PipPackage("biopython", "1.81"),
-        PipPackage("bleach", "6.0.0"),
-        PipPackage("certifi", "2022.12.7"),
-        PipPackage("certifi", "2023.5.7"),
-        PipPackage("cffi", "1.15.1"),
-        PipPackage("charset-normalizer", "3.1.0"),
-        PipPackage("comm", "0.1.3"),
-        PipPackage("contourpy", "1.0.8.dev1"),
-        PipPackage("cppy", "1.2.1"),
-        PipPackage("cycler", "0.11.0"),
-        PipPackage("debugpy", "1.6.7"),
-        PipPackage("decorator", "5.1.1"),
-        PipPackage("defusedxml", "0.7.1"),
-        PipPackage("docutils", "0.20.1"),
-        PipPackage("executing", "1.2.0"),
-        PipPackage("fastjsonschema", "2.17.1"),
-        PipPackage("Fiona", "1.9.2"),
-        PipPackage("fonttools", "4.39.2"),
-        PipPackage("fqdn", "1.5.1"),
-        PipPackage("gensim", "4.3.0"),
-        PipPackage("idna", "3.4"),
-        PipPackage("idna", "3.4"),
-        PipPackage("imgui", "2.0.0"),
-        PipPackage("importlib-resources", "5.12.0"),
-        PipPackage("ios", "1.1"),
-        PipPackage("ipykernel", "6.23.1"),
-        PipPackage("ipython", "8.14.0"),
-        PipPackage("ipython-genutils", "0.2.0"),
-        PipPackage("isoduration", "20.11.0"),
-        PipPackage("jedi", "0.18.2"),
-        PipPackage("Jinja2", "3.1.2"),
-        PipPackage("jsonpointer", "2.3"),
-        PipPackage("jsonschema", "4.17.3"),
-        PipPackage("jupyter_client", "8.2.0"),
-        PipPackage("jupyter_core", "5.3.0"),
-        PipPackage("jupyter-events", "0.6.3"),
-        PipPackage("jupyter_server", "2.6.0"),
-        PipPackage("jupyter_server_terminals", "0.4.4"),
-        PipPackage("jupyterlab-pygments", "0.2.2"),
-        PipPackage("Kivy", "2.2.0rc1"),
-        PipPackage("Kivy-Garden", "0.1.5"),
-        PipPackage("kiwisolver", "1.4.4"),
-        PipPackage("lxml", "4.9.2"),
-        PipPackage("MarkupSafe", "2.1.2"),
-        PipPackage("matplotlib", "3.7.2.dev49+g2f25614599"),
-        PipPackage("matplotlib-inline", "0.1.6"),
-        PipPackage("mistune", "2.0.5"),
-        PipPackage("nbclassic", "1.0.0"),
-        PipPackage("nbclient", "0.8.0"),
-        PipPackage("nbconvert", "7.4.0"),
-        PipPackage("nbformat", "5.9.0"),
-        PipPackage("nest-asyncio", "1.5.6"),
-        PipPackage("notebook", "6.5.4"),
-        PipPackage("notebook_shim", "0.2.3"),
-        PipPackage("numpy", "1.24.2+23.gf14cd4457"),
-        PipPackage("overrides", "7.3.1"),
-        PipPackage("packaging", "23.0"),
-        PipPackage("pandas", "2.0.0rc1+10.geccf9bd802.dirty"),
-        PipPackage("pandocfilters", "1.5.0"),
-        PipPackage("parso", "0.8.3"),
-        PipPackage("pexpect", "4.8.0"),
-        PipPackage("pickleshare", "0.7.5"),
-        PipPackage("Pillow", "9.4.0"),
-        PipPackage("pip", "23.2.1"),
-        PipPackage("platformdirs", "3.5.3"),
-        PipPackage("prometheus-client", "0.17.0"),
-        PipPackage("prompt-toolkit", "3.0.38"),
-        PipPackage("ptyprocess", "0.7.0"),
-        PipPackage("pure-eval", "0.2.2"),
-        PipPackage("pycparser", "2.21"),
-        PipPackage("pyemd", "0.5.1"),
-        PipPackage("pyerfa", "2.0.0.3.post1.dev0+ge33ee55.d20230610"),
-        PipPackage("pygame", "2.4.0"),
-        PipPackage("pyproject-toml", "0.0.10"),
-        PipPackage("Pygments", "2.15.1"),
-        PipPackage("Pygments", "2.15.1"),
-        PipPackage("pyobjus", "1.2.2"),
-        PipPackage("pyparsing", "3.0.9"),
-        PipPackage("pyproj", "3.4.1"),
-        PipPackage("pyrsistent", "0.19.3"),
-        PipPackage("python-dateutil", "2.8.2"),
-        PipPackage("python-json-logger", "2.0.7"),
-        PipPackage("pytz", "2022.7.1"),
-        PipPackage("PyWavelets", "1.4.1"),
-        PipPackage("PyYAML", "6.0"),
-        PipPackage("pyzmq", "25.1.0"),
-        PipPackage("qutip", "4.7.1"),
-        PipPackage("rasterio", "1.3.6"),
-        PipPackage("requests", "2.28.2"),
-        PipPackage("requests", "2.31.0"),
-        PipPackage("rfc3339-validator", "0.1.4"),
-        PipPackage("rfc3986-validator", "0.1.1"),
-        PipPackage("rubicon-objc", "0.4.6"),
-        PipPackage("scikit-learn", "1.3.dev0"),
-        PipPackage("setuptools", "68.2.2"),
-        PipPackage("SciPy", "1.10.2.dev0+2408.7f2ac69"),
-        PipPackage("Send2Trash", "1.8.2"),
-        PipPackage("six", "1.16.0"),
-        PipPackage("sniffio", "1.3.0"),
-        PipPackage("soupsieve", "2.4.1"),
-        PipPackage("stack-data", "0.6.2"),
-        PipPackage("statsmodels", "0.13.5"),
-        PipPackage("terminado", "0.17.1"),
-        PipPackage("tinycss2", "1.2.1"),
-        PipPackage("toml", "0.10.2"),
-        PipPackage("tornado", "6.3.2"),
-        PipPackage("traitlets", "5.9.0"),
-        PipPackage("tzdata", "2022.7"),
-        PipPackage("uri-template", "1.2.0"),
-        PipPackage("urllib3", "1.26.15"),
-        PipPackage("urllib3", "2.0.2"),
-        PipPackage("wcwidth", "0.2.6"),
-        PipPackage("webcolors", "1.13"),
-        PipPackage("webencodings", "0.5.1"),
-        PipPackage("websocket-client", "1.5.3"),
-        PipPackage("wheel", "0.36.2")
-    ]
+    
 }
 
 

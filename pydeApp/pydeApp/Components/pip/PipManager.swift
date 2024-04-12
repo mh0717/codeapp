@@ -38,14 +38,14 @@ func ShortenFilePaths(in str: String) -> String {
 }
 
 
-struct PipPackage: Identifiable, Equatable {
+public struct PipPackage: Identifiable, Equatable {
     init(_ name: String, _ version: String) {
         self.name = name
         self.version = version
         self.id = UUID().uuidString
     }
     
-    let id: String
+    public let id: String
     
     let name: String
     let version: String
@@ -112,7 +112,7 @@ class PipModelManager: ObservableObject {
     var cancellable: Set<AnyCancellable> = []
     
     var bundledPackage: [PipPackage] {
-        PipService.bundledPackage
+        pipBundledPackage
     }
     
     
@@ -173,7 +173,7 @@ class PipModelManager: ObservableObject {
     }
     
     static func isBundlePackage(_ name: String) -> Bool {
-        return PipService.bundledPackage.contains {$0.name == name}
+        return pipBundledPackage.contains {$0.name == name}
     }
     
     func uninstallPackage(_ name: String) async -> Bool {

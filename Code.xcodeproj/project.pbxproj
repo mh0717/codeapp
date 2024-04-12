@@ -755,6 +755,7 @@
 		A33A5FE72B10B98800CB7CE1 /* PyPiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE12B10B98800CB7CE1 /* PyPiView.swift */; };
 		A33A5FE82B10B98800CB7CE1 /* PipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE22B10B98800CB7CE1 /* PipManager.swift */; };
 		A33A5FEB2B10B98800CB7CE1 /* PyPiPackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE52B10B98800CB7CE1 /* PyPiPackageView.swift */; };
+		A33EEC8E2BC9A32500348751 /* PipBundledPackages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33EEC8D2BC9A32500348751 /* PipBundledPackages.swift */; };
 		A349BF362B00ECDF00434BBB /* GitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349BF352B00ECDF00434BBB /* GitService.swift */; };
 		A36336D32AF226BA00085608 /* pyde in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; };
 		A36336D42AF226BA00085608 /* pyde in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -2343,6 +2344,7 @@
 		A33A5FE12B10B98800CB7CE1 /* PyPiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PyPiView.swift; sourceTree = "<group>"; };
 		A33A5FE22B10B98800CB7CE1 /* PipManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PipManager.swift; sourceTree = "<group>"; };
 		A33A5FE52B10B98800CB7CE1 /* PyPiPackageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PyPiPackageView.swift; sourceTree = "<group>"; };
+		A33EEC8D2BC9A32500348751 /* PipBundledPackages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipBundledPackages.swift; sourceTree = "<group>"; };
 		A349BF352B00ECDF00434BBB /* GitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitService.swift; sourceTree = "<group>"; };
 		A36336D12AF2268D00085608 /* pydeCommon */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = pydeCommon; path = ../../modules/pythoncc/pyde/pydeCommon; sourceTree = "<group>"; };
 		A36336E62AF22B3200085608 /* pydeRemote.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pydeRemote.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3668,6 +3670,7 @@
 				A33A5FE12B10B98800CB7CE1 /* PyPiView.swift */,
 				A33A5FE22B10B98800CB7CE1 /* PipManager.swift */,
 				A3E889A72B12DF87007B34AF /* PipService.swift */,
+				A33EEC8D2BC9A32500348751 /* PipBundledPackages.swift */,
 			);
 			path = pip;
 			sourceTree = "<group>";
@@ -5201,6 +5204,7 @@
 				A3A87D832AF221D1002E3399 /* SourceControlTemplateSection.swift in Sources */,
 				A37827AF2B1573E1008A75F1 /* JupyterContainer.swift in Sources */,
 				A3A87D842AF221D1002E3399 /* ImageViewerExtension.swift in Sources */,
+				A33EEC8E2BC9A32500348751 /* PipBundledPackages.swift in Sources */,
 				A33A5FEB2B10B98800CB7CE1 /* PyPiPackageView.swift in Sources */,
 				A3A87D852AF221D1002E3399 /* RemoteHostCell.swift in Sources */,
 				A3A87D862AF221D1002E3399 /* RemoteConnectedLabel.swift in Sources */,
