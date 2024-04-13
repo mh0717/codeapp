@@ -355,6 +355,7 @@ public class PipService {
         #if targetEnvironment(simulator)
         Task {
             let packages = await fetchInstalledPackages()
+            if packages.isEmpty {return}
             let url = URL(fileURLWithPath: "/Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/pip/PipBundledPackages.swift")
             try?
             """

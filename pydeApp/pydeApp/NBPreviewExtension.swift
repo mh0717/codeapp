@@ -97,13 +97,38 @@ struct EditorAndRunnerWidget: View {
             NotificationCenter.default.publisher(
                 for: UIResponder.keyboardWillShowNotification),
             perform: { notification in
-                if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect, keyboardFrame.size.height > 150 {
-                    restoreShowPanel = false
+                guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect, keyboardFrame.size.height > 150  else {
+                    return
+                }
+                
+                restoreShowPanel = false
+                if isEditing {
                     if shouldHidePanel && showsPanel {
                         showsPanel = false
                         restoreShowPanel = true
                     }
+                } else {
+                    DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(50))) {
+                        if isEditing && shouldHidePanel && showsPanel {
+                            showsPanel = false
+                            restoreShowPanel = true
+                        }
+                    }
                 }
+            })
+        .onReceive(
+            NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification), perform: { notification in
+                guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect, keyboardFrame.size.height > 150 else {
+                    return
+                }
+                if isEditing && !restoreShowPanel && shouldHidePanel && showsPanel {
+                    showsPanel = false
+                    restoreShowPanel = true
+                }
+            })
+        .onReceive(
+            NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification), perform: { _ in
+                isEditing = false
             })
         .onReceive(
             NotificationCenter.default.publisher(
