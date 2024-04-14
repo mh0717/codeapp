@@ -210,6 +210,10 @@ class PYLocalExecutionExtension: CodeAppExtension {
             return
         }
         
+        app.saveCurrentFile()
+        
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        
         if editor.url.path.hasSuffix(".ui.py") {
             runUICode(app: app, editor: editor, dismiss: {})
             return
@@ -245,8 +249,6 @@ class PYLocalExecutionExtension: CodeAppExtension {
         
         let predicate = NSPredicate(format: "SELF MATCHES %@", ".*print +[^(].*")
         let isPy2 = predicate.evaluate(with: editor.content)
-
-        app.saveCurrentFile()
 
         let args = editor.runArgs.replacingOccurrences(of: "\n", with: " ")
         let sanitizedUrl = editor.url.path.replacingOccurrences(of: " ", with: #"\ "#)
