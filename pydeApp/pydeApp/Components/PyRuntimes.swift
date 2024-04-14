@@ -34,7 +34,7 @@ struct PyRuntimesView : View {
                         }
                     }
                 }
-            }
+            }.navigationTitle(Text("Python3 Interpreters"))
             
         }.onReceive(timer) { _ in
             self.foreCount += 1
