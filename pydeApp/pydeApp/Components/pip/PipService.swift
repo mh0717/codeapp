@@ -353,26 +353,26 @@ public class PipService {
         }.resume()
         
         #if targetEnvironment(simulator)
-        Task {
-            let packages = await fetchInstalledPackages()
-            if packages.isEmpty {return}
-            let url = URL(fileURLWithPath: "/Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/pip/PipBundledPackages.swift")
-            try?
-            """
-            //
-            //  PipBundledPackages.swift
-            //  iPyDE
-            //
-            //  Created by Huima on 2024/4/13.
-            //
-
-            import Foundation
-
-            public let pipBundledPackage: [PipPackage] = [
-            \(packages.map({"    PipPackage(\"\($0.name)\", \"\($0.version)\"),"}).joined(separator: "\n"))
-            ]
-            """.write(to: url, atomically: true, encoding: .utf8)
-        }
+//        Task {
+//            let packages = await fetchInstalledPackages()
+//            if packages.isEmpty {return}
+//            let url = URL(fileURLWithPath: "/Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/pip/PipBundledPackages.swift")
+//            try?
+//            """
+//            //
+//            //  PipBundledPackages.swift
+//            //  iPyDE
+//            //
+//            //  Created by Huima on 2024/4/13.
+//            //
+//
+//            import Foundation
+//
+//            public let pipBundledPackage: [PipPackage] = [
+//            \(packages.map({"    PipPackage(\"\($0.name)\", \"\($0.version)\"),"}).joined(separator: "\n"))
+//            ]
+//            """.write(to: url, atomically: true, encoding: .utf8)
+//        }
         #endif
     }
     

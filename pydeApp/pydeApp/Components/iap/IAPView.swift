@@ -232,7 +232,6 @@ struct IAPView: View {
                 Text("Unlock Preminum to get access to all these features")
                 TabView() {
                     VStack {
-                        
                         List {
                             Section(header: Text("Data Analysis")) {
                                 PkgCell(title: "Numpy")
@@ -241,7 +240,7 @@ struct IAPView: View {
                                 PkgCell(title: "Scipy")
                                 PkgCell(title: "SKLearn")
                                 PkgCell(title: "StatsModels")
-                                PkgCell(title: "PYSistent")
+                                PkgCell(title: "pyrsistent")
                                 PkgCell(title: "pyemd")
                                 PkgCell(title: "lxml")
                                 PkgCell(title: "yaml")
@@ -291,36 +290,47 @@ struct IAPView: View {
                                 PkgCell(title: "pywt")
                             }
                             Section(header: Text("Other")) {
+                                PkgCell(title: "cffi")
                                 PkgCell(title: "pyzmq")
+                                PkgCell(title: "pyobjus")
+                                PkgCell(title: "markupsafe")
                                 PkgCell(title: "psutil")
                                 PkgCell(title: "fontTools")
                             }
                         }
                         .listStyle(.sidebar)
                         .listRowSeparator(.hidden)
-                        Text("25+ C extension library").padding()
+                        Text("40+ C extension library").padding()
                         Text("")
                         Text("")
                     }
                     VStack {
                         
                         List {
-                            Text("numpy")
-                            Text("pandas")
-                            Text("matplotlib")
-                            Text("scipy")
-                            Text("sdl2")
-                            Text("pygame")
-                            Text("kivy")
-                            Text("numpy")
-                            Text("pandas")
-                            Text("matplotlib")
-                            Text("scipy")
-                            Text("sdl2")
-                            Text("pygame")
-                            Text("kivy")
+                            ForEach(pipBundledPackage) {pkg in
+                                HStack {
+                                    Image(systemName: "shippingbox")
+                                    Text(pkg.name).foregroundColor(.primary)
+                                    Spacer()
+                                    Text(pkg.version).foregroundColor(.secondary)
+                                }
+                            }
+//                            Text("numpy")
+//                            Text("pandas")
+//                            Text("matplotlib")
+//                            Text("scipy")
+//                            Text("sdl2")
+//                            Text("pygame")
+//                            Text("kivy")
+//                            Text("numpy")
+//                            Text("pandas")
+//                            Text("matplotlib")
+//                            Text("scipy")
+//                            Text("sdl2")
+//                            Text("pygame")
+//                            Text("kivy")
                         }
-                        Text("100+ bundled libraries").padding()
+                        Text("200+ bundled libraries").padding()
                         Text("")
                         Text("")
                     }

@@ -345,8 +345,8 @@
 "Quantum Computing" = "量子计算";
 "Signal Decomposition" = "信号分解";
 "Other" = "其它";
-"25+ C extension library" = "25+ C扩展库";
-"100+ bundled libraries" = "100+ 内置库";
+"40+ C extension library" = "40+ C扩展库";
+"200+ bundled libraries" = "200+ 内置库";
 "Pip installation of pure Python libraries" = "Pip安装纯Python库";
 "Run Python code locally" = "本地运行Python代码";
 "Highlighting and Completion" = "语法高亮及自动补全";
