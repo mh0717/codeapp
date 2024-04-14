@@ -375,6 +375,7 @@
 "Enter django project name" = "输入django工程名称";
 "New Safari Browser" = "新建Safari浏览器";
 "Enter website url" = "输入网址";
+"Open workspace folder" = "打开工作文件夹";
 
 "Open Url" = "打开链接";
 "Copy to Pasteboard" = "拷贝到剪切板";

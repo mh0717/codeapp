@@ -198,6 +198,7 @@ struct PYTopBar: View {
                         } label: {
                             Label("Close Workspace", systemImage: "xmark")
                         }
+                        
                     }
             }
             
@@ -251,6 +252,11 @@ struct PYTopBar: View {
                         }
                     } label: {
                         Label("Close Workspace", systemImage: "xmark")
+                    }
+                    Button() {
+                        App.stateManager.showsDirectoryPicker.toggle()
+                    } label: {
+                        Label("Open workspace folder", systemImage: "folder.badge.gear")
                     }
                 }
                 Divider()
@@ -306,18 +312,21 @@ struct PYTopBar: View {
                         Label("New Folder", systemImage: "folder.badge.plus")
                     }
                     
-                    Button {
-                        djangoName = ""
-                        showingNewDjangoAlert.toggle()
-                    } label: {
-                        Label("New Django Project", systemImage: "folder.badge.gear")
+                    if #available(iOS 16, *) {
+                        Button {
+                            djangoName = ""
+                            showingNewDjangoAlert.toggle()
+                        } label: {
+                            Label("New Django Project", systemImage: "folder.badge.gear")
+                        }
+                        
+                        Button {
+                            showingNewSafariAlert.toggle()
+                        } label: {
+                            Label("New Safari Browser", systemImage: "safari")
+                        }
                     }
                     
-                    Button {
-                        showingNewSafariAlert.toggle()
-                    } label: {
-                        Label("New Safari Browser", systemImage: "safari")
-                    }
                     
                     Button {
                         let editor = PYTerminalEditorInstance(URL(string: App.workSpaceStorage.currentDirectory.url)!)

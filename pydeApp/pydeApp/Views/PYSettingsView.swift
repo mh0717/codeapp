@@ -454,6 +454,7 @@ struct PYSettingsView: View {
                 }
                 .listRowBackground(Color.init(id: "list.inactiveSelectionBackground"))
             }
+            .navigationTitle(Text("Settings"))
             .configureToolbarBackground()
             .preferredColorScheme(themeManager.colorSchemePreference)
         }
