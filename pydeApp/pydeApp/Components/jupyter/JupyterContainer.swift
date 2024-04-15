@@ -11,6 +11,8 @@ import pydeCommon
 import python3Objc
 import CryptoKit
 
+private var topYChanged: Bool = false
+
 struct JupyterContainer: View {
     
     @EnvironmentObject var App: MainApp
@@ -18,13 +20,22 @@ struct JupyterContainer: View {
     @ObservedObject var jupyterManager: JupytterManager
     
     @State var consoleHeight: Double = 1000
+    @State var topY: Double = 80
     
     
     var body: some View {
         GeometryReader {greader in
             List {
                 PYExpandedSection(
-                    header: Text("Jupyter Notebook"),
+                    header: 
+                        Text("Jupyter Notebook")
+                        .background {
+                            GeometryReader { proxy -> Color in
+                                topY = proxy.frame(in: .global).origin.y
+                                topYChanged = true
+                                return Color.clear
+                            }
+                        },
                     content: {
                         Group {
                             Group {
@@ -65,25 +76,20 @@ struct JupyterContainer: View {
                             let url = jupyterManager.public_server
                                 ? "http://\(jupyterManager.ip):\(jupyterManager.port)"
                                 : "http://localhost:\(jupyterManager.port)"
-    //                        Menu {
-    //                            Button("Open Url") {
-    //                                if let url = URL(string: "http://localhost:\(jupyterManager.port)") {
-    //                                    App.appendAndFocusNewEditor(editor: PYSafariEditorInstance(url), alwaysInNewTab: true)
-    //                                }
-    //                            }
-    //                            Button("Copy to Pasteboard") {
-    //                                UIPasteboard.general.string = url
-    //                            }
-    //                        } label: {
-    //                            Text(url)
-    //                                .font(.footnote)
-    //                                .foregroundColor(.blue)
-    //                        }.frame(height: 30)
-                            Text(url)
-                                .font(.footnote)
-                                .foregroundColor(.blue)
-                                .frame(height: 30)
-                                .listRowSpacing(0)
+                            Menu {
+                                Button("Open Url") {
+                                    if let url = URL(string: "http://localhost:\(jupyterManager.port)") {
+                                        App.appendAndFocusNewEditor(editor: PYSafariEditorInstance(url), alwaysInNewTab: true)
+                                    }
+                                }
+                                Button("Copy to Pasteboard") {
+                                    UIPasteboard.general.string = url
+                                }
+                            } label: {
+                                Text(url)
+                                    .font(.footnote)
+                                    .foregroundColor(.blue)
+                            }
                         }
                         
                         
@@ -116,7 +122,8 @@ struct JupyterContainer: View {
                                     Spacer()
                                 }
                                 .foregroundColor(Color.init("T1"))
-                                .padding(4)
+//                                .padding(4)
+                                .padding(EdgeInsets(top: 7, leading: 5, bottom: 7, trailing: 5))
                                 .background(
                                     Color.init(id: "button.background")
                                 )
@@ -130,20 +137,33 @@ struct JupyterContainer: View {
                 
                 if jupyterManager.firstRuned {
                     jupyterManager.runner
-                        .frame(height: greader.size.height - 80)
+                        .frame(height: consoleHeight)
                         .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                         .listRowSeparator(.hidden)
                         .listRowBackground(Color.clear)
-//                        .background {
-//                            GeometryReader { proxy -> Color in
-//                                DispatchQueue.main.async {
-//                                    print(proxy.frame(in: .global))
-//                                    consoleHeight = greader.size.height -  (proxy.frame(in: .global).origin.y - greader.frame(in: .global).origin.y) - 10
-//                                    print(consoleHeight)
-//                                }
-//                                return Color.clear
-//                            }
-//                        }
+                        .background {
+                            GeometryReader { proxy -> Color in
+                                let consoleTop = proxy.frame(in: .global).origin.y
+                                
+                                if topYChanged {
+                                    topYChanged = false
+                                    DispatchQueue.main.async {
+//
+                                        let height = greader.size.height -  (consoleTop - topY) - 40
+                                        if abs(height - consoleHeight) > 1 {
+                                            consoleHeight = height
+                                        }
+                                        print(consoleHeight)
+                                    }
+                                } else {
+                                    let height = greader.size.height -  (consoleTop - topY) - 40
+                                    if abs(height - consoleHeight) > 70 {
+                                        consoleHeight = height
+                                    }
+                                }
+                                return Color.clear
+                            }
+                        }
                 }
                 
             }

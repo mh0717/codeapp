@@ -320,17 +320,44 @@ class MainApp: ObservableObject {
         #endif
         
         #if PYDEAPP
-        let jupyter = ActivityBarItem(
-            itemID: "JUPYTER",
-            iconSystemName: "note",
-            title: "JUPYTER",
-            shortcutKey: "n",
-            modifiers: [.command, .shift],
-            view: AnyView(JupyterContainer(jupyterManager: JupyterExtension.jupyterManager)),
-            contextMenuItems: nil,
-            bubble: {nil},
-            isVisible: { true }
-        )
+        
+        let jupyter = if #available(iOS 16.4, *) {
+            ActivityBarItem(
+                itemID: "JUPYTER",
+                iconSystemName: "note",
+                title: "JUPYTER",
+                shortcutKey: "n",
+                modifiers: [.command, .shift],
+                view: AnyView(JupyterContainer(jupyterManager: JupyterExtension.jupyterManager).scrollBounceBehavior(.basedOnSize)),
+                contextMenuItems: nil,
+                bubble: {nil},
+                isVisible: { true }
+            )
+        } else {
+            ActivityBarItem(
+                itemID: "JUPYTER",
+                iconSystemName: "note",
+                title: "JUPYTER",
+                shortcutKey: "n",
+                modifiers: [.command, .shift],
+                view: AnyView(JupyterContainer(jupyterManager: JupyterExtension.jupyterManager)),
+                contextMenuItems: nil,
+                bubble: {nil},
+                isVisible: { true }
+            )
+        }
+        
+//        let jupyter = ActivityBarItem(
+//            itemID: "JUPYTER",
+//            iconSystemName: "note",
+//            title: "JUPYTER",
+//            shortcutKey: "n",
+//            modifiers: [.command, .shift],
+//            view: AnyView(JupyterContainer(jupyterManager: JupyterExtension.jupyterManager)),
+//            contextMenuItems: nil,
+//            bubble: {nil},
+//            isVisible: { true }
+//        )
         JupyterExtension.jupyterManager.runner.consoleView.resetAndSetNewRootDirectory(url: URL(fileURLWithPath: self.workSpaceStorage.currentDirectory.url))
         
         let pip = ActivityBarItem(
