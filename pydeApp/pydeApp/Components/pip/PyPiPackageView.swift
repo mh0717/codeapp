@@ -43,11 +43,13 @@ struct PyPiPackageView: View {
             return AnyView(ActivityIndicator(isAnimating: .constant(true), style: .medium)
                 .onAppear {
                     Task {
-                        let package = await PipService.fetchRemotePackageInfo(self.packageName)
-                        await MainActor.run {
-                            self.package = package
-                            self.loaded = true
+                        if let package = await PipService.fetchRemotePackageInfo(self.packageName) {
+                            await MainActor.run {
+                                self.package = package
+                                self.loaded = true
+                            }
                         }
+                        
                     }
                 })
         }
