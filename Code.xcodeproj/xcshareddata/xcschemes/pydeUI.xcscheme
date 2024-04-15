@@ -59,7 +59,7 @@
       <RemoteRunnable
          runnableDebuggingMode = "1"
          BundleIdentifier = "baobaowang.SketchPython"
-         RemotePath = "/Users/huima/Library/Developer/CoreSimulator/Devices/2D62E809-ED0D-46DC-BCED-DA6A378E7E77/data/Containers/Bundle/Application/E19DF7EB-1EF8-4952-9CC8-182562E0BCF1/iPyDE.app">
+         RemotePath = "/Users/huima/Library/Developer/CoreSimulator/Devices/2D62E809-ED0D-46DC-BCED-DA6A378E7E77/data/Containers/Bundle/Application/AFE5F270-B1A8-4634-8C3E-AA729AC4EC38/iPyDE.app">
       </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference
@@ -70,6 +70,10 @@
             ReferencedContainer = "container:Code.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <LocationScenarioReference
+         identifier = "Hong Kong, China"
+         referenceType = "1">
+      </LocationScenarioReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

@@ -331,7 +331,7 @@
 "remote.settings.ssh_remote" = "SSH 远程";
 "remote.settings.resolve_home_path" = "解析主目录路径";
 
-
+"Premium" = "会员";
 "iPyDE Premium" = "iPyDE 会员";
 "Unlock Preminum to get access to all these features" = "解锁使用全部功能";
 "Data Analysis" = "数据分析";

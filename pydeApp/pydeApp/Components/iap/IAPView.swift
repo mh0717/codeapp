@@ -16,11 +16,13 @@ class IAPExtension: CodeAppExtension {
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
         
         DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .seconds(5))) {
-//            let im = IapManager.instance
-//            if !im.isPurchased && !im.isTrialing {
-//            im.showIap = true
-//        }
-//            im.showIap = true
+            let im = IapManager.instance
+            if !im.isPurchased && !im.isTrialing && im.runCout >= 5 {
+                #if DEBUG
+                #else
+                im.showIap = true
+                #endif
+            }
         }
     }
     
@@ -60,7 +62,7 @@ class IapManager: ObservableObject {
            let trialStr = String(data: trialData, encoding: .utf8),
            let trialInterval = Double(trialStr) {
             let now = Date.now.timeIntervalSince1970
-            if now - trialInterval <= 3 * 24 * 60 * 60 * 0.0000000001 {
+            if now - trialInterval <= 3 * 24 * 60 * 60 {
                 isTrialing = true
                 isTrialed = false
             } else {

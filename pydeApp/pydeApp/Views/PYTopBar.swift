@@ -336,6 +336,15 @@ struct PYTopBar: View {
                     }
                     
                     Divider()
+                    
+                    if !IapManager.instance.isPurchased {
+                        Button {
+                            App.popupManager.showSheet(content: AnyView(IAPView()))
+                        } label: {
+                            Label("Premium", systemImage: "person")
+                        }
+                    }
+
 
                     Button(action: {
                         stateManager.showsSettingsSheet.toggle()
