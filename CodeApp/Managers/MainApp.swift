@@ -1088,6 +1088,9 @@ class MainApp: ObservableObject {
             return
         }
         monacoInstance.removeAllModel()
+        #if PYDEAPP
+        editors.forEach({$0.dispose()})
+        #endif
         editors.removeAll(keepingCapacity: false)
         activeEditor = nil
     }
