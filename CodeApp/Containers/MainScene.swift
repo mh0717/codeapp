@@ -213,7 +213,7 @@ private struct MainView: View {
                                     .environmentObject(extensionManager.toolbarManager)
                                     .frame(height: 40)
                                 if let editor = App.activeTextEditor {
-                                    TagsIndicator(editor: editor)
+                                    TagsIndicator(editor: editor, winSize: geometry.size)
                                 }
                                 #else
                                 TopBar(openConsolePanel: openConsolePanel)

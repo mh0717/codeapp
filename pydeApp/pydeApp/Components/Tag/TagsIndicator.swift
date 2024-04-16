@@ -17,6 +17,8 @@ struct TagsIndicator: View {
     @State private var popupedState: [AnyHashable: Bool] = [:]
     
     @State private var expandedStates: [AnyHashable: Bool] = [:]
+    
+    let winSize: CGSize
         
     private func binding(for key: AnyHashable) -> Binding<Bool> {
         return .init(
@@ -114,7 +116,7 @@ struct TagsIndicator: View {
                             .font(.system(size: 14, weight: .light))
                     }
                     .frame(height: 30)
-                        .background(Color.init(id: "editor.background"))
+//                        .background(Color.init(id: "editor.background"))
                         .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
 //                            .background(Color.red)
                         .onTapGesture {
@@ -136,7 +138,7 @@ struct TagsIndicator: View {
                                     indicators.forEach({item in popupedState[item] = false})
                                 })
                             }.listStyle(.sidebar)
-                                .frame(minWidth: 300, minHeight: max(CGFloat(tags.count) * 44 + 70, 300.0))
+                                .frame(minWidth: 300, minHeight: min(winSize.height - 100, max(CGFloat(tags.count) * 44 + 70, 300.0)))
                                 .onAppear {
                                     proxy.scrollTo(tag)
                                 }
