@@ -153,12 +153,16 @@ class VCInTabExtension: CodeAppExtension {
             guard let url = notify.userInfo?["url"] as? URL else { return }
             
             if url.scheme == "http" || url.scheme == "https" {
-                VCInTabExtension._showCount += 1
-                let title = url.lastPathComponent.isEmpty ? "#web\(VCInTabExtension._showCount)" : url.lastPathComponent
+//                VCInTabExtension._showCount += 1
+//                let title = url.lastPathComponent.isEmpty ? "#web\(VCInTabExtension._showCount)" : url.lastPathComponent
+//                DispatchQueue.main.async {
+//                    let vc = SFSafariViewController(url: url)
+//                    let instance = VCInTabEditorInstance(url: url, title: title, vc: vc)
+//                    app.appendAndFocusNewEditor(editor: instance, alwaysInNewTab: true)
+//                }
+                let editorInstance = PYSafariEditorInstance(url)
                 DispatchQueue.main.async {
-                    let vc = SFSafariViewController(url: url)
-                    let instance = VCInTabEditorInstance(url: url, title: title, vc: vc)
-                    app.appendAndFocusNewEditor(editor: instance, alwaysInNewTab: true)
+                    app.appendAndFocusNewEditor(editor: editorInstance, alwaysInNewTab: true)
                 }
                 return
             }
@@ -186,11 +190,23 @@ class VCInTabExtension: CodeAppExtension {
                 return
             }
             
+            if let fileExt = url.lastPathComponent.components(separatedBy: ".").last,
+               ["html", "htm", "shtml"].contains(fileExt) {
+                DispatchQueue.main.async {
+                    app.appendAndFocusNewEditor(editor: PYWebEditorInstance(url), alwaysInNewTab: true)
+                }
+                return
+            }
+            
             if FileManager.default.fileExists(atPath: url.path) {
                 DispatchQueue.main.async {
                     app.openFile(url: url, alwaysInNewTab: true)
                 }
                 return
+            }
+            
+            DispatchQueue.main.async {
+                app.appendAndFocusNewEditor(editor: PYWebEditorInstance(url), alwaysInNewTab: true)
             }
         }
         
