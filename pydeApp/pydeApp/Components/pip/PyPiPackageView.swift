@@ -18,6 +18,7 @@ struct PyPiPackageView: View {
     
     @State var package: PipRemotePackage!
     @State var loaded = false
+    @State var loadFailed = false
     
     var isFullVersion: Bool {
         true
@@ -39,6 +40,29 @@ struct PyPiPackageView: View {
     }
     
     var body: some View {
+        if loadFailed {
+            return AnyView(Button(action: {
+                loadFailed = false
+                Task {
+                    if let package = await PipService.fetchRemotePackageInfo(self.packageName) {
+                        await MainActor.run {
+                            self.package = package
+                            self.loaded = true
+                        }
+                    } else {
+                        loadFailed = true
+                    }
+                }
+            }, label: {
+                Label {
+                    Text("Retry")
+                } icon: {
+                    Image(systemName: "exclamationmark.arrow.triangle.2.circlepath")
+                        .foregroundColor(.secondary)
+                }
+
+            }))
+        }
         if !self.loaded {
             return AnyView(ActivityIndicator(isAnimating: .constant(true), style: .medium)
                 .onAppear {
@@ -48,8 +72,9 @@ struct PyPiPackageView: View {
                                 self.package = package
                                 self.loaded = true
                             }
+                        } else {
+                            loadFailed = true
                         }
-                        
                     }
                 })
         }

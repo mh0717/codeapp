@@ -385,3 +385,5 @@
 
 "Run iPyDE UI Script" = "运行iPyDE UI脚本";
 "Choose \"Run iPyDE UI Script\" to run" = "请选择 \"运行iPyDE UI脚本\" 运行";
+
+"Retry" = "重试";
