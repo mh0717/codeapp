@@ -566,23 +566,23 @@ struct SourceControlAuthenticationConfiguration: View {
             .navigationBarItems(
                 trailing:
                     HStack {
-                        Button(action: {
-                            isDocumentationPresented.toggle()
-                        }) {
-                            Image(systemName: "questionmark.circle")
-                        }
+//                        Button(action: {
+//                            isDocumentationPresented.toggle()
+//                        }) {
+//                            Image(systemName: "questionmark.circle")
+//                        }
                         Button("common.done") {
                             self.presentationMode.wrappedValue.dismiss()
                         }
                     }
             )
-            .sheet(isPresented: $isDocumentationPresented) {
-                SafariView(
-                    url: URL(
-                        string:
-                            "https://code.thebaselab.com/guides/version-control#set-up-your-credentials"
-                    )!)
-            }
+//            .sheet(isPresented: $isDocumentationPresented) {
+//                SafariView(
+//                    url: URL(
+//                        string:
+//                            "https://code.thebaselab.com/guides/version-control#set-up-your-credentials"
+//                    )!)
+//            }
             .onDisappear {
                 if !username.isEmpty {
                     KeychainWrapper.standard.set(username, forKey: "git-username")
