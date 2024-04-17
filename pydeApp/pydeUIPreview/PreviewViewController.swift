@@ -22,6 +22,8 @@ class PreviewViewController: UITabBarController, QLPreviewingController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = .green
+        
         wmessager.listenForMessage(withIdentifier: ConstantManager.PYDE_REMOTE_UI_FORCE_EXIT) { _ in
             if let id = self.requestInfo?["identifier"] as? String{
                 wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_DONE_EXIT(id))
@@ -123,32 +125,42 @@ class PreviewViewController: UITabBarController, QLPreviewingController {
     
 
     func preparePreviewOfFile(at url: URL, completionHandler handler: @escaping (Error?) -> Void) {
-        url.startAccessingSecurityScopedResource()
-        FileManager.default.changeCurrentDirectoryPath(url.path)
-        initRemotePython3Sub()
         
-        let path = url.path + "/main.py"
-        let data = try? Data(contentsOf: URL(fileURLWithPath: path))
-        print(data)
-        let dirArr = try? FileManager.default.contentsOfDirectory(atPath: url.path)
-        print(dirArr)
+//        _ = url.startAccessingSecurityScopedResource()
+//        FileManager.default.changeCurrentDirectoryPath(url.path)
+//        print(FileManager.default.currentDirectoryPath)
         
+        let wurl = url.deletingLastPathComponent()
+        wurl.startAccessingSecurityScopedResource()
+        FileManager.default.changeCurrentDirectoryPath(wurl.path)
+        print(FileManager.default.currentDirectoryPath)
         
-        var requestInfo: [String: Any]? = [
-            "identifier": "uuuu-uuuu",
-            "commands": ["python3 -u \(url.path)/main.py"],
-            "workingDirectoryBookmark": Data(),
-            "workspace": Data()
-        ]
-        Thread.detachNewThread {
-            remoteExe(requestInfo: requestInfo!)
-            sleep(1)
-            real_exit(vlaue: 0)
-        }
-        handler(nil)
-        if true {
-            return
-        }
+//        url.startAccessingSecurityScopedResource()
+//        FileManager.default.changeCurrentDirectoryPath(url.path)
+//        initRemotePython3Sub()
+//        
+//        let path = url.path + "/main.py"
+//        let data = try? Data(contentsOf: URL(fileURLWithPath: path))
+//        print(data)
+//        let dirArr = try? FileManager.default.contentsOfDirectory(atPath: url.path)
+//        print(dirArr)
+//        
+//        
+//        var requestInfo: [String: Any]? = [
+//            "identifier": "uuuu-uuuu",
+//            "commands": ["python3 -u \(url.path)/main.py"],
+//            "workingDirectoryBookmark": Data(),
+//            "workspace": Data()
+//        ]
+//        Thread.detachNewThread {
+//            remoteExe(requestInfo: requestInfo!)
+//            sleep(1)
+//            real_exit(vlaue: 0)
+//        }
+//        handler(nil)
+//        if true {
+//            return
+//        }
         
 //        if let watcher {
 //            handler(MultipleWindowError.MultipleWindow)
@@ -163,13 +175,14 @@ class PreviewViewController: UITabBarController, QLPreviewingController {
 //        }
 //        watcher?.startMonitoring()
         
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            if !FileManager.default.fileExists(atPath: url.path) {
-                self.handleExit()
-            }
-        }
+//        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+//            if !FileManager.default.fileExists(atPath: url.path) {
+//                self.handleExit()
+//            }
+//        }
         
-        self.requestInfo = NSKeyedUnarchiver.unarchiveObject(withFile: url.path) as? [String: Any]
+        let fileUrl = url//url.appendingPathComponent(".run")
+        self.requestInfo = NSKeyedUnarchiver.unarchiveObject(withFile: fileUrl.path) as? [String: Any]
         
         
         if let requestInfo {
@@ -183,10 +196,13 @@ class PreviewViewController: UITabBarController, QLPreviewingController {
             }
             
             
-            initRemotePython3Sub()
-//            replaceCommand("python3", "python3RunInMain", false)
+            initPydeUI()
             
             Thread.detachNewThread {
+//                FileManager.default.changeCurrentDirectoryPath(url.path)
+//                print(FileManager.default.currentDirectoryPath)
+                FileManager.default.changeCurrentDirectoryPath(wurl.path)
+                print(FileManager.default.currentDirectoryPath)
                 remoteExe(requestInfo: requestInfo)
                 if let ntid = requestInfo["identifier"] as? String {
                     wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_DONE_EXIT(ntid))

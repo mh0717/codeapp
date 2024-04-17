@@ -126,7 +126,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             return nil
         }
         
-        app.saveCurrentFile()
+//        app.saveCurrentFile()
         
         let args = editor.runArgs.replacingOccurrences(of: "\n", with: " ")
         let sanitizedUrl = editor.url.path.replacingOccurrences(of: " ", with: #"\ "#)
@@ -136,6 +136,59 @@ class PYLocalExecutionExtension: CodeAppExtension {
         }
         
         guard let config = getRemoteConfig(editor: editor, commands: commands, app: app) else {
+            return nil
+        }
+        
+        let runUIInPreview = UserDefaults.standard.bool(forKey: "runUIInPreview")
+        if runUIInPreview {
+            let name = editor.url.lastPathComponent.replacingFirstOccurrence(of: ".ui.py", with: "").replacingFirstOccurrence(of: ".py", with: "")
+            let pyuiDir = ConstantManager.appGroupContainer.appendingPathComponent("pyui")
+            try? FileManager.default.createDirectory(at: pyuiDir, withIntermediateDirectories: true)
+            let linkDir = pyuiDir.appendingPathComponent((UUID().uuidString + ".pyui"))
+//            try? FileManager.default.createDirectory(at: pyuiDir, withIntermediateDirectories: true)
+//
+            let wkdir = URL(string: app.workSpaceStorage.currentDirectory.url)!
+//            let linkDir = pyuiDir.appendingPathComponent("\(name).pyui")
+            try? FileManager.default.linkItem(at: wkdir, to: linkDir)
+//            try? FileManager.default.createSymbolicLink(at: linkDir, withDestinationURL: wkdir)
+            
+            
+            var newConfig = config
+            let newPath = editor.url.path.replacingFirstOccurrence(of: wkdir.path, with: linkDir.path)
+            let sanitizedUrl = newPath.replacingOccurrences(of: " ", with: #"\ "#)
+            let commands = LOCAL_EXECUTION_COMMANDS["ui.py"]!.map {
+                $0.replacingOccurrences(of: "{url}", with: sanitizedUrl)
+                    .replacingOccurrences(of: "{args}", with: args)
+            }
+            newConfig["commands"] = commands
+            
+            
+            let ntidentifier = editor.runnerView.executor.persistentIdentifier
+            let fileUrl = linkDir.appendingPathComponent(".run.pyui")
+            NSKeyedArchiver.archiveRootObject(newConfig, toFile: fileUrl.path)
+            
+            
+            DispatchQueue.main.async {
+                let vc = PYQLUIPreviewController(fileUrl, ntidentifier)
+                let reditor = PYCenterVCEditorInstance(vc)
+//                reditor.keepAlive = true
+                app.appendAndFocusNewEditor(editor: reditor, alwaysInNewTab: true)
+            }
+            
+//            NotificationCenter.default.post(name: Notification.Name("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": vc, "keepAlive": true])
+            
+            //        DispatchQueue.main.async {
+            //            if #available(iOS 16.0, *) {
+            //                app.popupManager.showCover(
+            //                    content: AnyView(VCRepresentable(
+            //                        vc
+            //                    ))/*.presentationDetents([.height(400)]))*/
+            //                )
+            //            } else {
+            //                // Fallback on earlier versions
+            //            }
+            //        }
+            editor.runnerView.executor.evaluateCommands(["readremote"])
             return nil
         }
         
@@ -604,4 +657,75 @@ class PYQLUIPreviewController: QLPreviewController, QLPreviewControllerDataSourc
     }
     
     
+}
+
+
+struct PYUIRunnerRepresentable: UIViewControllerRepresentable {
+
+    private var vc: UIViewController
+    
+    @State var size: CGSize?
+
+    init(_ vc: UIViewController) {
+        self.vc = vc
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        
+    }
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        return vc
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(self)
+    }
+    
+//    @available(iOS 16.0, *)
+//    func sizeThatFits(_ proposal: ProposedViewSize, uiViewController: UIViewController, context: Context) -> CGSize? {
+//        if let size {
+//            return size
+//        }
+//        return nil
+//    }
+    
+    class Coordinator {
+        let widget: PYUIRunnerRepresentable
+        
+        init(_ widget: PYUIRunnerRepresentable) {
+            self.widget = widget
+            
+            _ = widget.vc.observe(\.preferredContentSize) {[weak self] vc, value in
+                self?.widget.size = value.newValue
+            }
+        }
+        
+        
+    }
+}
+
+
+
+class PYCenterVCEditorInstance: EditorInstance {
+    let vc: UIViewController
+    
+    init(_ vc: UIViewController) {
+        self.vc = vc
+        
+        let view = ZStack(alignment: .center) {
+            PYUIRunnerRepresentable(vc)
+        }
+        
+        super.init(
+            view: AnyView(view.id(UUID())),
+            title: "Runner"
+        )
+    }
+    
+    override func dispose() {
+        vc.removeFromParent()
+        vc.view.removeFromSuperview()
+        super.dispose()
+    }
 }

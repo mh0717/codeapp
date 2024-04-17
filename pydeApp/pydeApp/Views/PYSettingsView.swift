@@ -54,6 +54,10 @@ struct PYSettingsView: View {
     let editors = ["Monaco Editor", "PYCode Editor"]
     @AppStorage("codeEditor") var codeEditor = "PYCode Editor"
     
+    #if DEBUG
+    @AppStorage("runUIInPreview") var runUIInPreview = false
+    #endif
+    
     
     func setTheme(_ name: String) {
         var item = SettingsThemeConfiguration.defaultLightPlusTheme
@@ -366,6 +370,9 @@ struct PYSettingsView: View {
                     
                     Section(header: Text("local.execution.title")) {
                         Toggle("Show Command in Terminal", isOn: $compilerShowPath)
+                        #if DEBUG
+                        Toggle("$runUIInPreview", isOn: $runUIInPreview)
+                        #endif
                     }
                     
                     //                Section("Experimental Features") {
