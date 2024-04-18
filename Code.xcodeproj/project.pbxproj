@@ -758,6 +758,8 @@
 		A33EEC8E2BC9A32500348751 /* PipBundledPackages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33EEC8D2BC9A32500348751 /* PipBundledPackages.swift */; };
 		A349BF362B00ECDF00434BBB /* GitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349BF352B00ECDF00434BBB /* GitService.swift */; };
 		A359CCD52BCBDEAB00CD33CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A359CCD42BCBDEAB00CD33CF /* Assets.xcassets */; };
+		A359CCDA2BCEEE5900CD33CF /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A359CCD92BCEEE5900CD33CF /* python3Objc */; };
+		A359CCDB2BCEEE5900CD33CF /* python3Objc in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A359CCD92BCEEE5900CD33CF /* python3Objc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A36336D32AF226BA00085608 /* pyde in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; };
 		A36336D42AF226BA00085608 /* pyde in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A36336D62AF226BA00085608 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D52AF226BA00085608 /* pydeCommon */; };
@@ -986,7 +988,6 @@
 		A3A91A252B49D6D7007E8C76 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3A91A232B49D6D7007E8C76 /* MainInterface.storyboard */; };
 		A3A91A2E2B49D8FF007E8C76 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3A91A2D2B49D8FF007E8C76 /* ios_system */; };
 		A3A91A322B49D906007E8C76 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3A91A312B49D906007E8C76 /* pydeCommon */; };
-		A3A91A352B49D910007E8C76 /* python3_objc in Frameworks */ = {isa = PBXBuildFile; productRef = A3A91A342B49D910007E8C76 /* python3_objc */; };
 		A3A91A372B49D995007E8C76 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
 		A3A91A3A2B4A002A007E8C76 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A3A91A3B2B4A002D007E8C76 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -1691,6 +1692,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A359CCDB2BCEEE5900CD33CF /* python3Objc in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2576,7 +2578,7 @@
 			files = (
 				A3A91A1D2B49D6D7007E8C76 /* QuickLook.framework in Frameworks */,
 				A3A91A322B49D906007E8C76 /* pydeCommon in Frameworks */,
-				A3A91A352B49D910007E8C76 /* python3_objc in Frameworks */,
+				A359CCDA2BCEEE5900CD33CF /* python3Objc in Frameworks */,
 				A3A91A2E2B49D8FF007E8C76 /* ios_system in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4108,7 +4110,7 @@
 			packageProductDependencies = (
 				A3A91A2D2B49D8FF007E8C76 /* ios_system */,
 				A3A91A312B49D906007E8C76 /* pydeCommon */,
-				A3A91A342B49D910007E8C76 /* python3_objc */,
+				A359CCD92BCEEE5900CD33CF /* python3Objc */,
 			);
 			productName = pydeUIPreview;
 			productReference = A3A91A1B2B49D6D7007E8C76 /* pydeUIPreview.appex */;
@@ -7198,6 +7200,10 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftGit2;
 		};
+		A359CCD92BCEEE5900CD33CF /* python3Objc */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = python3Objc;
+		};
 		A36336D22AF226BA00085608 /* pyde */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = pyde;
@@ -7265,10 +7271,6 @@
 		A3A91A312B49D906007E8C76 /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = pydeCommon;
-		};
-		A3A91A342B49D910007E8C76 /* python3_objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3_objc;
 		};
 		A3B0F0B52B29DA8F0001D220 /* ios_system */ = {
 			isa = XCSwiftPackageProductDependency;

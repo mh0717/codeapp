@@ -267,10 +267,12 @@ struct PYTopBar: View {
                         Label("Show Welcome Page", systemImage: "newspaper")
                     }
                     
-                    Button(action: {
-                        App.loadFolder(url: ConstantManager.EXAMPLES)
-                    }) {
-                        Label("Open Examples", systemImage: "folder")
+                    if !IapManager.instance.isPurchased {
+                        Button {
+                            App.popupManager.showSheet(content: AnyView(IAPView()))
+                        } label: {
+                            Label("Premium", systemImage: "person")
+                        }
                     }
                     
                     Button {
@@ -280,6 +282,12 @@ struct PYTopBar: View {
                     }
 
 
+                    Button(action: {
+                        stateManager.showsSettingsSheet.toggle()
+                    }) {
+                        Label("Settings", systemImage: "slider.horizontal.3")
+                    }
+
 //                    Button(action: {
 //                        openConsolePanel()
 //                    }) {
@@ -288,6 +296,8 @@ struct PYTopBar: View {
 //                            systemImage: "chevron.left.slash.chevron.right")
 //                    }.keyboardShortcut("j", modifiers: .command)
 
+                    Divider()
+                    
                     if UIApplication.shared.supportsMultipleScenes {
                         Button(action: {
                             UIApplication.shared.requestSceneSessionActivation(
@@ -296,7 +306,7 @@ struct PYTopBar: View {
                             Label("actions.new_window", systemImage: "square.split.2x1")
                         }
                     }
-                    Divider()
+                    
                     Button {
                         App.stateManager.showsNewFileSheet.toggle()
                     } label: {
@@ -337,20 +347,31 @@ struct PYTopBar: View {
                     
                     Divider()
                     
-                    if !IapManager.instance.isPurchased {
-                        Button {
-                            App.popupManager.showSheet(content: AnyView(IAPView()))
-                        } label: {
-                            Label("Premium", systemImage: "person")
-                        }
-                    }
-
-
                     Button(action: {
-                        stateManager.showsSettingsSheet.toggle()
+                        App.loadFolder(url: ConstantManager.EXAMPLES)
                     }) {
-                        Label("Settings", systemImage: "slider.horizontal.3")
+                        Label("Open Examples", systemImage: "folder")
                     }
+                    
+                    Button(action: {
+                        App.loadFolder(url: ConstantManager.pyhome)
+                    }) {
+                        Label("Open PythonHome", systemImage: "folder")
+                    }
+                    
+                    Button(action: {
+                        App.loadFolder(url: ConstantManager.pysite)
+                    }) {
+                        Label("Open site-packages", systemImage: "folder")
+                    }
+                    
+                    Button(action: {
+                        App.loadFolder(url: ConstantManager.user_site)
+                    }) {
+                        Label("Open User site-packages", systemImage: "folder")
+                    }
+                    
+                    
                 }
                 #if DEBUG
                     DebugMenu()
