@@ -760,6 +760,7 @@
 		A359CCD52BCBDEAB00CD33CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A359CCD42BCBDEAB00CD33CF /* Assets.xcassets */; };
 		A359CCDA2BCEEE5900CD33CF /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A359CCD92BCEEE5900CD33CF /* python3Objc */; };
 		A359CCDB2BCEEE5900CD33CF /* python3Objc in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A359CCD92BCEEE5900CD33CF /* python3Objc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A359CCDD2BD2837100CD33CF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A359CCDC2BD2837100CD33CF /* PrivacyInfo.xcprivacy */; };
 		A36336D32AF226BA00085608 /* pyde in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; };
 		A36336D42AF226BA00085608 /* pyde in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A36336D62AF226BA00085608 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D52AF226BA00085608 /* pydeCommon */; };
@@ -2349,6 +2350,7 @@
 		A33EEC8D2BC9A32500348751 /* PipBundledPackages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipBundledPackages.swift; sourceTree = "<group>"; };
 		A349BF352B00ECDF00434BBB /* GitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitService.swift; sourceTree = "<group>"; };
 		A359CCD42BCBDEAB00CD33CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A359CCDC2BD2837100CD33CF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		A36336D12AF2268D00085608 /* pydeCommon */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = pydeCommon; path = ../../modules/pythoncc/pyde/pydeCommon; sourceTree = "<group>"; };
 		A36336E62AF22B3200085608 /* pydeRemote.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pydeRemote.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
@@ -3755,6 +3757,7 @@
 				A3D8B0D62BC10FD300C30B26 /* TogaWindow.swift */,
 				A3AFD14E2BC5201F004C9F10 /* PYTerminalEditorInstance.swift */,
 				A3AFD1502BC522D6004C9F10 /* PYSafariEditorInstance.swift */,
+				A359CCDC2BD2837100CD33CF /* PrivacyInfo.xcprivacy */,
 			);
 			path = pydeApp;
 			sourceTree = "<group>";
@@ -4471,6 +4474,7 @@
 				A3D1C9BA2B3B54BA001505C7 /* terminal.bundle in Resources */,
 				A359CCD52BCBDEAB00CD33CF /* Assets.xcassets in Resources */,
 				A3F239942BA35CBC006F6D7B /* InfoPlist.strings in Resources */,
+				A359CCDD2BD2837100CD33CF /* PrivacyInfo.xcprivacy in Resources */,
 				A3A87D982AF221D1002E3399 /* cacert.pem in Resources */,
 				A3A87D9A2AF221D1002E3399 /* FiraCode-Regular.ttf in Resources */,
 				A3F32F662AF88CC000866ED0 /* commandDictionary.plist in Resources */,
@@ -6165,7 +6169,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Code App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 25;
+				CURRENT_PROJECT_VERSION = 27;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -6218,7 +6222,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 25;
+				CURRENT_PROJECT_VERSION = 27;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
