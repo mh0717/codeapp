@@ -149,12 +149,20 @@ class PipModelManager: ObservableObject {
             .store(in: &cancellable)
     }
     
+    private var shouldFetchIndex = false
     func fetchIndex() async {
+        if shouldFetchIndex {
+            return
+        }
+        
+        shouldFetchIndex = true
         let packages = await PipService.fetchIndexPackages()
         if !packages.isEmpty {
             await MainActor.run {
                 self.packages = packages
             }
+        } else {
+            shouldFetchIndex = false
         }
     }
     

@@ -219,6 +219,8 @@ struct PipShow: View {
     }
 }
 
+private var pypiFirstFetched = false
+
 @available(iOS 13.0.0, *)
 public struct PyPiView: View {
     @State var updating = [String]()
@@ -376,8 +378,14 @@ public struct PyPiView: View {
         .listRowSeparator(.hidden)
         .listRowBackground(Color.clear)
         .onAppear {
+            if pypiFirstFetched {
+                return
+            }
+            pypiFirstFetched = true
             Task {
+                PipService.updatePyPiCache()
                 await pipManager.fetchInstalledPackages()
+                await pipManager.fetchIndex()
             }
         }.listStyle(SidebarListStyle())
     }

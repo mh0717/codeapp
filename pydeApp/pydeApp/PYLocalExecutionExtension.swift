@@ -139,6 +139,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             return nil
         }
         
+        #if DEBUG
         let runUIInPreview = UserDefaults.standard.bool(forKey: "runUIInPreview")
         if runUIInPreview {
             let name = editor.url.lastPathComponent.replacingFirstOccurrence(of: ".ui.py", with: "").replacingFirstOccurrence(of: ".py", with: "")
@@ -191,6 +192,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             editor.runnerView.executor.evaluateCommands(["readremote"])
             return nil
         }
+        #endif
         
         let provider = NSItemProvider(item: "provider" as NSSecureCoding, typeIdentifier: "baobaowang.SketchPython.pydeUI")
         let item = NSExtensionItem()

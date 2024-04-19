@@ -72,6 +72,24 @@ public class PipService {
         }
         
         if let packages = try? JSONSerialization.jsonObject(with: outputJson.data(using: .utf8) ?? Data()) as? [[String:String]] {
+//            #if targetEnvironment(simulator)
+//            let url = URL(fileURLWithPath: "/Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/pip/PipBundledPackages.swift")
+//            try?
+//            """
+//            //
+//            //  PipBundledPackages.swift
+//            //  iPyDE
+//            //
+//            //  Created by Huima on 2024/4/13.
+//            //
+//
+//            import Foundation
+//
+//            public let pipBundledPackage: [PipPackage] = [
+//            \(packages.map({"    PipPackage(\"\($0["name"]!)\", \"\($0["version"]!)\"),"}).joined(separator: "\n"))
+//            ]
+//            """.write(to: url, atomically: true, encoding: .utf8)
+//            #endif
             var list = [PipPackage]()
             for package in packages {
                 if let name = package["name"], let version = package["version"] {
@@ -300,7 +318,6 @@ public class PipService {
     return true
     }
     
-    
     static private var downloadingPyPICache = false
     static func updatePyPiCache() {
         guard !downloadingPyPICache else {
@@ -313,7 +330,7 @@ public class PipService {
         
         URLSession.shared.downloadTask(with: URL(string: "https://pypi.org/simple")!) { (fileURL, _, error) in
             
-            self.downloadingPyPICache = false
+//            self.downloadingPyPICache = false
             
             if let error = error {
                 print(error.localizedDescription)
@@ -351,29 +368,6 @@ public class PipService {
             
             UIApplication.shared.endBackgroundTask(task)
         }.resume()
-        
-        #if targetEnvironment(simulator)
-//        Task {
-//            let packages = await fetchInstalledPackages()
-//            if packages.isEmpty {return}
-//            let url = URL(fileURLWithPath: "/Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/pip/PipBundledPackages.swift")
-//            try?
-//            """
-//            //
-//            //  PipBundledPackages.swift
-//            //  iPyDE
-//            //
-//            //  Created by Huima on 2024/4/13.
-//            //
-//
-//            import Foundation
-//
-//            public let pipBundledPackage: [PipPackage] = [
-//            \(packages.map({"    PipPackage(\"\($0.name)\", \"\($0.version)\"),"}).joined(separator: "\n"))
-//            ]
-//            """.write(to: url, atomically: true, encoding: .utf8)
-//        }
-        #endif
     }
     
     
