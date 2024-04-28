@@ -752,6 +752,8 @@
 		9FE3E2AD298A16A300F63DD0 /* NMSSH.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942E321128093CA600233441 /* NMSSH.xcframework */; };
 		A30789752B078C9E001B6129 /* TagsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30789742B078C9E001B6129 /* TagsComponent.swift */; };
 		A30789782B094741001B6129 /* TagsIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30789772B094741001B6129 /* TagsIndicator.swift */; };
+		A30F6A4B2BDE3633007B7CDF /* EpubExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F6A4A2BDE3633007B7CDF /* EpubExtension.swift */; };
+		A30F6A4D2BDE3768007B7CDF /* FolioReaderKit in Frameworks */ = {isa = PBXBuildFile; productRef = A30F6A4C2BDE3768007B7CDF /* FolioReaderKit */; };
 		A33A5FE72B10B98800CB7CE1 /* PyPiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE12B10B98800CB7CE1 /* PyPiView.swift */; };
 		A33A5FE82B10B98800CB7CE1 /* PipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE22B10B98800CB7CE1 /* PipManager.swift */; };
 		A33A5FEB2B10B98800CB7CE1 /* PyPiPackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE52B10B98800CB7CE1 /* PyPiPackageView.swift */; };
@@ -797,6 +799,7 @@
 		A36443412B553A2A00B40880 /* flet in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A364433F2B553A2A00B40880 /* flet */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A36443452B65664300B40880 /* IAPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36443442B65664300B40880 /* IAPView.swift */; };
 		A37827AF2B1573E1008A75F1 /* JupyterContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37827AE2B1573E1008A75F1 /* JupyterContainer.swift */; };
+		A37A9E392BDE190F00F8C798 /* SWCompEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37A9E382BDE190F00F8C798 /* SWCompEditor.swift */; };
 		A38272FE2AF4AD2F0096A7C9 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38272FD2AF4AD2F0096A7C9 /* ShareViewController.swift */; };
 		A38273012AF4AD2F0096A7C9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A38272FF2AF4AD2F0096A7C9 /* MainInterface.storyboard */; };
 		A3A3DED82B795CB6004A7C39 /* NBPreviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3DED72B795CB6004A7C39 /* NBPreviewExtension.swift */; };
@@ -2347,6 +2350,7 @@
 		A30789742B078C9E001B6129 /* TagsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsComponent.swift; sourceTree = "<group>"; };
 		A30789772B094741001B6129 /* TagsIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsIndicator.swift; sourceTree = "<group>"; };
 		A30950AE2B4CF2B90039EA50 /* flet */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = flet; path = ../../modules/pythoncc/flet; sourceTree = "<group>"; };
+		A30F6A4A2BDE3633007B7CDF /* EpubExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpubExtension.swift; sourceTree = "<group>"; };
 		A32DE5322B29B7CE00A1E20B /* ios_system.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ios_system.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33A5FE12B10B98800CB7CE1 /* PyPiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PyPiView.swift; sourceTree = "<group>"; };
 		A33A5FE22B10B98800CB7CE1 /* PipManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PipManager.swift; sourceTree = "<group>"; };
@@ -2389,6 +2393,8 @@
 		A36443442B65664300B40880 /* IAPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPView.swift; sourceTree = "<group>"; };
 		A37827AE2B1573E1008A75F1 /* JupyterContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JupyterContainer.swift; sourceTree = "<group>"; };
 		A37A9E372BDDFF5400F8C798 /* SWCompression */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SWCompression; path = ../../modules/pythoncc/SWCompression; sourceTree = "<group>"; };
+		A37A9E382BDE190F00F8C798 /* SWCompEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWCompEditor.swift; sourceTree = "<group>"; };
+		A37A9E3B2BDE339900F8C798 /* FolioReaderKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = FolioReaderKit; path = ../../modules/pythoncc/FolioReaderKit; sourceTree = "<group>"; };
 		A38272FB2AF4AD2F0096A7C9 /* pydeShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pydeShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38272FD2AF4AD2F0096A7C9 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		A38273002AF4AD2F0096A7C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -2570,6 +2576,7 @@
 				A3F239902BA09907006F6D7B /* RMStore in Frameworks */,
 				A3A3DEDA2B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework in Frameworks */,
 				A359CD1A2BD955FE00CD33CF /* Tiercel in Frameworks */,
+				A30F6A4D2BDE3768007B7CDF /* FolioReaderKit in Frameworks */,
 				A3F2399F2BA46C01006F6D7B /* python3Site in Frameworks */,
 				A3A87D8B2AF221D1002E3399 /* ZIPFoundation in Frameworks */,
 				A36336D62AF226BA00085608 /* pydeCommon in Frameworks */,
@@ -3702,6 +3709,8 @@
 				A3F23A842BA75CD6006F6D7B /* PyRuntimes.swift */,
 				A359CD1D2BD9706800CD33CF /* DownloadContainer.swift */,
 				A359CD1F2BDAA95300CD33CF /* DownloadButton.swift */,
+				A37A9E382BDE190F00F8C798 /* SWCompEditor.swift */,
+				A30F6A4A2BDE3633007B7CDF /* EpubExtension.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -3833,6 +3842,7 @@
 		A3A87DB72AF22553002E3399 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				A37A9E3B2BDE339900F8C798 /* FolioReaderKit */,
 				A37A9E372BDDFF5400F8C798 /* SWCompression */,
 				A359CD182BD955B800CD33CF /* Tiercel */,
 				A3F2398E2BA068F6006F6D7B /* RMStore */,
@@ -4107,6 +4117,7 @@
 				A3F2399E2BA46C01006F6D7B /* python3Site */,
 				A3F239A72BA49D39006F6D7B /* ios_system */,
 				A359CD192BD955FE00CD33CF /* Tiercel */,
+				A30F6A4C2BDE3768007B7CDF /* FolioReaderKit */,
 			);
 			productName = testfield;
 			productReference = A3A87DB42AF221D1002E3399 /* iPyDE.app */;
@@ -5060,6 +5071,7 @@
 				A3A87CF82AF221D1002E3399 /* DirectoryPickerView.swift in Sources */,
 				A3A87CF92AF221D1002E3399 /* SafariView.swift in Sources */,
 				A3A87CFA2AF221D1002E3399 /* ExplorerCell.swift in Sources */,
+				A37A9E392BDE190F00F8C798 /* SWCompEditor.swift in Sources */,
 				A3A87CFB2AF221D1002E3399 /* getRootDirectory.swift in Sources */,
 				A3A87CFC2AF221D1002E3399 /* RemoteTypeLabel.swift in Sources */,
 				A3A87CFD2AF221D1002E3399 /* DescriptionText.swift in Sources */,
@@ -5223,6 +5235,7 @@
 				A3A87D7C2AF221D1002E3399 /* biometricType.swift in Sources */,
 				A3A87D7D2AF221D1002E3399 /* SearchSection.swift in Sources */,
 				A3A87D7E2AF221D1002E3399 /* EditorLineColumnIndicator.swift in Sources */,
+				A30F6A4B2BDE3633007B7CDF /* EpubExtension.swift in Sources */,
 				A3A87D7F2AF221D1002E3399 /* Encoding.swift in Sources */,
 				A3A87D802AF221D1002E3399 /* SourceControlSection.swift in Sources */,
 				A3A87D812AF221D1002E3399 /* SourceControlCloneSection.swift in Sources */,
@@ -7222,6 +7235,10 @@
 		9FE3E2AB298A169A00F63DD0 /* SwiftGit2 */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftGit2;
+		};
+		A30F6A4C2BDE3768007B7CDF /* FolioReaderKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FolioReaderKit;
 		};
 		A359CCD92BCEEE5900CD33CF /* python3Objc */ = {
 			isa = XCSwiftPackageProductDependency;

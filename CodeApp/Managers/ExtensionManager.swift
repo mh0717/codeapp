@@ -36,7 +36,8 @@ class ExtensionManager: ObservableObject {
         PYRunnerExtension(),
         TMConsoleExtension(),
         IAPExtension(),
-        
+        SWCompViewerExtension(),
+        EpubExtension(),
     ]
     #else
     private var extensions: [CodeAppExtension] = [
