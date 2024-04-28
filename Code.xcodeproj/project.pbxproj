@@ -761,6 +761,10 @@
 		A359CCDA2BCEEE5900CD33CF /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A359CCD92BCEEE5900CD33CF /* python3Objc */; };
 		A359CCDB2BCEEE5900CD33CF /* python3Objc in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A359CCD92BCEEE5900CD33CF /* python3Objc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A359CCDD2BD2837100CD33CF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A359CCDC2BD2837100CD33CF /* PrivacyInfo.xcprivacy */; };
+		A359CD1A2BD955FE00CD33CF /* Tiercel in Frameworks */ = {isa = PBXBuildFile; productRef = A359CD192BD955FE00CD33CF /* Tiercel */; };
+		A359CD1C2BD956AC00CD33CF /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A359CD1B2BD956AC00CD33CF /* DownloadManager.swift */; };
+		A359CD1E2BD9706800CD33CF /* DownloadContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A359CD1D2BD9706800CD33CF /* DownloadContainer.swift */; };
+		A359CD202BDAA95300CD33CF /* DownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A359CD1F2BDAA95300CD33CF /* DownloadButton.swift */; };
 		A36336D32AF226BA00085608 /* pyde in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; };
 		A36336D42AF226BA00085608 /* pyde in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A36336D62AF226BA00085608 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D52AF226BA00085608 /* pydeCommon */; };
@@ -2351,6 +2355,10 @@
 		A349BF352B00ECDF00434BBB /* GitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitService.swift; sourceTree = "<group>"; };
 		A359CCD42BCBDEAB00CD33CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A359CCDC2BD2837100CD33CF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		A359CD182BD955B800CD33CF /* Tiercel */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Tiercel; path = ../../modules/pythoncc/Tiercel; sourceTree = "<group>"; };
+		A359CD1B2BD956AC00CD33CF /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		A359CD1D2BD9706800CD33CF /* DownloadContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadContainer.swift; sourceTree = "<group>"; };
+		A359CD1F2BDAA95300CD33CF /* DownloadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadButton.swift; sourceTree = "<group>"; };
 		A36336D12AF2268D00085608 /* pydeCommon */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = pydeCommon; path = ../../modules/pythoncc/pyde/pydeCommon; sourceTree = "<group>"; };
 		A36336E62AF22B3200085608 /* pydeRemote.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pydeRemote.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
@@ -2380,6 +2388,7 @@
 		A36443422B57FB9F00B40880 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A36443442B65664300B40880 /* IAPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPView.swift; sourceTree = "<group>"; };
 		A37827AE2B1573E1008A75F1 /* JupyterContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JupyterContainer.swift; sourceTree = "<group>"; };
+		A37A9E372BDDFF5400F8C798 /* SWCompression */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SWCompression; path = ../../modules/pythoncc/SWCompression; sourceTree = "<group>"; };
 		A38272FB2AF4AD2F0096A7C9 /* pydeShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pydeShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38272FD2AF4AD2F0096A7C9 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		A38273002AF4AD2F0096A7C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -2560,6 +2569,7 @@
 				A3A87D8A2AF221D1002E3399 /* FilesProvider in Frameworks */,
 				A3F239902BA09907006F6D7B /* RMStore in Frameworks */,
 				A3A3DEDA2B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework in Frameworks */,
+				A359CD1A2BD955FE00CD33CF /* Tiercel in Frameworks */,
 				A3F2399F2BA46C01006F6D7B /* python3Site in Frameworks */,
 				A3A87D8B2AF221D1002E3399 /* ZIPFoundation in Frameworks */,
 				A36336D62AF226BA00085608 /* pydeCommon in Frameworks */,
@@ -3690,6 +3700,8 @@
 				A349BF342B00ECA300434BBB /* GitHistory */,
 				A30789742B078C9E001B6129 /* TagsComponent.swift */,
 				A3F23A842BA75CD6006F6D7B /* PyRuntimes.swift */,
+				A359CD1D2BD9706800CD33CF /* DownloadContainer.swift */,
+				A359CD1F2BDAA95300CD33CF /* DownloadButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -3758,6 +3770,7 @@
 				A3AFD14E2BC5201F004C9F10 /* PYTerminalEditorInstance.swift */,
 				A3AFD1502BC522D6004C9F10 /* PYSafariEditorInstance.swift */,
 				A359CCDC2BD2837100CD33CF /* PrivacyInfo.xcprivacy */,
+				A359CD1B2BD956AC00CD33CF /* DownloadManager.swift */,
 			);
 			path = pydeApp;
 			sourceTree = "<group>";
@@ -3820,6 +3833,8 @@
 		A3A87DB72AF22553002E3399 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				A37A9E372BDDFF5400F8C798 /* SWCompression */,
+				A359CD182BD955B800CD33CF /* Tiercel */,
 				A3F2398E2BA068F6006F6D7B /* RMStore */,
 				A3A3DF0B2B99AD82004A7C39 /* TortoiseGraphics */,
 				A30950AE2B4CF2B90039EA50 /* flet */,
@@ -4091,6 +4106,7 @@
 				A3F2399B2BA46BF1006F6D7B /* python3FWS */,
 				A3F2399E2BA46C01006F6D7B /* python3Site */,
 				A3F239A72BA49D39006F6D7B /* ios_system */,
+				A359CD192BD955FE00CD33CF /* Tiercel */,
 			);
 			productName = testfield;
 			productReference = A3A87DB42AF221D1002E3399 /* iPyDE.app */;
@@ -5059,6 +5075,7 @@
 				A3A87D072AF221D1002E3399 /* PanelView.swift in Sources */,
 				A3A87D082AF221D1002E3399 /* UIApplication+getSafeArea.swift in Sources */,
 				A3A87D092AF221D1002E3399 /* SourceControlAuthenticationConfiguration.swift in Sources */,
+				A359CD1C2BD956AC00CD33CF /* DownloadManager.swift in Sources */,
 				A3A87D0A2AF221D1002E3399 /* NotificationCentreView.swift in Sources */,
 				A3A87D0B2AF221D1002E3399 /* DocumentPickerView.swift in Sources */,
 				A3A87D0C2AF221D1002E3399 /* RemoteHostError.swift in Sources */,
@@ -5081,6 +5098,7 @@
 				A3A87D1B2AF221D1002E3399 /* Theme.swift in Sources */,
 				A3A87D1C2AF221D1002E3399 /* SettingsView.swift in Sources */,
 				A3A87D1D2AF221D1002E3399 /* wasm.swift in Sources */,
+				A359CD1E2BD9706800CD33CF /* DownloadContainer.swift in Sources */,
 				A3D8B0D72BC10FD300C30B26 /* TogaWindow.swift in Sources */,
 				A3A87D1E2AF221D1002E3399 /* deferredRendering.swift in Sources */,
 				A3A87D1F2AF221D1002E3399 /* SearchManager.swift in Sources */,
@@ -5209,6 +5227,7 @@
 				A3A87D802AF221D1002E3399 /* SourceControlSection.swift in Sources */,
 				A3A87D812AF221D1002E3399 /* SourceControlCloneSection.swift in Sources */,
 				A3A87D822AF221D1002E3399 /* Libgit2Error.swift in Sources */,
+				A359CD202BDAA95300CD33CF /* DownloadButton.swift in Sources */,
 				A3A87D832AF221D1002E3399 /* SourceControlTemplateSection.swift in Sources */,
 				A37827AF2B1573E1008A75F1 /* JupyterContainer.swift in Sources */,
 				A3A87D842AF221D1002E3399 /* ImageViewerExtension.swift in Sources */,
@@ -6169,7 +6188,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Code App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 28;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -6222,7 +6241,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 28;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -7207,6 +7226,10 @@
 		A359CCD92BCEEE5900CD33CF /* python3Objc */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = python3Objc;
+		};
+		A359CD192BD955FE00CD33CF /* Tiercel */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Tiercel;
 		};
 		A36336D22AF226BA00085608 /* pyde */ = {
 			isa = XCSwiftPackageProductDependency;

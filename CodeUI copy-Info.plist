@@ -51,6 +51,13 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsArbitraryLoadsUsageDescription</key>
+		<dict/>
+	</dict>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>You have not enabled the media permission, you can import images to the document directory after enabling, and then you can use Python to process further</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
@@ -86,6 +93,10 @@
 	<dict/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

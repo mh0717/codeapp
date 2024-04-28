@@ -388,6 +388,18 @@ class MainApp: ObservableObject {
         extensionManager.activityBarManager.registerItem(item: jupyter)
         extensionManager.activityBarManager.registerItem(item: sourceControl)
         extensionManager.activityBarManager.registerItem(item: search)
+        
+        let download = ActivityBarItem(
+            itemID: "DOWNLOAD",
+            iconSystemName: "square.and.arrow.down",
+            title: "Download",
+            view: AnyView(DownloadContainer())) {
+                nil
+            } isVisible: {
+                true
+            }
+        extensionManager.activityBarManager.registerItem(item: download)
+
         #endif
     }
 

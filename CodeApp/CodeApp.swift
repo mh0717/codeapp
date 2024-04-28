@@ -239,6 +239,8 @@ struct CodeApp: App {
             initPyDE()
         }
         
+        DownloadManager.instance.setup()
+        
         signal(SIGPIPE, SIG_IGN);
     }
     #else
