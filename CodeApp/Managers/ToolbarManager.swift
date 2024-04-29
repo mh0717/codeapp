@@ -7,6 +7,16 @@
 
 import SwiftUI
 
+#if PYDEAPP
+struct ToolbarMenuItem: Identifiable {
+    let id = UUID()
+    
+    let icon: String
+    let title: String
+    let onClick: () -> Void
+}
+#endif
+
 struct ToolbarItem: Identifiable {
     let id = UUID()
     var extenionID: String
@@ -16,7 +26,10 @@ struct ToolbarItem: Identifiable {
     var shortCut: KeyboardShortcut?
     var panelToFocusOnTap: String?
     var shouldDisplay: () -> Bool
+    #if PYDEAPP
+    var menuItems: [ToolbarMenuItem]?
     var popover: ((_ dismiss:@escaping () -> Void) -> AnyView?)?
+    #endif
 }
 
 class ToolbarManager: CodeAppContributionPointManager {

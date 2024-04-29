@@ -192,13 +192,13 @@ struct DownloadCell: View {
                 Text("\(Image(systemName: "doc"))\u{2060} \u{2060}\(fileName)"/*.map({ String($0) }).joined(separator: "\u{200B}")*/).font(.subheadline).multilineTextAlignment(.leading)/*.lineLimit(1).truncationMode(.middle)*/
             ProgressView(value: Double(task.progress.completedUnitCount), total: Double(max(task.progress.totalUnitCount, 1))).tint(.blue)
                 HStack {
-                    Text(task.status == .succeeded ? ByteCountFormatter.string(fromByteCount: task.progress.totalUnitCount, countStyle: .file) : "\(ByteCountFormatter.string(fromByteCount: task.progress.completedUnitCount, countStyle: .file))/\(ByteCountFormatter.string(fromByteCount: task.progress.totalUnitCount, countStyle: .file))").font(.system(size: 12)).opacity(0.6)
+                    Text(task.status == .succeeded ? ByteCountFormatter.string(fromByteCount: task.progress.totalUnitCount, countStyle: .file) : "\(ByteCountFormatter.string(fromByteCount: task.progress.completedUnitCount, countStyle: .file))/\(ByteCountFormatter.string(fromByteCount: task.progress.totalUnitCount, countStyle: .file))").font(.system(size: 12)).opacity(0.8)
                     Spacer()
                     
                     if task.status == .running {
-                        Text(task.speedString).font(.system(size: 12)).opacity(0.6)
+                        Text(task.speedString).font(.system(size: 12)).opacity(0.8)
                     } else if task.status == .succeeded {
-                        Text("完成").font(.system(size: 12)).foregroundColor(.green).opacity(0.6)
+                        Text("完成").font(.system(size: 12)).foregroundColor(.green).opacity(1)
                     }
                     
                     

@@ -605,6 +605,15 @@ private struct ToolbarItemView: View {
                 popoverView
             })
         }
+        .if (item.menuItems != nil && item.menuItems!.count > 0) { icon in
+            Menu(content:  {
+                ForEach(item.menuItems!, content: { menuItem in
+                    Button(menuItem.title, systemImage: menuItem.icon, action: menuItem.onClick)
+                })
+            }, label: {
+                icon
+            })
+        }
         #endif
     }
 }

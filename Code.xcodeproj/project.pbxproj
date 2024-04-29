@@ -754,6 +754,7 @@
 		A30789782B094741001B6129 /* TagsIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30789772B094741001B6129 /* TagsIndicator.swift */; };
 		A30F6A4B2BDE3633007B7CDF /* EpubExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F6A4A2BDE3633007B7CDF /* EpubExtension.swift */; };
 		A30F6A4D2BDE3768007B7CDF /* FolioReaderKit in Frameworks */ = {isa = PBXBuildFile; productRef = A30F6A4C2BDE3768007B7CDF /* FolioReaderKit */; };
+		A30F6A4E2BDF47C8007B7CDF /* pydeUIPreview.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A3A91A1B2B49D6D7007E8C76 /* pydeUIPreview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A33A5FE72B10B98800CB7CE1 /* PyPiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE12B10B98800CB7CE1 /* PyPiView.swift */; };
 		A33A5FE82B10B98800CB7CE1 /* PipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE22B10B98800CB7CE1 /* PipManager.swift */; };
 		A33A5FEB2B10B98800CB7CE1 /* PyPiPackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE52B10B98800CB7CE1 /* PyPiPackageView.swift */; };
@@ -1133,6 +1134,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9419692E280316C7008AAEB2;
 			remoteInfo = CodeUI;
+		};
+		A30F6A4F2BDF47C8007B7CDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3A91A1A2B49D6D7007E8C76;
+			remoteInfo = pydeUIPreview;
 		};
 		A363370F2AF231D200085608 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1688,6 +1696,7 @@
 				A3F23A782BA75822006F6D7B /* pydeRemoteD.appex in Embed Foundation Extensions */,
 				A3F23A7B2BA75822006F6D7B /* pydeRemoteE.appex in Embed Foundation Extensions */,
 				A3F23A1D2BA741F3006F6D7B /* pydeRemoteC.appex in Embed Foundation Extensions */,
+				A30F6A4E2BDF47C8007B7CDF /* pydeUIPreview.appex in Embed Foundation Extensions */,
 				A3F23A1A2BA741F3006F6D7B /* pydeRemoteB.appex in Embed Foundation Extensions */,
 				A36337112AF231D200085608 /* pydeUI.appex in Embed Foundation Extensions */,
 			);
@@ -4100,6 +4109,7 @@
 				A3F23A7D2BA75822006F6D7B /* PBXTargetDependency */,
 				A3F23A802BA75822006F6D7B /* PBXTargetDependency */,
 				A3F23A832BA75822006F6D7B /* PBXTargetDependency */,
+				A30F6A502BDF47C8007B7CDF /* PBXTargetDependency */,
 			);
 			name = iPyDE;
 			packageProductDependencies = (
@@ -5339,6 +5349,11 @@
 			isa = PBXTargetDependency;
 			target = 9419692E280316C7008AAEB2 /* CodeUI */;
 			targetProxy = 9FE3E296298A14BC00F63DD0 /* PBXContainerItemProxy */;
+		};
+		A30F6A502BDF47C8007B7CDF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A3A91A1A2B49D6D7007E8C76 /* pydeUIPreview */;
+			targetProxy = A30F6A4F2BDF47C8007B7CDF /* PBXContainerItemProxy */;
 		};
 		A36337102AF231D200085608 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

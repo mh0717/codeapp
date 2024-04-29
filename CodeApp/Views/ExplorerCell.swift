@@ -84,7 +84,8 @@ private struct FileCell: View {
             } catch {
                 #if PYDEAPP
                 let vc = QuickPreviewController(url)
-                NotificationCenter.default.post(name: Notification.Name("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": vc])
+//                NotificationCenter.default.post(name: Notification.Name("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": vc])
+                App.appendAndFocusNewEditor(editor: VCInTabEditorInstance(url: url, title: url.lastPathComponent, vc: vc), alwaysInNewTab: true)
                 #else
                 App.notificationManager.showErrorMessage(error.localizedDescription)
                 #endif
