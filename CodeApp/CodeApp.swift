@@ -16,7 +16,11 @@ struct CodeApp: App {
     @StateObject var themeManager = ThemeManager()
     
     #if PYDEAPP
+    #if PYTHON3IDE
+    @StateObject var subIapManager = SubIapManager.instance
+    #else
     @StateObject var iapManager = IapManager.instance
+    #endif
     #endif
 
     func versionNumberIncreased() -> Bool {
@@ -366,7 +370,11 @@ struct CodeApp: App {
                 .preferredColorScheme(themeManager.colorSchemePreference)
                 .environmentObject(themeManager)
             #if PYDEAPP
+            #if PYTHON3IDE
+                .environmentObject(subIapManager)
+            #else
                 .environmentObject(iapManager)
+            #endif
             #endif
         }
     }

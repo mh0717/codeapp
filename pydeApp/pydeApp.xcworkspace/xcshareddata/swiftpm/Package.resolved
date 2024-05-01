@@ -110,6 +110,15 @@
         }
       },
       {
+        "package": "RevenueCat",
+        "repositoryURL": "https://github.com/RevenueCat/purchases-ios-spm.git",
+        "state": {
+          "branch": null,
+          "revision": "54aaeb5722fbdcddf0403107ba50dc26720fa572",
+          "version": "4.41.0"
+        }
+      },
+      {
         "package": "Quick",
         "repositoryURL": "https://github.com/Quick/Quick.git",
         "state": {

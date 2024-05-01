@@ -14,6 +14,7 @@ import pydeCommon
 struct DebugMenu: View {
 
     @EnvironmentObject var App: MainApp
+    @EnvironmentObject var subIapManager: SubIapManager
 
     var body: some View {
         Section("UI Debug Menu") {
@@ -37,12 +38,12 @@ struct DebugMenu: View {
                     })
             }
             #if PYDEAPP
-            Button("大纲") {
+            Button("iap") {
                 App.popupManager.showCover(content: AnyView(IAPView()))
             }
             
-            Button("大纲Sheet") {
-                App.popupManager.showSheet(content: AnyView(IAPView()))
+            Button("iap Sheet") {
+                App.popupManager.showSheet(content: AnyView(SubIAPView().environmentObject(App).environmentObject(subIapManager)))
             }
             
             Button("copySite") {

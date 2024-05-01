@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSExtension</key>
+	<dict>
+		<key>NSExtensionAttributes</key>
+		<dict>
+			<key>NSExtensionActivationRule</key>
+			<string>SUBQUERY (
+            extensionItems,
+            $extensionItem,
+            SUBQUERY (
+            $extensionItem.attachments,
+            $attachment,
+            (
+            ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "baobaowang.SketchPython.pydeUI"
+            )
+            ).@count == 1
+            ).@count == 1</string>
+			<key>NSExtensionActivationRule2</key>
+			<string>TRUEPREDICATE</string>
+		</dict>
+		<key>NSExtensionMainStoryboard</key>
+		<string>MainInterface</string>
+		<key>NSExtensionPointIdentifier</key>
+		<string>com.apple.ui-services</string>
+		<key>_NSExtensionActionWantsFullScreenPresentation</key>
+		<true/>
+		<key>__NSExtensionPointIdentifier</key>
+		<string>com.apple.app.ui-extension.multiple-instances</string>
+		<key>__NSExtensionPrincipalClass</key>
+		<string>pydeUI.ActionViewController</string>
+	</dict>
+</dict>
+</plist>

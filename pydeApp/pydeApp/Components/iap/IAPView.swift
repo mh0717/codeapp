@@ -8,7 +8,7 @@
 import SwiftUI
 import RMStore
 import pydeCommon
-
+import RevenueCat
 
 
 class IAPExtension: CodeAppExtension {
@@ -16,6 +16,17 @@ class IAPExtension: CodeAppExtension {
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
         
         DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .seconds(5))) {
+            #if PYTHON3IDE
+            
+            let im = SubIapManager.instance
+            #if DEBUG
+            #else
+            if im.runCout >= 5, !im.isPro {
+                im.showIap = true
+            }
+            #endif
+            
+            #else
             let im = IapManager.instance
             if !im.isPurchased && !im.isTrialing && im.runCout >= 5 {
                 #if DEBUG
@@ -23,6 +34,7 @@ class IAPExtension: CodeAppExtension {
                 im.showIap = true
                 #endif
             }
+            #endif
         }
     }
     
@@ -469,6 +481,29 @@ struct IAPView: View {
                 .onAppear {
                     UIPageControl.appearance().currentPageIndicatorTintColor = .orange
                     UIPageControl.appearance().pageIndicatorTintColor = .gray
+                }
+                
+                HStack {
+                    VStack {
+                        Text("6").font(.system(size: 20))
+                        Text("月")
+                        Text("$6.2")
+                    }
+                    
+                    VStack {
+                        Text("1").font(.system(size: 20))
+                        Text("年")
+                        Text("$13.2")
+                    }
+                        .padding(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15))
+                        .background(Color.orange)
+                        .cornerRadius(15)
+                    
+                    VStack {
+                        Text("1").font(.system(size: 20))
+                        Text("月")
+                        Text("$3.2")
+                    }
                 }
                 
                 

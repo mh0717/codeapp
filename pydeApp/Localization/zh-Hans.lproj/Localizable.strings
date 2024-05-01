@@ -390,3 +390,17 @@
 "Choose \"Run iPyDE UI Script\" to run" = "请选择 \"运行iPyDE UI脚本\" 运行";
 
 "Retry" = "重试";
+
+"Python3IDE Premium" = "Python3IDE 会员";
+"iap.period.Day" = "天";
+"iap.period.Week" = "周";
+"iap.period.Month" = "月";
+"iap.period.Year" = "年";
+"Trial period: " = "试用期: ";
+"Membership expiration: " = "会员到期: ";
+"Grace period(please renew): " = "宽限期(请续费): ";
+"CONTINUE" = "继续";
+" for FREE" = "免费";
+"iap.month" = "月";
+"iap.months" = "月";
+"iap.year" = "年";

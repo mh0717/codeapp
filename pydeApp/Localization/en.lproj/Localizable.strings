@@ -242,3 +242,10 @@ are licensed under [BSD-3-Clause License](https://en.wikipedia.org/wiki/BSD_lice
 
 "iap.restore" = "Restore";
 "iap.unlock" = "Unlock Preminum for";
+"iap.period.Day" = "Day";
+"iap.period.Week" = "Week";
+"iap.period.Month" = "Month";
+"iap.period.Year" = "Year";
+"iap.month" = "month";
+"iap.months" = "months";
+"iap.year" = "year";

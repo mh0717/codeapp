@@ -155,6 +155,7 @@ private struct MainView: View {
     #if PYDEAPP
     @EnvironmentObject var popupManager: PopupManager
     @EnvironmentObject var iapManager: IapManager
+    @EnvironmentObject var subIapManager: SubIapManager
     #endif
 
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -333,9 +334,15 @@ private struct MainView: View {
         .popover(isPresented: $popupManager.showOutside, content: {
             popupManager.outsideContent
         })
+        #if PYTHON3IDE
+        .fullScreenCover(isPresented: $subIapManager.showIap) {
+            SubIAPView()
+        }
+        #else
         .fullScreenCover(isPresented: $iapManager.showIap) {
             IAPView()
         }
+        #endif
 //        .sheet(
 //            isPresented: $App.showIAP) {
 //                    IAPView()
