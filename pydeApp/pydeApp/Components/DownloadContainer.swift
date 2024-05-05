@@ -36,19 +36,19 @@ struct DownloadContainer: View {
                             Text("Dwonload")
                             Spacer()
                             Menu {
-                                Button("新建下载", systemImage: "plus") {
+                                Button("New download", systemImage: "plus") {
                                     downloadAdding = true
                                 }
                                 
-                                Button("全部开始", systemImage: "play") {
+                                Button("Total Start", systemImage: "play") {
                                     manager.totalStart()
                                 }
                                 
-                                Button("全部停止", systemImage: "stop") {
+                                Button("Total Stop", systemImage: "stop") {
                                     manager.totalSuspend()
                                 }
                                 
-                                Button("全部删除", systemImage: "trash") {
+                                Button("Total Remove", systemImage: "trash") {
                                     shouldDeleteCache = false
                                     showDeleteAlert = true
                                 }
@@ -139,11 +139,11 @@ struct DownloadContainer: View {
             }.padding(.horizontal, 15).padding(.vertical, 8).background(
                 Color.init(id: "activityBar.background")
             ).cornerRadius(12).padding(.bottom, 15).padding(.horizontal, 8)
-        }.alert("确定要清空吗", isPresented: $showDeleteAlert) {
-            Button("清空", role: .destructive) {
+        }.alert("Total Remove?", isPresented: $showDeleteAlert) {
+            Button("Total Remove", role: .destructive) {
                 manager.totalRemove()
             }
-            Button("清空同时删除文件", role: .destructive) {
+            Button("Total Remove and Delete files", role: .destructive) {
                 manager.totalRemove(delete: true)
             }
             Button("Cancel", role: .cancel) {

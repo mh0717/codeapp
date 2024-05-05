@@ -194,7 +194,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
         }
         #endif
         
-        let provider = NSItemProvider(item: "provider" as NSSecureCoding, typeIdentifier: "baobaowang.SketchPython.pydeUI")
+        let provider = NSItemProvider(item: "provider" as NSSecureCoding, typeIdentifier: ConstantManager.pydeUI)
         let item = NSExtensionItem()
         item.userInfo = config
         item.attachments = [provider]

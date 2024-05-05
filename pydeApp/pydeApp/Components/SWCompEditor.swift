@@ -9,11 +9,11 @@ import Foundation
 import ios_system
 import SwiftUI
 
-class SWCompEditorInstance: EditorInstanceWithURL {
-    init(title: String, url: URL) {
-        super.init(view: AnyView(SWCompView(url: url)), title: title, url: url)
-    }
-}
+//class SWCompEditorInstance: EditorInstanceWithURL {
+//    init(title: String, url: URL) {
+//        super.init(view: AnyView(SWCompView(url: url)), title: title, url: url)
+//    }
+//}
 
 
 extension URL {
@@ -45,55 +45,55 @@ extension URL {
     }
 }
 
-struct SWCompView :View {
-    let url: URL
-    @EnvironmentObject var App: MainApp
-    
-    @State var showsDirectoryPicker = false
-    
-    func untar(_ toUrl: URL) {
-        App.notificationManager.showAsyncNotification(title: "解压缩: \(url.lastPathComponent)\nswcomp zip \(url.path) -e .", task: {
-            _ = await Task {
-                _ = toUrl.startAccessingSecurityScopedResource()
-                let name = url.deletingPathExtension().lastPathComponent
-    //            let exdir = url.deletingLastPathComponent().withoutSame(name) ?? url.deletingLastPathComponent()
-                let exdir = toUrl.withoutSame(name) ?? toUrl.appendingPathComponent(name)
-                try? FileManager.default.createDirectory(at: exdir, withIntermediateDirectories: true)
-                let newCommand = "swcomp zip \(url.path.replacingOccurrences(of: " ", with: #"\ "#)) -e \(exdir.path.replacingOccurrences(of: " ", with: #"\ "#))"
-                ios_switchSession(newCommand)
-                ios_setContext(newCommand)
-                
-                var pid = ios_fork()
-                
-                let returnCode = ios_system(newCommand)
-                ios_waitpid(pid)
-                ios_releaseThreadId(pid)
-                
-                if returnCode == 0 {
-                    App.notificationManager.showSucessMessage("sucess")
-                } else {
-                    App.notificationManager.showErrorMessage("failed")
-                }
-            }.value
-        })
-    }
-    
-    var body: some View {
-        VStack {
-            Button("unzip", systemImage: "folder") {
-                untar(url.deletingLastPathComponent())
-            }
-            
-            Button("unzip to", systemImage: "folder") {
-                showsDirectoryPicker.toggle()
-            }
-        }.sheet(isPresented: $showsDirectoryPicker) {
-            DirectoryPickerView(onOpen: { toUrl in
-                untar(toUrl)
-            })
-        }
-    }
-}
+//struct SWCompView :View {
+//    let url: URL
+//    @EnvironmentObject var App: MainApp
+//    
+//    @State var showsDirectoryPicker = false
+//    
+//    func untar(_ toUrl: URL) {
+//        App.notificationManager.showAsyncNotification(title: "解压缩: \(url.lastPathComponent)\nswcomp zip \(url.path) -e .", task: {
+//            _ = await Task {
+//                _ = toUrl.startAccessingSecurityScopedResource()
+//                let name = url.deletingPathExtension().lastPathComponent
+//    //            let exdir = url.deletingLastPathComponent().withoutSame(name) ?? url.deletingLastPathComponent()
+//                let exdir = toUrl.withoutSame(name) ?? toUrl.appendingPathComponent(name)
+//                try? FileManager.default.createDirectory(at: exdir, withIntermediateDirectories: true)
+//                let newCommand = "swcomp zip \(url.path.replacingOccurrences(of: " ", with: #"\ "#)) -e \(exdir.path.replacingOccurrences(of: " ", with: #"\ "#))"
+//                ios_switchSession(newCommand)
+//                ios_setContext(newCommand)
+//                
+//                var pid = ios_fork()
+//                
+//                let returnCode = ios_system(newCommand)
+//                ios_waitpid(pid)
+//                ios_releaseThreadId(pid)
+//                
+//                if returnCode == 0 {
+//                    App.notificationManager.showSucessMessage("sucess")
+//                } else {
+//                    App.notificationManager.showErrorMessage("failed")
+//                }
+//            }.value
+//        })
+//    }
+//    
+//    var body: some View {
+//        VStack {
+//            Button("unzip", systemImage: "folder") {
+//                untar(url.deletingLastPathComponent())
+//            }
+//            
+//            Button("unzip to", systemImage: "folder") {
+//                showsDirectoryPicker.toggle()
+//            }
+//        }.sheet(isPresented: $showsDirectoryPicker) {
+//            DirectoryPickerView(onOpen: { toUrl in
+//                untar(toUrl)
+//            })
+//        }
+//    }
+//}
 
 private let SWCOMP_COMMANDS = [
     "zip": "swcomp zip {input} -e {output}",
@@ -112,7 +112,7 @@ private func unarchive(_ App: MainApp, _ url: URL, _ toUrl: URL) {
         return
     }
     
-    App.notificationManager.showAsyncNotification(title: "解压缩: \(url.lastPathComponent)", task: {
+    App.notificationManager.showAsyncNotification(title: "Decompress: %@", task: {
         _ = await Task.detached(operation: {
             let name = url.deletingPathExtension().lastPathComponent
 //            let exdir = url.deletingLastPathComponent().withoutSame(name) ?? url.deletingLastPathComponent()
@@ -133,12 +133,12 @@ private func unarchive(_ App: MainApp, _ url: URL, _ toUrl: URL) {
             }
             
             if returnCode == 0 {
-                App.notificationManager.showSucessMessage("解压缩 \(url.lastPathComponent) 成功")
+                App.notificationManager.showSucessMessage("Decompress %@ Succed", url.lastPathComponent)
             } else {
-                App.notificationManager.showErrorMessage("解压缩 \(url.lastPathComponent) 失败")
+                App.notificationManager.showErrorMessage("Decompress %@ Failed", url.lastPathComponent)
             }
         }).value
-    })
+    }, url.lastPathComponent)
 }
 
 class SWCompViewerExtension: CodeAppExtension {
@@ -171,7 +171,7 @@ class SWCompViewerExtension: CodeAppExtension {
                 return true
             },
             menuItems: [
-                ToolbarMenuItem(icon: "archivebox", title: "解压缩", onClick: {
+                ToolbarMenuItem(icon: "archivebox", title: "Decompression", onClick: {
                     guard let editor = app.activeEditor as? EditorInstanceWithURL else {
                         return;
                     }
@@ -181,7 +181,7 @@ class SWCompViewerExtension: CodeAppExtension {
                     
                     unarchive(app, url, toUrl)
                 }),
-                ToolbarMenuItem(icon: "folder", title: "解压缩到", onClick: {
+                ToolbarMenuItem(icon: "folder", title: "Decompression to", onClick: {
                     guard let editor = app.activeEditor as? EditorInstanceWithURL else {
                         return;
                     }

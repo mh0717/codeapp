@@ -404,3 +404,17 @@
 "iap.month" = "月";
 "iap.months" = "月";
 "iap.year" = "年";
+
+
+"Decompression" = "解压缩";
+"Decompression to" = "解压缩到";
+"Decompress: %@" = "解压缩: ";
+"Decompress %@ Succed" = "解压缩 %@ 成功";
+"Decompress %@ Failed" = "解压缩 %@ 失败";
+"New download" = "新建下载";
+"Total Start" = "全部开始";
+"Total Stop" = "全部停止";
+"Total Remove" = "全部删除";
+"Input Download url" = "输入下载链接";
+"Total Remove?" = "确认删除?";
+"Total Remove and Delete files" = "同时删除文件";
