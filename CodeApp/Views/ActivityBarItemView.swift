@@ -30,12 +30,13 @@ struct ActivityBarIconView: View {
                     withAnimation(.easeIn(duration: 0.2)) {
                         isSideBarVisible = false
                     }
-                } else {
-                    activeItemId = activityBarItem.itemID
-                    withAnimation(.easeIn(duration: 0.2)) {
-                        isSideBarVisible = true
-                    }
                 }
+//                } else {
+//                    activeItemId = activityBarItem.itemID
+//                    withAnimation(.easeIn(duration: 0.2)) {
+//                        isSideBarVisible = true
+//                    }
+//                }
             }) {
                 ZStack {
                     Text(activityBarItem.title)

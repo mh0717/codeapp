@@ -97,6 +97,7 @@ struct MainScene: View {
             .environmentObject(App.safariManager)
             #if PYDEAPP
             .environmentObject(App.popupManager)
+            .environmentObject(App.extensionManager.activityBarManager)
             #endif
             .onAppear {
                 restoreSceneState()
@@ -156,6 +157,11 @@ private struct MainView: View {
     @EnvironmentObject var popupManager: PopupManager
     @EnvironmentObject var iapManager: IapManager
     @EnvironmentObject var subIapManager: SubIapManager
+    @SceneStorage("isLeftDrawerShowing") var isLeftDrawerShowing: Bool = false
+    
+    @EnvironmentObject var activityBarManager: ActivityBarManager
+    @SceneStorage("activitybar.selected.item") var activeItemId: String = DefaultUIState
+        .ACTIVITYBAR_SELECTED_ITEM
     #endif
 
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -324,6 +330,30 @@ private struct MainView: View {
             }
         }
         #if PYDEAPP
+        .sideMenu(isEnabled: Binding<Bool>(get: {!isSideBarVisible}, set: {_ in }),
+            isShowing: $isLeftDrawerShowing, menuContent: {
+            Color.init(id: "sideBar.background")
+            VStack(spacing: 0) {
+                PYActivityBar(togglePanel: openConsolePanel)
+                    .environmentObject(extensionManager.activityBarManager)
+                
+                ZStack(alignment: .center ){
+                    if !stateManager.isSystemExtensionsInitialized {
+                        ProgressView()
+                    } else if let item = activityBarManager.itemForItemID(itemID: activeItemId),
+                              item.isVisible()
+                    {
+                        item.view
+                    } else {
+                        DescriptionText("sidebar.no_section_selected")
+                    }
+                }
+                
+//                RegularSidebar(windowWidth: 480)
+//                    .environmentObject(extensionManager.activityBarManager)
+//                    .fixedSize(horizontal: true, vertical: false)
+            }/*.fixedSize(horizontal: true, vertical: false)*/
+        })
         .fullScreenCover(isPresented: $popupManager.showCover) {
             popupManager.coverContent
         }

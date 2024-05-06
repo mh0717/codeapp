@@ -154,6 +154,13 @@ class TextEditorInstance: EditorInstanceWithURL {
         if url.isContained(in: Bundle.main.bundleURL) {
             readOnly = true
         }
+        if let att = try? FileManager.default.attributesOfItem(atPath: url.path){
+            if let permissions = att[FileAttributeKey.posixPermissions] as? Int{
+                if (permissions & 128) == 0 {
+                    readOnly = true
+                }
+            }
+        }
         #if targetEnvironment(simulator)
 //        readOnly = false
         #endif
