@@ -109,7 +109,11 @@ struct PYTopBar: View {
             #endif
             
             if let editor = App.activeEditor as? EditorInstanceWithURL, editor.canEditUrl, editingUrl {
-                TextField("Input URL", text: $curEditingUrl, onCommit: {
+                TextField("URL (http | https)", text: $curEditingUrl, onEditingChanged: { result in
+                    if !result {
+                        editingUrl = false
+                    }
+                }, onCommit: {
                     editingUrl = false
                     if let url = URL(string: curEditingUrl) {
                         editor.updateUrl(url)
@@ -377,19 +381,31 @@ struct PYTopBar: View {
                         Label("New Folder", systemImage: "folder.badge.plus")
                     }
                     
-                    if #available(iOS 16, *) {
-                        Button {
-                            djangoName = ""
-                            showingNewDjangoAlert.toggle()
-                        } label: {
-                            Label("New Django Project", systemImage: "folder.badge.gear")
+//                    if #available(iOS 16, *) {
+//                        
+//                    }
+                    
+                    Button {
+                        djangoName = ""
+                        showingNewDjangoAlert.toggle()
+                    } label: {
+                        Label("New Django Project", systemImage: "folder.badge.gear")
+                    }
+                    
+                    Button {
+//                            showingNewSafariAlert.toggle()
+                        if let url = URL(string: "https://www.ipyde.cn") {
+                            let editor = PYSafariEditorInstance(url)
+                            App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                editingUrl = true
+                                curEditingUrl = ""
+                            }
                         }
                         
-                        Button {
-                            showingNewSafariAlert.toggle()
-                        } label: {
-                            Label("New Safari Browser", systemImage: "safari")
-                        }
+                    } label: {
+                        Label("New Safari Browser", systemImage: "safari")
                     }
                     
                     

@@ -67,7 +67,14 @@ class PYSafariEditorInstance: EditorInstanceWithURL {
             return
         }
         
-        if url.scheme != "http" && url.scheme != "https" {
+        var theUrl = url
+        if url.scheme == nil {
+            if let  nurl = URL(string: "http://\(url.absoluteString)") {
+                theUrl = nurl
+            }
+        }
+        
+        if theUrl.scheme != "http" && theUrl.scheme != "https" {
             let config = WKWebViewConfiguration()
             config.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
             
@@ -78,21 +85,21 @@ class PYSafariEditorInstance: EditorInstanceWithURL {
                 #endif
             }
             
-            let request = URLRequest(url: url)
+            let request = URLRequest(url: theUrl)
             webView.load(request)
             let lastTitle = title
             let wvc = UIViewController()
             wvc.view = webView
             vc.setViewControllers([wvc], animated: false)
-            self.url = url
+            self.url = theUrl
             title = lastTitle
             return
         }
         
         let lastTitle = title
-        let safari = SFSafariViewController(url: url)
+        let safari = SFSafariViewController(url: theUrl)
         vc.setViewControllers([safari], animated: false)
-        self.url = url
+        self.url = theUrl
         title = lastTitle
     }
     
