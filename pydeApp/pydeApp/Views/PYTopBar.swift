@@ -27,6 +27,10 @@ struct PYTopBar: View {
     @State private var showingNewSafariAlert = false
     @State private var djangoName = ""
     
+    @State private var editingUrl = false
+    @State private var curEditingUrl = ""
+    @FocusState private var editingUrlFocus: Bool
+    
     func onNewDjango() {
         let newCommand = "django-admin startproject \(djangoName)"
         App.notificationManager.showAsyncNotification(title: "\(newCommand) ...", task: {
@@ -104,35 +108,86 @@ struct PYTopBar: View {
             }
             #endif
             
-            if horizontalSizeClass == .compact {
-                CompactEditorTabs()
-                    .frame(maxWidth: .infinity)
+            if let editor = App.activeEditor as? EditorInstanceWithURL, editor.canEditUrl, editingUrl {
+                TextField("Input URL", text: $curEditingUrl, onCommit: {
+                    editingUrl = false
+                    if let url = URL(string: curEditingUrl) {
+                        editor.updateUrl(url)
+                    }
+                }).textContentType(.URL)
+                    .textInputAutocapitalization(.never)
+                    .focused($editingUrlFocus)
+                    .padding(7)
+                    .background(Color.init(id: "input.background"))
+                    .cornerRadius(15)
+                    .onAppear {
+                        editingUrlFocus = true
+                    }
+            } else {
+                if horizontalSizeClass == .compact {
+                    CompactEditorTabs()
+                        .frame(maxWidth: .infinity)
+                    
+                } else {
+                    if #available(iOS 16.0, *) {
+                        ViewThatFits(in: .horizontal) {
+                            HStack {
+                                EditorTabs()
+                                Spacer()
+                            }
+                            HStack {
+                                CompactEditorTabs()
+                                    .frame(maxWidth: .infinity)
+                            }
+                        }
+                    } else {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            EditorTabs()
+                        }
+                        Spacer()
+                    }
+                }
+                
+            }
+            
+            
+            if let editor = App.activeEditor as? EditorInstanceWithURL, editor.canEditUrl {
+                if !editingUrl {
+                    Image(systemName: "globe").font(.system(size: 17))
+                        .foregroundColor(Color.init("T1")).padding(5)
+                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                        .hoverEffect(.highlight)
+                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+                        .onTapGesture {
+                            editingUrl = true
+                            curEditingUrl = editor.url.absoluteString
+                        }
+                } else {
+                    Image(systemName: "arrow.right").font(.system(size: 17))
+                        .foregroundColor(Color.init("T1")).padding(5)
+                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                        .hoverEffect(.highlight)
+                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+                        .onTapGesture {
+                            editingUrl = false
+                            if let url = URL(string: curEditingUrl) {
+                                editor.updateUrl(url)
+                            }
+                        }
+                }
+            }
+            
+            if let editor = App.activeEditor as? EditorInstanceWithURL, editor.canEditUrl, editingUrl {
                 
             } else {
-                if #available(iOS 16.0, *) {
-                    ViewThatFits(in: .horizontal) {
-                        HStack {
-                            EditorTabs()
-                            Spacer()
-                        }
-                        HStack {
-                            CompactEditorTabs()
-                                .frame(maxWidth: .infinity)
-                        }
+                ForEach(toolBarManager.items) { item in
+                    if item.shouldDisplay() {
+                        ToolbarItemView(item: item)
                     }
-                } else {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        EditorTabs()
-                    }
-                    Spacer()
                 }
             }
 
-            ForEach(toolBarManager.items) { item in
-                if item.shouldDisplay() {
-                    ToolbarItemView(item: item)
-                }
-            }
+            
             
             #if PYDEAPP
 //            if App.activeTextEditor != nil {
@@ -173,7 +228,7 @@ struct PYTopBar: View {
                     }
             }
             
-            if App.editors.count > 0 {
+            if !editingUrl, App.editors.count > 0 {
                 Image(systemName: "xmark").font(.system(size: 17))
                     .foregroundColor(Color.init("T1")).padding(5)
                     .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))

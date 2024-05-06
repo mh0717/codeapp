@@ -40,6 +40,10 @@ class EditorInstance: ObservableObject, Identifiable, Equatable, Hashable {
 }
 
 class EditorInstanceWithURL: EditorInstance {
+    #if PYDEAPP
+    var canEditUrl: Bool {false}
+    func updateUrl(_ url: URL){}
+    #endif
 
     enum FileState {
         case deleted

@@ -376,16 +376,16 @@ private struct ContextMenu: View {
 //                    Image(systemName: "doc.text")
 //                }
                 
-                Button {
-                    if let url = item._url {
-                        let vc = QuickPreviewController(url)
-                        NotificationCenter.default.post(name: Notification.Name("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": vc])
+                
+                ForEach(App.extensionManager.fileMenuManager.items) { fitem in
+                    if let url = item._url, fitem.isVisible(url) {
+                        Button(fitem.title, systemImage: fitem.iconSystemName) {
+                            fitem.onClick(url)
+                        }
                     }
-                    
-                } label: {
-                    Text(localizedString(forKey: "Open with QuickLook"))
-                    Image(systemName: "eye")
                 }
+                
+                Divider()
                 #endif
             }
 

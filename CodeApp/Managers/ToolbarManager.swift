@@ -12,7 +12,7 @@ struct ToolbarMenuItem: Identifiable {
     let id = UUID()
     
     let icon: String
-    let title: String
+    let title: LocalizedStringKey
     let onClick: () -> Void
 }
 #endif

@@ -249,3 +249,5 @@ are licensed under [BSD-3-Clause License](https://en.wikipedia.org/wiki/BSD_lice
 "iap.month" = "month";
 "iap.months" = "months";
 "iap.year" = "year";
+
+"Open with QuickLook" = "QuickLook";

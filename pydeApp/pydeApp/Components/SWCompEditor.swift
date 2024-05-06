@@ -198,6 +198,27 @@ class SWCompViewerExtension: CodeAppExtension {
         
         
         contribution.toolBar.registerItem(item: untar)
+        
+        let unarchiveItem = FileMenuItem(iconSystemName: "archivebox", title: "Decompression") { url in
+            SWCOMP_COMMANDS.keys.contains(url.pathExtension.lowercased())
+        } onClick: { url in
+            let toUrl = url.deletingLastPathComponent()
+            unarchive(app, url, toUrl)
+        }
+        
+        let unarchiveToItem = FileMenuItem(iconSystemName: "folder", title: "Decompression to") { url in
+            SWCOMP_COMMANDS.keys.contains(url.pathExtension.lowercased())
+        } onClick: { url in
+            app.popupManager.showSheet(content: AnyView(
+                DirectoryPickerView(onOpen: { toUrl in
+                    unarchive(app, url, toUrl)
+                })
+            ))
+        }
+        
+        app.extensionManager.fileMenuManager.registerItem(item: unarchiveItem)
+        app.extensionManager.fileMenuManager.registerItem(item: unarchiveToItem)
+
     }
     
     

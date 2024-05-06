@@ -13,6 +13,7 @@ class ExtensionManager: ObservableObject {
     @Published var editorProviderManager = EditorProviderManager()
     @Published var statusBarManager = StatusBarManager()
     @Published var activityBarManager = ActivityBarManager()
+    var fileMenuManager = FileMenuManager()
     
     #if PYDEAPP
     private var extensions: [CodeAppExtension] = [
@@ -36,8 +37,10 @@ class ExtensionManager: ObservableObject {
         PYRunnerExtension(),
         TMConsoleExtension(),
         IAPExtension(),
+        QuickLookExtension(),
         SWCompViewerExtension(),
         EpubExtension(),
+        
     ]
     #else
     private var extensions: [CodeAppExtension] = [

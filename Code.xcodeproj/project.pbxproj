@@ -1039,6 +1039,10 @@
 		A30F6BD32BE0E60C007B7CDF /* ideUIPreviewA.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A30F6BCB2BE0E5BD007B7CDF /* ideUIPreviewA.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A30F6BD82BE1029B007B7CDF /* AlertToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F6BD72BE1029A007B7CDF /* AlertToast.swift */; };
 		A30F6BD92BE1029B007B7CDF /* AlertToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F6BD72BE1029A007B7CDF /* AlertToast.swift */; };
+		A30F6BDC2BE7FC59007B7CDF /* FileMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F6BDB2BE7FC59007B7CDF /* FileMenuManager.swift */; };
+		A30F6BDD2BE7FC59007B7CDF /* FileMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F6BDB2BE7FC59007B7CDF /* FileMenuManager.swift */; };
+		A30F6BDF2BE7FF7F007B7CDF /* QuickLookExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F6BDE2BE7FF7F007B7CDF /* QuickLookExtension.swift */; };
+		A30F6BE02BE7FF7F007B7CDF /* QuickLookExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F6BDE2BE7FF7F007B7CDF /* QuickLookExtension.swift */; };
 		A33A5FE72B10B98800CB7CE1 /* PyPiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE12B10B98800CB7CE1 /* PyPiView.swift */; };
 		A33A5FE82B10B98800CB7CE1 /* PipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE22B10B98800CB7CE1 /* PipManager.swift */; };
 		A33A5FEB2B10B98800CB7CE1 /* PyPiPackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE52B10B98800CB7CE1 /* PyPiPackageView.swift */; };
@@ -2745,6 +2749,8 @@
 		A30F6BCB2BE0E5BD007B7CDF /* ideUIPreviewA.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ideUIPreviewA.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30F6BCC2BE0E5BE007B7CDF /* pydeUIPreview copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "pydeUIPreview copy-Info.plist"; path = "/Users/huima/PythonSchool/pydeApp/pydeUIPreview copy-Info.plist"; sourceTree = "<absolute>"; };
 		A30F6BD72BE1029A007B7CDF /* AlertToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertToast.swift; sourceTree = "<group>"; };
+		A30F6BDB2BE7FC59007B7CDF /* FileMenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileMenuManager.swift; sourceTree = "<group>"; };
+		A30F6BDE2BE7FF7F007B7CDF /* QuickLookExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLookExtension.swift; sourceTree = "<group>"; };
 		A32DE5322B29B7CE00A1E20B /* ios_system.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ios_system.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33A5FE12B10B98800CB7CE1 /* PyPiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PyPiView.swift; sourceTree = "<group>"; };
 		A33A5FE22B10B98800CB7CE1 /* PipManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PipManager.swift; sourceTree = "<group>"; };
@@ -4143,6 +4149,15 @@
 			path = Tag;
 			sourceTree = "<group>";
 		};
+		A30F6BDA2BE7FC40007B7CDF /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A30F6BDB2BE7FC59007B7CDF /* FileMenuManager.swift */,
+				A30F6BDE2BE7FF7F007B7CDF /* QuickLookExtension.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		A33A5FDF2B109F1E00CB7CE1 /* pip */ = {
 			isa = PBXGroup;
 			children = (
@@ -4217,6 +4232,7 @@
 		A36337242AF251E500085608 /* pydeApp */ = {
 			isa = PBXGroup;
 			children = (
+				A30F6BDA2BE7FC40007B7CDF /* Managers */,
 				A349BF332B00EC9400434BBB /* Components */,
 				A3F32F6A2AF932F000866ED0 /* Views */,
 				A36337252AF2520D00085608 /* TMConsoleExtension.swift */,
@@ -5695,6 +5711,7 @@
 				A30F6A882BE0DD52007B7CDF /* SourceControlError.swift in Sources */,
 				A30F6A892BE0DD52007B7CDF /* DirectoryPickerView.swift in Sources */,
 				A30F6A8A2BE0DD52007B7CDF /* SafariView.swift in Sources */,
+				A30F6BDD2BE7FC59007B7CDF /* FileMenuManager.swift in Sources */,
 				A30F6A8B2BE0DD52007B7CDF /* ExplorerCell.swift in Sources */,
 				A30F6A8C2BE0DD52007B7CDF /* SWCompEditor.swift in Sources */,
 				A30F6A8D2BE0DD52007B7CDF /* getRootDirectory.swift in Sources */,
@@ -5722,6 +5739,7 @@
 				A30F6AA32BE0DD52007B7CDF /* ExplorerFileTreeSection.swift in Sources */,
 				A30F6AA42BE0DD52007B7CDF /* HierarchyList.swift in Sources */,
 				A30F6AA52BE0DD52007B7CDF /* WebViewBase.swift in Sources */,
+				A30F6BE02BE7FF7F007B7CDF /* QuickLookExtension.swift in Sources */,
 				A30F6AA62BE0DD52007B7CDF /* PanelManager.swift in Sources */,
 				A30F6AA72BE0DD52007B7CDF /* MarkdownViewerExtension.swift in Sources */,
 				A30F6AA82BE0DD52007B7CDF /* AheadBehindIndicator.swift in Sources */,
@@ -5967,6 +5985,7 @@
 				A3A87CF72AF221D1002E3399 /* SourceControlError.swift in Sources */,
 				A3A87CF82AF221D1002E3399 /* DirectoryPickerView.swift in Sources */,
 				A3A87CF92AF221D1002E3399 /* SafariView.swift in Sources */,
+				A30F6BDC2BE7FC59007B7CDF /* FileMenuManager.swift in Sources */,
 				A3A87CFA2AF221D1002E3399 /* ExplorerCell.swift in Sources */,
 				A37A9E392BDE190F00F8C798 /* SWCompEditor.swift in Sources */,
 				A3A87CFB2AF221D1002E3399 /* getRootDirectory.swift in Sources */,
@@ -5994,6 +6013,7 @@
 				A3A87D0F2AF221D1002E3399 /* ExplorerFileTreeSection.swift in Sources */,
 				A3A87D102AF221D1002E3399 /* HierarchyList.swift in Sources */,
 				A3A87D112AF221D1002E3399 /* WebViewBase.swift in Sources */,
+				A30F6BDF2BE7FF7F007B7CDF /* QuickLookExtension.swift in Sources */,
 				A3A87D122AF221D1002E3399 /* PanelManager.swift in Sources */,
 				A3A87D132AF221D1002E3399 /* MarkdownViewerExtension.swift in Sources */,
 				A3A87D142AF221D1002E3399 /* AheadBehindIndicator.swift in Sources */,

@@ -10,34 +10,102 @@ import SwiftUI
 import SafariServices
 
 private var _safariCount = 0
-class PYSafariEditorInstance: EditorInstance, PYObserverProxyDelegate {
+
+struct MutableVCRepresentable: UIViewControllerRepresentable {
+
+//    private var vc: UIViewController
+//    let vc: Binding<UIViewController?>
+    @ObservedObject var model: MutableVCModel
+
+//    init(_ vc: UIViewController) {
+//        self.vc = vc
+//    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        
+    }
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        return model.vc ?? UIViewController()
+    }
+}
+
+class MutableVCModel: ObservableObject {
+    @Published var vc: UIViewController?
+}
+
+class PYSafariEditorInstance: EditorInstanceWithURL {
     
     
     let proxy = PYObserverProxy()
-    let safari: SFSafariViewController
+//    let safari: SFSafariViewController
+//    let model = MutableVCModel()
+    let vc = UINavigationController()
     
     init(_ url: URL) {
         _safariCount += 1
-        safari = SFSafariViewController(url: url)
+        let safari = SFSafariViewController(url: url)
+        vc.setNavigationBarHidden(true, animated: false)
+        vc.setViewControllers([safari], animated: false)
+        
         super.init(
-            view: AnyView(VCRepresentable(safari).id(UUID())),
-            title: "Safari#\(_safariCount)"
+            view: AnyView(VCRepresentable(vc).id(UUID())),
+            title: "Safari#\(_safariCount)",
+            url: url
         )
         
-        safari.addObserver(proxy, forKeyPath: "title", context: nil)
-        proxy.delegate = self
+//        safari.addObserver(proxy, forKeyPath: "title", context: nil)
+//        proxy.delegate = self
     }
     
-    func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if let title = safari.title {
-            self.title = title
+    override var canEditUrl: Bool {
+        return true
+    }
+    
+    override func updateUrl(_ url: URL) {
+        if url == self.url {
+            return
         }
+        
+        if url.scheme != "http" && url.scheme != "https" {
+            let config = WKWebViewConfiguration()
+            config.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
+            
+            var webView = WKWebView(frame: .zero, configuration: config)
+            if #available(iOS 16.4, *) {
+                #if DEBUG
+                webView.isInspectable = true
+                #endif
+            }
+            
+            let request = URLRequest(url: url)
+            webView.load(request)
+            let lastTitle = title
+            let wvc = UIViewController()
+            wvc.view = webView
+            vc.setViewControllers([wvc], animated: false)
+            self.url = url
+            title = lastTitle
+            return
+        }
+        
+        let lastTitle = title
+        let safari = SFSafariViewController(url: url)
+        vc.setViewControllers([safari], animated: false)
+        self.url = url
+        title = lastTitle
     }
     
-    override func dispose() {
-        super.dispose()
-        safari.removeObserver(proxy, forKeyPath: "title")
-    }
+//    func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+//        if let title = safari.title {
+//            self.title = title
+//        }
+//    }
+//    
+//    override func dispose() {
+//        super.dispose()
+//        safari.removeObserver(proxy, forKeyPath: "title")
+//    }
 }
 
 private struct PYWebView: UIViewRepresentable {
@@ -66,7 +134,9 @@ class PYWebEditorInstance: EditorInstance, PYObserverProxyDelegate {
         
         webView = WKWebView(frame: .zero, configuration: config)
         if #available(iOS 16.4, *) {
+            #if DEBUG
             webView.isInspectable = true
+            #endif
         }
         
         let request = URLRequest(url: url)
