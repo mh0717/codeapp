@@ -330,29 +330,15 @@ private struct MainView: View {
             }
         }
         #if PYDEAPP
-        .sideMenu(isEnabled: Binding<Bool>(get: {!isSideBarVisible}, set: {_ in }),
+        .sideMenu(isEnabled: $isSideBarVisible.mappedToNot(),
             isShowing: $isLeftDrawerShowing, menuContent: {
             Color.init(id: "sideBar.background")
             VStack(spacing: 0) {
                 PYActivityBar(togglePanel: openConsolePanel)
                     .environmentObject(extensionManager.activityBarManager)
                 
-                ZStack(alignment: .center ){
-                    if !stateManager.isSystemExtensionsInitialized {
-                        ProgressView()
-                    } else if let item = activityBarManager.itemForItemID(itemID: activeItemId),
-                              item.isVisible()
-                    {
-                        item.view
-                    } else {
-                        DescriptionText("sidebar.no_section_selected")
-                    }
-                }
-                
-//                RegularSidebar(windowWidth: 480)
-//                    .environmentObject(extensionManager.activityBarManager)
-//                    .fixedSize(horizontal: true, vertical: false)
-            }/*.fixedSize(horizontal: true, vertical: false)*/
+                PYSidebar()
+            }
         })
         .fullScreenCover(isPresented: $popupManager.showCover) {
             popupManager.coverContent

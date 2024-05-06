@@ -47,8 +47,8 @@ public struct SideMenu<MenuContent: View>: ViewModifier {
                     return
                 }
                 
-                if !isShowing, event.startLocation.x <= 50 {
-                    if event.location.x > 150 {
+                if !isShowing {
+                    if offset >= -sideWidth * 0.7 {
                         withAnimation {
                             offset = 0
                             isShowing = true
@@ -64,7 +64,7 @@ public struct SideMenu<MenuContent: View>: ViewModifier {
                 }
                 
                 if isShowing {
-                    if event.translation.width < 10 {
+                    if event.startLocation.x >= sideWidth, event.translation.width < 10 {
                         withAnimation {
                             isShowing = false
                             offset = -sideWidth
@@ -104,5 +104,38 @@ public extension View {
         @ViewBuilder menuContent: @escaping () -> MenuContent
     ) -> some View {
         self.modifier(SideMenu(isEnabled: isEnabled, isShowing: isShowing, menuContent: menuContent))
+    }
+}
+
+
+
+extension Binding where Value == Bool {
+    /// Creates a binding by mapping an optional value to a `Bool` that is
+    /// `true` when the value is non-`nil` and `false` when the value is `nil`.
+    ///
+    /// When the value of the produced binding is set to `false` the value
+    /// of `bindingToOptional`'s `wrappedValue` is set to `nil`.
+    ///
+    /// Setting the value of the produce binding to `true` does nothing and
+    /// will log an error.
+    ///
+    /// - parameter bindingToOptional: A `Binding` to an optional value, used to calculate the `wrappedValue`.
+    public init(mappedTo bindingToOptional: Binding<Bool>) {
+        self.init(
+            get: { bindingToOptional.wrappedValue == false },
+            set: { newValue in
+            }
+        )
+    }
+}
+
+extension Binding {
+    /// Returns a binding by mapping this binding's value to a `Bool` that is
+    /// `true` when the value is non-`nil` and `false` when the value is `nil`.
+    ///
+    /// When the value of the produced binding is set to `false` this binding's value
+    /// is set to `nil`.
+    public func mappedToNot() -> Binding<Bool> where Value == Bool {
+        return Binding<Bool>(mappedTo: self)
     }
 }
