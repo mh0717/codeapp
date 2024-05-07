@@ -243,6 +243,8 @@ struct CodeApp: App {
             initPyDE()
         }
         
+        PYApp.onAppInitialized()
+        
         DownloadManager.instance.setup()
         
         signal(SIGPIPE, SIG_IGN);

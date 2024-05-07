@@ -74,42 +74,6 @@ class VCInTabExtension: CodeAppExtension {
     
 
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
-//        let toolbarItem = ToolbarItem(
-//            extenionID: EXTENSION_ID,
-//            icon: "xmark",
-//            onClick: {
-//                Task {
-//                    if let editor = app.activeEditor {
-//                        await app.closeEditor(editor: editor)
-//                    }
-//                }
-//            },
-//            shortCut: .init("w", modifiers: [.command]),
-//            panelToFocusOnTap: nil,
-//            shouldDisplay: {
-//                return true
-////                guard let editor = app.activeEditor else { return false }
-////                
-////                if editor is VCInTabEditorInstance ||
-////                    editor is CVInTabEditorInstance {
-////                    return true
-////                }
-////                return false
-//            }
-//        )
-//        contribution.toolBar.registerItem(item: toolbarItem)
-        
-        wmessager.listenForMessage(withIdentifier: ConstantManager.PYDE_OPEN_COMMAND_MSG) { args in
-            guard let args = args as? [String], !args.isEmpty else {return}
-            if args[1] == "-a" {
-                let command = args[2...].joined(separator: " ")
-                ios_system(command)
-                return
-            }
-            let path = args.last!
-            guard let url = path.contains(":") ? URL(string: path) : URL(fileURLWithPath: path) else {return}
-            NotificationCenter.default.post(name: .init("UI_OPEN_FILE_IN_TAB"), object: nil, userInfo: ["url": url])
-        }
         
         NotificationCenter.default.addObserver(forName: .init("UI_SHOW_VC_IN_TAB"), object: nil, queue: nil) { notify in
             guard let vc = notify.userInfo?["vc"] as? UIViewController else {return}
@@ -146,67 +110,6 @@ class VCInTabExtension: CodeAppExtension {
                 DispatchQueue.main.async {
                     app.closeEditor(editor: editor, force: true)
                 }
-            }
-        }
-        
-        NotificationCenter.default.addObserver(forName: .init("UI_OPEN_FILE_IN_TAB"), object: nil, queue: nil) { notify in
-            guard let url = notify.userInfo?["url"] as? URL else { return }
-            
-            if url.scheme == "http" || url.scheme == "https" {
-//                VCInTabExtension._showCount += 1
-//                let title = url.lastPathComponent.isEmpty ? "#web\(VCInTabExtension._showCount)" : url.lastPathComponent
-//                DispatchQueue.main.async {
-//                    let vc = SFSafariViewController(url: url)
-//                    let instance = VCInTabEditorInstance(url: url, title: title, vc: vc)
-//                    app.appendAndFocusNewEditor(editor: instance, alwaysInNewTab: true)
-//                }
-                let editorInstance = PYSafariEditorInstance(url)
-                DispatchQueue.main.async {
-                    app.appendAndFocusNewEditor(editor: editorInstance, alwaysInNewTab: true)
-                }
-                return
-            }
-            
-            if url.path.contains("Jupyter/runtime/nbserver") {
-                var localUrl = "http://localhost:\(JupyterExtension.jupyterManager.port)/tree"
-                do {
-                    let content = try String(contentsOf: url)
-                    let lines = content.components(separatedBy: "\n")
-                    for line in lines {
-                        if line.contains("\"http://"), let name = line.slice(from: "\"http://", to: "\"") {
-                            localUrl = "http://\(name)"
-                        }
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                }
-                localUrl = localUrl.replacingOccurrences(of: "0.0.0.0", with: "localhost")
-                DispatchQueue.main.async {
-                    if let url = URL(string: localUrl) {
-                        app.appendAndFocusNewEditor(editor: PYSafariEditorInstance(url), alwaysInNewTab: true)
-                    }
-                    
-                }
-                return
-            }
-            
-            if let fileExt = url.lastPathComponent.components(separatedBy: ".").last,
-               ["html", "htm", "shtml"].contains(fileExt) {
-                DispatchQueue.main.async {
-                    app.appendAndFocusNewEditor(editor: PYWebEditorInstance(url), alwaysInNewTab: true)
-                }
-                return
-            }
-            
-            if FileManager.default.fileExists(atPath: url.path) {
-                DispatchQueue.main.async {
-                    app.openFile(url: url, alwaysInNewTab: true)
-                }
-                return
-            }
-            
-            DispatchQueue.main.async {
-                app.appendAndFocusNewEditor(editor: PYWebEditorInstance(url), alwaysInNewTab: true)
             }
         }
         

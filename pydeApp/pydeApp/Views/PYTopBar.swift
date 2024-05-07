@@ -27,8 +27,6 @@ struct PYTopBar: View {
     @State private var showingNewSafariAlert = false
     @State private var djangoName = ""
     
-    @State private var editingUrl = false
-    @State private var curEditingUrl = ""
     @FocusState private var editingUrlFocus: Bool
     
     func onNewDjango() {
@@ -108,14 +106,18 @@ struct PYTopBar: View {
             }
             #endif
             
-            if let editor = App.activeEditor as? EditorInstanceWithURL, editor.canEditUrl, editingUrl {
-                TextField("URL (http | https)", text: $curEditingUrl, onEditingChanged: { result in
+            if let editor = App.activeEditor as? EditorInstanceWithURL, editor.canEditUrl, App.pyapp.showAddressbar {
+                TextField("URL (http | https)", text: $App.pyapp.addressUrl, onEditingChanged: { result in
                     if !result {
-                        editingUrl = false
+                        App.pyapp.showAddressbar = false
                     }
                 }, onCommit: {
-                    editingUrl = false
-                    if let url = URL(string: curEditingUrl) {
+                    App.pyapp.showAddressbar = false
+                    var str = App.pyapp.addressUrl
+                    if !str.contains("://") {
+                        str = "https://\(str)"
+                    }
+                    if let url = URL(string: str) {
                         editor.updateUrl(url)
                     }
                 }).textContentType(.URL)
@@ -126,6 +128,18 @@ struct PYTopBar: View {
                     .cornerRadius(15)
                     .onAppear {
                         editingUrlFocus = true
+                    }
+                
+                Image(systemName: "arrow.right").font(.system(size: 17))
+                    .foregroundColor(Color.init("T1")).padding(5)
+                    .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                    .hoverEffect(.highlight)
+                    .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+                    .onTapGesture {
+                        App.pyapp.showAddressbar = false
+                        if let url = URL(string: App.pyapp.addressUrl) {
+                            editor.updateUrl(url)
+                        }
                     }
             } else {
                 if horizontalSizeClass == .compact {
@@ -154,34 +168,34 @@ struct PYTopBar: View {
                 
             }
             
+//            
+//            if let editor = App.activeEditor as? EditorInstanceWithURL, editor.canEditUrl {
+//                if !App.pyapp.showAddressbar {
+//                    Image(systemName: "globe").font(.system(size: 17))
+//                        .foregroundColor(Color.init("T1")).padding(5)
+//                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+//                        .hoverEffect(.highlight)
+//                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+//                        .onTapGesture {
+//                            App.pyapp.showAddressbar = true
+//                            App.pyapp.addressUrl = editor.url.absoluteString
+//                        }
+//                } else {
+//                    Image(systemName: "arrow.right").font(.system(size: 17))
+//                        .foregroundColor(Color.init("T1")).padding(5)
+//                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+//                        .hoverEffect(.highlight)
+//                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+//                        .onTapGesture {
+//                            App.pyapp.showAddressbar = false
+//                            if let url = URL(string: App.pyapp.addressUrl) {
+//                                editor.updateUrl(url)
+//                            }
+//                        }
+//                }
+//            }
             
-            if let editor = App.activeEditor as? EditorInstanceWithURL, editor.canEditUrl {
-                if !editingUrl {
-                    Image(systemName: "globe").font(.system(size: 17))
-                        .foregroundColor(Color.init("T1")).padding(5)
-                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                        .hoverEffect(.highlight)
-                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
-                        .onTapGesture {
-                            editingUrl = true
-                            curEditingUrl = editor.url.absoluteString
-                        }
-                } else {
-                    Image(systemName: "arrow.right").font(.system(size: 17))
-                        .foregroundColor(Color.init("T1")).padding(5)
-                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                        .hoverEffect(.highlight)
-                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
-                        .onTapGesture {
-                            editingUrl = false
-                            if let url = URL(string: curEditingUrl) {
-                                editor.updateUrl(url)
-                            }
-                        }
-                }
-            }
-            
-            if let editor = App.activeEditor as? EditorInstanceWithURL, editor.canEditUrl, editingUrl {
+            if let editor = App.activeEditor as? EditorInstanceWithURL, editor.canEditUrl, App.pyapp.showAddressbar {
                 
             } else {
                 ForEach(toolBarManager.items) { item in
@@ -232,7 +246,7 @@ struct PYTopBar: View {
                     }
             }
             
-            if !editingUrl, App.editors.count > 0 {
+            if !App.pyapp.showAddressbar, App.editors.count > 0 {
                 Image(systemName: "xmark").font(.system(size: 17))
                     .foregroundColor(Color.init("T1")).padding(5)
                     .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
@@ -394,13 +408,13 @@ struct PYTopBar: View {
                     
                     Button {
 //                            showingNewSafariAlert.toggle()
-                        if let url = URL(string: "https://www.ipyde.cn") {
-                            let editor = PYSafariEditorInstance(url)
+                        if let url = URL(string: "https://www.baidu.cn") {
+                            let editor = PYWebEditorInstance(url)
                             App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                editingUrl = true
-                                curEditingUrl = ""
+                                App.pyapp.showAddressbar = true
+                                App.pyapp.addressUrl = ""
                             }
                         }
                         

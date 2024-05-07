@@ -190,7 +190,7 @@ struct DownloadCell: View {
     var body: some View {
         VStack(alignment: .leading){
                 Text("\(Image(systemName: "doc"))\u{2060} \u{2060}\(fileName)"/*.map({ String($0) }).joined(separator: "\u{200B}")*/).font(.subheadline).multilineTextAlignment(.leading)/*.lineLimit(1).truncationMode(.middle)*/
-            ProgressView(value: Double(task.progress.completedUnitCount), total: Double(max(task.progress.totalUnitCount, 1))).tint(.blue)
+            ProgressView(value: task.status == .succeeded ? 1.0 : Double(task.progress.completedUnitCount), total: task.status == .succeeded  ? 1.0 : Double(max(task.progress.totalUnitCount, 1))).tint(.blue)
                 HStack {
                     Text(task.status == .succeeded ? ByteCountFormatter.string(fromByteCount: task.progress.totalUnitCount, countStyle: .file) : "\(ByteCountFormatter.string(fromByteCount: task.progress.completedUnitCount, countStyle: .file))/\(ByteCountFormatter.string(fromByteCount: task.progress.totalUnitCount, countStyle: .file))").font(.system(size: 12)).opacity(0.8)
                     Spacer()
@@ -242,6 +242,19 @@ struct DownloadCell: View {
                 }
             }.padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
             .contextMenu(menuItems: {
+                if task.status == .succeeded {
+                    let url = URL(fileURLWithPath: task.filePath)
+                    ForEach(App.extensionManager.fileMenuManager.items) { fitem in
+                        if fitem.isVisible(url) {
+                            Button(fitem.title, systemImage: fitem.iconSystemName) {
+                                fitem.onClick(url)
+                            }
+                        }
+                    }
+                    Divider()
+                }
+                
+                
                 if task.status == .running {
                     Button("stop", systemImage: "stop") {
                         DownloadManager.instance.suspend(task.url)

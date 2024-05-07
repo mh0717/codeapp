@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import SafariServices
+import pydeCommon
 
 private var _safariCount = 0
 
@@ -129,38 +130,54 @@ private struct PYWebView: UIViewRepresentable {
 }
 
 
-class PYWebEditorInstance: EditorInstance, PYObserverProxyDelegate {
+class PYWebEditorInstance: EditorInstanceWithURL, PYObserverProxyDelegate {
     let proxy = PYObserverProxy()
     let webView: WKWebView
     
     init(_ url: URL) {
         _safariCount += 1
         
-        let config = WKWebViewConfiguration()
-        config.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
-        
-        webView = WKWebView(frame: .zero, configuration: config)
-        if #available(iOS 16.4, *) {
-            #if DEBUG
-            webView.isInspectable = true
-            #endif
-        }
+//        let config = WKWebViewConfiguration()
+////        config.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
+//        
+//        webView = WKWebView(frame: UIScreen.main.bounds, configuration: config)
+//        if #available(iOS 16.4, *) {
+//            #if DEBUG
+////            webView.isInspectable = true
+//            #endif
+//        }
+        webView = WebViewBase()
         
         let request = URLRequest(url: url)
         webView.load(request)
         
         super.init(
             view: AnyView(PYWebView(webView: webView).id(UUID())),
-            title: "Web#\(_safariCount)"
+            title: "Web#\(_safariCount)", url: url
         )
         
         webView.addObserver(proxy, forKeyPath: "title", context: nil)
         proxy.delegate = self
     }
     
+    override var canEditUrl: Bool {
+        return true
+    }
+    
+    override func updateUrl(_ url: URL) {
+        let lastTitle = title
+        self.url = url
+        title = lastTitle
+        
+        webView.load(URLRequest(url: url))
+    }
+    
     func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if let title = webView.title {
+        if let title = webView.title, self.title != title {
             self.title = title
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: ConstantManager.MainAppForeceUpdateName, object: nil)
+            }
         }
     }
     

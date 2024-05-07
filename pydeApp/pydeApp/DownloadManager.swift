@@ -32,8 +32,8 @@ class DownloadManager: ObservableObject {
         }
     }
     
-    func download(_ url: URLConvertible) {
-        sessionManager.download(url)
+    func download(_ url: URLConvertible) -> DownloadTask? {
+        return sessionManager.download(url)
     }
     
     func totalStart() {
@@ -78,6 +78,24 @@ class DownloadManager: ObservableObject {
         self.sessionManager.tasks.forEach({$0.objectWillChange.send()})
     }
     
+    func totalCount() -> Int {
+        return sessionManager.tasks.count
+    }
+    
+    func totalRunningCount() -> Int {
+        return sessionManager.runningTasks.count
+    }
+    
+    func totalSucceedCount() -> Int {
+        return sessionManager.succeededTasks.count
+    }
+    
+    func downloadedFilePath(_ url: URL) -> String? {
+        if let task = sessionManager.fetchTask(url), task.status == .succeeded {
+            return task.filePath
+        }
+        return nil
+    }
     
     
     func setup() {
@@ -91,6 +109,9 @@ class DownloadManager: ObservableObject {
                 // 下载成功
             } else {
                 // 其他状态
+            }
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: .init("MainAppForeceUpdate"), object: nil)
             }
         }
     }

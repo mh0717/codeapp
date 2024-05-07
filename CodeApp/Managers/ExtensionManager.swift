@@ -40,6 +40,8 @@ class ExtensionManager: ObservableObject {
         QuickLookExtension(),
         SWCompViewerExtension(),
         EpubExtension(),
+        WebExtensionManager(),
+        WheelExtensionManager(),
         
     ]
     #else

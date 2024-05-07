@@ -101,6 +101,15 @@
         }
       },
       {
+        "package": "NetworkImage",
+        "repositoryURL": "https://github.com/gonzalezreal/NetworkImage",
+        "state": {
+          "branch": null,
+          "revision": "7aff8d1b31148d32c5933d75557d42f6323ee3d1",
+          "version": "6.0.0"
+        }
+      },
+      {
         "package": "Nimble",
         "repositoryURL": "https://github.com/Quick/Nimble.git",
         "state": {
@@ -161,6 +170,24 @@
           "branch": null,
           "revision": "9dcaa4b333db437b0fbfaf453fad29069044a8b4",
           "version": "6.6.0"
+        }
+      },
+      {
+        "package": "swift-snapshot-testing",
+        "repositoryURL": "https://github.com/pointfreeco/swift-snapshot-testing",
+        "state": {
+          "branch": null,
+          "revision": "625ccca8570773dd84a34ee51a81aa2bc5a4f97a",
+          "version": "1.16.0"
+        }
+      },
+      {
+        "package": "swift-syntax",
+        "repositoryURL": "https://github.com/apple/swift-syntax",
+        "state": {
+          "branch": null,
+          "revision": "fa8f95c2d536d6620cc2f504ebe8a6167c9fc2dd",
+          "version": "510.0.1"
         }
       },
       {

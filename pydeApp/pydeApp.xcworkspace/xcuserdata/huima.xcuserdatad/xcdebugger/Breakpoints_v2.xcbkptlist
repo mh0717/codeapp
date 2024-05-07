@@ -2220,204 +2220,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7CB36355-9D73-4B57-BC63-D351B079AFF0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "pydeApp/VCInTabExtension.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
-            landmarkName = "onInitialize(app:contribution:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7CB36355-9D73-4B57-BC63-D351B079AFF0 - 25393b221373416"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #7 @Sendable (Foundation.Notification) -&gt; () in pydeApp.VCInTabExtension.onInitialize(app: pydeApp.MainApp, contribution: pydeApp.CodeAppExtension.Contribution) -&gt; ()"
-                  moduleName = "pydeApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/VCInTabExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "182"
-                  endingLineNumber = "182"
-                  offsetFromSymbolStart = "440">
-               </Location>
-               <Location
-                  uuid = "7CB36355-9D73-4B57-BC63-D351B079AFF0 - 25393b221373416"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #7 @Sendable (Foundation.Notification) -&gt; () in pydeApp.VCInTabExtension.onInitialize(app: pydeApp.MainApp, contribution: pydeApp.CodeAppExtension.Contribution) -&gt; ()"
-                  moduleName = "pydeApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/VCInTabExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "182"
-                  endingLineNumber = "182"
-                  offsetFromSymbolStart = "552">
-               </Location>
-               <Location
-                  uuid = "7CB36355-9D73-4B57-BC63-D351B079AFF0 - 8d50d05370a8192d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #5 @Sendable (Foundation.Notification) -&gt; () in pydeApp.VCInTabExtension.onInitialize(app: pydeApp.MainApp, contribution: pydeApp.CodeAppExtension.Contribution) -&gt; ()"
-                  moduleName = "pydeApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/VCInTabExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "191"
-                  endingLineNumber = "191"
-                  offsetFromSymbolStart = "440">
-               </Location>
-               <Location
-                  uuid = "7CB36355-9D73-4B57-BC63-D351B079AFF0 - d590480d8733b2eb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #5 @Sendable (Foundation.Notification) -&gt; () in iPyDE.VCInTabExtension.onInitialize(app: iPyDE.MainApp, contribution: iPyDE.CodeAppExtension.Contribution) -&gt; ()"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/VCInTabExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "191"
-                  endingLineNumber = "191"
-                  offsetFromSymbolStart = "440">
-               </Location>
-               <Location
-                  uuid = "7CB36355-9D73-4B57-BC63-D351B079AFF0 - d590480d8733b2eb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #5 @Sendable (Foundation.Notification) -&gt; () in iPyDE.VCInTabExtension.onInitialize(app: iPyDE.MainApp, contribution: iPyDE.CodeAppExtension.Contribution) -&gt; ()"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/VCInTabExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "191"
-                  endingLineNumber = "191"
-                  offsetFromSymbolStart = "552">
-               </Location>
-               <Location
-                  uuid = "7CB36355-9D73-4B57-BC63-D351B079AFF0 - d590480d8733b09f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #5 @Sendable (Foundation.Notification) -&gt; () in iPyDE.VCInTabExtension.onInitialize(app: iPyDE.MainApp, contribution: iPyDE.CodeAppExtension.Contribution) -&gt; ()"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/VCInTabExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "203"
-                  endingLineNumber = "203"
-                  offsetFromSymbolStart = "440">
-               </Location>
-               <Location
-                  uuid = "7CB36355-9D73-4B57-BC63-D351B079AFF0 - d590480d8733b09f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #5 @Sendable (Foundation.Notification) -&gt; () in iPyDE.VCInTabExtension.onInitialize(app: iPyDE.MainApp, contribution: iPyDE.CodeAppExtension.Contribution) -&gt; ()"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/VCInTabExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "203"
-                  endingLineNumber = "203"
-                  offsetFromSymbolStart = "552">
-               </Location>
-               <Location
-                  uuid = "7CB36355-9D73-4B57-BC63-D351B079AFF0 - d590480d8733bf13"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #5 @Sendable (Foundation.Notification) -&gt; () in iPyDE.VCInTabExtension.onInitialize(app: iPyDE.MainApp, contribution: iPyDE.CodeAppExtension.Contribution) -&gt; ()"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/VCInTabExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "215"
-                  endingLineNumber = "215"
-                  offsetFromSymbolStart = "440">
-               </Location>
-               <Location
-                  uuid = "7CB36355-9D73-4B57-BC63-D351B079AFF0 - d590480d8733be8f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #5 @Sendable (Foundation.Notification) -&gt; () in iPyDE.VCInTabExtension.onInitialize(app: iPyDE.MainApp, contribution: iPyDE.CodeAppExtension.Contribution) -&gt; ()"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/VCInTabExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "219"
-                  endingLineNumber = "219"
-                  offsetFromSymbolStart = "552">
-               </Location>
-               <Location
-                  uuid = "7CB36355-9D73-4B57-BC63-D351B079AFF0 - d590480d8733be8f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #5 @Sendable (Foundation.Notification) -&gt; () in iPyDE.VCInTabExtension.onInitialize(app: iPyDE.MainApp, contribution: iPyDE.CodeAppExtension.Contribution) -&gt; ()"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/VCInTabExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "219"
-                  endingLineNumber = "219"
-                  offsetFromSymbolStart = "440">
-               </Location>
-               <Location
-                  uuid = "7CB36355-9D73-4B57-BC63-D351B079AFF0 - 44e7b9ffe6ad3c24"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #5 @Sendable (Foundation.Notification) -&gt; () in Python3IDE.VCInTabExtension.onInitialize(app: Python3IDE.MainApp, contribution: Python3IDE.CodeAppExtension.Contribution) -&gt; ()"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/VCInTabExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "219"
-                  endingLineNumber = "219"
-                  offsetFromSymbolStart = "440">
-               </Location>
-               <Location
-                  uuid = "7CB36355-9D73-4B57-BC63-D351B079AFF0 - 44e7b9ffe6ad3c24"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #5 @Sendable (Foundation.Notification) -&gt; () in Python3IDE.VCInTabExtension.onInitialize(app: Python3IDE.MainApp, contribution: Python3IDE.CodeAppExtension.Contribution) -&gt; ()"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/VCInTabExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "219"
-                  endingLineNumber = "219"
-                  offsetFromSymbolStart = "552">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "8B8DAF24-07A1-4323-ABFC-ACA3FD03BF34"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -2508,6 +2310,21 @@
                   endingLineNumber = "165"
                   offsetFromSymbolStart = "48">
                </Location>
+               <Location
+                  uuid = "130280DE-D954-45F3-98F8-C404DD35B993 - 80b1b23b63257f3f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.SKPaymentTransaction&gt;) -&gt; () in closure #4 (Swift.UnsafeContinuation&lt;Swift.Optional&lt;Swift.Bool&gt;, Swift.Error&gt;) -&gt; () in iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "165"
+                  endingLineNumber = "165"
+                  offsetFromSymbolStart = "48">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -2563,6 +2380,21 @@
                   continueAfterRunningActions = "No"
                   symbolName = "closure #5 @Swift.MainActor @Sendable () -&gt; () in Python3IDE.IapManager.purchase() async -&gt; Swift.Bool"
                   moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "175"
+                  endingLineNumber = "175"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "363B3C8A-25BF-41E2-AEDE-2BCC7028564B - 5698d71c1487f00"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 @Swift.MainActor @Sendable () -&gt; () in iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
                   startingColumnNumber = "9223372036854775807"
@@ -2754,6 +2586,81 @@
                   endingLineNumber = "175"
                   offsetFromSymbolStart = "40">
                </Location>
+               <Location
+                  uuid = "EA330F59-1CD6-4BFE-9F22-E43C430CB864 - f143dbfbd57ce54d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "174"
+                  endingLineNumber = "174"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "EA330F59-1CD6-4BFE-9F22-E43C430CB864 - 948cc7d4d4cce90a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(10) await resume partial function for iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "174"
+                  endingLineNumber = "174"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "EA330F59-1CD6-4BFE-9F22-E43C430CB864 - 26af96a91b72481b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "174"
+                  endingLineNumber = "174"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "EA330F59-1CD6-4BFE-9F22-E43C430CB864 - 8cb9d493596fb219"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(13) suspend resume partial function for iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "174"
+                  endingLineNumber = "174"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  uuid = "EA330F59-1CD6-4BFE-9F22-E43C430CB864 - 5698d71c1487f00"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 @Swift.MainActor @Sendable () -&gt; () in iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "175"
+                  endingLineNumber = "175"
+                  offsetFromSymbolStart = "40">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -2817,6 +2724,21 @@
                   endingLineNumber = "182"
                   offsetFromSymbolStart = "84">
                </Location>
+               <Location
+                  uuid = "4D43D83E-7F01-4C3A-A611-DF2BB305146D - 26af96a91b724b23"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for iPyDE.IapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "182"
+                  endingLineNumber = "182"
+                  offsetFromSymbolStart = "84">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -2865,6 +2787,21 @@
                   endingLineNumber = "195"
                   offsetFromSymbolStart = "44">
                </Location>
+               <Location
+                  uuid = "8FBE5B38-CE1D-45E7-BE2A-010576CA8CDB - 4bd733b2d8ece846"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in closure #2 (Swift.UnsafeContinuation&lt;Swift.Optional&lt;Swift.Bool&gt;, Swift.Error&gt;) -&gt; () in iPyDE.IapManager.restore() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
+                  offsetFromSymbolStart = "44">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -2905,6 +2842,21 @@
                   continueAfterRunningActions = "No"
                   symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #2 (Swift.UnsafeContinuation&lt;Swift.Optional&lt;Swift.Bool&gt;, Swift.Error&gt;) -&gt; () in Python3IDE.IapManager.restore() async -&gt; Swift.Bool"
                   moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "198"
+                  endingLineNumber = "198"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "16C510C5-5DA5-4C71-BE52-90B7D558A280 - ae2fe361d5e71db0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #2 (Swift.UnsafeContinuation&lt;Swift.Optional&lt;Swift.Bool&gt;, Swift.Error&gt;) -&gt; () in iPyDE.IapManager.restore() async -&gt; Swift.Bool"
+                  moduleName = "iPyDE"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/iap/IAPView.swift"
                   startingColumnNumber = "9223372036854775807"
@@ -3104,54 +3056,6 @@
                   startingLineNumber = "725"
                   endingLineNumber = "725"
                   offsetFromSymbolStart = "304">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2E2E5AF7-50DE-4EB4-8CB0-AC01768F4A48"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
-            landmarkName = "clientReqCommands(commands:)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "2E2E5AF7-50DE-4EB4-8CB0-AC01768F4A48 - 4bbe36a774469da4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #4 (Swift.Optional&lt;Foundation.UUID&gt;, Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in pydeCommon.clientReqCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "211"
-                  endingLineNumber = "211"
-                  offsetFromSymbolStart = "308">
-               </Location>
-               <Location
-                  uuid = "2E2E5AF7-50DE-4EB4-8CB0-AC01768F4A48 - 4bbe36a774469da4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #4 (Swift.Optional&lt;Foundation.UUID&gt;, Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;) -&gt; () in pydeCommon.clientReqCommands(commands: Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Int32"
-                  moduleName = "pydeCommon"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "211"
-                  endingLineNumber = "211"
-                  offsetFromSymbolStart = "348">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -4430,300 +4334,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3D172E14-CFA9-416A-A931-121E1A4ED219"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "pydeApp/Components/jupyter/JupyterContainer.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "3D172E14-CFA9-416A-A931-121E1A4ED219 - eb72392a070b982a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.Color in closure #3 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.Color&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ListStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in iPyDE.JupyterContainer.body.getter : some"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/jupyter/JupyterContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "155"
-                  endingLineNumber = "155"
-                  offsetFromSymbolStart = "344">
-               </Location>
-               <Location
-                  uuid = "3D172E14-CFA9-416A-A931-121E1A4ED219 - eb72392a070b982a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.Color in closure #3 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.Color&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ListStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in iPyDE.JupyterContainer.body.getter : some"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/jupyter/JupyterContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "155"
-                  endingLineNumber = "155"
-                  offsetFromSymbolStart = "364">
-               </Location>
-               <Location
-                  uuid = "3D172E14-CFA9-416A-A931-121E1A4ED219 - eb72392a070b9855"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.Color in closure #3 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.Color&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ListStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in iPyDE.JupyterContainer.body.getter : some"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/jupyter/JupyterContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "154"
-                  endingLineNumber = "154"
-                  offsetFromSymbolStart = "352">
-               </Location>
-               <Location
-                  uuid = "3D172E14-CFA9-416A-A931-121E1A4ED219 - eb72392a070b9855"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.Color in closure #3 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.Color&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ListStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in iPyDE.JupyterContainer.body.getter : some"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/jupyter/JupyterContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "154"
-                  endingLineNumber = "154"
-                  offsetFromSymbolStart = "372">
-               </Location>
-               <Location
-                  uuid = "3D172E14-CFA9-416A-A931-121E1A4ED219 - 6fea424f965c5912"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.Color in closure #3 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.Color&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ListStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in Python3IDE.JupyterContainer.body.getter : some"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/jupyter/JupyterContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "154"
-                  endingLineNumber = "154"
-                  offsetFromSymbolStart = "352">
-               </Location>
-               <Location
-                  uuid = "3D172E14-CFA9-416A-A931-121E1A4ED219 - 6fea424f965c5912"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.Color in closure #3 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.Color&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ListStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in Python3IDE.JupyterContainer.body.getter : some"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/jupyter/JupyterContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "154"
-                  endingLineNumber = "154"
-                  offsetFromSymbolStart = "372">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C9E330C3-E016-4E55-A795-2D5E20A5DAB3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "pydeApp/Components/jupyter/JupyterContainer.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "C9E330C3-E016-4E55-A795-2D5E20A5DAB3 - eb72392a070b9874"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.Color in closure #3 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.Color&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ListStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in iPyDE.JupyterContainer.body.getter : some"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/jupyter/JupyterContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "153"
-                  endingLineNumber = "153"
-                  offsetFromSymbolStart = "152">
-               </Location>
-               <Location
-                  uuid = "C9E330C3-E016-4E55-A795-2D5E20A5DAB3 - eb72392a070b9897"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.Color in closure #3 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.Color&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ListStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in iPyDE.JupyterContainer.body.getter : some"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/jupyter/JupyterContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "152"
-                  endingLineNumber = "152"
-                  offsetFromSymbolStart = "144">
-               </Location>
-               <Location
-                  uuid = "C9E330C3-E016-4E55-A795-2D5E20A5DAB3 - eb72392a070b9897"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.Color in closure #3 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.Color&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ListStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in iPyDE.JupyterContainer.body.getter : some"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/jupyter/JupyterContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "152"
-                  endingLineNumber = "152"
-                  offsetFromSymbolStart = "164">
-               </Location>
-               <Location
-                  uuid = "C9E330C3-E016-4E55-A795-2D5E20A5DAB3 - 6fea424f965c59d0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.Color in closure #3 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.Color&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ListStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in Python3IDE.JupyterContainer.body.getter : some"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/jupyter/JupyterContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "152"
-                  endingLineNumber = "152"
-                  offsetFromSymbolStart = "144">
-               </Location>
-               <Location
-                  uuid = "C9E330C3-E016-4E55-A795-2D5E20A5DAB3 - 6fea424f965c59d0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.Color in closure #3 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.Color&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ListStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in Python3IDE.JupyterContainer.body.getter : some"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/jupyter/JupyterContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "152"
-                  endingLineNumber = "152"
-                  offsetFromSymbolStart = "164">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DF6E340E-D1BC-4444-8EC1-F80436288CCA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "pydeApp/Components/jupyter/JupyterContainer.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "DF6E340E-D1BC-4444-8EC1-F80436288CCA - eb72392a070b9897"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.Color in closure #3 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.Color&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ListStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in iPyDE.JupyterContainer.body.getter : some"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/jupyter/JupyterContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "152"
-                  endingLineNumber = "152"
-                  offsetFromSymbolStart = "128">
-               </Location>
-               <Location
-                  uuid = "DF6E340E-D1BC-4444-8EC1-F80436288CCA - eb72392a070b9897"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.Color in closure #3 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.Color&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ListStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in iPyDE.JupyterContainer.body.getter : some"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/jupyter/JupyterContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "152"
-                  endingLineNumber = "152"
-                  offsetFromSymbolStart = "144">
-               </Location>
-               <Location
-                  uuid = "DF6E340E-D1BC-4444-8EC1-F80436288CCA - eb72392a070b9897"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.Color in closure #3 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.Color&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ListStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in iPyDE.JupyterContainer.body.getter : some"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/jupyter/JupyterContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "152"
-                  endingLineNumber = "152"
-                  offsetFromSymbolStart = "164">
-               </Location>
-               <Location
-                  uuid = "DF6E340E-D1BC-4444-8EC1-F80436288CCA - 6fea424f965c59d0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.Color in closure #3 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.Color&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ListStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in Python3IDE.JupyterContainer.body.getter : some"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/jupyter/JupyterContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "152"
-                  endingLineNumber = "152"
-                  offsetFromSymbolStart = "144">
-               </Location>
-               <Location
-                  uuid = "DF6E340E-D1BC-4444-8EC1-F80436288CCA - 6fea424f965c59d0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (SwiftUI.GeometryProxy) -&gt; SwiftUI.Color in closure #3 () -&gt; SwiftUI.GeometryReader&lt;SwiftUI.Color&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.listRowBackground&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(Swift.Optional&lt;&#x3c4;_1_0&gt;) -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.background&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(alignment: SwiftUI.Alignment, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 (SwiftUI.GeometryProxy) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listStyle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.ListStyle&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0 in Python3IDE.JupyterContainer.body.getter : some"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Components/jupyter/JupyterContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "152"
-                  endingLineNumber = "152"
-                  offsetFromSymbolStart = "164">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "91B79FCE-EAB7-4149-8685-AF2FB4659318"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -5205,144 +4815,6 @@
                   startingLineNumber = "1065"
                   endingLineNumber = "1065"
                   offsetFromSymbolStart = "376">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E8820DF2-2660-46E7-9B4F-E03FF7E0ADB0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../CodeApp/Managers/FileSystem/WorkSpaceStorage.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "467"
-            endingLineNumber = "467"
-            landmarkName = "fileExists(at:completionHandler:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E8820DF2-2660-46E7-9B4F-E03FF7E0ADB0 - d510d74c330970a4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iPyDE.WorkSpaceStorage.fileExists(at: Foundation.URL, completionHandler: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/CodeApp/Managers/FileSystem/WorkSpaceStorage.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "467"
-                  endingLineNumber = "467"
-                  offsetFromSymbolStart = "148">
-               </Location>
-               <Location
-                  uuid = "E8820DF2-2660-46E7-9B4F-E03FF7E0ADB0 - d510d74c330970a4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iPyDE.WorkSpaceStorage.fileExists(at: Foundation.URL, completionHandler: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/CodeApp/Managers/FileSystem/WorkSpaceStorage.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "467"
-                  endingLineNumber = "467"
-                  offsetFromSymbolStart = "308">
-               </Location>
-               <Location
-                  uuid = "E8820DF2-2660-46E7-9B4F-E03FF7E0ADB0 - d510d74c330970a4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iPyDE.WorkSpaceStorage.fileExists(at: Foundation.URL, completionHandler: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/CodeApp/Managers/FileSystem/WorkSpaceStorage.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "467"
-                  endingLineNumber = "467"
-                  offsetFromSymbolStart = "164">
-               </Location>
-               <Location
-                  uuid = "E8820DF2-2660-46E7-9B4F-E03FF7E0ADB0 - d510d74c330970a4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iPyDE.WorkSpaceStorage.fileExists(at: Foundation.URL, completionHandler: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/CodeApp/Managers/FileSystem/WorkSpaceStorage.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "467"
-                  endingLineNumber = "467"
-                  offsetFromSymbolStart = "324">
-               </Location>
-               <Location
-                  uuid = "E8820DF2-2660-46E7-9B4F-E03FF7E0ADB0 - 86f0f7e1ed153b6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Python3IDE.WorkSpaceStorage.fileExists(at: Foundation.URL, completionHandler: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/CodeApp/Managers/FileSystem/WorkSpaceStorage.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "467"
-                  endingLineNumber = "467"
-                  offsetFromSymbolStart = "148">
-               </Location>
-               <Location
-                  uuid = "E8820DF2-2660-46E7-9B4F-E03FF7E0ADB0 - 86f0f7e1ed153b6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Python3IDE.WorkSpaceStorage.fileExists(at: Foundation.URL, completionHandler: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/CodeApp/Managers/FileSystem/WorkSpaceStorage.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "467"
-                  endingLineNumber = "467"
-                  offsetFromSymbolStart = "308">
-               </Location>
-               <Location
-                  uuid = "E8820DF2-2660-46E7-9B4F-E03FF7E0ADB0 - 86f0f7e1ed153b6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Python3IDE.WorkSpaceStorage.fileExists(at: Foundation.URL, completionHandler: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/CodeApp/Managers/FileSystem/WorkSpaceStorage.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "467"
-                  endingLineNumber = "467"
-                  offsetFromSymbolStart = "164">
-               </Location>
-               <Location
-                  uuid = "E8820DF2-2660-46E7-9B4F-E03FF7E0ADB0 - 86f0f7e1ed153b6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Python3IDE.WorkSpaceStorage.fileExists(at: Foundation.URL, completionHandler: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/CodeApp/Managers/FileSystem/WorkSpaceStorage.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "467"
-                  endingLineNumber = "467"
-                  offsetFromSymbolStart = "324">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -5859,429 +5331,6 @@
                   startingLineNumber = "349"
                   endingLineNumber = "349"
                   offsetFromSymbolStart = "448">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D6680C0A-56E6-4DC0-9057-64CE2F280F3A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
-            landmarkName = "download()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D6680C0A-56E6-4DC0-9057-64CE2F280F3A - 195c0f5cc7fc5f80"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.download() -&gt; ()"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "189"
-                  endingLineNumber = "189"
-                  offsetFromSymbolStart = "768">
-               </Location>
-               <Location
-                  uuid = "D6680C0A-56E6-4DC0-9057-64CE2F280F3A - 967a5081d2312d1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.download() -&gt; ()"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "189"
-                  endingLineNumber = "189"
-                  offsetFromSymbolStart = "768">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1A5CDDA2-9156-4B24-82E7-BEC564E4DD50"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "382"
-            endingLineNumber = "382"
-            landmarkName = "succeeded(fromRunning:immediately:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1A5CDDA2-9156-4B24-82E7-BEC564E4DD50 - aad507dbbcab9354"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.succeeded(fromRunning: Swift.Bool, immediately: Swift.Bool) -&gt; ()"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "382"
-                  endingLineNumber = "382"
-                  offsetFromSymbolStart = "1392">
-               </Location>
-               <Location
-                  uuid = "1A5CDDA2-9156-4B24-82E7-BEC564E4DD50 - aad507dbbcab9354"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.succeeded(fromRunning: Swift.Bool, immediately: Swift.Bool) -&gt; ()"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "382"
-                  endingLineNumber = "382"
-                  offsetFromSymbolStart = "844">
-               </Location>
-               <Location
-                  uuid = "1A5CDDA2-9156-4B24-82E7-BEC564E4DD50 - baeead8f6674de05"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.succeeded(fromRunning: Swift.Bool, immediately: Swift.Bool) -&gt; ()"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "382"
-                  endingLineNumber = "382"
-                  offsetFromSymbolStart = "844">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C1A4BF37-6B1B-46EC-9B7D-6FFAB52D52D4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "353"
-            endingLineNumber = "353"
-            landmarkName = "genFileName(_:_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C1A4BF37-6B1B-46EC-9B7D-6FFAB52D52D4 - cae8b001a649c2c1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.genFileName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "354"
-                  endingLineNumber = "354"
-                  offsetFromSymbolStart = "580">
-               </Location>
-               <Location
-                  uuid = "C1A4BF37-6B1B-46EC-9B7D-6FFAB52D52D4 - cae8b001a649c2a2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.genFileName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "353"
-                  endingLineNumber = "353"
-                  offsetFromSymbolStart = "252">
-               </Location>
-               <Location
-                  uuid = "C1A4BF37-6B1B-46EC-9B7D-6FFAB52D52D4 - dad31a557c968ff3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.genFileName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "353"
-                  endingLineNumber = "353"
-                  offsetFromSymbolStart = "252">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "64168456-71F8-4FAF-B500-186E0C7FFF42"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "363"
-            endingLineNumber = "363"
-            landmarkName = "genFileName(_:_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "64168456-71F8-4FAF-B500-186E0C7FFF42 - cae8b001a649c018"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.genFileName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "363"
-                  endingLineNumber = "363"
-                  offsetFromSymbolStart = "2464">
-               </Location>
-               <Location
-                  uuid = "64168456-71F8-4FAF-B500-186E0C7FFF42 - cae8b001a649c018"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.genFileName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "363"
-                  endingLineNumber = "363"
-                  offsetFromSymbolStart = "1208">
-               </Location>
-               <Location
-                  uuid = "64168456-71F8-4FAF-B500-186E0C7FFF42 - cae8b001a649c018"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.genFileName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "363"
-                  endingLineNumber = "363"
-                  offsetFromSymbolStart = "1212">
-               </Location>
-               <Location
-                  uuid = "64168456-71F8-4FAF-B500-186E0C7FFF42 - dad31a557c968d49"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.genFileName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "363"
-                  endingLineNumber = "363"
-                  offsetFromSymbolStart = "1208">
-               </Location>
-               <Location
-                  uuid = "64168456-71F8-4FAF-B500-186E0C7FFF42 - dad31a557c968d49"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.genFileName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "363"
-                  endingLineNumber = "363"
-                  offsetFromSymbolStart = "1212">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8506BDF3-B7F3-49DF-B016-9DDF4988A85A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "367"
-            endingLineNumber = "367"
-            landmarkName = "genFileName(_:_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8506BDF3-B7F3-49DF-B016-9DDF4988A85A - cae8b001a649c094"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.genFileName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "367"
-                  endingLineNumber = "367"
-                  offsetFromSymbolStart = "2244">
-               </Location>
-               <Location
-                  uuid = "8506BDF3-B7F3-49DF-B016-9DDF4988A85A - cae8b001a649c094"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.genFileName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "367"
-                  endingLineNumber = "367"
-                  offsetFromSymbolStart = "2268">
-               </Location>
-               <Location
-                  uuid = "8506BDF3-B7F3-49DF-B016-9DDF4988A85A - dad31a557c968dc5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.genFileName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "367"
-                  endingLineNumber = "367"
-                  offsetFromSymbolStart = "2244">
-               </Location>
-               <Location
-                  uuid = "8506BDF3-B7F3-49DF-B016-9DDF4988A85A - dad31a557c968dc5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.genFileName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "367"
-                  endingLineNumber = "367"
-                  offsetFromSymbolStart = "2268">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "31A0AAA6-102D-463A-9E40-B0C19F2E49E3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "370"
-            endingLineNumber = "370"
-            landmarkName = "genFileName(_:_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "31A0AAA6-102D-463A-9E40-B0C19F2E49E3 - cae8b001a649c0f1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.genFileName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "370"
-                  endingLineNumber = "370"
-                  offsetFromSymbolStart = "2340">
-               </Location>
-               <Location
-                  uuid = "31A0AAA6-102D-463A-9E40-B0C19F2E49E3 - cae8b001a649c0f1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.genFileName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "iPyDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "370"
-                  endingLineNumber = "370"
-                  offsetFromSymbolStart = "2364">
-               </Location>
-               <Location
-                  uuid = "31A0AAA6-102D-463A-9E40-B0C19F2E49E3 - dad31a557c968da0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.genFileName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "370"
-                  endingLineNumber = "370"
-                  offsetFromSymbolStart = "2340">
-               </Location>
-               <Location
-                  uuid = "31A0AAA6-102D-463A-9E40-B0C19F2E49E3 - dad31a557c968da0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tiercel.DownloadTask.genFileName(Swift.String, Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/Tiercel/Sources/General/DownloadTask.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "370"
-                  endingLineNumber = "370"
-                  offsetFromSymbolStart = "2364">
                </Location>
             </Locations>
          </BreakpointContent>

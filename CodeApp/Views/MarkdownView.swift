@@ -14,7 +14,7 @@ struct SimpleMarkDownView: UIViewRepresentable {
     var text: String
 
     func updateUIView(_ uiView: MarkdownView, context: Context) {
-        uiView.changeBackgroundColor(color: UIColor(id: "editor.background"))
+//        uiView.changeBackgroundColor(color: UIColor(id: "editor.background"))
     }
 
     func makeUIView(context: Context) -> MarkdownView {
@@ -61,7 +61,7 @@ struct WelcomeView: UIViewRepresentable {
     let onNavigateToCloneSection: () -> Void
 
     func updateUIView(_ uiView: MarkdownView, context: Context) {
-        uiView.changeBackgroundColor(color: UIColor(Color.init(id: "editor.background")))
+//        uiView.changeBackgroundColor(color: UIColor(Color.init(id: "editor.background")))
         return
     }
 
@@ -107,7 +107,7 @@ struct WelcomeView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> MarkdownView {
         let md = MarkdownView()
-        md.changeBackgroundColor(color: UIColor(Color.init(id: "editor.background")))
+//        md.changeBackgroundColor(color: UIColor(Color.init(id: "editor.background")))
         md.onTouchLink = { request in
             guard let url = request.url else { return false }
 

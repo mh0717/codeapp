@@ -73,10 +73,12 @@ class MainApp: ObservableObject {
     let alertManager = AlertManager()
     let safariManager = SafariManager()
     #if PYDEAPP
+    @Published var pyapp = PYApp()
+    private var pyappCancellable: AnyCancellable? = nil
     let popupManager = PopupManager()
     @Published var tagsModel = TagsModel()
-    let gitHistoryInstance = GitWebView()
-    let gitDiffInstance = GitWebView()
+//    let gitHistoryInstance = GitWebView()
+//    let gitDiffInstance = GitWebView()
     
     @AppStorage("codeEditor") var codeEditor = "PYCode Editor"
     #endif
@@ -216,6 +218,11 @@ class MainApp: ObservableObject {
         }
         
         #if PYDEAPP
+        pyapp.App = self
+        pyappCancellable = pyapp.objectWillChange.sink { [weak self] (_) in
+            self?.objectWillChange.send()
+        }
+        
         Timer.scheduledTimer(withTimeInterval: 5, repeats: true) {[weak self] timer in
             guard let self else {
                 timer.invalidate()
@@ -224,6 +231,10 @@ class MainApp: ObservableObject {
             Task {
                 await self.saveCurrentFile()
             }
+        }
+        
+        NotificationCenter.default.addObserver(forName: .init("MainAppForeceUpdate"), object: nil, queue: nil) { [weak self] _ in
+            self?.objectWillChange.send()
         }
         #endif
     }
@@ -393,11 +404,16 @@ class MainApp: ObservableObject {
             itemID: "DOWNLOAD",
             iconSystemName: "square.and.arrow.down",
             title: "Download",
-            view: AnyView(DownloadContainer())) {
-                nil
-            } isVisible: {
-                true
-            }
+            view: AnyView(DownloadContainer()),
+            bubble: {
+                let manager = DownloadManager.instance
+                if manager.totalCount() > 0 {
+                    return .text("\(manager.totalSucceedCount())/\(manager.totalCount())")
+                }
+                return nil
+            },
+            isVisible: {true}
+        )
         extensionManager.activityBarManager.registerItem(item: download)
 
         #endif
@@ -1249,6 +1265,50 @@ class MainApp: ObservableObject {
         if let existingEditor = try? openEditorForURL(url: url) {
             return existingEditor
         }
+        #if PYDEAPP
+        if ["md", "markdown"].contains(url.pathExtension.lowercased()), url.isContained(in: Bundle.main.bundleURL) || url.isContained(in: ConstantManager.EXAMPLES) {
+            let contentData: Data? = try await workSpaceStorage.contents(
+                at: url
+            )
+
+            if let contentData, let (content, _) = try? decodeStringData(data: contentData) {
+                let editor = MarkdownEditorInstance(url: url , content: content, title: url.lastPathComponent)
+                appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+                return editor
+            }
+            
+        }
+        if ["html", "html", "shtml"].contains(url.pathExtension.lowercased()), url.isContained(in: Bundle.main.bundleURL) || url.isContained(in: ConstantManager.EXAMPLES) {
+            let editor = PYWebEditorInstance(url)
+            appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+            return editor
+        }
+        
+        if !url.isFileURL {
+            let editor = PYWebEditorInstance(url)
+            appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+            return editor
+        }
+        
+        do {
+            let textEditor = try await createTextEditorFromURL(url: url)
+            appendAndFocusNewEditor(editor: textEditor, alwaysInNewTab: alwaysInNewTab)
+            return textEditor
+        } catch NSFileProviderError.serverUnreachable {
+            throw NSFileProviderError(.serverUnreachable)
+        } catch {
+            // Otherwise, fallback to using extensions
+            if let editor = try? createExtensionEditorFromURL(url: url) {
+                appendAndFocusNewEditor(editor: editor, alwaysInNewTab: alwaysInNewTab)
+                return editor
+            }
+            
+            let vc = QuickPreviewController(url)
+            let editor = VCInTabEditorInstance(url: url, title: url.lastPathComponent, vc: vc)
+            appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+            return editor
+        }
+        #endif
         // TODO: Avoid reading the same file twice
         do {
             let textEditor = try await createTextEditorFromURL(url: url)

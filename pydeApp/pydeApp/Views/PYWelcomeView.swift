@@ -7,6 +7,55 @@
 
 import SwiftUI
 import MarkdownView
+import MarkdownUI
+
+struct PYWelcomeView2: View {
+    @State var content = ""
+    
+    let onCreateNewFile: () -> Void
+    let onSelectFolderAsWorkspaceStorage: (URL) -> Void
+    let onSelectFolder: () -> Void
+    let onSelectFile: () -> Void
+    let onNavigateToCloneSection: () -> Void
+    
+    func prepare() {
+        var content = NSLocalizedString("Welcome Message", comment: "")
+        if let datas = UserDefaults.standard.value(forKey: "recentFolder") as? [Data] {
+            var recentFolders = "\n"
+
+            for i in datas.indices.reversed() {
+                var isStale = false
+                if let newURL = try? URL(
+                    resolvingBookmarkData: datas[i], bookmarkDataIsStale: &isStale)
+                {
+                    recentFolders =
+                        "\n[\(newURL.lastPathComponent)](https://ipyde.com/ipyde/previousFolder/\(i))"
+                        + recentFolders
+                }
+            }
+            content = content.replacingOccurrences(
+                of: "(https://ipyde.com/ipyde/openfolder)",
+                with:
+                    "(https://ipyde.com/ipyde/openfolder)\n\n#### \(NSLocalizedString("Recent", comment: ""))"
+                    + recentFolders)
+        }
+        self.content = content
+    }
+    
+    var body: some View {
+        Markdown(content).onAppear {
+            prepare()
+        }.textSelection(.enabled)
+            .markdownTheme(.gitHub)
+            // Some themes may have a custom background color that we need to set as
+//            // the row's background color.
+//            .listRowBackground(MarkdownUI.Theme.gitHub.textBackgroundColor)
+//            // By resetting the state when the theme changes, we avoid mixing the
+//            // the previous theme block spacing preferences with the new theme ones,
+//            // which can only happen in this particular use case.
+//            .id(Theme.gitHub.name)
+    }
+}
 
 struct PYWelcomeView: UIViewRepresentable {
     @EnvironmentObject var themeManager: ThemeManager

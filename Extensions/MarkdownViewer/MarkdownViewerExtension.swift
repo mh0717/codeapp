@@ -11,15 +11,49 @@ import SwiftUI
 // TODO: Localization
 
 private struct MarkdownPreview: UIViewRepresentable {
+    @EnvironmentObject var App: MainApp
 
     weak var view: MarkdownView?
 
     func updateUIView(_ uiView: MarkdownView, context: Context) {
-        uiView.changeBackgroundColor(color: UIColor(id: "editor.background"))
+//        uiView.changeBackgroundColor(color: UIColor(id: "editor.background"))
     }
 
     func makeUIView(context: Context) -> MarkdownView {
-        return view ?? MarkdownView()
+        let mdview = view ?? MarkdownView()
+        mdview.onTouchLink = { req in
+            guard let url = req.url else {return false}
+            
+            App.pyapp.openUrl(url)
+            return false
+            
+//            if url.scheme == "file" {
+//                App.openFile(url: url, alwaysInNewTab: true)
+//                return false
+//            }
+//            
+//            if url.scheme == "jupyter-notebook" {
+//                JupyterExtension.jupyterManager.openNotebook(URL(string: App.workSpaceStorage.currentDirectory.url))
+//                return false
+//            }
+//            
+//            if url.scheme == "dlhttp" || url.scheme == "dlhttps" {
+//                let str = url.absoluteString.replacingFirstOccurrence(of: "dlhttp", with: "http")
+//                if let url = URL(string: str) {
+//                    DownloadManager.instance.download(url)
+//                    App.notificationManager.showInformationMessage("Downloading %@", url.absoluteString)
+//                }
+//                return false
+//            }
+//            
+//            if url.scheme == "http" || url.scheme == "https" || url.scheme == "ftp" {
+//                let editor = PYWebEditorInstance(url)
+//                App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+//            } else {
+//                UIApplication.shared.open(url)
+//            }
+        }
+        return mdview
     }
 }
 

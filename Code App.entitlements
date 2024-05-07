@@ -10,6 +10,7 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
+		<string>group.com.mh.iPyDE</string>
 		<string>group.com.mh.Python3IDE</string>
 	</array>
 	<key>com.apple.security.network.client</key>

@@ -11,6 +11,7 @@ import SwiftUI
 import Combine
 import pydeCommon
 import pyde
+import UniformTypeIdentifiers
 
 let DidRunPipNotificationName = Notification.Name("DidRunPipNotification")
 
@@ -225,13 +226,33 @@ private var pypiFirstFetched = false
 public struct PyPiView: View {
     @State var updating = [String]()
     @ObservedObject var pipManager = pipModelManager
+    @EnvironmentObject var App: MainApp
     
     public var body: some View {
         List {
             Section {
                 PYSearchBar(text: $pipManager.queryString)
             } header: {
-                Text("Pip")
+                HStack{
+                    Text("Pip")
+                    Spacer()
+                    Menu {
+                        Button("Install Wheel", systemImage: "arrow.down.to.line.compact") {
+                            let types = [UTType(filenameExtension: "whl")!]
+                            let picker = FilePickerView(onOpen: { url in
+                                WheelExtensionManager.install(url, app: App)
+                            }, allowedTypes: types)
+                            App.popupManager.showSheet(content: AnyView(picker))
+                        }
+                        
+                    } label: {
+                        Image(systemName: "ellipsis").font(.system(size: 17))
+                            .foregroundColor(Color.init("T1"))
+                            .padding(5)
+                            .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                            .hoverEffect(.highlight)
+                    }
+                }
             }.listRowSeparator(.hidden).listRowBackground(Color.clear)
             
             if !pipManager.queryString.isEmpty {
