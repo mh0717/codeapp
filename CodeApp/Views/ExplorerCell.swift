@@ -180,7 +180,7 @@ private struct FileCell: View {
     }
 }
 
-private struct FolderCell: View {
+struct FolderCell: View {
 
     @EnvironmentObject var App: MainApp
     @EnvironmentObject var themeManager: ThemeManager

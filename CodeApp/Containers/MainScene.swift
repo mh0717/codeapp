@@ -192,14 +192,16 @@ private struct MainView: View {
                         if horizontalSizeClass == .regular {
                             #if PYDEAPP
                             if isSideBarVisible {
-                                VStack(spacing: 0) {
-                                
-                                    PYActivityBar(togglePanel: openConsolePanel)
-                                        .environmentObject(extensionManager.activityBarManager)
-                                    
-                                    RegularSidebar(windowWidth: geometry.size.width)
-                                        .environmentObject(extensionManager.activityBarManager)
-                                }.fixedSize(horizontal: true, vertical: false)
+//                                VStack(spacing: 0) {
+//                                
+//                                    PYActivityBar(togglePanel: openConsolePanel)
+//                                        .environmentObject(extensionManager.activityBarManager)
+//                                    
+//                                    RegularSidebar(windowWidth: geometry.size.width)
+//                                        .environmentObject(extensionManager.activityBarManager)
+//                                }.fixedSize(horizontal: true, vertical: false)
+                                PYSideMenu(activeType: .main, openConsolePanel: openConsolePanel, isRegular: true, windowWidth: geometry.size.width)
+                                    .environmentObject(extensionManager.activityBarManager)
                             }
                             #else
                             ActivityBar(togglePanel: openConsolePanel)
@@ -264,7 +266,9 @@ private struct MainView: View {
 
                             if isSideBarVisible && horizontalSizeClass == .compact {
                                 #if PYDEAPP
-                                PYCompactSidebar()
+//                                PYCompactSidebar()
+//                                    .environmentObject(extensionManager.activityBarManager)
+                                PYSideMenu(activeType: .main, openConsolePanel: openConsolePanel, isRegular: false, windowWidth: geometry.size.width)
                                     .environmentObject(extensionManager.activityBarManager)
                                 #else
                                 CompactSidebar()
@@ -330,16 +334,44 @@ private struct MainView: View {
             }
         }
         #if PYDEAPP
-        .sideMenu(isEnabled: $isSideBarVisible.mappedToNot(),
-            isShowing: $isLeftDrawerShowing, menuContent: {
-            Color.init(id: "sideBar.background")
-            VStack(spacing: 0) {
-                PYActivityBar(togglePanel: openConsolePanel)
+        .twoSideMenu(
+//            isEnabled: $isSideBarVisible.mappedToNot(),
+            isEnabled: .constant(true),
+            isShowing: $App.pyapp.leftSideShow,
+            isRightEnabled: .constant(true),
+            isRightShowing: $App.pyapp.rightSideShow,
+            menuContent: {
+//                VStack(spacing: 0) {
+//                    PYActivityBar(togglePanel: openConsolePanel)
+//                        .environmentObject(extensionManager.activityBarManager)
+//                    
+//                    PYSidebar()
+//                }.background(Color.init(id: "sideBar.background").edgesIgnoringSafeArea(.all))
+//                    .accentColor(Color.init(id: "activityBar.inactiveForeground"))
+//                    .hiddenScrollableContentBackground()
+                PYSideMenu(activeType: .side, openConsolePanel: openConsolePanel, isRegular: false, windowWidth: 1024)
                     .environmentObject(extensionManager.activityBarManager)
-                
-                PYSidebar()
-            }
-        })
+            },
+            rightMenu: {
+                List {
+                    OnlyExplorerFileTreeSection(storage: App.pyapp.docStorage)
+                }.background(Color.init(id: "sideBar.background").edgesIgnoringSafeArea(.all))
+                    .accentColor(Color.init(id: "activityBar.inactiveForeground"))
+                    .hiddenScrollableContentBackground()
+            })
+//        .sideMenu(isEnabled: $isSideBarVisible.mappedToNot(),
+//            isShowing: $isLeftDrawerShowing, menuContent: {
+//            Color.init(id: "sideBar.background").edgesIgnoringSafeArea(.all)
+//            VStack(spacing: 0) {
+//                PYActivityBar(togglePanel: openConsolePanel)
+//                    .environmentObject(extensionManager.activityBarManager)
+//                
+//                PYSidebar()
+//            }.background(Color.init(id: "sideBar.background").edgesIgnoringSafeArea(.all))
+//                .accentColor(Color.init(id: "activityBar.inactiveForeground"))
+//                .hiddenSystemOverlays()
+//                .hiddenScrollableContentBackground()
+//        })
         .fullScreenCover(isPresented: $popupManager.showCover) {
             popupManager.coverContent
         }

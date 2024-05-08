@@ -9,13 +9,26 @@ import Foundation
 import SwiftUI
 import pydeCommon
 import ios_system
+import Combine
 
 class PYApp: ObservableObject {
     
     weak var App: MainApp?
     
+    @Published var leftSideShow = false
+    @Published var rightSideShow = false
+    
+    
     @Published var showAddressbar = false
     @Published var addressUrl = ""
+    
+    let docStorage = WorkSpaceStorage(url: ConstantManager.EXAMPLES)
+    
+    let jupyterManager = JupyterExtension.jupyterManager
+    let downloadManager = DownloadManager.instance
+    let pipManager = pipModelManager
+    
+    private var jupyterCancellable: AnyCancellable? = nil
     
     init() {
         NotificationCenter.default.addObserver(forName: .init("UI_OPEN_FILE_IN_TAB"), object: nil, queue: nil) { [weak self] notify in
@@ -23,11 +36,80 @@ class PYApp: ObservableObject {
             
             self?.openUrl(url)
         }
+        
+        jupyterCancellable = jupyterManager.objectWillChange.sink { [weak self] (_) in
+            self?.objectWillChange.send()
+        }
+    }
+    
+    func onClone(urlString: String) async throws {
+        guard let App else {return}
+        guard let serviceProvider = App.workSpaceStorage.gitServiceProvider else {
+            throw SourceControlError.gitServiceProviderUnavailable
+        }
+        guard let gitURL = URL(string: urlString) else {
+            App.notificationManager.showErrorMessage("errors.source_control.invalid_url")
+            throw SourceControlError.invalidURL
+        }
+
+        let repo = gitURL.deletingPathExtension().lastPathComponent
+        guard
+            let dirURL = URL(
+                string: App.workSpaceStorage.currentDirectory.url)?
+                .appendingPathComponent(repo, isDirectory: true)
+        else {
+            throw SourceControlError.gitServiceProviderUnavailable
+        }
+
+        try FileManager.default.createDirectory(
+            atPath: dirURL.path, withIntermediateDirectories: true,
+            attributes: nil)
+
+        let progress = Progress(totalUnitCount: 100)
+        App.notificationManager.postProgressNotification(
+            title: "source_control.cloning_into",
+            progress: progress,
+            gitURL.absoluteString)
+
+        do {
+            try await serviceProvider.clone(from: gitURL, to: dirURL, progress: progress)
+            App.notificationManager.postActionNotification(
+                title: "source_control.clone_succeeded", level: .success,
+                primary: {
+                    App.loadFolder(url: dirURL)
+                }, primaryTitle: "common.open_folder", source: repo)
+        } catch {
+            let error = error as NSError
+            if error.code == LibGit2ErrorClass._GIT_ERROR_HTTP {
+                App.notificationManager.postActionNotification(
+                    title:
+                        "errors.source_control.clone_authentication_failed",
+                    level: .error,
+                    primary: {
+                        DispatchQueue.main.async {
+                            App.popupManager.showSheet(content: AnyView(NavigationView {
+                                SourceControlAuthenticationConfiguration()
+                            }))
+                        }
+                    }, primaryTitle: "common.configure",
+                    source: "source_control.title")
+            } else {
+                App.notificationManager.showErrorMessage(
+                    "source_control.error", error.localizedDescription)
+            }
+            throw error
+        }
     }
     
     
     func openUrl(_ url: URL) {
         guard let App else {return}
+        let url = url.standardizedFileURL
+        
+        if let editor = App.editors.first(where: {($0 as? EditorInstanceWithURL)?.url == url}) {
+            App.activeEditor = editor
+            return
+        }
         
         if FileManager.default.fileExists(atPath: url.path) {
             if url.isFileURL, url.path.contains("Jupyter/runtime/nbserver") {
@@ -114,6 +196,10 @@ class PYApp: ObservableObject {
                 }
             }
             return
+        }
+        
+        if url.scheme == "clhttp" || url.scheme == "clhttps" || url.scheme == "clssh" {
+            
         }
         
         

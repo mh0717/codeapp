@@ -341,7 +341,12 @@ class MainApp: ObservableObject {
                 modifiers: [.command, .shift],
                 view: AnyView(JupyterContainer(jupyterManager: JupyterExtension.jupyterManager).scrollBounceBehavior(.basedOnSize)),
                 contextMenuItems: nil,
-                bubble: {nil},
+                bubble: {
+                    if JupyterExtension.jupyterManager.running {
+                        return .text("")
+                    }
+                    return nil
+                },
                 isVisible: { true }
             )
         } else {
@@ -439,6 +444,14 @@ class MainApp: ObservableObject {
                     },
                     onNavigateToCloneSection: {
                         // TODO: Modify SceneStorage?
+                    }, 
+                    onExplorFolder: { url in
+                        self.openFile(url: url, alwaysInNewTab: true)
+//                        if let existEditor = self.editors.first(where: {($0 as? EditorInstanceWithURL)?.url == url}) {
+//                            return
+//                        }
+//                        let editor = OnlyExplorerFileEditorInstance(url)
+//                        self.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
                     }
                 )
 
@@ -1000,6 +1013,7 @@ class MainApp: ObservableObject {
             DispatchQueue.main.async {
                 self.closeAllEditors()
                 self.terminalInstance.resetAndSetNewRootDirectory(url: url)
+                self.showWelcomeMessage()
             }
         }
         extensionManager.onWorkSpaceStorageChanged(newUrl: url)
@@ -1278,6 +1292,18 @@ class MainApp: ObservableObject {
             }
             
         }
+        if ["pblink"].contains(url.pathExtension.lowercased()), url.isContained(in: Bundle.main.bundleURL) || url.isContained(in: ConstantManager.EXAMPLES) {
+            let contentData: Data? = try await workSpaceStorage.contents(
+                at: url
+            )
+
+            if let contentData, let (content, _) = try? decodeStringData(data: contentData), let url = URL(string: content) {
+                let editor = PYWebEditorInstance(url)
+                appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+                return editor
+            }
+            
+        }
         if ["html", "html", "shtml"].contains(url.pathExtension.lowercased()), url.isContained(in: Bundle.main.bundleURL) || url.isContained(in: ConstantManager.EXAMPLES) {
             let editor = PYWebEditorInstance(url)
             appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
@@ -1286,6 +1312,12 @@ class MainApp: ObservableObject {
         
         if !url.isFileURL {
             let editor = PYWebEditorInstance(url)
+            appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+            return editor
+        }
+        
+        if url.isDirectory {
+            let editor = OnlyExplorerFileEditorInstance(url)
             appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
             return editor
         }

@@ -109,6 +109,197 @@ public extension View {
     }
 }
 
+public struct TwoSideMenu<MenuContent: View, RightMenu: View>: ViewModifier {
+    @Binding var isShowing: Bool
+    @Binding var isEnabled: Bool
+    @Binding var isRightShowing: Bool
+    @Binding var isRightEnabled: Bool
+    
+    @State var width = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)
+    
+    @State var rightOffset = 320.0
+    
+    @State private var offset = -320.0
+    let sideWidth = 320.0
+    
+    
+    
+    
+    private let menuContent: () -> MenuContent
+    private let rightMenu: () -> RightMenu
+    
+    public init(isEnabled: Binding<Bool>, isShowing: Binding<Bool>, isRightEnabled: Binding<Bool>, isRightShowing: Binding<Bool>,
+                
+         @ViewBuilder menuContent: @escaping () -> MenuContent,
+                @ViewBuilder rightMenu: @escaping () -> RightMenu) {
+        _isEnabled = isEnabled
+        _isShowing = isShowing
+        _isRightEnabled = isRightEnabled
+        _isRightShowing = isRightShowing
+        self.menuContent = menuContent
+        self.rightMenu = rightMenu
+    }
+    
+    public func body(content: Content) -> some View {
+        let drag = DragGesture().onChanged({ event in
+            if isEnabled, !isRightShowing {
+                if !isShowing {
+                    if event.startLocation.x < 10 {
+                        offset =  min(max(event.location.x - sideWidth, -sideWidth), 0)
+                        
+                    }
+                } else {
+                    if event.startLocation.x >= sideWidth {
+                        
+                        offset = min(max(event.translation.width, -sideWidth), 0)
+                    }
+                }
+            }
+            
+            if isRightEnabled, !isShowing {
+                if !isRightShowing {
+                    if event.startLocation.x > width - 10 {
+                        rightOffset = min(width, max(width - sideWidth, event.location.x))
+                    }
+                } else {
+                    if event.startLocation.x < width - sideWidth {
+                        rightOffset =  min(width, max(width - sideWidth, width - sideWidth + event.translation.width))
+                    }
+                }
+            }
+            
+        }).onEnded { event in
+            
+            if isEnabled, !isShowing {
+                if offset >= -sideWidth * 0.7 {
+                    withAnimation {
+                        offset = 0
+                        isShowing = true
+                    }
+                    
+                } else {
+                    withAnimation {
+                        offset = -sideWidth
+                    }
+                    
+                }
+            }
+            
+            if isEnabled, isShowing {
+                if event.startLocation.x >= sideWidth, event.translation.width < 10 {
+                    withAnimation {
+                        isShowing = false
+                        offset = -sideWidth
+                    }
+                }
+                
+            }
+            
+            if isRightEnabled, !isRightShowing {
+                if rightOffset >= width - sideWidth * 0.3 {
+                    withAnimation {
+                        rightOffset = width
+                        isRightShowing = false
+                    }
+                } else {
+                    withAnimation {
+                        rightOffset = width - sideWidth
+                        isRightShowing = true
+                    }
+                }
+            }
+            
+            if isRightEnabled, isRightShowing {
+                if event.startLocation.x < width - sideWidth, event.translation.width > 10 {
+                    withAnimation {
+                        rightOffset = width
+                        isRightShowing = false
+                    }
+                } else {
+                    withAnimation {
+                        rightOffset = width - sideWidth
+                    }
+                }
+            }
+        }
+        
+        return GeometryReader { geometry in
+            if geometry.size.width != width {
+                DispatchQueue.main.async {
+                    width = geometry.size.width
+                    if isRightShowing {
+                        rightOffset = geometry.size.width - sideWidth
+                    } else {
+                        rightOffset = geometry.size.width
+                    }
+                }
+            }
+            let opacity = max(
+                (offset + sideWidth) / sideWidth * 0.6,
+                (width - rightOffset) / sideWidth * 0.6
+            )
+            return ZStack(alignment: .leading) {
+                content
+                
+                Color.black.ignoresSafeArea().opacity(opacity).onTapGesture {
+                    if isShowing {
+                        isShowing = false
+                    }
+                    if isRightShowing {
+                        isRightShowing = false
+                    }
+                }
+                
+                HStack{
+                    Color(UIColor.systemBackground).opacity(0.00001).frame(width: 10)
+                    Spacer()
+                    Color(UIColor.systemBackground).opacity(0.00001).frame(width: 10)
+                }.edgesIgnoringSafeArea(.all)
+                
+                menuContent()
+                    .frame(width: sideWidth)
+                    .offset(x: offset)
+                
+                
+                rightMenu()
+                .frame(width: sideWidth)
+                .offset(x: rightOffset)
+            }.gesture(drag).onChange(of: isShowing, perform: { value in
+                withAnimation {
+                    if value {
+                        offset = 0
+                    } else {
+                        offset = -sideWidth
+                    }
+                }
+              
+          }).onChange(of: isRightShowing, perform: { value in
+              withAnimation {
+                  if value {
+                      rightOffset = width - sideWidth
+                  } else {
+                      rightOffset = width
+                  }
+              }
+          })
+        }
+    }
+}
+
+
+public extension View {
+    func twoSideMenu<MenuContent: View, RightMenu: View>(
+        isEnabled: Binding<Bool>,
+        isShowing: Binding<Bool>,
+        isRightEnabled: Binding<Bool>,
+        isRightShowing: Binding<Bool>,
+        @ViewBuilder menuContent: @escaping () -> MenuContent,
+        @ViewBuilder rightMenu: @escaping () -> RightMenu
+    ) -> some View {
+        self.modifier(TwoSideMenu(isEnabled: isEnabled, isShowing: isShowing, isRightEnabled: isRightEnabled, isRightShowing: isRightShowing, menuContent: menuContent, rightMenu: rightMenu))
+    }
+}
+
 
 
 extension Binding where Value == Bool {

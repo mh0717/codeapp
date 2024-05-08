@@ -8,6 +8,7 @@
 import SwiftUI
 import MarkdownView
 import MarkdownUI
+import pydeCommon
 
 struct PYWelcomeView2: View {
     @State var content = ""
@@ -65,6 +66,7 @@ struct PYWelcomeView: UIViewRepresentable {
     let onSelectFolder: () -> Void
     let onSelectFile: () -> Void
     let onNavigateToCloneSection: () -> Void
+    let onExplorFolder: (URL) -> Void
 
     func updateUIView(_ uiView: MarkdownView, context: Context) {
         uiView.changeBackgroundColor(color: UIColor(Color.init(id: "editor.background")))
@@ -102,9 +104,9 @@ struct PYWelcomeView: UIViewRepresentable {
                 }
             }
             content = content.replacingOccurrences(
-                of: "(https://ipyde.com/ipyde/openfolder)",
+                of: "(https://ipyde.com/ipyde/importfile)",
                 with:
-                    "(https://ipyde.com/ipyde/openfolder)\n\n#### \(NSLocalizedString("Recent", comment: ""))"
+                    "(https://ipyde.com/ipyde/importfile)\n\n#### \(NSLocalizedString("Recent", comment: ""))"
                     + recentFolders)
         }
 
@@ -127,6 +129,16 @@ struct PYWelcomeView: UIViewRepresentable {
                     onSelectFolder()
                 case "https://ipyde.com/ipyde/openfile":
                     onSelectFile()
+                case "https://ipyde.com/ipyde/openexamples":
+                    onExplorFolder(ConstantManager.EXAMPLES)
+                case "https://ipyde.com/ipyde/openpyhome":
+                    onExplorFolder(ConstantManager.pyhome)
+                case "https://ipyde.com/ipyde/opensitepackages":
+                    onExplorFolder(ConstantManager.LOCAL_SITE_PACKAGES_URL)
+                case "https://ipyde.com/ipyde/openhome":
+                    onExplorFolder(ConstantManager.appGroupContainer)
+                case "https://ipyde.com/ipyde/importfile":
+                    print("import")
                 case "https://ipyde.com/ipyde/clone":
                     onNavigateToCloneSection()
                 case let i where i.hasPrefix("https://ipyde.com/ipyde/previousFolder/"):

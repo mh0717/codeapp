@@ -67,6 +67,12 @@ class EditorInstanceWithURL: EditorInstance {
         else {
             return self.url.path
         }
+        
+        #if PYDEAPP
+        if url.path.count <= (lastMatchIndex + 37) {
+            return url.path
+        }
+        #endif
 
         return String(
             url.path.suffix(

@@ -320,9 +320,6 @@ struct PYTopBar: View {
                     }
                     Button(role: .destructive) {
                         App.loadFolder(url: getRootDirectory())
-                        DispatchQueue.main.async {
-                            App.showWelcomeMessage()
-                        }
                     } label: {
                         Label("Close Workspace", systemImage: "xmark")
                     }
@@ -342,7 +339,11 @@ struct PYTopBar: View {
                     
                     if !IapManager.instance.isPurchased {
                         Button {
+                            #if PYTHON3IDE
+                            App.popupManager.showSheet(content: AnyView(SubIAPView()))
+                            #else
                             App.popupManager.showSheet(content: AnyView(IAPView()))
+                            #endif
                         } label: {
                             Label("Premium", systemImage: "person")
                         }
@@ -380,83 +381,82 @@ struct PYTopBar: View {
                         }
                     }
                     
-                    Button {
-                        App.stateManager.showsNewFileSheet.toggle()
-                    } label: {
-                        Label("New File", systemImage: "doc.badge.plus")
-                    }
-                    
-                    Button {
-                        Task {
-                            guard let url = URL(string: App.workSpaceStorage.currentDirectory.url) else { return }
-                            try await App.createFolder(at: url)
-                        }
-                    } label: {
-                        Label("New Folder", systemImage: "folder.badge.plus")
-                    }
-                    
-//                    if #available(iOS 16, *) {
-//                        
-//                    }
-                    
-                    Button {
-                        djangoName = ""
-                        showingNewDjangoAlert.toggle()
-                    } label: {
-                        Label("New Django Project", systemImage: "folder.badge.gear")
-                    }
-                    
-                    Button {
-//                            showingNewSafariAlert.toggle()
-                        if let url = URL(string: "https://www.baidu.cn") {
-                            let editor = PYWebEditorInstance(url)
-                            App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                App.pyapp.showAddressbar = true
-                                App.pyapp.addressUrl = ""
-                            }
+                    Menu("New", systemImage: "doc.badge.plus") {
+                        Button {
+                            App.stateManager.showsNewFileSheet.toggle()
+                        } label: {
+                            Label("New File", systemImage: "doc.badge.plus")
                         }
                         
-                    } label: {
-                        Label("New Safari Browser", systemImage: "safari")
-                    }
-                    
-                    
-                    Button {
-                        let editor = PYTerminalEditorInstance(URL(string: App.workSpaceStorage.currentDirectory.url)!)
-                        App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
-                    } label: {
-                        Label("New Terminal", systemImage: "apple.terminal")
+                        Button {
+                            Task {
+                                guard let url = URL(string: App.workSpaceStorage.currentDirectory.url) else { return }
+                                try await App.createFolder(at: url)
+                            }
+                        } label: {
+                            Label("New Folder", systemImage: "folder.badge.plus")
+                        }
+                        
+                        Button {
+                            djangoName = ""
+                            showingNewDjangoAlert.toggle()
+                        } label: {
+                            Label("New Django Project", systemImage: "folder.badge.gear")
+                        }
+                        
+                        Button {
+    //                            showingNewSafariAlert.toggle()
+                            if let url = URL(string: "https://www.baidu.cn") {
+                                let editor = PYWebEditorInstance(url)
+                                App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                    App.pyapp.showAddressbar = true
+                                    App.pyapp.addressUrl = ""
+                                }
+                            }
+                            
+                        } label: {
+                            Label("New Safari Browser", systemImage: "safari")
+                        }
+                        
+                        
+                        Button {
+                            let editor = PYTerminalEditorInstance(URL(string: App.workSpaceStorage.currentDirectory.url)!)
+                            App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+                        } label: {
+                            Label("New Terminal", systemImage: "apple.terminal")
+                        }
                     }
                     
                     Divider()
                     
-                    Button(action: {
-                        App.loadFolder(url: ConstantManager.EXAMPLES)
-                    }) {
-                        Label("Open Examples", systemImage: "folder")
+                    Menu("Open", systemImage: "") {
+                        Button(action: {
+//                            App.loadFolder(url: ConstantManager.EXAMPLES)
+                            App.pyapp.rightSideShow.toggle()
+                        }) {
+                            Label("Open Examples", systemImage: "folder")
+                        }
+                        
+                        Button(action: {
+                            App.loadFolder(url: ConstantManager.pyhome)
+                        }) {
+                            Label("Open PythonHome", systemImage: "folder")
+                        }
+                        
+                        Button(action: {
+                            App.loadFolder(url: ConstantManager.pysite)
+                        }) {
+                            Label("Open site-packages", systemImage: "folder")
+                        }
+                        
+                        Button(action: {
+                            App.loadFolder(url: ConstantManager.user_site)
+                        }) {
+                            Label("Open User site-packages", systemImage: "folder")
+                        }
                     }
-                    
-                    Button(action: {
-                        App.loadFolder(url: ConstantManager.pyhome)
-                    }) {
-                        Label("Open PythonHome", systemImage: "folder")
-                    }
-                    
-                    Button(action: {
-                        App.loadFolder(url: ConstantManager.pysite)
-                    }) {
-                        Label("Open site-packages", systemImage: "folder")
-                    }
-                    
-                    Button(action: {
-                        App.loadFolder(url: ConstantManager.user_site)
-                    }) {
-                        Label("Open User site-packages", systemImage: "folder")
-                    }
-                    
-                    
                 }
                 #if DEBUG
                     DebugMenu()
