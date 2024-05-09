@@ -90,29 +90,40 @@ struct PipOpButton: View {
                     ))
                     
                     App.notificationManager.showAsyncNotification(title: localizedString(forKey: "Installing %@"), task: {
-                        _ = await withCheckedContinuation { continuation in
+                        let result = await withCheckedContinuation { continuation in
                             let cmd = version == nil ? "pip3 install \(package)" : "pip3 install \(package)==\(version!)"
                             runnerWidget.consoleView.feed(text: "\(cmd)\r\n")
                             runnerWidget.consoleView.executor?.dispatch(command: "remote \(cmd) --user", completionHandler: { rlt in
-                                continuation.resume(returning: true)
+                                continuation.resume(returning: rlt)
                             })
                             
                         }
-                        await pipModelManager.fetchInstalledPackages()
-                        let result = pipModelManager.installedPackages.contains(where: {$0.name == package})
-//                        let result = await pipModelManager.installPackage(package)
-                        if result {
-                            App.notificationManager.showErrorMessage(localizedString(forKey: "Successfully installed %@"), package)
+                        
+                        if result == 0 {
+                            let msg = String(format: localizedString(forKey: "Successfully installed %@"), package)
+                            runnerWidget.consoleView.feed(text: msg)
+                        } else {
+                            let msg = String(format: localizedString(forKey: "Failed to install %@"), package)
+                            runnerWidget.consoleView.feed(text: msg)
+                        }
+                            
+                        runnerWidget.consoleView.feed(text: "\r\n")
+                        runnerWidget.consoleView.feed(text: runnerWidget.consoleView.executor.prompt)
+                        
+                        
+                        if result == 0 {
+                            App.notificationManager.showSucessMessage(localizedString(forKey: "Successfully installed %@"), package)
                         } else {
                             App.notificationManager.showErrorMessage(localizedString(forKey: "Failed to install %@"), package)
                         }
+                        
                         running = false
                     }, package)
                 case .uninstall:
                     App.notificationManager.showAsyncNotification(title: localizedString(forKey: "Uninstalling %@"), task: {
                         let result = await pipModelManager.uninstallPackage(package)
                         if result {
-                            App.notificationManager.showErrorMessage(localizedString(forKey: "Successfully uninstalled %@"), package)
+                            App.notificationManager.showSucessMessage(localizedString(forKey: "Successfully uninstalled %@"), package)
                         } else {
                             App.notificationManager.showErrorMessage(localizedString(forKey: "Failed to uninstall %@"), package)
                         }
@@ -122,7 +133,7 @@ struct PipOpButton: View {
                     App.notificationManager.showAsyncNotification(title: localizedString(forKey: "Updating %@"), task: {
                         let result = await pipModelManager.updatePackages([package])
                         if result {
-                            App.notificationManager.showErrorMessage(localizedString(forKey: "Successfully Updated %@"), package)
+                            App.notificationManager.showSucessMessage(localizedString(forKey: "Successfully Updated %@"), package)
                         } else {
                             App.notificationManager.showErrorMessage(localizedString(forKey: "Failed to update %@"), package)
                         }
@@ -132,7 +143,7 @@ struct PipOpButton: View {
                     App.notificationManager.showAsyncNotification(title: localizedString(forKey: "Updating all %@"), task: {
                         let result = await pipModelManager.updatePackages(package.components(separatedBy: ","))
                         if result {
-                            App.notificationManager.showErrorMessage(localizedString(forKey: "Successfully updated %@"), package)
+                            App.notificationManager.showSucessMessage(localizedString(forKey: "Successfully updated %@"), package)
                         } else {
                             App.notificationManager.showErrorMessage(localizedString(forKey: "Failed to update %@"), package)
                         }
