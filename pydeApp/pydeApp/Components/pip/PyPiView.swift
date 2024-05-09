@@ -117,6 +117,8 @@ struct PipOpButton: View {
                             App.notificationManager.showErrorMessage(localizedString(forKey: "Failed to install %@"), package)
                         }
                         
+                        await pipModelManager.fetchInstalledPackages()
+                        
                         running = false
                     }, package)
                 case .uninstall:
@@ -251,7 +253,10 @@ public struct PyPiView: View {
                         Button("Install Wheel", systemImage: "arrow.down.to.line.compact") {
                             let types = [UTType(filenameExtension: "whl")!]
                             let picker = FilePickerView(onOpen: { url in
-                                WheelExtensionManager.install(url, app: App)
+                                let newUrl = ConstantManager.TMP.appendingPathComponent(url.lastPathComponent)
+                                try? FileManager.default.removeItem(at: newUrl)
+                                try? FileManager.default.copyItem(at: url, to: newUrl)
+                                WheelExtensionManager.install(newUrl, app: App)
                             }, allowedTypes: types)
                             App.popupManager.showSheet(content: AnyView(picker))
                         }

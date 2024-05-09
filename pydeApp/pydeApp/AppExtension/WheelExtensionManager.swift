@@ -57,6 +57,10 @@ class WheelExtensionManager: CodeAppExtension {
             }
             
         }, url.lastPathComponent)
+        
+        Task {
+            await app.pyapp.pipManager.fetchInstalledPackages()
+        }
     }
     
 

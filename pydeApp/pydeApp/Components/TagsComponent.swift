@@ -11,6 +11,8 @@ import pydeCommon
 import SwiftUI
 import pyde
 
+private let TAGS_VALID_EXT = ["py", "md", "c", "c++", "cpp", "h", "js", "html", "htm", "json", "css", "php", ]
+
 class TagsModel: ObservableObject {
     @Published var tags: [CTag] = []
     @Published var selectedTag: CTag?
@@ -34,7 +36,7 @@ class TagsModel: ObservableObject {
                 self.expansionStates = [:]
                 self.tags = currentEditor?.tags ?? []
                 
-                if let currentEditor, currentEditor.tags.isEmpty {
+                if let currentEditor, TAGS_VALID_EXT.contains(currentEditor.url.pathExtension.lowercased()),  currentEditor.tags.isEmpty {
                     Task {
                         if let tags = await requestCTagsService(currentEditor.url.path, content: currentEditor.content) {
                             DispatchQueue.main.async { [weak currentEditor] in
@@ -50,7 +52,7 @@ class TagsModel: ObservableObject {
             .removeDuplicates()
             .flatMap({content in
                 Future<[CTag], Never> {
-                    if let currentEditor {
+                    if let currentEditor, TAGS_VALID_EXT.contains(currentEditor.url.pathExtension.lowercased()) {
                         return await requestCTagsService(currentEditor.url.path, content: currentEditor.content) ?? []
                     } else {
                         return [CTag]()
