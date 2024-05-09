@@ -1167,6 +1167,8 @@
 		A39F42812BEBE548001546B4 /* PYActivityBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F427F2BEBE548001546B4 /* PYActivityBarItemView.swift */; };
 		A39F42832BEBF03E001546B4 /* PYSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F42822BEBF03E001546B4 /* PYSideMenu.swift */; };
 		A39F42842BEBF03E001546B4 /* PYSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F42822BEBF03E001546B4 /* PYSideMenu.swift */; };
+		A39F42862BECB54F001546B4 /* MediaPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F42852BECB54F001546B4 /* MediaPicker.swift */; };
+		A39F42872BECB54F001546B4 /* MediaPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F42852BECB54F001546B4 /* MediaPicker.swift */; };
 		A3A3DED82B795CB6004A7C39 /* NBPreviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3DED72B795CB6004A7C39 /* NBPreviewExtension.swift */; };
 		A3A3DEDA2B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A3DED92B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework */; };
 		A3A3DEDB2B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A3A3DED92B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -3006,6 +3008,7 @@
 		A39F427C2BEB110A001546B4 /* OnlyExplorerFileTreeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyExplorerFileTreeSection.swift; sourceTree = "<group>"; };
 		A39F427F2BEBE548001546B4 /* PYActivityBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYActivityBarItemView.swift; sourceTree = "<group>"; };
 		A39F42822BEBF03E001546B4 /* PYSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSideMenu.swift; sourceTree = "<group>"; };
+		A39F42852BECB54F001546B4 /* MediaPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPicker.swift; sourceTree = "<group>"; };
 		A3A3DED72B795CB6004A7C39 /* NBPreviewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBPreviewExtension.swift; sourceTree = "<group>"; };
 		A3A3DED92B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "python3_ios-materialyoucolor.quantize.celebi.xcframework"; path = "../modules/pythoncc/PYXCFrameworks/python3_ios-materialyoucolor.quantize.celebi.xcframework"; sourceTree = "<group>"; };
 		A3A3DEDC2B85B8C7004A7C39 /* MonacoCompletionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonacoCompletionExtension.swift; sourceTree = "<group>"; };
@@ -4658,6 +4661,7 @@
 				A39F427C2BEB110A001546B4 /* OnlyExplorerFileTreeSection.swift */,
 				A39F427F2BEBE548001546B4 /* PYActivityBarItemView.swift */,
 				A39F42822BEBF03E001546B4 /* PYSideMenu.swift */,
+				A39F42852BECB54F001546B4 /* MediaPicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -6299,6 +6303,7 @@
 				A30F6ACE2BE0DD52007B7CDF /* RemoteContainer.swift in Sources */,
 				A30F6ACF2BE0DD52007B7CDF /* CloudCodeExecutionManager.swift in Sources */,
 				A30F6AD02BE0DD52007B7CDF /* NBPreviewExtension.swift in Sources */,
+				A39F42872BECB54F001546B4 /* MediaPicker.swift in Sources */,
 				A30F6AD12BE0DD52007B7CDF /* KBWebViewBase.m in Sources */,
 				A30F6AD22BE0DD52007B7CDF /* CodeAppExtension.swift in Sources */,
 				A30F6AD32BE0DD52007B7CDF /* TextEditorWithPlaceholder.swift in Sources */,
@@ -6636,6 +6641,7 @@
 				A3A87D332AF221D1002E3399 /* RemoteContainer.swift in Sources */,
 				A3A87D342AF221D1002E3399 /* CloudCodeExecutionManager.swift in Sources */,
 				A3A3DED82B795CB6004A7C39 /* NBPreviewExtension.swift in Sources */,
+				A39F42862BECB54F001546B4 /* MediaPicker.swift in Sources */,
 				A3A87D352AF221D1002E3399 /* KBWebViewBase.m in Sources */,
 				A3A87D362AF221D1002E3399 /* CodeAppExtension.swift in Sources */,
 				A3A87D372AF221D1002E3399 /* TextEditorWithPlaceholder.swift in Sources */,

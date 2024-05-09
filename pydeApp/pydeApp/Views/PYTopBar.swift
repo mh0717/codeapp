@@ -22,12 +22,25 @@ struct PYTopBar: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     let openConsolePanel: () -> Void
     
-    @State private var showingNewDjangoAlert = false
+//    @State private var showingNewDjangoAlert = false
     @State private var safariUrl = ""
     @State private var showingNewSafariAlert = false
     @State private var djangoName = ""
+    @State private var cloneUrl = ""
     
     @FocusState private var editingUrlFocus: Bool
+    
+    func onClone() {
+        if cloneUrl.isEmpty {
+            return
+        }
+        
+        let newUrl = cloneUrl
+        cloneUrl = ""
+        Task {
+            try? await App.pyapp.onClone(urlString: newUrl)
+        }
+    }
     
     func onNewDjango() {
         let newCommand = "django-admin startproject \(djangoName)"
@@ -397,9 +410,17 @@ struct PYTopBar: View {
                             Label("New Folder", systemImage: "folder.badge.plus")
                         }
                         
+                        Divider()
+                        
+                        Button{
+                            App.pyapp.showCloneAlert.toggle()
+                        } label: {
+                            Label("Clone Store", systemImage: "arrow.triangle.branch")
+                        }
+                        
                         Button {
                             djangoName = ""
-                            showingNewDjangoAlert.toggle()
+                            App.pyapp.showingNewDjangoAlert.toggle()
                         } label: {
                             Label("New Django Project", systemImage: "folder.badge.gear")
                         }
@@ -422,16 +443,35 @@ struct PYTopBar: View {
                         
                         
                         Button {
-                            let editor = PYTerminalEditorInstance(URL(string: App.workSpaceStorage.currentDirectory.url)!)
+                            guard let url = URL(string: App.workSpaceStorage.currentDirectory.url) else {
+                                return
+                            }
+                            let editor = PYTerminalEditorInstance(url)
                             App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
                         } label: {
                             Label("New Terminal", systemImage: "apple.terminal")
+                        }
+                        
+                        Divider()
+                        
+                        Button {
+                            App.pyapp.showFilePicker.toggle()
+                        } label: {
+                            Label("Import File", systemImage: "file")
+                        }
+                        
+                        Button {
+                            App.pyapp.showMediaPicker.toggle()
+                        } label: {
+                            Label("Import Media", systemImage: "image")
                         }
                     }
                     
                     Divider()
                     
                     Menu("Open", systemImage: "") {
+                        
+                        
                         Button(action: {
 //                            App.loadFolder(url: ConstantManager.EXAMPLES)
                             App.pyapp.rightSideShow.toggle()
@@ -496,13 +536,22 @@ struct PYTopBar: View {
                         .environmentObject(App)
                 }
             }
-            .alert("New Django Project", isPresented: $showingNewDjangoAlert){
+            .alert("Clone Project", isPresented: $App.pyapp.showCloneAlert, actions: {
+                TextField("Enter URL (HTTPS/SSH)", text: $cloneUrl)
+                    .autocorrectionDisabled(true)
+                    .textInputAutocapitalization(.never)
+                Button("common.clone", action: onClone)
+                Button("common.cancel") {
+                    App.pyapp.showCloneAlert.toggle()
+                }
+            })
+            .alert("New Django Project", isPresented: $App.pyapp.showingNewDjangoAlert){
                 TextField("Enter django project name", text: $djangoName)
                     .autocorrectionDisabled(true)
                     .textInputAutocapitalization(.never)
                 Button("common.create", action: onNewDjango)
                 Button("common.cancel") {
-                    showingNewDjangoAlert.toggle()
+                    App.pyapp.showingNewDjangoAlert.toggle()
                 }
             }
             .alert("New Safari Browser", isPresented: $showingNewSafariAlert){
@@ -514,6 +563,39 @@ struct PYTopBar: View {
                     showingNewSafariAlert.toggle()
                 }
             }
+            .sheet(isPresented: $App.pyapp.showFilePicker, content: {
+                FilePickerView(onOpen: { url in
+                    guard let localUrl = URL(string: App.workSpaceStorage.currentDirectory.url) else {return}
+                    Task {
+                        do {
+                            let toUrl = localUrl.withoutSame(url.lastPathComponent) ?? localUrl.appendingPathComponent(url.lastPathComponent)
+                            try await App.workSpaceStorage.copyItem(at: url, to: toUrl)
+                        } catch {
+                            App.notificationManager.showErrorMessage(error.localizedDescription)
+                        }
+                    }
+                }, allowedTypes: [.item])
+            })
+            .mediaImporter(isPresented: $App.pyapp.showMediaPicker,
+                            allowedMediaTypes: .all,
+                            allowsMultipleSelection: true) { result in
+                 switch result {
+                 case .success(let urls):
+                     guard let localUrl = URL(string: App.workSpaceStorage.currentDirectory.url) else {return}
+                     Task {
+                         do {
+                             for url in urls {
+                                 let toUrl = localUrl.withoutSame(url.lastPathComponent) ?? localUrl.appendingPathComponent(url.lastPathComponent)
+                                 try await App.workSpaceStorage.copyItem(at: url, to: toUrl)
+                             }
+                         } catch {
+                             App.notificationManager.showErrorMessage(error.localizedDescription)
+                         }
+                     }
+                 case .failure(let error):
+                     App.notificationManager.showErrorMessage(error.localizedDescription)
+                 }
+             }
             #else
             Image(systemName: "doc.text.magnifyingglass").font(.system(size: 17))
                 .foregroundColor(Color.init("T1")).padding(5)

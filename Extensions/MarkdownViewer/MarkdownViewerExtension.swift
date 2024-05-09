@@ -7,8 +7,36 @@
 
 import MarkdownView
 import SwiftUI
+import MarkdownUI
 
 // TODO: Localization
+
+private class MarkdownContent: ObservableObject {
+    @Published var content: String = ""
+}
+
+private struct MarkdownPreview1: View {
+    @EnvironmentObject var App: MainApp
+    
+    @ObservedObject var content: MarkdownContent
+    
+    var body: some View {
+        ScrollView(content: {
+            Markdown(content.content)
+            .markdownTheme(.pygitHub())
+            .listRowBackground(Color.red)
+            .textSelection(.enabled)
+            .environment(
+                \.openURL,
+                 OpenURLAction { url in
+                     App.pyapp.openUrl(url)
+                     return .handled
+                 }
+            )
+            .padding()
+        })
+    }
+}
 
 private struct MarkdownPreview: UIViewRepresentable {
     @EnvironmentObject var App: MainApp
@@ -59,15 +87,18 @@ private struct MarkdownPreview: UIViewRepresentable {
 
 class MarkdownEditorInstance: EditorInstanceWithURL {
 
-    let mdView = MarkdownView()
-
-    func load(content: String) {
-        mdView.load(markdown: content, backgroundColor: UIColor(id: "editor.background"))
-    }
+//    let mdView = MarkdownView()
+//
+//    func load(content: String) {
+//        mdView.load(markdown: content, backgroundColor: UIColor(id: "editor.background"))
+//    }
+    fileprivate let mdcontent = MarkdownContent()
 
     init(url: URL, content: String, title: String) {
-        super.init(view: AnyView(MarkdownPreview(view: mdView).id(UUID())), title: title, url: url)
-        load(content: content)
+//        super.init(view: AnyView(MarkdownPreview(view: mdView).id(UUID())), title: title, url: url)
+//        load(content: content)
+        mdcontent.content = content
+        super.init(view: AnyView(MarkdownPreview1(content: mdcontent).id(UUID())), title: title, url: url)
     }
 }
 
@@ -91,7 +122,8 @@ class MarkdownViewerExtension: CodeAppExtension {
                         let contentData = try await app.workSpaceStorage.contents(at: url)
                         if let content = String(data: contentData, encoding: .utf8) {
                             await MainActor.run {
-                                instance.load(content: content)
+//                                instance.load(content: content)
+                                instance.mdcontent.content = content
                             }
                         }
                     }

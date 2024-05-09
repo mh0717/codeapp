@@ -266,10 +266,10 @@ private struct MainView: View {
 
                             if isSideBarVisible && horizontalSizeClass == .compact {
                                 #if PYDEAPP
-//                                PYCompactSidebar()
-//                                    .environmentObject(extensionManager.activityBarManager)
-                                PYSideMenu(activeType: .main, openConsolePanel: openConsolePanel, isRegular: false, windowWidth: geometry.size.width)
+                                PYCompactSidebar()
                                     .environmentObject(extensionManager.activityBarManager)
+//                                PYSideMenu(activeType: .main, openConsolePanel: openConsolePanel, isRegular: false, windowWidth: geometry.size.width)
+//                                    .environmentObject(extensionManager.activityBarManager)
                                 #else
                                 CompactSidebar()
                                     .environmentObject(extensionManager.activityBarManager)

@@ -17,7 +17,7 @@ struct VCInTab: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        
+        vc?.view.backgroundColor = UIColor(Color.init(id: "editor.background"))
     }
     
     func makeCoordinator() -> Coordinator {

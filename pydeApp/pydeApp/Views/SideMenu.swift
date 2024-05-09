@@ -117,7 +117,7 @@ public struct TwoSideMenu<MenuContent: View, RightMenu: View>: ViewModifier {
     
     @State var width = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)
     
-    @State var rightOffset = 320.0
+    @State var rightOffset = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)
     
     @State private var offset = -320.0
     let sideWidth = 320.0
@@ -235,8 +235,8 @@ public struct TwoSideMenu<MenuContent: View, RightMenu: View>: ViewModifier {
                 }
             }
             let opacity = max(
-                (offset + sideWidth) / sideWidth * 0.6,
-                (width - rightOffset) / sideWidth * 0.6
+                (offset + sideWidth) / sideWidth * 0.4,
+                (width - rightOffset) / sideWidth * 0.4
             )
             return ZStack(alignment: .leading) {
                 content

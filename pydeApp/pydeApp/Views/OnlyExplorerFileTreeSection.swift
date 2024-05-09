@@ -27,16 +27,17 @@ struct OnlyExplorerCell: View {
                 
             }.frame(height: 16)
         } else {
-            HStack {
-                FileIcon(url: item.name.removingPercentEncoding!, iconSize: 14)
-                    .frame(width: 14, height: 14)
-                FileDisplayName(gitStatus: nil, name: item.name.removingPercentEncoding!)
-                Spacer()
-            }
-            .frame(height: 16)
-            .onTapGesture {
+            Button {
                 guard let url = item._url else {return}
                 App.openFile(url: url, alwaysInNewTab: true)
+            } label: {
+                HStack {
+                    FileIcon(url: item.name.removingPercentEncoding!, iconSize: 14)
+                        .frame(width: 14, height: 14)
+                    FileDisplayName(gitStatus: nil, name: item.name.removingPercentEncoding!)
+                    Spacer()
+                }
+                .frame(height: 16)
             }
         }
     }
@@ -47,6 +48,7 @@ struct OnlyExplorerFileTreeSection: View {
     @EnvironmentObject var App: MainApp
     var showHiddenFiles: Bool = false
     @ObservedObject var storage: WorkSpaceStorage
+    @EnvironmentObject var themeManager: ThemeManager
 
     let searchString: String = ""
     
@@ -137,6 +139,24 @@ struct OnlyExplorerFileTreeSection: View {
     }
 }
 
+struct OnlyExplorerFileContainer: View {
+    @EnvironmentObject var themeManager: ThemeManager
+    
+    @ObservedObject var storage: WorkSpaceStorage
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            List {
+                OnlyExplorerFileTreeSection(storage: storage)
+            }
+            .listStyle(SidebarListStyle())
+            .environment(\.defaultMinListRowHeight, 10)
+            .background(Color.init(id: "editor.background"))
+            Spacer()
+        }.background(Color.init(id: "editor.background"))
+    }
+}
+
 
 class OnlyExplorerFileEditorInstance: EditorInstanceWithURL {
     let storage: WorkSpaceStorage
@@ -146,17 +166,7 @@ class OnlyExplorerFileEditorInstance: EditorInstanceWithURL {
         self.storage = storage
 
         super.init(
-            view: AnyView(
-                VStack(spacing: 0) {
-                    List {
-                        OnlyExplorerFileTreeSection(storage: storage)
-                    }
-                    .listStyle(SidebarListStyle())
-                    .environment(\.defaultMinListRowHeight, 10)
-                    .background(Color.init(id: "editor.background"))
-                    Spacer()
-                }.background(Color.init(id: "editor.background"))
-            ),
+            view: AnyView(OnlyExplorerFileContainer(storage: storage)),
             title: url.lastPathComponent,
             url: url
         )

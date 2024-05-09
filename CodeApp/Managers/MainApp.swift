@@ -412,7 +412,7 @@ class MainApp: ObservableObject {
             view: AnyView(DownloadContainer()),
             bubble: {
                 let manager = DownloadManager.instance
-                if manager.totalCount() > 0 {
+                if !manager.isCompleted, manager.totalCount() > 0 {
                     return .text("\(manager.totalSucceedCount())/\(manager.totalCount())")
                 }
                 return nil

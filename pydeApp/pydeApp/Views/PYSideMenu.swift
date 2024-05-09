@@ -20,7 +20,8 @@ struct PYSideMenu: View {
     
     @SceneStorage("sidebar.width") private var sideBarWidth: Double = DefaultUIState.SIDEBAR_WIDTH
 
-    @GestureState var sideBarWidthTranslation: CGFloat = 0
+//    @GestureState var sideBarWidthTranslation: CGFloat = 0
+    @State var sideBarWidthTranslation: CGFloat = 0
 
     var maxWidth: CGFloat {
         windowWidth
@@ -49,6 +50,7 @@ struct PYSideMenu: View {
             
             PYSidebar()
                 .environment(\.activeType, activeType)
+                .frame(maxHeight: .infinity)
             
         }.background(Color.init(id: "sideBar.background").edgesIgnoringSafeArea(.all))
             .accentColor(Color.init(id: "activityBar.inactiveForeground"))
@@ -56,12 +58,16 @@ struct PYSideMenu: View {
             .if(isRegular, transform: { view in
                 view.gesture(
                     DragGesture()
-                        .updating($sideBarWidthTranslation) { value, state, transaction in
-                            state = value.translation.width
-                        }
+//                        .updating($sideBarWidthTranslation) { value, state, transaction in
+//                            state = value.translation.width
+//                        }
+                        .onChanged({ value in
+                            sideBarWidthTranslation = value.translation.width
+                        })
                         .onEnded { value in
                             let proposedNewHeight = sideBarWidth + value.translation.width
                             evaluateProposedWidth(proposal: proposedNewHeight)
+                            sideBarWidthTranslation = 0
                         }
                 )
                 .frame(

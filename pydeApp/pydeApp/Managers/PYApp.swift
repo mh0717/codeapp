@@ -22,6 +22,12 @@ class PYApp: ObservableObject {
     @Published var showAddressbar = false
     @Published var addressUrl = ""
     
+    @Published var showCloneAlert = false
+    @Published var showingNewDjangoAlert = false
+    @Published var showFilePicker = false
+    @Published var showMediaPicker = false
+//    @Published private var showingNewSafariAlert = false
+    
     let docStorage = WorkSpaceStorage(url: ConstantManager.EXAMPLES)
     
     let jupyterManager = JupyterExtension.jupyterManager
@@ -39,6 +45,10 @@ class PYApp: ObservableObject {
         
         jupyterCancellable = jupyterManager.objectWillChange.sink { [weak self] (_) in
             self?.objectWillChange.send()
+        }
+        
+        downloadManager.onTaskCompletion = {[weak self] in
+            self?.App?.notificationManager.showSucessMessage("Download task completed")
         }
     }
     

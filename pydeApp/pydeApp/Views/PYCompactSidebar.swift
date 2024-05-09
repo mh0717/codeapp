@@ -41,6 +41,7 @@ struct PYCompactSidebar: View {
                         DescriptionText("sidebar.no_section_selected")
                     }
                 }.background(Color.init(id: "sideBar.background"))
+                    .frame(maxHeight: .infinity)
             }
 //            .fixedSize(horizontal: true, vertical: false)
             .frame(width: 280.0)

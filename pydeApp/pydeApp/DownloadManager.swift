@@ -9,6 +9,8 @@ import Foundation
 import Tiercel
 
 class DownloadManager: ObservableObject {
+    var onTaskCompletion: (() -> Void)?
+    
     let sessionManager = SessionManager("default", configuration: SessionConfiguration())
     
     func start(_ url: URLConvertible) {
@@ -97,6 +99,10 @@ class DownloadManager: ObservableObject {
         return nil
     }
     
+    var isCompleted: Bool {
+        return totalSucceedCount() == totalCount()
+    }
+    
     
     func setup() {
         sessionManager.progress { [weak self] (manager) in
@@ -107,6 +113,9 @@ class DownloadManager: ObservableObject {
             self?.sessionManager.tasks.forEach({$0.objectWillChange.send()})
             if manager.status == .succeeded {
                 // 下载成功
+                if let call = self?.onTaskCompletion {
+                    call()
+                }
             } else {
                 // 其他状态
             }

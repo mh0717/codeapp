@@ -10,25 +10,30 @@
 "# iPyDE
 ##### **v1.2.1 (2024 年 3 月)**
 #### 开始
-[新建文件](https://ipyde.com/ipyde/newfile)
-[打开文件](https://ipyde.com/ipyde/openfile)
+[新建文件](https://ipyde.com/ipyde/newfile)<br/>
+[打开文件](https://ipyde.com/ipyde/openfile)<br/>
 [打开文件夹](https://ipyde.com/ipyde/openfolder)
 
-[新建Django工程](https://ipyde.com/ipyde/newdjango)
-[新建网页浏览器](https://ipyde.com/ipyde/newwebbrowser)
+[克隆存储库](https://ipyde.com/ipyde/clone)<br/>
+[新建Django工程](https://ipyde.com/ipyde/newdjango)<br/>
+[新建网页浏览器](https://ipyde.com/ipyde/newwebbrowser)<br/>
 [新建终端](https://ipyde.com/ipyde/newterminal)
 
-[打开 examples](https://ipyde.com/ipyde/openexamples)
-[打开 python home](https://ipyde.com/ipyde/openpyhome)
-[打开 site-packages](https://ipyde.com/ipyde/opensitepackages)
+[打开 examples](https://ipyde.com/ipyde/openexamples)<br/>
+[打开 python home](https://ipyde.com/ipyde/openpyhome)<br/>
+[打开 site-packages](https://ipyde.com/ipyde/opensitepackages)<br/>
 [打开 home](https://ipyde.com/ipyde/openhome)
 
+[导入媒体](https://ipyde.com/ipyde/importmedia)<br/>
 [导入文件](https://ipyde.com/ipyde/importfile)
 
+#### 最近
+{{recent}}
+
 #### 支持
-[文档](https:www.python3ide.com)
-[Github](https:www.python3ide.com)
-[推特](https:www.python3ide.com)
+[文档](https:www.python3ide.com)<br/>
+[Github](https:www.python3ide.com)<br/>
+[推特](https:www.python3ide.com)<br/>
 [邮箱](mailto:ipyde@aliyun.com)
 ";
 
@@ -432,6 +437,7 @@
 "Input Download url" = "输入下载链接";
 "Total Remove?" = "确认删除?";
 "Total Remove and Delete files" = "同时删除文件";
+"Download task completed" = "下载任务完成";
 
 "iap.restore" = "恢复";
 "iap.unlock" = "解锁会员";
