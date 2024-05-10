@@ -458,3 +458,9 @@
 "iap.year" = "年";
 
 "Open with QuickLook" = "快速查看";
+
+"Change URL" = "更改URL";
+"Refresh" = "刷新";
+"Open in Safari" = "Safari打开";
+"Install Wheel" = "安装Wheel";
+"Open pypi" = "打开pypi";

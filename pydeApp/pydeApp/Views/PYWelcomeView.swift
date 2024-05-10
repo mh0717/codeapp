@@ -47,7 +47,7 @@ struct PYWelcomeView: View {
                 App.pyapp.showingNewDjangoAlert.toggle()
             case "https://ipyde.com/ipyde/newwebbrowser":
                 if let url = URL(string: "https://www.baidu.cn") {
-                    let editor = PYWebEditorInstance(url)
+                    let editor = PYWebViewEditorInstance(url)
                     App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
@@ -187,7 +187,7 @@ struct PYWelcomeView1: UIViewRepresentable {
                 App.pyapp.showingNewDjangoAlert.toggle()
             case "https://ipyde.com/ipyde/newwebbrowser":
                 if let url = URL(string: "https://www.baidu.cn") {
-                    let editor = PYWebEditorInstance(url)
+                    let editor = PYWebViewEditorInstance(url)
                     App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {

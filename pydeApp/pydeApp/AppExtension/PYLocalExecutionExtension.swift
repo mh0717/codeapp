@@ -695,10 +695,12 @@ struct PYUIRunnerRepresentable: UIViewControllerRepresentable {
     class Coordinator {
         let widget: PYUIRunnerRepresentable
         
+        var kvoToken: NSKeyValueObservation?
+        
         init(_ widget: PYUIRunnerRepresentable) {
             self.widget = widget
             
-            _ = widget.vc.observe(\.preferredContentSize) {[weak self] vc, value in
+            kvoToken = widget.vc.observe(\.preferredContentSize) {[weak self] vc, value in
                 self?.widget.size = value.newValue
             }
         }

@@ -8,145 +8,145 @@
 import SwiftUI
 import pydeCommon
 
-struct ExplorerTagTreeSection: View {
-
-    @EnvironmentObject var App: MainApp
-    
-    var body: some View {
-        Section(
-            header:
-                Text( "大纲")
-                .foregroundColor(Color(id: "sideBarSectionHeader.foreground"))
-        ) {
-            TagsModelTreeView(tagsModel: App.tagsModel)
-        }
-    }
-}
-
-
-struct NodeOutlineGroup<Node, Content>: View where Node: Identifiable, Content: View {
-    let node: Node
-    let childKeyPath: KeyPath<Node, [Node]?>
-    @State var rowInsets: EdgeInsets? = nil
-    @State var isExpanded: Bool = true
-    let content: (Node) -> Content
-    
-    
-    var body: some View {
-        if node[keyPath: childKeyPath] != nil {
-            DisclosureGroup(
-                isExpanded: $isExpanded,
-                content: {
-                    if isExpanded {
-                        ForEach(node[keyPath: childKeyPath]!) { childNode in
-                            let group = NodeOutlineGroup(node: childNode, childKeyPath: childKeyPath, isExpanded: isExpanded, content: content)
-                            rowInsets == nil
-                            ? AnyView(group)
-                            : AnyView(group.listRowInsets(rowInsets))
-                        }
-                    }
-                },
-                label: { content(node) })
-        } else {
-            content(node)
-        }
-    }
-}
-
-
-
-struct TagItemRepresentable: Identifiable {
-    var id: String {
-        "\(name):\(line)"
-    }
-    var type: String
-    var name: String
-    var line: Int
-    var subItems: [TagItemRepresentable]?
-    var isGroup: Bool {
-        subItems != nil
-    }
-
-//    init(name: String, type: String, line: Int, subItems: [TagItemRepresentable]? = nil) {
-//        
+//struct ExplorerTagTreeSection: View {
+//
+//    @EnvironmentObject var App: MainApp
+//    
+//    var body: some View {
+//        Section(
+//            header:
+//                Text( "大纲")
+//                .foregroundColor(Color(id: "sideBarSectionHeader.foreground"))
+//        ) {
+//            TagsModelTreeView(tagsModel: App.pyapp.tagsModelManager)
+//        }
 //    }
-}
-
-
-struct TagExplorerCell: View {
-    @EnvironmentObject var App: MainApp
-
-    let item: TagItemRepresentable
-
-    var body: some View {
-        if item.isGroup {
-            GroupCell(item: item)
-                .frame(height: 16)
-        } else {
-            TagCell(item: item)
-                .frame(height: 16)
-        }
-    }
-}
-
-private struct TagCell: View {
-
-    @EnvironmentObject var App: MainApp
-    @EnvironmentObject var themeManager: ThemeManager
-    @State var item:TagItemRepresentable
-
-    init(item: TagItemRepresentable) {
-        self.item = item
-    }
-
-
-    var body: some View {
-        HStack {
-            Divider()
-            FileIcon(url: "test.py", iconSize: 14)
-                .frame(width: 14, height: 14)
-
-            Text(item.name)
-                .font(.subheadline)
-                .foregroundColor(Color.init(id: "list.inactiveSelectionForeground"))
-            
-            Spacer()
-
-        }
-        .padding(5)
-    }
-}
-
-private struct GroupCell: View {
-
-    @EnvironmentObject var App: MainApp
-    @EnvironmentObject var themeManager: ThemeManager
-    @State var item: TagItemRepresentable
-
-    init(item: TagItemRepresentable) {
-        self._item = State.init(initialValue: item)
-    }
-
-    var body: some View {
-        HStack {
-            Divider()
-                .background(Color.red)
-            Image(systemName: "folder")
-                .foregroundColor(.gray)
-                .font(.system(size: 14))
-                .frame(width: 14, height: 14)
-            Spacer().frame(width: 10)
-            Divider()
-
-            
-            Text(item.name)
-                .font(.subheadline)
-                .foregroundColor(Color.init(id: "list.inactiveSelectionForeground"))
-            Spacer()
-        }
-        .padding(5)
-    }
-}
+//}
+//
+//
+//struct NodeOutlineGroup<Node, Content>: View where Node: Identifiable, Content: View {
+//    let node: Node
+//    let childKeyPath: KeyPath<Node, [Node]?>
+//    @State var rowInsets: EdgeInsets? = nil
+//    @State var isExpanded: Bool = true
+//    let content: (Node) -> Content
+//    
+//    
+//    var body: some View {
+//        if node[keyPath: childKeyPath] != nil {
+//            DisclosureGroup(
+//                isExpanded: $isExpanded,
+//                content: {
+//                    if isExpanded {
+//                        ForEach(node[keyPath: childKeyPath]!) { childNode in
+//                            let group = NodeOutlineGroup(node: childNode, childKeyPath: childKeyPath, isExpanded: isExpanded, content: content)
+//                            rowInsets == nil
+//                            ? AnyView(group)
+//                            : AnyView(group.listRowInsets(rowInsets))
+//                        }
+//                    }
+//                },
+//                label: { content(node) })
+//        } else {
+//            content(node)
+//        }
+//    }
+//}
+//
+//
+//
+//struct TagItemRepresentable: Identifiable {
+//    var id: String {
+//        "\(name):\(line)"
+//    }
+//    var type: String
+//    var name: String
+//    var line: Int
+//    var subItems: [TagItemRepresentable]?
+//    var isGroup: Bool {
+//        subItems != nil
+//    }
+//
+////    init(name: String, type: String, line: Int, subItems: [TagItemRepresentable]? = nil) {
+////        
+////    }
+//}
+//
+//
+//struct TagExplorerCell: View {
+//    @EnvironmentObject var App: MainApp
+//
+//    let item: TagItemRepresentable
+//
+//    var body: some View {
+//        if item.isGroup {
+//            GroupCell(item: item)
+//                .frame(height: 16)
+//        } else {
+//            TagCell(item: item)
+//                .frame(height: 16)
+//        }
+//    }
+//}
+//
+//private struct TagCell: View {
+//
+//    @EnvironmentObject var App: MainApp
+//    @EnvironmentObject var themeManager: ThemeManager
+//    @State var item:TagItemRepresentable
+//
+//    init(item: TagItemRepresentable) {
+//        self.item = item
+//    }
+//
+//
+//    var body: some View {
+//        HStack {
+//            Divider()
+//            FileIcon(url: "test.py", iconSize: 14)
+//                .frame(width: 14, height: 14)
+//
+//            Text(item.name)
+//                .font(.subheadline)
+//                .foregroundColor(Color.init(id: "list.inactiveSelectionForeground"))
+//            
+//            Spacer()
+//
+//        }
+//        .padding(5)
+//    }
+//}
+//
+//private struct GroupCell: View {
+//
+//    @EnvironmentObject var App: MainApp
+//    @EnvironmentObject var themeManager: ThemeManager
+//    @State var item: TagItemRepresentable
+//
+//    init(item: TagItemRepresentable) {
+//        self._item = State.init(initialValue: item)
+//    }
+//
+//    var body: some View {
+//        HStack {
+//            Divider()
+//                .background(Color.red)
+//            Image(systemName: "folder")
+//                .foregroundColor(.gray)
+//                .font(.system(size: 14))
+//                .frame(width: 14, height: 14)
+//            Spacer().frame(width: 10)
+//            Divider()
+//
+//            
+//            Text(item.name)
+//                .font(.subheadline)
+//                .foregroundColor(Color.init(id: "list.inactiveSelectionForeground"))
+//            Spacer()
+//        }
+//        .padding(5)
+//    }
+//}
 
 
 //        DisclosureGroup(

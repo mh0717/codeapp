@@ -54,17 +54,25 @@ struct VCInTab: UIViewControllerRepresentable {
 class VCInTabEditorInstance: EditorInstanceWithURL {
 
     let vc: UIViewController
+    
+    var kvoToken: NSKeyValueObservation?
 
     init(url: URL, title: String, vc: UIViewController) {
         self.vc = vc
         let stitle = (vc.title != nil && !vc.title!.isEmpty) ? vc.title! : title
         super.init(view: AnyView(VCInTab(vc: vc).id(UUID())), title: stitle, url: url)
         
-        _ = self.vc.observe(\UIViewController.title) { [weak self] vc, _ in
+        kvoToken = self.vc.observe(\UIViewController.title) { [weak self] vc, _ in
             if let self {
                 self.title = (vc.title != nil && !vc.title!.isEmpty) ? vc.title! : title
             }
         }
+    }
+    
+    override func dispose() {
+        kvoToken?.invalidate()
+        kvoToken = nil
+        super.dispose()
     }
 }
 

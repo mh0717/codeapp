@@ -9,7 +9,6 @@ import Combine
 import CoreSpotlight
 import SwiftGit2
 import SwiftUI
-import UniformTypeIdentifiers
 import ios_system
 #if PYDEAPP
 import pydeCommon
@@ -76,9 +75,6 @@ class MainApp: ObservableObject {
     @Published var pyapp = PYApp()
     private var pyappCancellable: AnyCancellable? = nil
     let popupManager = PopupManager()
-    @Published var tagsModel = TagsModel()
-//    let gitHistoryInstance = GitWebView()
-//    let gitDiffInstance = GitWebView()
     
     @AppStorage("codeEditor") var codeEditor = "PYCode Editor"
     #endif
@@ -148,7 +144,7 @@ class MainApp: ObservableObject {
         
         #if PYDEAPP
         consoleInstance = ConsoleInstance(root: rootDir)
-        tagsModel.listen(self)
+        pyapp.tagsModelManager.listen(self)
         #endif
 
         terminalInstance.openEditor = { [weak self] url in
@@ -382,7 +378,7 @@ class MainApp: ObservableObject {
             title: "Pip",
             shortcutKey: "p",
             modifiers: [.command, .shift],
-            view: AnyView(PyPiView()),
+            view: AnyView(PIPContainer()),
             bubble: {nil},
             isVisible: { true }
         )
@@ -1050,13 +1046,6 @@ class MainApp: ObservableObject {
         let modificationDate = attributes?[.modificationDate] as? Date
         
         #if PYDEAPP
-        if (url.pathExtension.lowercased() == "ipynb") {
-            let instance = await Task { @MainActor in
-                return NBPreviewEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate)
-            }.value
-            return instance
-        }
-        
         if codeEditor == "PYCode Editor" {
             if (url.pathExtension.lowercased() == "py") {
                 let instance = await Task { @MainActor in
@@ -1219,7 +1208,7 @@ class MainApp: ObservableObject {
         
         if (url.pathExtension.lowercased() == "ipynb") {
             let instance = await Task { @MainActor in
-                return NBPreviewEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate)
+                return NoteBookPreviewEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate)
             }.value
             return instance
         } else  if (url.pathExtension.lowercased() == "py") {
@@ -1298,20 +1287,34 @@ class MainApp: ObservableObject {
             )
 
             if let contentData, let (content, _) = try? decodeStringData(data: contentData), let url = URL(string: content) {
-                let editor = PYWebEditorInstance(url)
+                let editor = PYWebViewEditorInstance(url)
                 appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
                 return editor
             }
             
         }
         if ["html", "html", "shtml"].contains(url.pathExtension.lowercased()), url.isContained(in: Bundle.main.bundleURL) || url.isContained(in: ConstantManager.EXAMPLES) {
-            let editor = PYWebEditorInstance(url)
+            let editor = PYWebViewEditorInstance(url)
             appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
             return editor
         }
         
+        if url.isFileURL, url.pathExtension.lowercased() == "ipynb" {
+            let contentData: Data? = try await workSpaceStorage.contents(
+                at: url
+            )
+
+            if let contentData, let (content, encoding) = try? decodeStringData(data: contentData){
+                let editor = await Task { @MainActor in
+                    return NoteBookPreviewEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: url.contentModificationDate)
+                }.value
+                appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+                return editor
+            }
+        }
+        
         if !url.isFileURL {
-            let editor = PYWebEditorInstance(url)
+            let editor = PYWebViewEditorInstance(url)
             appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
             return editor
         }

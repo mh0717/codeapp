@@ -33,6 +33,7 @@ class PYApp: ObservableObject {
     let jupyterManager = JupyterExtension.jupyterManager
     let downloadManager = DownloadManager.instance
     let pipManager = pipModelManager
+    @Published var tagsModelManager = TagsModelManager()
     
     private var jupyterCancellable: AnyCancellable? = nil
     
@@ -147,7 +148,7 @@ class PYApp: ObservableObject {
             
             if ["html", "htm", "shtml"].contains(url.pathExtension.lowercased()) {
                 DispatchQueue.main.async {
-                    App.appendAndFocusNewEditor(editor: PYWebEditorInstance(url), alwaysInNewTab: true)
+                    App.appendAndFocusNewEditor(editor: PYWebViewEditorInstance(url), alwaysInNewTab: true)
                 }
                 return
             }
@@ -214,7 +215,7 @@ class PYApp: ObservableObject {
         
         
         if url.scheme == "http" || url.scheme == "https" {
-            let editor = PYWebEditorInstance(url)
+            let editor = PYWebViewEditorInstance(url)
             DispatchQueue.main.async {
                 App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
             }

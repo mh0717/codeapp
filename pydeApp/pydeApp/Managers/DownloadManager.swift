@@ -10,10 +10,12 @@ import Tiercel
 
 class DownloadManager: ObservableObject {
     var onTaskCompletion: (() -> Void)?
+    var started: Bool = false
     
     let sessionManager = SessionManager("default", configuration: SessionConfiguration())
     
     func start(_ url: URLConvertible) {
+        self.started = true
         sessionManager.start(url) {[weak self] task in
             self?.objectWillChange.send()
             task.objectWillChange.send()
@@ -35,10 +37,12 @@ class DownloadManager: ObservableObject {
     }
     
     func download(_ url: URLConvertible) -> DownloadTask? {
+        self.started = true
         return sessionManager.download(url)
     }
     
     func totalStart() {
+        self.started = true
         sessionManager.totalStart { [weak self] _ in
             self?.objectWillChange.send()
             self?.sessionManager.tasks.forEach({$0.objectWillChange.send()})
@@ -113,7 +117,7 @@ class DownloadManager: ObservableObject {
             self?.sessionManager.tasks.forEach({$0.objectWillChange.send()})
             if manager.status == .succeeded {
                 // 下载成功
-                if let call = self?.onTaskCompletion {
+                if self?.started == true, let call = self?.onTaskCompletion {
                     call()
                 }
             } else {
