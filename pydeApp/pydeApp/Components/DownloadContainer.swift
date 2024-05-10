@@ -48,7 +48,7 @@ struct DownloadContainer: View {
                                     manager.totalSuspend()
                                 }
                                 
-                                Button("Total Remove", systemImage: "trash") {
+                                Button("Total Remove", systemImage: "trash", role: .destructive) {
                                     shouldDeleteCache = false
                                     showDeleteAlert = true
                                 }
@@ -270,15 +270,15 @@ struct DownloadCell: View {
                     }
                 }
                 
-                Button("copy url", systemImage: "doc.on.doc") {
+                Button("Copy URL", systemImage: "doc.on.doc") {
                     UIPasteboard.general.string = task.url.absoluteString
                 }
                 
-                Button("delete", systemImage: "trash") {
+                Button("Remove Task", systemImage: "trash", role: .destructive) {
                     DownloadManager.instance.remove(task.url)
                 }
                 
-                Button("delete file", systemImage: "trash") {
+                Button("Remote Task and Delete file", systemImage: "trash", role: .destructive) {
                     DownloadManager.instance.remove(task.url, true)
                 }
             })

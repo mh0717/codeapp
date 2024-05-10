@@ -76,8 +76,8 @@ struct TagsIndicator: View {
         }
         
         path = path.replacingOccurrences(of: ConstantManager.documentURL.path, with: "Documents")
-        path = path.replacingOccurrences(of: ConstantManager.appdir.path, with: "pyde.app")
-        path = path.replacingOccurrences(of: ConstantManager.appGroupContainer.path, with: "Container")
+        path = path.replacingOccurrences(of: ConstantManager.appdir.path, with: ConstantManager.APP_NAME + ".app")
+        path = path.replacingOccurrences(of: ConstantManager.appGroupContainer.path, with: "Home")
         path = path.replacingOccurrences(of: ConstantManager.iCloudContainerURL?.path ?? "", with: "iCloud")
         if path.starts(with: "/") {
             path.removeFirst()

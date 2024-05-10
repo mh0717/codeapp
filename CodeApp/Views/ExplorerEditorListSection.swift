@@ -159,6 +159,19 @@ private struct EditorCell: View {
                     } else {
                         FileDisplayName(gitStatus: nil, name: editor?.title ?? "")
                     }
+                    
+                    Spacer()
+                    
+                    Image(systemName: "xmark").onTapGesture {
+                        if let editor = App.activeEditor {
+                            App.closeEditor(editor: editor)
+                        }
+                    }.font(.system(size: 15))
+                    .foregroundColor(Color.init("T1")).padding(5)
+                    .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                    .hoverEffect(.highlight)
+                    .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
+                    .padding(EdgeInsets.init(top: 5, leading: 10, bottom: 5, trailing: 0))
 
                 }.padding(5)
             }

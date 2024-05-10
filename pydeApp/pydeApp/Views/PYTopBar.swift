@@ -97,7 +97,7 @@ struct PYTopBar: View {
                         .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                         .hoverEffect(.highlight)
                         .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
-                        .padding()
+                        .padding(EdgeInsets.init(top: 10, leading: 10, bottom: 10, trailing: 10))
                 }
             }
             #else
@@ -147,7 +147,8 @@ struct PYTopBar: View {
                     .foregroundColor(Color.init("T1")).padding(5)
                     .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                     .hoverEffect(.highlight)
-                    .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+                    .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
+                    .padding(EdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8))
                     .onTapGesture {
                         App.pyapp.showAddressbar = false
                         if let url = URL(string: App.pyapp.addressUrl) {
@@ -248,45 +249,46 @@ struct PYTopBar: View {
 //
 //            }
             
-            if App.activeTextEditor is DiffTextEditorInstnace {
-                Image(systemName: "doc.text").font(.system(size: 17))
-                    .foregroundColor(Color.init("T1")).padding(5)
-                    .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                    .hoverEffect(.highlight)
-                    .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
-                    .onTapGesture {
-                        App.monacoInstance.applyOptions(options: "renderSideBySide: false")
-                    }
-            }
+//            if App.activeTextEditor is DiffTextEditorInstnace {
+//                Image(systemName: "doc.text").font(.system(size: 17))
+//                    .foregroundColor(Color.init("T1")).padding(5)
+//                    .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+//                    .hoverEffect(.highlight)
+//                    .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+//                    .onTapGesture {
+//                        App.monacoInstance.applyOptions(options: "renderSideBySide: false")
+//                    }
+//            }
             
-            if !App.pyapp.showAddressbar, App.editors.count > 0 {
-                Image(systemName: "xmark").font(.system(size: 17))
-                    .foregroundColor(Color.init("T1")).padding(5)
-                    .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                    .hoverEffect(.highlight)
-                    .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
-                    .onTapGesture {
-                        if let editor = App.activeEditor {
-                            App.closeEditor(editor: editor)
-                        }
-                    }
-                    .contextMenu {
-                        Button(role: .destructive) {
-                            App.closeAllEditors()
-                        } label: {
-                            Label("Close All", systemImage: "xmark")
-                        }
-                        Button(role: .destructive) {
-                            App.loadFolder(url: getRootDirectory())
-                            DispatchQueue.main.async {
-                                App.showWelcomeMessage()
-                            }
-                        } label: {
-                            Label("Close Workspace", systemImage: "xmark")
-                        }
-                        
-                    }
-            }
+//            if !App.pyapp.showAddressbar, App.editors.count > 0 {
+//                Image(systemName: "xmark").font(.system(size: 17))
+//                    .foregroundColor(Color.init("T1")).padding(5)
+//                    .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+//                    .hoverEffect(.highlight)
+//                    .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
+//                    .padding(EdgeInsets.init(top: 10, leading: 8, bottom: 10, trailing: 8))
+//                    .onTapGesture {
+//                        if let editor = App.activeEditor {
+//                            App.closeEditor(editor: editor)
+//                        }
+//                    }
+//                    .contextMenu {
+//                        Button(role: .destructive) {
+//                            App.closeAllEditors()
+//                        } label: {
+//                            Label("Close All", systemImage: "xmark")
+//                        }
+//                        Button(role: .destructive) {
+//                            App.loadFolder(url: getRootDirectory())
+//                            DispatchQueue.main.async {
+//                                App.showWelcomeMessage()
+//                            }
+//                        } label: {
+//                            Label("Close Workspace", systemImage: "xmark")
+//                        }
+//                        
+//                    }
+//            }
             
 //            if App.editors.count == 0 {
 //                Menu {
@@ -520,7 +522,7 @@ struct PYTopBar: View {
                     .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
                     .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                     .hoverEffect(.highlight)
-                    .padding()
+                    .padding(EdgeInsets.init(top: 10, leading: 8, bottom: 10, trailing: 10))
             }
             .sheet(isPresented: $stateManager.showsSettingsSheet) {
                 if #available(iOS 16.4, *) {
@@ -761,7 +763,8 @@ private struct ToolbarItemView: View {
                 .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                 .hoverEffect(.highlight)
                 .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
-                .padding()
+                .padding(EdgeInsets.init(top: 10, leading: 8, bottom: 10, trailing: 8))
+//                .padding()
         }
         .if(item.shortCut != nil) {
             $0.keyboardShortcut(item.shortCut!.key, modifiers: item.shortCut!.modifiers)

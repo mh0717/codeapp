@@ -20,15 +20,18 @@
 [新建终端](https://ipyde.com/ipyde/newterminal)
 
 [打开 examples](https://ipyde.com/ipyde/openexamples)<br/>
-[打开 python home](https://ipyde.com/ipyde/openpyhome)<br/>
-[打开 site-packages](https://ipyde.com/ipyde/opensitepackages)<br/>
-[打开 home](https://ipyde.com/ipyde/openhome)
 
 [导入媒体](https://ipyde.com/ipyde/importmedia)<br/>
 [导入文件](https://ipyde.com/ipyde/importfile)
 
 #### 最近
 {{recent}}
+
+#### 模块
+[home](https://ipyde.com/ipyde/openhome)<br/>
+[python home](https://ipyde.com/ipyde/openpyhome)<br/>
+[site-packages](https://ipyde.com/ipyde/opensitepackages)
+
 
 #### 支持
 [文档](https:www.python3ide.com)<br/>
@@ -430,6 +433,7 @@
 "Decompress: %@" = "解压缩: ";
 "Decompress %@ Succed" = "解压缩 %@ 成功";
 "Decompress %@ Failed" = "解压缩 %@ 失败";
+"Dwonload" = "下载";
 "New download" = "新建下载";
 "Total Start" = "全部开始";
 "Total Stop" = "全部停止";
@@ -438,6 +442,10 @@
 "Total Remove?" = "确认删除?";
 "Total Remove and Delete files" = "同时删除文件";
 "Download task completed" = "下载任务完成";
+"Copy URL" = "拷贝URL";
+"Remove Task" = "删除任务";
+"Remote Task and Delete file" = "同时删除文件";
+
 
 "iap.restore" = "恢复";
 "iap.unlock" = "解锁会员";

@@ -42,7 +42,7 @@ struct PYWelcomeView: View {
             case "https://ipyde.com/ipyde/opensitepackages":
                 onExplorFolder(ConstantManager.LOCAL_SITE_PACKAGES_URL)
             case "https://ipyde.com/ipyde/openhome":
-                onExplorFolder(ConstantManager.appGroupContainer)
+                onExplorFolder(ConstantManager.HOME)
             case "https://ipyde.com/ipyde/newdjango":
                 App.pyapp.showingNewDjangoAlert.toggle()
             case "https://ipyde.com/ipyde/newwebbrowser":

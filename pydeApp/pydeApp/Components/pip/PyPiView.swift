@@ -247,7 +247,7 @@ public struct PyPiView: View {
                 PYSearchBar(text: $pipManager.queryString)
             } header: {
                 HStack{
-                    Text("Pip")
+                    Text("pypi")
                     Spacer()
                     Menu {
                         Button("Install Wheel", systemImage: "arrow.down.to.line.compact") {
@@ -259,6 +259,10 @@ public struct PyPiView: View {
                                 WheelExtensionManager.install(newUrl, app: App)
                             }, allowedTypes: types)
                             App.popupManager.showSheet(content: AnyView(picker))
+                        }
+                        
+                        Button("Open pypi", systemImage: "globe") {
+                            App.openFile(url: URL(string: "https://pypi.org")!, alwaysInNewTab: true)
                         }
                         
                     } label: {

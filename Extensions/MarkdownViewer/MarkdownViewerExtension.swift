@@ -87,18 +87,18 @@ private struct MarkdownPreview: UIViewRepresentable {
 
 class MarkdownEditorInstance: EditorInstanceWithURL {
 
-//    let mdView = MarkdownView()
-//
-//    func load(content: String) {
-//        mdView.load(markdown: content, backgroundColor: UIColor(id: "editor.background"))
-//    }
+    let mdView = MarkdownView()
+
+    func load(content: String) {
+        mdView.load(markdown: content, backgroundColor: UIColor(id: "editor.background"))
+    }
     fileprivate let mdcontent = MarkdownContent()
 
     init(url: URL, content: String, title: String) {
-//        super.init(view: AnyView(MarkdownPreview(view: mdView).id(UUID())), title: title, url: url)
-//        load(content: content)
-        mdcontent.content = content
-        super.init(view: AnyView(MarkdownPreview1(content: mdcontent).id(UUID())), title: title, url: url)
+        super.init(view: AnyView(MarkdownPreview(view: mdView).id(UUID())), title: title, url: url)
+        load(content: content)
+//        mdcontent.content = content
+//        super.init(view: AnyView(MarkdownPreview1(content: mdcontent).id(UUID())), title: title, url: url)
     }
 }
 
@@ -122,8 +122,8 @@ class MarkdownViewerExtension: CodeAppExtension {
                         let contentData = try await app.workSpaceStorage.contents(at: url)
                         if let content = String(data: contentData, encoding: .utf8) {
                             await MainActor.run {
-//                                instance.load(content: content)
-                                instance.mdcontent.content = content
+                                instance.load(content: content)
+//                                instance.mdcontent.content = content
                             }
                         }
                     }
