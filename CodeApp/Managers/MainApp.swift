@@ -1047,7 +1047,7 @@ class MainApp: ObservableObject {
         
         #if PYDEAPP
         if codeEditor == "PYCode Editor" {
-            if (url.pathExtension.lowercased() == "py") {
+            if PYLOCAL_EXECUTION_COMMANDS.keys.contains(url.pathExtension.lowercased()) {
                 let instance = await Task { @MainActor in
                     return PYTextEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate) { [weak self] state, content in
                         //                    if state == .modified, let content, let self {

@@ -44,6 +44,12 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
 
 }
 
+@_cdecl("flet")
+public func node(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    
+    return 0
+}
+
 //@_cdecl("flet")
 //public func flet(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
 //    guard var cmds = convertCArguments(argc: argc, argv: argv) else {

@@ -18,10 +18,21 @@ fileprivate var isPythonUIRunning = false
 
 private let EXTENSION_ID = "PYLOCAL_EXECUTION"
 
-private let LOCAL_EXECUTION_COMMANDS = [
+let PYLOCAL_EXECUTION_COMMANDS = [
     "py": ["python3 -u {url} {args}"],
     "ui.py": ["python3 -u {url} {args}"],
     "ipynb": ["jupyter-nbconvert --execute --allow-errors --stdout --to markdown {url}"],// --allow-errors
+    "c": [
+        "clang  -o {output} -Wl,--export=__f_l_u_s_h__ {url} \(ConstantManager.SYSROOT.path )/flush.o",
+        "wasm {output} {args}"
+    ],
+    "cpp": [
+        "clang++  -o {output} -Wl,--export=__f_l_u_s_h__ {url} \(ConstantManager.SYSROOT.path )/flush.o",
+        "wasm {output} {args}"
+    ],
+    "php": ["php {url}"],
+    "lua": ["lua {url}"],
+    "pl": ["perl {url}"],
 //    "js": ["node {url}"],
 //    "c": ["clang {url}", "wasm a.out"],
 //    "cpp": ["clang++ {url}", "wasm a.out"],
@@ -42,7 +53,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             shouldDisplay: {
                 guard let activeTextEditor = app.activeTextEditor else { return false }
                 return activeTextEditor.url.isFileURL
-                    && LOCAL_EXECUTION_COMMANDS[activeTextEditor.languageIdentifier] != nil
+                    && PYLOCAL_EXECUTION_COMMANDS[activeTextEditor.languageIdentifier] != nil
             }
 //            popover: {dismiss in
 //                return self.runUICode(app: app, dismiss: dismiss)
@@ -130,7 +141,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
         
         let args = editor.runArgs.replacingOccurrences(of: "\n", with: " ")
         let sanitizedUrl = editor.url.path.replacingOccurrences(of: " ", with: #"\ "#)
-        let commands = LOCAL_EXECUTION_COMMANDS["ui.py"]!.map {
+        let commands = PYLOCAL_EXECUTION_COMMANDS["ui.py"]!.map {
             $0.replacingOccurrences(of: "{url}", with: sanitizedUrl)
                 .replacingOccurrences(of: "{args}", with: args)
         }
@@ -157,7 +168,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             var newConfig = config
             let newPath = editor.url.path.replacingFirstOccurrence(of: wkdir.path, with: linkDir.path)
             let sanitizedUrl = newPath.replacingOccurrences(of: " ", with: #"\ "#)
-            let commands = LOCAL_EXECUTION_COMMANDS["ui.py"]!.map {
+            let commands = PYLOCAL_EXECUTION_COMMANDS["ui.py"]!.map {
                 $0.replacingOccurrences(of: "{url}", with: sanitizedUrl)
                     .replacingOccurrences(of: "{args}", with: args)
             }
@@ -256,6 +267,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
     
 
     private func runCodeLocally(app: MainApp) {
+        bind_hooks()
         guard let editor = app.activeTextEditor as? WithRunnerEditorInstance else {
             return
         }
@@ -298,12 +310,22 @@ class PYLocalExecutionExtension: CodeAppExtension {
             return
         }
 
-        guard let commands = LOCAL_EXECUTION_COMMANDS[editor.languageIdentifier] else {
+        guard let commands = PYLOCAL_EXECUTION_COMMANDS[editor.languageIdentifier] else {
             return
         }
+        let ext = editor.languageIdentifier
         
         let predicate = NSPredicate(format: "SELF MATCHES %@", ".*print +[^(].*")
-        let isPy2 = predicate.evaluate(with: editor.content)
+        let isPy2 = (ext == "py") && predicate.evaluate(with: editor.content)
+        var output = ""
+        if ext == "c" || ext == "cpp" {
+//            if editor.url.isInBundle() {
+//                
+//            } else {
+//
+//            }
+            output = editor.url.path.replacingOccurrences(of: " ", with: #"\ "#) + ".wasm"
+        }
 
         let args = editor.runArgs.replacingOccurrences(of: "\n", with: " ")
         let sanitizedUrl = editor.url.path.replacingOccurrences(of: " ", with: #"\ "#)
@@ -311,6 +333,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
         .map {
             $0.replacingOccurrences(of: "{url}", with: sanitizedUrl)
                 .replacingOccurrences(of: "{args}", with: args)
+                .replacingOccurrences(of: "{output}", with: output)
         }
 
         let compilerShowPath = UserDefaults.standard.bool(forKey: "compilerShowPath")

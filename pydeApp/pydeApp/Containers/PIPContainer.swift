@@ -320,7 +320,7 @@ struct PipOpButton: View {
                     
                     App.notificationManager.showAsyncNotification(title: localizedString(forKey: "Installing %@"), task: {
                         let result = await withCheckedContinuation { continuation in
-                            let cmd = version == nil ? "pip3 install \(package)" : "pip3 install \(package)==\(version!)"
+                            let cmd = version == nil ? "pythonA -m pip install \(package)" : "pythonA -m pip install \(package)==\(version!)"
                             runnerWidget.consoleView.feed(text: "\(cmd)\r\n")
                             runnerWidget.consoleView.executor?.dispatch(command: "remote \(cmd) --user", completionHandler: { rlt in
                                 continuation.resume(returning: rlt)

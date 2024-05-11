@@ -302,7 +302,7 @@ public class PipService {
         }
         #endif
 
-        let result = await executeCommand("remote pip3 update \(packages.joined(separator: " "))  --no-color --disable-pip-version-check --no-python-version-warning")
+        let result = await executeCommand("remote pythonA -m pip update \(packages.joined(separator: " "))  --no-color --disable-pip-version-check --no-python-version-warning")
         return true
     }
     

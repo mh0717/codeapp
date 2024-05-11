@@ -10,6 +10,7 @@ import SwiftUI
 import pydeCommon
 import ios_system
 import Combine
+import ZipArchive
 
 class PYApp: ObservableObject {
     
@@ -232,6 +233,16 @@ class PYApp: ObservableObject {
     
     
     static func onAppInitialized() {
+        let fileManager = FileManager.default
+        
+        
+        if !fileManager.fileExists(atPath: ConstantManager.SYSROOT.path) {
+            Thread.detachNewThread {
+                SSZipArchive.unzipFile(atPath: ConstantManager.CUSRZIP.path, toDestination: ConstantManager.SYSROOT.path + "/../")
+            }
+        }
+        
+        
         wmessager.listenForMessage(withIdentifier: ConstantManager.PYDE_OPEN_COMMAND_MSG) { args in
             guard let args = args as? [String], !args.isEmpty else {return}
             if args[1] == "-a" {

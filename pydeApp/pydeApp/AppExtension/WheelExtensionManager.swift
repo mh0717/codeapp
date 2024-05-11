@@ -30,7 +30,7 @@ class WheelExtensionManager: CodeAppExtension {
         
         app.notificationManager.showAsyncNotification(title: localizedString(forKey: "Installing %@"), task: {
             let result = await withCheckedContinuation { continuation in
-                let cmd = "pip3 install \(url.path)"
+                let cmd = "pythonA -m pip install \(url.path)"
                 runnerWidget.consoleView.feed(text: "\(cmd)\r\n")
                 runnerWidget.consoleView.executor?.dispatch(command: "remote \(cmd) --user", completionHandler: { rlt in
                     continuation.resume(returning: rlt)

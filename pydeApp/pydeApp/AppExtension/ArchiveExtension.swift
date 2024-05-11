@@ -8,6 +8,7 @@
 import Foundation
 import ios_system
 import SwiftUI
+import ZipArchive
 
 //class SWCompEditorInstance: EditorInstanceWithURL {
 //    init(title: String, url: URL) {
@@ -118,19 +119,27 @@ private func unarchive(_ App: MainApp, _ url: URL, _ toUrl: URL) {
 //            let exdir = url.deletingLastPathComponent().withoutSame(name) ?? url.deletingLastPathComponent()
             let exdir = toUrl.withoutSame(name) ?? toUrl.appendingPathComponent(name)
             try? FileManager.default.createDirectory(at: exdir, withIntermediateDirectories: true)
-            let newCommand = command.replacingFirstOccurrence(of: "{input}", with: url.path.replacingOccurrences(of: " ", with: #"\ "#)).replacingOccurrences(of: "{output}", with: exdir.path.replacingOccurrences(of: " ", with: #"\ "#))
-//            let newCommand = "swcomp zip \(url.path.replacingOccurrences(of: " ", with: #"\ "#)) -e \(exdir.path.replacingOccurrences(of: " ", with: #"\ "#))"
-            ios_switchSession(newCommand)
-            ios_setContext(newCommand)
             
-            let pid = ios_fork()
-            
-            var returnCode = ios_system(newCommand)
-            ios_waitpid(pid)
-            ios_releaseThreadId(pid)
-            if returnCode == 0 {
-                returnCode = ios_getCommandStatus();
+            var returnCode: Int32 = 0
+            if ext == "zip" {
+                let result = SSZipArchive.unzipFile(atPath: url.path, toDestination: exdir.path)
+                returnCode = result ? 0 : 1
+            } else {
+                let newCommand = command.replacingFirstOccurrence(of: "{input}", with: url.path.replacingOccurrences(of: " ", with: #"\ "#)).replacingOccurrences(of: "{output}", with: exdir.path.replacingOccurrences(of: " ", with: #"\ "#))
+                ios_switchSession(newCommand)
+                ios_setContext(newCommand)
+                
+                let pid = ios_fork()
+                
+                returnCode = ios_system(newCommand)
+                ios_waitpid(pid)
+                ios_releaseThreadId(pid)
+                if returnCode == 0 {
+                    returnCode = ios_getCommandStatus();
+                }
             }
+            
+            
             
             if returnCode == 0 {
                 App.notificationManager.showSucessMessage("Decompress %@ Succed", url.lastPathComponent)
@@ -177,7 +186,12 @@ class SWCompViewerExtension: CodeAppExtension {
                     }
                     let url = editor.url
                     
-                    let toUrl = url.deletingLastPathComponent()
+                    var toUrl = url.deletingLastPathComponent()
+                    if let wurl = app.workSpaceStorage.currentDirectory._url {
+                        if !url.isContained(in: wurl) {
+                            toUrl = wurl
+                        }
+                    }
                     
                     unarchive(app, url, toUrl)
                 }),
@@ -202,7 +216,12 @@ class SWCompViewerExtension: CodeAppExtension {
         let unarchiveItem = FileMenuItem(iconSystemName: "archivebox", title: "Decompression") { url in
             SWCOMP_COMMANDS.keys.contains(url.pathExtension.lowercased())
         } onClick: { url in
-            let toUrl = url.deletingLastPathComponent()
+            var toUrl = url.deletingLastPathComponent()
+            if let wurl = app.workSpaceStorage.currentDirectory._url {
+                if !url.isContained(in: wurl) {
+                    toUrl = wurl
+                }
+            }
             unarchive(app, url, toUrl)
         }
         

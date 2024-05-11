@@ -14,12 +14,10 @@
 [打开文件](https://ipyde.com/ipyde/openfile)<br/>
 [打开文件夹](https://ipyde.com/ipyde/openfolder)
 
-[克隆存储库](https://ipyde.com/ipyde/clone)<br/>
+[克隆仓库](https://ipyde.com/ipyde/clone)<br/>
 [新建Django工程](https://ipyde.com/ipyde/newdjango)<br/>
 [新建网页浏览器](https://ipyde.com/ipyde/newwebbrowser)<br/>
 [新建终端](https://ipyde.com/ipyde/newterminal)
-
-[打开 examples](https://ipyde.com/ipyde/openexamples)<br/>
 
 [导入媒体](https://ipyde.com/ipyde/importmedia)<br/>
 [导入文件](https://ipyde.com/ipyde/importfile)
@@ -28,10 +26,11 @@
 {{recent}}
 
 #### 模块
-[home](https://ipyde.com/ipyde/openhome)<br/>
-[python home](https://ipyde.com/ipyde/openpyhome)<br/>
-[site-packages](https://ipyde.com/ipyde/opensitepackages)
-
+[examples](https://ipyde.com/ipyde/openexamples)<br/>
+[python HOME](https://ipyde.com/ipyde/openpyhome)<br/>
+[python SITE-PACKAGES](https://ipyde.com/ipyde/opensitepackages)<br/>
+[python USER_SITE](https://ipyde.com/ipyde/openusersite)<br/>
+[clang SYSROOT](https://ipyde.com/ipyde/opensysroot)
 
 #### 支持
 [文档](https:www.python3ide.com)<br/>

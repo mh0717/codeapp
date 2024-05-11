@@ -149,7 +149,7 @@ public struct TwoSideMenu<MenuContent: View, RightMenu: View>: ViewModifier {
                         
                     }
                 } else {
-                    if event.startLocation.x >= sideWidth {
+                    if event.startLocation.x >= 50 {
                         
                         offset = min(max(event.translation.width, -sideWidth), 0)
                     }
@@ -162,7 +162,7 @@ public struct TwoSideMenu<MenuContent: View, RightMenu: View>: ViewModifier {
                         rightOffset = min(width, max(width - sideWidth, event.location.x))
                     }
                 } else {
-                    if event.startLocation.x < width - sideWidth {
+                    if event.startLocation.x < width - 50 {
                         rightOffset =  min(width, max(width - sideWidth, width - sideWidth + event.translation.width))
                     }
                 }
@@ -186,7 +186,7 @@ public struct TwoSideMenu<MenuContent: View, RightMenu: View>: ViewModifier {
             }
             
             if isEnabled, isShowing {
-                if event.startLocation.x >= sideWidth, event.translation.width < 10 {
+                if event.startLocation.x >= 50, event.translation.width < 10 {
                     withAnimation {
                         isShowing = false
                         offset = -sideWidth
@@ -210,7 +210,7 @@ public struct TwoSideMenu<MenuContent: View, RightMenu: View>: ViewModifier {
             }
             
             if isRightEnabled, isRightShowing {
-                if event.startLocation.x < width - sideWidth, event.translation.width > 10 {
+                if event.startLocation.x < width - 50, event.translation.width > 10 {
                     withAnimation {
                         rightOffset = width
                         isRightShowing = false
