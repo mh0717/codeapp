@@ -13,6 +13,8 @@ import python3Objc
 import ios_system
 import QuickLook
 import Dynamic
+import CCommon
+import pyde
 
 fileprivate var isPythonUIRunning = false
 
@@ -33,6 +35,7 @@ let PYLOCAL_EXECUTION_COMMANDS = [
     "php": ["php {url}"],
     "lua": ["lua {url}"],
     "pl": ["perl {url}"],
+    "js": ["node {url}"],
 //    "js": ["node {url}"],
 //    "c": ["clang {url}", "wasm a.out"],
 //    "cpp": ["clang++ {url}", "wasm a.out"],

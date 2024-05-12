@@ -7,8 +7,8 @@
 
 import UIKit
 import ios_system
-import python3Objc
 import pydeCommon
+import CCommon
 
 fileprivate let USING_MULTI_INTERPRETERS = true
 
@@ -42,12 +42,6 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
         remoteExeCommands(context: context)
     }
 
-}
-
-@_cdecl("flet")
-public func node(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-    
-    return 0
 }
 
 //@_cdecl("flet")

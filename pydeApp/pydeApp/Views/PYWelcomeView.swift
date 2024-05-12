@@ -47,6 +47,8 @@ struct PYWelcomeView: View {
                 onExplorFolder(ConstantManager.user_site)
             case "https://ipyde.com/ipyde/openhome":
                 onExplorFolder(ConstantManager.HOME)
+            case "https://ipyde.com/ipyde/opennodemodules":
+                onExplorFolder(ConstantManager.NPM_PREFIX.appendingPathComponent("lib"))
             case "https://ipyde.com/ipyde/newdjango":
                 App.pyapp.showingNewDjangoAlert.toggle()
             case "https://ipyde.com/ipyde/newwebbrowser":

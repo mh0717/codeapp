@@ -35,7 +35,7 @@ class ActionViewController: UITabBarController {
         object_setClass(self.tabBar, WeiTabBar.self)
     }
     
-    private var consoleVC: ConsoleViewContrller?
+//    private var consoleVC: ConsoleViewContrller?
     
     private var vcs: [UIViewController] = []
     private var activityView: UIActivityIndicatorView?

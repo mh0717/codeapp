@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-import pydeCommon
+import pyde
 
 class WithRunnerEditorInstance: TextEditorInstance {
     

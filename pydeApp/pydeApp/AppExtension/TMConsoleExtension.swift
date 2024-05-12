@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import pydeCommon
+import pyde
 
 class TMConsoleExtension: CodeAppExtension {
     

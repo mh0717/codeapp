@@ -30,7 +30,8 @@
 [python HOME](https://ipyde.com/ipyde/openpyhome)<br/>
 [python SITE-PACKAGES](https://ipyde.com/ipyde/opensitepackages)<br/>
 [python USER_SITE](https://ipyde.com/ipyde/openusersite)<br/>
-[clang SYSROOT](https://ipyde.com/ipyde/opensysroot)
+[clang SYSROOT](https://ipyde.com/ipyde/opensysroot)<br/>
+[node NODE_MODULES](https://ipyde.com/ipyde/opennodemodules)
 
 #### 支持
 [文档](https:www.python3ide.com)<br/>

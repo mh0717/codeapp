@@ -1003,7 +1003,6 @@
 		A30F6B8C2BE0E528007B7CDF /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */; };
 		A30F6B8F2BE0E528007B7CDF /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A30F6B892BE0E528007B7CDF /* ios_system */; };
 		A30F6B902BE0E528007B7CDF /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
-		A30F6B912BE0E528007B7CDF /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A30F6B8A2BE0E528007B7CDF /* python3Objc */; };
 		A30F6B922BE0E528007B7CDF /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A30F6B882BE0E528007B7CDF /* pydeCommon */; };
 		A30F6B942BE0E528007B7CDF /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A36336EE2AF22B3200085608 /* Action.js */; };
 		A30F6B952BE0E528007B7CDF /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -1011,7 +1010,6 @@
 		A30F6BA42BE0E577007B7CDF /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337092AF231D200085608 /* ActionViewController.swift */; };
 		A30F6BA72BE0E577007B7CDF /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A30F6B9F2BE0E577007B7CDF /* ios_system */; };
 		A30F6BA82BE0E577007B7CDF /* TortoiseGraphics in Frameworks */ = {isa = PBXBuildFile; productRef = A30F6BA02BE0E577007B7CDF /* TortoiseGraphics */; };
-		A30F6BA92BE0E577007B7CDF /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A30F6BA12BE0E577007B7CDF /* python3Objc */; };
 		A30F6BAA2BE0E577007B7CDF /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A30F6B9E2BE0E577007B7CDF /* pydeCommon */; };
 		A30F6BAC2BE0E577007B7CDF /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A36337072AF231D200085608 /* Media.xcassets */; };
 		A30F6BAD2BE0E577007B7CDF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3AFD15C2BC8305B004C9F10 /* InfoPlist.strings */; };
@@ -1021,11 +1019,9 @@
 		A30F6BBD2BE0E5BD007B7CDF /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A91A212B49D6D7007E8C76 /* PreviewProvider.swift */; };
 		A30F6BBF2BE0E5BD007B7CDF /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A91A1C2B49D6D7007E8C76 /* QuickLook.framework */; };
 		A30F6BC02BE0E5BD007B7CDF /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A30F6BB82BE0E5BD007B7CDF /* pydeCommon */; };
-		A30F6BC12BE0E5BD007B7CDF /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A30F6BB92BE0E5BD007B7CDF /* python3Objc */; };
 		A30F6BC22BE0E5BD007B7CDF /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A30F6BB72BE0E5BD007B7CDF /* ios_system */; };
 		A30F6BC42BE0E5BD007B7CDF /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A30F6BC52BE0E5BD007B7CDF /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3A91A232B49D6D7007E8C76 /* MainInterface.storyboard */; };
-		A30F6BC72BE0E5BD007B7CDF /* python3Objc in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A30F6BB92BE0E5BD007B7CDF /* python3Objc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A30F6BCD2BE0E60C007B7CDF /* ideRemoteA.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A30F6B9B2BE0E528007B7CDF /* ideRemoteA.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A30F6BD02BE0E60C007B7CDF /* ideUIA.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A30F6BB42BE0E577007B7CDF /* ideUIA.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A30F6BD32BE0E60C007B7CDF /* ideUIPreviewA.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A30F6BCB2BE0E5BD007B7CDF /* ideUIPreviewA.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -1122,6 +1118,24 @@
 		A3856D432BEFE9A100755140 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
 		A3856D442BEFE9A300755140 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
 		A3856D452BEFE9A400755140 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
+		A3856D4A2BF0B60700755140 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3856D492BF0B60700755140 /* CCommon */; };
+		A3856D4B2BF0B60700755140 /* CCommon in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A3856D492BF0B60700755140 /* CCommon */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A3856D4D2BF0B64400755140 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3856D4C2BF0B64400755140 /* CCommon */; };
+		A3856D512BF0C75D00755140 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3856D502BF0C75D00755140 /* CCommon */; };
+		A3856D542BF0C76B00755140 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3856D532BF0C76B00755140 /* CCommon */; };
+		A3856D572BF0C77700755140 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3856D562BF0C77700755140 /* CCommon */; };
+		A3856D5A2BF0C78300755140 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3856D592BF0C78300755140 /* CCommon */; };
+		A3856D5D2BF0C78C00755140 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3856D5C2BF0C78C00755140 /* CCommon */; };
+		A3856D602BF0C79700755140 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3856D5F2BF0C79700755140 /* CCommon */; };
+		A3856D632BF0C7A700755140 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3856D622BF0C7A700755140 /* CCommon */; };
+		A3856D662BF0C7D900755140 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3856D652BF0C7D900755140 /* CCommon */; };
+		A3856D692BF0C7E700755140 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3856D682BF0C7E700755140 /* CCommon */; };
+		A3856D6C2BF0C7F700755140 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3856D6B2BF0C7F700755140 /* CCommon */; };
+		A3856D6F2BF0C80300755140 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3856D6E2BF0C80300755140 /* CCommon */; };
+		A3856D722BF0C81100755140 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3856D712BF0C81100755140 /* CCommon */; };
+		A3856D752BF0C81D00755140 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3856D742BF0C81D00755140 /* CCommon */; };
+		A3856D782BF0C82800755140 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3856D772BF0C82800755140 /* CCommon */; };
+		A3856D7B2BF0C83500755140 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3856D7A2BF0C83500755140 /* CCommon */; };
 		A39F41D92BEA81A9001546B4 /* WheelExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F41D82BEA81A9001546B4 /* WheelExtensionManager.swift */; };
 		A39F41DA2BEA81A9001546B4 /* WheelExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F41D82BEA81A9001546B4 /* WheelExtensionManager.swift */; };
 		A39F41DC2BEA867A001546B4 /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F41DB2BEA867A001546B4 /* FilePickerView.swift */; };
@@ -1129,7 +1143,6 @@
 		A39F41EB2BEAFA9E001546B4 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */; };
 		A39F41EE2BEAFA9E001546B4 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A39F41E82BEAFA9E001546B4 /* ios_system */; };
 		A39F41EF2BEAFA9E001546B4 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
-		A39F41F02BEAFA9E001546B4 /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A39F41E92BEAFA9E001546B4 /* python3Objc */; };
 		A39F41F12BEAFA9E001546B4 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A39F41E72BEAFA9E001546B4 /* pydeCommon */; };
 		A39F41F32BEAFA9E001546B4 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A36336EE2AF22B3200085608 /* Action.js */; };
 		A39F41F42BEAFA9E001546B4 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -1137,7 +1150,6 @@
 		A39F42012BEAFAC5001546B4 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */; };
 		A39F42042BEAFAC5001546B4 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A39F41FE2BEAFAC5001546B4 /* ios_system */; };
 		A39F42052BEAFAC5001546B4 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
-		A39F42062BEAFAC5001546B4 /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A39F41FF2BEAFAC5001546B4 /* python3Objc */; };
 		A39F42072BEAFAC5001546B4 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A39F41FD2BEAFAC5001546B4 /* pydeCommon */; };
 		A39F42092BEAFAC5001546B4 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A36336EE2AF22B3200085608 /* Action.js */; };
 		A39F420A2BEAFAC5001546B4 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -1145,7 +1157,6 @@
 		A39F42172BEAFAD6001546B4 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */; };
 		A39F421A2BEAFAD6001546B4 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A39F42142BEAFAD6001546B4 /* ios_system */; };
 		A39F421B2BEAFAD6001546B4 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
-		A39F421C2BEAFAD6001546B4 /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A39F42152BEAFAD6001546B4 /* python3Objc */; };
 		A39F421D2BEAFAD6001546B4 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A39F42132BEAFAD6001546B4 /* pydeCommon */; };
 		A39F421F2BEAFAD6001546B4 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A36336EE2AF22B3200085608 /* Action.js */; };
 		A39F42202BEAFAD6001546B4 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -1153,7 +1164,6 @@
 		A39F422D2BEAFADE001546B4 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */; };
 		A39F42302BEAFADE001546B4 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A39F422A2BEAFADE001546B4 /* ios_system */; };
 		A39F42312BEAFADE001546B4 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
-		A39F42322BEAFADE001546B4 /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A39F422B2BEAFADE001546B4 /* python3Objc */; };
 		A39F42332BEAFADE001546B4 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A39F42292BEAFADE001546B4 /* pydeCommon */; };
 		A39F42352BEAFADE001546B4 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A36336EE2AF22B3200085608 /* Action.js */; };
 		A39F42362BEAFADE001546B4 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -1161,7 +1171,6 @@
 		A39F42432BEAFAED001546B4 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */; };
 		A39F42462BEAFAED001546B4 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A39F42402BEAFAED001546B4 /* ios_system */; };
 		A39F42472BEAFAED001546B4 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
-		A39F42482BEAFAED001546B4 /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A39F42412BEAFAED001546B4 /* python3Objc */; };
 		A39F42492BEAFAED001546B4 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A39F423F2BEAFAED001546B4 /* pydeCommon */; };
 		A39F424B2BEAFAED001546B4 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A36336EE2AF22B3200085608 /* Action.js */; };
 		A39F424C2BEAFAED001546B4 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -1169,7 +1178,6 @@
 		A39F42592BEAFAF8001546B4 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */; };
 		A39F425C2BEAFAF8001546B4 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A39F42562BEAFAF8001546B4 /* ios_system */; };
 		A39F425D2BEAFAF8001546B4 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
-		A39F425E2BEAFAF8001546B4 /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A39F42572BEAFAF8001546B4 /* python3Objc */; };
 		A39F425F2BEAFAF8001546B4 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A39F42552BEAFAF8001546B4 /* pydeCommon */; };
 		A39F42612BEAFAF8001546B4 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A36336EE2AF22B3200085608 /* Action.js */; };
 		A39F42622BEAFAF8001546B4 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -1418,7 +1426,6 @@
 		A3F239DA2BA73C9A006F6D7B /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */; };
 		A3F239DD2BA73C9A006F6D7B /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3F239D72BA73C9A006F6D7B /* ios_system */; };
 		A3F239DE2BA73C9A006F6D7B /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
-		A3F239DF2BA73C9A006F6D7B /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A3F239D82BA73C9A006F6D7B /* python3Objc */; };
 		A3F239E02BA73C9A006F6D7B /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3F239D62BA73C9A006F6D7B /* pydeCommon */; };
 		A3F239E22BA73C9A006F6D7B /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A36336EE2AF22B3200085608 /* Action.js */; };
 		A3F239E32BA73C9A006F6D7B /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -1426,7 +1433,6 @@
 		A3F239F02BA73D1F006F6D7B /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */; };
 		A3F239F32BA73D1F006F6D7B /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3F239ED2BA73D1F006F6D7B /* ios_system */; };
 		A3F239F42BA73D1F006F6D7B /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
-		A3F239F52BA73D1F006F6D7B /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A3F239EE2BA73D1F006F6D7B /* python3Objc */; };
 		A3F239F62BA73D1F006F6D7B /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3F239EC2BA73D1F006F6D7B /* pydeCommon */; };
 		A3F239F82BA73D1F006F6D7B /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A36336EE2AF22B3200085608 /* Action.js */; };
 		A3F239F92BA73D1F006F6D7B /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -1434,7 +1440,6 @@
 		A3F23A062BA73D41006F6D7B /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */; };
 		A3F23A092BA73D41006F6D7B /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3F23A032BA73D41006F6D7B /* ios_system */; };
 		A3F23A0A2BA73D41006F6D7B /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
-		A3F23A0B2BA73D41006F6D7B /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A3F23A042BA73D41006F6D7B /* python3Objc */; };
 		A3F23A0C2BA73D41006F6D7B /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3F23A022BA73D41006F6D7B /* pydeCommon */; };
 		A3F23A0E2BA73D41006F6D7B /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A36336EE2AF22B3200085608 /* Action.js */; };
 		A3F23A0F2BA73D41006F6D7B /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -1445,7 +1450,6 @@
 		A3F23A252BA757DF006F6D7B /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */; };
 		A3F23A282BA757DF006F6D7B /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3F23A222BA757DF006F6D7B /* ios_system */; };
 		A3F23A292BA757DF006F6D7B /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
-		A3F23A2A2BA757DF006F6D7B /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A3F23A232BA757DF006F6D7B /* python3Objc */; };
 		A3F23A2B2BA757DF006F6D7B /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3F23A212BA757DF006F6D7B /* pydeCommon */; };
 		A3F23A2D2BA757DF006F6D7B /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A36336EE2AF22B3200085608 /* Action.js */; };
 		A3F23A2E2BA757DF006F6D7B /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -1453,7 +1457,6 @@
 		A3F23A3B2BA757E4006F6D7B /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */; };
 		A3F23A3E2BA757E4006F6D7B /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3F23A382BA757E4006F6D7B /* ios_system */; };
 		A3F23A3F2BA757E4006F6D7B /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
-		A3F23A402BA757E4006F6D7B /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A3F23A392BA757E4006F6D7B /* python3Objc */; };
 		A3F23A412BA757E4006F6D7B /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3F23A372BA757E4006F6D7B /* pydeCommon */; };
 		A3F23A432BA757E4006F6D7B /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A36336EE2AF22B3200085608 /* Action.js */; };
 		A3F23A442BA757E4006F6D7B /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -1461,7 +1464,6 @@
 		A3F23A512BA757EA006F6D7B /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */; };
 		A3F23A542BA757EA006F6D7B /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3F23A4E2BA757EA006F6D7B /* ios_system */; };
 		A3F23A552BA757EA006F6D7B /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
-		A3F23A562BA757EA006F6D7B /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A3F23A4F2BA757EA006F6D7B /* python3Objc */; };
 		A3F23A572BA757EA006F6D7B /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3F23A4D2BA757EA006F6D7B /* pydeCommon */; };
 		A3F23A592BA757EA006F6D7B /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A36336EE2AF22B3200085608 /* Action.js */; };
 		A3F23A5A2BA757EA006F6D7B /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -1469,7 +1471,6 @@
 		A3F23A672BA757EE006F6D7B /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36336EC2AF22B3200085608 /* ActionRequestHandler.swift */; };
 		A3F23A6A2BA757EE006F6D7B /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3F23A642BA757EE006F6D7B /* ios_system */; };
 		A3F23A6B2BA757EE006F6D7B /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36336E72AF22B3200085608 /* UniformTypeIdentifiers.framework */; };
-		A3F23A6C2BA757EE006F6D7B /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A3F23A652BA757EE006F6D7B /* python3Objc */; };
 		A3F23A6D2BA757EE006F6D7B /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3F23A632BA757EE006F6D7B /* pydeCommon */; };
 		A3F23A6F2BA757EE006F6D7B /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A36336EE2AF22B3200085608 /* Action.js */; };
 		A3F23A702BA757EE006F6D7B /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
@@ -2084,6 +2085,7 @@
 				A30F6B722BE0DD53007B7CDF /* text.xcframework in Embed Frameworks */,
 				A30F6B732BE0DD53007B7CDF /* pydeCommon in Embed Frameworks */,
 				A30F6B742BE0DD53007B7CDF /* python3Objc in Embed Frameworks */,
+				A3856D4B2BF0B60700755140 /* CCommon in Embed Frameworks */,
 				A30F6B752BE0DD53007B7CDF /* tar.xcframework in Embed Frameworks */,
 				A30F6B762BE0DD53007B7CDF /* flet in Embed Frameworks */,
 			);
@@ -2116,7 +2118,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A30F6BC72BE0E5BD007B7CDF /* python3Objc in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3151,6 +3152,7 @@
 				A30F6B462BE0DD53007B7CDF /* python3_ios-materialyoucolor.quantize.celebi.xcframework in Frameworks */,
 				A30F6B472BE0DD53007B7CDF /* Tiercel in Frameworks */,
 				A30F6B482BE0DD53007B7CDF /* FolioReaderKit in Frameworks */,
+				A3856D4A2BF0B60700755140 /* CCommon in Frameworks */,
 				A3AFB9A32BEA6C6B0038602E /* MarkdownUI in Frameworks */,
 				A30F6B492BE0DD53007B7CDF /* python3Site in Frameworks */,
 				A30F6B4A2BE0DD53007B7CDF /* ZIPFoundation in Frameworks */,
@@ -3172,7 +3174,7 @@
 			files = (
 				A30F6B8F2BE0E528007B7CDF /* ios_system in Frameworks */,
 				A30F6B902BE0E528007B7CDF /* UniformTypeIdentifiers.framework in Frameworks */,
-				A30F6B912BE0E528007B7CDF /* python3Objc in Frameworks */,
+				A3856D4D2BF0B64400755140 /* CCommon in Frameworks */,
 				A30F6B922BE0E528007B7CDF /* pydeCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3183,8 +3185,8 @@
 			files = (
 				A30F6BA72BE0E577007B7CDF /* ios_system in Frameworks */,
 				A30F6BA82BE0E577007B7CDF /* TortoiseGraphics in Frameworks */,
-				A30F6BA92BE0E577007B7CDF /* python3Objc in Frameworks */,
 				A30F6BAA2BE0E577007B7CDF /* pydeCommon in Frameworks */,
+				A3856D692BF0C7E700755140 /* CCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3194,8 +3196,8 @@
 			files = (
 				A30F6BBF2BE0E5BD007B7CDF /* QuickLook.framework in Frameworks */,
 				A30F6BC02BE0E5BD007B7CDF /* pydeCommon in Frameworks */,
-				A30F6BC12BE0E5BD007B7CDF /* python3Objc in Frameworks */,
 				A30F6BC22BE0E5BD007B7CDF /* ios_system in Frameworks */,
+				A3856D6C2BF0C7F700755140 /* CCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3248,8 +3250,8 @@
 			files = (
 				A39F41EE2BEAFA9E001546B4 /* ios_system in Frameworks */,
 				A39F41EF2BEAFA9E001546B4 /* UniformTypeIdentifiers.framework in Frameworks */,
-				A39F41F02BEAFA9E001546B4 /* python3Objc in Frameworks */,
 				A39F41F12BEAFA9E001546B4 /* pydeCommon in Frameworks */,
+				A3856D662BF0C7D900755140 /* CCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3259,8 +3261,8 @@
 			files = (
 				A39F42042BEAFAC5001546B4 /* ios_system in Frameworks */,
 				A39F42052BEAFAC5001546B4 /* UniformTypeIdentifiers.framework in Frameworks */,
-				A39F42062BEAFAC5001546B4 /* python3Objc in Frameworks */,
 				A39F42072BEAFAC5001546B4 /* pydeCommon in Frameworks */,
+				A3856D6F2BF0C80300755140 /* CCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3270,8 +3272,8 @@
 			files = (
 				A39F421A2BEAFAD6001546B4 /* ios_system in Frameworks */,
 				A39F421B2BEAFAD6001546B4 /* UniformTypeIdentifiers.framework in Frameworks */,
-				A39F421C2BEAFAD6001546B4 /* python3Objc in Frameworks */,
 				A39F421D2BEAFAD6001546B4 /* pydeCommon in Frameworks */,
+				A3856D722BF0C81100755140 /* CCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3281,8 +3283,8 @@
 			files = (
 				A39F42302BEAFADE001546B4 /* ios_system in Frameworks */,
 				A39F42312BEAFADE001546B4 /* UniformTypeIdentifiers.framework in Frameworks */,
-				A39F42322BEAFADE001546B4 /* python3Objc in Frameworks */,
 				A39F42332BEAFADE001546B4 /* pydeCommon in Frameworks */,
+				A3856D752BF0C81D00755140 /* CCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3292,8 +3294,8 @@
 			files = (
 				A39F42462BEAFAED001546B4 /* ios_system in Frameworks */,
 				A39F42472BEAFAED001546B4 /* UniformTypeIdentifiers.framework in Frameworks */,
-				A39F42482BEAFAED001546B4 /* python3Objc in Frameworks */,
 				A39F42492BEAFAED001546B4 /* pydeCommon in Frameworks */,
+				A3856D782BF0C82800755140 /* CCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3303,8 +3305,8 @@
 			files = (
 				A39F425C2BEAFAF8001546B4 /* ios_system in Frameworks */,
 				A39F425D2BEAFAF8001546B4 /* UniformTypeIdentifiers.framework in Frameworks */,
-				A39F425E2BEAFAF8001546B4 /* python3Objc in Frameworks */,
 				A39F425F2BEAFAF8001546B4 /* pydeCommon in Frameworks */,
+				A3856D7B2BF0C83500755140 /* CCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3351,8 +3353,8 @@
 			files = (
 				A3F239DD2BA73C9A006F6D7B /* ios_system in Frameworks */,
 				A3F239DE2BA73C9A006F6D7B /* UniformTypeIdentifiers.framework in Frameworks */,
-				A3F239DF2BA73C9A006F6D7B /* python3Objc in Frameworks */,
 				A3F239E02BA73C9A006F6D7B /* pydeCommon in Frameworks */,
+				A3856D632BF0C7A700755140 /* CCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3362,8 +3364,8 @@
 			files = (
 				A3F239F32BA73D1F006F6D7B /* ios_system in Frameworks */,
 				A3F239F42BA73D1F006F6D7B /* UniformTypeIdentifiers.framework in Frameworks */,
-				A3F239F52BA73D1F006F6D7B /* python3Objc in Frameworks */,
 				A3F239F62BA73D1F006F6D7B /* pydeCommon in Frameworks */,
+				A3856D512BF0C75D00755140 /* CCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3373,8 +3375,8 @@
 			files = (
 				A3F23A092BA73D41006F6D7B /* ios_system in Frameworks */,
 				A3F23A0A2BA73D41006F6D7B /* UniformTypeIdentifiers.framework in Frameworks */,
-				A3F23A0B2BA73D41006F6D7B /* python3Objc in Frameworks */,
 				A3F23A0C2BA73D41006F6D7B /* pydeCommon in Frameworks */,
+				A3856D602BF0C79700755140 /* CCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3384,8 +3386,8 @@
 			files = (
 				A3F23A282BA757DF006F6D7B /* ios_system in Frameworks */,
 				A3F23A292BA757DF006F6D7B /* UniformTypeIdentifiers.framework in Frameworks */,
-				A3F23A2A2BA757DF006F6D7B /* python3Objc in Frameworks */,
 				A3F23A2B2BA757DF006F6D7B /* pydeCommon in Frameworks */,
+				A3856D5D2BF0C78C00755140 /* CCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3395,8 +3397,8 @@
 			files = (
 				A3F23A3E2BA757E4006F6D7B /* ios_system in Frameworks */,
 				A3F23A3F2BA757E4006F6D7B /* UniformTypeIdentifiers.framework in Frameworks */,
-				A3F23A402BA757E4006F6D7B /* python3Objc in Frameworks */,
 				A3F23A412BA757E4006F6D7B /* pydeCommon in Frameworks */,
+				A3856D5A2BF0C78300755140 /* CCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3406,8 +3408,8 @@
 			files = (
 				A3F23A542BA757EA006F6D7B /* ios_system in Frameworks */,
 				A3F23A552BA757EA006F6D7B /* UniformTypeIdentifiers.framework in Frameworks */,
-				A3F23A562BA757EA006F6D7B /* python3Objc in Frameworks */,
 				A3F23A572BA757EA006F6D7B /* pydeCommon in Frameworks */,
+				A3856D572BF0C77700755140 /* CCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3417,8 +3419,8 @@
 			files = (
 				A3F23A6A2BA757EE006F6D7B /* ios_system in Frameworks */,
 				A3F23A6B2BA757EE006F6D7B /* UniformTypeIdentifiers.framework in Frameworks */,
-				A3F23A6C2BA757EE006F6D7B /* python3Objc in Frameworks */,
 				A3F23A6D2BA757EE006F6D7B /* pydeCommon in Frameworks */,
+				A3856D542BF0C76B00755140 /* CCommon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4830,6 +4832,7 @@
 				A30F6A772BE0DD52007B7CDF /* Tiercel */,
 				A30F6A782BE0DD52007B7CDF /* FolioReaderKit */,
 				A3AFB9A22BEA6C6B0038602E /* MarkdownUI */,
+				A3856D492BF0B60700755140 /* CCommon */,
 			);
 			productName = testfield;
 			productReference = A30F6B852BE0DD53007B7CDF /* Python3IDE.app */;
@@ -4852,7 +4855,7 @@
 			packageProductDependencies = (
 				A30F6B882BE0E528007B7CDF /* pydeCommon */,
 				A30F6B892BE0E528007B7CDF /* ios_system */,
-				A30F6B8A2BE0E528007B7CDF /* python3Objc */,
+				A3856D4C2BF0B64400755140 /* CCommon */,
 			);
 			productName = pydeRemote;
 			productReference = A30F6B9B2BE0E528007B7CDF /* ideRemoteA.appex */;
@@ -4876,7 +4879,7 @@
 				A30F6B9E2BE0E577007B7CDF /* pydeCommon */,
 				A30F6B9F2BE0E577007B7CDF /* ios_system */,
 				A30F6BA02BE0E577007B7CDF /* TortoiseGraphics */,
-				A30F6BA12BE0E577007B7CDF /* python3Objc */,
+				A3856D682BF0C7E700755140 /* CCommon */,
 			);
 			productName = pydeUI;
 			productReference = A30F6BB42BE0E577007B7CDF /* ideUIA.appex */;
@@ -4899,7 +4902,7 @@
 			packageProductDependencies = (
 				A30F6BB72BE0E5BD007B7CDF /* ios_system */,
 				A30F6BB82BE0E5BD007B7CDF /* pydeCommon */,
-				A30F6BB92BE0E5BD007B7CDF /* python3Objc */,
+				A3856D6B2BF0C7F700755140 /* CCommon */,
 			);
 			productName = pydeUIPreview;
 			productReference = A30F6BCB2BE0E5BD007B7CDF /* ideUIPreviewA.appex */;
@@ -5015,7 +5018,7 @@
 			packageProductDependencies = (
 				A39F41E72BEAFA9E001546B4 /* pydeCommon */,
 				A39F41E82BEAFA9E001546B4 /* ios_system */,
-				A39F41E92BEAFA9E001546B4 /* python3Objc */,
+				A3856D652BF0C7D900755140 /* CCommon */,
 			);
 			productName = pydeRemote;
 			productReference = A39F41FA2BEAFA9E001546B4 /* ideRemoteB.appex */;
@@ -5038,7 +5041,7 @@
 			packageProductDependencies = (
 				A39F41FD2BEAFAC5001546B4 /* pydeCommon */,
 				A39F41FE2BEAFAC5001546B4 /* ios_system */,
-				A39F41FF2BEAFAC5001546B4 /* python3Objc */,
+				A3856D6E2BF0C80300755140 /* CCommon */,
 			);
 			productName = pydeRemote;
 			productReference = A39F42102BEAFAC5001546B4 /* ideRemoteC.appex */;
@@ -5061,7 +5064,7 @@
 			packageProductDependencies = (
 				A39F42132BEAFAD6001546B4 /* pydeCommon */,
 				A39F42142BEAFAD6001546B4 /* ios_system */,
-				A39F42152BEAFAD6001546B4 /* python3Objc */,
+				A3856D712BF0C81100755140 /* CCommon */,
 			);
 			productName = pydeRemote;
 			productReference = A39F42262BEAFAD6001546B4 /* ideRemoteD.appex */;
@@ -5084,7 +5087,7 @@
 			packageProductDependencies = (
 				A39F42292BEAFADE001546B4 /* pydeCommon */,
 				A39F422A2BEAFADE001546B4 /* ios_system */,
-				A39F422B2BEAFADE001546B4 /* python3Objc */,
+				A3856D742BF0C81D00755140 /* CCommon */,
 			);
 			productName = pydeRemote;
 			productReference = A39F423C2BEAFADE001546B4 /* ideRemoteE.appex */;
@@ -5107,7 +5110,7 @@
 			packageProductDependencies = (
 				A39F423F2BEAFAED001546B4 /* pydeCommon */,
 				A39F42402BEAFAED001546B4 /* ios_system */,
-				A39F42412BEAFAED001546B4 /* python3Objc */,
+				A3856D772BF0C82800755140 /* CCommon */,
 			);
 			productName = pydeRemote;
 			productReference = A39F42522BEAFAED001546B4 /* ideRemoteF.appex */;
@@ -5130,7 +5133,7 @@
 			packageProductDependencies = (
 				A39F42552BEAFAF8001546B4 /* pydeCommon */,
 				A39F42562BEAFAF8001546B4 /* ios_system */,
-				A39F42572BEAFAF8001546B4 /* python3Objc */,
+				A3856D7A2BF0C83500755140 /* CCommon */,
 			);
 			productName = pydeRemote;
 			productReference = A39F42682BEAFAF8001546B4 /* ideRemoteG.appex */;
@@ -5224,7 +5227,7 @@
 			packageProductDependencies = (
 				A3F239D62BA73C9A006F6D7B /* pydeCommon */,
 				A3F239D72BA73C9A006F6D7B /* ios_system */,
-				A3F239D82BA73C9A006F6D7B /* python3Objc */,
+				A3856D622BF0C7A700755140 /* CCommon */,
 			);
 			productName = pydeRemote;
 			productReference = A3F239E92BA73C9A006F6D7B /* pydeRemoteA.appex */;
@@ -5247,7 +5250,7 @@
 			packageProductDependencies = (
 				A3F239EC2BA73D1F006F6D7B /* pydeCommon */,
 				A3F239ED2BA73D1F006F6D7B /* ios_system */,
-				A3F239EE2BA73D1F006F6D7B /* python3Objc */,
+				A3856D502BF0C75D00755140 /* CCommon */,
 			);
 			productName = pydeRemote;
 			productReference = A3F239FF2BA73D1F006F6D7B /* pydeRemoteB.appex */;
@@ -5270,7 +5273,7 @@
 			packageProductDependencies = (
 				A3F23A022BA73D41006F6D7B /* pydeCommon */,
 				A3F23A032BA73D41006F6D7B /* ios_system */,
-				A3F23A042BA73D41006F6D7B /* python3Objc */,
+				A3856D5F2BF0C79700755140 /* CCommon */,
 			);
 			productName = pydeRemote;
 			productReference = A3F23A152BA73D41006F6D7B /* pydeRemoteC.appex */;
@@ -5293,7 +5296,7 @@
 			packageProductDependencies = (
 				A3F23A212BA757DF006F6D7B /* pydeCommon */,
 				A3F23A222BA757DF006F6D7B /* ios_system */,
-				A3F23A232BA757DF006F6D7B /* python3Objc */,
+				A3856D5C2BF0C78C00755140 /* CCommon */,
 			);
 			productName = pydeRemote;
 			productReference = A3F23A342BA757DF006F6D7B /* pydeRemoteD.appex */;
@@ -5316,7 +5319,7 @@
 			packageProductDependencies = (
 				A3F23A372BA757E4006F6D7B /* pydeCommon */,
 				A3F23A382BA757E4006F6D7B /* ios_system */,
-				A3F23A392BA757E4006F6D7B /* python3Objc */,
+				A3856D592BF0C78300755140 /* CCommon */,
 			);
 			productName = pydeRemote;
 			productReference = A3F23A4A2BA757E4006F6D7B /* pydeRemoteE.appex */;
@@ -5339,7 +5342,7 @@
 			packageProductDependencies = (
 				A3F23A4D2BA757EA006F6D7B /* pydeCommon */,
 				A3F23A4E2BA757EA006F6D7B /* ios_system */,
-				A3F23A4F2BA757EA006F6D7B /* python3Objc */,
+				A3856D562BF0C77700755140 /* CCommon */,
 			);
 			productName = pydeRemote;
 			productReference = A3F23A602BA757EA006F6D7B /* pydeRemoteF.appex */;
@@ -5362,7 +5365,7 @@
 			packageProductDependencies = (
 				A3F23A632BA757EE006F6D7B /* pydeCommon */,
 				A3F23A642BA757EE006F6D7B /* ios_system */,
-				A3F23A652BA757EE006F6D7B /* python3Objc */,
+				A3856D532BF0C76B00755140 /* CCommon */,
 			);
 			productName = pydeRemote;
 			productReference = A3F23A762BA757EE006F6D7B /* pydeRemoteG.appex */;
@@ -9786,10 +9789,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
 		};
-		A30F6B8A2BE0E528007B7CDF /* python3Objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3Objc;
-		};
 		A30F6B9E2BE0E577007B7CDF /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = pydeCommon;
@@ -9802,10 +9801,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = TortoiseGraphics;
 		};
-		A30F6BA12BE0E577007B7CDF /* python3Objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3Objc;
-		};
 		A30F6BB72BE0E5BD007B7CDF /* ios_system */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
@@ -9813,10 +9808,6 @@
 		A30F6BB82BE0E5BD007B7CDF /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = pydeCommon;
-		};
-		A30F6BB92BE0E5BD007B7CDF /* python3Objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3Objc;
 		};
 		A359CCD92BCEEE5900CD33CF /* python3Objc */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -9858,6 +9849,74 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = flet;
 		};
+		A3856D492BF0B60700755140 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
+		A3856D4C2BF0B64400755140 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
+		A3856D502BF0C75D00755140 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
+		A3856D532BF0C76B00755140 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
+		A3856D562BF0C77700755140 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
+		A3856D592BF0C78300755140 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
+		A3856D5C2BF0C78C00755140 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
+		A3856D5F2BF0C79700755140 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
+		A3856D622BF0C7A700755140 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
+		A3856D652BF0C7D900755140 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
+		A3856D682BF0C7E700755140 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
+		A3856D6B2BF0C7F700755140 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
+		A3856D6E2BF0C80300755140 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
+		A3856D712BF0C81100755140 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
+		A3856D742BF0C81D00755140 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
+		A3856D772BF0C82800755140 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
+		A3856D7A2BF0C83500755140 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
 		A39F41E72BEAFA9E001546B4 /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = pydeCommon;
@@ -9865,10 +9924,6 @@
 		A39F41E82BEAFA9E001546B4 /* ios_system */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
-		};
-		A39F41E92BEAFA9E001546B4 /* python3Objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3Objc;
 		};
 		A39F41FD2BEAFAC5001546B4 /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -9878,10 +9933,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
 		};
-		A39F41FF2BEAFAC5001546B4 /* python3Objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3Objc;
-		};
 		A39F42132BEAFAD6001546B4 /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = pydeCommon;
@@ -9889,10 +9940,6 @@
 		A39F42142BEAFAD6001546B4 /* ios_system */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
-		};
-		A39F42152BEAFAD6001546B4 /* python3Objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3Objc;
 		};
 		A39F42292BEAFADE001546B4 /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -9902,10 +9949,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
 		};
-		A39F422B2BEAFADE001546B4 /* python3Objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3Objc;
-		};
 		A39F423F2BEAFAED001546B4 /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = pydeCommon;
@@ -9914,10 +9957,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
 		};
-		A39F42412BEAFAED001546B4 /* python3Objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3Objc;
-		};
 		A39F42552BEAFAF8001546B4 /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = pydeCommon;
@@ -9925,10 +9964,6 @@
 		A39F42562BEAFAF8001546B4 /* ios_system */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
-		};
-		A39F42572BEAFAF8001546B4 /* python3Objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3Objc;
 		};
 		A3A3DF0C2B99ADA3004A7C39 /* TortoiseGraphics */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -10030,10 +10065,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
 		};
-		A3F239D82BA73C9A006F6D7B /* python3Objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3Objc;
-		};
 		A3F239EC2BA73D1F006F6D7B /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = pydeCommon;
@@ -10041,10 +10072,6 @@
 		A3F239ED2BA73D1F006F6D7B /* ios_system */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
-		};
-		A3F239EE2BA73D1F006F6D7B /* python3Objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3Objc;
 		};
 		A3F23A022BA73D41006F6D7B /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -10054,10 +10081,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
 		};
-		A3F23A042BA73D41006F6D7B /* python3Objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3Objc;
-		};
 		A3F23A212BA757DF006F6D7B /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = pydeCommon;
@@ -10065,10 +10088,6 @@
 		A3F23A222BA757DF006F6D7B /* ios_system */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
-		};
-		A3F23A232BA757DF006F6D7B /* python3Objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3Objc;
 		};
 		A3F23A372BA757E4006F6D7B /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -10078,10 +10097,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
 		};
-		A3F23A392BA757E4006F6D7B /* python3Objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3Objc;
-		};
 		A3F23A4D2BA757EA006F6D7B /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = pydeCommon;
@@ -10090,10 +10105,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
 		};
-		A3F23A4F2BA757EA006F6D7B /* python3Objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3Objc;
-		};
 		A3F23A632BA757EE006F6D7B /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = pydeCommon;
@@ -10101,10 +10112,6 @@
 		A3F23A642BA757EE006F6D7B /* ios_system */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
-		};
-		A3F23A652BA757EE006F6D7B /* python3Objc */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = python3Objc;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

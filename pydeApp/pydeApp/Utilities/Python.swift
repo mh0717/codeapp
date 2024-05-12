@@ -6,60 +6,63 @@
 //
 
 import Foundation
-import python3Objc
 import pydeCommon
+import CCommon
 import ios_system
 import UIKit
 
-@_cdecl("python3Main")
-public func python3Main(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-    return pydeMainInMainIntp(argc, argv)
-}
+//@_cdecl("python3Main")
+//public func python3Main(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+////    return pydeMainInMainIntp(argc, argv)
+//    return 0
+//}
 
 private var _runMainInMainCount = 0
 @_cdecl("python3MainInMainThread")
 public func python3MainInMainThread(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-    initDEMainIntp()
-    
-    if _runMainInMainCount > 0 {
-        return pydeMainInMainIntp(argc, argv)
-    }
-    
-    _runMainInMainCount += 1
-    
-    setvbuf(thread_stdout, nil, _IONBF, 0)
-    setvbuf(thread_stderr, nil, _IONBF, 0)
-//    setvbuf(thread_stdin, nil, _IONBF, 0)
-    
-    let stdin = thread_stdin
-    let stdout = thread_stdout
-    let stderr = thread_stderr
-    var result: Int32 = 0
-    
-    if (Thread.isMainThread) {
-        return pydeMainInMainIntp(argc, argv)
-    }
-    
-    var isEnd = false
-    let timer = Timer(timeInterval: 0.1, repeats: false) { _ in
-        thread_stdin = stdin
-        thread_stdout = stdout
-        thread_stderr = stderr
-        result = pydeMainInMainIntp(argc, argv)
-        isEnd = true
-    }
-    RunLoop.main.add(timer, forMode: .default)
-    
-    while !isEnd {
-        usleep(100)
-    }
-    return result
+//    initDEMainIntp()
+//    
+//    if _runMainInMainCount > 0 {
+//        return pydeMainInMainIntp(argc, argv)
+//    }
+//    
+//    _runMainInMainCount += 1
+//    
+//    setvbuf(thread_stdout, nil, _IONBF, 0)
+//    setvbuf(thread_stderr, nil, _IONBF, 0)
+////    setvbuf(thread_stdin, nil, _IONBF, 0)
+//    
+//    let stdin = thread_stdin
+//    let stdout = thread_stdout
+//    let stderr = thread_stderr
+//    var result: Int32 = 0
+//    
+//    if (Thread.isMainThread) {
+//        return pydeMainInMainIntp(argc, argv)
+//    }
+//    
+//    var isEnd = false
+//    let timer = Timer(timeInterval: 0.1, repeats: false) { _ in
+//        thread_stdin = stdin
+//        thread_stdout = stdout
+//        thread_stderr = stderr
+//        result = pydeMainInMainIntp(argc, argv)
+//        isEnd = true
+//    }
+//    RunLoop.main.add(timer, forMode: .default)
+//    
+//    while !isEnd {
+//        usleep(100)
+//    }
+//    return result
+    return 0
 }
 
 
 @_cdecl("python3Sub")
 public func python3Sub(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-    return pydeMainInSubIntp(argc, argv)
+//    return pydeMainInSubIntp(argc, argv)
+    return 0
 }
 
 @_cdecl("python3Process")
@@ -268,4 +271,9 @@ public func python3RunInMain(argc: Int32, argv:UnsafeMutablePointer<UnsafeMutabl
         usleep(100)
     }
     return result
+}
+
+
+public func python3_exec(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    return python3Main(argc, argv)
 }
