@@ -9,72 +9,6 @@ import pydeCommon
 
 let EBOOK_EXT = ["epub", "fbz", "cbz", "fb2"]
 
-class EpubEditorInstance: EditorInstanceWithURL {
-    
-    let wbview = WebViewBase()
-    
-    private let coordinator: WebCoordinator
-    
-    init(title: String, url: URL) {
-        coordinator = WebCoordinator(url: url)
-        super.init(view: AnyView(PoliateView(webView: wbview).id(UUID())), title: title, url: url)
-        
-        let hurl = ConstantManager.FOLIATE.appendingPathComponent("reader.html")
-        let aurl = ConstantManager.FOLIATE
-        wbview.loadFileURL(hurl, allowingReadAccessTo: aurl)
-        
-        wbview.navigationDelegate = coordinator
-    }
-}
-
-fileprivate class WebCoordinator: NSObject, WKNavigationDelegate {
-    let url: URL
-    
-    init(url: URL) {
-        self.url = url
-    }
-    
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        guard let data = try? Data(contentsOf: url) else {
-            return
-        }
-        print(data.count)
-        let base64String = data.base64EncodedString()
-        let jsstr = loadBookJS
-            .replacingOccurrences(of: "{{name}}", with: url.lastPathComponent)
-            .replacingFirstOccurrence(of: "{{base64Content}}", with: base64String)
-        webView.evaluateJavaScript(jsstr)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(250))) {
-            let theme = ThemeManager.isDark() ? BookThemeManager.instance.darkTheme : BookThemeManager.instance.lightTheme
-            didSetTheme(webView, theme: theme)
-        }
-    }
-}
-
-struct PoliateView: View {
-    let webView: WKWebView
-    
-    @ObservedObject var themeManager = BookThemeManager.instance
-    @Environment(\.colorScheme) var colorScheme: ColorScheme
-    
-    var body: some View {
-        ViewRepresentable(webView)
-            .background(Color.init(id: "editor.background"))
-            .onReceive(themeManager.objectWillChange, perform: { _ in
-                let theme = ThemeManager.isDark() ? themeManager.darkTheme : themeManager.lightTheme
-                didSetTheme(webView, theme: theme)
-            })
-            .onChange(of: colorScheme, perform: { newValue in
-                let theme = ThemeManager.isDark() ? themeManager.darkTheme : themeManager.lightTheme
-                didSetTheme(webView, theme: theme)
-            })
-    }
-    
-    
-}
-
-
 class EpubExtension: CodeAppExtension {
 
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
@@ -156,6 +90,74 @@ class EpubExtension: CodeAppExtension {
         contribution.toolBar.registerItem(item: toolbarItem)
     }
 }
+
+class EpubEditorInstance: EditorInstanceWithURL {
+    
+    let wbview = WebViewBase()
+    
+    private let coordinator: WebCoordinator
+    
+    init(title: String, url: URL) {
+        coordinator = WebCoordinator(url: url)
+        super.init(view: AnyView(PoliateView(webView: wbview).id(UUID())), title: title, url: url)
+        
+        let hurl = ConstantManager.FOLIATE.appendingPathComponent("reader.html")
+        let aurl = ConstantManager.FOLIATE
+        wbview.loadFileURL(hurl, allowingReadAccessTo: aurl)
+        
+        wbview.navigationDelegate = coordinator
+    }
+}
+
+fileprivate class WebCoordinator: NSObject, WKNavigationDelegate {
+    let url: URL
+    
+    init(url: URL) {
+        self.url = url
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        guard let data = try? Data(contentsOf: url) else {
+            return
+        }
+        print(data.count)
+        let base64String = data.base64EncodedString()
+        let jsstr = loadBookJS
+            .replacingOccurrences(of: "{{name}}", with: url.lastPathComponent)
+            .replacingFirstOccurrence(of: "{{base64Content}}", with: base64String)
+        webView.evaluateJavaScript(jsstr)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(250))) {
+            let theme = ThemeManager.isDark() ? BookThemeManager.instance.darkTheme : BookThemeManager.instance.lightTheme
+            didSetTheme(webView, theme: theme)
+        }
+    }
+}
+
+struct PoliateView: View {
+    let webView: WKWebView
+    
+    @ObservedObject var themeManager = BookThemeManager.instance
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
+    var body: some View {
+        ViewRepresentable(webView)
+            .background(Color.init(id: "editor.background"))
+            .onReceive(themeManager.objectWillChange, perform: { _ in
+                let theme = ThemeManager.isDark() ? themeManager.darkTheme : themeManager.lightTheme
+                didSetTheme(webView, theme: theme)
+            })
+            .onChange(of: colorScheme, perform: { newValue in
+                let theme = ThemeManager.isDark() ? themeManager.darkTheme : themeManager.lightTheme
+                didSetTheme(webView, theme: theme)
+            })
+    }
+    
+    
+}
+
+
+
 
 public class BookThemeManager:  ObservableObject {
     var theme = BookTheme()

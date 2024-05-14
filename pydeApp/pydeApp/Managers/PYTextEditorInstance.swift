@@ -234,6 +234,7 @@ struct RunestoneEditor: UIViewRepresentable {
 
 
 struct PYRunnerWidget: UIViewRepresentable {
+    let id: UUID = UUID()
     
     @EnvironmentObject var App: MainApp
     @ObservedObject var codeThemeManager = rscodeThemeManager

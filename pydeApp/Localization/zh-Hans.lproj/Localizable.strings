@@ -467,3 +467,6 @@
 
 "Terminal is busy" = "终端正在运行";
 "Global Terminal" = "全局终端";
+"Close" = "关闭";
+"Terminal" = "终端";
+"New Terminal" = "新建终端";

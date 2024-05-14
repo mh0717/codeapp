@@ -93,6 +93,9 @@ class MainApp: ObservableObject {
     var activeTextEditor: TextEditorInstance? {
         activeEditor as? TextEditorInstance
     }
+    var activeUrlEditor: EditorInstanceWithURL? {
+        activeEditor as? EditorInstanceWithURL
+    }
 
     @Published var selectedURLForCompare: URL? = nil
     @Published var notificationManager = NotificationManager()
@@ -1059,15 +1062,6 @@ class MainApp: ObservableObject {
                     }
                 }.value
                 
-                let fileName = url.lastPathComponent
-                let argsName = ".\(fileName).args"
-                let argsUrl = url.deletingLastPathComponent().appendingPathComponent(argsName)
-                if let argsData = try? await workSpaceStorage.contents(at: argsUrl) {
-                    if let args = String(data: argsData, encoding: .utf8) {
-                        instance.runArgs = args
-                    }
-                }
-                
                 return instance
             }
             
@@ -1147,6 +1141,23 @@ class MainApp: ObservableObject {
 
         editors.append(editor)
         activeEditor = editor
+        
+        #if PYDEAPP
+        if let editor = editor as? EditorInstanceWithURL {
+            let url = editor.url
+            let fileName = url.lastPathComponent
+            let argsName = ".\(fileName).args"
+            let argsUrl = url.deletingLastPathComponent().appendingPathComponent(argsName)
+            Task {
+                if let argsData = try? await workSpaceStorage.contents(at: argsUrl) {
+                    if let args = String(data: argsData, encoding: .utf8) {
+                        editor.runArgs = args
+                    }
+                }
+            }
+        }
+        
+        #endif
     }
 
     func openFile(url: URL, alwaysInNewTab: Bool = false) {

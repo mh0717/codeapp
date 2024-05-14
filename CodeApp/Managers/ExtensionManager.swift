@@ -18,9 +18,9 @@ class ExtensionManager: ObservableObject {
     #if PYDEAPP
     private var extensions: [CodeAppExtension] = [
         MonacoEditorAuxiliaryExtension(),
-        MonacoIntellisenseExtension(),
+//        MonacoIntellisenseExtension(),
 //        RemoteExecutionExtension(),
-        TerminalExtension(),
+//        TerminalExtension(),
         ImageViewerExtension(),
         VideoViewerExtension(),
         PDFViewerExtension(),
@@ -35,14 +35,14 @@ class ExtensionManager: ObservableObject {
         
         JupyterExtension(),
         PYRunnerExtension(),
-        TMConsoleExtension(),
+//        TMConsoleExtension(),
         IAPExtension(),
         QuickLookExtension(),
         SWCompViewerExtension(),
         EpubExtension(),
         WebExtension(),
         WheelExtensionManager(),
-        
+        RunParamsExtension(),
     ]
     #else
     private var extensions: [CodeAppExtension] = [

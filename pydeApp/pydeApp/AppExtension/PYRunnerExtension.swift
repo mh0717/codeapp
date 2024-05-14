@@ -55,11 +55,43 @@ class PYRunnerExtension: CodeAppExtension {
     }
 }
 
+fileprivate var consoleCount = 0
+
 private struct ToolbarView: View {
     @EnvironmentObject var App: MainApp
     
     var body: some View {
         HStack(spacing: 12) {
+            Menu {
+                Button("Close", systemImage: "apple.terminal", role: .destructive) {
+                    App.pyapp.consoles.removeAll(where: {$0.id == App.pyapp.activeConsole.id})
+                    App.pyapp.activeConsole = App.pyapp.consoles.last ?? App.pyapp.defaultConsole
+                }
+                
+                Button("New Terminal", systemImage: "plus") {
+                    consoleCount += 1
+                    let title = NSLocalizedString("Terminal", comment: "") + "#\(consoleCount)"
+                    let console = PYRunnerWidget()
+                    console.consoleView.title = title
+                    App.pyapp.consoles.append(console)
+                    App.pyapp.activeConsole = console
+                }
+                
+                Divider()
+                
+                Button("Terminal", systemImage: App.pyapp.activeConsole.id == App.pyapp.defaultConsole.id ? "checkmark.circle" : "") {
+                    App.pyapp.activeConsole = App.pyapp.defaultConsole
+                }.background(Color.red)
+                
+                ForEach(App.pyapp.consoles, id: \.consoleView, content: { item in
+                    Button(item.consoleView.title ?? "", systemImage: item.id == App.pyapp.activeConsole.id ? "checkmark.circle" : "") {
+                        App.pyapp.activeConsole = item
+                    }
+                })
+            } label: {
+                Image(systemName: "ellipsis").padding(2)
+            }
+
             Button(
                 action: {
                     if let editor = App.activeEditor as? WithRunnerEditorInstance {
@@ -93,7 +125,7 @@ private struct ConsoleWidget: View {
         if let editor = App.activeEditor as? WithRunnerEditorInstance {
             editor.runner.id(editor.id)
         } else {
-            App.pyapp.consoleWidget
+            App.pyapp.activeConsole.id(App.pyapp.activeConsole.id)
         }
     }
 }

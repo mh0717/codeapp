@@ -4727,10 +4727,42 @@
             filePath = "pydeApp/AppExtension/PYLocalExecutionExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "runUICode(app:editor:consoleInstance:dismiss:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7FD092D6-48F1-4207-A68B-4E03352DF0E0 - d416c4092f45e474"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Swift.Optional&lt;__C.UIActivityType&gt;, Swift.Bool, Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Python3IDE.PYLocalExecutionExtension.runUICode(app: Python3IDE.MainApp, editor: Python3IDE.EditorInstanceWithURL, consoleInstance: pyde.ConsoleView, dismiss: () -&gt; ()) -&gt; Swift.Optional&lt;SwiftUI.AnyView&gt;"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "209"
+                  endingLineNumber = "209"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "7FD092D6-48F1-4207-A68B-4E03352DF0E0 - d416c4092f45e474"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Swift.Optional&lt;__C.UIActivityType&gt;, Swift.Bool, Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Python3IDE.PYLocalExecutionExtension.runUICode(app: Python3IDE.MainApp, editor: Python3IDE.EditorInstanceWithURL, consoleInstance: pyde.ConsoleView, dismiss: () -&gt; ()) -&gt; Swift.Optional&lt;SwiftUI.AnyView&gt;"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "209"
+                  endingLineNumber = "209"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4743,13 +4775,13 @@
             filePath = "pydeApp/AppExtension/PYLocalExecutionExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
             landmarkName = "runUICode(app:editor:consoleInstance:dismiss:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "5E0E531D-3CDA-4746-9BCC-E5FB14BA3FF6 - ceb1c2df5aad366e"
+                  uuid = "5E0E531D-3CDA-4746-9BCC-E5FB14BA3FF6 - ceb1c2df5aad360d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -4759,12 +4791,27 @@
                   urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "206"
-                  endingLineNumber = "206"
-                  offsetFromSymbolStart = "7660">
+                  startingLineNumber = "207"
+                  endingLineNumber = "207"
+                  offsetFromSymbolStart = "8340">
                </Location>
                <Location
-                  uuid = "5E0E531D-3CDA-4746-9BCC-E5FB14BA3FF6 - ceb1c2df5aad366e"
+                  uuid = "5E0E531D-3CDA-4746-9BCC-E5FB14BA3FF6 - d416c4092f45e49b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Swift.Optional&lt;__C.UIActivityType&gt;, Swift.Bool, Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Python3IDE.PYLocalExecutionExtension.runUICode(app: Python3IDE.MainApp, editor: Python3IDE.EditorInstanceWithURL, consoleInstance: pyde.ConsoleView, dismiss: () -&gt; ()) -&gt; Swift.Optional&lt;SwiftUI.AnyView&gt;"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "208"
+                  endingLineNumber = "208"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "5E0E531D-3CDA-4746-9BCC-E5FB14BA3FF6 - ceb1c2df5aad360d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -4774,9 +4821,9 @@
                   urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "206"
-                  endingLineNumber = "206"
-                  offsetFromSymbolStart = "8192">
+                  startingLineNumber = "207"
+                  endingLineNumber = "207"
+                  offsetFromSymbolStart = "7660">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -4791,8 +4838,8 @@
             filePath = "pydeApp/AppExtension/PYLocalExecutionExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
             landmarkName = "runUICode(app:editor:consoleInstance:dismiss:)"
             landmarkType = "7">
             <Locations>
@@ -4827,7 +4874,7 @@
                   offsetFromSymbolStart = "84">
                </Location>
                <Location
-                  uuid = "790FE40E-9307-42C7-8CFA-FE512CFD11AE - fb55719767b5bf7d"
+                  uuid = "790FE40E-9307-42C7-8CFA-FE512CFD11AE - fb55719767b5bf5c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -4837,9 +4884,24 @@
                   urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "227"
-                  endingLineNumber = "227"
-                  offsetFromSymbolStart = "576">
+                  startingLineNumber = "228"
+                  endingLineNumber = "228"
+                  offsetFromSymbolStart = "424">
+               </Location>
+               <Location
+                  uuid = "790FE40E-9307-42C7-8CFA-FE512CFD11AE - b11fbfe7b050a4cc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #5 @Swift.MainActor () -&gt; () in Python3IDE.PYLocalExecutionExtension.runUICode(app: Python3IDE.MainApp, editor: Python3IDE.EditorInstanceWithURL, consoleInstance: pyde.ConsoleView, dismiss: () -&gt; ()) -&gt; Swift.Optional&lt;SwiftUI.AnyView&gt;"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "84">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -4854,13 +4916,13 @@
             filePath = "pydeApp/AppExtension/PYLocalExecutionExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "runUICode(app:editor:consoleInstance:dismiss:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "5A1E2322-D956-4BE5-A524-93969B8F411C - ceb1c2df5aad31b8"
+                  uuid = "5A1E2322-D956-4BE5-A524-93969B8F411C - ceb1c2df5aad305f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -4870,12 +4932,12 @@
                   urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "220"
-                  endingLineNumber = "220"
-                  offsetFromSymbolStart = "9088">
+                  startingLineNumber = "221"
+                  endingLineNumber = "221"
+                  offsetFromSymbolStart = "9128">
                </Location>
                <Location
-                  uuid = "5A1E2322-D956-4BE5-A524-93969B8F411C - ceb1c2df5aad31b8"
+                  uuid = "5A1E2322-D956-4BE5-A524-93969B8F411C - ceb1c2df5aad305f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -4885,9 +4947,9 @@
                   urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "220"
-                  endingLineNumber = "220"
-                  offsetFromSymbolStart = "9640">
+                  startingLineNumber = "221"
+                  endingLineNumber = "221"
+                  offsetFromSymbolStart = "9088">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -4902,26 +4964,11 @@
             filePath = "pydeApp/AppExtension/PYLocalExecutionExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "runUICode(app:editor:consoleInstance:dismiss:)"
             landmarkType = "7">
             <Locations>
-               <Location
-                  uuid = "D9EC62D1-C360-45AA-A3F8-5039FAA124DE - fb55719767b5bf7d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #5 @Swift.MainActor () -&gt; () in Python3IDE.PYLocalExecutionExtension.runUICode(app: Python3IDE.MainApp, editor: Python3IDE.EditorInstanceWithURL, consoleInstance: pyde.ConsoleView, dismiss: () -&gt; ()) -&gt; Swift.Optional&lt;SwiftUI.AnyView&gt;"
-                  moduleName = "Python3IDE"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "227"
-                  endingLineNumber = "227"
-                  offsetFromSymbolStart = "424">
-               </Location>
                <Location
                   uuid = "D9EC62D1-C360-45AA-A3F8-5039FAA124DE - b11fbfe7b050a72b"
                   shouldBeEnabled = "Yes"
@@ -4938,7 +4985,7 @@
                   offsetFromSymbolStart = "84">
                </Location>
                <Location
-                  uuid = "D9EC62D1-C360-45AA-A3F8-5039FAA124DE - fb55719767b5bf7d"
+                  uuid = "D9EC62D1-C360-45AA-A3F8-5039FAA124DE - fb55719767b5bf5c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -4948,9 +4995,24 @@
                   urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "227"
-                  endingLineNumber = "227"
-                  offsetFromSymbolStart = "576">
+                  startingLineNumber = "228"
+                  endingLineNumber = "228"
+                  offsetFromSymbolStart = "424">
+               </Location>
+               <Location
+                  uuid = "D9EC62D1-C360-45AA-A3F8-5039FAA124DE - b11fbfe7b050a4cc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #5 @Swift.MainActor () -&gt; () in Python3IDE.PYLocalExecutionExtension.runUICode(app: Python3IDE.MainApp, editor: Python3IDE.EditorInstanceWithURL, consoleInstance: pyde.ConsoleView, dismiss: () -&gt; ()) -&gt; Swift.Optional&lt;SwiftUI.AnyView&gt;"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "84">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -5079,38 +5141,6 @@
                   offsetFromSymbolStart = "19052">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CED172AF-0687-4302-A9AC-7E3FD9481CC8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/python3/Sources/CCommon/hook.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "749"
-            endingLineNumber = "749"
-            landmarkName = "ios_exit(value)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "53F7E55F-BDD3-4270-8E88-4BA90CFED56D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/python3/Sources/CCommon/hook.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "737"
-            endingLineNumber = "737"
-            landmarkName = "pyios_exit(value)"
-            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

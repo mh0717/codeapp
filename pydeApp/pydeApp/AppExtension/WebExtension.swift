@@ -29,7 +29,11 @@ class WebExtension: CodeAppExtension {
                     guard let editor = app.activeEditor as? PYWebViewEditorInstance else {
                         return
                     }
-                    app.pyapp.addressUrl = editor.webView.url?.absoluteString ?? ""
+                    var url = editor.webView.url?.absoluteString ?? ""
+                    if url.isEmpty {
+                        url = editor.url.absoluteString
+                    }
+                    app.pyapp.addressUrl = url
                     app.pyapp.showAddressbar = true
                 }),
                 ToolbarMenuItem(icon: "arrow.triangle.2.circlepath", title: "Refresh", onClick: {

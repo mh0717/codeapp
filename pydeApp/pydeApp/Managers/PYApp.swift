@@ -38,13 +38,17 @@ class PYApp: ObservableObject {
     @Published var tagsModelManager = TagsModelManager()
     
     var consoleInstance: ConsoleView {
-        consoleWidget.consoleView
+        activeConsole.consoleView
     }
-    let consoleWidget = PYRunnerWidget()
+    let defaultConsole = PYRunnerWidget()
+    @Published var activeConsole: PYRunnerWidget
+    @Published var consoles: [PYRunnerWidget] = []
     
     private var jupyterCancellable: AnyCancellable? = nil
     
     init() {
+        activeConsole = defaultConsole
+        
         NotificationCenter.default.addObserver(forName: .init("UI_OPEN_FILE_IN_TAB"), object: nil, queue: nil) { [weak self] notify in
             guard let url = notify.userInfo?["url"] as? URL else { return }
             

@@ -1137,6 +1137,8 @@
 		A3856D7D2BF1A16800755140 /* TogaWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8B0D62BC10FD300C30B26 /* TogaWindow.swift */; };
 		A3856D842BF2A04700755140 /* ColorTheme+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3856D832BF2A04700755140 /* ColorTheme+Ext.swift */; };
 		A3856D852BF2A04700755140 /* ColorTheme+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3856D832BF2A04700755140 /* ColorTheme+Ext.swift */; };
+		A3856D872BF36ACC00755140 /* RunParamsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3856D862BF36ACC00755140 /* RunParamsExtension.swift */; };
+		A3856D882BF36ACC00755140 /* RunParamsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3856D862BF36ACC00755140 /* RunParamsExtension.swift */; };
 		A39F41D92BEA81A9001546B4 /* WheelExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F41D82BEA81A9001546B4 /* WheelExtensionManager.swift */; };
 		A39F41DA2BEA81A9001546B4 /* WheelExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F41D82BEA81A9001546B4 /* WheelExtensionManager.swift */; };
 		A39F41DC2BEA867A001546B4 /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F41DB2BEA867A001546B4 /* FilePickerView.swift */; };
@@ -3004,6 +3006,7 @@
 		A3856CE52BEE6D1D00755140 /* URL+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Ext.swift"; sourceTree = "<group>"; };
 		A3856D2F2BEFE12E00755140 /* IDENode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDENode.swift; sourceTree = "<group>"; };
 		A3856D832BF2A04700755140 /* ColorTheme+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColorTheme+Ext.swift"; sourceTree = "<group>"; };
+		A3856D862BF36ACC00755140 /* RunParamsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunParamsExtension.swift; sourceTree = "<group>"; };
 		A39F41D82BEA81A9001546B4 /* WheelExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelExtensionManager.swift; sourceTree = "<group>"; };
 		A39F41DB2BEA867A001546B4 /* FilePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerView.swift; sourceTree = "<group>"; };
 		A39F41FA2BEAFA9E001546B4 /* ideRemoteB.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ideRemoteB.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -4608,6 +4611,7 @@
 				A37A9E382BDE190F00F8C798 /* ArchiveExtension.swift */,
 				A30F6BDE2BE7FF7F007B7CDF /* QuickLookExtension.swift */,
 				A30F6A4A2BDE3633007B7CDF /* EpubExtension.swift */,
+				A3856D862BF36ACC00755140 /* RunParamsExtension.swift */,
 			);
 			path = AppExtension;
 			sourceTree = "<group>";
@@ -6414,6 +6418,7 @@
 				A30F6B1B2BE0DD53007B7CDF /* PYRunnerExtension.swift in Sources */,
 				A30F6B1C2BE0DD53007B7CDF /* MonacoEditorExtension.swift in Sources */,
 				A30F6B1D2BE0DD53007B7CDF /* SubIAPView.swift in Sources */,
+				A3856D882BF36ACC00755140 /* RunParamsExtension.swift in Sources */,
 				A30F6B1E2BE0DD53007B7CDF /* Notification.swift in Sources */,
 				A30F6B1F2BE0DD53007B7CDF /* CodeAppContributionPointManager.swift in Sources */,
 				A3856D852BF2A04700755140 /* ColorTheme+Ext.swift in Sources */,
@@ -6756,6 +6761,7 @@
 				A36337302AF3E9DF00085608 /* PYRunnerExtension.swift in Sources */,
 				A3A87D712AF221D1002E3399 /* MonacoEditorExtension.swift in Sources */,
 				A30F6A522BDFF638007B7CDF /* SubIAPView.swift in Sources */,
+				A3856D872BF36ACC00755140 /* RunParamsExtension.swift in Sources */,
 				A3A87D722AF221D1002E3399 /* Notification.swift in Sources */,
 				A3A87D732AF221D1002E3399 /* CodeAppContributionPointManager.swift in Sources */,
 				A3856D842BF2A04700755140 /* ColorTheme+Ext.swift in Sources */,
