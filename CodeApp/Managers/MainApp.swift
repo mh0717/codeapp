@@ -77,6 +77,7 @@ class MainApp: ObservableObject {
     let popupManager = PopupManager()
     
     @AppStorage("codeEditor") var codeEditor = "PYCode Editor"
+    @AppStorage("setting.panel.global.show") var showGlobalPanel = true
     #endif
 
     @Published var editors: [EditorInstance] = []
@@ -1047,7 +1048,7 @@ class MainApp: ObservableObject {
         
         #if PYDEAPP
         if codeEditor == "PYCode Editor" {
-            if PYLOCAL_EXECUTION_COMMANDS.keys.contains(url.pathExtension.lowercased()) {
+            if !showGlobalPanel, PYLOCAL_EXECUTION_COMMANDS.keys.contains(url.pathExtension.lowercased()) {
                 let instance = await Task { @MainActor in
                     return PYTextEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate) { [weak self] state, content in
                         //                    if state == .modified, let content, let self {
@@ -1206,12 +1207,30 @@ class MainApp: ObservableObject {
         let attributes = try? await workSpaceStorage.attributesOfItem(at: url)
         let modificationDate = attributes?[.modificationDate] as? Date
         
+        if showGlobalPanel {
+            return TextEditorInstance(
+                editor: monacoInstance,
+                url: url,
+                content: content,
+                encoding: encoding,
+                lastSavedDate: modificationDate,
+                // TODO: Update using updateUIView?
+                fileDidChange: { [weak self] state, content in
+                    if state == .modified, let content, let self {
+                        Task {
+                            try await self.monacoInstance.setValueForModel(url: url, value: content)
+                        }
+                    }
+                }
+            )
+        }
+        
         if (url.pathExtension.lowercased() == "ipynb") {
             let instance = await Task { @MainActor in
                 return NoteBookPreviewEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate)
             }.value
             return instance
-        } else  if (url.pathExtension.lowercased() == "py") {
+        } else  if PYLOCAL_EXECUTION_COMMANDS.keys.contains(url.pathExtension.lowercased()) {
             let instance = WithRunnerEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate, editorView: AnyView(monacoInstance), fileDidChange: { [weak self] state, content in
                 if state == .modified, let content, let self {
                     Task {

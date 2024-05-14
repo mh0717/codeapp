@@ -167,7 +167,10 @@ class PipModelManager: ObservableObject {
     }
     
     func fetchInstalledPackages() async  {
-        let packages = await PipService.fetchInstalledPackages()
+        guard let packages = await PipService.fetchInstalledPackages() else {
+            return
+        }
+        
         await MainActor.run {
             self.installedPackages = packages
         }

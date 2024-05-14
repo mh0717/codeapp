@@ -8,12 +8,13 @@
 import SwiftUI
 import SwiftTerm
 import ios_system
+import pyde
 
 class PYRunnerExtension: CodeAppExtension {
     
+    var consoleInstance: ConsoleView?
+    
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
-        let root = URL(string: app.workSpaceStorage.currentDirectory.url) ?? URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-        
         let panel = Panel(
             labelId: "RUNNER",
             mainView: AnyView(
@@ -22,7 +23,7 @@ class PYRunnerExtension: CodeAppExtension {
                     .background(
                         GeometryReader{ proxy in
                             let size = proxy.size
-                            Color.red
+                            Color.clear
                                 .onAppear{
                                     NotificationCenter.default.post(name: .init("panel.size.changed"), object: size)
                                     print("size: \(size)")
@@ -36,11 +37,17 @@ class PYRunnerExtension: CodeAppExtension {
             ),
             toolBarView: AnyView(ToolbarView())
         )
-//        contribution.panel.registerPanel(panel: panel)
+        contribution.panel.registerPanel(panel: panel)
+        
+        consoleInstance = app.pyapp.consoleInstance
+        if let url = app.workSpaceStorage.currentDirectory._url {
+            consoleInstance?.resetAndSetNewRootDirectory(url: url)
+        }
+        
     }
     
     override func onWorkSpaceStorageChanged(newUrl: URL) {
-        
+        consoleInstance?.resetAndSetNewRootDirectory(url: newUrl)
     }
     
     func handleRunnerSizeChanged(_ size: CGSize) {
@@ -55,8 +62,10 @@ private struct ToolbarView: View {
         HStack(spacing: 12) {
             Button(
                 action: {
-                    if let editor = App.activeEditor as? PYTextEditorInstance {
+                    if let editor = App.activeEditor as? WithRunnerEditorInstance {
                         editor.runnerView.kill()
+                    } else {
+                        App.pyapp.consoleInstance.kill()
                     }
                 },
                 label: {
@@ -81,11 +90,10 @@ private struct ConsoleWidget: View {
     @AppStorage("consoleFontSize") var consoleFontSize: Int = 14
 
     var body: some View {
-        if let editor = $App.activeEditor.wrappedValue as? PYTextEditorInstance {
-//            editor.runnerWidget
-            ProgressView()
+        if let editor = App.activeEditor as? WithRunnerEditorInstance {
+            editor.runner.id(editor.id)
         } else {
-            ProgressView()
+            App.pyapp.consoleWidget
         }
     }
 }

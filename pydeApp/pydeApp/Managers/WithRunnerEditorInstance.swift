@@ -64,6 +64,8 @@ struct EditorAndRunnerWidget: View {
     
     @AppStorage("consoleFontSize") var consoleFontSize: Int = 14
     
+    @AppStorage("setting.panel.global.show") var showGlobalPanel = true
+    
     @State var restoreShowPanel = false
     @State var isEditing = false
     
@@ -76,8 +78,10 @@ struct EditorAndRunnerWidget: View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
                 editor
-                PYPanelView(currentPanelId: "RUNNER", windowHeight: geometry.size.height)
-                    .environmentObject(panelManager)
+                if !showGlobalPanel {
+                    PYPanelView(currentPanelId: "RUNNER", windowHeight: geometry.size.height)
+                        .environmentObject(panelManager)
+                }
             }
         }
 //        .onReceive(

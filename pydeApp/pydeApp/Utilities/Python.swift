@@ -18,45 +18,45 @@ import UIKit
 //}
 
 private var _runMainInMainCount = 0
-@_cdecl("python3MainInMainThread")
-public func python3MainInMainThread(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-//    initDEMainIntp()
-//    
-//    if _runMainInMainCount > 0 {
-//        return pydeMainInMainIntp(argc, argv)
-//    }
-//    
-//    _runMainInMainCount += 1
-//    
-//    setvbuf(thread_stdout, nil, _IONBF, 0)
-//    setvbuf(thread_stderr, nil, _IONBF, 0)
-////    setvbuf(thread_stdin, nil, _IONBF, 0)
-//    
-//    let stdin = thread_stdin
-//    let stdout = thread_stdout
-//    let stderr = thread_stderr
-//    var result: Int32 = 0
-//    
-//    if (Thread.isMainThread) {
-//        return pydeMainInMainIntp(argc, argv)
-//    }
-//    
-//    var isEnd = false
-//    let timer = Timer(timeInterval: 0.1, repeats: false) { _ in
-//        thread_stdin = stdin
-//        thread_stdout = stdout
-//        thread_stderr = stderr
-//        result = pydeMainInMainIntp(argc, argv)
-//        isEnd = true
-//    }
-//    RunLoop.main.add(timer, forMode: .default)
-//    
-//    while !isEnd {
-//        usleep(100)
-//    }
-//    return result
-    return 0
-}
+//@_cdecl("python3MainInMainThread")
+//public func python3MainInMainThread(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+////    initDEMainIntp()
+////    
+////    if _runMainInMainCount > 0 {
+////        return pydeMainInMainIntp(argc, argv)
+////    }
+////    
+////    _runMainInMainCount += 1
+////    
+////    setvbuf(thread_stdout, nil, _IONBF, 0)
+////    setvbuf(thread_stderr, nil, _IONBF, 0)
+//////    setvbuf(thread_stdin, nil, _IONBF, 0)
+////    
+////    let stdin = thread_stdin
+////    let stdout = thread_stdout
+////    let stderr = thread_stderr
+////    var result: Int32 = 0
+////    
+////    if (Thread.isMainThread) {
+////        return pydeMainInMainIntp(argc, argv)
+////    }
+////    
+////    var isEnd = false
+////    let timer = Timer(timeInterval: 0.1, repeats: false) { _ in
+////        thread_stdin = stdin
+////        thread_stdout = stdout
+////        thread_stderr = stderr
+////        result = pydeMainInMainIntp(argc, argv)
+////        isEnd = true
+////    }
+////    RunLoop.main.add(timer, forMode: .default)
+////    
+////    while !isEnd {
+////        usleep(100)
+////    }
+////    return result
+//    return 0
+//}
 
 
 @_cdecl("python3Sub")
@@ -73,6 +73,8 @@ public func python3Process(argc: Int32, argv:UnsafeMutablePointer<UnsafeMutableP
 }
 
 private var _python3SubProcessCount = 0
+
+/// 运行在子线程中，如果已经运行中，只能再开启一个进程
 @_cdecl("python3SubProcess")
 public func python3SubProcess(argc: Int32, argv:UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
     if _python3SubProcessCount == 0 {
@@ -83,6 +85,34 @@ public func python3SubProcess(argc: Int32, argv:UnsafeMutablePointer<UnsafeMutab
     let cmds = __concatenateArgv(argv)
     let cmdStr = String(cString: cmds!)
     return remoteReqRemoteCommands(commands: [cmdStr])
+}
+
+@_cdecl("python3SubProcessInMain")
+public func python3SubProcessInMain(argc: Int32, argv:UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    let stdin = thread_stdin
+       let stdout = thread_stdout
+       let stderr = thread_stderr
+       var result: Int32 = 0
+    if Thread.isMainThread {
+        result = python3MainNotExit(argc, argv)
+        return result
+    }
+    
+    var isEnd = false
+    
+    let timer = Timer(timeInterval: 0.1, repeats: false) { _ in
+        thread_stdin = stdin
+        thread_stdout = stdout
+        thread_stderr = stderr
+        result = python3MainNotExit(argc, argv)
+        isEnd = true
+    }
+    RunLoop.main.add(timer, forMode: .default)
+    
+    while !isEnd {
+        usleep(1000 * 100)
+    }
+    return result
 }
 
 @_cdecl("pythonA")
@@ -202,7 +232,8 @@ public func initPydeUI() {
     
 //    replaceCommand("python3", "python3RunInMain", false)
 //    initDEMainIntp()
-    replaceCommand("python3", "python3MainInMainThread", false)
+//    replaceCommand("python3", "python3MainInMainThread", false)
+    replaceCommand("python3", "python3SubProcessInMain", false)
 }
 
 

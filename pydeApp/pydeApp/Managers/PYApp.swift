@@ -11,6 +11,7 @@ import pydeCommon
 import ios_system
 import Combine
 import ZipArchive
+import pyde
 
 class PYApp: ObservableObject {
     
@@ -35,6 +36,11 @@ class PYApp: ObservableObject {
     let downloadManager = DownloadManager.instance
     let pipManager = pipModelManager
     @Published var tagsModelManager = TagsModelManager()
+    
+    var consoleInstance: ConsoleView {
+        consoleWidget.consoleView
+    }
+    let consoleWidget = PYRunnerWidget()
     
     private var jupyterCancellable: AnyCancellable? = nil
     

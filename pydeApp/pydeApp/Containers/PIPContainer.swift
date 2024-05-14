@@ -43,6 +43,12 @@ public struct PIPContainer: View {
                             App.popupManager.showSheet(content: AnyView(picker))
                         }
                         
+                        Button("Refresh", systemImage: "arrow.clockwise") {
+                            Task {
+                                await pipManager.fetchInstalledPackages()
+                            }
+                        }
+                        
                         Button("Open pypi", systemImage: "globe") {
                             App.openFile(url: URL(string: "https://pypi.org")!, alwaysInNewTab: true)
                         }

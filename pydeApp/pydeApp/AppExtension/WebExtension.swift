@@ -84,6 +84,27 @@ class WebExtension: CodeAppExtension {
         contribution.toolBar.registerItem(item: backwardItem)
         contribution.toolBar.registerItem(item: forwardItem)
         contribution.toolBar.registerItem(item: toolbarItem)
+        
+        let htmlPreviewItem = ToolbarItem(
+            extenionID: "HTMLOFFLINEPREVIEW",
+            icon: "newspaper",
+            onClick: {
+                guard let editor = app.activeEditor as? TextEditorInstance else { return }
+                guard ["html", "htm"].contains(editor.url.pathExtension.lowercased()) else {
+                    return
+                }
+                
+                let webEditor = PYWebViewEditorInstance(editor.url)
+                DispatchQueue.main.async {
+                    app.appendAndFocusNewEditor(editor: webEditor, alwaysInNewTab: true)
+                }
+            },
+            shouldDisplay: {
+                guard let editor = app.activeEditor as? TextEditorInstance else { return false }
+                return ["html", "htm"].contains(editor.url.pathExtension.lowercased())
+            }
+        )
+        contribution.toolBar.registerItem(item: htmlPreviewItem)
     }
 }
 

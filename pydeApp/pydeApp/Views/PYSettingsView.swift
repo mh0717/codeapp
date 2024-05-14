@@ -11,52 +11,26 @@ struct PYSettingsView: View {
 
     @EnvironmentObject var App: MainApp
     @EnvironmentObject var themeManager: ThemeManager
-
-    @AppStorage("editorFontSize") var fontSize: Int = 14
-    @AppStorage("editorFontFamily") var fontFamily: String = "Menlo"
-    @AppStorage("fontLigatures") var fontLigatures: Bool = false
-    @AppStorage("quoteAutoCompletionEnabled") var quoteAutoCompleteEnabled: Bool = true
-    @AppStorage("suggestionEnabled") var suggestionEnabled: Bool = true
-    @AppStorage("editorMiniMapEnabled") var miniMapEnabled: Bool = true
-    @AppStorage("editorLineNumberEnabled") var editorLineNumberEnabled: Bool = true
-    @AppStorage("editorShowKeyboardButtonEnabled") var editorShowKeyboardButtonEnabled: Bool = true
-    @AppStorage("editorTabSize") var edtorTabSize: Int = 4
-    @AppStorage("consoleFontSize") var consoleFontSize: Int = 14
-    @AppStorage("preferredColorScheme") var preferredColorScheme: Int = 0
-    @AppStorage("editorRenderWhitespace") var renderWhitespace: Int = 0
-    @AppStorage("editorWordWrap") var editorWordWrap: String = "off"
-    @AppStorage("explorer.showHiddenFiles") var showHiddenFiles: Bool = false
-    @AppStorage("toolBarEnabled") var toolBarEnabled: Bool = true
-    @AppStorage("alwaysOpenInNewTab") var alwaysOpenInNewTab: Bool = false
-    @AppStorage("editorSmoothScrolling") var editorSmoothScrolling: Bool = false
-    @AppStorage("editorReadOnly") var editorReadOnly = false
-    @AppStorage("stateRestorationEnabled") var stateRestorationEnabled = true
-    @AppStorage("compilerShowPath") var compilerShowPath = false
-    @AppStorage("editorSpellCheckEnabled") var editorSpellCheckEnabled = false
-    @AppStorage("editorSpellCheckOnContentChanged") var editorSpellCheckOnContentChanged = true
-    @AppStorage("communityTemplatesEnabled") var communityTemplatesEnabled = true
-    @AppStorage("showAllFonts") var showAllFonts = false
-    @AppStorage("remoteShouldResolveHomePath") var remoteShouldResolveHomePath = false
     
     @AppStorage("editorLightTheme") var selectedLightTheme: String = "Light+"
     @AppStorage("editorDarkTheme") var selectedDarkTheme: String = "Dark+"
+    @AppStorage("preferredColorScheme") var preferredColorScheme: Int = 0
+    
+    @AppStorage("editorFontSize") var fontSize: Int = 14
+    @AppStorage("consoleFontSize") var consoleFontSize: Int = 14
+    
+    @AppStorage("explorer.showHiddenFiles") var showHiddenFiles: Bool = false
+    
+    @AppStorage("communityTemplatesEnabled") var communityTemplatesEnabled = true
 
     @State var showsEraseAlert: Bool = false
     @State var showReceiptInformation: Bool = false
 
     let colorSchemes = ["Automatic", "Dark", "Light"]
-    let renderWhitespaceOptions = ["None", "Boundary", "Selection", "Trailing", "All"]
-    let wordWrapOptions = ["off", "on", "wordWrapColumn", "bounded"]
+    
 
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    
-    let editors = ["Monaco Editor", "PYCode Editor"]
-    @AppStorage("codeEditor") var codeEditor = "PYCode Editor"
-    
-    #if DEBUG
-    @AppStorage("runUIInPreview") var runUIInPreview = false
-    #endif
     
     
     func setTheme(_ name: String) {
@@ -186,203 +160,11 @@ struct PYSettingsView: View {
                             isOn: $showHiddenFiles)
                     }
                     
-                    Section(header: Text(NSLocalizedString("Editor", comment: ""))) {
+                    EditorSetting()
                         
-                        Group {
-                            VStack(alignment: .leading, spacing: 0) {
-                                Picker(
-                                    selection: $codeEditor,
-                                    label: Text(localizedString(forKey:"Editor Selection"))
-                                ) {
-                                    ForEach(
-                                        editors,
-                                        id: \.self
-                                    ) { item in
-                                        Text(localizedString(forKey: item))
-                                    }
-                                }
-                                Text(localizedString(forKey:"Monaco Editor is more suitable for hardware keyboard\nPYCode Editor is more suitable for software keyboard")).font(.system(size: 13)).opacity(0.5)
-                            }
-                            
-                        }
-                        
-                        //                    NavigationLink(
-                        //                        destination: SettingsFontPicker(
-                        //                            showAllFonts: showAllFonts,
-                        //                            onFontPick: { descriptor in
-                        //                                fontFamily = descriptor.object(forKey: .family) as! String
-                        //                            }
-                        //                        ).toolbar {
-                        //                            Button("settings.editor.font.reset") {
-                        //                                fontFamily = "Menlo"
-                        //                            }
-                        //                            .disabled(fontFamily == "Menlo")
-                        //                        },
-                        //                        label: {
-                        //                            HStack {
-                        //                                Text("settings.editor.font")
-                        //                                Spacer()
-                        //                                Text(fontFamily)
-                        //                                    .foregroundColor(.gray)
-                        //                            }
-                        //                        }
-                        //                    )
-                        //                    .onChange(of: fontFamily) { value in
-                        //                        App.monacoInstance.executeJavascript(
-                        //                            command: "editor.updateOptions({fontFamily: \"\(value)\"})")
-                        //                    }
-                        //
-                        //                    Toggle("settings.editor.font.show_all_fonts", isOn: $showAllFonts)
-                        //
-                        //                    Toggle("settings.editor.font.ligatures", isOn: $fontLigatures)
-                        //                        .onChange(of: fontLigatures) { value in
-                        //                            App.monacoInstance.executeJavascript(
-                        //                                command: "editor.updateOptions({fontLigatures: \(value)})")
-                        //                        }
-                        //
-                        //                    NavigationLink(
-                        //                        destination:
-                        //                            SettingsKeyboardShortcuts()
-                        //                            .environmentObject(App)
-                        //                    ) {
-                        //                        Text("Custom Keyboard Shortcuts")
-                        //                    }
-                        
-                        Group {
-                            Stepper(
-                                "\(NSLocalizedString("Tab Size", comment: "")) (\(edtorTabSize))",
-                                value: $edtorTabSize, in: 1...8
-                            ).onChange(of: edtorTabSize) { value in
-                                App.monacoInstance.executeJavascript(
-                                    command: "editor.updateOptions({tabSize: \(String(value))})")
-                            }
-                        }
-                        
-                        Group {
-                            Toggle("Read-only Mode", isOn: self.$editorReadOnly).onChange(
-                                of: editorReadOnly
-                            ) { value in
-                                App.monacoInstance.executeJavascript(
-                                    command: "editor.updateOptions({ readOnly: \(String(value)) })")
-                            }
-                            Toggle("UI State Restoration", isOn: self.$stateRestorationEnabled)
-                        }
-                        
-                        Group {
-                            Toggle(
-                                NSLocalizedString("Bracket Completion", comment: ""),
-                                isOn: self.$quoteAutoCompleteEnabled
-                            ).onChange(of: quoteAutoCompleteEnabled) { value in
-                                App.monacoInstance.executeJavascript(
-                                    command:
-                                        "editor.updateOptions({ autoClosingBrackets: \(String(value)) })"
-                                )
-                            }
-                            
-                            Toggle(
-                                NSLocalizedString("Monaco Editor Mini Map", comment: ""),
-                                isOn: self.$miniMapEnabled
-                            ).onChange(of: miniMapEnabled) { value in
-                                App.monacoInstance.executeJavascript(
-                                    command:
-                                        "editor.updateOptions({minimap: {enabled: \(String(value))}})"
-                                )
-                            }
-                            
-                            Toggle(
-                                NSLocalizedString("Line Numbers", comment: ""),
-                                isOn: self.$editorLineNumberEnabled
-                            ).onChange(of: editorLineNumberEnabled) { value in
-                                App.monacoInstance.executeJavascript(
-                                    command:
-                                        "editor.updateOptions({ lineNumbers: \(String(value)) })")
-                            }
-                            
-                            //                        Toggle(
-                            //                            "Keyboard Toolbar (Effective in next launch)",
-                            //                            isOn: self.$toolBarEnabled
-                            //                        ).onChange(
-                            //                            of: toolBarEnabled
-                            //                        ) { value in
-                            //                            NotificationCenter.default.post(
-                            //                                name: Notification.Name("toolbarSettingChanged"), object: nil,
-                            //                                userInfo: ["enabled": value])
-                            //                        }
-                            //
-                            //                        Toggle("Always Open In New Tab", isOn: self.$alwaysOpenInNewTab)
-                            
-                            //                        Toggle(
-                            //                            NSLocalizedString("Smooth Scrolling", comment: ""),
-                            //                            isOn: self.$editorSmoothScrolling
-                            //                        ).onChange(of: editorSmoothScrolling) { value in
-                            //                            App.monacoInstance.executeJavascript(
-                            //                                command:
-                            //                                    "editor.updateOptions({ smoothScrolling: \(String(value)) })"
-                            //                            )
-                            //                        }
-                            
-                            Toggle("Text Wrap", isOn: Binding(get: {
-                                editorWordWrap != "off"
-                            }, set: { value in
-                                editorWordWrap = value ? "on" : "off"
-                                App.monacoInstance.executeJavascript(
-                                    command: "editor.updateOptions({wordWrap: '\(editorWordWrap)'})"
-                                )
-                            }))
-                            
-                            Toggle("Render Whitespace", isOn: Binding(get: {
-                                renderWhitespace != 0
-                            }, set: { value in
-                                renderWhitespace = value ? 4 : 0
-                                App.monacoInstance.executeJavascript(
-                                    command:
-                                        "editor.updateOptions({renderWhitespace: '\(String(renderWhitespaceOptions[renderWhitespace]).lowercased())'})"
-                                )
-                            }))
-                        }
-                        
-                        //                    Group {
-                        //                        Picker(
-                        //                            NSLocalizedString("Text Wrap", comment: ""),
-                        //                            selection: $editorWordWrap
-                        //                        ) {
-                        //                            ForEach(self.wordWrapOptions, id: \.self) {
-                        //                                Text("\($0)")
-                        //                            }
-                        //                        }.onChange(of: editorWordWrap) { value in
-                        //                            App.monacoInstance.executeJavascript(
-                        //                                command: "editor.updateOptions({wordWrap: '\(editorWordWrap)'})"
-                        //                            )
-                        //                        }
-                        
-                        //                        Picker(selection: $renderWhitespace, label: Text("Render Whitespace")) {
-                        //                            ForEach(0..<renderWhitespaceOptions.count, id: \.self) {
-                        //                                Text(self.renderWhitespaceOptions[$0])
-                        //                            }
-                        //                        }.onChange(of: renderWhitespace) { value in
-                        //                            App.monacoInstance.executeJavascript(
-                        //                                command:
-                        //                                    "editor.updateOptions({renderWhitespace: '\(String(renderWhitespaceOptions[renderWhitespace]).lowercased())'})"
-                        //                            )
-                        //                        }
-                        //                    }
-                    }
                     
-                    Section(header: Text("local.execution.title")) {
-                        Toggle("Show Command in Terminal", isOn: $compilerShowPath)
-                        #if DEBUG
-                        Toggle("$runUIInPreview", isOn: $runUIInPreview)
-                        #endif
-                    }
+                    TerminalSetting()
                     
-                    //                Section("Experimental Features") {
-                    //                    Toggle("Enable spell check in text files", isOn: $editorSpellCheckEnabled)
-                    //                    if editorSpellCheckEnabled {
-                    //                        Toggle(
-                    //                            "Spell checking on content changed",
-                    //                            isOn: $editorSpellCheckOnContentChanged)
-                    //                    }
-                    //                }
                     
                     Section(header: Text(NSLocalizedString("About", comment: ""))) {
                         
@@ -464,6 +246,145 @@ struct PYSettingsView: View {
             .navigationTitle(Text("Settings"))
             .configureToolbarBackground()
             .preferredColorScheme(themeManager.colorSchemePreference)
+        }
+    }
+}
+
+fileprivate struct EditorSetting: View {
+    @EnvironmentObject var App: MainApp
+    @EnvironmentObject var themeManager: ThemeManager
+    
+    let renderWhitespaceOptions = ["None", "Boundary", "Selection", "Trailing", "All"]
+    let wordWrapOptions = ["off", "on", "wordWrapColumn", "bounded"]
+    
+    
+    @AppStorage("editorFontFamily") var fontFamily: String = "Menlo"
+    @AppStorage("fontLigatures") var fontLigatures: Bool = false
+    @AppStorage("quoteAutoCompletionEnabled") var quoteAutoCompleteEnabled: Bool = true
+    @AppStorage("suggestionEnabled") var suggestionEnabled: Bool = true
+    @AppStorage("editorMiniMapEnabled") var miniMapEnabled: Bool = true
+    @AppStorage("editorLineNumberEnabled") var editorLineNumberEnabled: Bool = true
+    @AppStorage("editorShowKeyboardButtonEnabled") var editorShowKeyboardButtonEnabled: Bool = true
+    @AppStorage("editorTabSize") var edtorTabSize: Int = 4
+    
+    @AppStorage("editorRenderWhitespace") var renderWhitespace: Int = 0
+    @AppStorage("editorWordWrap") var editorWordWrap: String = "off"
+    
+    @AppStorage("toolBarEnabled") var toolBarEnabled: Bool = true
+    @AppStorage("alwaysOpenInNewTab") var alwaysOpenInNewTab: Bool = false
+    @AppStorage("editorSmoothScrolling") var editorSmoothScrolling: Bool = false
+    @AppStorage("editorReadOnly") var editorReadOnly = false
+    @AppStorage("stateRestorationEnabled") var stateRestorationEnabled = true
+    
+    @AppStorage("editorSpellCheckEnabled") var editorSpellCheckEnabled = false
+    @AppStorage("editorSpellCheckOnContentChanged") var editorSpellCheckOnContentChanged = true
+    
+    @AppStorage("showAllFonts") var showAllFonts = false
+    @AppStorage("remoteShouldResolveHomePath") var remoteShouldResolveHomePath = false
+    
+    let editors = ["Monaco Editor", "PYCode Editor"]
+    @AppStorage("codeEditor") var codeEditor = "PYCode Editor"
+    
+    var body: some View {
+        Section(header: Text(NSLocalizedString("Editor", comment: ""))) {
+            
+            VStack(alignment: .leading, spacing: 0) {
+                Picker(
+                    selection: $codeEditor,
+                    label: Text(localizedString(forKey:"Editor Selection"))
+                ) {
+                    ForEach(
+                        editors,
+                        id: \.self
+                    ) { item in
+                        Text(localizedString(forKey: item))
+                    }
+                }
+                Text(localizedString(forKey:"Monaco Editor is more suitable for hardware keyboard\nPYCode Editor is more suitable for software keyboard")).font(.system(size: 13)).opacity(0.5)
+            }
+            
+            Stepper(
+                "\(NSLocalizedString("Tab Size", comment: "")) (\(edtorTabSize))",
+                value: $edtorTabSize, in: 1...8
+            ).onChange(of: edtorTabSize) { value in
+                App.monacoInstance.executeJavascript(
+                    command: "editor.updateOptions({tabSize: \(String(value))})")
+            }
+            
+            Toggle("Read-only Mode", isOn: self.$editorReadOnly).onChange(
+                of: editorReadOnly
+            ) { value in
+                App.monacoInstance.executeJavascript(
+                    command: "editor.updateOptions({ readOnly: \(String(value)) })")
+            }
+            Toggle("UI State Restoration", isOn: self.$stateRestorationEnabled)
+            
+            Toggle(
+                NSLocalizedString("Bracket Completion", comment: ""),
+                isOn: self.$quoteAutoCompleteEnabled
+            ).onChange(of: quoteAutoCompleteEnabled) { value in
+                App.monacoInstance.executeJavascript(
+                    command:
+                        "editor.updateOptions({ autoClosingBrackets: \(String(value)) })"
+                )
+            }
+            
+            Toggle(
+                NSLocalizedString("Monaco Editor Mini Map", comment: ""),
+                isOn: self.$miniMapEnabled
+            ).onChange(of: miniMapEnabled) { value in
+                App.monacoInstance.executeJavascript(
+                    command:
+                        "editor.updateOptions({minimap: {enabled: \(String(value))}})"
+                )
+            }
+            
+            Toggle(
+                NSLocalizedString("Line Numbers", comment: ""),
+                isOn: self.$editorLineNumberEnabled
+            ).onChange(of: editorLineNumberEnabled) { value in
+                App.monacoInstance.executeJavascript(
+                    command:
+                        "editor.updateOptions({ lineNumbers: \(String(value)) })")
+            }
+            
+            Toggle("Text Wrap", isOn: Binding(get: {
+                editorWordWrap != "off"
+            }, set: { value in
+                editorWordWrap = value ? "on" : "off"
+                App.monacoInstance.executeJavascript(
+                    command: "editor.updateOptions({wordWrap: '\(editorWordWrap)'})"
+                )
+            }))
+            
+            Toggle("Render Whitespace", isOn: Binding(get: {
+                renderWhitespace != 0
+            }, set: { value in
+                renderWhitespace = value ? 4 : 0
+                App.monacoInstance.executeJavascript(
+                    command:
+                        "editor.updateOptions({renderWhitespace: '\(String(renderWhitespaceOptions[renderWhitespace]).lowercased())'})"
+                )
+            }))
+        }
+    }
+}
+
+fileprivate struct TerminalSetting: View {
+    @AppStorage("compilerShowPath") var compilerShowPath = false
+    @AppStorage("setting.panel.global.show") var showGlobalPanel = true
+    
+#if DEBUG
+    @AppStorage("runUIInPreview") var runUIInPreview = false
+#endif
+    
+    var body: some View {
+        Section(header: Text("local.execution.title")) {
+            Toggle("Show Command in Terminal", isOn: $compilerShowPath)
+            Toggle("Global Terminal", isOn: $showGlobalPanel)
+#if DEBUG
+            Toggle("runUIInPreview", isOn: $runUIInPreview)
+#endif
         }
     }
 }

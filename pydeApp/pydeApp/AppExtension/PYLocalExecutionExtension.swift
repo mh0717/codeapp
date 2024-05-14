@@ -72,6 +72,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             guard var path = (cmds as? [String])?.first(where: {$0.hasPrefix("python3 -u")}) else {
                 return
             }
+            let consoleInstance = (app.activeEditor as? WithRunnerEditorInstance)?.runnerView ?? app.pyapp.consoleInstance
             path = path.replacingOccurrences(of: "python3 -u ", with: "")
             path = path.replacingFirstOccurrence(of: "\"", with: "")
             let url = URL(fileURLWithPath: path)
@@ -85,7 +86,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
                 rseidtor.runnerView.kill()
                 DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(500))) {
                     rseidtor.runnerView.feed(text: "\r\n脚本运行需要显示UI\r\n将终止当前脚本\r\n并在UI模式下重新运行\r\n通过以下任一方法可以强制运行在UI模式下: \r\n* 后缀名改为.ui.py\r\n* __ui__ = True\r\n")
-                    self.runUICode(app: app, editor: rseidtor, dismiss: {})
+                    _ = self.runUICode(app: app, editor: rseidtor, consoleInstance: consoleInstance, dismiss: {})
                 }
             }
 //            app.alertManager.showAlert(
@@ -103,11 +104,11 @@ class PYLocalExecutionExtension: CodeAppExtension {
         }
     }
     
-    private func getRemoteConfig(editor: WithRunnerEditorInstance, commands: [String], app: MainApp) -> [String: Any]? {
-        guard let executor = editor.runnerView.executor else {return nil}
+    private func getRemoteConfig(consoleInstance: ConsoleView, commands: [String], app: MainApp) -> [String: Any]? {
+        guard let executor = consoleInstance.executor else {return nil}
         let ntidentifier = executor.persistentIdentifier
         guard let bookmark = try? executor.currentWorkingDirectory.bookmarkData() else  {return nil}
-        guard let wbookmark = try? URL(string: app.workSpaceStorage.currentDirectory.url ?? FileManager.default.currentDirectoryPath)!.bookmarkData() else {return nil}
+        guard let wbookmark = try? URL(string: app.workSpaceStorage.currentDirectory.url )!.bookmarkData() else {return nil}
         guard let libbookmark = try? ConstantManager.libraryURL.bookmarkData() else {return nil}
         let columns = executor.winsize.0
         let lines = executor.winsize.1
@@ -121,26 +122,14 @@ class PYLocalExecutionExtension: CodeAppExtension {
             "workspace": wbookmark,
             "COLUMNS": "\(columns)",
             "LINES": "\(lines)",
-            "env": env,
+            "env": env as Any,
         ]
         return config
     }
     
-    private func runUICode(app: MainApp, editor:WithRunnerEditorInstance, dismiss:@escaping () -> Void) -> AnyView? {
-//        guard let editor = app.activeTextEditor as? PYTextEditorInstance else {
-//            return nil
-//        }
-        
-//        if !editor.url.path.hasSuffix(".ui.py") {
-//            return nil
-//        }
-        
-        guard editor.runnerView.executor?.state == .idle else {
-            app.notificationManager.showErrorMessage("当前正在运行中，请等待运行结束或者中止")
-            return nil
-        }
-        
-//        app.saveCurrentFile()
+    private func runUICode(app: MainApp, editor:EditorInstanceWithURL, consoleInstance: ConsoleView, dismiss:@escaping () -> Void) -> AnyView? {
+        let languageIdentifier = editor.url.pathExtension.lowercased()
+        let consoleInstance = (editor as? WithRunnerEditorInstance)?.runnerView ?? app.pyapp.consoleInstance
         
         let args = editor.runArgs.replacingOccurrences(of: "\n", with: " ")
         let sanitizedUrl = editor.url.path.replacingOccurrences(of: " ", with: #"\ "#)
@@ -149,7 +138,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
                 .replacingOccurrences(of: "{args}", with: args)
         }
         
-        guard let config = getRemoteConfig(editor: editor, commands: commands, app: app) else {
+        guard let config = getRemoteConfig(consoleInstance: consoleInstance, commands: commands, app: app) else {
             return nil
         }
         
@@ -178,7 +167,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             newConfig["commands"] = commands
             
             
-            let ntidentifier = editor.runnerView.executor.persistentIdentifier
+            let ntidentifier = consoleInstance.executor.persistentIdentifier
             let fileUrl = linkDir.appendingPathComponent(".run.pyui")
             NSKeyedArchiver.archiveRootObject(newConfig, toFile: fileUrl.path)
             
@@ -203,7 +192,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             //                // Fallback on earlier versions
             //            }
             //        }
-            editor.runnerView.executor.evaluateCommands(["readremote"])
+            _ = consoleInstance.executor.evaluateCommands(["readremote"])
             return nil
         }
         #endif
@@ -216,7 +205,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
         
         let vc = UIActivityViewController(activityItems: [item, MyActivityItemSource(title: NSLocalizedString("Run iPyDE UI Script", comment: ""), text: NSLocalizedString("Choose \"Run iPyDE UI Script\" to run", comment: ""))], applicationActivities: nil)
         vc.completionWithItemsHandler = { _, _, _, _ in
-            editor.runnerView.executor?.kill()
+            consoleInstance.executor?.kill()
         }
         let popoverView = AnyView(VCRepresentable(vc))
         
@@ -239,7 +228,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
                     let presenter = vc.value(forKey: "_mainPresenter") as? NSObject
                     let interactor = presenter?.value(forKey: "_interactor") as? NSObject
                     let manager = interactor?.value(forKey: "_serviceManager") as? NSObject
-                    manager?.perform(Selector("performExtensionActivityInHostWithBundleID:request:"), with: "baobaowang.SketchPython.pydeUI", with: nil)
+                    manager?.perform(Selector("performExtensionActivityInHostWithBundleID:request:"), with: ConstantManager.pydeUI, with: nil)
                     
                 }
             } catch {
@@ -256,13 +245,13 @@ class PYLocalExecutionExtension: CodeAppExtension {
         
         let compilerShowPath = UserDefaults.standard.bool(forKey: "compilerShowPath")
         if compilerShowPath {
-            editor.runnerView.feed(text: commands.joined(separator: " && "))
+            consoleInstance.feed(text: commands.joined(separator: " && "))
         } else {
-            let commandName = commands.first?.components(separatedBy: " ").first ?? editor.languageIdentifier
-            editor.runnerView.feed(text: commandName)
+            let commandName = commands.first?.components(separatedBy: " ").first ?? languageIdentifier
+            consoleInstance.feed(text: commandName)
         }
-        editor.runnerView.feed(text: "\r\n")
-        editor.runnerView.executor?.evaluateCommands(["readremote"])
+        consoleInstance.feed(text: "\r\n")
+        _ = consoleInstance.executor?.evaluateCommands(["readremote"])
         
 //        return popoverView
         return nil
@@ -270,13 +259,17 @@ class PYLocalExecutionExtension: CodeAppExtension {
     
 
     private func runCodeLocally(app: MainApp) {
-        bind_hooks()
-        guard let editor = app.activeTextEditor as? WithRunnerEditorInstance else {
+        guard let editor = app.activeEditor as? EditorInstanceWithURL, PYLOCAL_EXECUTION_COMMANDS.keys.contains(editor.url.pathExtension.lowercased()) else {
             return
         }
         
-        guard editor.runnerView.executor?.state == .idle else {
-            app.notificationManager.showErrorMessage("当前正在运行中，请等待运行结束或者中止")
+        var consoleInstance = app.pyapp.consoleInstance
+        if let editor = editor as? WithRunnerEditorInstance {
+            consoleInstance = editor.runnerView
+        }
+        
+        guard consoleInstance.executor?.state == .idle else {
+            app.notificationManager.showErrorMessage("Terminal is busy")
             return
         }
         
@@ -285,11 +278,14 @@ class PYLocalExecutionExtension: CodeAppExtension {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         
         if editor.url.path.hasSuffix(".ui.py") {
-            runUICode(app: app, editor: editor, dismiss: {})
+            _ = runUICode(app: app, editor: editor, consoleInstance: consoleInstance, dismiss: {})
             return
         }
         
-        if !editor.content.contains("__thread__") && ([
+        let languageIdentifier = editor.url.pathExtension.lowercased()
+        let content = (editor as? TextEditorInstance)?.content ?? ""
+        
+        if languageIdentifier == "py", /*!editor.content.contains("__thread__") && */([
             "__ui__",
             "import sdl2",
             "import kivy",
@@ -308,26 +304,26 @@ class PYLocalExecutionExtension: CodeAppExtension {
             "from turtle ",
             "from toga ",
             "from toga."
-        ].contains(where: {editor.content.contains($0)})) {
-            runUICode(app: app, editor: editor, dismiss: {})
+        ].contains(where: {content.contains($0)})) {
+            _ = runUICode(app: app, editor: editor, consoleInstance: consoleInstance, dismiss: {})
             return
         }
 
-        guard let commands = PYLOCAL_EXECUTION_COMMANDS[editor.languageIdentifier] else {
+        guard let commands = PYLOCAL_EXECUTION_COMMANDS[languageIdentifier] else {
             return
         }
-        let ext = editor.languageIdentifier
+        let ext = languageIdentifier
         
         let predicate = NSPredicate(format: "SELF MATCHES %@", ".*print +[^(].*")
-        let isPy2 = (ext == "py") && predicate.evaluate(with: editor.content)
+        let isPy2 = (ext == "py") && predicate.evaluate(with: content)
         var output = ""
         if ext == "c" || ext == "cpp" {
-//            if editor.url.isInBundle() {
-//                
-//            } else {
-//
-//            }
-            output = editor.url.path.replacingOccurrences(of: " ", with: #"\ "#) + ".wasm"
+            if editor.url.isInBundle() {
+                output = ConstantManager.TMP.appendingPathComponent("tmp.wasm").path
+            } else {
+                output = editor.url.path.replacingOccurrences(of: " ", with: #"\ "#) + ".wasm"
+            }
+            
         }
 
         let args = editor.runArgs.replacingOccurrences(of: "\n", with: " ")
@@ -341,18 +337,18 @@ class PYLocalExecutionExtension: CodeAppExtension {
 
         let compilerShowPath = UserDefaults.standard.bool(forKey: "compilerShowPath")
         if compilerShowPath {
-            editor.runnerView.feed(text: parsedCommands.joined(separator: " && "))
+            consoleInstance.feed(text: parsedCommands.joined(separator: " && "))
         } else {
-            let commandName = parsedCommands.first?.components(separatedBy: " ").first ?? editor.languageIdentifier
-            editor.runnerView.feed(text: commandName)
+            let commandName = parsedCommands.first?.components(separatedBy: " ").first ?? languageIdentifier
+            consoleInstance.feed(text: commandName)
         }
-        editor.runnerView.feed(text: "\r\n")
+        consoleInstance.feed(text: "\r\n")
         
-        if editor.content.contains("__thread__") {
-            editor.runnerView.executor?.evaluateCommands(parsedCommands)
-        } else {
-            editor.runnerView.executor?.dispatchBlock(command: {clientReqCommands(commands: parsedCommands)}, name: parsedCommands.joined(separator: " "))
-        }
+//        if editor.content.contains("__thread__") {
+//            editor.runnerView.executor?.evaluateCommands(parsedCommands)
+//        } else {
+        consoleInstance.executor?.dispatchBlock(command: {clientReqCommands(commands: parsedCommands)}, name: parsedCommands.joined(separator: " "))
+//        }
         
         
         

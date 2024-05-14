@@ -44,7 +44,7 @@ public class PipService {
         }
     }
     
-    static func fetchInstalledPackages() async -> [PipPackage]  {
+    static func fetchInstalledPackages() async -> [PipPackage]?  {
         #if DEBUG
         if isXCPreview() {
             try? await Task.sleep(nanoseconds: 1000 * 1000 * 1000)
@@ -52,7 +52,7 @@ public class PipService {
         }
         #endif
         let output = await executeCommand("remote pip3 list --format json --no-color --disable-pip-version-check --no-python-version-warning")
-        guard let output, !output.isEmpty else {return []}
+        guard let output, !output.isEmpty else {return nil}
         
         var outputJson: String = ""
         do {

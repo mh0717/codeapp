@@ -43,6 +43,7 @@ class EditorInstanceWithURL: EditorInstance {
     #if PYDEAPP
     var canEditUrl: Bool {false}
     func updateUrl(_ url: URL){}
+    var runArgs: String = ""
     #endif
 
     enum FileState {
@@ -102,7 +103,6 @@ class TextEditorInstance: EditorInstanceWithURL {
     #if PYDEAPP
     @Published var tags: [CTag] = []
     @Published var selectedRange: NSRange = NSRange(location: 0, length: 0)
-    var runArgs: String = ""
     var readOnly: Bool = false
     #endif
 

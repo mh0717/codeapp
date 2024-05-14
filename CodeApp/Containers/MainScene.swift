@@ -162,6 +162,7 @@ private struct MainView: View {
     @EnvironmentObject var activityBarManager: ActivityBarManager
     @SceneStorage("activitybar.selected.item") var activeItemId: String = DefaultUIState
         .ACTIVITYBAR_SELECTED_ITEM
+    @AppStorage("setting.panel.global.show") var showGlobalPanel = true
     #endif
 
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -251,6 +252,12 @@ private struct MainView: View {
                                 
                                 
                                 #if PYDEAPP
+//                                if showGlobalPanel {
+//                                    PYPanelView(
+//                                        windowHeight: geometry.size.height
+//                                    )
+//                                    .environmentObject(extensionManager.panelManager)
+//                                }
                                 #else
                                 if isPanelVisible {
                                     PanelView(

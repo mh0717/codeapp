@@ -464,3 +464,6 @@
 "Open in Safari" = "Safari打开";
 "Install Wheel" = "安装Wheel";
 "Open pypi" = "打开pypi";
+
+"Terminal is busy" = "终端正在运行";
+"Global Terminal" = "全局终端";
