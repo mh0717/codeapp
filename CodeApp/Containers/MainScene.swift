@@ -252,12 +252,12 @@ private struct MainView: View {
                                 
                                 
                                 #if PYDEAPP
-//                                if showGlobalPanel {
-//                                    PYPanelView(
-//                                        windowHeight: geometry.size.height
-//                                    )
-//                                    .environmentObject(extensionManager.panelManager)
-//                                }
+                                if showGlobalPanel {
+                                    PYPanelView(
+                                        windowHeight: geometry.size.height
+                                    )
+                                    .environmentObject(extensionManager.panelManager)
+                                }
                                 #else
                                 if isPanelVisible {
                                     PanelView(

@@ -5,22 +5,11 @@
 //  Created by Huima on 2024/4/28.
 //
 import SwiftUI
-//import FolioReaderKit
-//import RealmSwift
-//import SwiftReader
 import pydeCommon
 
-class EpubEditorInstance: EditorInstanceWithURL {
+let EBOOK_EXT = ["epub", "fbz", "cbz", "fb2"]
 
-//    let viewModel: EBookReaderViewModel
-    
-//    init(title: String, url: URL) {
-//        viewModel = EBookReaderViewModel(file: url, delay: 1000 * 100)
-//        viewModel.theme = BookThemeManager.instance.theme
-//        
-//        super.init(view: AnyView(EBookView(model: viewModel).id(UUID())), title: title, url: url)
-//    }
-    
+class EpubEditorInstance: EditorInstanceWithURL {
     
     let wbview = WebViewBase()
     
@@ -28,7 +17,6 @@ class EpubEditorInstance: EditorInstanceWithURL {
     
     init(title: String, url: URL) {
         coordinator = WebCoordinator(url: url)
-//        viewModel = EBookReaderViewModel(file: url, delay: 1000 * 100)
         super.init(view: AnyView(PoliateView(webView: wbview).id(UUID())), title: title, url: url)
         
         let hurl = ConstantManager.FOLIATE.appendingPathComponent("reader.html")
@@ -37,8 +25,6 @@ class EpubEditorInstance: EditorInstanceWithURL {
         
         wbview.navigationDelegate = coordinator
     }
-    
-    
 }
 
 fileprivate class WebCoordinator: NSObject, WKNavigationDelegate {
@@ -54,7 +40,9 @@ fileprivate class WebCoordinator: NSObject, WKNavigationDelegate {
         }
         print(data.count)
         let base64String = data.base64EncodedString()
-        let jsstr = js.replacingFirstOccurrence(of: "{{base64Content}}", with: base64String)
+        let jsstr = loadBookJS
+            .replacingOccurrences(of: "{{name}}", with: url.lastPathComponent)
+            .replacingFirstOccurrence(of: "{{base64Content}}", with: base64String)
         webView.evaluateJavaScript(jsstr)
         
         DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(250))) {
@@ -62,43 +50,6 @@ fileprivate class WebCoordinator: NSObject, WKNavigationDelegate {
             didSetTheme(webView, theme: theme)
         }
     }
-}
-
-let js = """
-    let base64Content = "{{base64Content}}"
-    let bookData = Uint8Array.from(atob(base64Content), c => c.charCodeAt(0))
-    console.log(bookData)
-    console.log(bookData.byteOffset)
-    bookData.byteOffset = 0
-    let bookFile = new File([bookData.buffer],  "epub");
-    console.log(bookFile.size)
-    openBook(bookFile)
-    """
-
-fileprivate func didSetTheme(_ webView: WKWebView, theme: BookTheme) {
-    let theme = ThemeManager.isDark() ? BookThemeManager.instance.darkTheme : BookThemeManager.instance.lightTheme
-    let script = """
-    var _style = {
-        lineHeight: \(theme.lineHeight),
-        justify: \(theme.justify),
-        hyphenate: \(theme.hyphenate),
-        theme: {bg: "\(theme.bg)", fg: "\(theme.fg)", name: "\(theme.dark ? "dark" : "light")"},
-        fontSize: \(theme.fontSize),
-    }
-
-    var _layout = {
-       gap: \(theme.gap),
-       maxInlineSize: \(theme.maxInlineSize),
-       maxBlockSize: \(theme.maxBlockSize),
-       maxColumnCount: \(theme.maxColumnCount),
-       flow: \(theme.flow),
-       animated: \(theme.animated),
-       margin: \(theme.margin)
-    }
-
-    setTheme({style: _style, layout: _layout})
-    """
-    webView.evaluateJavaScript(script)
 }
 
 struct PoliateView: View {
@@ -123,109 +74,13 @@ struct PoliateView: View {
     
 }
 
-//struct EBookView: View {
-//    @ObservedObject var model: EBookReaderViewModel
-//    
-//    @EnvironmentObject var themeManager: ThemeManager
-//    
-//    @ObservedObject var theme = BookThemeManager.instance
-//    
-//    @Environment(\.colorScheme) var colorScheme: ColorScheme
-//    
-//    var body: some View {
-//        EBookReader(viewModel: model)
-//            .background(Color.init(id: "editor.background"))
-//            .onReceive(theme.objectWillChange, perform: { _ in
-//                if colorScheme == .dark {
-//                    model.theme = theme.darkTheme
-//                } else {
-//                    model.theme = theme.lightTheme
-//                }
-//                model.setBookTheme()
-//            })
-//            .onChange(of: colorScheme, perform: { newValue in
-//                if newValue == .dark {
-//                    model.theme = theme.darkTheme
-//                } else {
-//                    model.theme = theme.lightTheme
-//                }
-//                model.setBookTheme()
-//            })
-//            .sheet(isPresented: $model.showingToc, content: {
-//                ReaderContent(toc: model.toc ?? [], isSelected: { item in model.isBookTocItemSelected(item: item) }, tocItemPressed: { item in
-//                    model.goTo(cfi: item.href)
-//                    model.showingToc.toggle()
-//                }, currentTocItemId: model.currentTocItem?.id)
-//            })
-//    }
-//}
-
-//class EpubEditorInstance: EditorInstanceWithURL {
-//    let readerVC: FolioReaderContainer
-//    
-//    let viewModel: EBookReaderViewModel
-//    
-//    init(title: String, url: URL) {
-//        let config = FolioReaderConfig(withIdentifier: "epub")
-//            config.shouldHideNavigationOnTap = true
-//        config.hideBars = true
-////            config.scrollDirection = epub.scrollDirection
-//
-//        // See more at FolioReaderConfig.swift
-////        config.canChangeScrollDirection = false
-////        config.enableTTS = false
-////        config.displayTitle = true
-//        config.allowSharing = false
-////        config.tintColor = UIColor.blueColor()
-////        config.toolBarTintColor = UIColor.redColor()
-////        config.toolBarBackgroundColor = UIColor.purpleColor()
-////        config.menuTextColor = UIColor.brownColor()
-////        config.menuBackgroundColor = UIColor.lightGrayColor()
-////        config.hidePageIndicator = true
-//        config.realmConfiguration = Realm.Configuration(fileURL: FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first?.appendingPathComponent("highlights.realm"))
-//
-////        // Custom sharing quote background
-////        config.quoteCustomBackgrounds = []
-////        if let image = UIImage(named: "demo-bg") {
-////            let customImageQuote = QuoteImage(withImage: image, alpha: 0.6, backgroundColor: UIColor.black)
-////            config.quoteCustomBackgrounds.append(customImageQuote)
-////        }
-////
-////        let textColor = UIColor(red:0.86, green:0.73, blue:0.70, alpha:1.0)
-////        let customColor = UIColor(red:0.30, green:0.26, blue:0.20, alpha:1.0)
-////        let customQuote = QuoteImage(withColor: customColor, alpha: 1.0, textColor: textColor)
-////        config.quoteCustomBackgrounds.append(customQuote)
-//        
-//        let reader = FolioReader()
-//        readerVC = FolioReaderContainer(withConfig: config, folioReader: reader, epubPath: url.path, removeEpub: false)
-//        
-//        /*super.init(view: AnyView(EpubView(readerVC: readerVC).id(UUID())), title: title, url: url)*/
-//        super.init(view: AnyView(EBookReader(url: url)), title: title, url: url)
-//        
-//        
-//    }
-//}
-
-
-//struct EpubView: UIViewControllerRepresentable {
-//    let readerVC: FolioReaderContainer
-//    
-//    func makeUIViewController(context: Self.Context) -> FolioReaderContainer {
-//        return readerVC
-//    }
-//
-//    func updateUIViewController(_ uiViewController: FolioReaderContainer, context: Self.Context) {
-//        
-//    }
-//}
-
 
 class EpubExtension: CodeAppExtension {
 
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
 
         let provider = EditorProvider(
-            registeredFileExtensions: ["epub"],
+            registeredFileExtensions: EBOOK_EXT,
             onCreateEditor: { url in
                 
                 let editorInstance = EpubEditorInstance(title: url.lastPathComponent, url: url)
@@ -241,9 +96,35 @@ class EpubExtension: CodeAppExtension {
             icon: "list.bullet",
             onClick: {
                 if let editor = app.activeEditor as? EpubEditorInstance {
-//                    editor.readerVC.centerViewController?.presentChapterList(nil)
-//                    editor.viewModel.showingToc = true
                     editor.wbview.evaluateJavaScript("window.showSide()")
+                }
+            },
+            shouldDisplay: {
+                guard let ditor = app.activeEditor as? EpubEditorInstance else { return false }
+                return true
+            }
+        )
+        
+        let backwardItem = ToolbarItem(
+            extenionID: "BOOKBACKWARD",
+            icon: "arrow.left",
+            onClick: {
+                if let editor = app.activeEditor as? EpubEditorInstance {
+                    editor.wbview.evaluateJavaScript("reader.view.goLeft()")
+                }
+            },
+            shouldDisplay: {
+                guard let ditor = app.activeEditor as? EpubEditorInstance else { return false }
+                return true
+            }
+        )
+        
+        let forwardItem = ToolbarItem(
+            extenionID: "BOOKFORWARD",
+            icon: "arrow.right",
+            onClick: {
+                if let editor = app.activeEditor as? EpubEditorInstance {
+                    editor.wbview.evaluateJavaScript("reader.view.goRight()")
                 }
             },
             shouldDisplay: {
@@ -267,78 +148,14 @@ class EpubExtension: CodeAppExtension {
 //        )
         
         
-        contribution.toolBar.registerItem(item: toolbarItem)
+        
 //        contribution.toolBar.registerItem(item: fontSizeItem)
+        
+        contribution.toolBar.registerItem(item: backwardItem)
+        contribution.toolBar.registerItem(item: forwardItem)
+        contribution.toolBar.registerItem(item: toolbarItem)
     }
 }
-
-
-//struct ReaderContent<T: TocItem>: View {
-//    @Environment(\.dismiss) var dismiss
-////    @Environment(AppTheme.self) var theme
-//
-//    var toc: [T]
-//    var isSelected: ((T) -> Bool)?
-//    var tocItemPressed: ((T) -> Void)?
-//    var currentTocItemId: Int?
-//
-//    var body: some View {
-//        NavigationView {
-//            ScrollViewReader { proxy in
-//                ScrollView {
-//                    LazyVStack {
-//                        ForEach(toc) { tocItem in
-//                            let selected = isSelected?(tocItem) ?? false
-//
-//                            VStack {
-//                                Button {
-//                                    tocItemPressed?(tocItem)
-//
-//                                } label: {
-//                                    HStack {
-//                                        Text(tocItem.label)
-//                                            .lineLimit(2)
-//                                            .multilineTextAlignment(.leading)
-////                                            .fontWeight(tocItem.depth == 0 ? .semibold : .light)
-//
-//                                        Spacer()
-//
-//                                        if let pageNumber = tocItem.pageNumber {
-//                                            Text("\(pageNumber)")
-//                                        }
-//                                        Image(systemName: "chevron.right")
-//                                    }
-////                                    .foregroundStyle(selected ? theme.tintColor : .white)
-//                                }
-//                                .padding(.leading, CGFloat(tocItem.depth ?? 0) * 10)
-//                            }
-//                            .padding(.horizontal, 12)
-//                            .padding(.vertical, 6)
-//                            .id(tocItem.id)
-//                        }
-//                    }
-//                }
-////                .scrollIndicators(.hidden)
-//                .onAppear {
-//                    if let currentTocItemId {
-//                        proxy.scrollTo(currentTocItemId, anchor: .center)
-//                    }
-//                }
-//            }
-//            .navigationTitle("Content")
-//            .navigationBarTitleDisplayMode(.inline)
-//            .toolbar {
-////                ToolbarItem(placement: .topBarTrailing) {
-////                    SRXButton {
-////                        dismiss()
-////                    }
-////                }
-//            }
-//        }
-//    }
-//}
-
-
 
 public class BookThemeManager:  ObservableObject {
     var theme = BookTheme()
@@ -395,122 +212,19 @@ public class BookThemeManager:  ObservableObject {
     static let instance = BookThemeManager()
 }
 
-
-let themeJS = """
-const getCSS = ({ lineHeight, justify, hyphenate, theme, fontSize }) => `
-@namespace epub "http://www.idpf.org/2007/ops";
-@media print {
-    html {
-        column-width: auto !important;
-        height: auto !important;
-        width: auto !important;
-    }
-}
-html, body {
-  background: none !important;
-  color: ${theme.fg};
-}
-body *{
-  background-color: ${theme.bg} !important;
-  color: inherit !important;
-}
-html, body, p, li, blockquote, dd {
-    font-size: ${fontSize}%;
-    line-height: ${lineHeight} !important;
-    text-align: ${justify ? "justify" : "start"};
-    -webkit-hyphens: ${hyphenate ? "auto" : "manual"};
-    hyphens: ${hyphenate ? "auto" : "manual"};
-    -webkit-hyphenate-limit-before: 3;
-    -webkit-hyphenate-limit-after: 2;
-    -webkit-hyphenate-limit-lines: 2;
-    hanging-punctuation: allow-end last;
-    widows: 2;
-}
-/* prevent the above from overriding the align attribute */
-[align="left"] { text-align: left; }
-[align="right"] { text-align: right; }
-[align="center"] { text-align: center; }
-[align="justify"] { text-align: justify; }
-
-pre {
-    white-space: pre-wrap !important;
-}
-aside[epub|type~="endnote"],
-aside[epub|type~="footnote"],
-aside[epub|type~="note"],
-aside[epub|type~="rearnote"] {
-    display: none;
-}
-`;
-
-let setTheme = ({ style, layout }) => {
-Object.assign(this.style, style);
-const { theme } = style;
-const $style = document.documentElement.style;
-$style.setProperty("--bg", theme.bg);
-$style.setProperty("--fg", theme.fg);
-const renderer = this.view?.renderer;
-if (renderer) {
-  renderer.setAttribute("flow", layout.flow ? "scrolled" : "paginated");
-  renderer.setAttribute("gap", layout.gap * 100 + "%");
-  renderer.setAttribute("margin", layout.margin + "px");
-  renderer.setAttribute("max-inline-size", layout.maxInlineSize + "px");
-  renderer.setAttribute("max-block-size", layout.maxBlockSize + "px");
-  renderer.setAttribute("max-column-count", layout.maxColumnCount);
-  renderer.setAttribute("animated", layout.animated);
-  renderer.setStyles?.(getCSS(this.style));
-}
-if (theme.name !== "light") {
-  $style.setProperty("--mode", "screen");
-} else {
-  $style.setProperty("--mode", "multiply");
-}
-return true;
-};
-
-var _style = {
-    theme: {bg: "#000000", fg: "#FFFFFF", name: "dark"},
-}
-
-var _layout = {
-
-}
-
-setTheme({style: _style, layout: _layout})
-
-var _style = {
-    lineHeight: 1.2,
-    justify: true,
-    hyphenate:  true,
-    theme: {bg: "#000000", fg: "#FFFFFF", name: "dark"},
-    fontSize: 100,
-}
-
-var _layout = {
-   gap: 0.0,
-   maxInlineSize: 1080,
-   maxBlockSize: 2048,
-   maxColumnCount: 1,
-   flow: true,
-   animated: true,
-   margin: 0
-}
-setTheme({style: _style, layout: _layout})
-"""
-
 public struct BookTheme: Codable {
     
     // MARK: Layout
 
     public static let saveKey = "ReaderTheme"
 
-    public var gap = 0.06
-    public var maxInlineSize = 1080
-    public var maxBlockSize = 1440
+    public var gap = 0.00
+    public var maxInlineSize = 1080 + 1000
+    public var maxBlockSize = 1440 + 1000
     public var maxColumnCount = 1
     public var flow = false
     public var animated = true
-    public var margin = 24
+    public var margin = 0
 
     // MARK: Style
 
@@ -521,8 +235,6 @@ public struct BookTheme: Codable {
 
     // MARK: Book Theme
 
-//    public var bg: ThemeBackground = .dark
-//    public var fg: ThemeForeground = .dark
     public var dark: Bool = false
     public var bg: String = "#000000"
     public var fg: String = "#FFFFFF"
@@ -606,4 +318,39 @@ public struct BookTheme: Codable {
             UserDefaults.standard.set(encodedTheme, forKey: BookTheme.saveKey)
         }
     }
+}
+
+
+fileprivate let loadBookJS = """
+    let base64Content = "{{base64Content}}"
+    let bookData = Uint8Array.from(atob(base64Content), c => c.charCodeAt(0))
+    bookData.byteOffset = 0
+    let bookFile = new File([bookData.buffer],  "{{name}}");
+    openBook(bookFile)
+    """
+
+fileprivate func didSetTheme(_ webView: WKWebView, theme: BookTheme) {
+    let theme = ThemeManager.isDark() ? BookThemeManager.instance.darkTheme : BookThemeManager.instance.lightTheme
+    let script = """
+    var _style = {
+        lineHeight: \(theme.lineHeight),
+        justify: \(theme.justify),
+        hyphenate: \(theme.hyphenate),
+        theme: {bg: "\(theme.bg)", fg: "\(theme.fg)", name: "\(theme.dark ? "dark" : "light")"},
+        fontSize: \(theme.fontSize),
+    }
+
+    var _layout = {
+       gap: \(theme.gap),
+       maxInlineSize: \(theme.maxInlineSize),
+       maxBlockSize: \(theme.maxBlockSize),
+       maxColumnCount: \(theme.maxColumnCount),
+       flow: \(theme.flow),
+       animated: \(theme.animated),
+       margin: \(theme.margin)
+    }
+
+    setTheme({style: _style, layout: _layout})
+    """
+    webView.evaluateJavaScript(script)
 }
