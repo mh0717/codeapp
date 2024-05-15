@@ -53,7 +53,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
                 self.runCodeLocally(app: app)
             },
             shortCut: .init("r", modifiers: [.command]),
-            panelToFocusOnTap: "RUNNER",
+            panelToFocusOnTap: "TERMINAL",
             shouldDisplay: {
                 guard let activeTextEditor = app.activeTextEditor else { return false }
                 return activeTextEditor.url.isFileURL

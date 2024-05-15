@@ -289,6 +289,14 @@ struct PYTopBar: View {
                         Label("Show Welcome Page", systemImage: "newspaper")
                     }
                     
+                    Button(action: {
+                        stateManager.showsSettingsSheet.toggle()
+                    }) {
+                        Label("Settings", systemImage: "slider.horizontal.3")
+                    }
+                    
+                    Divider()
+                    
                     if !IapManager.instance.isPurchased {
                         Button {
                             #if PYTHON3IDE
@@ -308,11 +316,7 @@ struct PYTopBar: View {
                     }
 
 
-                    Button(action: {
-                        stateManager.showsSettingsSheet.toggle()
-                    }) {
-                        Label("Settings", systemImage: "slider.horizontal.3")
-                    }
+                    
 
 //                    Button(action: {
 //                        openConsolePanel()
@@ -406,9 +410,7 @@ struct PYTopBar: View {
                         }
                     }
                     
-                    Divider()
-                    
-                    Menu("Open", systemImage: "") {
+                    Menu("Open", systemImage: "doc") {
                         
                         
                         Button(action: {

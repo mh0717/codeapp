@@ -29,6 +29,10 @@ struct TagsTreeView: View {
     private func onTapTag(_ tag: CTag) {
         if let editor = App.activeTextEditor as? PYTextEditorInstance {
             editor.goToLine(tag.line - 1)
+            editor.goToLine(tag.line - 1)
+        } else if let editor = App.activeTextEditor as? PYPlainTextEditorInstance {
+            editor.goToLine(tag.line - 1)
+            editor.goToLine(tag.line - 1)
         } else {
             App.monacoInstance.executeJavascript(
                 command: "editor.focus()")

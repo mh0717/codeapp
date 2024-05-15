@@ -163,6 +163,23 @@ public func clear__(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer
     return 0
 }
 
+@_cdecl("plink")
+public func plink(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    guard let cmds = convertCArguments(argc: argc, argv: argv) else {
+        return -1
+    }
+    if cmds.count == 1 || cmds[1] == "-h" || cmds[1] == "--help" {
+        vfprintf(thread_stdout, "\nusage: plink content link\nex: plink python3ide https://www.python3ide.com\n", getVaList([]))
+        return 0
+    }
+    let content = cmds[1]
+    let link = cmds.count >= 3 ? cmds[2] : content
+    vfprintf(thread_stdout, "\u{1B}]8;;\(link)\u{1B}\\\(content)\u{1B}]8;;\u{1B}\\\n", getVaList([]))
+    return 0
+}
+
+//feed(text: "\u{1B}]8;;http://example.com\u{1B}\\This is a link\u{1B}]8;;\u{1B}\\\r\n")
+
 //@_cdecl("remotenode")
 //public func clear__(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
 //    vfprintf(thread_stdout, "\u{1B}[2J\u{1B}[0;0H", getVaList([]))
@@ -180,6 +197,7 @@ public func initPyDE() {
     replaceCommand("openurl", "openurl", false)
     replaceCommand("readremote", "readremote", false)
     replaceCommand("clear", "clear", false)
+    replaceCommand("plink", "plink", false)
     
     replaceCommand("node", "ide_node", false)
     replaceCommand("npm", "ide_npm", false)
@@ -209,6 +227,7 @@ public func initRemotePython3Sub() {
     replaceCommand("openurl", "openurl", false)
     replaceCommand("rremote", "rremote", false)
     replaceCommand("clear", "clear", false)
+    replaceCommand("plink", "plink", false)
     
     replaceCommand("python3", "python3SubProcess", false)
     
@@ -229,6 +248,7 @@ public func initPydeUI() {
     replaceCommand("openurl", "openurl", false)
     replaceCommand("rremote", "rremote", false)
     replaceCommand("clear", "clear", false)
+    replaceCommand("plink", "plink", false)
     
 //    replaceCommand("python3", "python3RunInMain", false)
 //    initDEMainIntp()

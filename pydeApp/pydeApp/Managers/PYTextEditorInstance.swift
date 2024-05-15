@@ -37,6 +37,10 @@ class PYPlainTextEditorInstance: TextEditorInstance {
         editorView.text = content
         editorView.url = url
     }
+    
+    func goToLine(_ line: Int) {
+        editorView.goToLine(line)
+    }
 }
 
 
@@ -240,20 +244,34 @@ struct PYRunnerWidget: UIViewRepresentable {
     @ObservedObject var codeThemeManager = rscodeThemeManager
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
+    func onOpenLink(_ url: String) {
+        if let url = URL(string: url) {
+            App.pyapp.openUrl(url)
+        }
+    }
+    
+    func onOpenImage(_ image: UIImage) {
+        let editor = EditorInstance(view: AnyView(Image(uiImage: image).resizable().scaledToFit().id(UUID())), title: "Image")
+        App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+    }
+    
     let consoleView = ConsoleView(root: URL(fileURLWithPath:  FileManager.default.currentDirectoryPath))
     
     func makeUIView(context: Context) -> ConsoleView {
+        consoleView.onOpenLink = onOpenLink
+        consoleView.onOpenImage = onOpenImage
         return consoleView
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
 //        consoleView.terminalView.font = codeThemeManager.theme.font
         let theme = colorScheme == .dark ? codeThemeManager.darkTheme : codeThemeManager.lightTheme
-        consoleView.backgroundColor = theme.backgroundColor
+        consoleView.backgroundColor = UIColor(id: "editor.background")
         consoleView.terminalView.backgroundColor = theme.backgroundColor
-        consoleView.terminalView.nativeForegroundColor = theme.textColor
-        consoleView.terminalView.nativeBackgroundColor = theme.backgroundColor
-        consoleView.terminalView.selectedTextBackgroundColor = theme.markedTextBackgroundColor
+        consoleView.terminalView.nativeForegroundColor = ThemeManager.isDark() ? UIColor.white : UIColor.black
+        consoleView.terminalView.nativeBackgroundColor = UIColor(id: "editor.background")
+        consoleView.terminalView.selectedTextBackgroundColor = UIColor(id: "editor.background").blendAlpha(coverColor: theme.markedTextBackgroundColor.withAlphaComponent(0.4)) 
+//        consoleView.terminalView.selectedTextBackgroundColor =  theme.markedTextBackgroundColor.blendAlpha(coverColor: UIColor(id: "editor.background"))
     }
     
 }

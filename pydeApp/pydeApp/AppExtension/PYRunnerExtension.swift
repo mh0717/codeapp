@@ -12,11 +12,11 @@ import pyde
 
 class PYRunnerExtension: CodeAppExtension {
     
-    var consoleInstance: ConsoleView?
+    weak var app: MainApp?
     
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
         let panel = Panel(
-            labelId: "RUNNER",
+            labelId: "TERMINAL",
             mainView: AnyView(
                 ConsoleWidget()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -39,15 +39,18 @@ class PYRunnerExtension: CodeAppExtension {
         )
         contribution.panel.registerPanel(panel: panel)
         
-        consoleInstance = app.pyapp.consoleInstance
+        let consoleInstance = app.pyapp.consoleInstance
         if let url = app.workSpaceStorage.currentDirectory._url {
-            consoleInstance?.resetAndSetNewRootDirectory(url: url)
+            consoleInstance.resetAndSetNewRootDirectory(url: url)
         }
-        
+        self.app = app
     }
     
     override func onWorkSpaceStorageChanged(newUrl: URL) {
-        consoleInstance?.resetAndSetNewRootDirectory(url: newUrl)
+        app?.pyapp.defaultConsole.consoleView.resetAndSetNewRootDirectory(url: newUrl)
+        app?.pyapp.consoles.forEach({item in
+            item.consoleView.resetAndSetNewRootDirectory(url: newUrl)
+        })
     }
     
     func handleRunnerSizeChanged(_ size: CGSize) {
@@ -62,7 +65,27 @@ private struct ToolbarView: View {
     
     var body: some View {
         HStack(spacing: 12) {
+            Button(
+                action: {
+                    if let editor = App.activeEditor as? WithRunnerEditorInstance {
+                        editor.runnerView.kill()
+                    } else {
+                        App.pyapp.consoleInstance.kill()
+                    }
+                },
+                label: {
+                    Image(systemName: "stop")
+                }
+            ).keyboardShortcut("c", modifiers: [.control])
+            
             Menu {
+                
+                Button("Clear", systemImage: "trash", role: .none) {
+                    App.pyapp.activeConsole.consoleView.clear()
+                }
+                
+                Divider()
+                
                 Button("Close", systemImage: "apple.terminal", role: .destructive) {
                     App.pyapp.consoles.removeAll(where: {$0.id == App.pyapp.activeConsole.id})
                     App.pyapp.activeConsole = App.pyapp.consoles.last ?? App.pyapp.defaultConsole
@@ -91,28 +114,6 @@ private struct ToolbarView: View {
             } label: {
                 Image(systemName: "ellipsis").padding(2)
             }
-
-            Button(
-                action: {
-                    if let editor = App.activeEditor as? WithRunnerEditorInstance {
-                        editor.runnerView.kill()
-                    } else {
-                        App.pyapp.consoleInstance.kill()
-                    }
-                },
-                label: {
-                    Text("^C")
-                }
-            ).keyboardShortcut("c", modifiers: [.control])
-
-            Button(
-                action: {
-                    App.terminalInstance.reset()
-                },
-                label: {
-                    Image(systemName: "trash")
-                }
-            ).keyboardShortcut("k", modifiers: [.command])
         }
     }
 }

@@ -363,6 +363,8 @@ struct PYNewFileView: View {
         case 12:
             name = "example_django.py"
             content = """
+                # Created on \(UIDevice.current.name)
+                
                 import sys
                 
                 from django.conf import settings
@@ -391,6 +393,115 @@ struct PYNewFileView: View {
                     execute_from_command_line(sys.argv + ['runserver', '8080', '--noreload'])
                 
                 """
+        case 20:
+            name = "example.c"
+            content = """
+            // Created on \(UIDevice.current.name)
+            
+            #include <stdio.h>
+            int main() {
+                printf("Hello World!\n");
+                return 0;
+            }
+            """
+        case 21:
+            name = "example.cpp"
+            content = """
+            // Created on \(UIDevice.current.name)
+            
+            #include <iostream>
+            
+            int main() {
+                std::cout << "Hello World!" << std::endl;
+                return 0;
+            }
+            
+            """
+        case 30:
+            name = "example.js"
+            content = """
+            // Created on \(UIDevice.current.name)
+            
+            console.log("Hello World!")
+            
+            """
+        case 31:
+            name = "index.html"
+            content = """
+            <!doctype html>
+            <html>
+              <head>
+                <title>Title</title>
+                <meta charset="utf-8">
+              </head>
+              <body>
+                <h1>Hello, World</h1>
+              </body>
+            </html>
+            """
+        case 32:
+            name = "style.css"
+            content = """
+            /* Applies to the entire body of the HTML document (except where overridden by more specific
+            selectors). */
+            body {
+              margin: 25px;
+              background-color: rgb(240,240,240);
+              font-family: arial, sans-serif;
+              font-size: 14px;
+            }
+
+            /* Applies to all <h1>...</h1> elements. */
+            h1 {
+              font-size: 35px;
+              font-weight: normal;
+              margin-top: 5px;
+            }
+
+            /* Applies to all elements with <... class="someclass"> specified. */
+            .someclass { color: red; }
+
+            /* Applies to the element with <... id="someid"> specified. */
+            #someid { color: green; }
+            """
+        case 33:
+            name = "package.json"
+            content = """
+            {
+                "name": "proj",
+                "version": "1.0.0",
+                "description": "proj",
+                "main": "index.js",
+                "scripts": {
+                    "test": "test"
+                },
+                "keywords": [
+                    "proj"
+                ],
+                "author": "author",
+                "license": "ISC"
+            }
+
+            """
+        case 40:
+            name = "example.php"
+            content = """
+            <?php
+                echo "Hello World!\n"
+            ?>
+            """
+        case 50:
+            name = "example.lua"
+            content = """
+            // Created on \(UIDevice.current.name)
+            
+            print("Hello World!\n")
+            """
+        case 60:
+            name = "example.pl"
+            content = """
+            print "Hello World!\n";
+            """
         case 62:
             name = "Main.java"
             content = """
@@ -476,7 +587,7 @@ struct PYNewFileView: View {
         let name: String
     }
 
-    let languageMapping: [LanguageTemplateMapping] = [
+    let languageMappingPython: [LanguageTemplateMapping] = [
         .init(code: 0, name: "Python"),
         .init(code: 1, name: "SDL2"),
         .init(code: 2, name: "PyGame"),
@@ -487,12 +598,43 @@ struct PYNewFileView: View {
         .init(code: 11, name: "Flask"),
         .init(code: 12, name: "Django")
     ]
+    
+    let languageMapping: [LanguageTemplateMapping] = [
+        .init(code: 20, name: "C"),
+        .init(code: 21, name: "C++"),
+        .init(code: 30, name: "JavaScript"),
+        .init(code: 31, name: "Html"),
+        .init(code: 32, name: "Css"),
+        .init(code: 33, name: "Json"),
+        .init(code: 40, name: "Php"),
+        .init(code: 50, name: "Lua"),
+        .init(code: 60, name: "Perl"),
+//        .init(code: 6, name: "Toga"),
+//        .init(code: 11, name: "Flask"),
+//        .init(code: 12, name: "Django")
+    ]
 
     var body: some View {
         VStack(alignment: .leading) {
             NavigationView {
                 Form {
                     Section(header: Text(NSLocalizedString("Templates", comment: ""))) {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(languageMappingPython, id: \.code) { language in
+                                    Text(language.name)
+                                        .onTapGesture {
+                                            Task {
+                                                try await createNewFile(lang: language.code)
+                                            }
+                                        }
+                                        .padding()
+                                        .background(Color.init("B3_A"))
+                                        .cornerRadius(12)
+                                }
+                            }
+                        }
+                        
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
                                 ForEach(languageMapping, id: \.code) { language in
@@ -508,7 +650,7 @@ struct PYNewFileView: View {
                                 }
                             }
                         }
-                    }
+                    }.listRowSeparator(.hidden)
 
                     Section(header: Text(NSLocalizedString("Custom", comment: ""))) {
                         HStack {

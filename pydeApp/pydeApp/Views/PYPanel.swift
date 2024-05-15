@@ -122,9 +122,10 @@ struct PYPanelView: View {
         VStack(spacing: 0) {
             HStack {
                 Rectangle()
-                    .frame(minWidth: 0, maxWidth: .infinity, maxHeight: 1)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 1, maxHeight: 1)
                     .foregroundColor(
                         Color.init(id: "panel.border"))
+                    .background(Color.init(id: "panel.border"))
             }
 
             HStack {

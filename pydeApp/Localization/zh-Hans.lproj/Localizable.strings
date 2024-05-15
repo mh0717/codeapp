@@ -470,3 +470,8 @@
 "Close" = "关闭";
 "Terminal" = "终端";
 "New Terminal" = "新建终端";
+"New" = "新建";
+"Open" = "打开";
+"Clear" = "清空";
+"Open Link" = "打开链接";
+"Open Image" = "打开图片";

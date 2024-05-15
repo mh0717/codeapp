@@ -79,7 +79,7 @@ struct EditorAndRunnerWidget: View {
             VStack(spacing: 0) {
                 editor
                 if !showGlobalPanel {
-                    PYPanelView(currentPanelId: "RUNNER", windowHeight: geometry.size.height)
+                    PYPanelView(currentPanelId: "TERMINAL", windowHeight: geometry.size.height)
                         .environmentObject(panelManager)
                 }
             }
@@ -182,7 +182,7 @@ struct EditorAndRunnerWidget: View {
                 return
             }
             let runnerPanel = Panel(
-                labelId: "RUNNER",
+                labelId: "TERMINAL",
                 mainView: AnyView(
                     runner
                 ),
@@ -193,7 +193,7 @@ struct EditorAndRunnerWidget: View {
                             runner.consoleView.kill()
                         },
                         label: {
-                            Text("^C")
+                            Image(systemName: "stop")
                         }
                     ).keyboardShortcut("c", modifiers: [.control])
 

@@ -21,7 +21,7 @@ class WebExtension: CodeAppExtension {
                 
             },
             shouldDisplay: {
-                guard let ditor = app.activeEditor as? PYWebViewEditorInstance else { return false }
+                guard let _ = app.activeEditor as? PYWebViewEditorInstance else { return false }
                 return true
             },
             menuItems: [
@@ -40,7 +40,12 @@ class WebExtension: CodeAppExtension {
                     guard let editor = app.activeEditor as? PYWebViewEditorInstance else {
                         return
                     }
-                    editor.webView.reload()
+                    if editor.webView.url != nil {
+                        editor.webView.reload()
+                    } else {
+                        editor.webView.load(URLRequest(url: editor.url))
+                    }
+                    
                 }),
                 ToolbarMenuItem(icon: "safari", title: "Open in Safari", onClick: {
                     guard let editor = app.activeEditor as? PYWebViewEditorInstance else {
@@ -131,6 +136,7 @@ private struct PYWebView: UIViewRepresentable {
 
 class PYWebViewEditorInstance: EditorInstanceWithURL {
     let webView: WKWebView
+    private let coordinator = WebViewCoordinator()
     
     var kvoToken: NSKeyValueObservation?
     
@@ -138,6 +144,7 @@ class PYWebViewEditorInstance: EditorInstanceWithURL {
         _safariCount += 1
         
         webView = WebViewBase()
+        webView.navigationDelegate = coordinator
         
         let request = URLRequest(url: url)
         webView.load(request)
@@ -150,6 +157,12 @@ class PYWebViewEditorInstance: EditorInstanceWithURL {
         kvoToken = webView.observe(\.title, changeHandler: { [weak self] (view, value) in
             self?.title = view.title ?? self?.title ?? ""
         })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(1000))) {
+            if self.webView.url == nil {
+                self.webView.load(URLRequest(url: url))
+            }
+        }
     }
     
     override func dispose() {
@@ -168,6 +181,26 @@ class PYWebViewEditorInstance: EditorInstanceWithURL {
         title = lastTitle
         
         webView.load(URLRequest(url: url))
+    }
+}
+
+fileprivate class WebViewCoordinator: NSObject, WKNavigationDelegate {
+    var firstFailed = true
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        firstFailed = false
+    }
+
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        if !firstFailed {
+            return
+        }
+        firstFailed = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(1000))) {
+            webView.reload()
+        }
     }
 }
 

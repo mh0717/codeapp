@@ -47,7 +47,7 @@ struct RunParamsView: View {
                 showPlaceHolder = false
             }
         }))
-            .background(Color((colorScheme == .dark ? codeThemeManager.darkTheme : codeThemeManager.lightTheme).backgroundColor)) // To see this
+        .background(Color.init(id: "editor.background"))
             .padding(0)
             .focused($isFocused)
             .allowsHitTesting(PYLOCAL_EXECUTION_COMMANDS.keys.contains(App.activeUrlEditor?.url.pathExtension.lowercased() ?? ""))

@@ -1323,7 +1323,7 @@ class MainApp: ObservableObject {
             }
             
         }
-        if ["html", "html", "shtml"].contains(url.pathExtension.lowercased()), url.isContained(in: Bundle.main.bundleURL) || url.isContained(in: ConstantManager.EXAMPLES) {
+        if ["htm", "html", "shtml"].contains(url.pathExtension.lowercased()), url.isContained(in: Bundle.main.bundleURL) || url.isContained(in: ConstantManager.EXAMPLES) {
             let editor = PYWebViewEditorInstance(url)
             appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
             return editor

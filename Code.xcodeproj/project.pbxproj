@@ -1139,6 +1139,8 @@
 		A3856D852BF2A04700755140 /* ColorTheme+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3856D832BF2A04700755140 /* ColorTheme+Ext.swift */; };
 		A3856D872BF36ACC00755140 /* RunParamsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3856D862BF36ACC00755140 /* RunParamsExtension.swift */; };
 		A3856D882BF36ACC00755140 /* RunParamsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3856D862BF36ACC00755140 /* RunParamsExtension.swift */; };
+		A3856D8A2BF3B86200755140 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3856D892BF3B86200755140 /* UIColor+Ext.swift */; };
+		A3856D8B2BF3B86200755140 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3856D892BF3B86200755140 /* UIColor+Ext.swift */; };
 		A39F41D92BEA81A9001546B4 /* WheelExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F41D82BEA81A9001546B4 /* WheelExtensionManager.swift */; };
 		A39F41DA2BEA81A9001546B4 /* WheelExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F41D82BEA81A9001546B4 /* WheelExtensionManager.swift */; };
 		A39F41DC2BEA867A001546B4 /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F41DB2BEA867A001546B4 /* FilePickerView.swift */; };
@@ -3007,6 +3009,7 @@
 		A3856D2F2BEFE12E00755140 /* IDENode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDENode.swift; sourceTree = "<group>"; };
 		A3856D832BF2A04700755140 /* ColorTheme+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColorTheme+Ext.swift"; sourceTree = "<group>"; };
 		A3856D862BF36ACC00755140 /* RunParamsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunParamsExtension.swift; sourceTree = "<group>"; };
+		A3856D892BF3B86200755140 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		A39F41D82BEA81A9001546B4 /* WheelExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelExtensionManager.swift; sourceTree = "<group>"; };
 		A39F41DB2BEA867A001546B4 /* FilePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerView.swift; sourceTree = "<group>"; };
 		A39F41FA2BEAFA9E001546B4 /* ideRemoteB.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ideRemoteB.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3055,6 +3058,7 @@
 		A3AFD15B2BC8305B004C9F10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A3AFD15D2BC83065004C9F10 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		A3B0F0B12B29D95F0001D220 /* ios_system */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ios_system; path = ../../modules/pythoncc/ios_system; sourceTree = "<group>"; };
+		A3B87D932BF4E31E008E74AD /* Runestone */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Runestone; path = ../../modules/pythoncc/Runestone; sourceTree = "<group>"; };
 		A3BB55412B44666500A3E0B9 /* RSCodeTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCodeTheme.swift; sourceTree = "<group>"; };
 		A3D1C9A82B35D802001505C7 /* Python.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Python.swift; sourceTree = "<group>"; };
 		A3D1C9B82B390A87001505C7 /* pydeRemoteRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pydeRemoteRelease.entitlements; sourceTree = "<group>"; };
@@ -3065,6 +3069,7 @@
 		A3DDCB972B2374B200EA74E5 /* VCInTabExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCInTabExtension.swift; sourceTree = "<group>"; };
 		A3DDCBA12B25666100EA74E5 /* PYPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPanel.swift; sourceTree = "<group>"; };
 		A3E889A72B12DF87007B34AF /* PipService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipService.swift; sourceTree = "<group>"; };
+		A3EBCCD92BF3C895002969DF /* SwiftTerm */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SwiftTerm; path = ../../modules/pythoncc/SwiftTerm; sourceTree = "<group>"; };
 		A3F239702B9FEBE8006F6D7B /* PYWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYWelcomeView.swift; sourceTree = "<group>"; };
 		A3F2398E2BA068F6006F6D7B /* RMStore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RMStore; path = ../../modules/pythoncc/pyde/RMStore; sourceTree = "<group>"; };
 		A3F239E92BA73C9A006F6D7B /* pydeRemoteA.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = pydeRemoteA.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -4567,6 +4572,7 @@
 				A3A3DF0F2B9B6E07004A7C39 /* LocalizedUtils.swift */,
 				A3856CE52BEE6D1D00755140 /* URL+Ext.swift */,
 				A3856D832BF2A04700755140 /* ColorTheme+Ext.swift */,
+				A3856D892BF3B86200755140 /* UIColor+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -4637,6 +4643,8 @@
 		A3A87DB72AF22553002E3399 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				A3B87D932BF4E31E008E74AD /* Runestone */,
+				A3EBCCD92BF3C895002969DF /* SwiftTerm */,
 				A3AFB99E2BEA5A1A0038602E /* swift-markdown-ui */,
 				A37A9E372BDDFF5400F8C798 /* SWCompression */,
 				A359CD182BD955B800CD33CF /* Tiercel */,
@@ -6414,6 +6422,7 @@
 				A30F6B172BE0DD53007B7CDF /* PYTerminalEditorInstance.swift in Sources */,
 				A30F6B182BE0DD53007B7CDF /* MainApp.swift in Sources */,
 				A30F6B192BE0DD53007B7CDF /* EncodingMenu.swift in Sources */,
+				A3856D8B2BF3B86200755140 /* UIColor+Ext.swift in Sources */,
 				A30F6B1A2BE0DD53007B7CDF /* PanelSelector.swift in Sources */,
 				A30F6B1B2BE0DD53007B7CDF /* PYRunnerExtension.swift in Sources */,
 				A30F6B1C2BE0DD53007B7CDF /* MonacoEditorExtension.swift in Sources */,
@@ -6757,6 +6766,7 @@
 				A3AFD14F2BC5201F004C9F10 /* PYTerminalEditorInstance.swift in Sources */,
 				A3A87D6E2AF221D1002E3399 /* MainApp.swift in Sources */,
 				A3A87D6F2AF221D1002E3399 /* EncodingMenu.swift in Sources */,
+				A3856D8A2BF3B86200755140 /* UIColor+Ext.swift in Sources */,
 				A3A87D702AF221D1002E3399 /* PanelSelector.swift in Sources */,
 				A36337302AF3E9DF00085608 /* PYRunnerExtension.swift in Sources */,
 				A3A87D712AF221D1002E3399 /* MonacoEditorExtension.swift in Sources */,

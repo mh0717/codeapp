@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/mattgallagher/CwlCatchException.git",
         "state": {
           "branch": null,
-          "revision": "35f9e770f54ce62dd8526470f14c6e137cef3eea",
-          "version": "2.1.1"
+          "revision": "3ef6999c73b6938cc0da422f2c912d0158abb0a0",
+          "version": "2.2.0"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/mattgallagher/CwlPreconditionTesting.git",
         "state": {
           "branch": null,
-          "revision": "c21f7bab5ca8eee0a9998bbd17ca1d0eb45d4688",
-          "version": "2.1.0"
+          "revision": "2ef56b2caf25f55fa7eef8784c30d5a767550f54",
+          "version": "2.2.1"
         }
       },
       {
@@ -51,7 +51,7 @@
         "repositoryURL": "https://github.com/thebaselab/FileProvider",
         "state": {
           "branch": "master",
-          "revision": "abf68a62541a4193c8d106367ddb3648e8ab693f",
+          "revision": "7bd4499c0bc75d355e4ca305d9bb2094c98761c2",
           "version": null
         }
       },
@@ -96,8 +96,8 @@
         "repositoryURL": "https://github.com/RevenueCat/purchases-ios-spm.git",
         "state": {
           "branch": null,
-          "revision": "54aaeb5722fbdcddf0403107ba50dc26720fa572",
-          "version": "4.41.0"
+          "revision": "9f46bb70940087ec9a95b1e9288710bb439549d8",
+          "version": "4.41.1"
         }
       },
       {
@@ -107,15 +107,6 @@
           "branch": null,
           "revision": "bd86ca0141e3cfb333546de5a11ede63f0c4a0e6",
           "version": "4.0.0"
-        }
-      },
-      {
-        "package": "Runestone",
-        "repositoryURL": "https://github.com/simonbs/Runestone",
-        "state": {
-          "branch": null,
-          "revision": "688fa07d1c4bffd9ab12baa8fb712274b92b0a68",
-          "version": "0.3.4"
         }
       },
       {
@@ -141,8 +132,8 @@
         "repositoryURL": "https://github.com/apple/swift-syntax",
         "state": {
           "branch": null,
-          "revision": "fa8f95c2d536d6620cc2f504ebe8a6167c9fc2dd",
-          "version": "510.0.1"
+          "revision": "303e5c5c36d6a558407d364878df131c3546fad8",
+          "version": "510.0.2"
         }
       },
       {
@@ -155,21 +146,12 @@
         }
       },
       {
-        "package": "SwiftTerm",
-        "repositoryURL": "https://github.com/migueldeicaza/SwiftTerm.git",
-        "state": {
-          "branch": null,
-          "revision": "0d31c2eea98e65ff1a34ec4a312099a8c25958b2",
-          "version": "1.2.1"
-        }
-      },
-      {
         "package": "TreeSitter",
-        "repositoryURL": "https://github.com/simonbs/tree-sitter",
+        "repositoryURL": "https://github.com/tree-sitter/tree-sitter",
         "state": {
           "branch": null,
-          "revision": "8456f7eb7a70addb3c0af8a757f1997ae9af3ed6",
-          "version": "0.20.9-beta-2"
+          "revision": "98be227227af10cc7a269cb3ffb23686c0610b17",
+          "version": "0.20.9"
         }
       },
       {
@@ -177,7 +159,7 @@
         "repositoryURL": "https://github.com/simonbs/TreeSitterLanguages.git",
         "state": {
           "branch": "main",
-          "revision": "7a186fe6f5ca6cb0ca332004b8f54b0fcea59212",
+          "revision": "15cf3a9ec3ab95e0d058b7df9f35619123c9e02d",
           "version": null
         }
       },
@@ -195,8 +177,8 @@
         "repositoryURL": "https://github.com/weichsel/ZIPFoundation.git",
         "state": {
           "branch": null,
-          "revision": "f6a22e7da26314b38bf9befce34ae8e4b2543090",
-          "version": "0.9.15"
+          "revision": "02b6abe5f6eef7e3cbd5f247c5cc24e246efcfe0",
+          "version": "0.9.19"
         }
       }
     ]

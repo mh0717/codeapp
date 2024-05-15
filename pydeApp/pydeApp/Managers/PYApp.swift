@@ -221,7 +221,11 @@ class PYApp: ObservableObject {
         }
         
         if url.scheme == "clhttp" || url.scheme == "clhttps" || url.scheme == "clssh" {
-            
+            let url = url.absoluteString.replacingFirstOccurrence(of: "cl", with: "")
+            Task {
+                try? await onClone(urlString: url)
+            }
+            return
         }
         
         
