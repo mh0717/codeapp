@@ -7,25 +7,40 @@
 */
 
 "Welcome Message" =
-"# iPyDE
-##### **v1.2.1 (March 2024)**
+"# [{{name}}](https://github.com/mh0717/Python3IDE)
+##### **v1.2.1 (2024 年 3 月)**
 #### Start
-[New file](https://ipyde.com/ipyde/newfile)
-[Open file](https://ipyde.com/ipyde/openfile)
-[Open folder](https://ipyde.com/ipyde/openfolder)
+[New file](https://ipyde.com/ipyde/newfile)<br/>
+[Open file](https://ipyde.com/ipyde/openfile)<br/>
+[Open folder](https://ipyde.com/ipyde/openfolder)<br/>
+[Clone repository](https://ipyde.com/ipyde/clone)<br/>
+[Open Examples](https://ipyde.com/ipyde/openexamples)
 
-[Open examples](https://ipyde.com/ipyde/openexamples)
-[Open python home](https://ipyde.com/ipyde/openpyhome)
-[Open site-packages](https://ipyde.com/ipyde/opensitepackages)
-[Open home](https://ipyde.com/ipyde/openhome)
+[New Flask Project](https://ipyde.com/ipyde/newflask)<br/>
+[New Django Project](https://ipyde.com/ipyde/newdjango)<br/>
+[New React Project](https://ipyde.com/ipyde/newreact)<br/>
+[New Vue Project](https://ipyde.com/ipyde/newvue)
 
-[Import file](https://ipyde.com/ipyde/importfile)
+[New Web Browser](https://ipyde.com/ipyde/newwebbrowser)<br/>
+[New Terminal](https://ipyde.com/ipyde/newterminal)
 
-#### Help
-[Document](https:www.python3ide.com)
-[Github](https:www.python3ide.com)
-[Twitter](https:www.python3ide.com)
-[Email](mailto:ipyde@aliyun.com)
+[Import Media](https://ipyde.com/ipyde/importmedia)<br/>
+[Import File](https://ipyde.com/ipyde/importfile)
+
+#### Recent
+{{recent}}
+
+#### Modules
+[python HOME](https://ipyde.com/ipyde/openpyhome)<br/>
+[python SITE-PACKAGES](https://ipyde.com/ipyde/opensitepackages)<br/>
+[python USER_SITE](https://ipyde.com/ipyde/openusersite)<br/>
+[clang SYSROOT](https://ipyde.com/ipyde/opensysroot)<br/>
+[node NODE_MODULES](https://ipyde.com/ipyde/opennodemodules)
+
+#### Support
+[Github](https://github.com/python3ide/python3ideE)<br/>
+[Email](mailto:python3ide@aliyun.com)<br/>
+[Rate Python3IDE](https://ipyde.com/ipyde/score)
 ";
 
 "Changelog.message" =
@@ -37,19 +52,8 @@
 - Version Control
   - Ability to clone private repositories
   - Ability to push, pull and sync from remotes
-  - Fixed a problem where cloned repository is not properly named
 - Built-in Terminal
   - 70+ Linux commands (ls, cd, nslookup etc.)
-  - Bash-like user primitives such as piping, history and completion
-  - Press tab to show all available commands
-- Explorer
-  - Files and directories are now sorted alphabetically
-  - Files or directories starting with a dot are now hidden by default
-  - Ability to select items with a Two-Finger pan gesture
-- Other improvements
-  - You can now open files with Code App from Files app or other Apps directly
-  - You can now hold the app icon from Home Screen to reveal recent documents
-  - Fixed a typo
 ";
 
 "licenses" =
@@ -192,7 +196,7 @@ are licensed under [BSD-3-Clause License](https://en.wikipedia.org/wiki/BSD_lice
 "source_control.confirm_revert %@" = "Are you sure you want to revert the changes in %@?";
 "source_control.retrieving_changes" = "Retrieving changes";
 "source_control.community_templates" = "Community Templates";
-"source_control.community_templates.description" = "Community Templates are repositories on GitHub with the #ipyde-template tag. You can disable this in the settings menu.";
+"source_control.community_templates.description" = "Community Templates are repositories on GitHub with the #{{template}} tag. You can disable this in the settings menu.";
 "source_control.clone" = "Clone";
 "source_control.pull" = "Pull";
 "source_control.pulling_from_remote" = "Pulling from remote";

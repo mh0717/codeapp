@@ -21,7 +21,7 @@ class ExtensionManager: ObservableObject {
 //        MonacoIntellisenseExtension(),
 //        RemoteExecutionExtension(),
 //        TerminalExtension(),
-        ImageViewerExtension(),
+//        ImageViewerExtension(),
         VideoViewerExtension(),
         PDFViewerExtension(),
         MarkdownViewerExtension(),
@@ -43,6 +43,7 @@ class ExtensionManager: ObservableObject {
         WebExtension(),
         WheelExtensionManager(),
         RunParamsExtension(),
+        PYImageViewerExtension(),
     ]
     #else
     private var extensions: [CodeAppExtension] = [

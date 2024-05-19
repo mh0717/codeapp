@@ -36,7 +36,7 @@ let PYLOCAL_EXECUTION_COMMANDS = [
     "lua": ["lua {url} {args}"],
     "pl": ["perl {url} {args}"],
     "js": ["node {url} {args}"],
-    "wasm": ["wasm {url} {args}"],
+    "wasm": ["wasm --dir={wurl} {url} {args}"],
 //    "js": ["node {url}"],
 //    "c": ["clang {url}", "wasm a.out"],
 //    "cpp": ["clang++ {url}", "wasm a.out"],
@@ -55,9 +55,20 @@ class PYLocalExecutionExtension: CodeAppExtension {
             shortCut: .init("r", modifiers: [.command]),
             panelToFocusOnTap: "TERMINAL",
             shouldDisplay: {
-                guard let activeTextEditor = app.activeTextEditor else { return false }
-                return activeTextEditor.url.isFileURL
-                    && PYLOCAL_EXECUTION_COMMANDS[activeTextEditor.languageIdentifier] != nil
+                guard let editor = app.activeUrlEditor else { return false }
+                let ext = editor.url.pathExtension.lowercased()
+                guard PYLOCAL_EXECUTION_COMMANDS.keys.contains(ext) else {
+                    return false
+                }
+                if editor.url.isFileURL {
+                    return true
+                }
+                
+                if let wurl = app.workSpaceStorage.currentDirectory._url, editor.url.isContained(in: wurl) {
+                    return true
+                }
+                
+                return false
             }
 //            popover: {dismiss in
 //                return self.runUICode(app: app, dismiss: dismiss)
@@ -326,7 +337,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             }
             
         }
-
+        let wurl = app.workSpaceStorage.currentDirectory._url
         let args = editor.runArgs.replacingOccurrences(of: "\n", with: " ")
         let sanitizedUrl = editor.url.path.replacingOccurrences(of: " ", with: #"\ "#)
         let parsedCommands = (isPy2 ? commands.map({$0.replacingFirstOccurrence(of: "python3", with: "python2")}) : commands)
@@ -334,6 +345,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             $0.replacingOccurrences(of: "{url}", with: sanitizedUrl)
                 .replacingOccurrences(of: "{args}", with: args)
                 .replacingOccurrences(of: "{output}", with: output)
+                .replacingFirstOccurrence(of: "{wurl}", with: wurl?.path ?? "")
         }
 
         let compilerShowPath = UserDefaults.standard.bool(forKey: "compilerShowPath")

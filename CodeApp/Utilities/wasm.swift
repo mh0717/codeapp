@@ -507,6 +507,11 @@ class WasmWebView: WKWebView {
         super.init(frame: .zero, configuration: wasmWebViewConfig)
 
         let config = WKWebViewConfiguration()
+        if #available(iOS 16.4, *) {
+            isInspectable = true
+        } else {
+            // Fallback on earlier versions
+        }
         config.preferences.javaScriptCanOpenWindowsAutomatically = true
         config.preferences.setValue(true as Bool, forKey: "allowFileAccessFromFileURLs")
 

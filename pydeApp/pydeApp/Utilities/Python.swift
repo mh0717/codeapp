@@ -203,6 +203,8 @@ public func initPyDE() {
     replaceCommand("npm", "ide_npm", false)
     replaceCommand("npx", "ide_npx", false)
     replaceCommand("nodeg", "ide_nodeg", false)
+    
+//    replaceCommand("wasm", "idewasm", false)
 //    initDESubIntp()
 //    replaceCommand("python3", "python3Sub", false)
     

@@ -10,7 +10,7 @@ import SwiftUI
 class TerminalExtension: CodeAppExtension {
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
         let panel = Panel(
-            labelId: "TERMINAL",
+            labelId: "RUNNER",
             mainView: AnyView(TerminalView()),
             toolBarView: AnyView(ToolbarView())
         )

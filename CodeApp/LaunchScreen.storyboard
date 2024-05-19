@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="dark"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,10 +24,11 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4T-3a-cvK">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="1004"/>
+                                <rect key="frame" x="0.0" y="20" width="210" height="40"/>
                                 <color key="backgroundColor" name="activityBar.background"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="dai-9n-Dsh"/>
+                                    <constraint firstAttribute="height" constant="40" id="X6o-D5-d1g"/>
+                                    <constraint firstAttribute="width" constant="210" id="dai-9n-Dsh"/>
                                     <constraint firstAttribute="width" constant="50" id="gO1-T2-Pxv"/>
                                 </constraints>
                                 <variation key="default">
@@ -48,11 +49,35 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wff-fw-jKg">
-                                <rect key="frame" x="50" y="0.0" width="718" height="40"/>
+                                <rect key="frame" x="210" y="20" width="558" height="40"/>
                                 <color key="backgroundColor" name="sideBar.background"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="U7M-Wi-ogz"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MJf-nD-vUP">
+                                <rect key="frame" x="0.0" y="60" width="210" height="944"/>
+                                <color key="backgroundColor" name="sideBar.background"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="13N-i4-2FI"/>
+                                    <constraint firstAttribute="width" constant="210" id="4XX-4I-THe"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="4XX-4I-THe"/>
+                                        <exclude reference="13N-i4-2FI"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="13N-i4-2FI"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="4XX-4I-THe"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -61,13 +86,15 @@
                             <constraint firstItem="wff-fw-jKg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3r7-gl-Cgn"/>
                             <constraint firstItem="rxa-ev-Voq" firstAttribute="trailing" secondItem="wff-fw-jKg" secondAttribute="trailing" id="Fmp-ey-9ac"/>
                             <constraint firstItem="wff-fw-jKg" firstAttribute="leading" secondItem="y4T-3a-cvK" secondAttribute="trailing" id="Joz-Xg-avf"/>
+                            <constraint firstItem="rxa-ev-Voq" firstAttribute="top" secondItem="MJf-nD-vUP" secondAttribute="bottom" id="K3K-ow-uOu"/>
                             <constraint firstItem="y4T-3a-cvK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RHR-8F-hNg"/>
                             <constraint firstItem="rxa-ev-Voq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aVY-6f-5ne"/>
                             <constraint firstItem="rxa-ev-Voq" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="dYg-3j-Jgq"/>
                             <constraint firstItem="wff-fw-jKg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gFr-1v-yiX"/>
-                            <constraint firstAttribute="bottom" secondItem="y4T-3a-cvK" secondAttribute="bottom" constant="20" id="hie-Vv-IEy"/>
                             <constraint firstItem="y4T-3a-cvK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hin-jn-kfT"/>
                             <constraint firstItem="wff-fw-jKg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="og8-pS-Jrc"/>
+                            <constraint firstItem="MJf-nD-vUP" firstAttribute="top" secondItem="y4T-3a-cvK" secondAttribute="bottom" id="tbN-qr-2EM"/>
+                            <constraint firstItem="MJf-nD-vUP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ttB-9o-PKB"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -89,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="51.5625" y="374.67057101024886"/>
+            <point key="canvasLocation" x="51.5625" y="374.4140625"/>
         </scene>
     </scenes>
     <resources>

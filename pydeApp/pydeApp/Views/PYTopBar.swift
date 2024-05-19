@@ -66,6 +66,12 @@ struct PYTopBar: View {
         })
     }
     
+    
+    
+    func onNewVue() {
+        
+    }
+    
     func onNewSafari() {
         if safariUrl.isEmpty {
             return
@@ -284,6 +290,12 @@ struct PYTopBar: View {
                 Divider()
                 Section {
                     Button(action: {
+                        App.pyapp.rightSideShow.toggle()
+                    }) {
+                        Label("Open Examples", systemImage: "folder")
+                    }
+                    
+                    Button(action: {
                         App.showWelcomeMessage()
                     }) {
                         Label("Show Welcome Page", systemImage: "newspaper")
@@ -353,24 +365,52 @@ struct PYTopBar: View {
                             Label("New Folder", systemImage: "folder.badge.plus")
                         }
                         
-                        Divider()
-                        
                         Button{
                             App.pyapp.showCloneAlert.toggle()
                         } label: {
-                            Label("Clone Store", systemImage: "arrow.triangle.branch")
+                            Label("Clone Repository", systemImage: "arrow.triangle.branch")
                         }
                         
-                        Button {
-                            djangoName = ""
-                            App.pyapp.showingNewDjangoAlert.toggle()
+                        Divider()
+                        
+                        
+                        
+                        Button{
+                            Task {
+                                await App.pyapp.copyTemplate("flask-tutorial")
+                            }
                         } label: {
-                            Label("New Django Project", systemImage: "folder.badge.gear")
+                            Label("New Flask Project", systemImage: "folder")
                         }
                         
+                        Button{
+                            Task {
+                                await App.pyapp.copyTemplate("django_tutorial")
+                            }
+                        } label: {
+                            Label("New Django Project", systemImage: "folder")
+                        }
+                        
+                        Button{
+                            Task {
+                                await App.pyapp.copyTemplate("react-tutorial")
+                            }
+                        } label: {
+                            Label("New React Project", systemImage: "folder")
+                        }
+                        
+                        Button{
+                            Task {
+                                await App.pyapp.copyTemplate("vue-tutorial")
+                            }
+                        } label: {
+                            Label("New Vue Project", systemImage: "folder")
+                        }
+                        
+                        Divider()
+                        
                         Button {
-    //                            showingNewSafariAlert.toggle()
-                            if let url = URL(string: "https://www.baidu.cn") {
+                            if let url = URL(string: "https://github.com/python3ide/python3ide") {
                                 let editor = PYWebViewEditorInstance(url)
                                 App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
                                 
@@ -410,37 +450,54 @@ struct PYTopBar: View {
                         }
                     }
                     
-                    Menu("Open", systemImage: "doc") {
-                        
-                        
+                    Menu("Open Modules", systemImage: "doc") {
+                    
                         Button(action: {
-//                            App.loadFolder(url: ConstantManager.EXAMPLES)
-                            App.pyapp.rightSideShow.toggle()
+                            App.openFile(url: ConstantManager.pyhome, alwaysInNewTab: true)
                         }) {
-                            Label("Open Examples", systemImage: "folder")
+                            Label("python HOME", systemImage: "folder")
                         }
                         
                         Button(action: {
-                            App.loadFolder(url: ConstantManager.pyhome)
+                            App.openFile(url: ConstantManager.pysite, alwaysInNewTab: true)
                         }) {
-                            Label("Open PythonHome", systemImage: "folder")
+                            Label("python SITE-PACKAGES", systemImage: "folder")
                         }
                         
                         Button(action: {
-                            App.loadFolder(url: ConstantManager.pysite)
+                            App.openFile(url: ConstantManager.user_site, alwaysInNewTab: true)
                         }) {
-                            Label("Open site-packages", systemImage: "folder")
+                            Label("python USER_SITE", systemImage: "folder")
                         }
                         
                         Button(action: {
-                            App.loadFolder(url: ConstantManager.user_site)
+                            App.openFile(url: ConstantManager.SYSROOT, alwaysInNewTab: true)
                         }) {
-                            Label("Open User site-packages", systemImage: "folder")
+                            Label("clang SYSROOT", systemImage: "folder")
+                        }
+                        
+                        Button(action: {
+                            App.openFile(url: ConstantManager.NPM_PREFIX.appendingPathComponent("lib"))
+                        }) {
+                            Label("node NODE_MODULES", systemImage: "folder")
                         }
                     }
                 }
                 #if DEBUG
                     DebugMenu()
+                Button {
+                    let editor = EditorInstance(view: AnyView(ViewRepresentable(wasmWebView)), title: "wasm")
+                    App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+                } label: {
+                    Label("Show WASM", systemImage: "globe")
+                }
+                
+                Button {
+                    App.loadFolder(url: URL(fileURLWithPath: "/Users/huima/pyhome"))
+                } label: {
+                    Label("Open Local Home", systemImage: "folder")
+                }
+
                 
                 Button(action: {
                     App.loadFolder(url: ConstantManager.appGroupContainer)
@@ -477,7 +534,7 @@ struct PYTopBar: View {
                         .environmentObject(App)
                 }
             }
-            .alert("Clone Project", isPresented: $App.pyapp.showCloneAlert, actions: {
+            .alert("Clone Repository", isPresented: $App.pyapp.showCloneAlert, actions: {
                 TextField("Enter URL (HTTPS/SSH)", text: $cloneUrl)
                     .autocorrectionDisabled(true)
                     .textInputAutocapitalization(.never)

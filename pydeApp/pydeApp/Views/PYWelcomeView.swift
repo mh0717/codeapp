@@ -9,6 +9,7 @@ import SwiftUI
 import MarkdownView
 import MarkdownUI
 import pydeCommon
+import StoreKit
 
 struct PYWelcomeView: View {
     @EnvironmentObject var themeManager: ThemeManager
@@ -36,7 +37,7 @@ struct PYWelcomeView: View {
             case "https://ipyde.com/ipyde/openfile":
                 onSelectFile()
             case "https://ipyde.com/ipyde/openexamples":
-                onExplorFolder(ConstantManager.EXAMPLES)
+                App.pyapp.rightSideShow.toggle()
             case "https://ipyde.com/ipyde/openpyhome":
                 onExplorFolder(ConstantManager.pyhome)
             case "https://ipyde.com/ipyde/opensitepackages":
@@ -49,10 +50,25 @@ struct PYWelcomeView: View {
                 onExplorFolder(ConstantManager.HOME)
             case "https://ipyde.com/ipyde/opennodemodules":
                 onExplorFolder(ConstantManager.NPM_PREFIX.appendingPathComponent("lib"))
+            case "https://ipyde.com/ipyde/newreact":
+                Task {
+                    await App.pyapp.copyTemplate("react-tutorial")
+                }
+            case "https://ipyde.com/ipyde/newvue":
+                Task {
+                    await App.pyapp.copyTemplate("vue-tutorial")
+                }
+            case "https://ipyde.com/ipyde/newflask":
+                Task {
+                    await App.pyapp.copyTemplate("flask-tutorial")
+                }
             case "https://ipyde.com/ipyde/newdjango":
-                App.pyapp.showingNewDjangoAlert.toggle()
+//                App.pyapp.showingNewDjangoAlert.toggle()
+                Task {
+                    await App.pyapp.copyTemplate("django_tutorial")
+                }
             case "https://ipyde.com/ipyde/newwebbrowser":
-                if let url = URL(string: "https://www.baidu.cn") {
+                if let url = URL(string: "https://github.com/python3ide/python3ide") {
                     let editor = PYWebViewEditorInstance(url)
                     App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
                     
@@ -73,6 +89,8 @@ struct PYWelcomeView: View {
             case "https://ipyde.com/ipyde/clone":
 //                    onNavigateToCloneSection()
                 App.pyapp.showCloneAlert.toggle()
+            case "https://ipyde.com/ipyde/score":
+                SKStoreReviewController.requestReview()
             case let i where i.hasPrefix("https://ipyde.com/ipyde/previousFolder/"):
                 let key = Int(
                     i.replacingOccurrences(
@@ -96,6 +114,11 @@ struct PYWelcomeView: View {
     
     func prepare() {
         var content = NSLocalizedString("Welcome Message", comment: "")
+        #if PYTHON3IDE
+        content = content.replacingFirstOccurrence(of: "{{name}}", with: "Python3IDE")
+        #else
+        content = content.replacingFirstOccurrence(of: "{{name}}", with: "iPyDE")
+        #endif
         if let datas = UserDefaults.standard.value(forKey: "recentFolder") as? [Data] {
             var recentFolders = "\n"
 

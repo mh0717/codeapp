@@ -228,12 +228,6 @@ struct CodeApp: App {
                 UserDefaults.standard.setValue(false, forKey: "compilerShowPath")
             }
         }
-
-//        DispatchQueue.main.async {
-//            wasmWebView.loadFileURL(
-//                Resources.wasmHTML,
-//                allowingReadAccessTo: Resources.wasmHTML)
-//        }
         
         Repository.initialize_libgit2()
         

@@ -1299,7 +1299,7 @@ class MainApp: ObservableObject {
             return existingEditor
         }
         #if PYDEAPP
-        if ["md", "markdown"].contains(url.pathExtension.lowercased()), url.isContained(in: Bundle.main.bundleURL) || url.isContained(in: ConstantManager.EXAMPLES) {
+        if ["md", "markdown"].contains(url.pathExtension.lowercased()), url.isContained(in: Bundle.main.bundleURL.resolvingSymlinksInPath()) || url.isContained(in: ConstantManager.EXAMPLES) {
             let contentData: Data? = try await workSpaceStorage.contents(
                 at: url
             )
@@ -1311,7 +1311,7 @@ class MainApp: ObservableObject {
             }
             
         }
-        if ["pblink"].contains(url.pathExtension.lowercased()), url.isContained(in: Bundle.main.bundleURL) || url.isContained(in: ConstantManager.EXAMPLES) {
+        if ["pblink"].contains(url.pathExtension.lowercased()), url.isContained(in: Bundle.main.bundleURL.resolvingSymlinksInPath()) || url.isContained(in: ConstantManager.EXAMPLES) {
             let contentData: Data? = try await workSpaceStorage.contents(
                 at: url
             )
@@ -1323,7 +1323,7 @@ class MainApp: ObservableObject {
             }
             
         }
-        if ["htm", "html", "shtml"].contains(url.pathExtension.lowercased()), url.isContained(in: Bundle.main.bundleURL) || url.isContained(in: ConstantManager.EXAMPLES) {
+        if ["htm", "html", "shtml"].contains(url.pathExtension.lowercased()), url.isContained(in: Bundle.main.bundleURL.resolvingSymlinksInPath()) || url.isContained(in: ConstantManager.EXAMPLES) {
             let editor = PYWebViewEditorInstance(url)
             appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
             return editor
@@ -1368,8 +1368,7 @@ class MainApp: ObservableObject {
                 return editor
             }
             
-            let vc = QuickPreviewController(url)
-            let editor = VCInTabEditorInstance(url: url, title: url.lastPathComponent, vc: vc)
+            let editor = QuickLookEditorInstance(title: url.lastPathComponent, url: url)
             appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
             return editor
         }

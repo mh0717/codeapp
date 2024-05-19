@@ -150,8 +150,8 @@ struct PYSettingsView: View {
                         NavigationLink(destination: SourceControlAuthenticationConfiguration()) {
                             Text("Authentication")
                         }
-                        Toggle(
-                            "source_control.community_templates", isOn: $communityTemplatesEnabled)
+//                        Toggle(
+//                            "source_control.community_templates", isOn: $communityTemplatesEnabled)
                     }
                     
                     Section(header: Text(NSLocalizedString("EXPLORER", comment: ""))) {
@@ -168,12 +168,12 @@ struct PYSettingsView: View {
                     
                     Section(header: Text(NSLocalizedString("About", comment: ""))) {
                         
-                        NavigationLink(
-                            destination: SimpleMarkDownView(
-                                text: NSLocalizedString("Changelog.message", comment: ""))
-                        ) {
-                            Text(NSLocalizedString("Release Notes", comment: ""))
-                        }
+//                        NavigationLink(
+//                            destination: SimpleMarkDownView(
+//                                text: NSLocalizedString("Changelog.message", comment: ""))
+//                        ) {
+//                            Text(NSLocalizedString("Release Notes", comment: ""))
+//                        }
                         
                         Button(action: {
                             showsEraseAlert.toggle()

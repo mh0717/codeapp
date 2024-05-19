@@ -202,6 +202,22 @@ fileprivate class WebViewCoordinator: NSObject, WKNavigationDelegate {
             webView.reload()
         }
     }
+    
+    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+            // 判断服务器采用的验证方法
+            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+                if challenge.previousFailureCount == 0 {
+                    // 如果没有错误的情况下 创建一个凭证，并使用证书
+                    let credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+                    completionHandler(.useCredential, credential)
+                } else {
+                    // 验证失败，取消本次验证
+                    completionHandler(.cancelAuthenticationChallenge, nil)
+                }
+            } else {
+                completionHandler(.cancelAuthenticationChallenge, nil)
+            }
+        }
 }
 
 struct MutableVCRepresentable: UIViewControllerRepresentable {

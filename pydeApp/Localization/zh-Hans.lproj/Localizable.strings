@@ -7,15 +7,20 @@
 */
 
 "Welcome Message" =
-"# iPyDE
+"# [{{name}}](https://github.com/python3ide/python3ideE)
 ##### **v1.2.1 (2024 年 3 月)**
 #### 开始
 [新建文件](https://ipyde.com/ipyde/newfile)<br/>
 [打开文件](https://ipyde.com/ipyde/openfile)<br/>
-[打开文件夹](https://ipyde.com/ipyde/openfolder)
-
+[打开文件夹](https://ipyde.com/ipyde/openfolder)<br/>
 [克隆仓库](https://ipyde.com/ipyde/clone)<br/>
+[打开Examples](https://ipyde.com/ipyde/openexamples)
+
+[新建Flask工程](https://ipyde.com/ipyde/newflask)<br/>
 [新建Django工程](https://ipyde.com/ipyde/newdjango)<br/>
+[新建React工程](https://ipyde.com/ipyde/newreact)<br/>
+[新建Vue工程](https://ipyde.com/ipyde/newvue)
+
 [新建网页浏览器](https://ipyde.com/ipyde/newwebbrowser)<br/>
 [新建终端](https://ipyde.com/ipyde/newterminal)
 
@@ -26,7 +31,6 @@
 {{recent}}
 
 #### 模块
-[examples](https://ipyde.com/ipyde/openexamples)<br/>
 [python HOME](https://ipyde.com/ipyde/openpyhome)<br/>
 [python SITE-PACKAGES](https://ipyde.com/ipyde/opensitepackages)<br/>
 [python USER_SITE](https://ipyde.com/ipyde/openusersite)<br/>
@@ -34,10 +38,9 @@
 [node NODE_MODULES](https://ipyde.com/ipyde/opennodemodules)
 
 #### 支持
-[文档](https:www.python3ide.com)<br/>
-[Github](https:www.python3ide.com)<br/>
-[推特](https:www.python3ide.com)<br/>
-[邮箱](mailto:ipyde@aliyun.com)
+[Github](https://github.com/python3ide/python3ide)<br/>
+[邮箱](mailto:python3ide@aliyun.com)<br/>
+[为Python3IDE评分](https://ipyde.com/ipyde/score)
 ";
 
 "Changelog.message" =
@@ -312,7 +315,7 @@
 "source_control.confirm_revert %@" = "您确定要还原 %@ 吗？";
 "source_control.retrieving_changes" = "检索变更中";
 "source_control.community_templates" = "社区模板";
-"source_control.community_templates.description" = "社区模板是 GitHub 上带有#ipyde-template 标签的存储库。 您可以在设置菜单中禁用此功能。";
+"source_control.community_templates.description" = "社区模板是 GitHub 上带有#{{template}} 标签的存储库。 您可以在设置菜单中禁用此功能。";
 "source_control.clone" = "克隆";
 "source_control.pull" = "拉取";
 "source_control.pulling_from_remote" = "拉取中";
@@ -475,3 +478,15 @@
 "Clear" = "清空";
 "Open Link" = "打开链接";
 "Open Image" = "打开图片";
+"Add to Photos" = "添加到图片库";
+"Copy Image" = "复制";
+"New Sucessed" = "新建成功";
+"common.clone" = "克隆";
+"Clone Repository" = "克隆仓库";
+"Import File" = "导入文件";
+"Import Media" = "导入媒体";
+"New Flask Project" = "新建Flask工程";
+"New Django Project" = "新建Django工程";
+"New React Project" = "新建React工程";
+"New Vue Project" = "新建Vue工程";
+"Open Modules" = "打开模块";

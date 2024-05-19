@@ -35,7 +35,6 @@
 		94196952280316C7008AAEB2 /* EditorTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E478126502B6900A6110D /* EditorTab.swift */; };
 		94196953280316C7008AAEB2 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777F2257B91CA008FE7B2 /* RemoteImage.swift */; };
 		94196957280316C7008AAEB2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777F5257B9260008FE7B2 /* SettingsView.swift */; };
-		94196958280316C7008AAEB2 /* wasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF58E0265E8A4B00CB6A4B /* wasm.swift */; };
 		94196959280316C7008AAEB2 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947BF348262453040015DAEB /* SearchManager.swift */; };
 		9419695A280316C7008AAEB2 /* ArchiveDir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7781D257BC473008FE7B2 /* ArchiveDir.swift */; };
 		9419695B280316C7008AAEB2 /* MarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A5682A257CBDE4008A6530 /* MarkdownView.swift */; };
@@ -616,7 +615,6 @@
 		94CF58DA265E4B3000CB6A4B /* opt.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94CF58C6265E4A9E00CB6A4B /* opt.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94CF58DD265E4E0F00CB6A4B /* URL+isDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF58DC265E4E0F00CB6A4B /* URL+isDirectory.swift */; };
 		94CF58DF265E51B100CB6A4B /* ClangLib in Resources */ = {isa = PBXBuildFile; fileRef = 94CF58DE265E51B100CB6A4B /* ClangLib */; };
-		94CF58E1265E8A4B00CB6A4B /* wasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF58E0265E8A4B00CB6A4B /* wasm.swift */; };
 		94D721DF268DA2B8007A63BD /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D721DE268DA2B8007A63BD /* TopBar.swift */; };
 		94E3B96B25866C79006AC043 /* String.Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E3B96A25866C79006AC043 /* String.Encoding.swift */; };
 		94E6CC7B2806FBAF00939E4F /* SFTPFileSystemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E6CC7A2806FBAF00939E4F /* SFTPFileSystemProvider.swift */; };
@@ -810,7 +808,6 @@
 		A30F6AAF2BE0DD52007B7CDF /* GitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349BF352B00ECDF00434BBB /* GitService.swift */; };
 		A30F6AB02BE0DD52007B7CDF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C2DE92918E19B00BFF14C /* Theme.swift */; };
 		A30F6AB12BE0DD52007B7CDF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777F5257B9260008FE7B2 /* SettingsView.swift */; };
-		A30F6AB22BE0DD52007B7CDF /* wasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF58E0265E8A4B00CB6A4B /* wasm.swift */; };
 		A30F6AB32BE0DD52007B7CDF /* DownloadContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A359CD1D2BD9706800CD33CF /* DownloadContainer.swift */; };
 		A30F6AB42BE0DD52007B7CDF /* TogaWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8B0D62BC10FD300C30B26 /* TogaWindow.swift */; };
 		A30F6AB52BE0DD52007B7CDF /* deferredRendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29759B2A1F488E007FDB3D /* deferredRendering.swift */; };
@@ -1022,7 +1019,6 @@
 		A30F6BC52BE0E5BD007B7CDF /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3A91A232B49D6D7007E8C76 /* MainInterface.storyboard */; };
 		A30F6BCD2BE0E60C007B7CDF /* ideRemoteA.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A30F6B9B2BE0E528007B7CDF /* ideRemoteA.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A30F6BD02BE0E60C007B7CDF /* ideUIA.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A30F6BB42BE0E577007B7CDF /* ideUIA.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A30F6BD32BE0E60C007B7CDF /* ideUIPreviewA.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A30F6BCB2BE0E5BD007B7CDF /* ideUIPreviewA.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A30F6BD82BE1029B007B7CDF /* AlertToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F6BD72BE1029A007B7CDF /* AlertToast.swift */; };
 		A30F6BD92BE1029B007B7CDF /* AlertToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F6BD72BE1029A007B7CDF /* AlertToast.swift */; };
 		A30F6BDC2BE7FC59007B7CDF /* FileMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F6BDB2BE7FC59007B7CDF /* FileMenuManager.swift */; };
@@ -1035,8 +1031,13 @@
 		A326A8AE2BEA1A450018809A /* PYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A326A8AC2BEA1A450018809A /* PYApp.swift */; };
 		A33A5FE82B10B98800CB7CE1 /* PipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE22B10B98800CB7CE1 /* PipManager.swift */; };
 		A33EEC8E2BC9A32500348751 /* PipBundledPackages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33EEC8D2BC9A32500348751 /* PipBundledPackages.swift */; };
+		A345B6CE2BF896FA0014A50F /* IDEWasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345B6CD2BF896FA0014A50F /* IDEWasm.swift */; };
+		A345B6CF2BF896FA0014A50F /* IDEWasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345B6CD2BF896FA0014A50F /* IDEWasm.swift */; };
+		A345B6D12BF8A9B50014A50F /* WKWebView+File.m in Sources */ = {isa = PBXBuildFile; fileRef = A345B6D02BF8A9B50014A50F /* WKWebView+File.m */; };
+		A345B6D22BF8A9B50014A50F /* WKWebView+File.m in Sources */ = {isa = PBXBuildFile; fileRef = A345B6D02BF8A9B50014A50F /* WKWebView+File.m */; };
+		A345B7172BF992A00014A50F /* iwasm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A345B7162BF992A00014A50F /* iwasm.framework */; };
+		A345B7182BF992A00014A50F /* iwasm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A345B7162BF992A00014A50F /* iwasm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A349BF362B00ECDF00434BBB /* GitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349BF352B00ECDF00434BBB /* GitService.swift */; };
-		A359CCD52BCBDEAB00CD33CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A359CCD42BCBDEAB00CD33CF /* Assets.xcassets */; };
 		A359CCDA2BCEEE5900CD33CF /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A359CCD92BCEEE5900CD33CF /* python3Objc */; };
 		A359CCDB2BCEEE5900CD33CF /* python3Objc in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A359CCD92BCEEE5900CD33CF /* python3Objc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A359CCDD2BD2837100CD33CF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A359CCDC2BD2837100CD33CF /* PrivacyInfo.xcprivacy */; };
@@ -1259,7 +1260,6 @@
 		A3A87D1A2AF221D1002E3399 /* SourceControlEmptySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A046272804A6B300182275 /* SourceControlEmptySection.swift */; };
 		A3A87D1B2AF221D1002E3399 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C2DE92918E19B00BFF14C /* Theme.swift */; };
 		A3A87D1C2AF221D1002E3399 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A777F5257B9260008FE7B2 /* SettingsView.swift */; };
-		A3A87D1D2AF221D1002E3399 /* wasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF58E0265E8A4B00CB6A4B /* wasm.swift */; };
 		A3A87D1E2AF221D1002E3399 /* deferredRendering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29759B2A1F488E007FDB3D /* deferredRendering.swift */; };
 		A3A87D1F2AF221D1002E3399 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947BF348262453040015DAEB /* SearchManager.swift */; };
 		A3A87D202AF221D1002E3399 /* ArchiveDir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7781D257BC473008FE7B2 /* ArchiveDir.swift */; };
@@ -1403,6 +1403,14 @@
 		A3AFD15A2BC8305B004C9F10 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3AFD15C2BC8305B004C9F10 /* InfoPlist.strings */; };
 		A3B0F0B62B29DA8F0001D220 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B52B29DA8F0001D220 /* ios_system */; };
 		A3B0F0B92B29DAA60001D220 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3B0F0B82B29DAA60001D220 /* ios_system */; };
+		A3B87D952BF51B77008E74AD /* PYImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B87D942BF51B77008E74AD /* PYImageExtension.swift */; };
+		A3B87D962BF51B77008E74AD /* PYImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B87D942BF51B77008E74AD /* PYImageExtension.swift */; };
+		A3B87D982BF51BBF008E74AD /* PinchZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B87D972BF51BBF008E74AD /* PinchZoomView.swift */; };
+		A3B87D992BF51BBF008E74AD /* PinchZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B87D972BF51BBF008E74AD /* PinchZoomView.swift */; };
+		A3B87DDA2BF6206F008E74AD /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B87DD92BF6206F008E74AD /* Download.swift */; };
+		A3B87DDB2BF6206F008E74AD /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B87DD92BF6206F008E74AD /* Download.swift */; };
+		A3B87DDE2BF665F0008E74AD /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = A3B87DDD2BF665F0008E74AD /* Templates */; };
+		A3B87DDF2BF665F0008E74AD /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = A3B87DDD2BF665F0008E74AD /* Templates */; };
 		A3BB55352B4317C100A3E0B9 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3BB55342B4317C100A3E0B9 /* pydeCommon */; };
 		A3BB55392B4317C800A3E0B9 /* python3_objc in Frameworks */ = {isa = PBXBuildFile; productRef = A3BB55382B4317C800A3E0B9 /* python3_objc */; };
 		A3BB553D2B4317DB00A3E0B9 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3BB553C2B4317DB00A3E0B9 /* ios_system */; };
@@ -1534,13 +1542,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = A30F6B9D2BE0E577007B7CDF;
 			remoteInfo = ideUIA;
-		};
-		A30F6BD42BE0E60C007B7CDF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A30F6BB62BE0E5BD007B7CDF;
-			remoteInfo = ideUIPreviewA;
 		};
 		A363370F2AF231D200085608 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -2081,6 +2082,7 @@
 				A30F6B692BE0DD53007B7CDF /* RMStore in Embed Frameworks */,
 				A30F6B6A2BE0DD53007B7CDF /* pyde in Embed Frameworks */,
 				A30F6B6B2BE0DD53007B7CDF /* python3FWS in Embed Frameworks */,
+				A345B7182BF992A00014A50F /* iwasm.framework in Embed Frameworks */,
 				A30F6B6C2BE0DD53007B7CDF /* libpng.xcframework in Embed Frameworks */,
 				A30F6B6D2BE0DD53007B7CDF /* harfbuzz.xcframework in Embed Frameworks */,
 				A30F6B6E2BE0DD53007B7CDF /* ssh_cmd.xcframework in Embed Frameworks */,
@@ -2136,7 +2138,6 @@
 				A39F42762BEAFB44001546B4 /* ideRemoteF.appex in Embed Foundation Extensions */,
 				A39F42792BEAFB44001546B4 /* ideRemoteG.appex in Embed Foundation Extensions */,
 				A39F426A2BEAFB44001546B4 /* ideRemoteB.appex in Embed Foundation Extensions */,
-				A30F6BD32BE0E60C007B7CDF /* ideUIPreviewA.appex in Embed Foundation Extensions */,
 				A30F6BCD2BE0E60C007B7CDF /* ideRemoteA.appex in Embed Foundation Extensions */,
 				A39F426D2BEAFB44001546B4 /* ideRemoteC.appex in Embed Foundation Extensions */,
 				A39F42732BEAFB44001546B4 /* ideRemoteE.appex in Embed Foundation Extensions */,
@@ -2957,6 +2958,9 @@
 		A32DE5322B29B7CE00A1E20B /* ios_system.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ios_system.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33A5FE22B10B98800CB7CE1 /* PipManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PipManager.swift; sourceTree = "<group>"; };
 		A33EEC8D2BC9A32500348751 /* PipBundledPackages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipBundledPackages.swift; sourceTree = "<group>"; };
+		A345B6CD2BF896FA0014A50F /* IDEWasm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDEWasm.swift; sourceTree = "<group>"; };
+		A345B6D02BF8A9B50014A50F /* WKWebView+File.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+File.m"; sourceTree = "<group>"; };
+		A345B7162BF992A00014A50F /* iwasm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iwasm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A349BF352B00ECDF00434BBB /* GitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitService.swift; sourceTree = "<group>"; };
 		A359CCD42BCBDEAB00CD33CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A359CCDC2BD2837100CD33CF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -3059,6 +3063,10 @@
 		A3AFD15D2BC83065004C9F10 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		A3B0F0B12B29D95F0001D220 /* ios_system */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ios_system; path = ../../modules/pythoncc/ios_system; sourceTree = "<group>"; };
 		A3B87D932BF4E31E008E74AD /* Runestone */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Runestone; path = ../../modules/pythoncc/Runestone; sourceTree = "<group>"; };
+		A3B87D942BF51B77008E74AD /* PYImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYImageExtension.swift; sourceTree = "<group>"; };
+		A3B87D972BF51BBF008E74AD /* PinchZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchZoomView.swift; sourceTree = "<group>"; };
+		A3B87DD92BF6206F008E74AD /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		A3B87DDD2BF665F0008E74AD /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
 		A3BB55412B44666500A3E0B9 /* RSCodeTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSCodeTheme.swift; sourceTree = "<group>"; };
 		A3D1C9A82B35D802001505C7 /* Python.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Python.swift; sourceTree = "<group>"; };
 		A3D1C9B82B390A87001505C7 /* pydeRemoteRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pydeRemoteRelease.entitlements; sourceTree = "<group>"; };
@@ -3158,6 +3166,7 @@
 				A30F6B432BE0DD53007B7CDF /* flet in Frameworks */,
 				A30F6B442BE0DD53007B7CDF /* FilesProvider in Frameworks */,
 				A30F6B452BE0DD53007B7CDF /* RMStore in Frameworks */,
+				A345B7172BF992A00014A50F /* iwasm.framework in Frameworks */,
 				A30F6B462BE0DD53007B7CDF /* python3_ios-materialyoucolor.quantize.celebi.xcframework in Frameworks */,
 				A30F6B472BE0DD53007B7CDF /* Tiercel in Frameworks */,
 				A3856D4A2BF0B60700755140 /* CCommon in Frameworks */,
@@ -3437,6 +3446,7 @@
 		24509F1455D67D501EFBD28C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A345B7162BF992A00014A50F /* iwasm.framework */,
 				A3A3DED92B7D1D1C004A7C39 /* python3_ios-materialyoucolor.quantize.celebi.xcframework */,
 				A32DE5322B29B7CE00A1E20B /* ios_system.framework */,
 				A3DDCB942B236D8B00EA74E5 /* SDL2.framework */,
@@ -4573,6 +4583,7 @@
 				A3856CE52BEE6D1D00755140 /* URL+Ext.swift */,
 				A3856D832BF2A04700755140 /* ColorTheme+Ext.swift */,
 				A3856D892BF3B86200755140 /* UIColor+Ext.swift */,
+				A345B6D02BF8A9B50014A50F /* WKWebView+File.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -4599,6 +4610,8 @@
 			children = (
 				A3856D2F2BEFE12E00755140 /* IDENode.swift */,
 				A3D1C9A82B35D802001505C7 /* Python.swift */,
+				A3B87DD92BF6206F008E74AD /* Download.swift */,
+				A345B6CD2BF896FA0014A50F /* IDEWasm.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -4618,6 +4631,7 @@
 				A30F6BDE2BE7FF7F007B7CDF /* QuickLookExtension.swift */,
 				A30F6A4A2BDE3633007B7CDF /* EpubExtension.swift */,
 				A3856D862BF36ACC00755140 /* RunParamsExtension.swift */,
+				A3B87D942BF51B77008E74AD /* PYImageExtension.swift */,
 			);
 			path = AppExtension;
 			sourceTree = "<group>";
@@ -4625,6 +4639,7 @@
 		A3A87DB62AF2253E002E3399 /* pydeApp */ = {
 			isa = PBXGroup;
 			children = (
+				A3B87DDD2BF665F0008E74AD /* Templates */,
 				A359CCD42BCBDEAB00CD33CF /* Assets.xcassets */,
 				A35A8F192B6BEF720040AAA6 /* Localization */,
 				A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */,
@@ -4697,6 +4712,7 @@
 				A3D8B0D62BC10FD300C30B26 /* TogaWindow.swift */,
 				A359CD1F2BDAA95300CD33CF /* DownloadButton.swift */,
 				A3F32F6B2AF9330900866ED0 /* ExplorerTagTreeSection.swift */,
+				A3B87D972BF51BBF008E74AD /* PinchZoomView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -4817,7 +4833,6 @@
 			dependencies = (
 				A30F6BCF2BE0E60C007B7CDF /* PBXTargetDependency */,
 				A30F6BD22BE0E60C007B7CDF /* PBXTargetDependency */,
-				A30F6BD52BE0E60C007B7CDF /* PBXTargetDependency */,
 				A39F426C2BEAFB44001546B4 /* PBXTargetDependency */,
 				A39F426F2BEAFB44001546B4 /* PBXTargetDependency */,
 				A39F42722BEAFB44001546B4 /* PBXTargetDependency */,
@@ -5548,6 +5563,7 @@
 				A30F6B5B2BE0DD53007B7CDF /* PrivacyInfo.xcprivacy in Resources */,
 				A30F6B5C2BE0DD53007B7CDF /* cacert.pem in Resources */,
 				A30F6B5D2BE0DD53007B7CDF /* FiraCode-Regular.ttf in Resources */,
+				A3B87DDF2BF665F0008E74AD /* Templates in Resources */,
 				A30F6B5E2BE0DD53007B7CDF /* commandDictionary.plist in Resources */,
 				A30F6B5F2BE0DD53007B7CDF /* Settings.bundle in Resources */,
 				A30F6B602BE0DD53007B7CDF /* extraCommandsDictionary.plist in Resources */,
@@ -5694,10 +5710,10 @@
 				A3A87D942AF221D1002E3399 /* Preview Assets.xcassets in Resources */,
 				A3A87D962AF221D1002E3399 /* monaco-textmate.bundle in Resources */,
 				A3D1C9BA2B3B54BA001505C7 /* terminal.bundle in Resources */,
-				A359CCD52BCBDEAB00CD33CF /* Assets.xcassets in Resources */,
 				A359CCDD2BD2837100CD33CF /* PrivacyInfo.xcprivacy in Resources */,
 				A3A87D982AF221D1002E3399 /* cacert.pem in Resources */,
 				A3A87D9A2AF221D1002E3399 /* FiraCode-Regular.ttf in Resources */,
+				A3B87DDE2BF665F0008E74AD /* Templates in Resources */,
 				A3F32F662AF88CC000866ED0 /* commandDictionary.plist in Resources */,
 				A3A87D9C2AF221D1002E3399 /* Settings.bundle in Resources */,
 				A3A87D9D2AF221D1002E3399 /* extraCommandsDictionary.plist in Resources */,
@@ -5953,7 +5969,6 @@
 				94A046292804A6B300182275 /* SourceControlEmptySection.swift in Sources */,
 				9F3C2DEB2918E19B00BFF14C /* Theme.swift in Sources */,
 				94196957280316C7008AAEB2 /* SettingsView.swift in Sources */,
-				94196958280316C7008AAEB2 /* wasm.swift in Sources */,
 				9F29759D2A1F488E007FDB3D /* deferredRendering.swift in Sources */,
 				94196959280316C7008AAEB2 /* SearchManager.swift in Sources */,
 				9419695A280316C7008AAEB2 /* ArchiveDir.swift in Sources */,
@@ -6124,7 +6139,6 @@
 				94A046282804A6B300182275 /* SourceControlEmptySection.swift in Sources */,
 				9F3C2DEA2918E19B00BFF14C /* Theme.swift in Sources */,
 				94A777F6257B9260008FE7B2 /* SettingsView.swift in Sources */,
-				94CF58E1265E8A4B00CB6A4B /* wasm.swift in Sources */,
 				9F29759C2A1F488E007FDB3D /* deferredRendering.swift in Sources */,
 				947BF349262453040015DAEB /* SearchManager.swift in Sources */,
 				94A7781E257BC473008FE7B2 /* ArchiveDir.swift in Sources */,
@@ -6263,6 +6277,7 @@
 				A30F6A872BE0DD52007B7CDF /* TMConsoleExtension.swift in Sources */,
 				A30F6A882BE0DD52007B7CDF /* SourceControlError.swift in Sources */,
 				A30F6A892BE0DD52007B7CDF /* DirectoryPickerView.swift in Sources */,
+				A3B87D992BF51BBF008E74AD /* PinchZoomView.swift in Sources */,
 				A30F6A8A2BE0DD52007B7CDF /* SafariView.swift in Sources */,
 				A30F6BDD2BE7FC59007B7CDF /* FileMenuManager.swift in Sources */,
 				A30F6A8B2BE0DD52007B7CDF /* ExplorerCell.swift in Sources */,
@@ -6271,6 +6286,7 @@
 				A30F6A8E2BE0DD52007B7CDF /* RemoteTypeLabel.swift in Sources */,
 				A30F6A8F2BE0DD52007B7CDF /* DescriptionText.swift in Sources */,
 				A3856CCE2BEE0CE100755140 /* WithRunnerEditorInstance.swift in Sources */,
+				A3B87DDB2BF6206F008E74AD /* Download.swift in Sources */,
 				A30F6A902BE0DD52007B7CDF /* PortForwardContainer.swift in Sources */,
 				A30F6A912BE0DD52007B7CDF /* SourceControlContainer.swift in Sources */,
 				A30F6A922BE0DD52007B7CDF /* shortcutsMapping.swift in Sources */,
@@ -6298,6 +6314,7 @@
 				A30F6AA62BE0DD52007B7CDF /* PanelManager.swift in Sources */,
 				A30F6AA72BE0DD52007B7CDF /* MarkdownViewerExtension.swift in Sources */,
 				A30F6AA82BE0DD52007B7CDF /* AheadBehindIndicator.swift in Sources */,
+				A345B6D22BF8A9B50014A50F /* WKWebView+File.m in Sources */,
 				A30F6AA92BE0DD52007B7CDF /* RemoteExecutionExtension.swift in Sources */,
 				A30F6AAA2BE0DD52007B7CDF /* EditorTab.swift in Sources */,
 				A30F6AAB2BE0DD52007B7CDF /* SimpleWebPreviewExtension.swift in Sources */,
@@ -6307,7 +6324,6 @@
 				A30F6AAF2BE0DD52007B7CDF /* GitService.swift in Sources */,
 				A30F6AB02BE0DD52007B7CDF /* Theme.swift in Sources */,
 				A30F6AB12BE0DD52007B7CDF /* SettingsView.swift in Sources */,
-				A30F6AB22BE0DD52007B7CDF /* wasm.swift in Sources */,
 				A30F6AB32BE0DD52007B7CDF /* DownloadContainer.swift in Sources */,
 				A30F6AB42BE0DD52007B7CDF /* TogaWindow.swift in Sources */,
 				A30F6AB52BE0DD52007B7CDF /* deferredRendering.swift in Sources */,
@@ -6350,6 +6366,7 @@
 				A30F6AD62BE0DD52007B7CDF /* CompactSidebar.swift in Sources */,
 				A30F6AD72BE0DD52007B7CDF /* Executor.swift in Sources */,
 				A30F6AD82BE0DD52007B7CDF /* RemoteAuthView.swift in Sources */,
+				A3B87D962BF51B77008E74AD /* PYImageExtension.swift in Sources */,
 				A30F6AD92BE0DD52007B7CDF /* PYCompactSidebar.swift in Sources */,
 				A30F6ADA2BE0DD52007B7CDF /* CodeApp.swift in Sources */,
 				A30F6ADB2BE0DD52007B7CDF /* PortForwardServiceProvider.swift in Sources */,
@@ -6396,6 +6413,7 @@
 				A30F6B012BE0DD52007B7CDF /* Python.swift in Sources */,
 				A30F6B022BE0DD52007B7CDF /* DebugMenu.swift in Sources */,
 				A30F6B032BE0DD52007B7CDF /* FTPFileSystemProvider.swift in Sources */,
+				A345B6CF2BF896FA0014A50F /* IDEWasm.swift in Sources */,
 				A30F6B042BE0DD52007B7CDF /* String+throwingRemovingPercentEncoding.swift in Sources */,
 				A30F6B052BE0DD53007B7CDF /* PDFViewerExtension.swift in Sources */,
 				A30F6B062BE0DD53007B7CDF /* SourceControlAuxiliaryExtension.swift in Sources */,
@@ -6607,6 +6625,7 @@
 				A36337262AF2520D00085608 /* TMConsoleExtension.swift in Sources */,
 				A3A87CF72AF221D1002E3399 /* SourceControlError.swift in Sources */,
 				A3A87CF82AF221D1002E3399 /* DirectoryPickerView.swift in Sources */,
+				A3B87D982BF51BBF008E74AD /* PinchZoomView.swift in Sources */,
 				A3A87CF92AF221D1002E3399 /* SafariView.swift in Sources */,
 				A30F6BDC2BE7FC59007B7CDF /* FileMenuManager.swift in Sources */,
 				A3A87CFA2AF221D1002E3399 /* ExplorerCell.swift in Sources */,
@@ -6615,6 +6634,7 @@
 				A3A87CFC2AF221D1002E3399 /* RemoteTypeLabel.swift in Sources */,
 				A3A87CFD2AF221D1002E3399 /* DescriptionText.swift in Sources */,
 				A3856CCD2BEE0CE100755140 /* WithRunnerEditorInstance.swift in Sources */,
+				A3B87DDA2BF6206F008E74AD /* Download.swift in Sources */,
 				A3A87CFE2AF221D1002E3399 /* PortForwardContainer.swift in Sources */,
 				A3A87CFF2AF221D1002E3399 /* SourceControlContainer.swift in Sources */,
 				A3A87D002AF221D1002E3399 /* shortcutsMapping.swift in Sources */,
@@ -6642,6 +6662,7 @@
 				A3A87D122AF221D1002E3399 /* PanelManager.swift in Sources */,
 				A3A87D132AF221D1002E3399 /* MarkdownViewerExtension.swift in Sources */,
 				A3A87D142AF221D1002E3399 /* AheadBehindIndicator.swift in Sources */,
+				A345B6D12BF8A9B50014A50F /* WKWebView+File.m in Sources */,
 				A3A87D152AF221D1002E3399 /* RemoteExecutionExtension.swift in Sources */,
 				A3A87D162AF221D1002E3399 /* EditorTab.swift in Sources */,
 				A3A87D172AF221D1002E3399 /* SimpleWebPreviewExtension.swift in Sources */,
@@ -6651,7 +6672,6 @@
 				A349BF362B00ECDF00434BBB /* GitService.swift in Sources */,
 				A3A87D1B2AF221D1002E3399 /* Theme.swift in Sources */,
 				A3A87D1C2AF221D1002E3399 /* SettingsView.swift in Sources */,
-				A3A87D1D2AF221D1002E3399 /* wasm.swift in Sources */,
 				A359CD1E2BD9706800CD33CF /* DownloadContainer.swift in Sources */,
 				A3D8B0D72BC10FD300C30B26 /* TogaWindow.swift in Sources */,
 				A3A87D1E2AF221D1002E3399 /* deferredRendering.swift in Sources */,
@@ -6694,6 +6714,7 @@
 				A3A87D3A2AF221D1002E3399 /* CompactSidebar.swift in Sources */,
 				A3A87D3B2AF221D1002E3399 /* Executor.swift in Sources */,
 				A3A87D3C2AF221D1002E3399 /* RemoteAuthView.swift in Sources */,
+				A3B87D952BF51B77008E74AD /* PYImageExtension.swift in Sources */,
 				A3F52F032B0C0467001F096E /* PYCompactSidebar.swift in Sources */,
 				A3A87D3D2AF221D1002E3399 /* CodeApp.swift in Sources */,
 				A3A87D3E2AF221D1002E3399 /* PortForwardServiceProvider.swift in Sources */,
@@ -6740,6 +6761,7 @@
 				A3D1C9A92B35D802001505C7 /* Python.swift in Sources */,
 				A3A87D5C2AF221D1002E3399 /* DebugMenu.swift in Sources */,
 				A3A87D5D2AF221D1002E3399 /* FTPFileSystemProvider.swift in Sources */,
+				A345B6CE2BF896FA0014A50F /* IDEWasm.swift in Sources */,
 				A3A87D5E2AF221D1002E3399 /* String+throwingRemovingPercentEncoding.swift in Sources */,
 				A3A87D5F2AF221D1002E3399 /* PDFViewerExtension.swift in Sources */,
 				A3A87D602AF221D1002E3399 /* SourceControlAuxiliaryExtension.swift in Sources */,
@@ -6912,11 +6934,6 @@
 			isa = PBXTargetDependency;
 			target = A30F6B9D2BE0E577007B7CDF /* ideUIA */;
 			targetProxy = A30F6BD12BE0E60C007B7CDF /* PBXContainerItemProxy */;
-		};
-		A30F6BD52BE0E60C007B7CDF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A30F6BB62BE0E5BD007B7CDF /* ideUIPreviewA */;
-			targetProxy = A30F6BD42BE0E60C007B7CDF /* PBXContainerItemProxy */;
 		};
 		A36337102AF231D200085608 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -7508,7 +7525,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Code App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 29;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -7531,7 +7548,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.3;
 				OTHER_SWIFT_FLAGS = "-Xcc -Wno-incomplete-umbrella -DPYDEAPP -DPYTHON3IDE";
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -7560,7 +7577,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 29;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -7586,13 +7603,13 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.3;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-Xcc -Wno-incomplete-umbrella -DPYDEAPP -DPYTHON3IDE";
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = BaobaoWangSketchPython;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = BaobaoWangSketchPython;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Python3IDE;
 				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 				STRIP_STYLE = "non-global";
 				SUPPORTS_MACCATALYST = NO;
@@ -7647,8 +7664,8 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeRemoteRelease.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -7671,8 +7688,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE.pydeRemoteA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = SketchPythonRemote;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemote;
+				PROVISIONING_PROFILE_SPECIFIER = Python3IDERemoteA;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Python3IDERemoteA;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -7747,8 +7764,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE.ideUIA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = SketchPythonUI;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonUI;
+				PROVISIONING_PROFILE_SPECIFIER = Python3IDEUIA;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Python3IDEUIA;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -8157,8 +8174,8 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeRemoteRelease.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -8181,8 +8198,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE.pydeRemoteB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = SketchPythonRemote;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemote;
+				PROVISIONING_PROFILE_SPECIFIER = Python3IDERemoteB;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Python3IDERemoteB;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -8233,8 +8250,8 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeRemoteRelease.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -8258,7 +8275,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE.pydeRemoteC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = SketchPythonRemote;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemote;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Python3IDERemoteC;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -8309,8 +8326,8 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeRemoteRelease.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -8334,7 +8351,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE.pydeRemoteD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = SketchPythonRemote;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemote;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Python3IDERemoteD;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -8385,8 +8402,8 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeRemoteRelease.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -8410,7 +8427,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE.pydeRemoteE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = SketchPythonRemote;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemote;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Python3IDERemoteE;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -8461,8 +8478,8 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeRemoteRelease.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -8486,7 +8503,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE.pydeRemoteF;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = SketchPythonRemote;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemote;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Python3IDERemoteF;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -8537,8 +8554,8 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = pydeRemoteRelease.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -8562,7 +8579,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE.pydeRemoteG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = SketchPythonRemote;
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SketchPythonRemote;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = Python3IDERemoteG;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

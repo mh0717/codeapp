@@ -53,10 +53,10 @@ struct RunParamsView: View {
             .allowsHitTesting(PYLOCAL_EXECUTION_COMMANDS.keys.contains(App.activeUrlEditor?.url.pathExtension.lowercased() ?? ""))
             .autocorrectionDisabled(true)
             .textInputAutocapitalization(.never)
-            .font(.system(size: CGFloat(consoleFontSize)))
+            .font(.system(size: CGFloat(consoleFontSize)).monospaced())
             .overlay(alignment: .topLeading, content: {
                 Text(showPlaceHolder ? NSLocalizedString("Input run args", comment: "") : "")
-                    .font(.system(size: CGFloat(consoleFontSize)))
+                    .font(.system(size: CGFloat(consoleFontSize)).monospaced())
                     .opacity(0.6)
                     .padding(7)
                     .disabled(true)

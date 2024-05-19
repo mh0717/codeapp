@@ -237,6 +237,8 @@ struct RunestoneEditor: UIViewRepresentable {
 }
 
 
+var PYDE_IMAGE_COUNT = 0
+
 struct PYRunnerWidget: UIViewRepresentable {
     let id: UUID = UUID()
     
@@ -251,7 +253,9 @@ struct PYRunnerWidget: UIViewRepresentable {
     }
     
     func onOpenImage(_ image: UIImage) {
-        let editor = EditorInstance(view: AnyView(Image(uiImage: image).resizable().scaledToFit().id(UUID())), title: "Image")
+//        let editor = EditorInstance(view: AnyView(Image(uiImage: image).resizable().scaledToFit().id(UUID())), title: "Image")
+        PYDE_IMAGE_COUNT += 1
+        let editor = PYImageEditorInstance(image: image, title: "Image#\(PYDE_IMAGE_COUNT)")
         App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
     }
     

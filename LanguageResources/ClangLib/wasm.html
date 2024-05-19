@@ -89,7 +89,7 @@
                 }
 
                 var arrayBuffer = base64DecToArr(bufferString);
-                const loweredWasmBytes = lowerI64Imports(arrayBuffer);
+                const loweredWasmBytes = arrayBuffer;//lowerI64Imports(arrayBuffer);
                 var errorMessage = '';
                 var errorCode = 0;
                 window.standardInput = '';
@@ -111,10 +111,23 @@
                         wasi.bindings.isTTY = (fd) => false;
                     }
                     const module = new WebAssembly.Module(loweredWasmBytes);
-                    const instance = new WebAssembly.Instance(module, wasi.getImports(module));
+                    let rs = wasi.getImports(module)
+                      rs["env"] = {
+                        abort(_msg, _file, line, column) {
+
+                        },
+                        saveSetjmp() {
+
+                        },
+                        getTempRet0() {},
+                        testSetjmp() {},
+                        __wasm_longjmp() {}
+                    }
+                    const instance = new WebAssembly.Instance(module, rs);
                     wasi.start(instance);
                 }
                 catch (error) {
+                    console.log(error)
                     window.webkit.messageHandlers.aShell.postMessage('WebAssembly error: ' + error);
                     // WASI returns an error even in some cases where things went well.
                     // We find the type of the error, and return the appropriate error message

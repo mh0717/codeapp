@@ -12,6 +12,7 @@ import ios_system
 import Combine
 import ZipArchive
 import pyde
+import StoreKit
 
 class PYApp: ObservableObject {
     
@@ -62,6 +63,77 @@ class PYApp: ObservableObject {
         downloadManager.onTaskCompletion = {[weak self] in
             self?.App?.notificationManager.showSucessMessage("Download task completed")
         }
+    }
+    
+    func showScore() {
+//        let id = "1357215444"
+//        if let url = URL(string: "https://apps.apple.com/app/\(id)"),
+//            UIApplication.shared.canOpenURL(url){
+//            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//        }
+       
+    }
+    
+    func createDjango(_ djangoName: String) {
+        guard let App else {
+            return
+        }
+        let newCommand = "django-admin startproject \(djangoName)"
+        App.notificationManager.showAsyncNotification(title: "\(newCommand) ...", task: {
+            ios_switchSession(newCommand)
+            ios_setContext(newCommand)
+            
+            var pid = ios_fork()
+            
+            let returnCode = ios_system("remote \(newCommand)")
+            ios_waitpid(pid)
+            ios_releaseThreadId(pid)
+            
+            pid = ios_fork()
+            ios_system("echo runserver --noreload > \(djangoName)/.manage.py.args")
+            ios_waitpid(pid)
+            ios_releaseThreadId(pid)
+            
+            pid = ios_fork()
+            ios_system("echo open manage.py and run > \(djangoName)/README.txt")
+            ios_waitpid(pid)
+            ios_releaseThreadId(pid)
+        })
+    }
+    
+    func copyTemplate(_ name: String, sourceUrl: URL? = nil) async {
+        guard let App else {
+            return
+        }
+        #if targetEnvironment(simulator)
+        let surl = sourceUrl ?? URL(fileURLWithPath: "/Users/huima/PythonSchool/pydeApp/pydeApp/Templates").appendingPathComponent(name)
+        #else
+        let surl = sourceUrl ?? Bundle.main.bundleURL.appendingPathComponent("Templates/\(name)")
+        #endif
+        
+        do {
+            
+            guard FileManager.default.fileExists(atPath: surl.path) else {
+                throw WorkSpaceStorage.FSError.Unknown
+            }
+            
+            guard let wurl = App.workSpaceStorage.currentDirectory._url,
+            let turl = wurl.withoutSame(name) else {
+                throw WorkSpaceStorage.FSError.UnableToFindASuitableName
+            }
+            
+            try await App.workSpaceStorage.copyItem(at: surl, to: turl)
+            
+            App.notificationManager.postActionNotification(
+                title: "New Sucessed", level: .success,
+                primary: {
+                    App.loadFolder(url: turl)
+                }, primaryTitle: "common.open_folder", source: turl.lastPathComponent)
+        } catch {
+            App.notificationManager.showErrorMessage(
+                "Error", error.localizedDescription)
+        }
+        
     }
     
     func onClone(urlString: String) async throws {
@@ -245,20 +317,51 @@ class PYApp: ObservableObject {
         
     }
     
+    private static var _versionIncreased = false
+    static func versionNumberIncreased() -> Bool {
+        return _versionIncreased
+    }
+    
     
     static func onAppInitialized() {
+        if let lastReadVersion = UserDefaults.standard.string(forKey: "app.lastVersion") {
+            let currentVersion =
+                Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0"
+            if lastReadVersion != currentVersion {
+                _versionIncreased = true
+            }
+        } else {
+            _versionIncreased = true
+        }
+        
+        DispatchQueue.main.async {
+//            wasmWebView.loadFileURL(
+//                ConstantManager.WASM.appendingPathComponent("wasm-worker.html"),
+//                allowingReadAccessTo: ConstantManager.WASM)
+            
+            wasmWebView.load(URLRequest(url: URL(string: "http://localhost/wasm-worker.html")!))
+        }
+        
         let fileManager = FileManager.default
         
         
-        if !fileManager.fileExists(atPath: ConstantManager.SYSROOT.path) {
-            Thread.detachNewThread {
-                SSZipArchive.unzipFile(atPath: ConstantManager.CUSRZIP.path, toDestination: ConstantManager.SYSROOT.path + "/../")
-            }
+//        if !fileManager.fileExists(atPath: ConstantManager.SYSROOT.path) || _versionIncreased {
+//            Thread.detachNewThread {
+//                SSZipArchive.unzipFile(atPath: ConstantManager.CUSRZIP.path, toDestination: ConstantManager.SYSROOT.path + "/../")
+//            }
+//        }
+#warning("临时代码，要删除的")
+        Thread.detachNewThread {
+            SSZipArchive.unzipFile(atPath: ConstantManager.CUSRZIP.path, toDestination: ConstantManager.SYSROOT.path + "/../")
+        }
+        
+        if fileManager.fileExists(atPath: ConstantManager.NPM_PREFIX.appendingPathComponent("lib").path) {
+            try? fileManager.createDirectory(at: ConstantManager.NPM_PREFIX.appendingPathComponent("lib"), withIntermediateDirectories: true)
         }
         
         
         wmessager.listenForMessage(withIdentifier: ConstantManager.PYDE_OPEN_COMMAND_MSG) { args in
-            guard let args = args as? [String], !args.isEmpty else {return}
+            guard let args = args as? [String], args.count >= 2 else {return}
             if args[1] == "-a" {
                 let command = args[2...].joined(separator: " ")
                 ios_system(command)

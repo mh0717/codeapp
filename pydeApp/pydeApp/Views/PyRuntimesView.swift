@@ -21,9 +21,11 @@ struct PyRuntimesView : View {
                         HStack {
                             VStack(alignment: .leading) {
                                 Text(NSLocalizedString("Interpreter: ", comment: "") + String(item.last!)).foregroundColor(.primary)
-                                Text(ConstantManager.RemotePlugins[item] ?? "")
-                                    .foregroundColor(.secondary)
-                                    .font(.system(size: 12))
+                                if let cmd = ConstantManager.RemotePlugins[item], cmd.count > 0 {
+                                    Text(ConstantManager.RemotePlugins[item] ?? "")
+                                        .foregroundColor(.secondary)
+                                        .font(.system(size: 12))
+                                }
                             }
                             if foreCount > 0 { Spacer()}
                             if let cmd = ConstantManager.RemotePlugins[item], cmd.count > 0 {

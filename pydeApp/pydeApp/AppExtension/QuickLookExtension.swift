@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class QuickLookExtension: CodeAppExtension {
     
@@ -14,13 +15,22 @@ class QuickLookExtension: CodeAppExtension {
         let item = FileMenuItem(iconSystemName: "eye", title: "Open with QuickLook") { url in
             return !url.isDirectory
         } onClick: { url in
-            let vc = QuickPreviewController(url)
-            let editor = VCInTabEditorInstance(url: url, title: url.lastPathComponent, vc: vc)
+            let editor = QuickLookEditorInstance(title: url.lastPathComponent, url: url)
             DispatchQueue.main.async {
                 app.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
             }
         }
         
         app.extensionManager.fileMenuManager.registerItem(item: item)
+    }
+}
+
+
+class QuickLookEditorInstance: EditorInstanceWithURL {
+    let quickVC: QuickPreviewController
+    
+    init(title: String, url: URL) {
+        quickVC = QuickPreviewController(url)
+        super.init(view: AnyView(VCRepresentable(quickVC)), title: title, url: url)
     }
 }

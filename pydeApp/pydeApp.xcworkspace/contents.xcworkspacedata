@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../modules/pythoncc/wasm-micro-runtime/product-mini/platforms/ios/iwasm-proj/iwasm.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../../sdl/SDL/Xcode/SDL/SDL.xcodeproj">
    </FileRef>
    <FileRef
