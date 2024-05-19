@@ -400,7 +400,7 @@ struct PYNewFileView: View {
             
             #include <stdio.h>
             int main() {
-                printf("Hello World!\n");
+                printf("Hello World!\\n");
                 return 0;
             }
             """
@@ -487,20 +487,20 @@ struct PYNewFileView: View {
             name = "example.php"
             content = """
             <?php
-                echo "Hello World!\n"
+                echo "Hello World!\\n"
             ?>
             """
         case 50:
             name = "example.lua"
             content = """
-            // Created on \(UIDevice.current.name)
+            -- Created on \(UIDevice.current.name)
             
-            print("Hello World!\n")
+            print("Hello World!\\n")
             """
         case 60:
             name = "example.pl"
             content = """
-            print "Hello World!\n";
+            print "Hello World!\\n";
             """
         case 62:
             name = "Main.java"
@@ -575,7 +575,7 @@ struct PYNewFileView: View {
                 at: destinationURL, content: content.data(using: .utf8)!, atomically: true,
                 overwrite: true
             )
-            try await App.openFile(url: destinationURL)
+            try await App.openFile(url: destinationURL, alwaysInNewTab: true)
             self.presentationMode.wrappedValue.dismiss()
         } catch {
             App.notificationManager.showErrorMessage(error.localizedDescription)
