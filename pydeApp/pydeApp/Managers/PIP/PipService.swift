@@ -72,24 +72,24 @@ public class PipService {
         }
         
         if let packages = try? JSONSerialization.jsonObject(with: outputJson.data(using: .utf8) ?? Data()) as? [[String:String]] {
-            #if targetEnvironment(simulator)
-            let url = URL(fileURLWithPath: "/Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Managers/PIP/PipBundledPackages.swift")
-            try?
-            """
-            //
-            //  PipBundledPackages.swift
-            //  iPyDE
-            //
-            //  Created by Huima on 2024/4/13.
-            //
-
-            import Foundation
-
-            public let pipBundledPackage: [PipPackage] = [
-            \(packages.map({"    PipPackage(\"\($0["name"]!)\", \"\($0["version"]!)\"),"}).joined(separator: "\n"))
-            ]
-            """.write(to: url, atomically: true, encoding: .utf8)
-            #endif
+//            #if targetEnvironment(simulator)
+//            let url = URL(fileURLWithPath: "/Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Managers/PIP/PipBundledPackages.swift")
+//            try?
+//            """
+//            //
+//            //  PipBundledPackages.swift
+//            //  iPyDE
+//            //
+//            //  Created by Huima on 2024/4/13.
+//            //
+//
+//            import Foundation
+//
+//            public let pipBundledPackage: [PipPackage] = [
+//            \(packages.map({"    PipPackage(\"\($0["name"]!)\", \"\($0["version"]!)\"),"}).joined(separator: "\n"))
+//            ]
+//            """.write(to: url, atomically: true, encoding: .utf8)
+//            #endif
             var list = [PipPackage]()
             for package in packages {
                 if let name = package["name"], let version = package["version"] {

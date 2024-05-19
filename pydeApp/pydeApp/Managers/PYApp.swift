@@ -345,14 +345,10 @@ class PYApp: ObservableObject {
         let fileManager = FileManager.default
         
         
-//        if !fileManager.fileExists(atPath: ConstantManager.SYSROOT.path) || _versionIncreased {
-//            Thread.detachNewThread {
-//                SSZipArchive.unzipFile(atPath: ConstantManager.CUSRZIP.path, toDestination: ConstantManager.SYSROOT.path + "/../")
-//            }
-//        }
-#warning("临时代码，要删除的")
-        Thread.detachNewThread {
-            SSZipArchive.unzipFile(atPath: ConstantManager.CUSRZIP.path, toDestination: ConstantManager.SYSROOT.path + "/../")
+        if !fileManager.fileExists(atPath: ConstantManager.SYSROOT.path) || _versionIncreased {
+            Thread.detachNewThread {
+                SSZipArchive.unzipFile(atPath: ConstantManager.CUSRZIP.path, toDestination: ConstantManager.SYSROOT.path + "/../")
+            }
         }
         
         if fileManager.fileExists(atPath: ConstantManager.NPM_PREFIX.appendingPathComponent("lib").path) {

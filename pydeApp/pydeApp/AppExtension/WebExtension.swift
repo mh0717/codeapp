@@ -123,6 +123,8 @@ private var _safariCount = 0
 private struct PYWebView: UIViewRepresentable {
 
     let webView: WKWebView
+    
+    @EnvironmentObject var App: MainApp
 
     func makeUIView(context: Context) -> WKWebView {
         return webView
@@ -131,12 +133,18 @@ private struct PYWebView: UIViewRepresentable {
     func updateUIView(_ webView: WKWebView, context: Context) {
         
     }
+    
+    func makeCoordinator() -> WebViewCoordinator {
+        let coordinator = WebViewCoordinator(app: App)
+        webView.navigationDelegate = coordinator
+        return coordinator
+    }
 }
 
 
 class PYWebViewEditorInstance: EditorInstanceWithURL {
     let webView: WKWebView
-    private let coordinator = WebViewCoordinator()
+//    private let coordinator = WebViewCoordinator()
     
     var kvoToken: NSKeyValueObservation?
     
@@ -144,7 +152,7 @@ class PYWebViewEditorInstance: EditorInstanceWithURL {
         _safariCount += 1
         
         webView = WebViewBase()
-        webView.navigationDelegate = coordinator
+//        webView.navigationDelegate = coordinator
         
         let request = URLRequest(url: url)
         webView.load(request)
@@ -185,6 +193,12 @@ class PYWebViewEditorInstance: EditorInstanceWithURL {
 }
 
 fileprivate class WebViewCoordinator: NSObject, WKNavigationDelegate {
+    init(app: MainApp) {
+        self.app = app
+    }
+    
+    let app: MainApp
+    
     var firstFailed = true
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
@@ -204,20 +218,69 @@ fileprivate class WebViewCoordinator: NSObject, WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-            // 判断服务器采用的验证方法
-            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
-                if challenge.previousFailureCount == 0 {
-                    // 如果没有错误的情况下 创建一个凭证，并使用证书
-                    let credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-                    completionHandler(.useCredential, credential)
-                } else {
-                    // 验证失败，取消本次验证
-                    completionHandler(.cancelAuthenticationChallenge, nil)
-                }
+        // 判断服务器采用的验证方法
+        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+            if challenge.previousFailureCount == 0 {
+                // 如果没有错误的情况下 创建一个凭证，并使用证书
+                let credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+                completionHandler(.useCredential, credential)
             } else {
+                // 验证失败，取消本次验证
                 completionHandler(.cancelAuthenticationChallenge, nil)
             }
+        } else {
+            completionHandler(.cancelAuthenticationChallenge, nil)
         }
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, preferences: WKWebpagePreferences, decisionHandler: @escaping (WKNavigationActionPolicy, WKWebpagePreferences) -> Void) {
+        if navigationAction.shouldPerformDownload {
+            decisionHandler(.cancel, preferences)
+            if let url = navigationAction.request.url {
+                _ = app.pyapp.downloadManager.download(url)
+            }
+            
+        } else {
+            decisionHandler(.allow, preferences)
+        }
+//        return navigationAction.shouldPerformDownload ? decisionHandler(.download, preferences) : decisionHandler(.allow, preferences)
+    }
+        
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        if !navigationResponse.canShowMIMEType {
+            decisionHandler(.cancel)
+            if let url = navigationResponse.response.url {
+                _ = app.pyapp.downloadManager.download(url)
+            }
+        } else {
+            decisionHandler(.allow)
+        }
+//        navigationResponse.canShowMIMEType ? decisionHandler(.allow) : decisionHandler(.download)
+    }
+    
+    
+//    func webView(_ webView: WKWebView, navigationAction: WKNavigationAction, didBecome download: WKDownload) {
+//        download.delegate = self
+//    }
+//        
+//        func download(_ download: WKDownload, decideDestinationUsing response: URLResponse, suggestedFilename: String, completionHandler: @escaping (URL?) -> Void) {
+//            let fileManager = FileManager.default
+//            let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//            let fileUrl =  documentDirectory.appendingPathComponent("\(suggestedFilename)", isDirectory: false)
+//            
+//            self.downloadUrl = fileUrl
+//            completionHandler(fileUrl)
+//            /// Save to photo library (optional)
+//             savePhotoToPhotoLibrary(filePath: fileUrl)
+//        }
+//        
+//        // MARK: - Optional
+//        func downloadDidFinish(_ download: WKDownload) {
+//        }
+//        
+//        func download(_ download: WKDownload, didFailWithError error: Error, resumeData: Data?) {
+//            print("\(error.localizedDescription)")
+//        }
 }
 
 struct MutableVCRepresentable: UIViewControllerRepresentable {
