@@ -1035,8 +1035,14 @@
 		A345B6CF2BF896FA0014A50F /* IDEWasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345B6CD2BF896FA0014A50F /* IDEWasm.swift */; };
 		A345B6D12BF8A9B50014A50F /* WKWebView+File.m in Sources */ = {isa = PBXBuildFile; fileRef = A345B6D02BF8A9B50014A50F /* WKWebView+File.m */; };
 		A345B6D22BF8A9B50014A50F /* WKWebView+File.m in Sources */ = {isa = PBXBuildFile; fileRef = A345B6D02BF8A9B50014A50F /* WKWebView+File.m */; };
-		A345B7172BF992A00014A50F /* iwasm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A345B7162BF992A00014A50F /* iwasm.framework */; };
-		A345B7182BF992A00014A50F /* iwasm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A345B7162BF992A00014A50F /* iwasm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A345B7192BFB32860014A50F /* IDEWasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345B6CD2BF896FA0014A50F /* IDEWasm.swift */; };
+		A345B71A2BFB32870014A50F /* IDEWasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345B6CD2BF896FA0014A50F /* IDEWasm.swift */; };
+		A345B71B2BFB32880014A50F /* IDEWasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345B6CD2BF896FA0014A50F /* IDEWasm.swift */; };
+		A345B71C2BFB32890014A50F /* IDEWasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345B6CD2BF896FA0014A50F /* IDEWasm.swift */; };
+		A345B71D2BFB328A0014A50F /* IDEWasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345B6CD2BF896FA0014A50F /* IDEWasm.swift */; };
+		A345B71E2BFB328B0014A50F /* IDEWasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345B6CD2BF896FA0014A50F /* IDEWasm.swift */; };
+		A345B71F2BFB328C0014A50F /* IDEWasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345B6CD2BF896FA0014A50F /* IDEWasm.swift */; };
+		A345B7202BFB328D0014A50F /* IDEWasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345B6CD2BF896FA0014A50F /* IDEWasm.swift */; };
 		A349BF362B00ECDF00434BBB /* GitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349BF352B00ECDF00434BBB /* GitService.swift */; };
 		A359CCDA2BCEEE5900CD33CF /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A359CCD92BCEEE5900CD33CF /* python3Objc */; };
 		A359CCDB2BCEEE5900CD33CF /* python3Objc in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A359CCD92BCEEE5900CD33CF /* python3Objc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -2082,7 +2088,6 @@
 				A30F6B692BE0DD53007B7CDF /* RMStore in Embed Frameworks */,
 				A30F6B6A2BE0DD53007B7CDF /* pyde in Embed Frameworks */,
 				A30F6B6B2BE0DD53007B7CDF /* python3FWS in Embed Frameworks */,
-				A345B7182BF992A00014A50F /* iwasm.framework in Embed Frameworks */,
 				A30F6B6C2BE0DD53007B7CDF /* libpng.xcframework in Embed Frameworks */,
 				A30F6B6D2BE0DD53007B7CDF /* harfbuzz.xcframework in Embed Frameworks */,
 				A30F6B6E2BE0DD53007B7CDF /* ssh_cmd.xcframework in Embed Frameworks */,
@@ -3166,7 +3171,6 @@
 				A30F6B432BE0DD53007B7CDF /* flet in Frameworks */,
 				A30F6B442BE0DD53007B7CDF /* FilesProvider in Frameworks */,
 				A30F6B452BE0DD53007B7CDF /* RMStore in Frameworks */,
-				A345B7172BF992A00014A50F /* iwasm.framework in Frameworks */,
 				A30F6B462BE0DD53007B7CDF /* python3_ios-materialyoucolor.quantize.celebi.xcframework in Frameworks */,
 				A30F6B472BE0DD53007B7CDF /* Tiercel in Frameworks */,
 				A3856D4A2BF0B60700755140 /* CCommon in Frameworks */,
@@ -6492,6 +6496,7 @@
 			files = (
 				A30F6B8C2BE0E528007B7CDF /* ActionRequestHandler.swift in Sources */,
 				A3856D322BEFE98E00755140 /* Python.swift in Sources */,
+				A345B7192BFB32860014A50F /* IDEWasm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6501,6 +6506,7 @@
 			files = (
 				A3856D7D2BF1A16800755140 /* TogaWindow.swift in Sources */,
 				A30F6BA42BE0E577007B7CDF /* ActionViewController.swift in Sources */,
+				A345B71B2BFB32880014A50F /* IDEWasm.swift in Sources */,
 				A3856D342BEFE99100755140 /* Python.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -6557,6 +6563,7 @@
 			files = (
 				A39F41EB2BEAFA9E001546B4 /* ActionRequestHandler.swift in Sources */,
 				A3856D332BEFE98F00755140 /* Python.swift in Sources */,
+				A345B71A2BFB32870014A50F /* IDEWasm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6566,6 +6573,7 @@
 			files = (
 				A39F42012BEAFAC5001546B4 /* ActionRequestHandler.swift in Sources */,
 				A3856D362BEFE99200755140 /* Python.swift in Sources */,
+				A345B71C2BFB32890014A50F /* IDEWasm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6575,6 +6583,7 @@
 			files = (
 				A39F42172BEAFAD6001546B4 /* ActionRequestHandler.swift in Sources */,
 				A3856D372BEFE99300755140 /* Python.swift in Sources */,
+				A345B71D2BFB328A0014A50F /* IDEWasm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6584,6 +6593,7 @@
 			files = (
 				A39F422D2BEAFADE001546B4 /* ActionRequestHandler.swift in Sources */,
 				A3856D382BEFE99400755140 /* Python.swift in Sources */,
+				A345B71E2BFB328B0014A50F /* IDEWasm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6593,6 +6603,7 @@
 			files = (
 				A39F42432BEAFAED001546B4 /* ActionRequestHandler.swift in Sources */,
 				A3856D392BEFE99400755140 /* Python.swift in Sources */,
+				A345B71F2BFB328C0014A50F /* IDEWasm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6602,6 +6613,7 @@
 			files = (
 				A39F42592BEAFAF8001546B4 /* ActionRequestHandler.swift in Sources */,
 				A3856D3A2BEFE99500755140 /* Python.swift in Sources */,
+				A345B7202BFB328D0014A50F /* IDEWasm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7525,7 +7537,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Code App.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -7577,7 +7589,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wang Lingling (KQ2S7RKY3D)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 30;
+				CURRENT_PROJECT_VERSION = 31;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;

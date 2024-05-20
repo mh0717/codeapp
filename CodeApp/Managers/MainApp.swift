@@ -220,7 +220,9 @@ class MainApp: ObservableObject {
         #if PYDEAPP
         pyapp.App = self
         pyappCancellable = pyapp.objectWillChange.sink { [weak self] (_) in
-            self?.objectWillChange.send()
+            DispatchQueue.main.async {
+                self?.objectWillChange.send()
+            }
         }
         
         Timer.scheduledTimer(withTimeInterval: 5, repeats: true) {[weak self] timer in
@@ -234,7 +236,9 @@ class MainApp: ObservableObject {
         }
         
         NotificationCenter.default.addObserver(forName: .init("MainAppForeceUpdate"), object: nil, queue: nil) { [weak self] _ in
-            self?.objectWillChange.send()
+            DispatchQueue.main.async {
+                self?.objectWillChange.send()
+            }
         }
         #endif
     }

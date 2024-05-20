@@ -139,6 +139,11 @@ struct PYWelcomeView: View {
                 of: "{{recent}}",
                 with: recentFolders)
         }
+        else {
+            content = content.replacingOccurrences(
+                of: "{{recent}}",
+                with: "")
+        }
         self.content = content
     }
     

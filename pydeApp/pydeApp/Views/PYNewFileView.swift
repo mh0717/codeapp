@@ -400,6 +400,7 @@ struct PYNewFileView: View {
             
             #include <stdio.h>
             int main() {
+                setvbuf(stdout, NULL, _IONBF, 0);
                 printf("Hello World!\\n");
                 return 0;
             }

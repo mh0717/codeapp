@@ -122,10 +122,17 @@ fileprivate class WebCoordinator: NSObject, WKNavigationDelegate {
         }
         print(data.count)
         let base64String = data.base64EncodedString()
-        let jsstr = loadBookJS
-            .replacingOccurrences(of: "{{name}}", with: url.lastPathComponent)
-            .replacingFirstOccurrence(of: "{{base64Content}}", with: base64String)
-        webView.evaluateJavaScript(jsstr)
+        let loadBookJS = """
+            let base64Content = "\(base64String)"
+            let bookData = Uint8Array.from(atob(base64Content), c => c.charCodeAt(0))
+            bookData.byteOffset = 0
+            let bookFile = new File([bookData.buffer],  "\(url.lastPathComponent)");
+            openBook(bookFile)
+            """
+//        let jsstr = loadBookJS
+//            .replacingOccurrences(of: "{{name}}", with: url.lastPathComponent)
+//            .replacingFirstOccurrence(of: "{{base64Content}}", with: base64String)
+        webView.evaluateJavaScript(loadBookJS)
         
         DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(250))) {
             let theme = ThemeManager.isDark() ? BookThemeManager.instance.darkTheme : BookThemeManager.instance.lightTheme
@@ -323,13 +330,7 @@ public struct BookTheme: Codable {
 }
 
 
-fileprivate let loadBookJS = """
-    let base64Content = "{{base64Content}}"
-    let bookData = Uint8Array.from(atob(base64Content), c => c.charCodeAt(0))
-    bookData.byteOffset = 0
-    let bookFile = new File([bookData.buffer],  "{{name}}");
-    openBook(bookFile)
-    """
+
 
 fileprivate func didSetTheme(_ webView: WKWebView, theme: BookTheme) {
     let theme = ThemeManager.isDark() ? BookThemeManager.instance.darkTheme : BookThemeManager.instance.lightTheme

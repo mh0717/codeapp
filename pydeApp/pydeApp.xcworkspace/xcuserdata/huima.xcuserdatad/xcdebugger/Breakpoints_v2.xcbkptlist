@@ -1727,7 +1727,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "273DBA33-4A8D-4DA0-8411-09C91C0EC25E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/service/CompletionService.swift"
@@ -1775,7 +1775,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B42E6B83-2A1B-4009-954F-296B361ED542"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3_objc/Utils.m"
@@ -1791,7 +1791,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "56F172DA-B4EE-4F7F-B27C-034354036E63"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3_objc/Utils.m"
@@ -1807,7 +1807,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B6D1F55B-A872-4030-BC97-BEA354972B28"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3_objc/Utils.m"
@@ -1823,7 +1823,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A9DBC111-E6FF-4E1C-B697-6FCF71334C09"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3_objc/Utils.m"
@@ -1871,7 +1871,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "FB1253EE-4963-48CC-9B0B-8E0AB1988E3A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3_objc/Utils.m"
@@ -1887,7 +1887,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7AB9C424-CD38-4109-8DE0-73D1D919AA2A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3_objc/Utils.m"
@@ -1903,7 +1903,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4D2E12E2-6843-41B8-B7FA-D7E308EBC476"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3_objc/Utils.m"
@@ -1919,7 +1919,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1CFA5F9B-92E5-4009-9BC2-5D0427A302FB"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3_objc/Utils.m"
@@ -1967,7 +1967,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "6D9769EE-6885-4E88-8B3C-88D9C815EA42"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3_objc/Utils.m"
@@ -1983,7 +1983,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "2E0BE612-D25F-49E3-9346-296C532321E4"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3_objc/Utils.m"
@@ -1999,7 +1999,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B2E7587D-73E1-4C4E-8A5B-C79718DFED94"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3_objc/Utils.m"
@@ -2015,7 +2015,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "15C618E4-F33D-4FF3-9339-D53EAEF55BC8"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3_objc/Utils.m"
@@ -2031,7 +2031,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5BD4F690-CF32-465D-A055-DBF707E3EA23"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3_objc/Utils.m"
@@ -2047,7 +2047,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4043D610-B646-41E6-B18E-64DF8D5393E9"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3_objc/Utils.m"
@@ -2110,7 +2110,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A1D36B5E-BCC3-4826-8EB2-2C2B0A40A4F8"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3_objc/ObjC.m"
@@ -2158,7 +2158,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "8B8DAF24-07A1-4323-ABFC-ACA3FD03BF34"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/pyde/Sources/pyde/editor/TMConsoleView.swift"
@@ -2206,7 +2206,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3478B1E7-6A56-4292-BEFA-955D77B4F482"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeApp/PYLocalExecutionExtension.swift"
@@ -2404,7 +2404,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5449F12D-BD01-430A-9C78-0F7C301F0897"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeApp/PYLocalExecutionExtension.swift"
@@ -2602,7 +2602,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "43FD0085-9EEE-4186-AB1C-E82545C4FCEF"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../CodeApp/Views/CompactSidebar.swift"
@@ -2680,7 +2680,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "889869A3-3664-4F45-801F-BDA2413A4467"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../CodeApp/Views/CompactSidebar.swift"
@@ -2758,7 +2758,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             uuid = "70BCA483-E76E-470D-A328-A1964A367918"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             breakpointStackSelectionBehavior = "1"
@@ -2770,7 +2770,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B13480F8-A62A-44A1-A683-04C09CE14260"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeApp/TogaWindow.swift"
@@ -2863,7 +2863,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "65613F68-E059-4993-B4F3-F39698B8AEA2"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeUI/ActionViewController.swift"
@@ -2879,7 +2879,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "79D8013B-AFAA-4F6C-AC17-BC4E925DF70D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeUI/ActionViewController.swift"
@@ -2895,7 +2895,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "9C39A8FE-455E-4E4F-B23B-35BDC2B4AFA5"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../sdl/SDL/src/video/uikit/SDL_uikitvideo.m"
@@ -2911,7 +2911,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "98B2643A-FCC1-4153-82EB-A56B4363C4B7"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../CodeApp/Managers/MonacoEditor.swift"
@@ -2959,7 +2959,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "986831E2-E7B2-4788-AEB3-1517B5A07D6F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/view/ConsoleView.swift"
@@ -3007,7 +3007,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "91B79FCE-EAB7-4149-8685-AF2FB4659318"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeUIPreview/PreviewViewController.swift"
@@ -3055,7 +3055,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "AF951CFA-B1AA-45C6-B0CB-072DE19685F0"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeUIPreview/PreviewViewController.swift"
@@ -3133,7 +3133,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E88AB4AF-2763-4331-B80D-2B87545CE29A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeUIPreview/PreviewViewController.swift"
@@ -3211,7 +3211,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "233CFF02-8AC5-441E-8047-48D5EE9F9287"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeUIPreview/PreviewViewController.swift"
@@ -3289,7 +3289,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E5324FF1-4F71-4D54-81AA-05C079E63986"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeUIPreview/PreviewViewController.swift"
@@ -3337,7 +3337,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "723BF69B-889A-49B5-95C9-E0FE0BC22760"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/Tiercel/Sources/General/SessionManager.swift"
@@ -3415,7 +3415,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "0CDB6E89-984B-4D5F-AC11-C96B08CC662B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/Tiercel/Sources/General/Task.swift"
@@ -3493,7 +3493,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "066679D5-940B-49A5-9291-A40293C90922"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/Tiercel/Sources/General/Task.swift"
@@ -3541,7 +3541,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "0DD18416-22C4-4B78-B9A6-E66E5577ACE6"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/Tiercel/Sources/General/Task.swift"
@@ -3649,7 +3649,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "AC0AF349-737D-4F76-A607-2419F6FB2BCC"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/Tiercel/Sources/General/Task.swift"
@@ -3727,7 +3727,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             uuid = "BCABE087-4599-445C-81B3-E9F3E8C2A3CD"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             breakpointStackSelectionBehavior = "1"
@@ -3739,7 +3739,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "9254E976-EF8F-48B5-A33A-52CA8491C4FA"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/FolioReaderKit/Sources/FolioReaderKit/FolioReaderAddHighlightNote.swift"
@@ -3817,7 +3817,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B1338502-A59F-4BEE-ADB3-C2761900D4B2"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/FolioReaderKit/Sources/FolioReaderKit/FolioReaderAddHighlightNote.swift"
@@ -3910,7 +3910,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "BCD875FA-83DA-4BC9-9AD8-7EE42D3A7EAB"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
@@ -3973,7 +3973,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "76D25402-6341-4A9D-9020-6ED3AC9C1F0E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
@@ -4066,7 +4066,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "2EC942F6-88D1-4EFC-A065-8FC3974F587F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
@@ -4129,7 +4129,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "0BF45DDF-DE6C-4FA9-9952-F550AA3B5318"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/RemoteCommand.swift"
@@ -4192,7 +4192,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D5EB6514-3556-47ED-9A9C-AEBF4C67EB76"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/SWCompression/Sources/swcomp/Containers/ContainerCommand.swift"
@@ -4208,7 +4208,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             uuid = "2477D94E-8CE4-4EC9-B79D-D5B24CF6F958"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             breakpointStackSelectionBehavior = "1"
@@ -4220,7 +4220,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
          <BreakpointContent
             uuid = "6D33BCAC-BF90-4705-8FE6-EDAB3FFB686F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             symbolName = "malloc_error_break"
@@ -4243,7 +4243,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D8961D92-EADE-451F-8F08-85B5ACF7F6DE"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3Objc/hook.m"
@@ -4306,7 +4306,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "EC1ED83A-A4CF-4EF4-8178-B37B9FC487CD"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3Objc/hook.m"
@@ -4369,7 +4369,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "DAB61EAA-5D9D-4C3B-9B22-A672B14BEF0E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/python3/Sources/python3Objc/hook.m"
@@ -4385,7 +4385,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "71A199BA-1C55-47CC-B057-C0A0D3162802"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeApp/Utilities/node.swift"
@@ -4401,7 +4401,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E8402599-2441-4479-930D-1E5714204CA3"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeApp/Utilities/node.swift"
@@ -4417,7 +4417,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "EAD2E685-9B25-4A08-902F-E363A730AEBB"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeApp/Utilities/node.swift"
@@ -4433,7 +4433,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5BC425D1-94F9-43F6-BFE7-CA8671F63D68"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeApp/Utilities/IDENode.swift"
@@ -4496,14 +4496,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7FD092D6-48F1-4207-A68B-4E03352DF0E0"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeApp/AppExtension/PYLocalExecutionExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "runUICode(app:editor:consoleInstance:dismiss:)"
             landmarkType = "7">
             <Locations>
@@ -4552,6 +4552,21 @@
                   endingLineNumber = "220"
                   offsetFromSymbolStart = "72">
                </Location>
+               <Location
+                  uuid = "7FD092D6-48F1-4207-A68B-4E03352DF0E0 - d416c4092f45e2e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Swift.Optional&lt;__C.UIActivityType&gt;, Swift.Bool, Swift.Optional&lt;Swift.Array&lt;Any&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Python3IDE.PYLocalExecutionExtension.runUICode(app: Python3IDE.MainApp, editor: Python3IDE.EditorInstanceWithURL, consoleInstance: pyde.ConsoleView, dismiss: () -&gt; ()) -&gt; Swift.Optional&lt;SwiftUI.AnyView&gt;"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "221"
+                  endingLineNumber = "221"
+                  offsetFromSymbolStart = "72">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -4559,14 +4574,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5E0E531D-3CDA-4746-9BCC-E5FB14BA3FF6"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeApp/AppExtension/PYLocalExecutionExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "runUICode(app:editor:consoleInstance:dismiss:)"
             landmarkType = "7">
             <Locations>
@@ -4645,6 +4660,36 @@
                   endingLineNumber = "218"
                   offsetFromSymbolStart = "8192">
                </Location>
+               <Location
+                  uuid = "5E0E531D-3CDA-4746-9BCC-E5FB14BA3FF6 - ceb1c2df5aad3199"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Python3IDE.PYLocalExecutionExtension.runUICode(app: Python3IDE.MainApp, editor: Python3IDE.EditorInstanceWithURL, consoleInstance: pyde.ConsoleView, dismiss: () -&gt; ()) -&gt; Swift.Optional&lt;SwiftUI.AnyView&gt;"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "219"
+                  endingLineNumber = "219"
+                  offsetFromSymbolStart = "7660">
+               </Location>
+               <Location
+                  uuid = "5E0E531D-3CDA-4746-9BCC-E5FB14BA3FF6 - ceb1c2df5aad3199"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Python3IDE.PYLocalExecutionExtension.runUICode(app: Python3IDE.MainApp, editor: Python3IDE.EditorInstanceWithURL, consoleInstance: pyde.ConsoleView, dismiss: () -&gt; ()) -&gt; Swift.Optional&lt;SwiftUI.AnyView&gt;"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "219"
+                  endingLineNumber = "219"
+                  offsetFromSymbolStart = "8192">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -4652,14 +4697,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "790FE40E-9307-42C7-8CFA-FE512CFD11AE"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeApp/AppExtension/PYLocalExecutionExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
             landmarkName = "runUICode(app:editor:consoleInstance:dismiss:)"
             landmarkType = "7">
             <Locations>
@@ -4768,6 +4813,51 @@
                   endingLineNumber = "239"
                   offsetFromSymbolStart = "576">
                </Location>
+               <Location
+                  uuid = "790FE40E-9307-42C7-8CFA-FE512CFD11AE - fb55719767b5bd20"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 @Swift.MainActor () -&gt; () in Python3IDE.PYLocalExecutionExtension.runUICode(app: Python3IDE.MainApp, editor: Python3IDE.EditorInstanceWithURL, consoleInstance: pyde.ConsoleView, dismiss: () -&gt; ()) -&gt; Swift.Optional&lt;SwiftUI.AnyView&gt;"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "240"
+                  endingLineNumber = "240"
+                  offsetFromSymbolStart = "424">
+               </Location>
+               <Location
+                  uuid = "790FE40E-9307-42C7-8CFA-FE512CFD11AE - b11fbfe7b050a578"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #5 @Swift.MainActor () -&gt; () in Python3IDE.PYLocalExecutionExtension.runUICode(app: Python3IDE.MainApp, editor: Python3IDE.EditorInstanceWithURL, consoleInstance: pyde.ConsoleView, dismiss: () -&gt; ()) -&gt; Swift.Optional&lt;SwiftUI.AnyView&gt;"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "241"
+                  endingLineNumber = "241"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "790FE40E-9307-42C7-8CFA-FE512CFD11AE - fb55719767b5bd20"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 @Swift.MainActor () -&gt; () in Python3IDE.PYLocalExecutionExtension.runUICode(app: Python3IDE.MainApp, editor: Python3IDE.EditorInstanceWithURL, consoleInstance: pyde.ConsoleView, dismiss: () -&gt; ()) -&gt; Swift.Optional&lt;SwiftUI.AnyView&gt;"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "240"
+                  endingLineNumber = "240"
+                  offsetFromSymbolStart = "576">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -4775,14 +4865,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5A1E2322-D956-4BE5-A524-93969B8F411C"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeApp/AppExtension/PYLocalExecutionExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "runUICode(app:editor:consoleInstance:dismiss:)"
             landmarkType = "7">
             <Locations>
@@ -4846,6 +4936,36 @@
                   endingLineNumber = "232"
                   offsetFromSymbolStart = "9640">
                </Location>
+               <Location
+                  uuid = "5A1E2322-D956-4BE5-A524-93969B8F411C - ceb1c2df5aad33eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Python3IDE.PYLocalExecutionExtension.runUICode(app: Python3IDE.MainApp, editor: Python3IDE.EditorInstanceWithURL, consoleInstance: pyde.ConsoleView, dismiss: () -&gt; ()) -&gt; Swift.Optional&lt;SwiftUI.AnyView&gt;"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "233"
+                  endingLineNumber = "233"
+                  offsetFromSymbolStart = "9088">
+               </Location>
+               <Location
+                  uuid = "5A1E2322-D956-4BE5-A524-93969B8F411C - ceb1c2df5aad33eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Python3IDE.PYLocalExecutionExtension.runUICode(app: Python3IDE.MainApp, editor: Python3IDE.EditorInstanceWithURL, consoleInstance: pyde.ConsoleView, dismiss: () -&gt; ()) -&gt; Swift.Optional&lt;SwiftUI.AnyView&gt;"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "233"
+                  endingLineNumber = "233"
+                  offsetFromSymbolStart = "9640">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -4853,14 +4973,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D9EC62D1-C360-45AA-A3F8-5039FAA124DE"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeApp/AppExtension/PYLocalExecutionExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
             landmarkName = "runUICode(app:editor:consoleInstance:dismiss:)"
             landmarkType = "7">
             <Locations>
@@ -4952,6 +5072,51 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "239"
                   endingLineNumber = "239"
+                  offsetFromSymbolStart = "576">
+               </Location>
+               <Location
+                  uuid = "D9EC62D1-C360-45AA-A3F8-5039FAA124DE - fb55719767b5bd20"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 @Swift.MainActor () -&gt; () in Python3IDE.PYLocalExecutionExtension.runUICode(app: Python3IDE.MainApp, editor: Python3IDE.EditorInstanceWithURL, consoleInstance: pyde.ConsoleView, dismiss: () -&gt; ()) -&gt; Swift.Optional&lt;SwiftUI.AnyView&gt;"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "240"
+                  endingLineNumber = "240"
+                  offsetFromSymbolStart = "424">
+               </Location>
+               <Location
+                  uuid = "D9EC62D1-C360-45AA-A3F8-5039FAA124DE - b11fbfe7b050a578"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #5 @Swift.MainActor () -&gt; () in Python3IDE.PYLocalExecutionExtension.runUICode(app: Python3IDE.MainApp, editor: Python3IDE.EditorInstanceWithURL, consoleInstance: pyde.ConsoleView, dismiss: () -&gt; ()) -&gt; Swift.Optional&lt;SwiftUI.AnyView&gt;"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "241"
+                  endingLineNumber = "241"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "D9EC62D1-C360-45AA-A3F8-5039FAA124DE - fb55719767b5bd20"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 @Swift.MainActor () -&gt; () in Python3IDE.PYLocalExecutionExtension.runUICode(app: Python3IDE.MainApp, editor: Python3IDE.EditorInstanceWithURL, consoleInstance: pyde.ConsoleView, dismiss: () -&gt; ()) -&gt; Swift.Optional&lt;SwiftUI.AnyView&gt;"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/PYLocalExecutionExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "240"
+                  endingLineNumber = "240"
                   offsetFromSymbolStart = "576">
                </Location>
             </Locations>
@@ -6004,54 +6169,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B0841179-1184-41EB-A604-D28C125A1E78"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/SwiftTerm/Sources/SwiftTerm/Apple/AppleTerminalView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1193"
-            endingLineNumber = "1193"
-            landmarkName = "createImageFromBitmap(source:bytes:width:height:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B0841179-1184-41EB-A604-D28C125A1E78 - 3368284ebc31c960"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SwiftTerm.TerminalView.createImageFromBitmap(source: SwiftTerm.Terminal, bytes: inout Swift.Array&lt;Swift.UInt8&gt;, width: Swift.Int, height: Swift.Int) -&gt; ()"
-                  moduleName = "pyde"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/SwiftTerm/Sources/SwiftTerm/Apple/AppleTerminalView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1192"
-                  endingLineNumber = "1192"
-                  offsetFromSymbolStart = "160">
-               </Location>
-               <Location
-                  uuid = "B0841179-1184-41EB-A604-D28C125A1E78 - 3368284ebc31c93f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SwiftTerm.TerminalView.createImageFromBitmap(source: SwiftTerm.Terminal, bytes: inout Swift.Array&lt;Swift.UInt8&gt;, width: Swift.Int, height: Swift.Int) -&gt; ()"
-                  moduleName = "pyde"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/SwiftTerm/Sources/SwiftTerm/Apple/AppleTerminalView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1193"
-                  endingLineNumber = "1193"
-                  offsetFromSymbolStart = "144">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "5B204D0B-DE18-426A-8188-30E62FE037DF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -6095,70 +6212,6 @@
                   offsetFromSymbolStart = "624">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8AC9816D-AAF2-4249-934E-16BD1D7E18F4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "pydeApp/Utilities/IDEWasm.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "userContentController(_:didReceive:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D94251BD-2C58-4341-B738-66BB41B9DD82"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "pydeApp/Utilities/IDEWasm.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "userContentController(_:didReceive:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AF7CFA0E-1AA2-478B-A987-7E32A488152C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "pydeApp/Utilities/IDEWasm.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "userContentController(_:didReceive:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2BEC19B3-85AE-4278-B268-EDC88B232CB5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "pydeApp/Utilities/IDEWasm.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "userContentController(_:didReceive:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6212,38 +6265,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4CB74BF9-11A9-44D9-8841-8F3A245B9D2F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/python3/Sources/CCommon/hook.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "753"
-            endingLineNumber = "753"
-            landmarkName = "pyios_writev(filedes, iov, iovcnt)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BE39AA5F-094E-4E62-9092-20A6396D7E0B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../modules/pythoncc/python3/Sources/CCommon/hook.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "743"
-            endingLineNumber = "743"
-            landmarkName = "pyios_readv(filedes, iov, iovcnt)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "EFB25B7C-5BE8-41CB-A01F-566FA5F9AF72"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -6260,33 +6281,552 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4F1960F6-0F8D-4DDD-95FB-8A632F9F4666"
+            uuid = "D6BCB904-360D-492C-A26C-3C9C7233A254"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pydeApp/AppExtension/WebExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
             landmarkName = "webView(_:decidePolicyFor:preferences:decisionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D6BCB904-360D-492C-A26C-3C9C7233A254 - d9841b8520ad5187"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Python3IDE.WebViewCoordinator.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, preferences: __C.WKWebpagePreferences, decisionHandler: (__C.WKNavigationActionPolicy, __C.WKWebpagePreferences) -&gt; ()) -&gt; ()"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/WebExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "239"
+                  endingLineNumber = "239"
+                  offsetFromSymbolStart = "380">
+               </Location>
+               <Location
+                  uuid = "D6BCB904-360D-492C-A26C-3C9C7233A254 - d9841b8520ad5187"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Python3IDE.WebViewCoordinator.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationAction, preferences: __C.WKWebpagePreferences, decisionHandler: (__C.WKNavigationActionPolicy, __C.WKWebpagePreferences) -&gt; ()) -&gt; ()"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/WebExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "239"
+                  endingLineNumber = "239"
+                  offsetFromSymbolStart = "464">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "10E8A8CA-C1EA-4B53-8D2C-1C9B5A99A76E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pydeApp/AppExtension/WebExtension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
+            landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "10E8A8CA-C1EA-4B53-8D2C-1C9B5A99A76E - f18e3fe006ba00e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Python3IDE.WebViewCoordinator.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationResponse, decisionHandler: (__C.WKNavigationResponsePolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/WebExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "252"
+                  endingLineNumber = "252"
+                  offsetFromSymbolStart = "296">
+               </Location>
+               <Location
+                  uuid = "10E8A8CA-C1EA-4B53-8D2C-1C9B5A99A76E - f18e3fe006ba00e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Python3IDE.WebViewCoordinator.webView(_: __C.WKWebView, decidePolicyFor: __C.WKNavigationResponse, decisionHandler: (__C.WKNavigationResponsePolicy) -&gt; ()) -&gt; ()"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/AppExtension/WebExtension.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "252"
+                  endingLineNumber = "252"
+                  offsetFromSymbolStart = "364">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DFBE9D62-5F91-48F3-A2F4-C94591965209"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/Executor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "onStdout(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "81AF2D25-4B4A-4E67-938B-6B7A72639BB0"
+            uuid = "158F2D73-0743-4752-B468-6078EF28E945"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "pydeApp/AppExtension/WebExtension.swift"
+            filePath = "../../modules/pythoncc/python3/Sources/CCommon/hook.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
-            landmarkName = "webView(_:decidePolicyFor:decisionHandler:)"
+            startingLineNumber = "631"
+            endingLineNumber = "631"
+            landmarkName = "pyios_putc(chr, file)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "158F2D73-0743-4752-B468-6078EF28E945 - d9eb7fa6654f97dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pyios_putc"
+                  moduleName = "CCommon"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/python3/Sources/CCommon/hook.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "614"
+                  endingLineNumber = "614"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "158F2D73-0743-4752-B468-6078EF28E945 - d9eb7fa6654f9182"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pyios_putc"
+                  moduleName = "CCommon"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/python3/Sources/CCommon/hook.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "631"
+                  endingLineNumber = "631"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C78F8B7B-F475-4110-BF7B-F130D3278A90"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../modules/pythoncc/python3/Sources/CCommon/hook.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "775"
+            endingLineNumber = "775"
+            landmarkName = "pyios_writev(filedes, iov, iovcnt)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE84A890-21CC-4EA4-AC6A-0DEA6C3809CA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pydeApp/Utilities/IDEWasm.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "644"
+            endingLineNumber = "644"
+            landmarkName = "executeWebAssembly(arguments:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "BE84A890-21CC-4EA4-AC6A-0DEA6C3809CA - b85acfc37f5ea92c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Python3IDE.executeWebAssembly(arguments: Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Utilities/IDEWasm.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "635"
+                  endingLineNumber = "635"
+                  offsetFromSymbolStart = "7448">
+               </Location>
+               <Location
+                  uuid = "BE84A890-21CC-4EA4-AC6A-0DEA6C3809CA - 66987d5173552a8e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.NSFileHandle) -&gt; () in Python3IDE.executeWebAssembly(arguments: Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Utilities/IDEWasm.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "635"
+                  endingLineNumber = "635"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "BE84A890-21CC-4EA4-AC6A-0DEA6C3809CA - 5551b261c4a0c9f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.NSFileHandle) -&gt; () in ideRemoteA.executeWebAssembly(arguments: Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "ideRemoteA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Utilities/IDEWasm.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "635"
+                  endingLineNumber = "635"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "BE84A890-21CC-4EA4-AC6A-0DEA6C3809CA - 5551b261c4a0c81d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.NSFileHandle) -&gt; () in ideRemoteA.executeWebAssembly(arguments: Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "ideRemoteA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Utilities/IDEWasm.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "644"
+                  endingLineNumber = "644"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "BE84A890-21CC-4EA4-AC6A-0DEA6C3809CA - 66987d5173552b65"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.NSFileHandle) -&gt; () in Python3IDE.executeWebAssembly(arguments: Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Utilities/IDEWasm.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "644"
+                  endingLineNumber = "644"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "BE84A890-21CC-4EA4-AC6A-0DEA6C3809CA - 66987d5173552b65"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.NSFileHandle) -&gt; () in Python3IDE.executeWebAssembly(arguments: Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Utilities/IDEWasm.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "644"
+                  endingLineNumber = "644"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1903C94F-D72F-4426-9254-9F4B458E3624"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pydeApp/Utilities/IDEWasm.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "645"
+            endingLineNumber = "645"
+            landmarkName = "executeWebAssembly(arguments:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "1903C94F-D72F-4426-9254-9F4B458E3624 - 66987d5173552a6d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.NSFileHandle) -&gt; () in Python3IDE.executeWebAssembly(arguments: Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Utilities/IDEWasm.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "636"
+                  endingLineNumber = "636"
+                  offsetFromSymbolStart = "252">
+               </Location>
+               <Location
+                  uuid = "1903C94F-D72F-4426-9254-9F4B458E3624 - 5551b261c4a0c915"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.NSFileHandle) -&gt; () in ideRemoteA.executeWebAssembly(arguments: Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "ideRemoteA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Utilities/IDEWasm.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "636"
+                  endingLineNumber = "636"
+                  offsetFromSymbolStart = "252">
+               </Location>
+               <Location
+                  uuid = "1903C94F-D72F-4426-9254-9F4B458E3624 - 5551b261c4a0c83c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.NSFileHandle) -&gt; () in ideRemoteA.executeWebAssembly(arguments: Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "ideRemoteA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Utilities/IDEWasm.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "645"
+                  endingLineNumber = "645"
+                  offsetFromSymbolStart = "252">
+               </Location>
+               <Location
+                  uuid = "1903C94F-D72F-4426-9254-9F4B458E3624 - 66987d5173552b44"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.NSFileHandle) -&gt; () in Python3IDE.executeWebAssembly(arguments: Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Utilities/IDEWasm.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "645"
+                  endingLineNumber = "645"
+                  offsetFromSymbolStart = "272">
+               </Location>
+               <Location
+                  uuid = "1903C94F-D72F-4426-9254-9F4B458E3624 - 66987d5173552b44"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.NSFileHandle) -&gt; () in Python3IDE.executeWebAssembly(arguments: Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;) -&gt; Swift.Int32"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Utilities/IDEWasm.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "645"
+                  endingLineNumber = "645"
+                  offsetFromSymbolStart = "252">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F89EF820-CB22-4335-A909-DC2436ED7759"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pydeApp/Utilities/Python.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
+            landmarkName = "initRemotePython3Sub()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "F89EF820-CB22-4335-A909-DC2436ED7759 - 96fdc13df6c512bc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ideRemoteA.initRemotePython3Sub() -&gt; ()"
+                  moduleName = "ideRemoteA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Utilities/Python.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
+                  offsetFromSymbolStart = "1556">
+               </Location>
+               <Location
+                  uuid = "F89EF820-CB22-4335-A909-DC2436ED7759 - b9069c00cbfcd66c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Python3IDE.initRemotePython3Sub() -&gt; ()"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Utilities/Python.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
+                  offsetFromSymbolStart = "1612">
+               </Location>
+               <Location
+                  uuid = "F89EF820-CB22-4335-A909-DC2436ED7759 - b9069c00cbfcd66c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Python3IDE.initRemotePython3Sub() -&gt; ()"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Utilities/Python.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "244"
+                  endingLineNumber = "244"
+                  offsetFromSymbolStart = "1556">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B76B7A54-EE64-42DD-8659-86879EE6EADE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pydeApp/Utilities/Python.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
+            landmarkName = "initRemotePython3Sub()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "B76B7A54-EE64-42DD-8659-86879EE6EADE - 9c666fbc59d40567"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in ideRemoteA.initRemotePython3Sub() -&gt; ()"
+                  moduleName = "ideRemoteA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Utilities/Python.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "247"
+                  endingLineNumber = "247"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "B76B7A54-EE64-42DD-8659-86879EE6EADE - 8b2d002c67faa1f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in Python3IDE.initRemotePython3Sub() -&gt; ()"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Utilities/Python.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "247"
+                  endingLineNumber = "247"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "B76B7A54-EE64-42DD-8659-86879EE6EADE - 8b2d002c67faa1f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in Python3IDE.initRemotePython3Sub() -&gt; ()"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Utilities/Python.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "247"
+                  endingLineNumber = "247"
+                  offsetFromSymbolStart = "160">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EE04C560-58DA-4B2C-9BC1-BA88EE042AA2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../modules/pythoncc/SwiftTerm/Sources/SwiftTerm/iOS/iOSTerminalView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "392"
+            endingLineNumber = "392"
+            landmarkName = "showContextMenu(forRegion:pos:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EE04C560-58DA-4B2C-9BC1-BA88EE042AA2 - 63aea7ec34cce589"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftTerm.TerminalView.showContextMenu(forRegion: __C.CGRect, pos: SwiftTerm.Position) -&gt; ()"
+                  moduleName = "pyde"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/SwiftTerm/Sources/SwiftTerm/iOS/iOSTerminalView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "392"
+                  endingLineNumber = "392"
+                  offsetFromSymbolStart = "2464">
+               </Location>
+               <Location
+                  uuid = "EE04C560-58DA-4B2C-9BC1-BA88EE042AA2 - 8085049c3e1bed23"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SwiftTerm.TerminalImage) -&gt; Swift.Bool in SwiftTerm.TerminalView.showContextMenu(forRegion: __C.CGRect, pos: SwiftTerm.Position) -&gt; ()"
+                  moduleName = "pyde"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/SwiftTerm/Sources/SwiftTerm/iOS/iOSTerminalView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "393"
+                  endingLineNumber = "393"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

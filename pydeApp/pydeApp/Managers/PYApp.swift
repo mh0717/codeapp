@@ -57,7 +57,9 @@ class PYApp: ObservableObject {
         }
         
         jupyterCancellable = jupyterManager.objectWillChange.sink { [weak self] (_) in
-            self?.objectWillChange.send()
+            DispatchQueue.main.async {
+                self?.objectWillChange.send()
+            }
         }
         
         downloadManager.onTaskCompletion = {[weak self] in
@@ -332,14 +334,6 @@ class PYApp: ObservableObject {
             }
         } else {
             _versionIncreased = true
-        }
-        
-        DispatchQueue.main.async {
-//            wasmWebView.loadFileURL(
-//                ConstantManager.WASM.appendingPathComponent("wasm-worker.html"),
-//                allowingReadAccessTo: ConstantManager.WASM)
-            
-            wasmWebView.load(URLRequest(url: URL(string: "http://localhost/wasm-worker.html")!))
         }
         
         let fileManager = FileManager.default

@@ -70,15 +70,17 @@ struct TagsIndicator: View {
         }
         let contors = indicators
         
-        var path = editor.url.path
+        var path = editor.url.resolvingSymlinksInPath().path
         if let cpath = URL(string: App.workSpaceStorage.currentDirectory.url)?.path {
             path = path.replacingOccurrences(of: cpath, with: "")
         }
         
-        path = path.replacingOccurrences(of: ConstantManager.documentURL.path, with: "Documents")
-        path = path.replacingOccurrences(of: ConstantManager.appdir.path, with: ConstantManager.APP_NAME + ".app")
-        path = path.replacingOccurrences(of: ConstantManager.appGroupContainer.path, with: "Home")
-        path = path.replacingOccurrences(of: ConstantManager.iCloudContainerURL?.path ?? "", with: "iCloud")
+        path = path.replacingOccurrences(of: ConstantManager.EXAMPLES.resolvingSymlinksInPath().path, with: "")
+        path = path.replacingOccurrences(of: ConstantManager.documentURL.resolvingSymlinksInPath().path, with: "Documents")
+        path = path.replacingOccurrences(of: ConstantManager.appdir.resolvingSymlinksInPath().path, with: ConstantManager.APP_NAME + ".app")
+        path = path.replacingOccurrences(of: ConstantManager.appGroupContainer.resolvingSymlinksInPath().path, with: "Home")
+        path = path.replacingOccurrences(of: ConstantManager.iCloudContainerURL?.resolvingSymlinksInPath().path ?? "", with: "iCloud")
+        
         if path.starts(with: "/") {
             path.removeFirst()
         }

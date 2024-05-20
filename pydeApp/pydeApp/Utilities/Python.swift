@@ -204,7 +204,7 @@ public func initPyDE() {
     replaceCommand("npx", "ide_npx", false)
     replaceCommand("nodeg", "ide_nodeg", false)
     
-//    replaceCommand("wasm", "idewasm", false)
+    replaceCommand("wasm", "idewasm", false)
 //    initDESubIntp()
 //    replaceCommand("python3", "python3Sub", false)
     
@@ -218,6 +218,14 @@ public func initPyDE() {
     replaceCommand("python3.11", "python3Process", false)
     
 //    UIViewController.swizzIt()
+    
+    DispatchQueue.main.async {
+        wasmWebView.loadFileURL(
+            ConstantManager.WASM.appendingPathComponent("wasm.html"),
+            allowingReadAccessTo: ConstantManager.WASM)
+        
+//            wasmWebView.load(URLRequest(url: URL(string: "http://localhost/wasm-worker.html")!))
+    }
 }
 
 public func initRemotePython3Sub() {
@@ -232,6 +240,13 @@ public func initRemotePython3Sub() {
     replaceCommand("plink", "plink", false)
     
     replaceCommand("python3", "python3SubProcess", false)
+    
+    replaceCommand("wasm", "idewasm", false)
+    DispatchQueue.main.async {
+        wasmWebView.loadFileURL(
+            ConstantManager.REMOTE_WASM.appendingPathComponent("wasm.html"),
+            allowingReadAccessTo: ConstantManager.WASM)
+    }
     
     
 //    initDEMainIntp()

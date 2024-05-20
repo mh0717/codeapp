@@ -34,3 +34,11 @@
 //  }
 //}
 //@end
+
+//#if DEBUG
+//
+//#else
+//void NSLog(NSString *format, ...) {
+//    
+//}
+//#endif

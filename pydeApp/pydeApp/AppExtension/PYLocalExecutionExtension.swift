@@ -25,18 +25,19 @@ let PYLOCAL_EXECUTION_COMMANDS = [
     "ui.py": ["python3 -u {url} {args}"],
     "ipynb": ["jupyter-nbconvert --execute --allow-errors --stdout --to markdown {url}"],// --allow-errors
     "c": [
-        "clang  -o {output} -Wl,--export=__f_l_u_s_h__ {url} \(ConstantManager.SYSROOT.path )/flush.o",
+        "clang  -o {output} {url}",
         "wasm {output} {args}"
     ],
     "cpp": [
-        "clang++  -o {output} -Wl,--export=__f_l_u_s_h__ {url} \(ConstantManager.SYSROOT.path )/flush.o",
+        "clang++  -o {output} {url}",
         "wasm {output} {args}"
     ],
     "php": ["php {url} {args}"],
     "lua": ["lua {url} {args}"],
     "pl": ["perl {url} {args}"],
     "js": ["node {url} {args}"],
-    "wasm": ["wasm --dir={wurl} {url} {args}"],
+    "wasm": ["wasm {url} {args}"],
+//    --dir={wurl}
 //    "js": ["node {url}"],
 //    "c": ["clang {url}", "wasm a.out"],
 //    "cpp": ["clang++ {url}", "wasm a.out"],

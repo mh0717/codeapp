@@ -16,8 +16,13 @@ import WebKit
 import ios_system
 import pydeCommon
 
+private var wasmLoaded = false
+
 @_cdecl("idewasm")
 public func idewasm(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    while !wasmLoaded {
+        usleep(1000 * 30)
+    }
     let args = convertCArguments(argc: argc, argv: argv)
     return executeWebAssembly(arguments: args)
 }
@@ -37,6 +42,10 @@ class wasmWebViewDelegate: NSObject, WKNavigationDelegate, WKScriptMessageHandle
             return fileno(thread_stderr_copy)
         }
         return fd
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        wasmLoaded = true
     }
 
     func userContentController(
@@ -629,13 +638,23 @@ private func executeWebAssembly(arguments: [String]?) -> Int32 {
             javascriptRunning = false
         }
     }
+    stdinString = ""
+    let handler = FileHandle(fileDescriptor: fileno(thread_stdin_copy))
+    handler.readabilityHandler = {file in
+        if let msg = String(data: file.availableData, encoding: .utf8) {
+            stdinString += msg
+        }
+    }
+    
+    
     // force synchronization:
     while javascriptRunning {
         if thread_stdout != nil { fflush(thread_stdout) }
         if thread_stderr != nil { fflush(thread_stderr) }
-        //        usleep(300000)
+        usleep(300000)
     }
     fputs("\n", thread_stdout_copy)
+    handler.readabilityHandler = nil
     //    usleep(300000) // 0.3 second
     return errorCode
 }
