@@ -174,6 +174,13 @@ struct PYSettingsView: View {
 //                        ) {
 //                            Text(NSLocalizedString("Release Notes", comment: ""))
 //                        }
+                        Link(
+                            "Terms of Use",
+                            destination: URL(string:"https://www.jianshu.com/p/8ee503e0ae6f")!
+                        )
+                        Link(
+                            "Privacy Agreement",
+                            destination: URL(string: "https://www.jianshu.com/p/3fe837f0abbe")!)
                         
                         Button(action: {
                             showsEraseAlert.toggle()

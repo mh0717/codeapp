@@ -326,14 +326,18 @@ class PYApp: ObservableObject {
     
     
     static func onAppInitialized() {
+        let currentVersion =
+            Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0"
         if let lastReadVersion = UserDefaults.standard.string(forKey: "app.lastVersion") {
-            let currentVersion =
-                Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0"
             if lastReadVersion != currentVersion {
                 _versionIncreased = true
+                UserDefaults.standard.setValue(currentVersion, forKey: "app.lastVersion")
+                UserDefaults.standard.synchronize()
             }
         } else {
             _versionIncreased = true
+            UserDefaults.standard.setValue(currentVersion, forKey: "app.lastVersion")
+            UserDefaults.standard.synchronize()
         }
         
         let fileManager = FileManager.default

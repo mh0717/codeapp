@@ -39,7 +39,8 @@ struct DebugMenu: View {
             }
             #if PYDEAPP
             Button("iap") {
-                App.popupManager.showCover(content: AnyView(IAPView()))
+//                App.popupManager.showCover(content: AnyView(IAPView()))
+                App.popupManager.showCover(content: AnyView(SubIAPView().environmentObject(App).environmentObject(subIapManager)))
             }
             
             Button("iap Sheet") {

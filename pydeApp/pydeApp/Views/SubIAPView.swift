@@ -399,7 +399,7 @@ struct SubIAPView: View {
                         return
                     }
                     
-                    if iapManager.purchasing || iapManager.restoring {
+                    if iapManager.purchasing {
                         return
                     }
                     
@@ -423,14 +423,14 @@ struct SubIAPView: View {
                     }
                         .frame(maxWidth: .infinity)
                         .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-                }.background(Color.init(hex: 0xE93C06))
+                }.background(Color.init(hex: 0xFFA500))
                     .foregroundColor(.white)
                     .cornerRadius(20)
                     .padding(.horizontal)
                     .cornerRadius(20)
                 
                 Button(action: {
-                    if iapManager.restoring || iapManager.purchasing {
+                    if iapManager.restoring {
                         return
                     }
                     
@@ -453,10 +453,38 @@ struct SubIAPView: View {
                     }
                         .foregroundColor(.primary)
                 }).frame(maxWidth: .infinity)
+                
+                if iapManager.isDone {
+                    Button {
+                        iapManager.showIap = false
+                        App.popupManager.showSheet = false
+                        App.popupManager.showCover = false
+                    }
+                    label: {
+                        Label(title: {
+                            Text("DONE")
+                        }) {}
+                            .frame(maxWidth: .infinity)
+                            .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                    }.background(Color.accentColor)
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
+                        .padding(.horizontal)
+                        .cornerRadius(20)
+                }
             }
             .frame(maxWidth: 480)
             .padding(.vertical)
-        }.onAppear {
+        }.overlay(alignment: .topTrailing, content: {
+            Button("", systemImage: "xmark") {
+                if iapManager.isPro {
+                    iapManager.showIap = false
+                    App.popupManager.showSheet = false
+                    App.popupManager.showCover = false
+                }
+            }.font(.system(size: 27)).padding(20).opacity(iapManager.isPro ? 1 : 0)
+        })
+        .onAppear {
             iapManager.updateRevenucat()
         }
         .onSize(in: { size in
@@ -500,9 +528,9 @@ private struct ProductCell: View {
         var offColor: UInt = 0x000000
         var offAlpha = discount == nil ? 0.0 : 1.0
         if isLight {
-            offColor = selected ? 0x009400 : 0xDFDFDF
+            offColor = selected ? 0xFFA500 : 0xDFDFDF
         } else {
-            offColor = selected ? 0x009400 : 0x5F6463
+            offColor = selected ? 0xFFA500 : 0x5F6463
         }
         
         let offTextColor: UInt = selected ? 0xFFFFFF : (isLight ? 0x000000 : 0xFFFFFF)

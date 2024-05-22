@@ -18,9 +18,9 @@ class IAPExtension: CodeAppExtension {
             #if PYTHON3IDE
             
             let im = SubIapManager.instance
-            #if DEBUG
+            #if targetEnvironment(simulator)
             #else
-            if im.runCout >= 5, !im.isPro {
+            if im.runCout >= 10, !im.isPro {
                 im.showIap = true
             }
             #endif
@@ -42,16 +42,25 @@ class IAPExtension: CodeAppExtension {
 //    }
 }
 
+private class SubIapDelegate: NSObject, PurchasesDelegate {
+    var manager: SubIapManager? = nil
+    func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
+        manager?.customerInfo = customerInfo
+    }
+}
+
 class SubIapManager: ObservableObject {
     @Published var showIap: Bool = false
-    @Published var isTrialing: Bool = false
+//    @Published var isTrialing: Bool = false
     @Published var purchasing: Bool = false
     @Published var restoring: Bool = false
-    
+    @Published var isDone: Bool = false
     
     @Published var offering: Offering?
     @Published var customerInfo: CustomerInfo?
     @Published var selectedPackage: Package?
+    
+    private let delegate = SubIapDelegate()
     
     var monthly: Package? {
         offering?.monthly
@@ -86,11 +95,11 @@ class SubIapManager: ObservableObject {
     func initRevenucat() {
         Purchases.configure(
             with: Configuration.Builder(withAPIKey: "HZQrQMJwHIYaPwErZrCVUOJHpOVSoLsa")
-//                .with(usesStoreKit2IfAvailable: true)
+                .with(usesStoreKit2IfAvailable: true)
                 .build()
         )
-        /// - Set the delegate to this instance of AppDelegate. Scroll down to see this implementation.
-//        Purchases.shared.delegate = self
+        Purchases.shared.delegate = delegate
+        delegate.manager = self
         updateRevenucat()
     }
     func updateRevenucat() {
@@ -127,8 +136,6 @@ class SubIapManager: ObservableObject {
     
     var runCout:Int = 0
     
-    private let persistor = RMStoreKeychainPersistence()
-    
     init() {
         if let countData = RMKeychainGetValue("python3ide.runcount"),
            let countStr = String(data: countData, encoding: .utf8),
@@ -144,6 +151,8 @@ class SubIapManager: ObservableObject {
         initRevenucat()
     }
     
+    
+    
     @MainActor func purchase() async -> Bool {
         guard !purchasing, !restoring, let selectedPackage else {
             return false
@@ -156,6 +165,7 @@ class SubIapManager: ObservableObject {
             customerInfo = result.customerInfo
             purchasing = false
             if !result.userCancelled, isPro {
+                isDone = true
                 return true
             }
         } catch {
@@ -179,6 +189,7 @@ class SubIapManager: ObservableObject {
             restoring = false
             
             if isPro {
+                self.isDone = true
                 return true
             }
         } catch {

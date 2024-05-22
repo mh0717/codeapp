@@ -38,7 +38,7 @@ class PopupManager: ObservableObject {
         showOutside = true
     }
     
-    @Published var showIap: Bool = false
+//    @Published var showIap: Bool = false
 
     
     @Environment(\.dismiss) public var dismiss
