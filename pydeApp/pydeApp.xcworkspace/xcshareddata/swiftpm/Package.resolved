@@ -96,8 +96,8 @@
         "repositoryURL": "https://github.com/RevenueCat/purchases-ios-spm.git",
         "state": {
           "branch": null,
-          "revision": "9f46bb70940087ec9a95b1e9288710bb439549d8",
-          "version": "4.41.1"
+          "revision": "966743b0d4353fae28300df677fe303607fd75d0",
+          "version": "4.41.2"
         }
       },
       {

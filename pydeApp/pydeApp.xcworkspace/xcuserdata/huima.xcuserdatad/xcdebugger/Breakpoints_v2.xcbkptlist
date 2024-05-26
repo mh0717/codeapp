@@ -1727,7 +1727,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "273DBA33-4A8D-4DA0-8411-09C91C0EC25E"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/service/CompletionService.swift"
@@ -6384,8 +6384,8 @@
             filePath = "../../modules/pythoncc/pyde/pydeCommon/Sources/pydeCommon/managers/Executor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "onStdout(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -6826,7 +6826,243 @@
                   endingLineNumber = "393"
                   offsetFromSymbolStart = "104">
                </Location>
+               <Location
+                  uuid = "EE04C560-58DA-4B2C-9BC1-BA88EE042AA2 - 8085049c3e1bed23"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SwiftTerm.TerminalImage) -&gt; Swift.Bool in SwiftTerm.TerminalView.showContextMenu(forRegion: __C.CGRect, pos: SwiftTerm.Position) -&gt; ()"
+                  moduleName = "pyde"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/modules/pythoncc/SwiftTerm/Sources/SwiftTerm/iOS/iOSTerminalView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "393"
+                  endingLineNumber = "393"
+                  offsetFromSymbolStart = "108">
+               </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0F89505A-137E-48C9-9091-8D52083FB02F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pydeApp/Managers/SubIapManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "purchase()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0F89505A-137E-48C9-9091-8D52083FB02F - 670281c9f66e85d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Python3IDE.SubIapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Managers/SubIapManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "172"
+                  endingLineNumber = "172"
+                  offsetFromSymbolStart = "460">
+               </Location>
+               <Location
+                  uuid = "0F89505A-137E-48C9-9091-8D52083FB02F - f8eb037116dc475c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Python3IDE.SubIapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Managers/SubIapManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "172"
+                  endingLineNumber = "172"
+                  offsetFromSymbolStart = "332">
+               </Location>
+               <Location
+                  uuid = "0F89505A-137E-48C9-9091-8D52083FB02F - f8eb037116dc475c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Python3IDE.SubIapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Managers/SubIapManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "172"
+                  endingLineNumber = "172"
+                  offsetFromSymbolStart = "200">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0FA2C829-600E-4472-94F5-5DAFBC5BAE46"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pydeApp/Managers/SubIapManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "purchase()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0FA2C829-600E-4472-94F5-5DAFBC5BAE46 - 3ea37663076a79eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Python3IDE.SubIapManager.restore() async -&gt; Swift.Bool"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Managers/SubIapManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "177"
+                  endingLineNumber = "177"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "0FA2C829-600E-4472-94F5-5DAFBC5BAE46 - a2c82f1776acc242"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Python3IDE.SubIapManager.restore() async -&gt; Swift.Bool"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Managers/SubIapManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "177"
+                  endingLineNumber = "177"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "0FA2C829-600E-4472-94F5-5DAFBC5BAE46 - 670281c9f66e9d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Python3IDE.SubIapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Managers/SubIapManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "176"
+                  endingLineNumber = "176"
+                  offsetFromSymbolStart = "484">
+               </Location>
+               <Location
+                  uuid = "0FA2C829-600E-4472-94F5-5DAFBC5BAE46 - f8eb037116dc46d8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Python3IDE.SubIapManager.purchase() async -&gt; Swift.Bool"
+                  moduleName = "Python3IDE"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/huima/PythonSchool/pydeApp/pydeApp/pydeApp/Managers/SubIapManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "176"
+                  endingLineNumber = "176"
+                  offsetFromSymbolStart = "360">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5B8D7BD0-6B58-42FA-9DF5-5353E5FBEFF2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/pydeApp-cfaozwdkhnmiiyatkfrabqopjxqb/SourcePackages/checkouts/purchases-ios-spm/Sources/Purchasing/Purchases/PurchasesOrchestrator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "380"
+            endingLineNumber = "380"
+            landmarkName = "purchase(sk1Product:payment:package:wrapper:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9DE527A4-F869-419E-8B08-AD422FDB2B52"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/pydeApp-cfaozwdkhnmiiyatkfrabqopjxqb/SourcePackages/checkouts/purchases-ios-spm/Sources/Purchasing/Purchases/PurchasesOrchestrator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "404"
+            endingLineNumber = "404"
+            landmarkName = "purchase(sk1Product:payment:package:wrapper:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "29CD8F57-0749-4817-8722-3BAFE9C5DB77"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/pydeApp-cfaozwdkhnmiiyatkfrabqopjxqb/SourcePackages/checkouts/purchases-ios-spm/Sources/Purchasing/Purchases/PurchasesOrchestrator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "953"
+            endingLineNumber = "953"
+            landmarkName = "addPurchaseCompletedCallback(productIdentifier:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8BE2D4B5-4CA3-4716-939B-F587AC246E6B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/pydeApp-cfaozwdkhnmiiyatkfrabqopjxqb/SourcePackages/checkouts/purchases-ios-spm/Sources/Purchasing/Purchases/PurchasesOrchestrator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "967"
+            endingLineNumber = "967"
+            landmarkName = "addPurchaseCompletedCallback(productIdentifier:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E5805F60-4F52-45E6-BD9A-2E0AE8B27FF3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/pydeApp-cfaozwdkhnmiiyatkfrabqopjxqb/SourcePackages/checkouts/purchases-ios-spm/Sources/Purchasing/Purchases/PurchasesOrchestrator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "417"
+            endingLineNumber = "417"
+            landmarkName = "purchase(sk1Product:payment:package:wrapper:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
