@@ -90,6 +90,11 @@ struct PYPanelView: View {
 
     @State var showSheet = false
     
+    
+    @AppStorage("setting.panel.hide.when.editor.focus") var shouldHidePanel: Bool = true
+    @State var restoreShowPanel = false
+    @State var isEditing = false
+    
     var currentPanel: Panel? {
         panelManager.panels.first(where: { $0.labelId == currentPanelId })
     }
@@ -170,7 +175,93 @@ struct PYPanelView: View {
         .foregroundColor(Color(id: "panelTitle.activeForeground"))
         .font(.system(size: 12, weight: .light))
         .frame(height: showsPanel ? min(CGFloat(panelHeight), maxHeight) : PANEL_MINI_HEIGHT)
-            .background(Color.init(id: "editor.background"))
+        .background(Color.init(id: "editor.background"))
+        .onReceive(
+            NotificationCenter.default.publisher(
+                for: UIResponder.keyboardWillShowNotification),
+            perform: { notification in
+                guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect, keyboardFrame.size.height > 150  else {
+                    return
+                }
+                
+                restoreShowPanel = false
+                if isEditing {
+                    if shouldHidePanel && showsPanel {
+                        showsPanel = false
+                        restoreShowPanel = true
+                    }
+                } else {
+                    DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(50))) {
+                        if isEditing && shouldHidePanel && showsPanel {
+                            showsPanel = false
+                            restoreShowPanel = true
+                        }
+                    }
+                }
+            })
+        .onReceive(
+            NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification), perform: { notification in
+                guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect, keyboardFrame.size.height > 150 else {
+                    return
+                }
+                if isEditing && !restoreShowPanel && shouldHidePanel && showsPanel {
+                    showsPanel = false
+                    restoreShowPanel = true
+                }
+            })
+        .onReceive(
+            NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification), perform: { _ in
+                isEditing = false
+            })
+        .onReceive(
+            NotificationCenter.default.publisher(
+                for: Notification.Name("rseditor.focus"),
+                object: nil),
+            perform: { notification in
+                guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
+                    sceneIdentifier == App.sceneIdentifier
+                else { return }
+                isEditing = true
+            }
+        )
+        .onReceive(
+            NotificationCenter.default.publisher(
+                for: Notification.Name("editor.focus"),
+                object: nil),
+            perform: { notification in
+                guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
+                    sceneIdentifier == App.sceneIdentifier
+                else { return }
+                isEditing = true
+            }
+        )
+        .onReceive(
+            NotificationCenter.default.publisher(
+                for: Notification.Name("rseditor.unfocus"),
+                object: nil),
+            perform: { notification in
+                guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
+                    sceneIdentifier == App.sceneIdentifier
+                else { return }
+                isEditing = false
+                if shouldHidePanel && restoreShowPanel && !showsPanel {
+                    showsPanel = true
+                }
+            }
+        )
+        .onReceive(
+            NotificationCenter.default.publisher(
+                for: Notification.Name("editor.unfocus"),
+                object: nil),
+            perform: { notification in
+                guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? UUID,
+                    sceneIdentifier == App.sceneIdentifier
+                else { return }
+                if shouldHidePanel && restoreShowPanel && !showsPanel {
+                    showsPanel = true
+                }
+            }
+        )
             
     }
 }

@@ -66,6 +66,7 @@ struct EditorAndRunnerWidget: View {
     
     @AppStorage("setting.panel.global.show") var showGlobalPanel = true
     
+    
     @State var restoreShowPanel = false
     @State var isEditing = false
     
