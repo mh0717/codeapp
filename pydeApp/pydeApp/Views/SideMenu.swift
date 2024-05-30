@@ -169,16 +169,16 @@ public struct TwoSideMenu<MenuContent: View, RightMenu: View>: ViewModifier {
             }
             
         }).onEnded { event in
-            
+            var duration: TimeInterval = 0.1
             if isEnabled, !isShowing {
                 if offset >= -sideWidth * 0.7 {
-                    withAnimation {
+                    withAnimation(.linear(duration: duration)) {
                         offset = 0
                         isShowing = true
                     }
                     
                 } else {
-                    withAnimation {
+                    withAnimation(.linear(duration: duration)) {
                         offset = -sideWidth
                     }
                     
@@ -187,7 +187,7 @@ public struct TwoSideMenu<MenuContent: View, RightMenu: View>: ViewModifier {
             
             if isEnabled, isShowing {
                 if event.startLocation.x >= 50, event.translation.width < 10 {
-                    withAnimation {
+                    withAnimation(.linear(duration: duration)) {
                         isShowing = false
                         offset = -sideWidth
                     }
@@ -197,12 +197,12 @@ public struct TwoSideMenu<MenuContent: View, RightMenu: View>: ViewModifier {
             
             if isRightEnabled, !isRightShowing {
                 if rightOffset >= width - sideWidth * 0.3 {
-                    withAnimation {
+                    withAnimation(.linear(duration: duration)) {
                         rightOffset = width
                         isRightShowing = false
                     }
                 } else {
-                    withAnimation {
+                    withAnimation(.linear(duration: duration)) {
                         rightOffset = width - sideWidth
                         isRightShowing = true
                     }
@@ -211,12 +211,12 @@ public struct TwoSideMenu<MenuContent: View, RightMenu: View>: ViewModifier {
             
             if isRightEnabled, isRightShowing {
                 if event.startLocation.x < width - 50, event.translation.width > 10 {
-                    withAnimation {
+                    withAnimation(.linear(duration: duration)) {
                         rightOffset = width
                         isRightShowing = false
                     }
                 } else {
-                    withAnimation {
+                    withAnimation(.linear(duration: duration)) {
                         rightOffset = width - sideWidth
                     }
                 }

@@ -146,6 +146,7 @@ struct RunestoneEditor: UIViewRepresentable {
                 editorView.textView.isEditable = false
             }
         }
+        editorView.textView.indentStrategy = .space(length: edtorTabSize)
         editorView.textView.isLineWrappingEnabled = (editorWordWrap != "off")
         editorView.textView.lineBreakMode = .byWordWrapping
         editorView.textView.showLineNumbers = editorLineNumberEnabled
@@ -274,8 +275,7 @@ struct PYRunnerWidget: UIViewRepresentable {
         consoleView.terminalView.backgroundColor = theme.backgroundColor
         consoleView.terminalView.nativeForegroundColor = ThemeManager.isDark() ? UIColor.white : UIColor.black
         consoleView.terminalView.nativeBackgroundColor = UIColor(id: "editor.background")
-        consoleView.terminalView.selectedTextBackgroundColor = UIColor(id: "editor.background").blendAlpha(coverColor: theme.markedTextBackgroundColor.withAlphaComponent(0.4)) 
-//        consoleView.terminalView.selectedTextBackgroundColor =  theme.markedTextBackgroundColor.blendAlpha(coverColor: UIColor(id: "editor.background"))
+        consoleView.terminalView.selectedTextBackgroundColor = theme.backgroundColor.blendAlpha(coverColor: theme.markedTextBackgroundColor)
     }
     
 }

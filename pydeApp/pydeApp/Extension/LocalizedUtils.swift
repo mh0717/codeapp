@@ -28,3 +28,4 @@ func localizedString(_ key: String, comment: String = "") -> String {
 
     return result
 }
+

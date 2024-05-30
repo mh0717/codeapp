@@ -97,7 +97,7 @@ class MonacoCompletionExtension: CodeAppExtension {
                 return (nil, message.name)
             }
             
-            if event == "PythonCompletion" {
+            if ["PythonCompletion", "CCompletion", "CPPCompletion"].contains(event) {
                 if let uri = result["Uri"] as? String,
                    let content = result["Content"] as? String,
                    let index = result["Index"] as? Int,
@@ -311,7 +311,7 @@ monaco.languages.registerCompletionItemProvider("json", {
     },
 });
 
-monaco.languages.registerCompletionItemProvider("python", {
+monaco.languages.registerCompletionItemProvider(["python", "c", "cpp"], {
     provideCompletionItems: function (model, position) {
         var word = model.getWordUntilPosition(position);
         var range = {

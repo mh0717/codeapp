@@ -198,7 +198,7 @@ public class RSCodeLocalTheme : EditorTheme {
         invisibleCharactersColor = UIColor.init(hex: theme.editor.invisibleCharacters) ?? UIColor.black
         pageGuideHairlineColor = UIColor.init(hex: theme.editor.gutter.hairline) ?? UIColor.black
         pageGuideBackgroundColor = UIColor.init(hex: theme.editor.gutter.background) ?? UIColor.black
-        markedTextBackgroundColor = UIColor.init(hex: theme.editor.highlightedTextBackground) ?? UIColor.white
+        markedTextBackgroundColor = UIColor.init(hex: theme.editor.highlightedTextBackground) ?? textColor.withAlphaComponent(0.2)
         
     }
     
