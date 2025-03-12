@@ -358,7 +358,7 @@ public class PipService {
                         }
                     }
                     let str = packages.joined(separator: "\n")
-                    try str.write(to: URL(fileURLWithPath: "/Users/huima/PythonSchool/modules/pythoncc/pyde/Sources/pyde/h5/pypi_index.txt"), atomically: true, encoding: .utf8)
+                    try str.write(to: URL(fileURLWithPath: "/Volumes/Python/PythonSchool/modules/pythoncc/pyde/Sources/pyde/h5/pypi_index.txt"), atomically: true, encoding: .utf8)
                 } catch {
                     print(error.localizedDescription)
                 }

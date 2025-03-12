@@ -26,16 +26,15 @@ struct SourceControlTemplateSection: View {
                 ProgressView()
             }
 
-            
-//            #if PYTHON3IDE
-//            Text(NSLocalizedString("source_control.community_templates.description", comment: "").replacingFirstOccurrence(of: "{{python3ide}}", with: ""))
-//                .foregroundColor(.gray)
-//                .font(.system(size: 12, weight: .light))
-//            #else
-//            Text(NSLocalizedString("source_control.community_templates.description", comment: "").replacingFirstOccurrence(of: "{{ipyde-template}}", with: ""))
-//                .foregroundColor(.gray)
-//                .font(.system(size: 12, weight: .light))
-//            #endif
+            //            #if PYTHON3IDE
+            //            Text(NSLocalizedString("source_control.community_templates.description", comment: "").replacingFirstOccurrence(of: "{{python3ide}}", with: ""))
+            //                .foregroundColor(.gray)
+            //                .font(.system(size: 12, weight: .light))
+            //            #else
+            //            Text(NSLocalizedString("source_control.community_templates.description", comment: "").replacingFirstOccurrence(of: "{{ipyde-template}}", with: ""))
+            //                .foregroundColor(.gray)
+            //                .font(.system(size: 12, weight: .light))
+            //            #endif
         }
         .onAppear {
             if App.searchManager.templates == nil {

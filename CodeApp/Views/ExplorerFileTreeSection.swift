@@ -67,10 +67,10 @@ struct ExplorerFileTreeSection: View {
     var body: some View {
         ExpandedSection(
             header: Text(
-            App.workSpaceStorage.currentDirectory.name.replacingOccurrences(
-                of: "{default}", with: " "
-            ).removingPercentEncoding!
-        ).foregroundColor(Color(id: "sideBarSectionHeader.foreground")), 
+                App.workSpaceStorage.currentDirectory.name.replacingOccurrences(
+                    of: "{default}", with: " "
+                ).removingPercentEncoding!
+            ).foregroundColor(Color(id: "sideBarSectionHeader.foreground")),
             content: HierarchyList(
                 data: foldersWithFilter(
                     folder: App.workSpaceStorage.currentDirectory.subFolderItems),

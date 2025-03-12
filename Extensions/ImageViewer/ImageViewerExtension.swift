@@ -96,5 +96,3 @@ class ImageViewerExtension: CodeAppExtension {
         contribution.editorProvider.register(provider: provider)
     }
 }
-
-

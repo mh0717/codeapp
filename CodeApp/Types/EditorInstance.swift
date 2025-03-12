@@ -8,8 +8,9 @@
 import Foundation
 import MarkdownView
 import SwiftUI
+
 #if PYDEAPP
-import pydeCommon
+    import pydeCommon
 #endif
 
 class EditorInstance: ObservableObject, Identifiable, Equatable, Hashable {
@@ -29,21 +30,21 @@ class EditorInstance: ObservableObject, Identifiable, Equatable, Hashable {
         self.view = view
         self.title = title
     }
-    
+
     #if PYDEAPP
-    var keepAlive = false
-    
-    func dispose() {
-        
-    }
+        var keepAlive = false
+
+        func dispose() {
+
+        }
     #endif
 }
 
 class EditorInstanceWithURL: EditorInstance {
     #if PYDEAPP
-    var canEditUrl: Bool {false}
-    func updateUrl(_ url: URL){}
-    var runArgs: String = ""
+        var canEditUrl: Bool { false }
+        func updateUrl(_ url: URL) {}
+        var runArgs: String = ""
     #endif
 
     enum FileState {
@@ -68,11 +69,11 @@ class EditorInstanceWithURL: EditorInstance {
         else {
             return self.url.path
         }
-        
+
         #if PYDEAPP
-        if url.path.count <= (lastMatchIndex + 37) {
-            return url.path
-        }
+            if url.path.count <= (lastMatchIndex + 37) {
+                return url.path
+            }
         #endif
 
         return String(
@@ -99,11 +100,11 @@ class EditorInstanceWithURL: EditorInstance {
 class TextEditorInstance: EditorInstanceWithURL {
     @Published var lastSavedVersionId = 1
     @Published var currentVersionId = 1
-    
+
     #if PYDEAPP
-    @Published var tags: [CTag] = []
-    @Published var selectedRange: NSRange = NSRange(location: 0, length: 0)
-    var readOnly: Bool = false
+        @Published var tags: [CTag] = []
+        @Published var selectedRange: NSRange = NSRange(location: 0, length: 0)
+        var readOnly: Bool = false
     #endif
 
     @Published var content: String
@@ -152,48 +153,48 @@ class TextEditorInstance: EditorInstanceWithURL {
         //     }
         // }
         // self.fileWatch?.startMonitoring()
-        
+
         #if PYDEAPP
-        if !FileManager.default.isWritableFile(atPath: url.path) {
-            readOnly = true
-        }
-        if url.isContained(in: Bundle.main.bundleURL) {
-            readOnly = true
-        }
-        if let att = try? FileManager.default.attributesOfItem(atPath: url.path){
-            if let permissions = att[FileAttributeKey.posixPermissions] as? Int{
-                if (permissions & 128) == 0 {
-                    readOnly = true
+            if !FileManager.default.isWritableFile(atPath: url.path) {
+                readOnly = true
+            }
+            if url.isContained(in: Bundle.main.bundleURL) {
+                readOnly = true
+            }
+            if let att = try? FileManager.default.attributesOfItem(atPath: url.path) {
+                if let permissions = att[FileAttributeKey.posixPermissions] as? Int {
+                    if (permissions & 128) == 0 {
+                        readOnly = true
+                    }
                 }
             }
-        }
-        #if targetEnvironment(simulator)
-//        readOnly = false
-        #endif
-//        self.view = AnyView(VStack(spacing: 0, content: {
-////            TagsIndicator(editor: self)
-//            
-//            AnyView(editor)
-//        }))
-//        self.view = AnyView(ZStack {
-//            VStack(spacing: 0) {
-//                TagsIndicator(editor: self).background(Color.red)
-//                Spacer()
-//            }
-//            
-//            VStack(spacing: 0) {
-//                Text("Tagindicator")
-//                    .font(.system(size: 12, weight: .light))
-//                    .foregroundColor(Color.clear)
-//                    .frame(minHeight: 28)
-//                Rectangle()
-//                    .frame(minWidth: 0, maxWidth: .infinity,minHeight: 1, maxHeight: 1)
-//                    .foregroundColor(
-//                        Color.init(id: "panel.border"))
-//                AnyView(editor)
-//            }
-//            
-//        })
+            #if targetEnvironment(simulator)
+                //        readOnly = false
+            #endif
+        //        self.view = AnyView(VStack(spacing: 0, content: {
+        ////            TagsIndicator(editor: self)
+        //
+        //            AnyView(editor)
+        //        }))
+        //        self.view = AnyView(ZStack {
+        //            VStack(spacing: 0) {
+        //                TagsIndicator(editor: self).background(Color.red)
+        //                Spacer()
+        //            }
+        //
+        //            VStack(spacing: 0) {
+        //                Text("Tagindicator")
+        //                    .font(.system(size: 12, weight: .light))
+        //                    .foregroundColor(Color.clear)
+        //                    .frame(minHeight: 28)
+        //                Rectangle()
+        //                    .frame(minWidth: 0, maxWidth: .infinity,minHeight: 1, maxHeight: 1)
+        //                    .foregroundColor(
+        //                        Color.init(id: "panel.border"))
+        //                AnyView(editor)
+        //            }
+        //
+        //        })
         #endif
     }
 }

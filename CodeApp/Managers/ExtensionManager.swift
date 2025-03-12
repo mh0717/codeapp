@@ -14,54 +14,54 @@ class ExtensionManager: ObservableObject {
     @Published var statusBarManager = StatusBarManager()
     @Published var activityBarManager = ActivityBarManager()
     var fileMenuManager = FileMenuManager()
-    
+
     #if PYDEAPP
-    private var extensions: [CodeAppExtension] = [
-        MonacoEditorAuxiliaryExtension(),
-//        MonacoIntellisenseExtension(),
-//        RemoteExecutionExtension(),
-//        TerminalExtension(),
-//        ImageViewerExtension(),
-        VideoViewerExtension(),
-        PDFViewerExtension(),
-        MarkdownViewerExtension(),
-        SourceControlAuxiliaryExtension(),
-//        SimpleWebPreviewExtension(),
-//        RemoteAuxiliaryExtension(),
-        
-        VCInTabExtension(),
-        MonacoCompletionExtension(),
-        PYLocalExecutionExtension(),
-        
-        JupyterExtension(),
-        PYRunnerExtension(),
-//        TMConsoleExtension(),
-        IAPExtension(),
-        QuickLookExtension(),
-        SWCompViewerExtension(),
-        EpubExtension(),
-        WebExtension(),
-        WheelExtensionManager(),
-        RunParamsExtension(),
-        PYImageViewerExtension(),
-    ]
+        private var extensions: [CodeAppExtension] = [
+            MonacoEditorAuxiliaryExtension(),
+            //        MonacoIntellisenseExtension(),
+            //        RemoteExecutionExtension(),
+            //        TerminalExtension(),
+            //        ImageViewerExtension(),
+            VideoViewerExtension(),
+            PDFViewerExtension(),
+            MarkdownViewerExtension(),
+            SourceControlAuxiliaryExtension(),
+            //        SimpleWebPreviewExtension(),
+            //        RemoteAuxiliaryExtension(),
+
+            VCInTabExtension(),
+            MonacoCompletionExtension(),
+            PYLocalExecutionExtension(),
+
+            JupyterExtension(),
+            PYRunnerExtension(),
+            //        TMConsoleExtension(),
+            IAPExtension(),
+            QuickLookExtension(),
+            SWCompViewerExtension(),
+            EpubExtension(),
+            WebExtension(),
+            WheelExtensionManager(),
+            RunParamsExtension(),
+            PYImageViewerExtension(),
+            JsonUIPreviewExtension(),
+        ]
     #else
-    private var extensions: [CodeAppExtension] = [
-        MonacoEditorAuxiliaryExtension(),
-        MonacoIntellisenseExtension(),
-        RemoteExecutionExtension(),
-        LocalExecutionExtension(),
-        TerminalExtension(),
-        ImageViewerExtension(),
-        VideoViewerExtension(),
-        PDFViewerExtension(),
-        MarkdownViewerExtension(),
-        SourceControlAuxiliaryExtension(),
-        SimpleWebPreviewExtension(),
-        RemoteAuxiliaryExtension(),
-    ]
+        private var extensions: [CodeAppExtension] = [
+            MonacoEditorAuxiliaryExtension(),
+            MonacoIntellisenseExtension(),
+            RemoteExecutionExtension(),
+            LocalExecutionExtension(),
+            TerminalExtension(),
+            ImageViewerExtension(),
+            VideoViewerExtension(),
+            PDFViewerExtension(),
+            MarkdownViewerExtension(),
+            SourceControlAuxiliaryExtension(),
+            SimpleWebPreviewExtension(),
+            RemoteAuxiliaryExtension(),
+        ]
     #endif
-    
 
     func registerExtension(ex: CodeAppExtension) {
         extensions.append(ex)

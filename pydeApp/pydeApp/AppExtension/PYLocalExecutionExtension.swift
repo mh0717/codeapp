@@ -9,7 +9,6 @@ import Foundation
 import pydeCommon
 import SwiftUI
 import UIKit
-import python3Objc
 import ios_system
 import QuickLook
 import Dynamic
@@ -37,6 +36,8 @@ let PYLOCAL_EXECUTION_COMMANDS = [
     "pl": ["perl {url} {args}"],
     "js": ["node {url} {args}"],
     "wasm": ["wasm {url} {args}"],
+    "tcl": ["tclsh {url} {args}"],
+    "ui.tcl": ["wish {url} {args}"],
 //    --dir={wurl}
 //    "js": ["node {url}"],
 //    "c": ["clang {url}", "wasm a.out"],
@@ -146,7 +147,16 @@ class PYLocalExecutionExtension: CodeAppExtension {
         
         let args = editor.runArgs.replacingOccurrences(of: "\n", with: " ")
         let sanitizedUrl = editor.url.path.replacingOccurrences(of: " ", with: #"\ "#)
-        let commands = PYLOCAL_EXECUTION_COMMANDS["ui.py"]!.map {
+        var oricommand: [String]? = nil
+        if sanitizedUrl.lowercased().hasSuffix("ui.py") {
+            oricommand = PYLOCAL_EXECUTION_COMMANDS["ui.py"]
+        } else if sanitizedUrl.lowercased().hasSuffix("ui.tcl") {
+            oricommand = PYLOCAL_EXECUTION_COMMANDS["ui.tcl"]
+        }
+        guard let oricommand else {
+            return nil
+        }
+        let commands = oricommand.map {
             $0.replacingOccurrences(of: "{url}", with: sanitizedUrl)
                 .replacingOccurrences(of: "{args}", with: args)
         }
@@ -155,60 +165,62 @@ class PYLocalExecutionExtension: CodeAppExtension {
             return nil
         }
         
-        #if DEBUG
-        let runUIInPreview = UserDefaults.standard.bool(forKey: "runUIInPreview")
-        if runUIInPreview {
-            let name = editor.url.lastPathComponent.replacingFirstOccurrence(of: ".ui.py", with: "").replacingFirstOccurrence(of: ".py", with: "")
-            let pyuiDir = ConstantManager.appGroupContainer.appendingPathComponent("pyui")
-            try? FileManager.default.createDirectory(at: pyuiDir, withIntermediateDirectories: true)
-            let linkDir = pyuiDir.appendingPathComponent((UUID().uuidString + ".pyui"))
+        wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_UI_FORCE_EXIT)
+        
+//        #if DEBUG
+//        let runUIInPreview = UserDefaults.standard.bool(forKey: "runUIInPreview")
+//        if runUIInPreview {
+//            let name = editor.url.lastPathComponent.replacingFirstOccurrence(of: ".ui.py", with: "").replacingFirstOccurrence(of: ".py", with: "")
+//            let pyuiDir = ConstantManager.appGroupContainer.appendingPathComponent("pyui")
 //            try? FileManager.default.createDirectory(at: pyuiDir, withIntermediateDirectories: true)
-//
-            let wkdir = URL(string: app.workSpaceStorage.currentDirectory.url)!
-//            let linkDir = pyuiDir.appendingPathComponent("\(name).pyui")
-            try? FileManager.default.linkItem(at: wkdir, to: linkDir)
-//            try? FileManager.default.createSymbolicLink(at: linkDir, withDestinationURL: wkdir)
-            
-            
-            var newConfig = config
-            let newPath = editor.url.path.replacingFirstOccurrence(of: wkdir.path, with: linkDir.path)
-            let sanitizedUrl = newPath.replacingOccurrences(of: " ", with: #"\ "#)
-            let commands = PYLOCAL_EXECUTION_COMMANDS["ui.py"]!.map {
-                $0.replacingOccurrences(of: "{url}", with: sanitizedUrl)
-                    .replacingOccurrences(of: "{args}", with: args)
-            }
-            newConfig["commands"] = commands
-            
-            
-            let ntidentifier = consoleInstance.executor.persistentIdentifier
-            let fileUrl = linkDir.appendingPathComponent(".run.pyui")
-            NSKeyedArchiver.archiveRootObject(newConfig, toFile: fileUrl.path)
-            
-            
-            DispatchQueue.main.async {
-                let vc = PYQLUIPreviewController(fileUrl, ntidentifier)
-                let reditor = PYCenterVCEditorInstance(vc)
-//                reditor.keepAlive = true
-                app.appendAndFocusNewEditor(editor: reditor, alwaysInNewTab: true)
-            }
-            
-//            NotificationCenter.default.post(name: Notification.Name("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": vc, "keepAlive": true])
-            
-            //        DispatchQueue.main.async {
-            //            if #available(iOS 16.0, *) {
-            //                app.popupManager.showCover(
-            //                    content: AnyView(VCRepresentable(
-            //                        vc
-            //                    ))/*.presentationDetents([.height(400)]))*/
-            //                )
-            //            } else {
-            //                // Fallback on earlier versions
-            //            }
-            //        }
-            _ = consoleInstance.executor.evaluateCommands(["readremote"])
-            return nil
-        }
-        #endif
+//            let linkDir = pyuiDir.appendingPathComponent((UUID().uuidString + ".pyui"))
+////            try? FileManager.default.createDirectory(at: pyuiDir, withIntermediateDirectories: true)
+////
+//            let wkdir = URL(string: app.workSpaceStorage.currentDirectory.url)!
+////            let linkDir = pyuiDir.appendingPathComponent("\(name).pyui")
+//            try? FileManager.default.linkItem(at: wkdir, to: linkDir)
+////            try? FileManager.default.createSymbolicLink(at: linkDir, withDestinationURL: wkdir)
+//            
+//            
+//            var newConfig = config
+//            let newPath = editor.url.path.replacingFirstOccurrence(of: wkdir.path, with: linkDir.path)
+//            let sanitizedUrl = newPath.replacingOccurrences(of: " ", with: #"\ "#)
+//            let commands = PYLOCAL_EXECUTION_COMMANDS["ui.py"]!.map {
+//                $0.replacingOccurrences(of: "{url}", with: sanitizedUrl)
+//                    .replacingOccurrences(of: "{args}", with: args)
+//            }
+//            newConfig["commands"] = commands
+//            
+//            
+//            let ntidentifier = consoleInstance.executor.persistentIdentifier
+//            let fileUrl = linkDir.appendingPathComponent(".run.pyui")
+//            NSKeyedArchiver.archiveRootObject(newConfig, toFile: fileUrl.path)
+//            
+//            
+//            DispatchQueue.main.async {
+//                let vc = PYQLUIPreviewController(fileUrl, ntidentifier)
+//                let reditor = PYCenterVCEditorInstance(vc)
+////                reditor.keepAlive = true
+//                app.appendAndFocusNewEditor(editor: reditor, alwaysInNewTab: true)
+//            }
+//            
+////            NotificationCenter.default.post(name: Notification.Name("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": vc, "keepAlive": true])
+//            
+//            //        DispatchQueue.main.async {
+//            //            if #available(iOS 16.0, *) {
+//            //                app.popupManager.showCover(
+//            //                    content: AnyView(VCRepresentable(
+//            //                        vc
+//            //                    ))/*.presentationDetents([.height(400)]))*/
+//            //                )
+//            //            } else {
+//            //                // Fallback on earlier versions
+//            //            }
+//            //        }
+//            _ = consoleInstance.executor.evaluateCommands(["readremote"])
+//            return nil
+//        }
+//        #endif
         
         let provider = NSItemProvider(item: "provider" as NSSecureCoding, typeIdentifier: ConstantManager.pydeUI)
         let item = NSExtensionItem()
@@ -290,7 +302,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
         
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         
-        if editor.url.path.hasSuffix(".ui.py") {
+        if editor.url.path.hasSuffix(".ui.py") || editor.url.path.hasSuffix(".ui.tcl") {
             _ = runUICode(app: app, editor: editor, consoleInstance: consoleInstance, dismiss: {})
             return
         }
@@ -306,6 +318,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             "import flet",
             "import turtle",
             "import toga",
+            "import Tk",
             "from sdl2 ",
             "from sdl2.",
             "from pygame ",
@@ -316,7 +329,9 @@ class PYLocalExecutionExtension: CodeAppExtension {
             "from flet.",
             "from turtle ",
             "from toga ",
-            "from toga."
+            "from toga.",
+            "from Tk ",
+            "from Tk.",
         ].contains(where: {content.contains($0)})) {
             _ = runUICode(app: app, editor: editor, consoleInstance: consoleInstance, dismiss: {})
             return

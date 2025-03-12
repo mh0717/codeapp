@@ -23,7 +23,7 @@ struct ExplorerEditorListSection: View {
                     }
                     .listRowBackground(Color.clear)
                     .listRowSeparator(.hidden)
-                    
+
                     SideBarButton("New Folder") {
                         Task {
                             Task {
@@ -36,22 +36,22 @@ struct ExplorerEditorListSection: View {
                     }
                     .listRowBackground(Color.clear)
                     .listRowSeparator(.hidden)
-                    
+
                     SideBarButton("common.open_folder") {
                         onPickNewDirectory()
                     }
                     .listRowBackground(Color.clear)
                     .listRowSeparator(.hidden)
                 }
-                
+
                 ForEach(App.editors) { editor in
                     EditorCell(editor: editor)
                         .frame(height: 16)
                         .listRowBackground(
                             editor == App.activeEditor
-                            ? Color.init(id: "list.inactiveSelectionBackground")
-                                .cornerRadius(10.0)
-                            : Color.clear.cornerRadius(10.0)
+                                ? Color.init(id: "list.inactiveSelectionBackground")
+                                    .cornerRadius(10.0)
+                                : Color.clear.cornerRadius(10.0)
                         )
                         .listRowSeparator(.hidden)
                 }
@@ -108,7 +108,6 @@ struct ExplorerEditorListSection: View {
     }
 }
 
-
 private struct EditorCell: View {
 
     @EnvironmentObject var App: MainApp
@@ -159,19 +158,19 @@ private struct EditorCell: View {
                     } else {
                         FileDisplayName(gitStatus: nil, name: editor?.title ?? "")
                     }
-                    
+
                     Spacer()
-                    
+
                     Image(systemName: "xmark").onTapGesture {
                         if let editor = App.activeEditor {
                             App.closeEditor(editor: editor)
                         }
                     }.font(.system(size: 15))
-                    .foregroundColor(Color.init("T1")).padding(5)
-                    .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                    .hoverEffect(.highlight)
-                    .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
-                    .padding(EdgeInsets.init(top: 5, leading: 10, bottom: 5, trailing: 0))
+                        .foregroundColor(Color.init("T1")).padding(5)
+                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                        .hoverEffect(.highlight)
+                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
+                        .padding(EdgeInsets.init(top: 5, leading: 10, bottom: 5, trailing: 0))
 
                 }.padding(5)
             }

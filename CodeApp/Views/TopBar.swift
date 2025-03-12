@@ -24,45 +24,45 @@ struct TopBar: View {
     var body: some View {
         HStack(spacing: 0) {
             #if PYDEAPP
-            if !isSideBarExpanded {
-                Button(action: {
-                    withAnimation(.easeIn(duration: 0.2)) {
-                        isSideBarExpanded.toggle()
+                if !isSideBarExpanded {
+                    Button(action: {
+                        withAnimation(.easeIn(duration: 0.2)) {
+                            isSideBarExpanded.toggle()
+                        }
+                    }) {
+                        Image(systemName: "sidebar.left")
+                            .font(.system(size: 17))
+                            .foregroundColor(Color.init("T1"))
+                            .padding(5)
+                            .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                            .hoverEffect(.highlight)
+                            .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
+                            .padding()
                     }
-                }) {
-                    Image(systemName: "sidebar.left")
-                        .font(.system(size: 17))
-                        .foregroundColor(Color.init("T1"))
-                        .padding(5)
-                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                        .hoverEffect(.highlight)
-                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
-                        .padding()
                 }
-            }
             #else
-            if !isSideBarExpanded && horizontalSizeClass == .compact {
-                Button(action: {
-                    withAnimation(.easeIn(duration: 0.2)) {
-                        isSideBarExpanded.toggle()
+                if !isSideBarExpanded && horizontalSizeClass == .compact {
+                    Button(action: {
+                        withAnimation(.easeIn(duration: 0.2)) {
+                            isSideBarExpanded.toggle()
+                        }
+                    }) {
+                        Image(systemName: "sidebar.left")
+                            .font(.system(size: 17))
+                            .foregroundColor(Color.init("T1"))
+                            .padding(5)
+                            .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                            .hoverEffect(.highlight)
+                            .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
+                            .padding()
                     }
-                }) {
-                    Image(systemName: "sidebar.left")
-                        .font(.system(size: 17))
-                        .foregroundColor(Color.init("T1"))
-                        .padding(5)
-                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                        .hoverEffect(.highlight)
-                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
-                        .padding()
                 }
-            }
             #endif
-            
+
             if horizontalSizeClass == .compact {
                 CompactEditorTabs()
                     .frame(maxWidth: .infinity)
-                
+
             } else {
                 if #available(iOS 16.0, *) {
                     ViewThatFits(in: .horizontal) {
@@ -88,58 +88,112 @@ struct TopBar: View {
                     ToolbarItemView(item: item)
                 }
             }
-            
+
             #if PYDEAPP
-//            if App.activeTextEditor != nil {
-//                if let editor = App.activeEditor as? PYTextEditorInstance {
-//                    if #available(iOS 16, *) {
-//                        Image(systemName: "doc.text.magnifyingglass").font(.system(size: 17))
-//                            .foregroundColor(Color.init("T1")).padding(5)
-//                            .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-//                            .hoverEffect(.highlight)
-//                            .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
-//                            .onTapGesture {
-//                                editor.editorView.findInteraction?.presentFindNavigator(showingReplace: true)
-//                            }
-//                    }
-//                } else {
-//                    Image(systemName: "doc.text.magnifyingglass").font(.system(size: 17))
-//                        .foregroundColor(Color.init("T1")).padding(5)
-//                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-//                        .hoverEffect(.highlight)
-//                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
-//                        .onTapGesture {
-//                            App.monacoInstance.executeJavascript(command: "editor.focus()")
-//                            App.monacoInstance.executeJavascript(
-//                                command: "editor.getAction('actions.find').run()")
-//                        }
-//                }
-//                
-//            }
-            
-            if App.activeTextEditor is DiffTextEditorInstnace {
-                Image(systemName: "doc.text").font(.system(size: 17))
-                    .foregroundColor(Color.init("T1")).padding(5)
-                    .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                    .hoverEffect(.highlight)
-                    .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
-                    .onTapGesture {
-                        App.monacoInstance.applyOptions(options: "renderSideBySide: false")
-                    }
-            }
-            
-            if App.editors.count > 0 {
-                Image(systemName: "xmark").font(.system(size: 17))
-                    .foregroundColor(Color.init("T1")).padding(5)
-                    .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                    .hoverEffect(.highlight)
-                    .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
-                    .onTapGesture {
-                        if let editor = App.activeEditor {
-                            App.closeEditor(editor: editor)
+                //            if App.activeTextEditor != nil {
+                //                if let editor = App.activeEditor as? PYTextEditorInstance {
+                //                    if #available(iOS 16, *) {
+                //                        Image(systemName: "doc.text.magnifyingglass").font(.system(size: 17))
+                //                            .foregroundColor(Color.init("T1")).padding(5)
+                //                            .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                //                            .hoverEffect(.highlight)
+                //                            .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+                //                            .onTapGesture {
+                //                                editor.editorView.findInteraction?.presentFindNavigator(showingReplace: true)
+                //                            }
+                //                    }
+                //                } else {
+                //                    Image(systemName: "doc.text.magnifyingglass").font(.system(size: 17))
+                //                        .foregroundColor(Color.init("T1")).padding(5)
+                //                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                //                        .hoverEffect(.highlight)
+                //                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+                //                        .onTapGesture {
+                //                            App.monacoInstance.executeJavascript(command: "editor.focus()")
+                //                            App.monacoInstance.executeJavascript(
+                //                                command: "editor.getAction('actions.find').run()")
+                //                        }
+                //                }
+                //
+                //            }
+
+                if App.activeTextEditor is DiffTextEditorInstnace {
+                    Image(systemName: "doc.text").font(.system(size: 17))
+                        .foregroundColor(Color.init("T1")).padding(5)
+                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                        .hoverEffect(.highlight)
+                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+                        .onTapGesture {
+                            App.monacoInstance.applyOptions(options: "renderSideBySide: false")
+                        }
+                }
+
+                if App.editors.count > 0 {
+                    Image(systemName: "xmark").font(.system(size: 17))
+                        .foregroundColor(Color.init("T1")).padding(5)
+                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                        .hoverEffect(.highlight)
+                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+                        .onTapGesture {
+                            if let editor = App.activeEditor {
+                                App.closeEditor(editor: editor)
+                            }
+                        }
+                        .contextMenu {
+                            Button(role: .destructive) {
+                                App.closeAllEditors()
+                            } label: {
+                                Label("Close All", systemImage: "xmark")
+                            }
+                            Button(role: .destructive) {
+                                App.loadFolder(url: getRootDirectory())
+                                DispatchQueue.main.async {
+                                    App.showWelcomeMessage()
+                                }
+                            } label: {
+                                Label("Close Workspace", systemImage: "xmark")
+                            }
+                        }
+                }
+
+                //            if App.editors.count == 0 {
+                //                Menu {
+                //                    Button(role: .destructive) {
+                //                        App.closeAllEditors()
+                //                    } label: {
+                //                        Label("Close All", systemImage: "xmark")
+                //                    }
+                //                    Button(role: .destructive) {
+                //                        App.loadFolder(url: getRootDirectory())
+                //                        DispatchQueue.main.async {
+                //                            App.showWelcomeMessage()
+                //                        }
+                //                    } label: {
+                //                        Label("Close Workspace", systemImage: "xmark")
+                //                    }
+                //                } label: {
+                //                    Image(systemName: "xmark").font(.system(size: 17))
+                //                        .foregroundColor(Color.init("T1")).padding(5)
+                //                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                //                        .hoverEffect(.highlight)
+                //                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+                //                }
+                //
+                //            }
+
+                Menu {
+                    if App.activeTextEditor is DiffTextEditorInstnace {
+                        Section {
+                            Button(action: {
+                                App.monacoInstance.applyOptions(options: "renderSideBySide: false")
+                            }) {
+                                Label(
+                                    NSLocalizedString("Toogle Inline View", comment: ""),
+                                    systemImage: "doc.text")
+                            }
                         }
                     }
-                    .contextMenu {
+                    Section {
                         Button(role: .destructive) {
                             App.closeAllEditors()
                         } label: {
@@ -154,252 +208,200 @@ struct TopBar: View {
                             Label("Close Workspace", systemImage: "xmark")
                         }
                     }
-            }
-            
-//            if App.editors.count == 0 {
-//                Menu {
-//                    Button(role: .destructive) {
-//                        App.closeAllEditors()
-//                    } label: {
-//                        Label("Close All", systemImage: "xmark")
-//                    }
-//                    Button(role: .destructive) {
-//                        App.loadFolder(url: getRootDirectory())
-//                        DispatchQueue.main.async {
-//                            App.showWelcomeMessage()
-//                        }
-//                    } label: {
-//                        Label("Close Workspace", systemImage: "xmark")
-//                    }
-//                } label: {
-//                    Image(systemName: "xmark").font(.system(size: 17))
-//                        .foregroundColor(Color.init("T1")).padding(5)
-//                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-//                        .hoverEffect(.highlight)
-//                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
-//                }
-//
-//            }
-            
-            Menu {
-                if App.activeTextEditor is DiffTextEditorInstnace {
+                    Divider()
                     Section {
                         Button(action: {
-                            App.monacoInstance.applyOptions(options: "renderSideBySide: false")
-                        }) {
-                            Label(
-                                NSLocalizedString("Toogle Inline View", comment: ""),
-                                systemImage: "doc.text")
-                        }
-                    }
-                }
-                Section {
-                    Button(role: .destructive) {
-                        App.closeAllEditors()
-                    } label: {
-                        Label("Close All", systemImage: "xmark")
-                    }
-                    Button(role: .destructive) {
-                        App.loadFolder(url: getRootDirectory())
-                        DispatchQueue.main.async {
                             App.showWelcomeMessage()
-                        }
-                    } label: {
-                        Label("Close Workspace", systemImage: "xmark")
-                    }
-                }
-                Divider()
-                Section {
-                    Button(action: {
-                        App.showWelcomeMessage()
-                    }) {
-                        Label("Show Welcome Page", systemImage: "newspaper")
-                    }
-                    
-                    Button(action: {
-                        App.loadFolder(url: ConstantManager.EXAMPLES)
-                    }) {
-                        Label("Open Examples", systemImage: "folder")
-                    }
-
-//                    Button(action: {
-//                        openConsolePanel()
-//                    }) {
-//                        Label(
-//                            isPanelVisible ? "Hide Panel" : "Show Panel",
-//                            systemImage: "chevron.left.slash.chevron.right")
-//                    }.keyboardShortcut("j", modifiers: .command)
-
-                    if UIApplication.shared.supportsMultipleScenes {
-                        Button(action: {
-                            UIApplication.shared.requestSceneSessionActivation(
-                                nil, userActivity: nil, options: nil, errorHandler: nil)
                         }) {
-                            Label("actions.new_window", systemImage: "square.split.2x1")
+                            Label("Show Welcome Page", systemImage: "newspaper")
+                        }
+
+                        Button(action: {
+                            App.loadFolder(url: ConstantManager.EXAMPLES)
+                        }) {
+                            Label("Open Examples", systemImage: "folder")
+                        }
+
+                        //                    Button(action: {
+                        //                        openConsolePanel()
+                        //                    }) {
+                        //                        Label(
+                        //                            isPanelVisible ? "Hide Panel" : "Show Panel",
+                        //                            systemImage: "chevron.left.slash.chevron.right")
+                        //                    }.keyboardShortcut("j", modifiers: .command)
+
+                        if UIApplication.shared.supportsMultipleScenes {
+                            Button(action: {
+                                UIApplication.shared.requestSceneSessionActivation(
+                                    nil, userActivity: nil, options: nil, errorHandler: nil)
+                            }) {
+                                Label("actions.new_window", systemImage: "square.split.2x1")
+                            }
+                        }
+
+                        Button {
+                            App.stateManager.showsFilePicker.toggle()
+                        } label: {
+                            Label("New File", systemImage: "doc.badge.plus")
+                        }
+
+                        Button {
+                            Task {
+                                guard
+                                    let url = URL(string: App.workSpaceStorage.currentDirectory.url)
+                                else { return }
+                                try await App.createFolder(at: url)
+                            }
+                        } label: {
+                            Label("New Folder", systemImage: "folder.badge.gear")
+                        }
+
+                        Button {
+                            let widget = PYRunnerWidget()
+                            widget.consoleView.resetAndSetNewRootDirectory(
+                                url: URL(string: App.workSpaceStorage.currentDirectory.url)!)
+                            App.appendAndFocusNewEditor(
+                                editor: EditorInstance(
+                                    view: AnyView(widget), title: "Terminal"
+                                ), alwaysInNewTab: true)
+                        } label: {
+                            Label("New Terminal", systemImage: "apple.terminal")
+                        }
+
+                        Button {
+                            App.popupManager.showSheet(content: AnyView(PyRuntimesView()))
+                        } label: {
+                            Label("Python3 Interpreters", systemImage: "server.rack")
+                        }
+
+                        Button(action: {
+                            stateManager.showsSettingsSheet.toggle()
+                        }) {
+                            Label("Settings", systemImage: "slider.horizontal.3")
                         }
                     }
-                    
-                    Button {
-                        App.stateManager.showsFilePicker.toggle()
-                    } label: {
-                        Label("New File", systemImage: "doc.badge.plus")
-                    }
-                    
-                    Button {
-                        Task {
-                            guard let url = URL(string: App.workSpaceStorage.currentDirectory.url) else { return }
-                            try await App.createFolder(at: url)
-                        }
-                    } label: {
-                        Label("New Folder", systemImage: "folder.badge.gear")
-                    }
-                    
-                    
-                    Button {
-                        let widget = PYRunnerWidget()
-                        widget.consoleView.resetAndSetNewRootDirectory(url: URL(string: App.workSpaceStorage.currentDirectory.url)!)
-                        App.appendAndFocusNewEditor(editor: EditorInstance(
-                            view: AnyView(widget), title: "Terminal"
-                        ), alwaysInNewTab: true)
-                    } label: {
-                        Label("New Terminal", systemImage: "apple.terminal")
-                    }
-                    
-                    Button {
-                        App.popupManager.showSheet(content: AnyView(PyRuntimesView()))
-                    } label: {
-                        Label("Python3 Interpreters", systemImage: "server.rack")
-                    }
+                    #if DEBUG
+                        DebugMenu()
+                    #endif
 
+                } label: {
+                    Image(systemName: "ellipsis").font(.system(size: 17, weight: .light))
+                        .foregroundColor(Color.init("T1")).padding(5)
+                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
+                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                        .hoverEffect(.highlight)
+                        .padding()
+                }
+                .sheet(isPresented: $stateManager.showsSettingsSheet) {
+                    if #available(iOS 16.4, *) {
+                        PYSettingsView()
+                            .presentationBackground {
+                                Color(id: "sideBar.background")
+                            }
 
-                    Button(action: {
-                        stateManager.showsSettingsSheet.toggle()
-                    }) {
-                        Label("Settings", systemImage: "slider.horizontal.3")
+                            .scrollContentBackground(.hidden)
+                            .environmentObject(themeManager)
+                    } else {
+                        PYSettingsView()
+                            .environmentObject(App)
                     }
                 }
-                #if DEBUG
-                    DebugMenu()
-                #endif
-
-            } label: {
-                Image(systemName: "ellipsis").font(.system(size: 17, weight: .light))
-                    .foregroundColor(Color.init("T1")).padding(5)
-                    .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
-                    .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                    .hoverEffect(.highlight)
-                    .padding()
-            }
-            .sheet(isPresented: $stateManager.showsSettingsSheet) {
-                if #available(iOS 16.4, *) {
-                    PYSettingsView()
-                        .presentationBackground {
-                            Color(id: "sideBar.background")
-                        }
-
-                        .scrollContentBackground(.hidden)
-                        .environmentObject(themeManager)
-                } else {
-                    PYSettingsView()
-                        .environmentObject(App)
-                }
-            }
             #else
-            Image(systemName: "doc.text.magnifyingglass").font(.system(size: 17))
-                .foregroundColor(Color.init("T1")).padding(5)
-                .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                .hoverEffect(.highlight)
-                .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
-                .onTapGesture {
-                    App.monacoInstance.executeJavascript(command: "editor.focus()")
-                    App.monacoInstance.executeJavascript(
-                        command: "editor.getAction('actions.find').run()")
-                }
-
-            Menu {
-                if App.activeTextEditor is DiffTextEditorInstnace {
-                    Section {
-                        Button(action: {
-                            App.monacoInstance.applyOptions(options: "renderSideBySide: false")
-                        }) {
-                            Label(
-                                NSLocalizedString("Toogle Inline View", comment: ""),
-                                systemImage: "doc.text")
-                        }
-                    }
-                }
-                Section {
-                    Button(role: .destructive) {
-                        App.closeAllEditors()
-                    } label: {
-                        Label("Close All", systemImage: "xmark")
-                    }
-                    Button(role: .destructive) {
-                        App.loadFolder(url: getRootDirectory())
-                        DispatchQueue.main.async {
-                            App.showWelcomeMessage()
-                        }
-                    } label: {
-                        Label("Close Workspace", systemImage: "xmark")
-                    }
-                }
-                Divider()
-                Section {
-                    Button(action: {
-                        App.showWelcomeMessage()
-                    }) {
-                        Label("Show Welcome Page", systemImage: "newspaper")
-                    }
-
-                    Button(action: {
-                        openConsolePanel()
-                    }) {
-                        Label(
-                            isPanelVisible ? "Hide Panel" : "Show Panel",
-                            systemImage: "chevron.left.slash.chevron.right")
-                    }.keyboardShortcut("j", modifiers: .command)
-
-                    if UIApplication.shared.supportsMultipleScenes {
-                        Button(action: {
-                            UIApplication.shared.requestSceneSessionActivation(
-                                nil, userActivity: nil, options: nil, errorHandler: nil)
-                        }) {
-                            Label("actions.new_window", systemImage: "square.split.2x1")
-                        }
-                    }
-
-                    Button(action: {
-                        stateManager.showsSettingsSheet.toggle()
-                    }) {
-                        Label("Settings", systemImage: "slider.horizontal.3")
-                    }
-                }
-                #if DEBUG
-                    DebugMenu()
-                #endif
-
-            } label: {
-                Image(systemName: "ellipsis").font(.system(size: 17, weight: .light))
+                Image(systemName: "doc.text.magnifyingglass").font(.system(size: 17))
                     .foregroundColor(Color.init("T1")).padding(5)
-                    .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
                     .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                     .hoverEffect(.highlight)
-                    .padding()
-            }
-            .sheet(isPresented: $stateManager.showsSettingsSheet) {
-                if #available(iOS 16.4, *) {
-                    SettingsView()
-                        .presentationBackground {
-                            Color(id: "sideBar.background")
+                    .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20).padding()
+                    .onTapGesture {
+                        App.monacoInstance.executeJavascript(command: "editor.focus()")
+                        App.monacoInstance.executeJavascript(
+                            command: "editor.getAction('actions.find').run()")
+                    }
+
+                Menu {
+                    if App.activeTextEditor is DiffTextEditorInstnace {
+                        Section {
+                            Button(action: {
+                                App.monacoInstance.applyOptions(options: "renderSideBySide: false")
+                            }) {
+                                Label(
+                                    NSLocalizedString("Toogle Inline View", comment: ""),
+                                    systemImage: "doc.text")
+                            }
+                        }
+                    }
+                    Section {
+                        Button(role: .destructive) {
+                            App.closeAllEditors()
+                        } label: {
+                            Label("Close All", systemImage: "xmark")
+                        }
+                        Button(role: .destructive) {
+                            App.loadFolder(url: getRootDirectory())
+                            DispatchQueue.main.async {
+                                App.showWelcomeMessage()
+                            }
+                        } label: {
+                            Label("Close Workspace", systemImage: "xmark")
+                        }
+                    }
+                    Divider()
+                    Section {
+                        Button(action: {
+                            App.showWelcomeMessage()
+                        }) {
+                            Label("Show Welcome Page", systemImage: "newspaper")
                         }
 
-                        .scrollContentBackground(.hidden)
-                        .environmentObject(themeManager)
-                } else {
-                    SettingsView()
-                        .environmentObject(App)
+                        Button(action: {
+                            openConsolePanel()
+                        }) {
+                            Label(
+                                isPanelVisible ? "Hide Panel" : "Show Panel",
+                                systemImage: "chevron.left.slash.chevron.right")
+                        }.keyboardShortcut("j", modifiers: .command)
+
+                        if UIApplication.shared.supportsMultipleScenes {
+                            Button(action: {
+                                UIApplication.shared.requestSceneSessionActivation(
+                                    nil, userActivity: nil, options: nil, errorHandler: nil)
+                            }) {
+                                Label("actions.new_window", systemImage: "square.split.2x1")
+                            }
+                        }
+
+                        Button(action: {
+                            stateManager.showsSettingsSheet.toggle()
+                        }) {
+                            Label("Settings", systemImage: "slider.horizontal.3")
+                        }
+                    }
+                    #if DEBUG
+                        DebugMenu()
+                    #endif
+
+                } label: {
+                    Image(systemName: "ellipsis").font(.system(size: 17, weight: .light))
+                        .foregroundColor(Color.init("T1")).padding(5)
+                        .frame(minWidth: 0, maxWidth: 20, minHeight: 0, maxHeight: 20)
+                        .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                        .hoverEffect(.highlight)
+                        .padding()
                 }
-            }
+                .sheet(isPresented: $stateManager.showsSettingsSheet) {
+                    if #available(iOS 16.4, *) {
+                        SettingsView()
+                            .presentationBackground {
+                                Color(id: "sideBar.background")
+                            }
+
+                            .scrollContentBackground(.hidden)
+                            .environmentObject(themeManager)
+                    } else {
+                        SettingsView()
+                            .environmentObject(App)
+                    }
+                }
             #endif
         }
     }
@@ -427,7 +429,7 @@ private struct StackedImageIconView: View {
 }
 
 #if PYDEAPP
-private var popoverView: AnyView? = nil
+    private var popoverView: AnyView? = nil
 #endif
 
 private struct ToolbarItemView: View {
@@ -438,9 +440,9 @@ private struct ToolbarItemView: View {
 
     let item: ToolbarItem
     #if PYDEAPP
-    @State var showPopover = false
+        @State var showPopover = false
     #endif
-    
+
     var body: some View {
         Button(action: {
             if let panelToFocus = item.panelToFocusOnTap {
@@ -475,11 +477,13 @@ private struct ToolbarItemView: View {
             $0.keyboardShortcut(item.shortCut!.key, modifiers: item.shortCut!.modifiers)
         }
         #if PYDEAPP
-        .if(item.popover != nil) {
-            $0.popover(isPresented: $showPopover, content: {
-                popoverView
-            })
-        }
+            .if(item.popover != nil) {
+                $0.popover(
+                    isPresented: $showPopover,
+                    content: {
+                        popoverView
+                    })
+            }
         #endif
     }
 }

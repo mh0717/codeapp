@@ -13,6 +13,10 @@ import Combine
 import ZipArchive
 import pyde
 import StoreKit
+import Kingfisher
+import ConfigCat
+import RMStore
+
 
 class PYApp: ObservableObject {
     
@@ -65,6 +69,8 @@ class PYApp: ObservableObject {
         downloadManager.onTaskCompletion = {[weak self] in
             self?.App?.notificationManager.showSucessMessage("Download task completed")
         }
+        
+        setenv("LC_CTYPE", "en_US.UTF-8", 1)
     }
     
     func showScore() {
@@ -108,7 +114,7 @@ class PYApp: ObservableObject {
             return
         }
         #if targetEnvironment(simulator)
-        let surl = sourceUrl ?? URL(fileURLWithPath: "/Users/huima/PythonSchool/pydeApp/pydeApp/Templates").appendingPathComponent(name)
+        let surl = sourceUrl ?? URL(fileURLWithPath: "/Volumes/Python/PythonSchool/pydeApp/pydeApp/Templates").appendingPathComponent(name)
         #else
         let surl = sourceUrl ?? Bundle.main.bundleURL.appendingPathComponent("Templates/\(name)")
         #endif
@@ -252,6 +258,11 @@ class PYApp: ObservableObject {
                 return
             }
             
+            if ["wdui"].contains(url.pathExtension.lowercased()) {
+                JsonUIPreviewExtension.previewWidget(app: App, url: url)
+                return
+            }
+            
             DispatchQueue.main.async {
                 App.openFile(url: url, alwaysInNewTab: true)
             }
@@ -324,6 +335,8 @@ class PYApp: ObservableObject {
         return _versionIncreased
     }
     
+    static var isLockScreen: Bool = false
+    
     
     static func onAppInitialized() {
         let currentVersion =
@@ -339,6 +352,29 @@ class PYApp: ObservableObject {
             UserDefaults.standard.setValue(currentVersion, forKey: "app.lastVersion")
             UserDefaults.standard.synchronize()
         }
+        
+        if let lockScreenData = RMKeychainGetValue("python3ide.lockscreen"),
+           let lockScreenStr = String(data: lockScreenData, encoding: .utf8),
+           lockScreenStr == "true" {
+            isLockScreen = true
+        } else {
+            isLockScreen = false
+        }
+        
+        let client = ConfigCatClient.get(sdkKey: "configcat-sdk-1/IY3cCOuD_UWNfwhF_9U4Kg/ZlHhmfuj70qeUz0_KZFSwg") { options in
+            #if DEBUG
+            // <-- This is the actual SDK Key for your 'Production Environment' environment.
+            options.logLevel = .info // Set the log level to INFO to track how your feature flags were evaluated. When moving to production, you can remove this line to avoid too detailed logging.
+            #endif
+        }
+        Task {
+            let _islockscreen = await client.getValue(for: "islockscreen", defaultValue: false)
+            isLockScreen = _islockscreen
+//            print("islockscreen's value from ConfigCat: ", _islockscreen)
+        }
+        
+        
+        
         
         let fileManager = FileManager.default
         
@@ -364,6 +400,17 @@ class PYApp: ObservableObject {
             let path = args.last!
             guard let url = path.contains(":") ? URL(string: path) : URL(fileURLWithPath: path) else {return}
             NotificationCenter.default.post(name: .init("UI_OPEN_FILE_IN_TAB"), object: nil, userInfo: ["url": url])
+        }
+        
+        DispatchQueue.main.async {
+            if let originCache = try? ImageCache(name: "pyoriginCache", cacheDirectoryURL: ConstantManager.appGroupContainer.appendingPathComponent("originCache")),
+               let targetCache = try? ImageCache(name: "pytargetCache", cacheDirectoryURL: ConstantManager.appGroupContainer.appendingPathComponent("targetCache")) {
+                KingfisherManager.shared.defaultOptions = [
+                    .targetCache(targetCache),
+                    .originalCache(originCache),
+                    .processor(DownsamplingImageProcessor(size: CGSize(width: 250, height: 250)))
+                ]
+            }
         }
     }
 }

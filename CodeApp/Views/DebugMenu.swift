@@ -8,7 +8,7 @@
 import SwiftUI
 
 #if PYDEAPP
-import pydeCommon
+    import pydeCommon
 #endif
 
 struct DebugMenu: View {
@@ -38,64 +38,73 @@ struct DebugMenu: View {
                     })
             }
             #if PYDEAPP
-            Button("iap") {
-//                App.popupManager.showCover(content: AnyView(IAPView()))
-                App.popupManager.showCover(content: AnyView(SubIAPView().environmentObject(App).environmentObject(subIapManager)))
-            }
-            
-            Button("iap Sheet") {
-                App.popupManager.showSheet(content: AnyView(SubIAPView().environmentObject(App).environmentObject(subIapManager)))
-            }
-            
-            Button("copySite") {
-                App.notificationManager.showAsyncNotification(title: "copySite...", task: {
-                    Task {
-                        copySitePackagesToContainer()
-                    }
-                })
-            }
-//            Button("pydeUI") {
-//                App.popupManager.showCover(content: AnyView(ShareSheet()))
-//            }
-//            Button("ctags") {
-//                Task.init {
-//                    if let tags = await testCTagsServiceStart() {
-//                        App.notificationManager
-//                            .showInformationMessage(tags.map{"\($0.kind):\($0.name)"}.joined(separator: ", "))
-//                    }
-//                }
-//            }
-//            Button("histor") {
-//                Task.init {
-//                    if let commit = try await App.workSpaceStorage.gitServiceProvider?.history() {
-//                        App.notificationManager.showInformationMessage("\(try commit.next()?.get().message ?? "")")
-//                    }
-//                }
-//            }
+                Button("iap") {
+                    //                App.popupManager.showCover(content: AnyView(IAPView()))
+                    App.popupManager.showCover(
+                        content: AnyView(
+                            SubIAPView().environmentObject(App).environmentObject(subIapManager)))
+                }
+
+                Button("iap Sheet") {
+                    App.popupManager.showSheet(
+                        content: AnyView(
+                            SubIAPView().environmentObject(App).environmentObject(subIapManager)))
+                }
+
+                Button("copySite") {
+                    App.notificationManager.showAsyncNotification(
+                        title: "copySite...",
+                        task: {
+                            Task {
+                                copySitePackagesToContainer()
+                            }
+                        })
+                }
+            //            Button("pydeUI") {
+            //                App.popupManager.showCover(content: AnyView(ShareSheet()))
+            //            }
+            //            Button("ctags") {
+            //                Task.init {
+            //                    if let tags = await testCTagsServiceStart() {
+            //                        App.notificationManager
+            //                            .showInformationMessage(tags.map{"\($0.kind):\($0.name)"}.joined(separator: ", "))
+            //                    }
+            //                }
+            //            }
+            //            Button("histor") {
+            //                Task.init {
+            //                    if let commit = try await App.workSpaceStorage.gitServiceProvider?.history() {
+            //                        App.notificationManager.showInformationMessage("\(try commit.next()?.get().message ?? "")")
+            //                    }
+            //                }
+            //            }
             #endif
         }
     }
 }
 
-
 #if PYDEAPP
-struct ShareSheet:UIViewControllerRepresentable{
-    
-    func makeUIViewController(context: Context) -> UIActivityViewController {
-        let provider = NSItemProvider(item: "run pydeUI" as NSSecureCoding, typeIdentifier: "baobaowang.SketchPython.pydeUI")
-        let item = NSExtensionItem()
-        item.attributedTitle = NSAttributedString(string: "This is title")
-        item.accessibilityLabel = "run pyde ui"
-        item.attachments = [provider]
-        //你想分享的数据
-        let items:[Any] = [item]
-        
-        let controller = UIActivityViewController(activityItems: items, applicationActivities: /*[CustomUIActicity()]*/nil)
-        
-        return controller
+    struct ShareSheet: UIViewControllerRepresentable {
+
+        func makeUIViewController(context: Context) -> UIActivityViewController {
+            let provider = NSItemProvider(
+                item: "run pydeUI" as NSSecureCoding,
+                typeIdentifier: "baobaowang.SketchPython.pydeUI")
+            let item = NSExtensionItem()
+            item.attributedTitle = NSAttributedString(string: "This is title")
+            item.accessibilityLabel = "run pyde ui"
+            item.attachments = [provider]
+            //你想分享的数据
+            let items: [Any] = [item]
+
+            let controller = UIActivityViewController(
+                activityItems: items, applicationActivities: /*[CustomUIActicity()]*/ nil)
+
+            return controller
+        }
+        func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context)
+        {
+
+        }
     }
-    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
-        
-    }
-}
 #endif

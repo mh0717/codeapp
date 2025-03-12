@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "BitByteData",
+        "repositoryURL": "https://github.com/tsolomko/BitByteData",
+        "state": {
+          "branch": null,
+          "revision": "cdcdc5177ad536cfb11b95c620f926a81014b7fe",
+          "version": "2.0.4"
+        }
+      },
+      {
         "package": "CwlCatchException",
         "repositoryURL": "https://github.com/mattgallagher/CwlCatchException.git",
         "state": {
@@ -47,21 +56,12 @@
         }
       },
       {
-        "package": "GCDWebServer",
-        "repositoryURL": "https://github.com/JacobHearst/GCDWebServer",
+        "package": "Kingfisher",
+        "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
         "state": {
           "branch": null,
-          "revision": "14f9eedb296c5b71fec971d8256ef3bfc20a2245",
-          "version": "3.5.5"
-        }
-      },
-      {
-        "package": "KeyboardToolbar",
-        "repositoryURL": "https://github.com/simonbs/KeyboardToolbar.git",
-        "state": {
-          "branch": null,
-          "revision": "5f95f8e9af98f6163a58caaceaadc3bf720fd7bd",
-          "version": "0.1.1"
+          "revision": "2ef543ee21d63734e1c004ad6c870255e8716c50",
+          "version": "7.12.0"
         }
       },
       {
@@ -83,12 +83,30 @@
         }
       },
       {
+        "package": "NetworkImage",
+        "repositoryURL": "https://github.com/gonzalezreal/NetworkImage",
+        "state": {
+          "branch": null,
+          "revision": "7aff8d1b31148d32c5933d75557d42f6323ee3d1",
+          "version": "6.0.0"
+        }
+      },
+      {
         "package": "Nimble",
         "repositoryURL": "https://github.com/Quick/Nimble.git",
         "state": {
           "branch": null,
           "revision": "c93f16c25af5770f0d3e6af27c9634640946b068",
           "version": "9.2.1"
+        }
+      },
+      {
+        "package": "RevenueCat",
+        "repositoryURL": "https://github.com/RevenueCat/purchases-ios-spm.git",
+        "state": {
+          "branch": null,
+          "revision": "7d55b964114a3d4a76791227cdc28577617596db",
+          "version": "4.43.2"
         }
       },
       {
@@ -101,15 +119,6 @@
         }
       },
       {
-        "package": "Runestone",
-        "repositoryURL": "https://github.com/simonbs/Runestone",
-        "state": {
-          "branch": null,
-          "revision": "00dee9fbc9c93b709f6b1b052bce84cb971e493a",
-          "version": "0.3.2"
-        }
-      },
-      {
         "package": "RxSwift",
         "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
         "state": {
@@ -119,21 +128,48 @@
         }
       },
       {
-        "package": "SwiftTerm",
-        "repositoryURL": "https://github.com/migueldeicaza/SwiftTerm.git",
+        "package": "ConfigCat",
+        "repositoryURL": "https://github.com/configcat/swift-sdk",
         "state": {
           "branch": null,
-          "revision": "0d31c2eea98e65ff1a34ec4a312099a8c25958b2",
-          "version": "1.2.1"
+          "revision": "fe2d323575be021a55f7756dbc427c42379459fb",
+          "version": "11.1.0"
+        }
+      },
+      {
+        "package": "swift-snapshot-testing",
+        "repositoryURL": "https://github.com/pointfreeco/swift-snapshot-testing",
+        "state": {
+          "branch": null,
+          "revision": "7b0bbbae90c41f848f90ac7b4df6c4f50068256d",
+          "version": "1.17.5"
+        }
+      },
+      {
+        "package": "swift-syntax",
+        "repositoryURL": "https://github.com/swiftlang/swift-syntax",
+        "state": {
+          "branch": null,
+          "revision": "cb53fa1bd3219b0b23ded7dfdd3b2baff266fd25",
+          "version": "600.0.0"
+        }
+      },
+      {
+        "package": "SwiftCLI",
+        "repositoryURL": "https://github.com/jakeheis/SwiftCLI",
+        "state": {
+          "branch": null,
+          "revision": "2e949055d9797c1a6bddcda0e58dada16cc8e970",
+          "version": "6.0.3"
         }
       },
       {
         "package": "TreeSitter",
-        "repositoryURL": "https://github.com/simonbs/tree-sitter",
+        "repositoryURL": "https://github.com/tree-sitter/tree-sitter",
         "state": {
           "branch": null,
-          "revision": "f88ae4ebe351d8aa99c31a17111607017d805118",
-          "version": "0.20.9-beta-1"
+          "revision": "98be227227af10cc7a269cb3ffb23686c0610b17",
+          "version": "0.20.9"
         }
       },
       {

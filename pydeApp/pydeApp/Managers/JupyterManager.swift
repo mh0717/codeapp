@@ -7,7 +7,6 @@
 
 import SwiftUI
 import pydeCommon
-import python3Objc
 import CryptoKit
 import CCommon
 import pyde

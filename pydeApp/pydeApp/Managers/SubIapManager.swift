@@ -20,7 +20,7 @@ class IAPExtension: CodeAppExtension {
             let im = SubIapManager.instance
             #if targetEnvironment(simulator)
             #else
-            if im.runCout >= 10, !im.isPro {
+            if PYApp.isLockScreen && im.runCout >= 15, !im.isPro {
                 im.showIap = true
             }
             #endif

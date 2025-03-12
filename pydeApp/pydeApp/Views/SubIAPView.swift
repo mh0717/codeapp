@@ -56,7 +56,7 @@ struct SubIAPView: View {
             return nil
         }
         if isCN() {
-            return String(format: "%.0f%% 折", Double(truncating: (1.0 - off) as NSNumber) * 100)
+            return String(format: "%.0f折", Double(truncating: (1.0 - off) as NSNumber) * 100)
         }
         return String(format: "%.0f%% OFF", Double(truncating: off as NSNumber) * 100)
     }
@@ -71,7 +71,7 @@ struct SubIAPView: View {
             return nil
         }
         if isCN() {
-            return String(format: "%.0f%% 折扣", Double(truncating: (1.0 - off) as NSNumber) * 100)
+            return String(format: "%.0f折", Double(truncating: (1.0 - off) as NSNumber) * 100)
         }
         return String(format: "%.0f%% OFF", Double(truncating: off as NSNumber) * 100.0)
     }

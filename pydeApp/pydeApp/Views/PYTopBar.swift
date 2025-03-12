@@ -191,12 +191,13 @@ struct PYTopBar: View {
             if let editor = App.activeEditor as? EditorInstanceWithURL, editor.canEditUrl, App.pyapp.showAddressbar {
                 
             } else {
-                ForEach(toolBarManager.items) { item in
+                ForEach(toolBarManager.items, id: \.id) { item in
                     if item.shouldDisplay() {
                         ToolbarItemView(item: item)
                     }
-                }
+                }.id(UUID())
             }
+            
 
             
             

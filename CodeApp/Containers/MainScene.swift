@@ -96,8 +96,8 @@ struct MainScene: View {
             .environmentObject(App.alertManager)
             .environmentObject(App.safariManager)
             #if PYDEAPP
-            .environmentObject(App.popupManager)
-            .environmentObject(App.extensionManager.activityBarManager)
+                .environmentObject(App.popupManager)
+                .environmentObject(App.extensionManager.activityBarManager)
             #endif
             .onAppear {
                 restoreSceneState()
@@ -152,17 +152,17 @@ private struct MainView: View {
     @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var safariManager: SafariManager
     @EnvironmentObject var themeManager: ThemeManager
-    
+
     #if PYDEAPP
-    @EnvironmentObject var popupManager: PopupManager
-    @EnvironmentObject var iapManager: IapManager
-    @EnvironmentObject var subIapManager: SubIapManager
-    @SceneStorage("isLeftDrawerShowing") var isLeftDrawerShowing: Bool = false
-    
-    @EnvironmentObject var activityBarManager: ActivityBarManager
-    @SceneStorage("activitybar.selected.item") var activeItemId: String = DefaultUIState
-        .ACTIVITYBAR_SELECTED_ITEM
-    @AppStorage("setting.panel.global.show") var showGlobalPanel = true
+        @EnvironmentObject var popupManager: PopupManager
+        @EnvironmentObject var iapManager: IapManager
+        @EnvironmentObject var subIapManager: SubIapManager
+        @SceneStorage("isLeftDrawerShowing") var isLeftDrawerShowing: Bool = false
+
+        @EnvironmentObject var activityBarManager: ActivityBarManager
+        @SceneStorage("activitybar.selected.item") var activeItemId: String = DefaultUIState
+            .ACTIVITYBAR_SELECTED_ITEM
+        @AppStorage("setting.panel.global.show") var showGlobalPanel = true
     #endif
 
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -192,79 +192,88 @@ private struct MainView: View {
                     HStack(spacing: 0) {
                         if horizontalSizeClass == .regular {
                             #if PYDEAPP
-                            if isSideBarVisible {
-//                                VStack(spacing: 0) {
-//                                
-//                                    PYActivityBar(togglePanel: openConsolePanel)
-//                                        .environmentObject(extensionManager.activityBarManager)
-//                                    
-//                                    RegularSidebar(windowWidth: geometry.size.width)
-//                                        .environmentObject(extensionManager.activityBarManager)
-//                                }.fixedSize(horizontal: true, vertical: false)
-                                PYSideMenu(activeType: .main, openConsolePanel: openConsolePanel, isRegular: true, windowWidth: geometry.size.width)
+                                if isSideBarVisible {
+                                    //                                VStack(spacing: 0) {
+                                    //
+                                    //                                    PYActivityBar(togglePanel: openConsolePanel)
+                                    //                                        .environmentObject(extensionManager.activityBarManager)
+                                    //
+                                    //                                    RegularSidebar(windowWidth: geometry.size.width)
+                                    //                                        .environmentObject(extensionManager.activityBarManager)
+                                    //                                }.fixedSize(horizontal: true, vertical: false)
+                                    PYSideMenu(
+                                        activeType: .main, openConsolePanel: openConsolePanel,
+                                        isRegular: true, windowWidth: geometry.size.width
+                                    )
                                     .environmentObject(extensionManager.activityBarManager)
-                            }
+                                }
                             #else
-                            ActivityBar(togglePanel: openConsolePanel)
-                                .environmentObject(extensionManager.activityBarManager)
-                            
-                            if isSideBarVisible {
-                                RegularSidebar(windowWidth: geometry.size.width)
+                                ActivityBar(togglePanel: openConsolePanel)
                                     .environmentObject(extensionManager.activityBarManager)
-                            }
+
+                                if isSideBarVisible {
+                                    RegularSidebar(windowWidth: geometry.size.width)
+                                        .environmentObject(extensionManager.activityBarManager)
+                                }
                             #endif
                         }
-                        
 
                         ZStack {
                             VStack(spacing: 0) {
                                 #if PYDEAPP
-                                PYTopBar(openConsolePanel: openConsolePanel)
-                                    .environmentObject(extensionManager.toolbarManager)
-                                    .frame(height: 40)
-                                if let editor = App.activeTextEditor {
-                                    TagsIndicator(editor: editor, winSize: geometry.size)
-                                }
+                                    PYTopBar(openConsolePanel: openConsolePanel)
+                                        .environmentObject(extensionManager.toolbarManager)
+                                        .frame(height: 40)
+                                    if let editor = App.activeTextEditor {
+                                        TagsIndicator(editor: editor, winSize: geometry.size)
+                                    }
                                 #else
-                                TopBar(openConsolePanel: openConsolePanel)
-                                    .environmentObject(extensionManager.toolbarManager)
-                                    .frame(height: 40)
+                                    TopBar(openConsolePanel: openConsolePanel)
+                                        .environmentObject(extensionManager.toolbarManager)
+                                        .frame(height: 40)
                                 #endif
-                                
-                                GeometryReader {geometry -> AnyView in
-                                    setenv("SDL_SCREEN_SIZE", "\(Int(geometry.size.width)):\(Int(geometry.size.height))", 1)
-                                    return AnyView(EditorView()
-                                        .disabled(horizontalSizeClass == .compact && isSideBarVisible)
-                                        .sheet(isPresented: $stateManager.showsNewFileSheet) {
-                                            #if PYDEAPP
-                                            PYNewFileView(
-                                                targetUrl: App.workSpaceStorage.currentDirectory.url
-                                            ).environmentObject(App)
-                                            #else
-                                            NewFileView(
-                                                targetUrl: App.workSpaceStorage.currentDirectory.url
-                                            ).environmentObject(App)
-                                            #endif
-                                        }
-                                        .environmentObject(extensionManager.editorProviderManager))
+
+                                GeometryReader { geometry -> AnyView in
+                                    setenv(
+                                        "SDL_SCREEN_SIZE",
+                                        "\(Int(geometry.size.width)):\(Int(geometry.size.height))",
+                                        1)
+                                    return AnyView(
+                                        EditorView()
+                                            .disabled(
+                                                horizontalSizeClass == .compact && isSideBarVisible
+                                            )
+                                            .sheet(isPresented: $stateManager.showsNewFileSheet) {
+                                                #if PYDEAPP
+                                                    PYNewFileView(
+                                                        targetUrl: App.workSpaceStorage
+                                                            .currentDirectory.url
+                                                    ).environmentObject(App)
+                                                #else
+                                                    NewFileView(
+                                                        targetUrl: App.workSpaceStorage
+                                                            .currentDirectory.url
+                                                    ).environmentObject(App)
+                                                #endif
+                                            }
+                                            .environmentObject(
+                                                extensionManager.editorProviderManager))
                                 }
-                                
-                                
-                                
+
                                 #if PYDEAPP
-                                if showGlobalPanel {
-                                    PYPanelView(
-                                        windowHeight: geometry.size.height
-                                    )
-                                    .environmentObject(extensionManager.panelManager)
-                                }
+                                    if showGlobalPanel {
+                                        PYPanelView(
+                                            windowHeight: geometry.size.height
+                                        )
+                                        .environmentObject(extensionManager.panelManager)
+                                    }
                                 #else
-                                if isPanelVisible {
-                                    PanelView(
-                                        windowHeight: geometry.size.height
-                                    )
-                                    .environmentObject(extensionManager.panelManager)
-                                }
+                                    if isPanelVisible {
+                                        PanelView(
+                                            windowHeight: geometry.size.height
+                                        )
+                                        .environmentObject(extensionManager.panelManager)
+                                    }
                                 #endif
                             }
                             .blur(
@@ -273,13 +282,13 @@ private struct MainView: View {
 
                             if isSideBarVisible && horizontalSizeClass == .compact {
                                 #if PYDEAPP
-                                PYCompactSidebar()
-                                    .environmentObject(extensionManager.activityBarManager)
-//                                PYSideMenu(activeType: .main, openConsolePanel: openConsolePanel, isRegular: false, windowWidth: geometry.size.width)
-//                                    .environmentObject(extensionManager.activityBarManager)
+                                    PYCompactSidebar()
+                                        .environmentObject(extensionManager.activityBarManager)
+                                //                                PYSideMenu(activeType: .main, openConsolePanel: openConsolePanel, isRegular: false, windowWidth: geometry.size.width)
+                                //                                    .environmentObject(extensionManager.activityBarManager)
                                 #else
-                                CompactSidebar()
-                                    .environmentObject(extensionManager.activityBarManager)
+                                    CompactSidebar()
+                                        .environmentObject(extensionManager.activityBarManager)
                                 #endif
                             }
                         }
@@ -313,9 +322,9 @@ private struct MainView: View {
             let appVersion =
                 Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0"
 
-//            if changeLogLastReadVersion != appVersion {
-//                stateManager.showsChangeLog.toggle()
-//            }
+            //            if changeLogLastReadVersion != appVersion {
+            //                stateManager.showsChangeLog.toggle()
+            //            }
 
             changeLogLastReadVersion = appVersion
         }
@@ -341,76 +350,86 @@ private struct MainView: View {
             }
         }
         #if PYDEAPP
-        .twoSideMenu(
-//            isEnabled: $isSideBarVisible.mappedToNot(),
-            isEnabled: .constant(true),
-            isShowing: $App.pyapp.leftSideShow,
-            isRightEnabled: .constant(true),
-            isRightShowing: $App.pyapp.rightSideShow,
-            menuContent: {
-//                VStack(spacing: 0) {
-//                    PYActivityBar(togglePanel: openConsolePanel)
-//                        .environmentObject(extensionManager.activityBarManager)
-//                    
-//                    PYSidebar()
-//                }.background(Color.init(id: "sideBar.background").edgesIgnoringSafeArea(.all))
-//                    .accentColor(Color.init(id: "activityBar.inactiveForeground"))
-//                    .hiddenScrollableContentBackground()
-                PYSideMenu(activeType: .side, openConsolePanel: openConsolePanel, isRegular: false, windowWidth: 1024)
+            .twoSideMenu(
+                //            isEnabled: $isSideBarVisible.mappedToNot(),
+                isEnabled: .constant(true),
+                isShowing: $App.pyapp.leftSideShow,
+                isRightEnabled: .constant(true),
+                isRightShowing: $App.pyapp.rightSideShow,
+                menuContent: {
+                    //                VStack(spacing: 0) {
+                    //                    PYActivityBar(togglePanel: openConsolePanel)
+                    //                        .environmentObject(extensionManager.activityBarManager)
+                    //
+                    //                    PYSidebar()
+                    //                }.background(Color.init(id: "sideBar.background").edgesIgnoringSafeArea(.all))
+                    //                    .accentColor(Color.init(id: "activityBar.inactiveForeground"))
+                    //                    .hiddenScrollableContentBackground()
+                    PYSideMenu(
+                        activeType: .side, openConsolePanel: openConsolePanel, isRegular: false,
+                        windowWidth: 1024
+                    )
                     .environmentObject(extensionManager.activityBarManager)
-            },
-            rightMenu: {
-                List {
-                    OnlyExplorerFileTreeSection(storage: App.pyapp.docStorage)
-                }.background(Color.init(id: "sideBar.background").edgesIgnoringSafeArea(.all))
-                    .accentColor(Color.init(id: "activityBar.inactiveForeground"))
-                    .hiddenScrollableContentBackground()
-            })
-//        .sideMenu(isEnabled: $isSideBarVisible.mappedToNot(),
-//            isShowing: $isLeftDrawerShowing, menuContent: {
-//            Color.init(id: "sideBar.background").edgesIgnoringSafeArea(.all)
-//            VStack(spacing: 0) {
-//                PYActivityBar(togglePanel: openConsolePanel)
-//                    .environmentObject(extensionManager.activityBarManager)
-//                
-//                PYSidebar()
-//            }.background(Color.init(id: "sideBar.background").edgesIgnoringSafeArea(.all))
-//                .accentColor(Color.init(id: "activityBar.inactiveForeground"))
-//                .hiddenSystemOverlays()
-//                .hiddenScrollableContentBackground()
-//        })
-        .fullScreenCover(isPresented: $popupManager.showCover) {
-            popupManager.coverContent
-        }
-        .sheet(isPresented: $popupManager.showSheet, onDismiss: {
-        }) {
-            popupManager.sheetContent
-        }
-        .popover(isPresented: $popupManager.showOutside, content: {
-            popupManager.outsideContent
-        })
-        #if PYTHON3IDE
-        .fullScreenCover(isPresented: $subIapManager.showIap) {
-            SubIAPView()
-        }
-        #else
-        .fullScreenCover(isPresented: $iapManager.showIap) {
-            IAPView()
-        }
-        #endif
-//        .sheet(
-//            isPresented: $App.showIAP) {
-//                    IAPView()
-//                }
-//        .fullScreenCover(
-//            isPresented: Binding(
-//                get: {
-//                    return /*!App.stateManager.showsChangeLog && !App.isPurchased && !App.isTrialing && */App.showIAP
-//                }, set: {value in
-//                    App.showIAP = value
-//                })) {
-//                    IAPView()
-//                }
+                },
+                rightMenu: {
+                    List {
+                        OnlyExplorerFileTreeSection(storage: App.pyapp.docStorage)
+                    }.background(Color.init(id: "sideBar.background").edgesIgnoringSafeArea(.all))
+                        .accentColor(Color.init(id: "activityBar.inactiveForeground"))
+                        .hiddenScrollableContentBackground()
+                }
+            )
+            //        .sideMenu(isEnabled: $isSideBarVisible.mappedToNot(),
+            //            isShowing: $isLeftDrawerShowing, menuContent: {
+            //            Color.init(id: "sideBar.background").edgesIgnoringSafeArea(.all)
+            //            VStack(spacing: 0) {
+            //                PYActivityBar(togglePanel: openConsolePanel)
+            //                    .environmentObject(extensionManager.activityBarManager)
+            //
+            //                PYSidebar()
+            //            }.background(Color.init(id: "sideBar.background").edgesIgnoringSafeArea(.all))
+            //                .accentColor(Color.init(id: "activityBar.inactiveForeground"))
+            //                .hiddenSystemOverlays()
+            //                .hiddenScrollableContentBackground()
+            //        })
+            .fullScreenCover(isPresented: $popupManager.showCover) {
+                popupManager.coverContent
+            }
+            .sheet(
+                isPresented: $popupManager.showSheet,
+                onDismiss: {
+                }
+            ) {
+                popupManager.sheetContent
+            }
+            .popover(
+                isPresented: $popupManager.showOutside,
+                content: {
+                    popupManager.outsideContent
+                }
+            )
+            #if PYTHON3IDE
+                .fullScreenCover(isPresented: $subIapManager.showIap) {
+                    SubIAPView()
+                }
+            #else
+                .fullScreenCover(isPresented: $iapManager.showIap) {
+                    IAPView()
+                }
+            #endif
+        //        .sheet(
+        //            isPresented: $App.showIAP) {
+        //                    IAPView()
+        //                }
+        //        .fullScreenCover(
+        //            isPresented: Binding(
+        //                get: {
+        //                    return /*!App.stateManager.showsChangeLog && !App.isPurchased && !App.isTrialing && */App.showIAP
+        //                }, set: {value in
+        //                    App.showIAP = value
+        //                })) {
+        //                    IAPView()
+        //                }
         #endif
     }
 }

@@ -126,6 +126,7 @@ public func pythonB(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer
 }
 
 @_cdecl("remote")
+//@_silgen_name("remote")
 public func myremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
     return remote(argc: argc, argv: argv)
 }
@@ -185,6 +186,9 @@ public func plink(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<I
 //    vfprintf(thread_stdout, "\u{1B}[2J\u{1B}[0;0H", getVaList([]))
 //    return 0
 //}
+
+//@_silgen_name("remote")
+//public func __remote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32
 
 
 public func initPyDE() {

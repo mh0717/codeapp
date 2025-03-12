@@ -56,6 +56,15 @@
         }
       },
       {
+        "package": "Kingfisher",
+        "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
+        "state": {
+          "branch": null,
+          "revision": "5b92f029fab2cce44386d28588098b5be0824ef5",
+          "version": "7.11.0"
+        }
+      },
+      {
         "package": "Clibgit2",
         "repositoryURL": "https://github.com/thebaselab/LibGit2-On-iOS",
         "state": {
@@ -116,6 +125,15 @@
           "branch": null,
           "revision": "9dcaa4b333db437b0fbfaf453fad29069044a8b4",
           "version": "6.6.0"
+        }
+      },
+      {
+        "package": "ConfigCat",
+        "repositoryURL": "https://github.com/configcat/swift-sdk",
+        "state": {
+          "branch": null,
+          "revision": "fe2d323575be021a55f7756dbc427c42379459fb",
+          "version": "11.1.0"
         }
       },
       {

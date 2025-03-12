@@ -8,13 +8,13 @@
 import SwiftUI
 
 #if PYDEAPP
-struct ToolbarMenuItem: Identifiable {
-    let id = UUID()
-    
-    let icon: String
-    let title: LocalizedStringKey
-    let onClick: () -> Void
-}
+    struct ToolbarMenuItem: Identifiable {
+        let id = UUID()
+
+        let icon: String
+        let title: LocalizedStringKey
+        let onClick: () -> Void
+    }
 #endif
 
 struct ToolbarItem: Identifiable {
@@ -27,8 +27,8 @@ struct ToolbarItem: Identifiable {
     var panelToFocusOnTap: String?
     var shouldDisplay: () -> Bool
     #if PYDEAPP
-    var menuItems: [ToolbarMenuItem]?
-    var popover: ((_ dismiss:@escaping () -> Void) -> AnyView?)?
+        var menuItems: [ToolbarMenuItem]?
+        var popover: ((_ dismiss: @escaping () -> Void) -> AnyView?)?
     #endif
 }
 

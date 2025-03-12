@@ -32,9 +32,9 @@ struct ActivityBarIconView: View {
                     }
                 } else {
                     activeItemId = activityBarItem.itemID
-//                    withAnimation(.easeIn(duration: 0.2)) {
-//                        isSideBarVisible = true
-//                    }
+                    //                    withAnimation(.easeIn(duration: 0.2)) {
+                    //                        isSideBarVisible = true
+                    //                    }
                 }
             }) {
                 ZStack {

@@ -164,15 +164,24 @@ class ActionViewController: UITabBarController {
         let watchQueue = DispatchQueue(label: "watch_dog")
         watchQueue.async {
             while true {
-                if Date().timeIntervalSince(watchedDate) > 30 {
-                    real_exit(vlaue: -1)
+                if Date().timeIntervalSince(watchedDate) > 15 {
+//                    real_exit(vlaue: -1)
                 }
                 sleep(3)
             }
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        shouldExit = true
+        handleExit()
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        shouldExit = true
         handleExit()
     }
     
@@ -261,7 +270,7 @@ class ActionViewController: UITabBarController {
             real_exit(vlaue: 0)
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             real_exit(vlaue: 0)
         }
         

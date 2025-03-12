@@ -10,8 +10,9 @@ import CoreSpotlight
 import SwiftGit2
 import SwiftUI
 import ios_system
+
 #if PYDEAPP
-import pydeCommon
+    import pydeCommon
 #endif
 
 struct CheckoutDestination: Identifiable {
@@ -72,12 +73,12 @@ class MainApp: ObservableObject {
     let alertManager = AlertManager()
     let safariManager = SafariManager()
     #if PYDEAPP
-    @Published var pyapp = PYApp()
-    private var pyappCancellable: AnyCancellable? = nil
-    let popupManager = PopupManager()
-    
-    @AppStorage("codeEditor") var codeEditor = "PYCode Editor"
-    @AppStorage("setting.panel.global.show") var showGlobalPanel = true
+        @Published var pyapp = PYApp()
+        private var pyappCancellable: AnyCancellable? = nil
+        let popupManager = PopupManager()
+
+        @AppStorage("codeEditor") var codeEditor = "PYCode Editor"
+        @AppStorage("setting.panel.global.show") var showGlobalPanel = true
     #endif
 
     @Published var editors: [EditorInstance] = []
@@ -124,7 +125,7 @@ class MainApp: ObservableObject {
     let deviceSupportsBiometricAuth: Bool = biometricAuthSupported()
     let sceneIdentifier = UUID()
     #if PYDEAPP
-    let consoleInstance: ConsoleInstance
+        let consoleInstance: ConsoleInstance
     #endif
 
     private var NotificationCancellable: AnyCancellable? = nil
@@ -145,10 +146,10 @@ class MainApp: ObservableObject {
         self.workSpaceStorage = WorkSpaceStorage(url: rootDir)
 
         terminalInstance = TerminalInstance(root: rootDir)
-        
+
         #if PYDEAPP
-        consoleInstance = ConsoleInstance(root: rootDir)
-        pyapp.tagsModelManager.listen(self)
+            consoleInstance = ConsoleInstance(root: rootDir)
+            pyapp.tagsModelManager.listen(self)
         #endif
 
         terminalInstance.openEditor = { [weak self] url in
@@ -216,30 +217,32 @@ class MainApp: ObservableObject {
                 stateManager.isSystemExtensionsInitialized = true
             }
         }
-        
+
         #if PYDEAPP
-        pyapp.App = self
-        pyappCancellable = pyapp.objectWillChange.sink { [weak self] (_) in
-            DispatchQueue.main.async {
-                self?.objectWillChange.send()
+            pyapp.App = self
+            pyappCancellable = pyapp.objectWillChange.sink { [weak self] (_) in
+                DispatchQueue.main.async {
+                    self?.objectWillChange.send()
+                }
             }
-        }
-        
-        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) {[weak self] timer in
-            guard let self else {
-                timer.invalidate()
-                return
+
+            Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] timer in
+                guard let self else {
+                    timer.invalidate()
+                    return
+                }
+                Task {
+                    await self.saveCurrentFile()
+                }
             }
-            Task {
-                await self.saveCurrentFile()
+
+            NotificationCenter.default.addObserver(
+                forName: .init("MainAppForeceUpdate"), object: nil, queue: nil
+            ) { [weak self] _ in
+                DispatchQueue.main.async {
+                    self?.objectWillChange.send()
+                }
             }
-        }
-        
-        NotificationCenter.default.addObserver(forName: .init("MainAppForeceUpdate"), object: nil, queue: nil) { [weak self] _ in
-            DispatchQueue.main.async {
-                self?.objectWillChange.send()
-            }
-        }
         #endif
     }
 
@@ -325,105 +328,110 @@ class MainApp: ObservableObject {
             bubble: { self.workSpaceStorage.remoteConnected ? .text("") : nil },
             isVisible: { true }
         )
-        
+
         #if PYDEAPP
         #else
-        extensionManager.activityBarManager.registerItem(item: explorer)
-        extensionManager.activityBarManager.registerItem(item: search)
-        extensionManager.activityBarManager.registerItem(item: sourceControl)
-        extensionManager.activityBarManager.registerItem(item: remote)
+            extensionManager.activityBarManager.registerItem(item: explorer)
+            extensionManager.activityBarManager.registerItem(item: search)
+            extensionManager.activityBarManager.registerItem(item: sourceControl)
+            extensionManager.activityBarManager.registerItem(item: remote)
         #endif
-        
+
         #if PYDEAPP
-        
-        let jupyter = if #available(iOS 16.4, *) {
-            ActivityBarItem(
-                itemID: "JUPYTER",
-                iconSystemName: "note",
-                title: "JUPYTER",
-                shortcutKey: "n",
+
+            let jupyter =
+                if #available(iOS 16.4, *) {
+                    ActivityBarItem(
+                        itemID: "JUPYTER",
+                        iconSystemName: "note",
+                        title: "JUPYTER",
+                        shortcutKey: "n",
+                        modifiers: [.command, .shift],
+                        view: AnyView(
+                            JupyterContainer(jupyterManager: JupyterExtension.jupyterManager)
+                                .scrollBounceBehavior(.basedOnSize)),
+                        contextMenuItems: nil,
+                        bubble: {
+                            if JupyterExtension.jupyterManager.running {
+                                return .text("")
+                            }
+                            return nil
+                        },
+                        isVisible: { true }
+                    )
+                } else {
+                    ActivityBarItem(
+                        itemID: "JUPYTER",
+                        iconSystemName: "note",
+                        title: "JUPYTER",
+                        shortcutKey: "n",
+                        modifiers: [.command, .shift],
+                        view: AnyView(
+                            JupyterContainer(jupyterManager: JupyterExtension.jupyterManager)),
+                        contextMenuItems: nil,
+                        bubble: { nil },
+                        isVisible: { true }
+                    )
+                }
+
+            //        let jupyter = ActivityBarItem(
+            //            itemID: "JUPYTER",
+            //            iconSystemName: "note",
+            //            title: "JUPYTER",
+            //            shortcutKey: "n",
+            //            modifiers: [.command, .shift],
+            //            view: AnyView(JupyterContainer(jupyterManager: JupyterExtension.jupyterManager)),
+            //            contextMenuItems: nil,
+            //            bubble: {nil},
+            //            isVisible: { true }
+            //        )
+            JupyterExtension.jupyterManager.runner.consoleView.resetAndSetNewRootDirectory(
+                url: URL(fileURLWithPath: self.workSpaceStorage.currentDirectory.url))
+
+            let pip = ActivityBarItem(
+                itemID: "Pip",
+                iconSystemName: "shippingbox",
+                title: "Pip",
+                shortcutKey: "p",
                 modifiers: [.command, .shift],
-                view: AnyView(JupyterContainer(jupyterManager: JupyterExtension.jupyterManager).scrollBounceBehavior(.basedOnSize)),
-                contextMenuItems: nil,
+                view: AnyView(PIPContainer()),
+                bubble: { nil },
+                isVisible: { true }
+            )
+
+            let outline = ActivityBarItem(
+                itemID: "OUTLINE",
+                iconSystemName: "text.justify",
+                title: "Outline",
+                shortcutKey: "o",
+                modifiers: [.command, .shift],
+                view: AnyView(OutlineContainer()),
+                bubble: { nil },
+                isVisible: { true }
+            )
+
+            extensionManager.activityBarManager.registerItem(item: explorer)
+            extensionManager.activityBarManager.registerItem(item: outline)
+            extensionManager.activityBarManager.registerItem(item: pip)
+            extensionManager.activityBarManager.registerItem(item: jupyter)
+            extensionManager.activityBarManager.registerItem(item: sourceControl)
+            extensionManager.activityBarManager.registerItem(item: search)
+
+            let download = ActivityBarItem(
+                itemID: "DOWNLOAD",
+                iconSystemName: "square.and.arrow.down",
+                title: "Download",
+                view: AnyView(DownloadContainer()),
                 bubble: {
-                    if JupyterExtension.jupyterManager.running {
-                        return .text("")
+                    let manager = DownloadManager.instance
+                    if !manager.isCompleted, manager.totalCount() > 0 {
+                        return .text("\(manager.totalSucceedCount())/\(manager.totalCount())")
                     }
                     return nil
                 },
                 isVisible: { true }
             )
-        } else {
-            ActivityBarItem(
-                itemID: "JUPYTER",
-                iconSystemName: "note",
-                title: "JUPYTER",
-                shortcutKey: "n",
-                modifiers: [.command, .shift],
-                view: AnyView(JupyterContainer(jupyterManager: JupyterExtension.jupyterManager)),
-                contextMenuItems: nil,
-                bubble: {nil},
-                isVisible: { true }
-            )
-        }
-        
-//        let jupyter = ActivityBarItem(
-//            itemID: "JUPYTER",
-//            iconSystemName: "note",
-//            title: "JUPYTER",
-//            shortcutKey: "n",
-//            modifiers: [.command, .shift],
-//            view: AnyView(JupyterContainer(jupyterManager: JupyterExtension.jupyterManager)),
-//            contextMenuItems: nil,
-//            bubble: {nil},
-//            isVisible: { true }
-//        )
-        JupyterExtension.jupyterManager.runner.consoleView.resetAndSetNewRootDirectory(url: URL(fileURLWithPath: self.workSpaceStorage.currentDirectory.url))
-        
-        let pip = ActivityBarItem(
-            itemID: "Pip",
-            iconSystemName: "shippingbox",
-            title: "Pip",
-            shortcutKey: "p",
-            modifiers: [.command, .shift],
-            view: AnyView(PIPContainer()),
-            bubble: {nil},
-            isVisible: { true }
-        )
-        
-        let outline = ActivityBarItem(
-            itemID: "OUTLINE",
-            iconSystemName: "text.justify",
-            title: "Outline",
-            shortcutKey: "o",
-            modifiers: [.command, .shift],
-            view: AnyView(OutlineContainer()),
-            bubble: {nil},
-            isVisible: { true }
-        )
-        
-        extensionManager.activityBarManager.registerItem(item: explorer)
-        extensionManager.activityBarManager.registerItem(item: outline)
-        extensionManager.activityBarManager.registerItem(item: pip)
-        extensionManager.activityBarManager.registerItem(item: jupyter)
-        extensionManager.activityBarManager.registerItem(item: sourceControl)
-        extensionManager.activityBarManager.registerItem(item: search)
-        
-        let download = ActivityBarItem(
-            itemID: "DOWNLOAD",
-            iconSystemName: "square.and.arrow.down",
-            title: "Download",
-            view: AnyView(DownloadContainer()),
-            bubble: {
-                let manager = DownloadManager.instance
-                if !manager.isCompleted, manager.totalCount() > 0 {
-                    return .text("\(manager.totalSucceedCount())/\(manager.totalCount())")
-                }
-                return nil
-            },
-            isVisible: {true}
-        )
-        extensionManager.activityBarManager.registerItem(item: download)
+            extensionManager.activityBarManager.registerItem(item: download)
 
         #endif
     }
@@ -431,61 +439,61 @@ class MainApp: ObservableObject {
     @MainActor
     func showWelcomeMessage() {
         #if PYDEAPP
-        let instnace = EditorInstance(
-            view: AnyView(
-                PYWelcomeView(
-                    onCreateNewFile: {
-                        self.stateManager.showsNewFileSheet.toggle()
-                    },
-                    onSelectFolderAsWorkspaceStorage: { url in
-                        self.loadFolder(url: url, resetEditors: true)
-                    },
-                    onSelectFolder: {
-                        self.stateManager.showsDirectoryPicker.toggle()
-                    },
-                    onSelectFile: {
-                        self.stateManager.showsFilePicker.toggle()
-                    },
-                    onNavigateToCloneSection: {
-                        // TODO: Modify SceneStorage?
-                    }, 
-                    onExplorFolder: { url in
-                        self.openFile(url: url, alwaysInNewTab: true)
-//                        if let existEditor = self.editors.first(where: {($0 as? EditorInstanceWithURL)?.url == url}) {
-//                            return
-//                        }
-//                        let editor = OnlyExplorerFileEditorInstance(url)
-//                        self.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
-                    }
-                )
+            let instnace = EditorInstance(
+                view: AnyView(
+                    PYWelcomeView(
+                        onCreateNewFile: {
+                            self.stateManager.showsNewFileSheet.toggle()
+                        },
+                        onSelectFolderAsWorkspaceStorage: { url in
+                            self.loadFolder(url: url, resetEditors: true)
+                        },
+                        onSelectFolder: {
+                            self.stateManager.showsDirectoryPicker.toggle()
+                        },
+                        onSelectFile: {
+                            self.stateManager.showsFilePicker.toggle()
+                        },
+                        onNavigateToCloneSection: {
+                            // TODO: Modify SceneStorage?
+                        },
+                        onExplorFolder: { url in
+                            self.openFile(url: url, alwaysInNewTab: true)
+                            //                        if let existEditor = self.editors.first(where: {($0 as? EditorInstanceWithURL)?.url == url}) {
+                            //                            return
+                            //                        }
+                            //                        let editor = OnlyExplorerFileEditorInstance(url)
+                            //                        self.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+                        }
+                    )
 
-            ), title: NSLocalizedString("Welcome", comment: ""))
+                ), title: NSLocalizedString("Welcome", comment: ""))
 
-        appendAndFocusNewEditor(editor: instnace, alwaysInNewTab: true)
+            appendAndFocusNewEditor(editor: instnace, alwaysInNewTab: true)
         #else
-        let instnace = EditorInstance(
-            view: AnyView(
-                WelcomeView(
-                    onCreateNewFile: {
-                        self.stateManager.showsNewFileSheet.toggle()
-                    },
-                    onSelectFolderAsWorkspaceStorage: { url in
-                        self.loadFolder(url: url, resetEditors: true)
-                    },
-                    onSelectFolder: {
-                        self.stateManager.showsDirectoryPicker.toggle()
-                    },
-                    onSelectFile: {
-                        self.stateManager.showsFilePicker.toggle()
-                    },
-                    onNavigateToCloneSection: {
-                        // TODO: Modify SceneStorage?
-                    }
-                )
+            let instnace = EditorInstance(
+                view: AnyView(
+                    WelcomeView(
+                        onCreateNewFile: {
+                            self.stateManager.showsNewFileSheet.toggle()
+                        },
+                        onSelectFolderAsWorkspaceStorage: { url in
+                            self.loadFolder(url: url, resetEditors: true)
+                        },
+                        onSelectFolder: {
+                            self.stateManager.showsDirectoryPicker.toggle()
+                        },
+                        onSelectFile: {
+                            self.stateManager.showsFilePicker.toggle()
+                        },
+                        onNavigateToCloneSection: {
+                            // TODO: Modify SceneStorage?
+                        }
+                    )
 
-            ), title: NSLocalizedString("Welcome", comment: ""))
+                ), title: NSLocalizedString("Welcome", comment: ""))
 
-        appendAndFocusNewEditor(editor: instnace, alwaysInNewTab: true)
+            appendAndFocusNewEditor(editor: instnace, alwaysInNewTab: true)
         #endif
     }
 
@@ -775,39 +783,39 @@ class MainApp: ObservableObject {
         }
     }
     #if PYDEAPP
-    func saveFile(_ editor: TextEditorInstance) {
-        Task {
-            await saveFile(editor)
+        func saveFile(_ editor: TextEditorInstance) {
+            Task {
+                await saveFile(editor)
+            }
         }
-    }
-    func saveFile(_ editor: TextEditorInstance) async {
-        if editor.isSaved {
-            return
+        func saveFile(_ editor: TextEditorInstance) async {
+            if editor.isSaved {
+                return
+            }
+            do {
+                try await saveTextEditor(editor: editor)
+            } catch AppError.fileModifiedByAnotherProcess {
+                self.notificationManager.postActionNotification(
+                    title: AppError.fileModifiedByAnotherProcess.localizedDescription,
+                    level: .error,
+                    primary: {
+                        Task {
+                            try await self.compareWithContent(
+                                url: editor.url, content: editor.content)
+                        }
+                    },
+                    primaryTitle: "common.compare",
+                    secondary: {
+                        Task {
+                            try await self.saveTextEditor(editor: editor, overwrite: true)
+                        }
+                    },
+                    secondaryTitle: "common.overwrite",
+                    source: "Code App")
+            } catch {
+                self.notificationManager.showErrorMessage(error.localizedDescription)
+            }
         }
-        do {
-            try await saveTextEditor(editor: editor)
-        } catch AppError.fileModifiedByAnotherProcess {
-            self.notificationManager.postActionNotification(
-                title: AppError.fileModifiedByAnotherProcess.localizedDescription,
-                level: .error,
-                primary: {
-                    Task {
-                        try await self.compareWithContent(
-                            url: editor.url, content: editor.content)
-                    }
-                },
-                primaryTitle: "common.compare",
-                secondary: {
-                    Task {
-                        try await self.saveTextEditor(editor: editor, overwrite: true)
-                    }
-                },
-                secondaryTitle: "common.overwrite",
-                source: "Code App")
-        } catch {
-            self.notificationManager.showErrorMessage(error.localizedDescription)
-        }
-    }
     #endif
 
     @MainActor
@@ -1052,36 +1060,41 @@ class MainApp: ObservableObject {
         }
         let attributes = try? await workSpaceStorage.attributesOfItem(at: url)
         let modificationDate = attributes?[.modificationDate] as? Date
-        
+
         #if PYDEAPP
-        if codeEditor == "PYCode Editor" {
-            if !showGlobalPanel, PYLOCAL_EXECUTION_COMMANDS.keys.contains(url.pathExtension.lowercased()) {
+            if codeEditor == "PYCode Editor" {
+                if !showGlobalPanel,
+                    PYLOCAL_EXECUTION_COMMANDS.keys.contains(url.pathExtension.lowercased())
+                {
+                    let instance = await Task { @MainActor in
+                        return PYTextEditorInstance(
+                            url: url, content: content, encoding: encoding,
+                            lastSavedDate: modificationDate
+                        ) { [weak self] state, content in
+                            //                    if state == .modified, let content, let self {
+                            //                        Task {
+                            //                            try await self.monacoInstance.setValueForModel(url: url, value: content)
+                            //                        }
+                            //                    }
+                        }
+                    }.value
+
+                    return instance
+                }
+
                 let instance = await Task { @MainActor in
-                    return PYTextEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate) { [weak self] state, content in
-                        //                    if state == .modified, let content, let self {
-                        //                        Task {
-                        //                            try await self.monacoInstance.setValueForModel(url: url, value: content)
-                        //                        }
-                        //                    }
-                    }
+                    return PYPlainTextEditorInstance(
+                        url: url,
+                        content: content,
+                        encoding: encoding,
+                        lastSavedDate: modificationDate
+                    )
                 }.value
-                
                 return instance
+            } else {
+                return try await createMonacoTextEditorFromURL(url: url)
             }
-            
-            let instance = await Task { @MainActor in
-                return PYPlainTextEditorInstance(
-                    url: url,
-                    content: content,
-                    encoding: encoding,
-                    lastSavedDate: modificationDate
-                )
-            }.value
-            return instance
-        } else {
-            return try await createMonacoTextEditorFromURL(url: url)
-        }
-        
+
         #endif
 
         return TextEditorInstance(
@@ -1119,7 +1132,7 @@ class MainApp: ObservableObject {
         }
         monacoInstance.removeAllModel()
         #if PYDEAPP
-        editors.forEach({$0.dispose()})
+            editors.forEach({ $0.dispose() })
         #endif
         editors.removeAll(keepingCapacity: false)
         activeEditor = nil
@@ -1145,22 +1158,22 @@ class MainApp: ObservableObject {
 
         editors.append(editor)
         activeEditor = editor
-        
+
         #if PYDEAPP
-        if let editor = editor as? EditorInstanceWithURL {
-            let url = editor.url
-            let fileName = url.lastPathComponent
-            let argsName = ".\(fileName).args"
-            let argsUrl = url.deletingLastPathComponent().appendingPathComponent(argsName)
-            Task {
-                if let argsData = try? await workSpaceStorage.contents(at: argsUrl) {
-                    if let args = String(data: argsData, encoding: .utf8) {
-                        editor.runArgs = args
+            if let editor = editor as? EditorInstanceWithURL {
+                let url = editor.url
+                let fileName = url.lastPathComponent
+                let argsName = ".\(fileName).args"
+                let argsUrl = url.deletingLastPathComponent().appendingPathComponent(argsName)
+                Task {
+                    if let argsData = try? await workSpaceStorage.contents(at: argsUrl) {
+                        if let args = String(data: argsData, encoding: .utf8) {
+                            editor.runArgs = args
+                        }
                     }
                 }
             }
-        }
-        
+
         #endif
     }
 
@@ -1169,60 +1182,111 @@ class MainApp: ObservableObject {
             try await openFile(url: url, alwaysInNewTab: alwaysInNewTab)
         }
     }
-    
-    #if PYDEAPP
-    func openFileInMonaco(url: URL, alwaysInNewTab: Bool = false) {
-        Task {
-            try await openFileInMonaco(url: url, alwaysInNewTab: alwaysInNewTab)
-        }
-    }
-    
-    @MainActor
-    @discardableResult
-    func openFileInMonaco(url: URL, alwaysInNewTab: Bool = false) async throws -> EditorInstance {
-        guard stateManager.isMonacoEditorInitialized else {
-            urlQueue.append(url)
-            throw AppError.editorIsNotReady
-        }
-        var url = url.standardizedFileURL
-        if url.pathExtension == "icloud" {
-            let originalFileName = String(
-                url.lastPathComponent.dropFirst(".".count).dropLast(".icloud".count))
-            url = url.deletingLastPathComponent().appendingPathComponent(originalFileName)
-        }
-        if let existingEditor = try? openEditorForURL(url: url) {
-            return existingEditor
-        }
-        // TODO: Avoid reading the same file twice
-        do {
-            let textEditor = try await createMonacoTextEditorFromURL(url: url)
-            appendAndFocusNewEditor(editor: textEditor, alwaysInNewTab: alwaysInNewTab)
-            return textEditor
-        } catch NSFileProviderError.serverUnreachable {
-            throw NSFileProviderError(.serverUnreachable)
-        } catch {
-            // Otherwise, fallback to using extensions
-            let editor = try createExtensionEditorFromURL(url: url)
-            appendAndFocusNewEditor(editor: editor, alwaysInNewTab: alwaysInNewTab)
-            return editor
-        }
-    }
-    
-    @MainActor
-    private func createMonacoTextEditorFromURL(url: URL) async throws -> TextEditorInstance {
-        // TODO: A more efficient way to determine whether file is supported
-        let contentData: Data? = try await workSpaceStorage.contents(
-            at: url
-        )
 
-        guard let contentData, let (content, encoding) = try? decodeStringData(data: contentData)
-        else {
-            throw AppError.unknownFileFormat
+    #if PYDEAPP
+        func openFileInMonaco(url: URL, alwaysInNewTab: Bool = false) {
+            Task {
+                try await openFileInMonaco(url: url, alwaysInNewTab: alwaysInNewTab)
+            }
         }
-        let attributes = try? await workSpaceStorage.attributesOfItem(at: url)
-        let modificationDate = attributes?[.modificationDate] as? Date
-        
-        if showGlobalPanel {
+
+        @MainActor
+        @discardableResult
+        func openFileInMonaco(url: URL, alwaysInNewTab: Bool = false) async throws -> EditorInstance
+        {
+            guard stateManager.isMonacoEditorInitialized else {
+                urlQueue.append(url)
+                throw AppError.editorIsNotReady
+            }
+            var url = url.standardizedFileURL
+            if url.pathExtension == "icloud" {
+                let originalFileName = String(
+                    url.lastPathComponent.dropFirst(".".count).dropLast(".icloud".count))
+                url = url.deletingLastPathComponent().appendingPathComponent(originalFileName)
+            }
+            if let existingEditor = try? openEditorForURL(url: url) {
+                return existingEditor
+            }
+            // TODO: Avoid reading the same file twice
+            do {
+                let textEditor = try await createMonacoTextEditorFromURL(url: url)
+                appendAndFocusNewEditor(editor: textEditor, alwaysInNewTab: alwaysInNewTab)
+                return textEditor
+            } catch NSFileProviderError.serverUnreachable {
+                throw NSFileProviderError(.serverUnreachable)
+            } catch {
+                // Otherwise, fallback to using extensions
+                let editor = try createExtensionEditorFromURL(url: url)
+                appendAndFocusNewEditor(editor: editor, alwaysInNewTab: alwaysInNewTab)
+                return editor
+            }
+        }
+
+        @MainActor
+        private func createMonacoTextEditorFromURL(url: URL) async throws -> TextEditorInstance {
+            // TODO: A more efficient way to determine whether file is supported
+            let contentData: Data? = try await workSpaceStorage.contents(
+                at: url
+            )
+
+            guard let contentData,
+                let (content, encoding) = try? decodeStringData(data: contentData)
+            else {
+                throw AppError.unknownFileFormat
+            }
+            let attributes = try? await workSpaceStorage.attributesOfItem(at: url)
+            let modificationDate = attributes?[.modificationDate] as? Date
+
+            if showGlobalPanel {
+                return TextEditorInstance(
+                    editor: monacoInstance,
+                    url: url,
+                    content: content,
+                    encoding: encoding,
+                    lastSavedDate: modificationDate,
+                    // TODO: Update using updateUIView?
+                    fileDidChange: { [weak self] state, content in
+                        if state == .modified, let content, let self {
+                            Task {
+                                try await self.monacoInstance.setValueForModel(
+                                    url: url, value: content)
+                            }
+                        }
+                    }
+                )
+            }
+
+            if url.pathExtension.lowercased() == "ipynb" {
+                let instance = await Task { @MainActor in
+                    return NoteBookPreviewEditorInstance(
+                        url: url, content: content, encoding: encoding,
+                        lastSavedDate: modificationDate)
+                }.value
+                return instance
+            } else if PYLOCAL_EXECUTION_COMMANDS.keys.contains(url.pathExtension.lowercased()) {
+                let instance = WithRunnerEditorInstance(
+                    url: url, content: content, encoding: encoding, lastSavedDate: modificationDate,
+                    editorView: AnyView(monacoInstance),
+                    fileDidChange: { [weak self] state, content in
+                        if state == .modified, let content, let self {
+                            Task {
+                                try await self.monacoInstance.setValueForModel(
+                                    url: url, value: content)
+                            }
+                        }
+                    })
+
+                let fileName = url.lastPathComponent
+                let argsName = ".\(fileName).args"
+                let argsUrl = url.deletingLastPathComponent().appendingPathComponent(argsName)
+                if let argsData = try? await workSpaceStorage.contents(at: argsUrl) {
+                    if let args = String(data: argsData, encoding: .utf8) {
+                        instance.runArgs = args
+                    }
+                }
+                return instance
+            }
+
             return TextEditorInstance(
                 editor: monacoInstance,
                 url: url,
@@ -1238,52 +1302,8 @@ class MainApp: ObservableObject {
                     }
                 }
             )
-        }
-        
-        if (url.pathExtension.lowercased() == "ipynb") {
-            let instance = await Task { @MainActor in
-                return NoteBookPreviewEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate)
-            }.value
-            return instance
-        } else  if PYLOCAL_EXECUTION_COMMANDS.keys.contains(url.pathExtension.lowercased()) {
-            let instance = WithRunnerEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: modificationDate, editorView: AnyView(monacoInstance), fileDidChange: { [weak self] state, content in
-                if state == .modified, let content, let self {
-                    Task {
-                        try await self.monacoInstance.setValueForModel(url: url, value: content)
-                    }
-                }
-            })
-            
-            let fileName = url.lastPathComponent
-            let argsName = ".\(fileName).args"
-            let argsUrl = url.deletingLastPathComponent().appendingPathComponent(argsName)
-            if let argsData = try? await workSpaceStorage.contents(at: argsUrl) {
-                if let args = String(data: argsData, encoding: .utf8) {
-                    instance.runArgs = args
-                }
-            }
-            return instance
-        }
-        
-        
 
-        return TextEditorInstance(
-            editor: monacoInstance,
-            url: url,
-            content: content,
-            encoding: encoding,
-            lastSavedDate: modificationDate,
-            // TODO: Update using updateUIView?
-            fileDidChange: { [weak self] state, content in
-                if state == .modified, let content, let self {
-                    Task {
-                        try await self.monacoInstance.setValueForModel(url: url, value: content)
-                    }
-                }
-            }
-        )
-
-    }
+        }
     #endif
 
     @MainActor
@@ -1303,79 +1323,95 @@ class MainApp: ObservableObject {
             return existingEditor
         }
         #if PYDEAPP
-        if ["md", "markdown"].contains(url.pathExtension.lowercased()), url.isContained(in: Bundle.main.bundleURL.resolvingSymlinksInPath()) || url.isContained(in: ConstantManager.EXAMPLES) {
-            let contentData: Data? = try await workSpaceStorage.contents(
-                at: url
-            )
+            if ["md", "markdown"].contains(url.pathExtension.lowercased()),
+                url.isContained(in: Bundle.main.bundleURL.resolvingSymlinksInPath())
+                    || url.isContained(in: ConstantManager.EXAMPLES)
+            {
+                let contentData: Data? = try await workSpaceStorage.contents(
+                    at: url
+                )
 
-            if let contentData, let (content, _) = try? decodeStringData(data: contentData) {
-                let editor = MarkdownEditorInstance(url: url , content: content, title: url.lastPathComponent)
-                appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
-                return editor
+                if let contentData, let (content, _) = try? decodeStringData(data: contentData) {
+                    let editor = MarkdownEditorInstance(
+                        url: url, content: content, title: url.lastPathComponent)
+                    appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+                    return editor
+                }
+
             }
-            
-        }
-        if ["pblink"].contains(url.pathExtension.lowercased()), url.isContained(in: Bundle.main.bundleURL.resolvingSymlinksInPath()) || url.isContained(in: ConstantManager.EXAMPLES) {
-            let contentData: Data? = try await workSpaceStorage.contents(
-                at: url
-            )
+            if ["pblink"].contains(url.pathExtension.lowercased()),
+                url.isContained(in: Bundle.main.bundleURL.resolvingSymlinksInPath())
+                    || url.isContained(in: ConstantManager.EXAMPLES)
+            {
+                let contentData: Data? = try await workSpaceStorage.contents(
+                    at: url
+                )
 
-            if let contentData, let (content, _) = try? decodeStringData(data: contentData), let url = URL(string: content) {
+                if let contentData, let (content, _) = try? decodeStringData(data: contentData),
+                    let url = URL(string: content)
+                {
+                    let editor = PYWebViewEditorInstance(url)
+                    appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+                    return editor
+                }
+
+            }
+            if ["htm", "html", "shtml"].contains(url.pathExtension.lowercased()),
+                url.isContained(in: Bundle.main.bundleURL.resolvingSymlinksInPath())
+                    || url.isContained(in: ConstantManager.EXAMPLES)
+            {
                 let editor = PYWebViewEditorInstance(url)
                 appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
                 return editor
             }
-            
-        }
-        if ["htm", "html", "shtml"].contains(url.pathExtension.lowercased()), url.isContained(in: Bundle.main.bundleURL.resolvingSymlinksInPath()) || url.isContained(in: ConstantManager.EXAMPLES) {
-            let editor = PYWebViewEditorInstance(url)
-            appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
-            return editor
-        }
-        
-        if url.isFileURL, url.pathExtension.lowercased() == "ipynb" {
-            let contentData: Data? = try await workSpaceStorage.contents(
-                at: url
-            )
 
-            if let contentData, let (content, encoding) = try? decodeStringData(data: contentData){
-                let editor = await Task { @MainActor in
-                    return NoteBookPreviewEditorInstance(url: url, content: content, encoding: encoding, lastSavedDate: url.contentModificationDate)
-                }.value
+            if url.isFileURL, url.pathExtension.lowercased() == "ipynb" {
+                let contentData: Data? = try await workSpaceStorage.contents(
+                    at: url
+                )
+
+                if let contentData,
+                    let (content, encoding) = try? decodeStringData(data: contentData)
+                {
+                    let editor = await Task { @MainActor in
+                        return NoteBookPreviewEditorInstance(
+                            url: url, content: content, encoding: encoding,
+                            lastSavedDate: url.contentModificationDate)
+                    }.value
+                    appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+                    return editor
+                }
+            }
+
+            if !url.isFileURL {
+                let editor = PYWebViewEditorInstance(url)
                 appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
                 return editor
             }
-        }
-        
-        if !url.isFileURL {
-            let editor = PYWebViewEditorInstance(url)
-            appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
-            return editor
-        }
-        
-        if url.isDirectory {
-            let editor = OnlyExplorerFileEditorInstance(url)
-            appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
-            return editor
-        }
-        
-        do {
-            let textEditor = try await createTextEditorFromURL(url: url)
-            appendAndFocusNewEditor(editor: textEditor, alwaysInNewTab: alwaysInNewTab)
-            return textEditor
-        } catch NSFileProviderError.serverUnreachable {
-            throw NSFileProviderError(.serverUnreachable)
-        } catch {
-            // Otherwise, fallback to using extensions
-            if let editor = try? createExtensionEditorFromURL(url: url) {
-                appendAndFocusNewEditor(editor: editor, alwaysInNewTab: alwaysInNewTab)
+
+            if url.isDirectory {
+                let editor = OnlyExplorerFileEditorInstance(url)
+                appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
                 return editor
             }
-            
-            let editor = QuickLookEditorInstance(title: url.lastPathComponent, url: url)
-            appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
-            return editor
-        }
+
+            do {
+                let textEditor = try await createTextEditorFromURL(url: url)
+                appendAndFocusNewEditor(editor: textEditor, alwaysInNewTab: alwaysInNewTab)
+                return textEditor
+            } catch NSFileProviderError.serverUnreachable {
+                throw NSFileProviderError(.serverUnreachable)
+            } catch {
+                // Otherwise, fallback to using extensions
+                if let editor = try? createExtensionEditorFromURL(url: url) {
+                    appendAndFocusNewEditor(editor: editor, alwaysInNewTab: alwaysInNewTab)
+                    return editor
+                }
+
+                let editor = QuickLookEditorInstance(title: url.lastPathComponent, url: url)
+                appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)
+                return editor
+            }
         #endif
         // TODO: Avoid reading the same file twice
         do {
@@ -1446,9 +1482,9 @@ class MainApp: ObservableObject {
         }
 
         editors.remove(at: index)
-        
+
         #if PYDEAPP
-        editor.dispose()
+            editor.dispose()
         #endif
     }
 

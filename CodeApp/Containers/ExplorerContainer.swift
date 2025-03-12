@@ -5,11 +5,11 @@
 //  Created by Ken Chung on 5/12/2020.
 //
 
-import SwiftUI
-import UniformTypeIdentifiers
+import Combine
 //import pydeCommon
 import SwiftGit2
-import Combine
+import SwiftUI
+import UniformTypeIdentifiers
 
 var cancellableSet: Set<AnyCancellable> = []
 
@@ -96,12 +96,12 @@ struct ExplorerContainer: View {
     }
 
     var body: some View {
-        
+
         GeometryReader(content: { geometry in
             VStack(spacing: 0) {
-                
+
                 InfinityProgressView(enabled: App.workSpaceStorage.explorerIsBusy)
-                
+
                 ScrollViewReader { proxy in
                     List {
                         ExplorerEditorListSection(
@@ -111,7 +111,7 @@ struct ExplorerContainer: View {
                         ExplorerFileTreeSection(
                             searchString: searchString, onDrag: onDragCell,
                             onDropToFolder: onDropToFolder)
-                        
+
                     }
                     .listStyle(SidebarListStyle())
                     .environment(\.defaultMinListRowHeight, 10)
@@ -120,7 +120,7 @@ struct ExplorerContainer: View {
                         scrollToActiveEditor(proxy: proxy)
                     }
                 }
-                
+
                 HStack(spacing: 30) {
                     if editMode == EditMode.inactive {
                         if searching {
@@ -148,13 +148,14 @@ struct ExplorerContainer: View {
                                 Color.init(id: "activityBar.foreground")
                             ).onTapGesture {
                                 Task {
-                                    guard let url = App.workSpaceStorage.currentDirectory._url else {
+                                    guard let url = App.workSpaceStorage.currentDirectory._url
+                                    else {
                                         return
                                     }
                                     try await App.createFolder(at: url)
                                 }
                             }
-                            
+
                             if !App.workSpaceStorage.remoteConnected {
                                 Image(systemName: "folder.badge.gear").contentShape(
                                     RoundedRectangle(cornerRadius: 8, style: .continuous)
@@ -162,7 +163,7 @@ struct ExplorerContainer: View {
                                     Color.init(id: "activityBar.foreground")
                                 ).onTapGesture { onPickNewDirectory() }
                             }
-                            
+
                             Image(systemName: "line.3.horizontal.decrease").contentShape(
                                 RoundedRectangle(cornerRadius: 8, style: .continuous)
                             ).hoverEffect(.highlight).font(.subheadline).foregroundColor(
@@ -216,15 +217,15 @@ struct ExplorerContainer: View {
                             Color.init(id: "activityBar.foreground")
                         ).onTapGesture { withAnimation { editMode = EditMode.inactive } }
                     }
-                    
+
                 }.padding(.horizontal, 15).padding(.vertical, 8).background(
                     Color.init(id: "activityBar.background")
                 ).cornerRadius(12).padding(.bottom, 15).padding(.horizontal, 8)
-                
-            }
-        })}
-}
 
+            }
+        })
+    }
+}
 
 struct WebView: UIViewRepresentable {
 
@@ -233,12 +234,12 @@ struct WebView: UIViewRepresentable {
     func makeUIView(context: Context) -> WKWebView {
         let config = WKWebViewConfiguration()
         config.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
-        
+
         let wview = WKWebView(frame: .zero, configuration: config)
         if #available(iOS 16.4, *) {
             wview.isInspectable = true
         }
-        
+
         return wview
     }
 

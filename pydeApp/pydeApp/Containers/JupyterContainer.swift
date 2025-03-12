@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 import pydeCommon
-import python3Objc
 import CryptoKit
 
 private var topYChanged: Bool = false

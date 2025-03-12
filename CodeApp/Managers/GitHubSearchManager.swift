@@ -54,11 +54,11 @@ class GitHubSearchManager: ObservableObject {
 
     func listTemplates() {
         #if PYTHON3IDE
-        let query = "topic:python3ide sort:stars"
+            let query = "topic:python3ide sort:stars"
         #else
-        let query = "topic:ipyde-template sort:stars"
+            let query = "topic:ipyde-template sort:stars"
         #endif
-        
+
         Task {
             let templates = try await executeQuery(query: query)
             await MainActor.run {

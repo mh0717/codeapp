@@ -73,13 +73,13 @@ struct EditorView: View {
                 }.foregroundColor(.clear).font(.system(size: 1))
 
                 Color.init(id: "editor.background")
-                
+
                 #if PYDEAPP
-                
-                    ForEach(App.editors.filter({$0.keepAlive}), id: \.self) { editor in
+
+                    ForEach(App.editors.filter({ $0.keepAlive }), id: \.self) { editor in
                         editor.view.opacity(editor == App.activeEditor ? 1.0 : 0.0)
                     }
-                
+
                 #endif
 
                 if !App.stateManager.isMonacoEditorInitialized {
@@ -126,14 +126,14 @@ struct EditorView: View {
                     if App.activeEditor == nil {
                         DescriptionText("You don't have any open editor.")
                     }
-                    
+
                 }
 
-//                VStack {
-//                    InfinityProgressView(enabled: App.workSpaceStorage.editorIsBusy)
-//                        .opacity(App.workSpaceStorage.editorIsBusy ? 1.0 : 0.0)
-//                    Spacer()
-//                }
+                //                VStack {
+                //                    InfinityProgressView(enabled: App.workSpaceStorage.editorIsBusy)
+                //                        .opacity(App.workSpaceStorage.editorIsBusy ? 1.0 : 0.0)
+                //                    Spacer()
+                //                }
 
             }
             .onReceive(
@@ -176,12 +176,11 @@ struct EditorView: View {
                         if await App.monacoInstance.isEditorInFocus() {
                             await App.saveCurrentFile()
                             try await App.monacoInstance.blur()
-                        }
-                        else {
+                        } else {
                             #if PYDEAPP
-                            if let _ = App.activeTextEditor as? PYTextEditorInstance {
-                                await App.saveCurrentFile()
-                            }
+                                if let _ = App.activeTextEditor as? PYTextEditorInstance {
+                                    await App.saveCurrentFile()
+                                }
                             #endif
                         }
                     }

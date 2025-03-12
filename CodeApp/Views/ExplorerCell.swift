@@ -40,9 +40,9 @@ private struct FileCell: View {
     @State var showsDirectoryPicker = false
     @FocusState var focusedField: Field?
     @State var isRenaming: Bool = false
-    
+
     #if PYDEAPP
-    @AppStorage("openWithMonoco") var openWithMonoco: Bool = false
+        @AppStorage("openWithMonoco") var openWithMonoco: Bool = false
     #endif
 
     init(item: WorkSpaceStorage.FileItemRepresentable) {
@@ -73,20 +73,22 @@ private struct FileCell: View {
         Task {
             do {
                 #if PYDEAPP
-                if openWithMonoco {
-                    _ = try await App.openFileInMonaco(url: url, alwaysInNewTab: true)
-                } else {
-                    _ = try await App.openFile(url: url, alwaysInNewTab: true)
-                }
+                    if openWithMonoco {
+                        _ = try await App.openFileInMonaco(url: url, alwaysInNewTab: true)
+                    } else {
+                        _ = try await App.openFile(url: url, alwaysInNewTab: true)
+                    }
                 #else
-                _ = try await App.openFile(url: url)
+                    _ = try await App.openFile(url: url)
                 #endif
             } catch {
                 #if PYDEAPP
-                let vc = QuickPreviewController(url)
-                App.appendAndFocusNewEditor(editor: VCInTabEditorInstance(url: url, title: url.lastPathComponent, vc: vc), alwaysInNewTab: true)
+                    let vc = QuickPreviewController(url)
+                    App.appendAndFocusNewEditor(
+                        editor: VCInTabEditorInstance(
+                            url: url, title: url.lastPathComponent, vc: vc), alwaysInNewTab: true)
                 #else
-                App.notificationManager.showErrorMessage(error.localizedDescription)
+                    App.notificationManager.showErrorMessage(error.localizedDescription)
                 #endif
             }
         }
@@ -285,9 +287,9 @@ struct FolderCell: View {
         .padding(5)
         .sheet(isPresented: $showingNewFileSheet) {
             #if PYDEAPP
-            PYNewFileView(targetUrl: item.url).environmentObject(App)
+                PYNewFileView(targetUrl: item.url).environmentObject(App)
             #else
-            NewFileView(targetUrl: item.url).environmentObject(App)
+                NewFileView(targetUrl: item.url).environmentObject(App)
             #endif
         }
         .sheet(isPresented: $showsDirectoryPicker) {
@@ -348,44 +350,43 @@ private struct ContextMenu: View {
         Group {
 
             if item.subFolderItems == nil {
-//                Button(action: {
-//                    if let url = item._url {
-//                        App.openFile(url: url, alwaysInNewTab: true)
-//                    }
-//                }) {
-//                    Text("Open in Tab")
-//                    Image(systemName: "doc.plaintext")
-//                }
-                
+                //                Button(action: {
+                //                    if let url = item._url {
+                //                        App.openFile(url: url, alwaysInNewTab: true)
+                //                    }
+                //                }) {
+                //                    Text("Open in Tab")
+                //                    Image(systemName: "doc.plaintext")
+                //                }
+
                 #if PYDEAPP
-//                Button(action: {
-//                    if let url = item._url {
-//                        App.openFileInMonaco(url: url, alwaysInNewTab: true)
-//                    }
-//                }) {
-//                    Text("Open with Monaco Editor")
-//                    Image(systemName: "doc.plaintext")
-//                }
-//
-//                Button(action: {
-//                    if let url = item._url {
-//                        App.openFile(url: url, alwaysInNewTab: true)
-//                    }
-//                }) {
-//                    Text("Open with PYEditor")
-//                    Image(systemName: "doc.text")
-//                }
-                
-                
-                ForEach(App.extensionManager.fileMenuManager.items) { fitem in
-                    if let url = item._url, fitem.isVisible(url) {
-                        Button(fitem.title, systemImage: fitem.iconSystemName) {
-                            fitem.onClick(url)
+                    //                Button(action: {
+                    //                    if let url = item._url {
+                    //                        App.openFileInMonaco(url: url, alwaysInNewTab: true)
+                    //                    }
+                    //                }) {
+                    //                    Text("Open with Monaco Editor")
+                    //                    Image(systemName: "doc.plaintext")
+                    //                }
+                    //
+                    //                Button(action: {
+                    //                    if let url = item._url {
+                    //                        App.openFile(url: url, alwaysInNewTab: true)
+                    //                    }
+                    //                }) {
+                    //                    Text("Open with PYEditor")
+                    //                    Image(systemName: "doc.text")
+                    //                }
+
+                    ForEach(App.extensionManager.fileMenuManager.items) { fitem in
+                        if let url = item._url, fitem.isVisible(url) {
+                            Button(fitem.title, systemImage: fitem.iconSystemName) {
+                                fitem.onClick(url)
+                            }
                         }
                     }
-                }
-                
-                Divider()
+
+                    Divider()
                 #endif
             }
 

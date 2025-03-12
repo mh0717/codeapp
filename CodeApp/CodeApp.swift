@@ -14,13 +14,13 @@ import ios_system
 @main
 struct CodeApp: App {
     @StateObject var themeManager = ThemeManager()
-    
+
     #if PYDEAPP
-    #if PYTHON3IDE
-    @StateObject var subIapManager = SubIapManager.instance
-    #else
-    @StateObject var iapManager = IapManager.instance
-    #endif
+        #if PYTHON3IDE
+            @StateObject var subIapManager = SubIapManager.instance
+        #else
+            @StateObject var iapManager = IapManager.instance
+        #endif
     #endif
 
     func versionNumberIncreased() -> Bool {
@@ -212,141 +212,140 @@ struct CodeApp: App {
     }
 
     #if PYDEAPP
-    init() {
-        UITableView.appearance().backgroundColor = UIColor.clear
-        UITableViewCell.appearance().backgroundColor = UIColor.clear
-        UITableView.appearance().separatorStyle = .none
-        UITextView.appearance().backgroundColor = .clear
-        
-        // Disable mini map and line number for iPhones
-        if UIScreen.main.traitCollection.horizontalSizeClass == .compact {
-            if UserDefaults.standard.object(forKey: "editorLineNumberEnabled") == nil {
-                UserDefaults.standard.setValue(false, forKey: "editorLineNumberEnabled")
-                UserDefaults.standard.setValue(false, forKey: "editorMiniMapEnabled")
-            }
-            if UserDefaults.standard.object(forKey: "compilerShowPath") == nil {
-                UserDefaults.standard.setValue(false, forKey: "compilerShowPath")
-            }
-        }
-        
-        Repository.initialize_libgit2()
-        
-        
-        
-        DispatchQueue.main.async {
-            initPyDE()
-        }
-        
-        PYApp.onAppInitialized()
-        
-        DownloadManager.instance.setup()
-        
-        signal(SIGPIPE, SIG_IGN);
-    }
-    #else
-    init() {
-        UITableView.appearance().backgroundColor = UIColor.clear
-        UITableViewCell.appearance().backgroundColor = UIColor.clear
-        UITableView.appearance().separatorStyle = .none
-        UITextView.appearance().backgroundColor = .clear
+        init() {
+            UITableView.appearance().backgroundColor = UIColor.clear
+            UITableViewCell.appearance().backgroundColor = UIColor.clear
+            UITableView.appearance().separatorStyle = .none
+            UITextView.appearance().backgroundColor = .clear
 
-        replaceCommand("node", "node", true)
-        replaceCommand("npm", "npm", true)
-        replaceCommand("npx", "npx", true)
-        replaceCommand("wasm", "wasm", true)
-
-        refreshNodeCommands()
-
-        let libraryURL = try! FileManager().url(
-            for: .libraryDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-
-        // Main Python install: $APPDIR/Library/lib/python3.x
-        let bundleUrl = Resources.pythonLibrary
-        setenv("PYTHONHOME", bundleUrl.path.toCString(), 1)
-        // Compiled files: ~/Library/__pycache__
-        setenv(
-            "PYTHONPYCACHEPREFIX",
-            (libraryURL.appendingPathComponent("__pycache__")).path.toCString(), 1)
-        setenv("PYTHONUSERBASE", libraryURL.path.toCString(), 1)
-        setenv("SSL_CERT_FILE", Resources.carcert.path.toCString(), 1)
-
-        // Help aiohttp install itself:
-        setenv("YARL_NO_EXTENSIONS", "1", 1)
-        setenv("MULTIDICT_NO_EXTENSIONS", "1", 1)
-
-        // clang options:
-        setenv("SYSROOT", libraryURL.path + "/usr", 1)
-        setenv(
-            "CCC_OVERRIDE_OPTIONS",
-            "#^--target=wasm32-wasi +-fno-exceptions +-lc-printscan-long-double", 1)
-        setenv("MAKESYSPATH", Bundle.main.resourcePath! + "ClangLib/usr/share/mk", 1)
-
-        // PHP config
-        setenv("PHPRC", bundleUrl.path.toCString(), 1)
-        // Git config
-        //        setenv("HOME", libraryURL.path, 1)
-        setenv("GIT_EXEC_PATH", bundleUrl.appendingPathComponent("bin").path.toCString(), 1)
-        // Magic file
-        //        setenv("MAGIC", Bundle.main.resourcePath! + "/usr/share/magic.mgc", 1)
-        joinMainThread = false
-        numPythonInterpreters = 2
-
-        let notificationName = "com.thebaselab.code.node.stdout" as CFString
-        let notificationCenter = CFNotificationCenterGetDarwinNotifyCenter()
-
-        CFNotificationCenterAddObserver(
-            notificationCenter, nil,
-            {
-                (
-                    center: CFNotificationCenter?,
-                    observer: UnsafeMutableRawPointer?,
-                    name: CFNotificationName?,
-                    object: UnsafeRawPointer?,
-                    userInfo: CFDictionary?
-                ) in
-
-                let sharedURL = FileManager.default.containerURL(
-                    forSecurityApplicationGroupIdentifier: "group.com.thebaselab.code")!
-                let stdoutURL = sharedURL.appendingPathComponent("stdout")
-
-                guard let data = try? Data(contentsOf: stdoutURL),
-                    let str = String(data: data, encoding: .utf8)
-                else {
-                    return
+            // Disable mini map and line number for iPhones
+            if UIScreen.main.traitCollection.horizontalSizeClass == .compact {
+                if UserDefaults.standard.object(forKey: "editorLineNumberEnabled") == nil {
+                    UserDefaults.standard.setValue(false, forKey: "editorLineNumberEnabled")
+                    UserDefaults.standard.setValue(false, forKey: "editorMiniMapEnabled")
                 }
-
-                let nc = NotificationCenter.default
-                nc.post(
-                    name: Notification.Name("node.stdout"), object: nil, userInfo: ["content": str])
-
-            },
-            notificationName,
-            nil,
-            CFNotificationSuspensionBehavior.deliverImmediately)
-
-        // Disable mini map and line number for iPhones
-        if UIScreen.main.traitCollection.horizontalSizeClass == .compact {
-            if UserDefaults.standard.object(forKey: "editorLineNumberEnabled") == nil {
-                UserDefaults.standard.setValue(false, forKey: "editorLineNumberEnabled")
-                UserDefaults.standard.setValue(false, forKey: "editorMiniMapEnabled")
+                if UserDefaults.standard.object(forKey: "compilerShowPath") == nil {
+                    UserDefaults.standard.setValue(false, forKey: "compilerShowPath")
+                }
             }
-            if UserDefaults.standard.object(forKey: "compilerShowPath") == nil {
-                UserDefaults.standard.setValue(false, forKey: "compilerShowPath")
+
+            Repository.initialize_libgit2()
+
+            DispatchQueue.main.async {
+                initPyDE()
             }
-        }
 
-        if versionNumberIncreased() || needToUpdateCFiles() {
-            createCSDK()
-        }
+            PYApp.onAppInitialized()
 
-        DispatchQueue.main.async {
-            wasmWebView.loadFileURL(
-                Resources.wasmHTML,
-                allowingReadAccessTo: Resources.wasmHTML)
+            DownloadManager.instance.setup()
+
+            signal(SIGPIPE, SIG_IGN)
         }
-        initializeEnvironment()
-        Repository.initialize_libgit2()
-    }
+    #else
+        init() {
+            UITableView.appearance().backgroundColor = UIColor.clear
+            UITableViewCell.appearance().backgroundColor = UIColor.clear
+            UITableView.appearance().separatorStyle = .none
+            UITextView.appearance().backgroundColor = .clear
+
+            replaceCommand("node", "node", true)
+            replaceCommand("npm", "npm", true)
+            replaceCommand("npx", "npx", true)
+            replaceCommand("wasm", "wasm", true)
+
+            refreshNodeCommands()
+
+            let libraryURL = try! FileManager().url(
+                for: .libraryDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+
+            // Main Python install: $APPDIR/Library/lib/python3.x
+            let bundleUrl = Resources.pythonLibrary
+            setenv("PYTHONHOME", bundleUrl.path.toCString(), 1)
+            // Compiled files: ~/Library/__pycache__
+            setenv(
+                "PYTHONPYCACHEPREFIX",
+                (libraryURL.appendingPathComponent("__pycache__")).path.toCString(), 1)
+            setenv("PYTHONUSERBASE", libraryURL.path.toCString(), 1)
+            setenv("SSL_CERT_FILE", Resources.carcert.path.toCString(), 1)
+
+            // Help aiohttp install itself:
+            setenv("YARL_NO_EXTENSIONS", "1", 1)
+            setenv("MULTIDICT_NO_EXTENSIONS", "1", 1)
+
+            // clang options:
+            setenv("SYSROOT", libraryURL.path + "/usr", 1)
+            setenv(
+                "CCC_OVERRIDE_OPTIONS",
+                "#^--target=wasm32-wasi +-fno-exceptions +-lc-printscan-long-double", 1)
+            setenv("MAKESYSPATH", Bundle.main.resourcePath! + "ClangLib/usr/share/mk", 1)
+
+            // PHP config
+            setenv("PHPRC", bundleUrl.path.toCString(), 1)
+            // Git config
+            //        setenv("HOME", libraryURL.path, 1)
+            setenv("GIT_EXEC_PATH", bundleUrl.appendingPathComponent("bin").path.toCString(), 1)
+            // Magic file
+            //        setenv("MAGIC", Bundle.main.resourcePath! + "/usr/share/magic.mgc", 1)
+            joinMainThread = false
+            numPythonInterpreters = 2
+
+            let notificationName = "com.thebaselab.code.node.stdout" as CFString
+            let notificationCenter = CFNotificationCenterGetDarwinNotifyCenter()
+
+            CFNotificationCenterAddObserver(
+                notificationCenter, nil,
+                {
+                    (
+                        center: CFNotificationCenter?,
+                        observer: UnsafeMutableRawPointer?,
+                        name: CFNotificationName?,
+                        object: UnsafeRawPointer?,
+                        userInfo: CFDictionary?
+                    ) in
+
+                    let sharedURL = FileManager.default.containerURL(
+                        forSecurityApplicationGroupIdentifier: "group.com.thebaselab.code")!
+                    let stdoutURL = sharedURL.appendingPathComponent("stdout")
+
+                    guard let data = try? Data(contentsOf: stdoutURL),
+                        let str = String(data: data, encoding: .utf8)
+                    else {
+                        return
+                    }
+
+                    let nc = NotificationCenter.default
+                    nc.post(
+                        name: Notification.Name("node.stdout"), object: nil,
+                        userInfo: ["content": str])
+
+                },
+                notificationName,
+                nil,
+                CFNotificationSuspensionBehavior.deliverImmediately)
+
+            // Disable mini map and line number for iPhones
+            if UIScreen.main.traitCollection.horizontalSizeClass == .compact {
+                if UserDefaults.standard.object(forKey: "editorLineNumberEnabled") == nil {
+                    UserDefaults.standard.setValue(false, forKey: "editorLineNumberEnabled")
+                    UserDefaults.standard.setValue(false, forKey: "editorMiniMapEnabled")
+                }
+                if UserDefaults.standard.object(forKey: "compilerShowPath") == nil {
+                    UserDefaults.standard.setValue(false, forKey: "compilerShowPath")
+                }
+            }
+
+            if versionNumberIncreased() || needToUpdateCFiles() {
+                createCSDK()
+            }
+
+            DispatchQueue.main.async {
+                wasmWebView.loadFileURL(
+                    Resources.wasmHTML,
+                    allowingReadAccessTo: Resources.wasmHTML)
+            }
+            initializeEnvironment()
+            Repository.initialize_libgit2()
+        }
     #endif
 
     var window: UIWindow? {
@@ -365,13 +364,13 @@ struct CodeApp: App {
                 .ignoresSafeArea(.container, edges: .bottom)
                 .preferredColorScheme(themeManager.colorSchemePreference)
                 .environmentObject(themeManager)
-            #if PYDEAPP
-            #if PYTHON3IDE
-                .environmentObject(subIapManager)
-            #else
-                .environmentObject(iapManager)
-            #endif
-            #endif
+                #if PYDEAPP
+                    #if PYTHON3IDE
+                        .environmentObject(subIapManager)
+                    #else
+                        .environmentObject(iapManager)
+                    #endif
+                #endif
         }
     }
 }
