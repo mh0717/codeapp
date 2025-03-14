@@ -89,7 +89,7 @@ class ActionViewController: UITabBarController {
                     activityView.removeFromSuperview()
                     self.activityView = nil
                 }
-                vc.title = "test"
+                vc.title = "Window"
                 self.vcs.append(vc)
                 self.viewControllers = self.vcs
                 self.selectedViewController = vc

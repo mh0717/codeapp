@@ -148,7 +148,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
         let args = editor.runArgs.replacingOccurrences(of: "\n", with: " ")
         let sanitizedUrl = editor.url.path.replacingOccurrences(of: " ", with: #"\ "#)
         var oricommand: [String]? = nil
-        if sanitizedUrl.lowercased().hasSuffix("ui.py") {
+        if sanitizedUrl.lowercased().hasSuffix(".py") {
             oricommand = PYLOCAL_EXECUTION_COMMANDS["ui.py"]
         } else if sanitizedUrl.lowercased().hasSuffix("ui.tcl") {
             oricommand = PYLOCAL_EXECUTION_COMMANDS["ui.tcl"]

@@ -66,7 +66,7 @@ private let extensionNames = [
     "direnv": "config", "env": "config", "static": "config", "editorconfig": "config",
     "slugignore": "config", "tmp": "clock", "htaccess": "config", "key": "lock", "cert": "lock",
     "DS_Store": "ignored", "svelte": "svelte", "mjs": "javascript", "cjs": "javascript",
-    "mts": "typescript", "cts": "typescript",
+    "mts": "typescript", "cts": "typescript", "tcl": "tcl",
 ]
 private let level2ExtensionNames = [
     "css.map": "css", "js.map": "javascript", "spec.js": "javascript_yellow",
