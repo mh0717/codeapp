@@ -47,6 +47,7 @@ struct RunParamsView: View {
                 showPlaceHolder = false
             }
         }))
+        .autocorrectionDisabled()
         .background(Color.init(id: "editor.background"))
             .padding(0)
             .focused($isFocused)

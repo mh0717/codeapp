@@ -18,7 +18,7 @@ import ConfigCat
 import RMStore
 
 
-class PYApp: ObservableObject {
+class PYApp: ObservableObject{
     
     weak var App: MainApp?
     
@@ -414,3 +414,110 @@ class PYApp: ObservableObject {
         }
     }
 }
+
+
+// 下面是一个使用路径socket的例子
+//import Darwin // 使用 C Socket API
+//
+//func startSocketServer() {
+//    let socketPath = ConstantManager.appGroupContainer.appendingPathComponent("mysock.sock").path
+//    // 创建 Socket
+//    let fd = socket(AF_UNIX, SOCK_STREAM, 0)
+//    guard fd != -1 else {
+//        print("Error creating socket: \(errno)")
+//        return
+//    }
+//
+//    // 绑定到文件路径
+//    var addr = sockaddr_un()
+//    addr.sun_family = sa_family_t(AF_UNIX)
+//    strcpy(&addr.sun_path, socketPath)
+//    let len = socklen_t(MemoryLayout<sockaddr_un>.size)
+//
+//    unlink(socketPath) // 确保文件不存在
+//    let bindResult = withUnsafePointer(to: &addr) {
+//        $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
+//            bind(fd, $0, len)
+//        }
+//    }
+//    guard bindResult != -1 else {
+//        print("Bind failed: \(errno)")
+//        close(fd)
+//        return
+//    }
+//
+//    // 监听连接
+//    listen(fd, 5)
+//    print("Server listening on \(socketPath)")
+//
+//    // 接受客户端连接
+//    while true {
+//        var clientAddr = sockaddr_un()
+//        var clientLen = socklen_t(MemoryLayout<sockaddr_un>.size)
+//        let clientFd = withUnsafeMutablePointer(to: &clientAddr) {
+//            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
+//                accept(fd, $0, &clientLen)
+//            }
+//        }
+//        guard clientFd != -1 else {
+//            print("Accept failed: \(errno)")
+//            continue
+//        }
+//
+//        // 读取客户端数据
+//        var buffer = [CChar](repeating: 0, count: 256)
+//        let readSize = read(clientFd, &buffer, 255)
+//        if readSize > 0 {
+//            let message = String(cString: buffer)
+//            print("Received: \(message)")
+//            
+//            // 返回响应
+//            let response = "Hello from server!"
+//            _ = response.withCString {
+//                write(clientFd, $0, strlen($0))
+//            }
+//        }
+//        close(clientFd)
+//    }
+//}
+//
+//
+//func sendMessageToServer(message: String) {
+//    let socketPath = ConstantManager.appGroupContainer.appendingPathComponent("mysock.sock").path
+//    let fd = socket(AF_UNIX, SOCK_STREAM, 0)
+//    guard fd != -1 else {
+//        print("Error creating client socket: \(errno)")
+//        return
+//    }
+//
+//    var addr = sockaddr_un()
+//    addr.sun_family = sa_family_t(AF_UNIX)
+//    strcpy(&addr.sun_path, socketPath)
+//    let len = socklen_t(MemoryLayout<sockaddr_un>.size)
+//
+//    let connectResult = withUnsafePointer(to: &addr) {
+//        $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
+//            connect(fd, $0, len)
+//        }
+//    }
+//    guard connectResult != -1 else {
+//        print("Connect failed: \(errno)")
+//        close(fd)
+//        return
+//    }
+//
+//    // 发送数据
+//    _ = message.withCString {
+//        write(fd, $0, strlen($0))
+//    }
+//
+//    // 读取响应
+//    var buffer = [CChar](repeating: 0, count: 256)
+//    let readSize = read(fd, &buffer, 255)
+//    if readSize > 0 {
+//        let response = String(cString: buffer)
+//        print("Server response: \(response)")
+//    }
+//
+//    close(fd)
+//}

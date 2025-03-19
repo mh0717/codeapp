@@ -94,24 +94,31 @@ public func python3SubProcessInMain(argc: Int32, argv:UnsafeMutablePointer<Unsaf
        let stderr = thread_stderr
        var result: Int32 = 0
     if Thread.isMainThread {
-        result = python3MainNotExit(argc, argv)
+//        result = python3MainNotExit(argc, argv)
+        result = python3Main(argc, argv)
         return result
     }
     
     var isEnd = false
+    let endLocker = NSCondition()
     
     let timer = Timer(timeInterval: 0.1, repeats: false) { _ in
         thread_stdin = stdin
         thread_stdout = stdout
         thread_stderr = stderr
-        result = python3MainNotExit(argc, argv)
+//        result = python3MainNotExit(argc, argv)
+        result = python3Main(argc, argv)
         isEnd = true
+        endLocker.signal()
     }
     RunLoop.main.add(timer, forMode: .default)
     
+    endLocker.lock()
     while !isEnd {
         usleep(1000 * 100)
+        endLocker.wait()
     }
+    endLocker.unlock()
     return result
 }
 
@@ -151,10 +158,19 @@ public func pyde_openurl(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePo
 
 @_cdecl("readremote")
 public func pyde_readremote(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
-    guard let cmds = convertCArguments(argc: argc, argv: argv) else {
-        return -1
-    }
+//    guard let cmds = convertCArguments(argc: argc, argv: argv) else {
+//        return -1
+//    }
     return readRemote()
+}
+
+@_cdecl("endremoteui")
+public func endremoteui(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+//    guard let cmds = convertCArguments(argc: argc, argv: argv) else {
+//        return -1
+//    }
+    wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_UI_FORCE_EXIT)
+    return 0
 }
 
 
@@ -179,6 +195,40 @@ public func plink(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<I
     return 0
 }
 
+#if IDE_UI
+@_cdecl("wish_inmain")
+public func wish_inmain(argc: Int32, argv:UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    let lib = dlopen(Bundle.main.bundlePath.appending("/../../Frameworks/tk.framework/tk"), RTLD_NOW)
+    let wish_main_handle = dlsym(lib, "wish_main")
+    let wish_main = unsafeBitCast(wish_main_handle, to: __main_t.self)
+    
+    let stdin = thread_stdin
+       let stdout = thread_stdout
+       let stderr = thread_stderr
+       var result: Int32 = 0
+    if Thread.isMainThread {
+        result = wish_main(argc, argv)
+        return result
+    }
+    
+    var isEnd = false
+    
+    let timer = Timer(timeInterval: 0.1, repeats: false) { _ in
+        thread_stdin = stdin
+        thread_stdout = stdout
+        thread_stderr = stderr
+        result = wish_main(argc, argv)
+        isEnd = true
+    }
+    RunLoop.main.add(timer, forMode: .default)
+    
+    while !isEnd {
+        usleep(1000 * 100)
+    }
+    return result
+}
+#endif
+
 //feed(text: "\u{1B}]8;;http://example.com\u{1B}\\This is a link\u{1B}]8;;\u{1B}\\\r\n")
 
 //@_cdecl("remotenode")
@@ -200,6 +250,7 @@ public func initPyDE() {
     replaceCommand("open", "pyde_open", false)
     replaceCommand("openurl", "openurl", false)
     replaceCommand("readremote", "readremote", false)
+    replaceCommand("endremoteui", "endremoteui", false)
     replaceCommand("clear", "clear", false)
     replaceCommand("plink", "plink", false)
     
@@ -222,7 +273,9 @@ public func initPyDE() {
     replaceCommand("python3.11", "python3Process", false)
     
 //    UIViewController.swizzIt()
+    #if IDEUIPREVIEW
     
+    #else
     DispatchQueue.main.async {
         wasmWebView.loadFileURL(
             ConstantManager.WASM.appendingPathComponent("wasm.html"),
@@ -230,6 +283,9 @@ public func initPyDE() {
         
 //            wasmWebView.load(URLRequest(url: URL(string: "http://localhost/wasm-worker.html")!))
     }
+    #endif
+    
+   
 }
 
 public func initRemotePython3Sub() {
@@ -246,11 +302,17 @@ public func initRemotePython3Sub() {
     replaceCommand("python3", "python3SubProcess", false)
     
     replaceCommand("wasm", "idewasm", false)
+    
+    #if IDEUIPREVIEW
+    
+    #else
     DispatchQueue.main.async {
         wasmWebView.loadFileURL(
             ConstantManager.REMOTE_WASM.appendingPathComponent("wasm.html"),
             allowingReadAccessTo: ConstantManager.WASM)
     }
+    #endif
+    
     
     
 //    initDEMainIntp()
@@ -274,7 +336,9 @@ public func initPydeUI() {
 //    replaceCommand("python3", "python3RunInMain", false)
 //    initDEMainIntp()
 //    replaceCommand("python3", "python3MainInMainThread", false)
+    
     replaceCommand("python3", "python3SubProcessInMain", false)
+    replaceCommand("wish", "wish_inmain", false)
 }
 
 
@@ -349,3 +413,100 @@ public func python3RunInMain(argc: Int32, argv:UnsafeMutablePointer<UnsafeMutabl
 public func python3_exec(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
     return python3Main(argc, argv)
 }
+
+
+//import Network
+//
+//public class SocketServer {
+//    private var listener: NWListener?
+//    
+//    init(port: UInt16) {
+//        let parameters = NWParameters.tcp
+//        guard let port = NWEndpoint.Port(rawValue: port) else { return }
+//        
+//        do {
+//            listener = try NWListener(using: parameters, on: port)
+//        } catch {
+//            print("Failed to create listener: \(error)")
+//            return
+//        }
+//        
+//        setupListener()
+//    }
+//    
+//    private func setupListener() {
+//        listener?.stateUpdateHandler = { newState in
+//            switch newState {
+//            case .ready:
+//                print("Server ready on port \(self.listener?.port?.rawValue ?? 0)")
+//            case .failed(let error):
+//                print("Server failure: \(error)")
+//            default:
+//                break
+//            }
+//        }
+//        
+//        listener?.newConnectionHandler = { newConnection in
+//            print("New connection accepted")
+//            self.setupConnection(newConnection)
+//            newConnection.start(queue: .main)
+//        }
+//    }
+//    
+//    private func setupConnection(_ connection: NWConnection) {
+//        connection.receive(minimumIncompleteLength: 1, maximumLength: 65536) { [weak self] data, _, isComplete, error in
+//            if let data = data, !data.isEmpty {
+//                let message = String(data: data, encoding: .utf8)
+//                print("Received message: \(message ?? "")")
+//            }
+//            
+//            if isComplete || error != nil {
+//                connection.cancel()
+//            } else {
+//                self?.setupConnection(connection)
+//            }
+//        }
+//    }
+//    
+//    func start() {
+//        listener?.start(queue: .main)
+//    }
+//}
+//
+//
+//import Network
+//
+//public class SocketClient {
+//    private var connection: NWConnection?
+//    
+//    init(host: String, port: UInt16) {
+//        let host = NWEndpoint.Host(host)
+//        let port = NWEndpoint.Port(rawValue: port)!
+//        connection = NWConnection(host: host, port: port, using: .tcp)
+//    }
+//    
+//    func connect() {
+//        connection?.stateUpdateHandler = { state in
+//            switch state {
+//            case .ready:
+//                print("Client connected")
+//            case .failed(let error):
+//                print("Connection failed: \(error)")
+//            default:
+//                break
+//            }
+//        }
+//        connection?.start(queue: .main)
+//    }
+//    
+//    func send(message: String) {
+//        guard let data = message.data(using: .utf8) else { return }
+//        connection?.send(content: data, completion: .contentProcessed({ error in
+//            if let error = error {
+//                print("Send error: \(error)")
+//                return
+//            }
+//            print("Message sent: \(message)")
+//        }))
+//    }
+//}

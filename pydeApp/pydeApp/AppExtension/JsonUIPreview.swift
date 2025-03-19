@@ -335,6 +335,9 @@ struct WidgetUIPreview: View {
                         widget(family: .systemSmall)
                         widget(family: .systemMedium)
                         widget(family: .systemLarge)
+                        if UIDevice.current.userInterfaceIdiom == .phone {
+                            widget(family: .systemExtraLarge)
+                        }
                     } else {
                         HStack {
                             widget(family: .systemSmall)
@@ -343,6 +346,10 @@ struct WidgetUIPreview: View {
                         }
                         HStack {
                             widget(family: .systemLarge)
+                            Spacer()
+                        }
+                        HStack {
+                            widget(family: .systemExtraLarge)
                             Spacer()
                         }
                     }

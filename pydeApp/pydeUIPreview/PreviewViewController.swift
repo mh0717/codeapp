@@ -18,11 +18,13 @@ class PreviewViewController: UITabBarController, QLPreviewingController {
     private var vcs: [UIViewController] = []
     
     private var requestInfo: [String: Any]?
+    
+    private var fileUrl:URL?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .green
+        self.view.backgroundColor = .systemBackground
         
         wmessager.listenForMessage(withIdentifier: ConstantManager.PYDE_REMOTE_UI_FORCE_EXIT) { _ in
             if let id = self.requestInfo?["identifier"] as? String{
@@ -74,7 +76,13 @@ class PreviewViewController: UITabBarController, QLPreviewingController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        handleExit()
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         handleExit()
     }
     
@@ -125,6 +133,7 @@ class PreviewViewController: UITabBarController, QLPreviewingController {
     
 
     func preparePreviewOfFile(at url: URL, completionHandler handler: @escaping (Error?) -> Void) {
+        self.fileUrl = url
         
 //        _ = url.startAccessingSecurityScopedResource()
 //        FileManager.default.changeCurrentDirectoryPath(url.path)
@@ -183,6 +192,19 @@ class PreviewViewController: UITabBarController, QLPreviewingController {
         
         let fileUrl = url//url.appendingPathComponent(".run")
         self.requestInfo = NSKeyedUnarchiver.unarchiveObject(withFile: fileUrl.path) as? [String: Any]
+        
+        Thread.detachNewThread {
+//            do {
+//                try "hihihihi".write(to: fileUrl, atomically: true, encoding: .utf8)
+//            } catch  {
+//                print(error)
+//            }
+//            
+//            if let str = try? String(contentsOf: fileUrl, encoding: .utf8) {
+//                print(str)
+//            }
+//            sendMessageToServer(message: "hihi, wo shi client")
+        }
         
         
         if let requestInfo {
@@ -302,3 +324,44 @@ class FolderMonitor {
         folderMonitorSource?.cancel()
     }
 }
+
+
+//func sendMessageToServer(message: String) {
+//    let socketPath = ConstantManager.appGroupContainer.appendingPathComponent("mysock.sock").path
+//    let fd = socket(AF_UNIX, SOCK_STREAM, 0)
+//    guard fd != -1 else {
+//        print("Error creating client socket: \(errno)")
+//        return
+//    }
+//
+//    var addr = sockaddr_un()
+//    addr.sun_family = sa_family_t(AF_UNIX)
+//    strcpy(&addr.sun_path, socketPath)
+//    let len = socklen_t(MemoryLayout<sockaddr_un>.size)
+//
+//    let connectResult = withUnsafePointer(to: &addr) {
+//        $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
+//            connect(fd, $0, len)
+//        }
+//    }
+//    guard connectResult != -1 else {
+//        print("Connect failed: \(errno)")
+//        close(fd)
+//        return
+//    }
+//
+//    // 发送数据
+//    _ = message.withCString {
+//        write(fd, $0, strlen($0))
+//    }
+//
+//    // 读取响应
+//    var buffer = [CChar](repeating: 0, count: 256)
+//    let readSize = read(fd, &buffer, 255)
+//    if readSize > 0 {
+//        let response = String(cString: buffer)
+//        print("Server response: \(response)")
+//    }
+//
+//    close(fd)
+//}

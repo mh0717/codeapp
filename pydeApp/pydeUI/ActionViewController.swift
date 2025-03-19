@@ -51,7 +51,6 @@ class ActionViewController: UITabBarController {
         
         setenv("SDL_SCREEN_SIZE", "\(Int(self.view.bounds.width)):\(Int(self.view.bounds.height))", 1)
         
-        
         setupView()
         
         ConstantManager.pydeEnv = .remoteUI
@@ -80,6 +79,7 @@ class ActionViewController: UITabBarController {
             if self.vcs.contains(vc) {
                 DispatchQueue.main.async {
                     self.selectedViewController = vc
+                    self.preferredContentSize = vc.preferredContentSize;
                 }
                 return
             }
@@ -89,7 +89,9 @@ class ActionViewController: UITabBarController {
                     activityView.removeFromSuperview()
                     self.activityView = nil
                 }
-                vc.title = "Window"
+                if vc.title == nil || vc.title!.isEmpty {
+                    vc.title = "Window"
+                }
                 self.vcs.append(vc)
                 self.viewControllers = self.vcs
                 self.selectedViewController = vc
@@ -187,7 +189,10 @@ class ActionViewController: UITabBarController {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let vc = selectedViewController, let ovc = object as? UIViewController, vc == ovc {
-            self.preferredContentSize = vc.preferredContentSize
+            DispatchQueue.main.async {
+                self.preferredContentSize = vc.preferredContentSize
+            }
+            
         }
     }
     
@@ -288,6 +293,8 @@ class ActionViewController: UITabBarController {
     }
 
 }
+
+
 
 //
 //import UIKit

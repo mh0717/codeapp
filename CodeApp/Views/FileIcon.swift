@@ -66,7 +66,7 @@ private let extensionNames = [
     "direnv": "config", "env": "config", "static": "config", "editorconfig": "config",
     "slugignore": "config", "tmp": "clock", "htaccess": "config", "key": "lock", "cert": "lock",
     "DS_Store": "ignored", "svelte": "svelte", "mjs": "javascript", "cjs": "javascript",
-    "mts": "typescript", "cts": "typescript", "tcl": "tcl",
+    "mts": "typescript", "cts": "typescript", "tcl": "tcl", "epub": "epub",
 ]
 private let level2ExtensionNames = [
     "css.map": "css", "js.map": "javascript", "spec.js": "javascript_yellow",
@@ -124,6 +124,11 @@ struct FileIcon: View {
                 Image(systemName: "icloud.and.arrow.down")
                     .foregroundColor(.gray)
                     .font(.system(size: iconSize - 2))
+            case "pblink":
+                Image(systemName: "globe")
+                    .foregroundColor(Color(hex: 0x7EC8E3))
+                    .font(.system(size: iconSize - 2))
+                    .frame(width: iconSize + 6, height: iconSize + 6)
             case let x:
                 if let image = extensionNames[x] {
                     Image(image)

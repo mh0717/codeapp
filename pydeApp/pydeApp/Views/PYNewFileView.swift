@@ -41,8 +41,19 @@ struct PYNewFileView: View {
                 print("Hello World!")
                 
                 """
-
         case 1:
+            name = "example_tkinter.ui.py"
+            content = """
+                # Created on \(UIDevice.current.name).
+                
+                import tkinter as tk
+
+                root = tk.Tk()
+                tk.Label(root, text="Hello World!").pack()
+                root.mainloop()
+
+                """
+        case 2:
             name = "example_sdl2.ui.py"
             content = """
                 # Created on \(UIDevice.current.name).
@@ -86,7 +97,7 @@ struct PYNewFileView: View {
                 
                 
                 """
-        case 2:
+        case 3:
             name = "example_pygame.ui.py"
             content = """
                 # Created on \(UIDevice.current.name).
@@ -121,7 +132,7 @@ struct PYNewFileView: View {
                 
                 
                 """
-        case 3:
+        case 4:
             name = "example_kivy.ui.py"
             content = """
                 # Created on \(UIDevice.current.name).
@@ -157,7 +168,7 @@ struct PYNewFileView: View {
                 
                 
                 """
-        case 4:
+        case 5:
             name = "example_imgui.ui.py"
             content = """
                 # Created on \(UIDevice.current.name).
@@ -283,7 +294,7 @@ struct PYNewFileView: View {
                 
                 
                 """
-        case 5:
+        case 6:
             name = "example_flet.ui.py"
             content = """
                 # Created on \(UIDevice.current.name).
@@ -323,7 +334,7 @@ struct PYNewFileView: View {
                 
                 
                 """
-        case 6:
+        case 7:
             name = "example_toga.ui.py"
             content = """
                 # Created on \(UIDevice.current.name)
@@ -417,6 +428,24 @@ struct PYNewFileView: View {
                 return 0;
             }
             
+            """
+        case 200:
+            name = "example.tcl"
+            content = """
+            # Created on \(UIDevice.current.name)
+            
+            puts "Hello World!"
+            
+            """
+        case 201:
+            name = "example_tk.ui.tcl"
+            content = """
+            # Created on \(UIDevice.current.name)
+            
+            label .hello -text "Hello World!"
+            pack .hello
+            wm title . "Tcl/Tk Demo"
+
             """
         case 30:
             name = "example.js"
@@ -590,12 +619,13 @@ struct PYNewFileView: View {
 
     let languageMappingPython: [LanguageTemplateMapping] = [
         .init(code: 0, name: "Python"),
-        .init(code: 1, name: "SDL2"),
-        .init(code: 2, name: "PyGame"),
-        .init(code: 3, name: "Kivy"),
-        .init(code: 4, name: "Imgui"),
-        .init(code: 5, name: "Flet"),
-        .init(code: 6, name: "Toga"),
+        .init(code: 1, name: "Tkinter"),
+        .init(code: 2, name: "SDL2"),
+        .init(code: 3, name: "PyGame"),
+        .init(code: 4, name: "Kivy"),
+        .init(code: 5, name: "Imgui"),
+        .init(code: 6, name: "Flet"),
+        .init(code: 7, name: "Toga"),
         .init(code: 11, name: "Flask"),
         .init(code: 12, name: "Django")
     ]
@@ -610,6 +640,8 @@ struct PYNewFileView: View {
         .init(code: 40, name: "Php"),
         .init(code: 50, name: "Lua"),
         .init(code: 60, name: "Perl"),
+        .init(code: 200, name: "Tcl"),
+        .init(code: 201, name: "Tk"),
 //        .init(code: 6, name: "Toga"),
 //        .init(code: 11, name: "Flask"),
 //        .init(code: 12, name: "Django")

@@ -20,30 +20,51 @@ fileprivate var isPythonUIRunning = false
 private let EXTENSION_ID = "PYLOCAL_EXECUTION"
 
 let PYLOCAL_EXECUTION_COMMANDS = [
-    "py": ["python3 -u {url} {args}"],
-    "ui.py": ["python3 -u {url} {args}"],
+    "py": ["python3 -u {opts} {url} {args}"],
+    "ui.py": ["python3 -u {opts} {url} {args}"],
     "ipynb": ["jupyter-nbconvert --execute --allow-errors --stdout --to markdown {url}"],// --allow-errors
     "c": [
         "clang  -o {output} {url}",
-        "wasm {output} {args}"
+        "wasm {opts} {output} {args}"
     ],
     "cpp": [
         "clang++  -o {output} {url}",
-        "wasm {output} {args}"
+        "wasm {opts} {output} {args}"
     ],
-    "php": ["php {url} {args}"],
-    "lua": ["lua {url} {args}"],
-    "pl": ["perl {url} {args}"],
-    "js": ["node {url} {args}"],
-    "wasm": ["wasm {url} {args}"],
-    "tcl": ["tclsh {url} {args}"],
-    "ui.tcl": ["wish {url} {args}"],
+    "php": ["php {opts} {url} {args}"],
+    "lua": ["lua {opts} {url} {args}"],
+    "pl": ["perl {opts} {url} {args}"],
+    "js": ["node {opts} {url} {args}"],
+    "wasm": ["wasm {opts} {url} {args}"],
+    "tcl": ["tclsh {opts} {url} {args}"],
+    "ui.tcl": ["wish {opts} {url} {args}"],
 //    --dir={wurl}
 //    "js": ["node {url}"],
 //    "c": ["clang {url}", "wasm a.out"],
 //    "cpp": ["clang++ {url}", "wasm a.out"],
 //    "php": ["php {url}"],
 ]
+
+fileprivate extension String {
+    /// 将字符串按第一个出现的分隔符分割为两部分
+    /// - Parameter separator: 分隔符（如 "--"）
+    /// - Returns: 分割后的两部分，类型为 `(String, String)`
+    func splitIntoTwoOptsArgs() -> (String, String) {
+        if self.hasPrefix("-- ") {
+            return ("", self.replacingFirstOccurrence(of: "-- ", with: ""))
+        }
+        if self.hasSuffix(" --") {
+            return (self.replacingFirstOccurrence(of: " --", with: "", options: .backwards), "")
+        }
+        guard let range = self.range(of: " -- ") else {
+            return ("", self)
+        }
+        let part1 = String(self[..<range.lowerBound])
+        let part2 = String(self[range.upperBound...])
+        return (part1, part2)
+    }
+}
+
 
 class PYLocalExecutionExtension: CodeAppExtension {
     
@@ -145,7 +166,9 @@ class PYLocalExecutionExtension: CodeAppExtension {
         let languageIdentifier = editor.url.pathExtension.lowercased()
         let consoleInstance = (editor as? WithRunnerEditorInstance)?.runnerView ?? app.pyapp.consoleInstance
         
-        let args = editor.runArgs.replacingOccurrences(of: "\n", with: " ")
+        let params = editor.runArgs.replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "—", with: "-").splitIntoTwoOptsArgs()
+        let opts = params.0
+        let args = params.1
         let sanitizedUrl = editor.url.path.replacingOccurrences(of: " ", with: #"\ "#)
         var oricommand: [String]? = nil
         if sanitizedUrl.lowercased().hasSuffix(".py") {
@@ -157,70 +180,90 @@ class PYLocalExecutionExtension: CodeAppExtension {
             return nil
         }
         let commands = oricommand.map {
-            $0.replacingOccurrences(of: "{url}", with: sanitizedUrl)
-                .replacingOccurrences(of: "{args}", with: args)
+            $0.replacingFirstOccurrence(of: "{url}", with: sanitizedUrl)
+                .replacingFirstOccurrence(of: "{opts}", with: opts)
+                .replacingFirstOccurrence(of: "{args}", with: args)
         }
         
         guard let config = getRemoteConfig(consoleInstance: consoleInstance, commands: commands, app: app) else {
             return nil
         }
+        let isInTab = editor.url.path.lowercased().hasSuffix(".in.ui.py")
         
         wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_UI_FORCE_EXIT)
         
-//        #if DEBUG
-//        let runUIInPreview = UserDefaults.standard.bool(forKey: "runUIInPreview")
-//        if runUIInPreview {
+        #if DEBUG
+        let runUIInPreview = UserDefaults.standard.bool(forKey: "runUIInPreview")
+        #else
+        let runUIInPreview = false
+        #endif
+        let isQuickLookFile = sanitizedUrl.lowercased().hasSuffix(".ql.ui.tcl") || sanitizedUrl.lowercased().hasSuffix(".ql.ui.py")
+        if runUIInPreview || isQuickLookFile {
 //            let name = editor.url.lastPathComponent.replacingFirstOccurrence(of: ".ui.py", with: "").replacingFirstOccurrence(of: ".py", with: "")
-//            let pyuiDir = ConstantManager.appGroupContainer.appendingPathComponent("pyui")
+            let pyuiDir = ConstantManager.appGroupContainer.appendingPathComponent("pyui")
+            try? FileManager.default.createDirectory(at: pyuiDir, withIntermediateDirectories: true)
+            let linkDir = pyuiDir.appendingPathComponent((UUID().uuidString + ".pyui"))
 //            try? FileManager.default.createDirectory(at: pyuiDir, withIntermediateDirectories: true)
-//            let linkDir = pyuiDir.appendingPathComponent((UUID().uuidString + ".pyui"))
-////            try? FileManager.default.createDirectory(at: pyuiDir, withIntermediateDirectories: true)
-////
-//            let wkdir = URL(string: app.workSpaceStorage.currentDirectory.url)!
-////            let linkDir = pyuiDir.appendingPathComponent("\(name).pyui")
-//            try? FileManager.default.linkItem(at: wkdir, to: linkDir)
-////            try? FileManager.default.createSymbolicLink(at: linkDir, withDestinationURL: wkdir)
-//            
-//            
-//            var newConfig = config
-//            let newPath = editor.url.path.replacingFirstOccurrence(of: wkdir.path, with: linkDir.path)
-//            let sanitizedUrl = newPath.replacingOccurrences(of: " ", with: #"\ "#)
-//            let commands = PYLOCAL_EXECUTION_COMMANDS["ui.py"]!.map {
-//                $0.replacingOccurrences(of: "{url}", with: sanitizedUrl)
-//                    .replacingOccurrences(of: "{args}", with: args)
-//            }
-//            newConfig["commands"] = commands
-//            
-//            
-//            let ntidentifier = consoleInstance.executor.persistentIdentifier
-//            let fileUrl = linkDir.appendingPathComponent(".run.pyui")
-//            NSKeyedArchiver.archiveRootObject(newConfig, toFile: fileUrl.path)
-//            
-//            
-//            DispatchQueue.main.async {
-//                let vc = PYQLUIPreviewController(fileUrl, ntidentifier)
-//                let reditor = PYCenterVCEditorInstance(vc)
-////                reditor.keepAlive = true
-//                app.appendAndFocusNewEditor(editor: reditor, alwaysInNewTab: true)
-//            }
-//            
-////            NotificationCenter.default.post(name: Notification.Name("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": vc, "keepAlive": true])
-//            
-//            //        DispatchQueue.main.async {
-//            //            if #available(iOS 16.0, *) {
-//            //                app.popupManager.showCover(
-//            //                    content: AnyView(VCRepresentable(
-//            //                        vc
-//            //                    ))/*.presentationDetents([.height(400)]))*/
-//            //                )
-//            //            } else {
-//            //                // Fallback on earlier versions
-//            //            }
-//            //        }
-//            _ = consoleInstance.executor.evaluateCommands(["readremote"])
-//            return nil
-//        }
-//        #endif
+//
+            let wkdir = URL(string: app.workSpaceStorage.currentDirectory.url)!.resolvingSymlinksInPath()
+//            let linkDir = pyuiDir.appendingPathComponent("\(name).pyui")
+            try? FileManager.default.linkItem(at: wkdir, to: linkDir)
+//            try? FileManager.default.createSymbolicLink(at: linkDir, withDestinationURL: wkdir)
+            
+            
+            var newConfig = config
+            let newPath = editor.url.path.replacingFirstOccurrence(of: wkdir.path, with: linkDir.path)
+            let sanitizedUrl = newPath.replacingOccurrences(of: " ", with: #"\ "#)
+            let commands = PYLOCAL_EXECUTION_COMMANDS["ui.py"]!.map {
+                $0.replacingFirstOccurrence(of: "{url}", with: sanitizedUrl)
+                    .replacingFirstOccurrence(of: "{opts}", with: opts)
+                    .replacingFirstOccurrence(of: "{args}", with: args)
+            }
+            newConfig["commands"] = commands
+            
+            
+            
+            guard let wbookmark = try? linkDir.bookmarkData() else {return nil}
+            newConfig["workspace"] = wbookmark
+            
+            
+            let ntidentifier = consoleInstance.executor.persistentIdentifier
+            let fileUrl = linkDir.appendingPathComponent(".run.pyui")
+            NSKeyedArchiver.archiveRootObject(newConfig, toFile: fileUrl.path)
+            
+            
+            DispatchQueue.main.async {
+                let vc = PYQLUIPreviewController(fileUrl, ntidentifier)
+                let reditor = PYCenterVCEditorInstance(vc)
+                reditor.keepAlive = true
+                app.appendAndFocusNewEditor(editor: reditor, alwaysInNewTab: true)
+            }
+            
+//            NotificationCenter.default.post(name: Notification.Name("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": vc, "keepAlive": true])
+            
+            //        DispatchQueue.main.async {
+            //            if #available(iOS 16.0, *) {
+            //                app.popupManager.showCover(
+            //                    content: AnyView(VCRepresentable(
+            //                        vc
+            //                    ))/*.presentationDetents([.height(400)]))*/
+            //                )
+            //            } else {
+            //                // Fallback on earlier versions
+            //            }
+            //        }
+            let compilerShowPath = UserDefaults.standard.bool(forKey: "compilerShowPath")
+            if compilerShowPath {
+                consoleInstance.feed(text: commands.joined(separator: " && "))
+            } else {
+                let commandName = commands.first?.components(separatedBy: " ").first ?? languageIdentifier
+                consoleInstance.feed(text: commandName)
+            }
+            consoleInstance.feed(text: "\r\n")
+            _ = consoleInstance.executor.evaluateCommands(["readremote", "endremoteui"])
+            return nil
+        }
+        
         
         let provider = NSItemProvider(item: "provider" as NSSecureCoding, typeIdentifier: ConstantManager.pydeUI)
         let item = NSExtensionItem()
@@ -228,7 +271,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
         item.attachments = [provider]
         
         
-        let vc = UIActivityViewController(activityItems: [item, MyActivityItemSource(title: NSLocalizedString("Run iPyDE UI Script", comment: ""), text: NSLocalizedString("Choose \"Run iPyDE UI Script\" to run", comment: ""))], applicationActivities: nil)
+        let vc = UIActivityViewController(activityItems: [item, MyActivityItemSource(title: NSLocalizedString("Run Python3IDE UI Script", comment: ""), text: NSLocalizedString("Choose \"Run Python3IDE UI Script\" to run", comment: ""))], applicationActivities: nil)
         vc.completionWithItemsHandler = { _, _, _, _ in
             consoleInstance.executor?.kill()
         }
@@ -246,14 +289,19 @@ class PYLocalExecutionExtension: CodeAppExtension {
         }
         
         
-        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(50))) {
+        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(250))) {
             
             do {
                 try ObjC.catchException {
                     let presenter = vc.value(forKey: "_mainPresenter") as? NSObject
                     let interactor = presenter?.value(forKey: "_interactor") as? NSObject
                     let manager = interactor?.value(forKey: "_serviceManager") as? NSObject
-                    manager?.perform(Selector("performExtensionActivityInHostWithBundleID:request:"), with: ConstantManager.pydeUI, with: nil)
+                    let uiid = isInTab ? ConstantManager.pydeUIB : ConstantManager.pydeUI
+                    hookRemoteViewControllerInTab = isInTab
+                    if isInTab {
+                        swissRemoteVCInject()
+                    }
+                    manager?.perform(Selector("performExtensionActivityInHostWithBundleID:request:"), with: uiid, with: nil)
                     
                 }
             } catch {
@@ -276,7 +324,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             consoleInstance.feed(text: commandName)
         }
         consoleInstance.feed(text: "\r\n")
-        _ = consoleInstance.executor?.evaluateCommands(["readremote"])
+        _ = consoleInstance.executor?.evaluateCommands(["readremote", "endremoteui"])
         
 //        return popoverView
         return nil
@@ -354,13 +402,17 @@ class PYLocalExecutionExtension: CodeAppExtension {
             
         }
         let wurl = app.workSpaceStorage.currentDirectory._url
-        let args = editor.runArgs.replacingOccurrences(of: "\n", with: " ")
+//        let args = editor.runArgs.replacingOccurrences(of: "\n", with: " ")
+        let params = editor.runArgs.replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "—", with: "-").splitIntoTwoOptsArgs()
+        let opts = params.0
+        let args = params.1
         let sanitizedUrl = editor.url.path.replacingOccurrences(of: " ", with: #"\ "#)
         let parsedCommands = (isPy2 ? commands.map({$0.replacingFirstOccurrence(of: "python3", with: "python2")}) : commands)
         .map {
-            $0.replacingOccurrences(of: "{url}", with: sanitizedUrl)
-                .replacingOccurrences(of: "{args}", with: args)
-                .replacingOccurrences(of: "{output}", with: output)
+            $0.replacingFirstOccurrence(of: "{url}", with: sanitizedUrl)
+                .replacingFirstOccurrence(of: "{opts}", with: opts)
+                .replacingFirstOccurrence(of: "{args}", with: args)
+                .replacingFirstOccurrence(of: "{output}", with: output)
                 .replacingFirstOccurrence(of: "{wurl}", with: wurl?.path ?? "")
         }
 
@@ -679,6 +731,7 @@ class PYQLUIPreviewController: QLPreviewController, QLPreviewControllerDataSourc
         self.reloadData()
         
         self.preferredContentSize = CGSize(width: 800, height: 600)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -708,7 +761,6 @@ class PYQLUIPreviewController: QLPreviewController, QLPreviewControllerDataSourc
     ) -> QLPreviewItem {
       return fileUrl as QLPreviewItem
     }
-    
     
 }
 
