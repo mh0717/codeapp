@@ -325,8 +325,9 @@ private struct MainView: View {
             //            if changeLogLastReadVersion != appVersion {
             //                stateManager.showsChangeLog.toggle()
             //            }
-
-            changeLogLastReadVersion = appVersion
+            DispatchQueue.main.async {
+                changeLogLastReadVersion = appVersion
+            }
         }
 
         .alert(

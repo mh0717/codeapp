@@ -209,20 +209,23 @@ class ActionViewController: UITabBarController {
         view.addConstraint(centerY)
         self.activityView = activityView
         
+        if let extensionBundleID = Bundle(for: Self.self).bundleIdentifier,
+           extensionBundleID == "baobaowang.Python3IDE.ideUIA" {
+            let exitBtn = UIButton(type: .close)
+    //        exitBtn.setTitleColor(UIColor.red, for: .normal)
+    //        exitBtn.setTitleShadowColor(UIColor.black, for: .normal)
+            exitBtn.addTarget(self, action: #selector(handleExit), for: .touchUpInside)
+            self.view.addSubview(exitBtn)
+            
+            exitBtn.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                exitBtn.widthAnchor.constraint(equalToConstant: 30),
+                exitBtn.heightAnchor.constraint(equalToConstant: 30),
+                exitBtn.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
+                exitBtn.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10)
+            ])
+        }
         
-        let exitBtn = UIButton(type: .close)
-//        exitBtn.setTitleColor(UIColor.red, for: .normal)
-//        exitBtn.setTitleShadowColor(UIColor.black, for: .normal)
-        exitBtn.addTarget(self, action: #selector(handleExit), for: .touchUpInside)
-        self.view.addSubview(exitBtn)
-        
-        exitBtn.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            exitBtn.widthAnchor.constraint(equalToConstant: 30),
-            exitBtn.heightAnchor.constraint(equalToConstant: 30),
-            exitBtn.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
-            exitBtn.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10)
-        ])
         
 //        self.preferredContentSize = CGSize(width: 10000, height: 10000)
         

@@ -6,11 +6,88 @@ import pydeCommon
 
 private let EXTENSION_ID = "VCInTabExtension"
 
+//struct SizePreferenceKey: PreferenceKey {
+//    static var defaultValue: CGSize = .zero
+//    static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
+//        value = nextValue()
+//    }
+//}
+//
+//struct SView<Content: View>: View {
+//    let content: Content
+//    
+//    init(@ViewBuilder content: () -> Content) {
+//        self.content = content()
+//    }
+//    
+//    var body: some View {
+//        // 包裹外部传入的内容，并捕获其尺寸
+//        content
+//            .background(
+//                GeometryReader { geometry in
+//                    print(geometry.size)
+//                    return Color.clear
+//                        .preference(key: SizePreferenceKey.self, value: geometry.size)
+//                }
+//            )
+//    }
+//}
+
+struct FixedChildView: View {
+    let vc: UIViewController?
+    @State private var contentSize: CGSize = .zero
+    
+    
+    var body: some View {
+        VCInTab(vc: vc, preferredSize: $contentSize)
+            .frame(
+                width: contentSize.width > 0 ? min(contentSize.width, UIScreen.main.bounds.size.width - 50) : nil,
+                height: contentSize.height > 0 ? min(contentSize.height, UIScreen.main.bounds.size.height - 100) : nil)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        // 强制固定尺寸
+//        .frame(width: contentSize.width, height: contentSize.height)
+        
+        // 确保父视图可扩展（可选，根据需求调整）
+            
+//            .frame(minWidth: contentSize.width, idealWidth: 800, maxWidth: .infinity, minHeight: contentSize.height, idealHeight: 600, maxHeight: .infinity)
+//        if contentSize.width == 0 || contentSize.height == 0 {
+//            VCInTab(vc: vc, preferredSize: $contentSize)
+//        } else {
+//            VCInTab(vc: vc, preferredSize: $contentSize)
+//            // 强制固定尺寸
+//            .frame(width: contentSize.width, height: contentSize.height)
+//            // 确保父视图可扩展（可选，根据需求调整）
+//            .frame(maxWidth: .infinity, maxHeight: .infinity)
+//        }
+//        VCInTab(vc: vc, preferredSize: $contentSize)
+//        // 强制固定尺寸
+//        .frame(width: contentSize.width, height: contentSize.height)
+//        // 确保父视图可扩展（可选，根据需求调整）
+//        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        
+//        SView { content }
+//            // 捕获子视图尺寸
+//            .onPreferenceChange(SizePreferenceKey.self) { newSize in
+//                guard newSize != contentSize else { return }
+//                contentSize = newSize
+//            }
+//            // 强制固定尺寸
+//            .frame(width: contentSize.width, height: contentSize.height)
+//            // 确保父视图可扩展（可选，根据需求调整）
+//            .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+}
+
+
+
+
 struct VCInTab: UIViewControllerRepresentable {
     
     @EnvironmentObject var App: MainApp
     
     weak var vc: UIViewController?
+    
+    @Binding var preferredSize: CGSize
     
     func makeUIViewController(context: Context) -> UIViewController {
         return vc ?? UIViewController(nibName: nil, bundle: nil)
@@ -40,27 +117,36 @@ struct VCInTab: UIViewControllerRepresentable {
     
     class Coordinator {
         
-        
         var control: VCInTab
         var App: MainApp
+        
+        var observer: NSKeyValueObservation?
         
         init(control: VCInTab, app: MainApp) {
             self.control = control
             self.App = app
+            
+            observer = control.vc?.observe(\.preferredContentSize, options: [.new]) { _, change in
+                if let newSize = change.newValue {
+                    control.preferredSize = newSize
+                }
+            }
         }
     }
 }
 
-class VCInTabEditorInstance: EditorInstanceWithURL {
+class VCInTabEditorInstance: EditorInstance {
 
+    let url: URL
     let vc: UIViewController
     
     var kvoToken: NSKeyValueObservation?
 
     init(url: URL, title: String, vc: UIViewController) {
+        self.url = url
         self.vc = vc
         let stitle = (vc.title != nil && !vc.title!.isEmpty) ? vc.title! : title
-        super.init(view: AnyView(VCInTab(vc: vc).id(UUID())), title: stitle, url: url)
+        super.init(view: AnyView(FixedChildView(vc: vc).id(UUID())), title: title)
         
         kvoToken = self.vc.observe(\UIViewController.title) { [weak self] vc, _ in
             if let self {

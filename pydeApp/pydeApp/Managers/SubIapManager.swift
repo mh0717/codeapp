@@ -148,7 +148,9 @@ class SubIapManager: ObservableObject {
             RMKeychainSetValue(data, "python3ide.runcount")
         }
         
-        initRevenucat()
+        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .seconds(10))) {
+            self.initRevenucat()
+        }
     }
     
     

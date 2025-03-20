@@ -1451,7 +1451,6 @@
 		A3EB36452C1831380000B4D4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3EB36442C1831380000B4D4 /* SwiftUI.framework */; };
 		A3EB36482C1831380000B4D4 /* widgetExtBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EB36472C1831380000B4D4 /* widgetExtBundle.swift */; };
 		A3EB364E2C18313B0000B4D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3EB364D2C18313B0000B4D4 /* Assets.xcassets */; };
-		A3EB36522C18313B0000B4D4 /* widgetExtExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A3EB36412C1831380000B4D4 /* widgetExtExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A3EB36602C18C3550000B4D4 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A3EB36652C1DA46A0000B4D4 /* ConfigCat in Frameworks */ = {isa = PBXBuildFile; productRef = A3EB36642C1DA46A0000B4D4 /* ConfigCat */; };
 		A3EB36992C1ED4870000B4D4 /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EB36982C1ED4870000B4D4 /* Widget.swift */; };
@@ -1638,13 +1637,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = A3C0D8892D89C20300A78FA9;
 			remoteInfo = ideUIB;
-		};
-		A3EB36502C18313B0000B4D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A3EB36402C1831380000B4D4;
-			remoteInfo = widgetExtExtension;
 		};
 		A3F23A182BA741F3006F6D7B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -2189,7 +2181,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A3EB36522C18313B0000B4D4 /* widgetExtExtension.appex in Embed Foundation Extensions */,
 				A39F42762BEAFB44001546B4 /* ideRemoteF.appex in Embed Foundation Extensions */,
 				A39F42792BEAFB44001546B4 /* ideRemoteG.appex in Embed Foundation Extensions */,
 				A39F426A2BEAFB44001546B4 /* ideRemoteB.appex in Embed Foundation Extensions */,
@@ -4990,7 +4981,6 @@
 				A39F42752BEAFB44001546B4 /* PBXTargetDependency */,
 				A39F42782BEAFB44001546B4 /* PBXTargetDependency */,
 				A39F427B2BEAFB44001546B4 /* PBXTargetDependency */,
-				A3EB36512C18313B0000B4D4 /* PBXTargetDependency */,
 				A35E2C502D84958D00BD8137 /* PBXTargetDependency */,
 				A3C0D8A52D89C33800A78FA9 /* PBXTargetDependency */,
 			);
@@ -7250,11 +7240,6 @@
 			target = A3C0D8892D89C20300A78FA9 /* ideUIB */;
 			targetProxy = A3C0D8A42D89C33800A78FA9 /* PBXContainerItemProxy */;
 		};
-		A3EB36512C18313B0000B4D4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A3EB36402C1831380000B4D4 /* widgetExtExtension */;
-			targetProxy = A3EB36502C18313B0000B4D4 /* PBXContainerItemProxy */;
-		};
 		A3F23A192BA741F3006F6D7B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A3F239D52BA73C9A006F6D7B /* pydeRemoteA */;
@@ -7812,7 +7797,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 50;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -7837,7 +7822,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				OTHER_SWIFT_FLAGS = "-Xcc -Wno-incomplete-umbrella -DPYDEAPP -DPYTHON3IDE";
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -7868,7 +7853,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 50;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -7895,7 +7880,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-Xcc -Wno-incomplete-umbrella -DPYDEAPP -DPYTHON3IDE";
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE;

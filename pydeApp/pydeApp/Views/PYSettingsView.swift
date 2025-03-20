@@ -167,13 +167,14 @@ struct PYSettingsView: View {
                     
                     
                     Section(header: Text(NSLocalizedString("About", comment: ""))) {
-                        
-//                        NavigationLink(
-//                            destination: SimpleMarkDownView(
-//                                text: NSLocalizedString("Changelog.message", comment: ""))
-//                        ) {
-//                            Text(NSLocalizedString("Release Notes", comment: ""))
-//                        }
+#if DEBUG
+                        NavigationLink(
+                            destination: SimpleMarkDownView(
+                                text: NSLocalizedString("Changelog.message", comment: ""))
+                        ) {
+                            Text(NSLocalizedString("Release Notes", comment: ""))
+                        }
+#endif
                         Link(
                             "Terms of Use",
                             destination: URL(string:"https://www.jianshu.com/p/8ee503e0ae6f")!

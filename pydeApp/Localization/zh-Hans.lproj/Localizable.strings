@@ -14,6 +14,7 @@
 [打开文件](https://ipyde.com/ipyde/openfile)<br/>
 [打开文件夹](https://ipyde.com/ipyde/openfolder)<br/>
 [克隆仓库](https://ipyde.com/ipyde/clone)<br/>
+[交互式turtle](https://ipyde.com/ipyde/inturtle)<br/>
 [打开Examples](https://ipyde.com/ipyde/openexamples)
 
 [新建Flask工程](https://ipyde.com/ipyde/newflask)<br/>
@@ -45,7 +46,15 @@
 
 "Changelog.message" =
 "
-### v1.1.7 (January 2021)
+### v1.4 (2025年3月)
+* 集成Python标准GUI工具包tkinter模块（基于Tk 8.6图形库）
+* 深度集成Tcl/Tk原生脚本引擎（v8.6），强化底层图形渲染能力
+* 增强支持turtle绘图模块（构建于Tk图形界面基础架构）
+* 新增交互式海龟绘图系统，提供实时图形化编程环境
+
+该升级显著提升了图形界面开发能力与教学演示的交互体验，同时保持跨平台兼容特性。
+
+### v1.3 (2024年3月)
 - 编辑器
   - Monaco编辑器，更适配外接键盘
   - Pyde编辑器，更适配软接盘

@@ -106,8 +106,10 @@ public func python3SubProcessInMain(argc: Int32, argv:UnsafeMutablePointer<Unsaf
         thread_stdin = stdin
         thread_stdout = stdout
         thread_stderr = stderr
-//        result = python3MainNotExit(argc, argv)
-        result = python3Main(argc, argv)
+        /// 这里之所以python不能退出，是因为toga ui不能退出
+        // result = python3Main(argc, argv)
+        result = python3MainNotExit(argc, argv)
+        
         isEnd = true
         endLocker.signal()
     }

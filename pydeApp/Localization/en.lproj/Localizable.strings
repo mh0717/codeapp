@@ -14,6 +14,7 @@
 [Open file](https://ipyde.com/ipyde/openfile)<br/>
 [Open folder](https://ipyde.com/ipyde/openfolder)<br/>
 [Clone repository](https://ipyde.com/ipyde/clone)<br/>
+[Interactive turtle](https://ipyde.com/ipyde/inturtle)<br/>
 [Open Examples](https://ipyde.com/ipyde/openexamples)
 
 [New Flask Project](https://ipyde.com/ipyde/newflask)<br/>
@@ -45,15 +46,34 @@
 
 "Changelog.message" =
 "
-### v1.2.1 (March 2024)
-- Text Editor
-  - Monaco editor
-  - Pyde editor
-- Version Control
-  - Ability to clone private repositories
-  - Ability to push, pull and sync from remotes
-- Built-in Terminal
-  - 70+ Linux commands (ls, cd, nslookup etc.)
+### v1.4 (March 2025)
+* Integrated Python standard GUI toolkit - tkinter module (based on Tk 8.6 graphics library)
+* Seamlessly integrated native Tcl/Tk scripting engine (v8.6) to enhance low-level graphics rendering capabilities
+* Enhanced support for turtle graphics module (built upon Tk graphical framework)
+* New interactive turtle drawing system with real-time visual programming environment
+
+This update significantly improves GUI development capabilities and interactive teaching experiences while maintaining cross-platform compatibility.
+
+### v1.3 (March 2024)
+- Editor
+    - Monaco editor, more compatible with external keyboards
+    - Pyde editor, more compatible with floppy disks
+    - 6+ color themes
+    - Syntax highlighting and auto-completion
+    - Multi-file search
+    - Outline
+- Version control
+    - Clone private repositories
+    - Git push, pull and sync
+- Built-in terminal
+    - 50+ Linux commands
+- Python runtime
+    - Python version 3.11
+    - Local independent process running Python scripts
+    - 25+ C extension libraries
+    - 100+ commonly used third-party libraries
+    - Pip installation of pure Python libraries
+    - Jupyter Notebook
 ";
 
 "licenses" =

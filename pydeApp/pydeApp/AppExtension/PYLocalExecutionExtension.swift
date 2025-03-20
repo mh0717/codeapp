@@ -139,7 +139,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
         }
     }
     
-    private func getRemoteConfig(consoleInstance: ConsoleView, commands: [String], app: MainApp) -> [String: Any]? {
+    private static func getRemoteConfig(consoleInstance: ConsoleView, commands: [String], app: MainApp) -> [String: Any]? {
         guard let executor = consoleInstance.executor else {return nil}
         let ntidentifier = executor.persistentIdentifier
         guard let bookmark = try? executor.currentWorkingDirectory.bookmarkData() else  {return nil}
@@ -162,14 +162,19 @@ class PYLocalExecutionExtension: CodeAppExtension {
         return config
     }
     
-    private func runUICode(app: MainApp, editor:EditorInstanceWithURL, consoleInstance: ConsoleView, dismiss:@escaping () -> Void) -> AnyView? {
-        let languageIdentifier = editor.url.pathExtension.lowercased()
-        let consoleInstance = (editor as? WithRunnerEditorInstance)?.runnerView ?? app.pyapp.consoleInstance
+    public static func runUIUrl(app: MainApp, url: URL, args: String, console: ConsoleView) {
+        if console.executor.state != .idle {
+            app.notificationManager.showErrorMessage("Terminal is busy")
+            return
+        }
         
-        let params = editor.runArgs.replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "—", with: "-").splitIntoTwoOptsArgs()
+        let languageIdentifier = url.pathExtension.lowercased()
+        let consoleInstance = console
+        
+        let params = args.replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "—", with: "-").splitIntoTwoOptsArgs()
         let opts = params.0
         let args = params.1
-        let sanitizedUrl = editor.url.path.replacingOccurrences(of: " ", with: #"\ "#)
+        let sanitizedUrl = url.path.replacingOccurrences(of: " ", with: #"\ "#)
         var oricommand: [String]? = nil
         if sanitizedUrl.lowercased().hasSuffix(".py") {
             oricommand = PYLOCAL_EXECUTION_COMMANDS["ui.py"]
@@ -177,7 +182,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             oricommand = PYLOCAL_EXECUTION_COMMANDS["ui.tcl"]
         }
         guard let oricommand else {
-            return nil
+            return
         }
         let commands = oricommand.map {
             $0.replacingFirstOccurrence(of: "{url}", with: sanitizedUrl)
@@ -186,9 +191,9 @@ class PYLocalExecutionExtension: CodeAppExtension {
         }
         
         guard let config = getRemoteConfig(consoleInstance: consoleInstance, commands: commands, app: app) else {
-            return nil
+            return
         }
-        let isInTab = editor.url.path.lowercased().hasSuffix(".in.ui.py")
+        let isInTab = url.path.lowercased().hasSuffix(".in.ui.py")
         
         wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_UI_FORCE_EXIT)
         
@@ -212,7 +217,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             
             
             var newConfig = config
-            let newPath = editor.url.path.replacingFirstOccurrence(of: wkdir.path, with: linkDir.path)
+            let newPath = url.path.replacingFirstOccurrence(of: wkdir.path, with: linkDir.path)
             let sanitizedUrl = newPath.replacingOccurrences(of: " ", with: #"\ "#)
             let commands = PYLOCAL_EXECUTION_COMMANDS["ui.py"]!.map {
                 $0.replacingFirstOccurrence(of: "{url}", with: sanitizedUrl)
@@ -223,7 +228,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             
             
             
-            guard let wbookmark = try? linkDir.bookmarkData() else {return nil}
+            guard let wbookmark = try? linkDir.bookmarkData() else {return}
             newConfig["workspace"] = wbookmark
             
             
@@ -239,19 +244,6 @@ class PYLocalExecutionExtension: CodeAppExtension {
                 app.appendAndFocusNewEditor(editor: reditor, alwaysInNewTab: true)
             }
             
-//            NotificationCenter.default.post(name: Notification.Name("UI_SHOW_VC_IN_TAB"), object: nil, userInfo: ["vc": vc, "keepAlive": true])
-            
-            //        DispatchQueue.main.async {
-            //            if #available(iOS 16.0, *) {
-            //                app.popupManager.showCover(
-            //                    content: AnyView(VCRepresentable(
-            //                        vc
-            //                    ))/*.presentationDetents([.height(400)]))*/
-            //                )
-            //            } else {
-            //                // Fallback on earlier versions
-            //            }
-            //        }
             let compilerShowPath = UserDefaults.standard.bool(forKey: "compilerShowPath")
             if compilerShowPath {
                 consoleInstance.feed(text: commands.joined(separator: " && "))
@@ -261,7 +253,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             }
             consoleInstance.feed(text: "\r\n")
             _ = consoleInstance.executor.evaluateCommands(["readremote", "endremoteui"])
-            return nil
+            return
         }
         
         
@@ -326,7 +318,12 @@ class PYLocalExecutionExtension: CodeAppExtension {
         consoleInstance.feed(text: "\r\n")
         _ = consoleInstance.executor?.evaluateCommands(["readremote", "endremoteui"])
         
-//        return popoverView
+        return
+    }
+    
+    private func runUICode(app: MainApp, editor:EditorInstanceWithURL, consoleInstance: ConsoleView, dismiss:@escaping () -> Void) -> AnyView? {
+        let consoleInstance = (editor as? WithRunnerEditorInstance)?.runnerView ?? app.pyapp.consoleInstance
+        PYLocalExecutionExtension.runUIUrl(app: app, url: editor.url, args: editor.runArgs, console: consoleInstance);
         return nil
     }
     

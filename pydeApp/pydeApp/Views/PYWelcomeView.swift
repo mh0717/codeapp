@@ -89,6 +89,8 @@ struct PYWelcomeView: View {
             case "https://ipyde.com/ipyde/clone":
 //                    onNavigateToCloneSection()
                 App.pyapp.showCloneAlert.toggle()
+            case "https://ipyde.com/ipyde/inturtle":
+                App.pyapp.openInturtle()
             case "https://ipyde.com/ipyde/score":
                 SKStoreReviewController.requestReview()
             case let i where i.hasPrefix("https://ipyde.com/ipyde/previousFolder/"):
@@ -241,6 +243,8 @@ struct PYWelcomeView1: UIViewRepresentable {
             case "https://ipyde.com/ipyde/clone":
 //                    onNavigateToCloneSection()
                 App.pyapp.showCloneAlert.toggle()
+            case "https://ipyde.com/ipyde/inturtle":
+                App.pyapp.openInturtle()
             case let i where i.hasPrefix("https://ipyde.com/ipyde/previousFolder/"):
                 let key = Int(
                     i.replacingOccurrences(

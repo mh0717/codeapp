@@ -330,6 +330,18 @@ class PYApp: ObservableObject{
         
     }
     
+    func openInturtle() {
+        guard let app = App else {
+            return
+        }
+        if consoleInstance.executor.state != .idle {
+            app.notificationManager.showErrorMessage("Terminal is busy")
+            return
+        }
+        let url = ConstantManager.EXAMPLES.appendingPathComponent("Examples/tkturtle_interactive.in.ui.py")
+        PYLocalExecutionExtension.runUIUrl(app: app, url: url, args: "", console: consoleInstance)
+    }
+    
     private static var _versionIncreased = false
     static func versionNumberIncreased() -> Bool {
         return _versionIncreased
@@ -361,15 +373,19 @@ class PYApp: ObservableObject{
             isLockScreen = false
         }
         
-        let client = ConfigCatClient.get(sdkKey: "configcat-sdk-1/IY3cCOuD_UWNfwhF_9U4Kg/ZlHhmfuj70qeUz0_KZFSwg") { options in
-            #if DEBUG
-            // <-- This is the actual SDK Key for your 'Production Environment' environment.
-            options.logLevel = .info // Set the log level to INFO to track how your feature flags were evaluated. When moving to production, you can remove this line to avoid too detailed logging.
-            #endif
-        }
+        
         Task {
+            try? await Task.sleep(nanoseconds: 5_000_000_000)
+            let client = ConfigCatClient.get(sdkKey: "configcat-sdk-1/IY3cCOuD_UWNfwhF_9U4Kg/ZlHhmfuj70qeUz0_KZFSwg") { options in
+                #if DEBUG
+                // <-- This is the actual SDK Key for your 'Production Environment' environment.
+                options.logLevel = .info // Set the log level to INFO to track how your feature flags were evaluated. When moving to production, you can remove this line to avoid too detailed logging.
+                #endif
+            }
             let _islockscreen = await client.getValue(for: "islockscreen", defaultValue: false)
-            isLockScreen = _islockscreen
+            await MainActor.run {
+                isLockScreen = _islockscreen
+            }
 //            print("islockscreen's value from ConfigCat: ", _islockscreen)
         }
         

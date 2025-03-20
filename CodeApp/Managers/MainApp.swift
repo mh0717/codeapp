@@ -1016,9 +1016,13 @@ class MainApp: ObservableObject {
                 if bookmarks.count > 5 {
                     bookmarks.removeLast()
                 }
-                UserDefaults.standard.setValue(bookmarks, forKey: "recentFolder")
+                DispatchQueue.main.async {
+                    UserDefaults.standard.setValue(bookmarks, forKey: "recentFolder")
+                }
             } else {
-                UserDefaults.standard.setValue([newBookmark], forKey: "recentFolder")
+                DispatchQueue.main.async {
+                    UserDefaults.standard.setValue([newBookmark], forKey: "recentFolder")
+                }
             }
         }
         if resetEditors {
