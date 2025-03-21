@@ -21,6 +21,8 @@ import RMStore
 class PYApp: ObservableObject{
     
     weak var App: MainApp?
+    weak var scene: UIWindowScene?
+    var sceneIdentifier = ""
     
     @Published var leftSideShow = false
     @Published var rightSideShow = false

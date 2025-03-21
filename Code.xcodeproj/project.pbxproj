@@ -1155,6 +1155,8 @@
 		A39385A62D8C947100C2E6BC /* RunStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39385A42D8C945D00C2E6BC /* RunStringExtension.swift */; };
 		A39385A82D8D6DAF00C2E6BC /* PYMarkdownViewerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39385A72D8D6D9D00C2E6BC /* PYMarkdownViewerExtension.swift */; };
 		A39385A92D8D6DAF00C2E6BC /* PYMarkdownViewerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39385A72D8D6D9D00C2E6BC /* PYMarkdownViewerExtension.swift */; };
+		A39385AB2D8D873500C2E6BC /* SceneReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39385AA2D8D873100C2E6BC /* SceneReader.swift */; };
+		A39385AC2D8D873500C2E6BC /* SceneReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39385AA2D8D873100C2E6BC /* SceneReader.swift */; };
 		A39F41D92BEA81A9001546B4 /* WheelExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F41D82BEA81A9001546B4 /* WheelExtensionManager.swift */; };
 		A39F41DA2BEA81A9001546B4 /* WheelExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F41D82BEA81A9001546B4 /* WheelExtensionManager.swift */; };
 		A39F41DC2BEA867A001546B4 /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F41DB2BEA867A001546B4 /* FilePickerView.swift */; };
@@ -3092,6 +3094,7 @@
 		A3856D892BF3B86200755140 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		A39385A42D8C945D00C2E6BC /* RunStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunStringExtension.swift; sourceTree = "<group>"; };
 		A39385A72D8D6D9D00C2E6BC /* PYMarkdownViewerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYMarkdownViewerExtension.swift; sourceTree = "<group>"; };
+		A39385AA2D8D873100C2E6BC /* SceneReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneReader.swift; sourceTree = "<group>"; };
 		A39F41D82BEA81A9001546B4 /* WheelExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelExtensionManager.swift; sourceTree = "<group>"; };
 		A39F41DB2BEA867A001546B4 /* FilePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerView.swift; sourceTree = "<group>"; };
 		A39F41FA2BEAFA9E001546B4 /* ideRemoteB.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ideRemoteB.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -4836,6 +4839,7 @@
 		A3F32F6A2AF932F000866ED0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A39385AA2D8D873100C2E6BC /* SceneReader.swift */,
 				A39F427F2BEBE548001546B4 /* PYActivityBarItemView.swift */,
 				A3F52F002B0BF16D001F096E /* PYActivityBar.swift */,
 				A30ED8BC2BE8FBD400608B17 /* PYSideBar.swift */,
@@ -6575,6 +6579,7 @@
 				A30F6AC32BE0DD52007B7CDF /* PYTextEditorInstance.swift in Sources */,
 				A30F6AC42BE0DD52007B7CDF /* QuickPreview.swift in Sources */,
 				A30F6AC52BE0DD52007B7CDF /* TopBar.swift in Sources */,
+				A39385AC2D8D873500C2E6BC /* SceneReader.swift in Sources */,
 				A39F42812BEBE548001546B4 /* PYActivityBarItemView.swift in Sources */,
 				A30F6AC62BE0DD52007B7CDF /* EditorKeyboardToolBar.swift in Sources */,
 				A30F6AC72BE0DD52007B7CDF /* NotificationManager.swift in Sources */,
@@ -6982,6 +6987,7 @@
 				A3A87D4A2AF221D1002E3399 /* SettingsKeyboardShortcuts.swift in Sources */,
 				A3A87D4B2AF221D1002E3399 /* SearchServiceProvider.swift in Sources */,
 				A3A87D4C2AF221D1002E3399 /* KeychainWrapper.swift in Sources */,
+				A39385AB2D8D873500C2E6BC /* SceneReader.swift in Sources */,
 				A3A87D4D2AF221D1002E3399 /* GitHubSearchView.swift in Sources */,
 				A3A87D4E2AF221D1002E3399 /* ExplorerEditorListSection.swift in Sources */,
 				A3A87D4F2AF221D1002E3399 /* SpellChecker.swift in Sources */,

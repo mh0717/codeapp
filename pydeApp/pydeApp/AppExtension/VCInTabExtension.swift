@@ -170,6 +170,10 @@ class VCInTabExtension: CodeAppExtension {
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
         
         NotificationCenter.default.addObserver(forName: .init("UI_SHOW_VC_IN_TAB"), object: nil, queue: nil) { notify in
+            let sceneIdentifier = notify.userInfo?["sceneIdentifier"] as? String
+            if sceneIdentifier != nil && !sceneIdentifier!.isEmpty && sceneIdentifier != app.pyapp.sceneIdentifier {
+                return
+            }
             guard let vc = notify.userInfo?["vc"] as? UIViewController else {return}
             let keepAlive = notify.userInfo?["keepAlive"] as? Bool ?? false
             if let editor = app.editors.first(where: { ins in

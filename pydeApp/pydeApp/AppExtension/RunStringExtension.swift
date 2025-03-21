@@ -14,11 +14,12 @@ class RunStringExtension: CodeAppExtension {
         self.app = app
         
         NotificationCenter.default.addObserver(forName: Notification.Name(ConstantManager.RUN_PYTHON3_STRING_NOTIFICATION), object: nil, queue: nil) { notification in
+            guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? String, sceneIdentifier == app.pyapp.sceneIdentifier else {
+                return
+            }
             guard let script = notification.userInfo?["script"] as? String else {
                 return
             }
-//            var str = script.replacingOccurrences(of: "\r\n", with: "\r")
-//            str = str.replacingOccurrences(of: "\n", with: "\r")
             
             if app.pyapp.consoleInstance.executor.state == .idle {
                 app.pyapp.consoleInstance.terminalView.send(txt: "python3 -q -i")
@@ -232,12 +233,13 @@ extension WKWebView {
                 window.getSelection().toString()
             }
             """
+        let sceneIdentifier = window?.windowScene?.session.persistentIdentifier ?? ""
         evaluateJavaScript(getSel) { msg, err in
             if let str = msg as? String, !str.isEmpty {
                 NotificationCenter.default.post(
                     name: NSNotification.Name(
                         rawValue: ConstantManager.RUN_PYTHON3_STRING_NOTIFICATION), object: nil,
-                    userInfo: ["script": str])
+                    userInfo: ["script": str, "sceneIdentifier": sceneIdentifier])
             }
         }
     }

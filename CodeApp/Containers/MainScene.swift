@@ -20,6 +20,8 @@ struct MainScene: View {
     @SceneStorage("activeEditor.bookmark") var activeEditorBookmark: Data?
     @SceneStorage("activeEditor.monaco.state") var activeEditorMonacoState: String?
 
+    @Environment(\.windowScene) private var windowScene
+
     func getOpenEditorsBookmarks() -> [Data] {
         guard let openEditorsBookmarksData else { return [] }
         return (try? PropertyListDecoder().decode([Data].self, from: openEditorsBookmarksData))
@@ -134,6 +136,10 @@ struct MainScene: View {
                 }
             )
             .hiddenSystemOverlays()
+            .onChange(of: windowScene) { newValue in
+                App.pyapp.scene = newValue
+                App.pyapp.sceneIdentifier = newValue?.session.persistentIdentifier ?? ""
+            }
     }
 }
 

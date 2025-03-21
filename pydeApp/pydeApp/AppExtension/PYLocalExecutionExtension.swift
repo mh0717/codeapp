@@ -291,7 +291,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
                     let uiid = isInTab ? ConstantManager.pydeUIB : ConstantManager.pydeUI
                     hookRemoteViewControllerInTab = isInTab
                     if isInTab {
-                        swissRemoteVCInject()
+                        swissRemoteVCInject(app.pyapp.sceneIdentifier)
                     }
                     manager?.perform(Selector("performExtensionActivityInHostWithBundleID:request:"), with: uiid, with: nil)
                     

@@ -360,17 +360,19 @@ struct CodeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainScene()
-                .ignoresSafeArea(.container, edges: .bottom)
-                .preferredColorScheme(themeManager.colorSchemePreference)
-                .environmentObject(themeManager)
-                #if PYDEAPP
-                    #if PYTHON3IDE
-                        .environmentObject(subIapManager)
-                    #else
-                        .environmentObject(iapManager)
+            SceneReader {
+                MainScene()
+                    .ignoresSafeArea(.container, edges: .bottom)
+                    .preferredColorScheme(themeManager.colorSchemePreference)
+                    .environmentObject(themeManager)
+                    #if PYDEAPP
+                        #if PYTHON3IDE
+                            .environmentObject(subIapManager)
+                        #else
+                            .environmentObject(iapManager)
+                        #endif
                     #endif
-                #endif
+            }
         }
     }
 }
