@@ -72,12 +72,25 @@ class PYApp: ObservableObject{
             self?.App?.notificationManager.showSucessMessage("Download task completed")
         }
         
-        DispatchQueue.main.async {
-            WKWebView.swizzleForMenu()
-        }
+        
         
         setenv("LC_CTYPE", "en_US.UTF-8", 1)
+        
+        struct Once {
+            static let token: Void = {
+                PYApp.initialize()
+            }()
+        }
+        _ = Once.token
     }
+    
+    static func initialize() {
+        DispatchQueue.main.async {
+            WKWebView.swizzleWKWebViewMenu()
+        }
+    }
+    
+    
     
     func showScore() {
 //        let id = "1357215444"

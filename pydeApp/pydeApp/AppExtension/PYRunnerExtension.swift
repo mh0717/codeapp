@@ -86,6 +86,14 @@ private struct ToolbarView: View {
                 
                 Divider()
                 
+                Button("Run Pasteboard", systemImage: "play", role: .none) {
+                    if let script = UIPasteboard.general.string, !script.isEmpty {
+                        runString(app: App, script: script)
+                    }
+                }
+                
+                Divider()
+                
                 Button("Close", systemImage: "apple.terminal", role: .destructive) {
                     App.pyapp.consoles.removeAll(where: {$0.id == App.pyapp.activeConsole.id})
                     App.pyapp.activeConsole = App.pyapp.consoles.last ?? App.pyapp.defaultConsole

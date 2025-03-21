@@ -5,6 +5,7 @@
 //  Created by huima on 2025/3/21.
 //
 import pydeCommon
+import ios_system
 
 class RunStringExtension: CodeAppExtension {
     
@@ -12,6 +13,7 @@ class RunStringExtension: CodeAppExtension {
     
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
         self.app = app
+        
         
         NotificationCenter.default.addObserver(forName: Notification.Name(ConstantManager.RUN_PYTHON3_STRING_NOTIFICATION), object: nil, queue: nil) { notification in
             guard let sceneIdentifier = notification.userInfo?["sceneIdentifier"] as? String, sceneIdentifier == app.pyapp.sceneIdentifier else {
@@ -21,35 +23,69 @@ class RunStringExtension: CodeAppExtension {
                 return
             }
             
-            if app.pyapp.consoleInstance.executor.state == .idle {
-                app.pyapp.consoleInstance.terminalView.send(txt: "python3 -q -i")
-                app.pyapp.consoleInstance.terminalView.send(txt: "\r")
-                
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(200))) {
-                script.split(separator: "\n").forEach { str in
-                    let src = convertPython2PrintToPython3(String(str))
-                    app.pyapp.consoleInstance.terminalView.send(txt: src)
-                    app.pyapp.consoleInstance.terminalView.send(txt: "\r")
-                }
-                app.pyapp.consoleInstance.terminalView.send(txt: "\r")
-            }
-            
-            
-//            guard app.pyapp.consoleInstance.executor.state == .idle else {
-//                return
-//            }
-//            DispatchQueue.main.async {
-//                app.pyapp.consoleInstance.executor.evaluateCommands([
-//                    escapePythonCommand(script: script)
-//                ])
-//            }
+            runString(app: app, script: script)
         }
     }
     
     
 }
+    
+func runString(app: MainApp, script: String) {
+    let ins = app.pyapp.consoleInstance
+    let hasCommand = script.hasPrefix("#!")
+    let idle = app.pyapp.consoleInstance.executor.state == .idle
+    if (hasCommand && !idle) {
+        app.notificationManager.showErrorMessage("")
+        return
+    }
+    
+    if (hasCommand && idle) {
+        do {
+            let dir = ConstantManager.appGroupContainer.appendingPathComponent("run_selection_tmp")
+            if !FileManager.default.fileExists(atPath: dir.path) {
+                try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: false)
+            }
+            let path = dir.appendingPathComponent(UUID().uuidString)
+            var src = script
+            if script.split(separator: "\n").first?.contains("python") == true {
+                src = script.split(separator: "\n").map{convertPython2PrintToPython3(String($0))}.joined(separator: "\n")
+            }
+            try src.write(to: path, atomically: true, encoding: .utf8)
+            app.pyapp.consoleInstance.terminalView.feed(text: "run\r\n")
+            _ = app.pyapp.consoleInstance.executor.evaluateCommands([path.path])
+            return
+        } catch {
+            ins.terminalView.feed(text: "run failed!\r\n")
+        }
+        return
+    }
+    
+    let isPython = ins.executor.lastCommand?.contains("python ") == true || ins.executor.lastCommand?.contains("python3 ") == true
+    if !idle && isPython {
+        let src = script.split(separator: "\n").map{convertPython2PrintToPython3(String($0))}.joined(separator: "\n")
+        let runStr = "from ios import iosRunBase64Str;iosRunBase64Str(\"\(src.base64Encoded() ?? "")\")"
+        ins.executor.sendInput(input: runStr)
+        return
+    }
+    
+    if !idle {
+        script.split(separator: "\n").forEach { str in
+            app.pyapp.consoleInstance.terminalView.send(txt: String(str))
+            app.pyapp.consoleInstance.terminalView.send(txt: "\r")
+        }
+        return
+    }
+    
+    app.pyapp.consoleInstance.terminalView.send(txt: "python3 -q -i")
+    app.pyapp.consoleInstance.terminalView.send(txt: "\r")
+    
+    DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(200))) {
+        let src = script.split(separator: "\n").map{convertPython2PrintToPython3(String($0))}.joined(separator: "\n")
+        let runStr = "from ios import iosRunBase64Str;iosRunBase64Str(\"\(src.base64Encoded() ?? "")\")"
+        app.pyapp.consoleInstance.executor.sendInput(input: runStr)
+    }
+}
+
 
 fileprivate func escapePythonCommand(script: String) -> String {
     var escaped = script.replacingOccurrences(of: "\\\"", with: "\"")
@@ -193,42 +229,111 @@ private func convertPrintArgs(_ args: String) -> String {
 import WebKit
 import ObjectiveC
 
-// MARK: - 定义扩展
+//// MARK: - 定义扩展
+//extension WKWebView {
+//    // 自定义的 Selector
+//    private static let runAction = #selector(runCustomAction)
+//    
+//    
+//    // 注册自定义菜单项
+//    static func swizzleForMenu() {
+//        swizzleWKContentViewMenu()
+//        return
+//        let originalSelector = #selector(canPerformAction(_:withSender:))
+//        let swizzledSelector = #selector(swizzled_canPerformAction(_:withSender:))
+//        
+//        let originalMethod = class_getInstanceMethod(WKWebView.self, originalSelector)!
+//        let swizzledMethod = class_getInstanceMethod(WKWebView.self, swizzledSelector)!
+//        
+//        method_exchangeImplementations(originalMethod, swizzledMethod)
+//        
+//        // 注册自定义菜单项
+//        UIMenuController.shared.menuItems = [
+//            UIMenuItem(title: NSLocalizedString("Web Menu Run", comment: ""), action: runAction)
+//        ]
+//    }
+//    
+//    // 替换后的 canPerformAction
+//    @objc func swizzled_canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+//        // 如果是自定义的 Action，返回 true
+//        if action == Self.runAction {
+//            return true
+//        }
+//        // 其他情况调用原始实现
+//        return self.swizzled_canPerformAction(action, withSender: sender)
+//    }
+//    
+//    // 处理菜单点击
+//    @objc func runCustomAction() {
+//        let getSel = """
+//            if (window.reader && window.reader.view && window.reader.view.renderer) {
+//                window.reader.view.renderer.getContents().map((item)=>item.doc.getSelection().toString()).join()
+//            } else {
+//                window.getSelection().toString()
+//            }
+//            """
+//        let sceneIdentifier = window?.windowScene?.session.persistentIdentifier ?? ""
+//        evaluateJavaScript(getSel) { msg, err in
+//            if let str = msg as? String, !str.isEmpty {
+//                NotificationCenter.default.post(
+//                    name: NSNotification.Name(
+//                        rawValue: ConstantManager.RUN_PYTHON3_STRING_NOTIFICATION), object: nil,
+//                    userInfo: ["script": str, "sceneIdentifier": sceneIdentifier])
+//            }
+//        }
+//    }
+//}
+
+
+
+// MARK: - 方法替换逻辑
 extension WKWebView {
-    // 自定义的 Selector
-    private static let runAction = #selector(runCustomAction)
-    
-    // 注册自定义菜单项
-    static func swizzleForMenu() {
-        let originalSelector = #selector(canPerformAction(_:withSender:))
-        let swizzledSelector = #selector(swizzled_canPerformAction(_:withSender:))
-        
-        let originalMethod = class_getInstanceMethod(WKWebView.self, originalSelector)!
-        let swizzledMethod = class_getInstanceMethod(WKWebView.self, swizzledSelector)!
-        
-        method_exchangeImplementations(originalMethod, swizzledMethod)
-        
-        // 注册自定义菜单项
-        UIMenuController.shared.menuItems = [
-            UIMenuItem(title: NSLocalizedString("Web Menu Run", comment: ""), action: runAction)
-        ]
-    }
-    
-    // 替换后的 canPerformAction
-    @objc func swizzled_canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        // 如果是自定义的 Action，返回 true
-        if action == Self.runAction {
-            return true
+    static func swizzleWKWebViewMenu() {
+        // 获取私有类 WKContentView（实际处理菜单的类）
+        guard let wkContentViewClass = NSClassFromString("WKWebView") else {
+            print("⚠️ WKContentView 类未找到")
+            return
         }
-        // 其他情况调用原始实现
-        return self.swizzled_canPerformAction(action, withSender: sender)
+        
+        // 定义原始方法和替换方法的选择器
+        let originalSelector = #selector(UIResponder.buildMenu(with:))
+        let swizzledSelector = #selector(wkContentView_swizzledBuildMenu(with:))
+        
+        // 获取方法的 Method 对象
+        guard let originalMethod = class_getInstanceMethod(wkContentViewClass, originalSelector),
+              let swizzledMethod = class_getInstanceMethod(wkContentViewClass, swizzledSelector) else {
+            print("⚠️ 方法替换失败")
+            return
+        }
+        
+        // 交换方法实现
+        method_exchangeImplementations(originalMethod, swizzledMethod)
     }
     
-    // 处理菜单点击
-    @objc func runCustomAction() {
+    // 动态添加的替换方法（需标记为 @objc）
+    @objc func wkContentView_swizzledBuildMenu(with builder: UIMenuBuilder) {
+        // 调用原始实现（已交换，实际调用原来的 buildMenuWithBuilder:）
+        self.wkContentView_swizzledBuildMenu(with: builder)
+        
+        // 添加自定义 "Run" 动作
+        let runAction = UIAction(
+            title: NSLocalizedString("Web Menu Run", comment: ""),
+            image: UIImage(systemName: "play.fill"),
+            identifier: UIAction.Identifier("com.example.run")
+        ) { _ in
+            self.handleRunAction()
+        }
+        
+        // 将动作插入菜单末尾（可调整位置）
+        let runMenu = UIMenu(title: "", options: .displayInline, children: [runAction])
+        builder.insertChild(runMenu, atEndOfMenu: .standardEdit)
+    }
+    
+    // 处理 "Run" 动作
+    private func handleRunAction() {
         let getSel = """
-            if (reader && reader.view && reader.view.renderer) {
-                reader.view.renderer.getContents().map((item)=>item.doc.getSelection().toString()).join()
+            if (window.reader && window.reader.view && window.reader.view.renderer) {
+                window.reader.view.renderer.getContents().map((item)=>item.doc.getSelection().toString()).join()
             } else {
                 window.getSelection().toString()
             }
@@ -244,3 +349,4 @@ extension WKWebView {
         }
     }
 }
+
