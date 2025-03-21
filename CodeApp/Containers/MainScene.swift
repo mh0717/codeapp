@@ -322,9 +322,9 @@ private struct MainView: View {
             let appVersion =
                 Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0"
 
-            //            if changeLogLastReadVersion != appVersion {
-            //                stateManager.showsChangeLog.toggle()
-            //            }
+            if changeLogLastReadVersion != appVersion {
+                stateManager.showsChangeLog.toggle()
+            }
             DispatchQueue.main.async {
                 changeLogLastReadVersion = appVersion
             }

@@ -70,6 +70,10 @@ class PYApp: ObservableObject{
             self?.App?.notificationManager.showSucessMessage("Download task completed")
         }
         
+        DispatchQueue.main.async {
+            WKWebView.swizzleForMenu()
+        }
+        
         setenv("LC_CTYPE", "en_US.UTF-8", 1)
     }
     

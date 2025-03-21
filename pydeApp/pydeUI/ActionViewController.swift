@@ -167,7 +167,11 @@ class ActionViewController: UITabBarController {
         watchQueue.async {
             while true {
                 if Date().timeIntervalSince(watchedDate) > 15 {
-//                    real_exit(vlaue: -1)
+                    #if DEBUG
+                    #else
+                    real_exit(vlaue: -1)
+                    #endif
+                    
                 }
                 sleep(3)
             }

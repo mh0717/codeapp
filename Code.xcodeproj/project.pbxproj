@@ -1151,6 +1151,10 @@
 		A3856D882BF36ACC00755140 /* RunParamsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3856D862BF36ACC00755140 /* RunParamsExtension.swift */; };
 		A3856D8A2BF3B86200755140 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3856D892BF3B86200755140 /* UIColor+Ext.swift */; };
 		A3856D8B2BF3B86200755140 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3856D892BF3B86200755140 /* UIColor+Ext.swift */; };
+		A39385A52D8C947100C2E6BC /* RunStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39385A42D8C945D00C2E6BC /* RunStringExtension.swift */; };
+		A39385A62D8C947100C2E6BC /* RunStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39385A42D8C945D00C2E6BC /* RunStringExtension.swift */; };
+		A39385A82D8D6DAF00C2E6BC /* PYMarkdownViewerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39385A72D8D6D9D00C2E6BC /* PYMarkdownViewerExtension.swift */; };
+		A39385A92D8D6DAF00C2E6BC /* PYMarkdownViewerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39385A72D8D6D9D00C2E6BC /* PYMarkdownViewerExtension.swift */; };
 		A39F41D92BEA81A9001546B4 /* WheelExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F41D82BEA81A9001546B4 /* WheelExtensionManager.swift */; };
 		A39F41DA2BEA81A9001546B4 /* WheelExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F41D82BEA81A9001546B4 /* WheelExtensionManager.swift */; };
 		A39F41DC2BEA867A001546B4 /* FilePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F41DB2BEA867A001546B4 /* FilePickerView.swift */; };
@@ -3086,6 +3090,8 @@
 		A3856D832BF2A04700755140 /* ColorTheme+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColorTheme+Ext.swift"; sourceTree = "<group>"; };
 		A3856D862BF36ACC00755140 /* RunParamsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunParamsExtension.swift; sourceTree = "<group>"; };
 		A3856D892BF3B86200755140 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		A39385A42D8C945D00C2E6BC /* RunStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunStringExtension.swift; sourceTree = "<group>"; };
+		A39385A72D8D6D9D00C2E6BC /* PYMarkdownViewerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYMarkdownViewerExtension.swift; sourceTree = "<group>"; };
 		A39F41D82BEA81A9001546B4 /* WheelExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelExtensionManager.swift; sourceTree = "<group>"; };
 		A39F41DB2BEA867A001546B4 /* FilePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerView.swift; sourceTree = "<group>"; };
 		A39F41FA2BEAFA9E001546B4 /* ideRemoteB.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ideRemoteB.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -4730,6 +4736,8 @@
 		A39F41D72BEA8189001546B4 /* AppExtension */ = {
 			isa = PBXGroup;
 			children = (
+				A39385A72D8D6D9D00C2E6BC /* PYMarkdownViewerExtension.swift */,
+				A39385A42D8C945D00C2E6BC /* RunStringExtension.swift */,
 				A36337252AF2520D00085608 /* TMConsoleExtension.swift */,
 				A363372F2AF3E9DF00085608 /* PYRunnerExtension.swift */,
 				A3DDCB972B2374B200EA74E5 /* VCInTabExtension.swift */,
@@ -6490,6 +6498,7 @@
 				A30F6A7F2BE0DD52007B7CDF /* RemoteConnectedSection.swift in Sources */,
 				A30F6A802BE0DD52007B7CDF /* ActivityBarManager.swift in Sources */,
 				A30F6A812BE0DD52007B7CDF /* HighlightedText.swift in Sources */,
+				A39385A82D8D6DAF00C2E6BC /* PYMarkdownViewerExtension.swift in Sources */,
 				A30F6A832BE0DD52007B7CDF /* SideBarButton.swift in Sources */,
 				A30F6A842BE0DD52007B7CDF /* LocalGitCredentialsHelper.swift in Sources */,
 				A30F6A852BE0DD52007B7CDF /* LocalFileSystemProvider.swift in Sources */,
@@ -6521,6 +6530,7 @@
 				A30F6A9A2BE0DD52007B7CDF /* UIApplication+getSafeArea.swift in Sources */,
 				A3856CE72BEE6D1D00755140 /* URL+Ext.swift in Sources */,
 				A30F6A9B2BE0DD52007B7CDF /* SourceControlAuthenticationConfiguration.swift in Sources */,
+				A39385A62D8C947100C2E6BC /* RunStringExtension.swift in Sources */,
 				A30F6A9C2BE0DD52007B7CDF /* DownloadManager.swift in Sources */,
 				A30F6A9D2BE0DD52007B7CDF /* NotificationCentreView.swift in Sources */,
 				A30F6A9E2BE0DD52007B7CDF /* DocumentPickerView.swift in Sources */,
@@ -6899,6 +6909,7 @@
 				A3A87D172AF221D1002E3399 /* SimpleWebPreviewExtension.swift in Sources */,
 				A3A87D182AF221D1002E3399 /* RemoteImage.swift in Sources */,
 				A3A87D192AF221D1002E3399 /* KeyChainAccessor.swift in Sources */,
+				A39385A52D8C947100C2E6BC /* RunStringExtension.swift in Sources */,
 				A3A87D1A2AF221D1002E3399 /* SourceControlEmptySection.swift in Sources */,
 				A349BF362B00ECDF00434BBB /* GitService.swift in Sources */,
 				A3A87D1B2AF221D1002E3399 /* Theme.swift in Sources */,
@@ -6996,6 +7007,7 @@
 				A3A87D5E2AF221D1002E3399 /* String+throwingRemovingPercentEncoding.swift in Sources */,
 				A3A87D5F2AF221D1002E3399 /* PDFViewerExtension.swift in Sources */,
 				A3A87D602AF221D1002E3399 /* SourceControlAuxiliaryExtension.swift in Sources */,
+				A39385A92D8D6DAF00C2E6BC /* PYMarkdownViewerExtension.swift in Sources */,
 				A3A87D612AF221D1002E3399 /* View+cornerRadius.swift in Sources */,
 				A3A87D622AF221D1002E3399 /* MonacoIntellisenseExtension.swift in Sources */,
 				A3A87D632AF221D1002E3399 /* ActivityBarItemView.swift in Sources */,

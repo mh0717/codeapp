@@ -6,6 +6,7 @@
 //
 
 import WebKit
+import pydeCommon
 
 private var ToolbarHandle: UInt8 = 0
 
