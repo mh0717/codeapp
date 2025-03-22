@@ -47,10 +47,17 @@
 "Changelog.message" =
 "
 ### v1.4 (March 2025)
-* Integrated Python standard GUI toolkit - tkinter module (based on Tk 8.6 graphics library)
-* Seamlessly integrated native Tcl/Tk scripting engine (v8.6) to enhance low-level graphics rendering capabilities
-* Enhanced support for turtle graphics module (built upon Tk graphical framework)
-* New interactive turtle drawing system with real-time visual programming environment
+- Integrated Python standard GUI toolkit - tkinter module 
+    - based on Tk 8.6 graphics library
+- Seamlessly integrated native Tcl/Tk scripting engine (v8.6) to enhance low-level graphics rendering capabilities
+- Enhanced support for turtle graphics module 
+    - built upon Tk graphical framework
+- New interactive turtle drawing system with real-time visual programming environment
+- In-App Browser Script Execution
+    - Run scripts directly from selected text in the built-in browser via a context menu.
+- Clipboard Quick-Run
+    - Added clipboard script detection for one-click execution of valid script content.
+- Bux fix
 
 This update significantly improves GUI development capabilities and interactive teaching experiences while maintaining cross-platform compatibility.
 

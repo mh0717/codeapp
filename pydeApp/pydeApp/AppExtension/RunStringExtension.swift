@@ -241,42 +241,132 @@ private func convertPrintArgs(_ args: String) -> String {
 import WebKit
 import ObjectiveC
 
-//// MARK: - 定义扩展
+// MARK: - 定义扩展
+extension WKWebView {
+    // 自定义的 Selector
+    private static let runAction = #selector(runCustomAction)
+    
+    
+    // 注册自定义菜单项
+    static func swizzleForMenu() {
+        let originalSelector = #selector(canPerformAction(_:withSender:))
+        let swizzledSelector = #selector(swizzled_canPerformAction(_:withSender:))
+        
+        if let originalMethod = class_getInstanceMethod(WKWebView.self, originalSelector),
+           let swizzledMethod = class_getInstanceMethod(WKWebView.self, swizzledSelector) {
+            method_exchangeImplementations(originalMethod, swizzledMethod)
+        }
+        
+        
+        // 交换 canBecomeFirstResponder
+        let originalCanBecome = #selector(getter: UIResponder.canBecomeFirstResponder)
+        let swizzledCanBecome = #selector(swizzled_canBecomeFirstResponder)
+
+        if let originalMethod = class_getInstanceMethod(self, originalCanBecome),
+           let swizzledMethod = class_getInstanceMethod(self, swizzledCanBecome) {
+            method_exchangeImplementations(originalMethod, swizzledMethod)
+        }
+    }
+    
+    @objc func swizzled_canBecomeFirstResponder() -> Bool {
+        UIMenuController.shared.menuItems = [
+            UIMenuItem(title: NSLocalizedString("Web Menu Run", comment: ""), action: WKWebView.runAction)
+        ]
+        return true
+    }
+    
+    
+    
+    // 替换后的 canPerformAction
+    @objc func swizzled_canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        // 如果是自定义的 Action，返回 true
+        if action == Self.runAction {
+            return true
+        }
+        
+        if UIDevice.isiPad {
+            return self.swizzled_canPerformAction(action, withSender: sender)
+        }
+        
+        if action == Selector("copy:") {
+            return true
+        }
+        
+        if action == Selector("_share:") {
+            return true
+        }
+        
+        return false
+    }
+    
+    // 处理菜单点击
+    @objc func runCustomAction() {
+        let getSel = """
+            if (window.reader && window.reader.view && window.reader.view.renderer) {
+                window.reader.view.renderer.getContents().map((item)=>item.doc.getSelection().toString()).join()
+            } else {
+                window.getSelection().toString()
+            }
+            """
+        let sceneIdentifier = window?.windowScene?.session.persistentIdentifier ?? ""
+        evaluateJavaScript(getSel) { msg, err in
+            if let str = msg as? String, !str.isEmpty {
+                NotificationCenter.default.post(
+                    name: NSNotification.Name(
+                        rawValue: ConstantManager.RUN_PYTHON3_STRING_NOTIFICATION), object: nil,
+                    userInfo: ["script": str, "sceneIdentifier": sceneIdentifier])
+            }
+        }
+    }
+}
+
+extension UIDevice {
+    static var isiPad: Bool {
+        return current.userInterfaceIdiom == .pad
+    }
+}
+
+
+
+// MARK: - 方法替换逻辑
 //extension WKWebView {
-//    // 自定义的 Selector
-//    private static let runAction = #selector(runCustomAction)
-//    
-//    
-//    // 注册自定义菜单项
-//    static func swizzleForMenu() {
-//        swizzleWKContentViewMenu()
-//        return
-//        let originalSelector = #selector(canPerformAction(_:withSender:))
-//        let swizzledSelector = #selector(swizzled_canPerformAction(_:withSender:))
+//    static func swizzleWKWebViewMenu() {
+//        // 定义原始方法和替换方法的选择器
+//        let originalSelector = #selector(buildMenu(with:))
+//        let swizzledSelector = #selector(swizzledBuildMenu(with:))
 //        
-//        let originalMethod = class_getInstanceMethod(WKWebView.self, originalSelector)!
-//        let swizzledMethod = class_getInstanceMethod(WKWebView.self, swizzledSelector)!
-//        
-//        method_exchangeImplementations(originalMethod, swizzledMethod)
-//        
-//        // 注册自定义菜单项
-//        UIMenuController.shared.menuItems = [
-//            UIMenuItem(title: NSLocalizedString("Web Menu Run", comment: ""), action: runAction)
-//        ]
-//    }
-//    
-//    // 替换后的 canPerformAction
-//    @objc func swizzled_canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-//        // 如果是自定义的 Action，返回 true
-//        if action == Self.runAction {
-//            return true
+//        // 获取方法的 Method 对象
+//        guard let originalMethod = class_getInstanceMethod(WKWebView.self, originalSelector),
+//              let swizzledMethod = class_getInstanceMethod(WKWebView.self, swizzledSelector) else {
+//            print("⚠️ 方法替换失败")
+//            return
 //        }
-//        // 其他情况调用原始实现
-//        return self.swizzled_canPerformAction(action, withSender: sender)
+//        
+//        // 交换方法实现
+//        method_exchangeImplementations(originalMethod, swizzledMethod)
 //    }
 //    
-//    // 处理菜单点击
-//    @objc func runCustomAction() {
+//    // 动态添加的替换方法（需标记为 @objc）
+//    @objc func swizzledBuildMenu(with builder: UIMenuBuilder) {
+//        // 调用原始实现（已交换，实际调用原来的 buildMenuWithBuilder:）
+//        self.swizzledBuildMenu(with: builder)
+//        
+//        // 添加自定义 "Run" 动作
+//        let runAction = UIAction(
+//            title: NSLocalizedString("Web Menu Run", comment: ""),
+//            image: UIImage(systemName: "play.fill"),
+//            identifier: UIAction.Identifier("com.example.run")
+//        ) { _ in
+//            self.handleRunAction()
+//        }
+//        
+//        // 将动作插入菜单末尾（可调整位置）
+//        let runMenu = UIMenu(title: "", options: .displayInline, children: [runAction])
+//        builder.insertChild(runMenu, atEndOfMenu: .standardEdit)
+//    }
+//    
+//    // 处理 "Run" 动作
+//    private func handleRunAction() {
 //        let getSel = """
 //            if (window.reader && window.reader.view && window.reader.view.renderer) {
 //                window.reader.view.renderer.getContents().map((item)=>item.doc.getSelection().toString()).join()
@@ -298,67 +388,80 @@ import ObjectiveC
 
 
 
-// MARK: - 方法替换逻辑
+import WebKit
+import ObjectiveC
+
 extension WKWebView {
-    static func swizzleWKWebViewMenu() {
-        // 获取私有类 WKContentView（实际处理菜单的类）
-        guard let wkContentViewClass = NSClassFromString("WKWebView") else {
-            print("⚠️ WKContentView 类未找到")
-            return
+    // MARK: - 方法替换
+    private typealias OriginalBuildMenuIMP = @convention(c) (AnyObject, Selector, UIMenuBuilder) -> Void
+    
+    // 保存原始方法实现的指针
+    private static var originalBuildMenuIMP: OriginalBuildMenuIMP?
+    
+    // 供外部调用的激活方法
+    @objc public static func enableCustomMenu() {
+        DispatchQueue.once(token: "WKWebViewCustomMenu") {
+            swizzleBuildMenu()
         }
-        
-        // 定义原始方法和替换方法的选择器
-        let originalSelector = #selector(UIResponder.buildMenu(with:))
-        let swizzledSelector = #selector(wkContentView_swizzledBuildMenu(with:))
-        
-        // 获取方法的 Method 对象
-        guard let originalMethod = class_getInstanceMethod(wkContentViewClass, originalSelector),
-              let swizzledMethod = class_getInstanceMethod(wkContentViewClass, swizzledSelector) else {
-            print("⚠️ 方法替换失败")
-            return
-        }
-        
-        // 交换方法实现
-        method_exchangeImplementations(originalMethod, swizzledMethod)
     }
     
-    // 动态添加的替换方法（需标记为 @objc）
-    @objc func wkContentView_swizzledBuildMenu(with builder: UIMenuBuilder) {
-        // 调用原始实现（已交换，实际调用原来的 buildMenuWithBuilder:）
-        self.wkContentView_swizzledBuildMenu(with: builder)
+    // MARK: - 私有实现
+    @objc dynamic private func custom_buildMenu(with builder: UIMenuBuilder) {
+        // 调用原始方法
+        if let imp = WKWebView.originalBuildMenuIMP {
+            imp(self, #selector(WKWebView.buildMenu(with:)), builder)
+        }
         
-        // 添加自定义 "Run" 动作
+        // 移除查找菜单
+        builder.remove(menu: .lookup)
+        
+        // 添加 RUN 菜单
         let runAction = UIAction(
             title: NSLocalizedString("Web Menu Run", comment: ""),
             image: UIImage(systemName: "play.fill"),
-            identifier: UIAction.Identifier("com.example.run")
-        ) { _ in
-            self.handleRunAction()
+            identifier: UIAction.Identifier("custom.run")
+        ) { [weak self] _ in
+            self?.runCustomAction()
         }
         
-        // 将动作插入菜单末尾（可调整位置）
-        let runMenu = UIMenu(title: "", options: .displayInline, children: [runAction])
-        builder.insertChild(runMenu, atEndOfMenu: .standardEdit)
+        builder.insertChild(
+            UIMenu(title: "", options: .displayInline, children: [runAction]),
+            atStartOfMenu: .root
+        )
     }
     
-    // 处理 "Run" 动作
-    private func handleRunAction() {
-        let getSel = """
-            if (window.reader && window.reader.view && window.reader.view.renderer) {
-                window.reader.view.renderer.getContents().map((item)=>item.doc.getSelection().toString()).join()
-            } else {
-                window.getSelection().toString()
-            }
-            """
-        let sceneIdentifier = window?.windowScene?.session.persistentIdentifier ?? ""
-        evaluateJavaScript(getSel) { msg, err in
-            if let str = msg as? String, !str.isEmpty {
-                NotificationCenter.default.post(
-                    name: NSNotification.Name(
-                        rawValue: ConstantManager.RUN_PYTHON3_STRING_NOTIFICATION), object: nil,
-                    userInfo: ["script": str, "sceneIdentifier": sceneIdentifier])
-            }
+    
+    // 方法替换核心逻辑
+    static func swizzleBuildMenu() {
+        let originalSelector = #selector(WKWebView.buildMenu(with:))
+        let swizzledSelector = #selector(WKWebView.custom_buildMenu(with:))
+        
+        guard let originalMethod = class_getInstanceMethod(self, originalSelector),
+              let swizzledMethod = class_getInstanceMethod(self, swizzledSelector) else {
+            return
         }
+        
+        // 保存原始实现
+        originalBuildMenuIMP = unsafeBitCast(
+            method_getImplementation(originalMethod),
+            to: OriginalBuildMenuIMP.self
+        )
+        
+        // 替换实现
+        method_setImplementation(originalMethod, method_getImplementation(swizzledMethod))
     }
 }
 
+// 一次性执行封装
+extension DispatchQueue {
+    private static var tokens = Set<String>()
+    
+    static func once(token: String, block: () -> Void) {
+        objc_sync_enter(self)
+        defer { objc_sync_exit(self) }
+        
+        guard !tokens.contains(token) else { return }
+        tokens.insert(token)
+        block()
+    }
+}

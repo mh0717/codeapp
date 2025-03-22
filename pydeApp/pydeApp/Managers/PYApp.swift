@@ -88,7 +88,12 @@ class PYApp: ObservableObject{
     
     static func initialize() {
         DispatchQueue.main.async {
-            WKWebView.swizzleWKWebViewMenu()
+            if #available(iOS 16.0, *) {
+                WKWebView.swizzleBuildMenu()
+            } else {
+                WKWebView.swizzleForMenu()
+            }
+            
         }
     }
     

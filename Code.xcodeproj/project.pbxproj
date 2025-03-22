@@ -994,7 +994,6 @@
 		A30F6B962BE0E528007B7CDF /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A36336EA2AF22B3200085608 /* Media.xcassets */; };
 		A30F6BA42BE0E577007B7CDF /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36337092AF231D200085608 /* ActionViewController.swift */; };
 		A30F6BA72BE0E577007B7CDF /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A30F6B9F2BE0E577007B7CDF /* ios_system */; };
-		A30F6BA82BE0E577007B7CDF /* TortoiseGraphics in Frameworks */ = {isa = PBXBuildFile; productRef = A30F6BA02BE0E577007B7CDF /* TortoiseGraphics */; };
 		A30F6BAA2BE0E577007B7CDF /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A30F6B9E2BE0E577007B7CDF /* pydeCommon */; };
 		A30F6BAC2BE0E577007B7CDF /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A36337072AF231D200085608 /* Media.xcassets */; };
 		A30F6BAD2BE0E577007B7CDF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3AFD15C2BC8305B004C9F10 /* InfoPlist.strings */; };
@@ -1045,7 +1044,6 @@
 		A359CD1C2BD956AC00CD33CF /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A359CD1B2BD956AC00CD33CF /* DownloadManager.swift */; };
 		A359CD1E2BD9706800CD33CF /* DownloadContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A359CD1D2BD9706800CD33CF /* DownloadContainer.swift */; };
 		A359CD202BDAA95300CD33CF /* DownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A359CD1F2BDAA95300CD33CF /* DownloadButton.swift */; };
-		A35E2C4E2D84958D00BD8137 /* ideUIPreviewA.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A30F6BCB2BE0E5BD007B7CDF /* ideUIPreviewA.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A35E2C542D873B0700BD8137 /* TortoiseGraphics in Frameworks */ = {isa = PBXBuildFile; productRef = A35E2C532D873B0700BD8137 /* TortoiseGraphics */; };
 		A35E2C552D873B0700BD8137 /* TortoiseGraphics in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A35E2C532D873B0700BD8137 /* TortoiseGraphics */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A36336D32AF226BA00085608 /* pyde in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; };
@@ -1435,7 +1433,6 @@
 		A3C0D8912D89C20300A78FA9 /* IDEWasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345B6CD2BF896FA0014A50F /* IDEWasm.swift */; };
 		A3C0D8922D89C20300A78FA9 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
 		A3C0D8942D89C20300A78FA9 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A3C0D88B2D89C20300A78FA9 /* ios_system */; };
-		A3C0D8952D89C20300A78FA9 /* TortoiseGraphics in Frameworks */ = {isa = PBXBuildFile; productRef = A3C0D88C2D89C20300A78FA9 /* TortoiseGraphics */; };
 		A3C0D8962D89C20300A78FA9 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3C0D88A2D89C20300A78FA9 /* pydeCommon */; };
 		A3C0D8972D89C20300A78FA9 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A3C0D88D2D89C20300A78FA9 /* CCommon */; };
 		A3C0D8992D89C20300A78FA9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A36337072AF231D200085608 /* Media.xcassets */; };
@@ -1461,7 +1458,6 @@
 		A3EB36652C1DA46A0000B4D4 /* ConfigCat in Frameworks */ = {isa = PBXBuildFile; productRef = A3EB36642C1DA46A0000B4D4 /* ConfigCat */; };
 		A3EB36992C1ED4870000B4D4 /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EB36982C1ED4870000B4D4 /* Widget.swift */; };
 		A3EB369E2C216F8F0000B4D4 /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A3EB369D2C216F8F0000B4D4 /* Widget.intentdefinition */; };
-		A3EB369F2C21759E0000B4D4 /* Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A3EB369D2C216F8F0000B4D4 /* Widget.intentdefinition */; };
 		A3F239712B9FEBE8006F6D7B /* PYWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F239702B9FEBE8006F6D7B /* PYWelcomeView.swift */; };
 		A3F239902BA09907006F6D7B /* RMStore in Frameworks */ = {isa = PBXBuildFile; productRef = A3F2398F2BA09907006F6D7B /* RMStore */; };
 		A3F239912BA09907006F6D7B /* RMStore in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A3F2398F2BA09907006F6D7B /* RMStore */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -1580,13 +1576,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = A30F6B9D2BE0E577007B7CDF;
 			remoteInfo = ideUIA;
-		};
-		A35E2C4F2D84958D00BD8137 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A30F6BB62BE0E5BD007B7CDF;
-			remoteInfo = ideUIPreviewA;
 		};
 		A363370F2AF231D200085608 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -2195,7 +2184,6 @@
 				A39F42732BEAFB44001546B4 /* ideRemoteE.appex in Embed Foundation Extensions */,
 				A39F42702BEAFB44001546B4 /* ideRemoteD.appex in Embed Foundation Extensions */,
 				A3C0D8A32D89C33800A78FA9 /* ideUIB.appex in Embed Foundation Extensions */,
-				A35E2C4E2D84958D00BD8137 /* ideUIPreviewA.appex in Embed Foundation Extensions */,
 				A30F6BD02BE0E60C007B7CDF /* ideUIA.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
@@ -3295,7 +3283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A30F6BA72BE0E577007B7CDF /* ios_system in Frameworks */,
-				A30F6BA82BE0E577007B7CDF /* TortoiseGraphics in Frameworks */,
 				A30F6BAA2BE0E577007B7CDF /* pydeCommon in Frameworks */,
 				A3856D692BF0C7E700755140 /* CCommon in Frameworks */,
 			);
@@ -3462,7 +3449,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3C0D8942D89C20300A78FA9 /* ios_system in Frameworks */,
-				A3C0D8952D89C20300A78FA9 /* TortoiseGraphics in Frameworks */,
 				A3C0D8962D89C20300A78FA9 /* pydeCommon in Frameworks */,
 				A3C0D8972D89C20300A78FA9 /* CCommon in Frameworks */,
 			);
@@ -4993,7 +4979,6 @@
 				A39F42752BEAFB44001546B4 /* PBXTargetDependency */,
 				A39F42782BEAFB44001546B4 /* PBXTargetDependency */,
 				A39F427B2BEAFB44001546B4 /* PBXTargetDependency */,
-				A35E2C502D84958D00BD8137 /* PBXTargetDependency */,
 				A3C0D8A52D89C33800A78FA9 /* PBXTargetDependency */,
 			);
 			name = Python3IDE;
@@ -5062,7 +5047,6 @@
 			packageProductDependencies = (
 				A30F6B9E2BE0E577007B7CDF /* pydeCommon */,
 				A30F6B9F2BE0E577007B7CDF /* ios_system */,
-				A30F6BA02BE0E577007B7CDF /* TortoiseGraphics */,
 				A3856D682BF0C7E700755140 /* CCommon */,
 			);
 			productName = pydeUI;
@@ -5411,7 +5395,6 @@
 			packageProductDependencies = (
 				A3C0D88A2D89C20300A78FA9 /* pydeCommon */,
 				A3C0D88B2D89C20300A78FA9 /* ios_system */,
-				A3C0D88C2D89C20300A78FA9 /* TortoiseGraphics */,
 				A3C0D88D2D89C20300A78FA9 /* CCommon */,
 			);
 			productName = pydeUI;
@@ -6596,7 +6579,6 @@
 				A39F42872BECB54F001546B4 /* MediaPicker.swift in Sources */,
 				A30F6AD12BE0DD52007B7CDF /* KBWebViewBase.m in Sources */,
 				A30F6AD22BE0DD52007B7CDF /* CodeAppExtension.swift in Sources */,
-				A3EB369F2C21759E0000B4D4 /* Widget.intentdefinition in Sources */,
 				A30F6AD32BE0DD52007B7CDF /* TextEditorWithPlaceholder.swift in Sources */,
 				A30F6AD42BE0DD52007B7CDF /* String+toCString.swift in Sources */,
 				A30F6AD52BE0DD52007B7CDF /* Remote.swift in Sources */,
@@ -7209,11 +7191,6 @@
 			isa = PBXTargetDependency;
 			productRef = A35E2C3E2D7FDBCA00BD8137 /* ios_system */;
 		};
-		A35E2C502D84958D00BD8137 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A30F6BB62BE0E5BD007B7CDF /* ideUIPreviewA */;
-			targetProxy = A35E2C4F2D84958D00BD8137 /* PBXContainerItemProxy */;
-		};
 		A36337102AF231D200085608 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A36337032AF231D200085608 /* pydeUI */;
@@ -7815,7 +7792,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 50;
+				CURRENT_PROJECT_VERSION = 52;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -7845,7 +7822,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				STRIP_BITCODE_FROM_COPIED_FILES = NO;
+				STRIP_BITCODE_FROM_COPIED_FILES = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 				STRIP_STYLE = "non-global";
 				SUPPORTS_MACCATALYST = NO;
@@ -7871,7 +7848,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 50;
+				CURRENT_PROJECT_VERSION = 52;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -7904,7 +7881,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				STRIP_BITCODE_FROM_COPIED_FILES = NO;
+				STRIP_BITCODE_FROM_COPIED_FILES = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 				STRIP_STYLE = "non-global";
 				SUPPORTS_MACCATALYST = NO;
@@ -10263,10 +10240,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
 		};
-		A30F6BA02BE0E577007B7CDF /* TortoiseGraphics */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = TortoiseGraphics;
-		};
 		A30F6BB72BE0E5BD007B7CDF /* ios_system */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
@@ -10526,10 +10499,6 @@
 		A3C0D88B2D89C20300A78FA9 /* ios_system */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ios_system;
-		};
-		A3C0D88C2D89C20300A78FA9 /* TortoiseGraphics */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = TortoiseGraphics;
 		};
 		A3C0D88D2D89C20300A78FA9 /* CCommon */ = {
 			isa = XCSwiftPackageProductDependency;
