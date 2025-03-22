@@ -1228,6 +1228,9 @@ class MainApp: ObservableObject {
 
         @MainActor
         private func createMonacoTextEditorFromURL(url: URL) async throws -> TextEditorInstance {
+            if url.pathExtension.lowercased() == "ipynb" {
+                throw AppError.unknownFileFormat
+            }
             // TODO: A more efficient way to determine whether file is supported
             let contentData: Data? = try await workSpaceStorage.contents(
                 at: url
@@ -1260,14 +1263,15 @@ class MainApp: ObservableObject {
                 )
             }
 
-            if url.pathExtension.lowercased() == "ipynb" {
+            /*if url.pathExtension.lowercased() == "ipynb" {
                 let instance = await Task { @MainActor in
                     return NoteBookPreviewEditorInstance(
                         url: url, content: content, encoding: encoding,
                         lastSavedDate: modificationDate)
                 }.value
                 return instance
-            } else if PYLOCAL_EXECUTION_COMMANDS.keys.contains(url.pathExtension.lowercased()) {
+            } else*/
+            if PYLOCAL_EXECUTION_COMMANDS.keys.contains(url.pathExtension.lowercased()) {
                 let instance = WithRunnerEditorInstance(
                     url: url, content: content, encoding: encoding, lastSavedDate: modificationDate,
                     editorView: AnyView(monacoInstance),

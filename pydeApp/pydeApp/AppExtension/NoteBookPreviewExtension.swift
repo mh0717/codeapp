@@ -32,8 +32,7 @@ struct NoteBookViewReprestable: UIViewRepresentable {
     }
 }
 
-
-class NoteBookPreviewEditorInstance: WithRunnerEditorInstance  {
+class NoteBookPreviewEditorInstance: EditorInstanceWithURL  {
     let webViewRepresent = NoteBookViewReprestable()
     
     init(
@@ -43,14 +42,7 @@ class NoteBookPreviewEditorInstance: WithRunnerEditorInstance  {
         lastSavedDate: Date? = nil,
         fileDidChange: ((FileState, String?) -> Void)? = nil
     ) {
-        super.init(
-            url: url,
-            content: content,
-            encoding: encoding,
-            lastSavedDate: lastSavedDate,
-            editorView: AnyView(webViewRepresent),
-            fileDidChange: fileDidChange
-        )
+        super.init(view: AnyView(webViewRepresent), title: url.lastPathComponent, url: url)
         
         loadNBContent(nbContent: content)
     }
@@ -61,9 +53,41 @@ class NoteBookPreviewEditorInstance: WithRunnerEditorInstance  {
         }
         let htmlString = nbtemplate?.replacingOccurrences(of: "%nbcontent%", with: nbContent)
         webViewRepresent.webView.loadHTMLString(htmlString ?? "", baseURL: url)
-//        webViewRepresent.webView.loadHTMLString("Test", baseURL: url)
     }
 }
+
+
+//class NoteBookPreviewEditorInstance: WithRunnerEditorInstance  {
+//    let webViewRepresent = NoteBookViewReprestable()
+//    
+//    init(
+//        url: URL,
+//        content: String,
+//        encoding: String.Encoding = .utf8,
+//        lastSavedDate: Date? = nil,
+//        fileDidChange: ((FileState, String?) -> Void)? = nil
+//    ) {
+//        super.init(
+//            url: url,
+//            content: content,
+//            encoding: encoding,
+//            lastSavedDate: lastSavedDate,
+//            editorView: AnyView(webViewRepresent),
+//            fileDidChange: fileDidChange
+//        )
+//        
+//        loadNBContent(nbContent: content)
+//    }
+//
+//    func loadNBContent(nbContent: String) {
+//        if nbtemplate == nil {
+//            nbtemplate = try? String(contentsOf: ConstantManager.NBTEMPLATE_URL)
+//        }
+//        let htmlString = nbtemplate?.replacingOccurrences(of: "%nbcontent%", with: nbContent)
+//        webViewRepresent.webView.loadHTMLString(htmlString ?? "", baseURL: url)
+////        webViewRepresent.webView.loadHTMLString("Test", baseURL: url)
+//    }
+//}
 
 
 //class NBViewerExtension: CodeAppExtension {
