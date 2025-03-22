@@ -53,6 +53,8 @@ class PYApp: ObservableObject{
     
     private var jupyterCancellable: AnyCancellable? = nil
     
+    @Published var currentPanel = ""
+    
     init() {
         activeConsole = defaultConsole
         

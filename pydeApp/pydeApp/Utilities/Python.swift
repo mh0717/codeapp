@@ -273,6 +273,14 @@ public func initPyDE() {
     replaceCommand("python3", "python3Process", false)
     replaceCommand("python", "python3Process", false)
     replaceCommand("python3.11", "python3Process", false)
+    replaceCommand("lua", "python3Process", false)
+    replaceCommand("clang", "python3Process", false)
+    replaceCommand("clang++", "python3Process", false)
+    replaceCommand("php", "python3Process", false)
+    replaceCommand("perl", "python3Process", false)
+    replaceCommand("tclsh", "python3Process", false)
+    replaceCommand("node", "python3Process", false)
+    replaceCommand("wish", "python3Process", false)
     
 //    UIViewController.swizzIt()
     #if IDEUIPREVIEW
@@ -302,6 +310,7 @@ public func initRemotePython3Sub() {
     replaceCommand("plink", "plink", false)
     
     replaceCommand("python3", "python3SubProcess", false)
+    replaceCommand("python", "python3SubProcess", false)
     
     replaceCommand("wasm", "idewasm", false)
     
@@ -340,6 +349,7 @@ public func initPydeUI() {
 //    replaceCommand("python3", "python3MainInMainThread", false)
     
     replaceCommand("python3", "python3SubProcessInMain", false)
+    replaceCommand("python", "python3SubProcessInMain", false)
     replaceCommand("wish", "wish_inmain", false)
 }
 

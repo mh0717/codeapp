@@ -262,6 +262,13 @@ struct PYPanelView: View {
                 }
             }
         )
+        .onReceive(App.pyapp.$currentPanel, perform: { panel in
+            if panel.isEmpty {
+                return
+            }
+            showsPanel = true
+            currentPanelId = panel
+        })
             
     }
 }

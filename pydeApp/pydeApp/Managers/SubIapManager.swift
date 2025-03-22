@@ -136,7 +136,7 @@ class SubIapManager: ObservableObject {
     
     var runCout:Int = 0
     
-    init() {
+    private init() {
         if let countData = RMKeychainGetValue("python3ide.runcount"),
            let countStr = String(data: countData, encoding: .utf8),
            let count = Int(countStr, radix: 10) {
@@ -148,7 +148,7 @@ class SubIapManager: ObservableObject {
             RMKeychainSetValue(data, "python3ide.runcount")
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .seconds(10))) {
+        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .seconds(1))) {
             self.initRevenucat()
         }
     }

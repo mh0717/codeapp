@@ -34,6 +34,11 @@ func runString(app: MainApp, script: String) {
     let ins = app.pyapp.consoleInstance
     let hasCommand = script.hasPrefix("#!")
     let idle = app.pyapp.consoleInstance.executor.state == .idle
+    
+    DispatchQueue.main.async {
+        app.pyapp.currentPanel = DefaultUIState.PANEL_FOCUSED_ID
+    }
+    
     if (hasCommand && !idle) {
         app.notificationManager.showErrorMessage("")
         return
@@ -62,8 +67,10 @@ func runString(app: MainApp, script: String) {
     
     let isPython = ins.executor.lastCommand?.contains("python ") == true || ins.executor.lastCommand?.contains("python3 ") == true
     if !idle && isPython {
-        let src = script.split(separator: "\n").map{convertPython2PrintToPython3(String($0))}.joined(separator: "\n")
-        let runStr = "from ios import iosRunBase64Str;iosRunBase64Str(\"\(src.base64Encoded() ?? "")\")"
+        guard let src = script.split(separator: "\n").map({convertPython2PrintToPython3(String($0))}).joined(separator: "\n").base64Encoded() else {
+            return
+        }
+        let runStr = "import base64;__src=base64.b64decode(\"\(src)\").decode('utf-8');print(__src);exec(__src)"
         ins.executor.sendInput(input: runStr)
         return
     }
@@ -80,8 +87,10 @@ func runString(app: MainApp, script: String) {
     app.pyapp.consoleInstance.terminalView.send(txt: "\r")
     
     DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(200))) {
-        let src = script.split(separator: "\n").map{convertPython2PrintToPython3(String($0))}.joined(separator: "\n")
-        let runStr = "from ios import iosRunBase64Str;iosRunBase64Str(\"\(src.base64Encoded() ?? "")\")"
+        guard let src = script.split(separator: "\n").map({convertPython2PrintToPython3(String($0))}).joined(separator: "\n").base64Encoded() else {
+            return
+        }
+        let runStr = "import base64;__src=base64.b64decode(\"\(src)\").decode('utf-8');print(__src);exec(__src)"
         app.pyapp.consoleInstance.executor.sendInput(input: runStr)
     }
 }
