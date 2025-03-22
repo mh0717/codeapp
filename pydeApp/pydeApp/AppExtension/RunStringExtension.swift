@@ -70,7 +70,7 @@ func runString(app: MainApp, script: String) {
         guard let src = script.split(separator: "\n").map({convertPython2PrintToPython3(String($0))}).joined(separator: "\n").base64Encoded() else {
             return
         }
-        let runStr = "import base64;__src=base64.b64decode(\"\(src)\").decode('utf-8');print(__src);exec(__src)"
+        let runStr = "from __ios import canEval;import base64;__src=base64.b64decode(\"\(src)\").decode('utf-8');print(__src);__result=eval(__src) if canEval(__src) else exec(__src);print(__result) if __result != None else None;"
         ins.executor.sendInput(input: runStr)
         return
     }
@@ -90,7 +90,7 @@ func runString(app: MainApp, script: String) {
         guard let src = script.split(separator: "\n").map({convertPython2PrintToPython3(String($0))}).joined(separator: "\n").base64Encoded() else {
             return
         }
-        let runStr = "import base64;__src=base64.b64decode(\"\(src)\").decode('utf-8');print(__src);exec(__src)"
+        let runStr = "from __ios import canEval;import base64;__src=base64.b64decode(\"\(src)\").decode('utf-8');print(__src);__result=eval(__src) if canEval(__src) else exec(__src);print(__result) if __result != None else None;"
         app.pyapp.consoleInstance.executor.sendInput(input: runStr)
     }
 }
