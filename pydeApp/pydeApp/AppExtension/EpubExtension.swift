@@ -132,12 +132,19 @@ fileprivate class WebCoordinator: NSObject, WKNavigationDelegate {
 //        let jsstr = loadBookJS
 //            .replacingOccurrences(of: "{{name}}", with: url.lastPathComponent)
 //            .replacingFirstOccurrence(of: "{{base64Content}}", with: base64String)
-        webView.evaluateJavaScript(loadBookJS)
+        webView.evaluateJavaScript(loadBookJS) { _, _ in
+            DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(300))) {
+                let theme = ThemeManager.isDark() ? BookThemeManager.instance.darkTheme : BookThemeManager.instance.lightTheme
+                didSetTheme(webView, theme: theme)
+            }
+        }
         
-        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(250))) {
+        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(1000))) {
             let theme = ThemeManager.isDark() ? BookThemeManager.instance.darkTheme : BookThemeManager.instance.lightTheme
             didSetTheme(webView, theme: theme)
         }
+        
+        
     }
 }
 
