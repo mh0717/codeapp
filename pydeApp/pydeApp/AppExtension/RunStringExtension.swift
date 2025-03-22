@@ -40,7 +40,7 @@ func runString(app: MainApp, script: String) {
     }
     
     if (hasCommand && !idle) {
-        app.notificationManager.showErrorMessage("")
+        app.notificationManager.showErrorMessage("Terminal is busy")
         return
     }
     
@@ -53,7 +53,7 @@ func runString(app: MainApp, script: String) {
             let path = dir.appendingPathComponent(UUID().uuidString)
             var src = script
             if script.split(separator: "\n").first?.contains("python") == true {
-                src = script.split(separator: "\n").map{convertPython2PrintToPython3(String($0))}.joined(separator: "\n")
+                src = convertPython2PrintToPython3(script)
             }
             try src.write(to: path, atomically: true, encoding: .utf8)
             app.pyapp.consoleInstance.terminalView.feed(text: "run\r\n")
@@ -65,9 +65,9 @@ func runString(app: MainApp, script: String) {
         return
     }
     
-    let isPython = ins.executor.lastCommand?.contains("python ") == true || ins.executor.lastCommand?.contains("python3 ") == true
+    let isPython = ins.executor.lastCommand?.contains("python") == true || ins.executor.lastCommand?.contains("python3") == true
     if !idle && isPython {
-        guard let src = script.split(separator: "\n").map({convertPython2PrintToPython3(String($0))}).joined(separator: "\n").base64Encoded() else {
+        guard let src = convertPython2PrintToPython3(script).base64Encoded() else {
             return
         }
         let runStr = "from __ios import canEval;import base64;__src=base64.b64decode(\"\(src)\").decode('utf-8');print(__src);__result=eval(__src) if canEval(__src) else exec(__src);print(__result) if __result != None else None;"
@@ -87,7 +87,7 @@ func runString(app: MainApp, script: String) {
     app.pyapp.consoleInstance.terminalView.send(txt: "\r")
     
     DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(200))) {
-        guard let src = script.split(separator: "\n").map({convertPython2PrintToPython3(String($0))}).joined(separator: "\n").base64Encoded() else {
+        guard let src = convertPython2PrintToPython3(script).base64Encoded() else {
             return
         }
         let runStr = "from __ios import canEval;import base64;__src=base64.b64decode(\"\(src)\").decode('utf-8');print(__src);__result=eval(__src) if canEval(__src) else exec(__src);print(__result) if __result != None else None;"
@@ -117,6 +117,9 @@ fileprivate func escapePythonCommand(script: String) -> String {
 import Foundation
 
 func convertPython2PrintToPython3(_ input: String) -> String {
+    if input.contains("print(") || input.contains("print (") || input.contains("print  (") {
+        return input
+    }
     return input.components(separatedBy: .newlines)
         .map { line in
             var outputLine = line
