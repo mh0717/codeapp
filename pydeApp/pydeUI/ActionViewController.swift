@@ -168,6 +168,7 @@ class ActionViewController: UITabBarController {
             while true {
                 if Date().timeIntervalSince(watchedDate) > 15 {
                     #if DEBUG
+                    print("主线程超时未响应，应该退出")
                     #else
                     real_exit(vlaue: -1)
                     #endif

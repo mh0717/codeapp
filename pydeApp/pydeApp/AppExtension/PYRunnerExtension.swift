@@ -74,9 +74,11 @@ private struct ToolbarView: View {
                     }
                 },
                 label: {
-                    Image(systemName: "stop")
+                    Image(systemName: "stop").frame(width: 25, height: 20)
                 }
-            ).keyboardShortcut("c", modifiers: [.control])
+            )
+            .contentShape(Rectangle())
+            .keyboardShortcut("c", modifiers: [.control])
             
             Menu {
                 
@@ -120,8 +122,8 @@ private struct ToolbarView: View {
                     }
                 })
             } label: {
-                Image(systemName: "ellipsis").padding(2)
-            }
+                Image(systemName: "ellipsis").frame(width: 25, height: 20)
+            }.contentShape(Rectangle())
         }
     }
 }

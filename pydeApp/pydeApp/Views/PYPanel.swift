@@ -20,14 +20,14 @@ private struct PYPanelToolbarButton: View {
     var body: some View {
         Button(action: onTapGesture) {
             Image(systemName: systemName)
-                .font(.system(size: 12, weight: .light))
+                .font(.system(size: 15, weight: .light))
                 .foregroundColor(Color.init(id: "panelTitle.activeForeground"))
                 .padding(3)
-                .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+//                .contentShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                 .hoverEffect(.highlight)
                 .frame(minWidth: 0, maxWidth: 8, minHeight: 0, maxHeight: 8)
                 .padding(.horizontal)
-        }
+        }.contentShape(Rectangle())
     }
 }
 
@@ -43,7 +43,7 @@ private struct PanelTabLabel: View {
                     id: panel.labelId == currentPanelId
                         ? "panelTitle.activeForeground" : "panelTitle.inactiveForeground")
             )
-            .font(.system(size: 12, weight: .light))
+            .font(.system(size: 15, weight: .medium))
             .padding(.leading)
             .onTapGesture {
                 currentPanelId = panel.labelId
@@ -133,7 +133,7 @@ struct PYPanelView: View {
                     .background(Color.init(id: "panel.border"))
             }
 
-            HStack {
+            HStack(spacing: 0) {
                 PanelTabs()
 
                 Spacer()
@@ -151,7 +151,7 @@ struct PYPanelView: View {
                     Image(systemName: "rectangle.bottomthird.inset.filled")
                 }.padding(.trailing)
 
-            }.frame(height: 14).padding(.vertical, 5)
+            }.frame(height: BOTTOM_BAR_HEIGHT)
                 .background(Color.init(id: "editor.background"))
                 .gesture(
                     DragGesture()
@@ -173,7 +173,7 @@ struct PYPanelView: View {
             }
         }
         .foregroundColor(Color(id: "panelTitle.activeForeground"))
-        .font(.system(size: 12, weight: .light))
+        .font(.system(size: 15, weight: .light))
         .frame(height: showsPanel ? min(CGFloat(panelHeight), maxHeight) : PANEL_MINI_HEIGHT)
         .background(Color.init(id: "editor.background"))
         .onReceive(

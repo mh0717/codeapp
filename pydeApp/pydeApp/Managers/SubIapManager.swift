@@ -13,14 +13,15 @@ import RevenueCat
 class IAPExtension: CodeAppExtension {
     
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
+        _ = SubIapManager.instance
         
-        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .seconds(5))) {
+        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .seconds(15))) {
             #if PYTHON3IDE
             
             let im = SubIapManager.instance
             #if targetEnvironment(simulator)
             #else
-            if PYApp.isLockScreen && im.runCout >= 15, !im.isPro {
+            if PYApp.isLockScreen && im.runCout >= 30, !im.isPro {
                 im.showIap = true
             }
             #endif
