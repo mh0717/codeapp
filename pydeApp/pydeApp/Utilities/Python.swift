@@ -246,8 +246,6 @@ public func wish_inmain(argc: Int32, argv:UnsafeMutablePointer<UnsafeMutablePoin
 public func initPyDE() {
     initClientEnv()
     
-    replaceCommand("pythonA", "pythonA", false)
-    replaceCommand("pythonB", "pythonB", false)
     replaceCommand("remote", "remote", false)
     replaceCommand("open", "pyde_open", false)
     replaceCommand("openurl", "openurl", false)
@@ -270,6 +268,8 @@ public func initPyDE() {
 //    initDEMainIntp()
 //    replaceCommand("python3", "python3Main", false)
     
+    replaceCommand("pythonA", "python3Process", false)
+    replaceCommand("pythonB", "python3Process", false)
     replaceCommand("python3", "python3Process", false)
     replaceCommand("python", "python3Process", false)
     replaceCommand("python3.11", "python3Process", false)
@@ -279,7 +279,7 @@ public func initPyDE() {
     replaceCommand("php", "python3Process", false)
     replaceCommand("perl", "python3Process", false)
     replaceCommand("tclsh", "python3Process", false)
-    replaceCommand("node", "python3Process", false)
+//    replaceCommand("node", "python3Process", false)
     replaceCommand("wish", "python3Process", false)
     
 //    UIViewController.swizzIt()

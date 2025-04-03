@@ -35,6 +35,7 @@ class PYApp: ObservableObject{
     @Published var showingNewDjangoAlert = false
     @Published var showFilePicker = false
     @Published var showMediaPicker = false
+    @Published var showsSaveAsPicker = false
 //    @Published private var showingNewSafariAlert = false
     
     let docStorage = WorkSpaceStorage(url: ConstantManager.EXAMPLES)

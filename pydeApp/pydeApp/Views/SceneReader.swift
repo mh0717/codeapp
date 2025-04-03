@@ -20,6 +20,17 @@ extension EnvironmentValues {
     }
 }
 
+struct SceneIDKey: EnvironmentKey {
+    static let defaultValue: String? = nil
+}
+
+extension EnvironmentValues {
+    var sceneid: String? {
+        get {self[SceneIDKey.self]}
+        set {self[SceneIDKey.self] = newValue}
+    }
+}
+
 
 // 场景读取器（用于注入环境）
 struct SceneReader<Content: View>: View {

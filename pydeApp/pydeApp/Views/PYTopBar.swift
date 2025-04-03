@@ -289,6 +289,17 @@ struct PYTopBar: View {
                     }
                 }
                 Divider()
+                
+                if App.activeTextEditor != nil {
+                    Button {
+                        App.pyapp.showsSaveAsPicker.toggle()
+                    } label: {
+                        Label("Save As", systemImage: "folder")
+                    }
+                    
+                    Divider()
+                }
+                
                 Section {
                     Button(action: {
                         App.pyapp.rightSideShow.toggle()
@@ -494,7 +505,7 @@ struct PYTopBar: View {
                 }
                 
                 Button {
-                    App.loadFolder(url: URL(fileURLWithPath: "/Users/huima/pyhome"))
+                    App.loadFolder(url: URL(fileURLWithPath: "/Volumes/Python/pyhome"))
                 } label: {
                     Label("Open Local Home", systemImage: "folder")
                 }
@@ -575,6 +586,16 @@ struct PYTopBar: View {
                     }
                 }, allowedTypes: [.item])
             })
+            .sheet(isPresented: $App.pyapp.showsSaveAsPicker) {
+                DirectoryPickerView(onOpen: { url in
+                    guard let editor = App.activeTextEditor else {
+                        return
+                    }
+                    editor.url = url.appendingPathComponent(editor.url.lastPathComponent)
+                    editor.lastSavedVersionId += 1
+                    App.saveCurrentFile(true)
+                })
+            }
             .mediaImporter(isPresented: $App.pyapp.showMediaPicker,
                             allowedMediaTypes: .all,
                             allowsMultipleSelection: true) { result in

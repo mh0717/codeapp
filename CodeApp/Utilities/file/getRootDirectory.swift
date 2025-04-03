@@ -8,6 +8,9 @@
 import Foundation
 
 func getRootDirectory() -> URL {
+    #if targetEnvironment(simulator)
+        return URL(fileURLWithPath: "/Volumes/Python/pydoc")
+    #endif
     // We want ./private prefix because all other files have it
     if let documentsPathURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         .first

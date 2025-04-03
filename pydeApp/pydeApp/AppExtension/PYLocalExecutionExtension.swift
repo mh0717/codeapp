@@ -22,7 +22,8 @@ private let EXTENSION_ID = "PYLOCAL_EXECUTION"
 let PYLOCAL_EXECUTION_COMMANDS = [
     "py": ["python3 -u {opts} {url} {args}"],
     "ui.py": ["python3 -u {opts} {url} {args}"],
-    "ipynb": ["jupyter-nbconvert --execute --allow-errors --stdout --to markdown {url}"],// --allow-errors
+//    "ipynb": ["jupyter-nbconvert --execute --allow-errors --stdout --to markdown {url}"],// --allow-errors
+    "ipynb": ["python3 -m ipykernel_launcher --transport ipc -f \(ConstantManager.appGroupContainer.path)/{urlcrc}.json --debug"],
     "c": [
         "clang  -o {output} {url}",
         "wasm {opts} {output} {args}"
@@ -67,6 +68,8 @@ fileprivate extension String {
 
 
 class PYLocalExecutionExtension: CodeAppExtension {
+    
+    static private var _onceInitialized = false
     
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
         let toolbarItem = ToolbarItem(
@@ -137,6 +140,25 @@ class PYLocalExecutionExtension: CodeAppExtension {
 //                )
 //            )
         }
+        
+        NotificationCenter.default.addObserver(forName: .init("CURRENT_EDITOR_REQUEST_PLAY"), object: nil, queue: nil) { [weak self, weak app] noti in
+            guard let self, let app else {
+                return
+            }
+            
+            guard let url = noti.userInfo?["url"] as? String, url == app.activeUrlEditor?.url.path else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.runCodeLocally(app: app)
+            }
+        }
+        
+        if !PYLocalExecutionExtension._onceInitialized {
+            PYLocalExecutionExtension._onceInitialized = true
+            
+            
+        }
     }
     
     private static func getRemoteConfig(consoleInstance: ConsoleView, commands: [String], app: MainApp) -> [String: Any]? {
@@ -193,6 +215,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
         guard let config = getRemoteConfig(consoleInstance: consoleInstance, commands: commands, app: app) else {
             return
         }
+        
         let isInTab = url.path.lowercased().hasSuffix(".in.ui.py")
         
         wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_UI_FORCE_EXIT)
@@ -322,6 +345,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
     }
     
     private func runUICode(app: MainApp, editor:EditorInstanceWithURL, consoleInstance: ConsoleView, dismiss:@escaping () -> Void) -> AnyView? {
+        editor.onPlay()
         let consoleInstance = (editor as? WithRunnerEditorInstance)?.runnerView ?? app.pyapp.consoleInstance
         PYLocalExecutionExtension.runUIUrl(app: app, url: editor.url, args: editor.runArgs, console: consoleInstance);
         return nil
@@ -385,6 +409,9 @@ class PYLocalExecutionExtension: CodeAppExtension {
         guard let commands = PYLOCAL_EXECUTION_COMMANDS[languageIdentifier] else {
             return
         }
+        
+        editor.onPlay()
+        
         let ext = languageIdentifier
         
         let predicate = NSPredicate(format: "SELF MATCHES %@", ".*print +[^(].*")
@@ -398,6 +425,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             }
             
         }
+        let urlcrc = editor.url.path.crc32Hex()
         let wurl = app.workSpaceStorage.currentDirectory._url
 //        let args = editor.runArgs.replacingOccurrences(of: "\n", with: " ")
         let params = editor.runArgs.replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "—", with: "-").splitIntoTwoOptsArgs()
@@ -411,7 +439,27 @@ class PYLocalExecutionExtension: CodeAppExtension {
                 .replacingFirstOccurrence(of: "{args}", with: args)
                 .replacingFirstOccurrence(of: "{output}", with: output)
                 .replacingFirstOccurrence(of: "{wurl}", with: wurl?.path ?? "")
+                .replacingFirstOccurrence(of: "{urlcrc}", with: urlcrc)
         }
+        
+//        if ext == "ipynb" {
+//            let json = """
+//{
+//  "shell_port": 1,
+//  "iopub_port": 4,
+//  "stdin_port": 2,
+//  "control_port": 3,
+//  "hb_port": 5,
+//  "ip": "\(ConstantManager.appGroupContainer.path)/\(urlcrc)",
+//  "key": "b7e3da89-f94e6a5a06db6500b28ab65e",
+//  "transport": "ipc",
+//  "signature_scheme": "hmac-sha256",
+//  "kernel_name": ""
+//}
+//"""
+//            let path = "\(ConstantManager.appGroupContainer.path)/{urlcrc}.json"
+//            try? json.write(to: URL(fileURLWithPath: path), atomically: true, encoding: .utf8)
+//        }
 
         let compilerShowPath = UserDefaults.standard.bool(forKey: "compilerShowPath")
         if compilerShowPath {

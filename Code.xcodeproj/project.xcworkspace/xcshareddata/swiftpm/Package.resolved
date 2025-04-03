@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "CryptoSwift",
+        "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "729e01bc9b9dab466ac85f21fb9ee2bc1c61b258",
+          "version": "1.8.4"
+        }
+      },
+      {
         "package": "CwlCatchException",
         "repositoryURL": "https://github.com/mattgallagher/CwlCatchException.git",
         "state": {
@@ -53,6 +62,15 @@
           "branch": "master",
           "revision": "abf68a62541a4193c8d106367ddb3648e8ab693f",
           "version": null
+        }
+      },
+      {
+        "package": "HandyJSON",
+        "repositoryURL": "https://github.com/alibaba/HandyJSON",
+        "state": {
+          "branch": null,
+          "revision": "dcf39cf062680ffa4fd0acb7f9117a97755c113f",
+          "version": "5.0.2"
         }
       },
       {
@@ -119,6 +137,15 @@
         }
       },
       {
+        "package": "Rearrange",
+        "repositoryURL": "https://github.com/ChimeHQ/Rearrange.git",
+        "state": {
+          "branch": null,
+          "revision": "5ff7f3363f7a08f77e0d761e38e6add31c2136e1",
+          "version": "1.8.1"
+        }
+      },
+      {
         "package": "RxSwift",
         "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
         "state": {
@@ -161,6 +188,15 @@
           "branch": null,
           "revision": "2e949055d9797c1a6bddcda0e58dada16cc8e970",
           "version": "6.0.3"
+        }
+      },
+      {
+        "package": "SwiftSoup",
+        "repositoryURL": "https://github.com/scinfu/SwiftSoup.git",
+        "state": {
+          "branch": null,
+          "revision": "bba848db50462894e7fc0891d018dfecad4ef11e",
+          "version": "2.8.7"
         }
       },
       {

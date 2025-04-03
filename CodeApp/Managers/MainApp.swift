@@ -126,6 +126,7 @@ class MainApp: ObservableObject {
     let sceneIdentifier = UUID()
     #if PYDEAPP
         let consoleInstance: ConsoleInstance
+        private weak var lastNotSavedEditor: EditorInstance?
     #endif
 
     private var NotificationCancellable: AnyCancellable? = nil
@@ -229,6 +230,9 @@ class MainApp: ObservableObject {
             Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] timer in
                 guard let self else {
                     timer.invalidate()
+                    return
+                }
+                if self.activeEditor == self.lastNotSavedEditor {
                     return
                 }
                 Task {
@@ -698,8 +702,8 @@ class MainApp: ObservableObject {
     }
 
     private func saveTextEditor(editor: TextEditorInstance, overwrite: Bool = false) async throws {
-
-        if !overwrite {
+        let exist = try await workSpaceStorage.fileExists(at: editor.url)
+        if exist && !overwrite {
             let attributes = try? await workSpaceStorage.attributesOfItem(at: editor.url)
             let modificationDate = attributes?[.modificationDate] as? Date
             if let modificationDate = modificationDate {
@@ -730,10 +734,12 @@ class MainApp: ObservableObject {
                 editor.isDeleted = false
                 editor.isSaving = false
             }
+            lastNotSavedEditor = nil
         } catch {
             await MainActor.run {
                 editor.isSaving = false
             }
+            lastNotSavedEditor = editor
             throw error
         }
 
@@ -744,13 +750,13 @@ class MainApp: ObservableObject {
         }
     }
 
-    func saveCurrentFile() {
+    func saveCurrentFile(_ overwrite: Bool = false) {
         Task {
-            await saveCurrentFile()
+            await saveCurrentFile(overwrite)
         }
     }
 
-    func saveCurrentFile() async {
+    func saveCurrentFile(_ overwrite: Bool = false) async {
         if editors.isEmpty { return }
         guard let activeTextEditor = activeEditor as? TextEditorInstance else {
             return
@@ -759,7 +765,7 @@ class MainApp: ObservableObject {
             return
         }
         do {
-            try await saveTextEditor(editor: activeTextEditor)
+            try await saveTextEditor(editor: activeTextEditor, overwrite: overwrite)
         } catch AppError.fileModifiedByAnotherProcess {
             self.notificationManager.postActionNotification(
                 title: AppError.fileModifiedByAnotherProcess.localizedDescription,
@@ -1382,7 +1388,7 @@ class MainApp: ObservableObject {
                     let (content, encoding) = try? decodeStringData(data: contentData)
                 {
                     let editor = await Task { @MainActor in
-                        return NoteBookPreviewEditorInstance(
+                        return NoteBookEditorInstance(
                             url: url, content: content, encoding: encoding,
                             lastSavedDate: url.contentModificationDate)
                     }.value
@@ -1453,6 +1459,10 @@ class MainApp: ObservableObject {
                                 try await self.saveTextEditor(editor: textEditor)
                                 self.closeEditor(editor: textEditor)
                             }
+                        }
+
+                        Button("Save As") {
+                            self.pyapp.showsSaveAsPicker.toggle()
                         }
 
                         Button("common.dont_save", role: .destructive) {

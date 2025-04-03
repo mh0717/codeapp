@@ -25,6 +25,7 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
             if let env = requestInfo["env"] as? [String], !env.isEmpty {
                 env.forEach { item in
                     ios_putenv(item.utf8CString)
+                    putenv(item.utf8CString)
                 }
             }
             

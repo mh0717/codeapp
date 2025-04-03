@@ -34,6 +34,10 @@ class EditorInstance: ObservableObject, Identifiable, Equatable, Hashable {
     #if PYDEAPP
         var keepAlive = false
 
+        func onPlay() {
+
+        }
+
         func dispose() {
 
         }
@@ -119,6 +123,24 @@ class TextEditorInstance: EditorInstanceWithURL {
         lastSavedVersionId == currentVersionId
     }
     var isSaving: Bool = false
+
+    override var url: URL {
+        didSet {
+            if !FileManager.default.isWritableFile(atPath: url.path) {
+                readOnly = true
+            }
+            if url.isContained(in: Bundle.main.bundleURL) {
+                readOnly = true
+            }
+            if let att = try? FileManager.default.attributesOfItem(atPath: url.path) {
+                if let permissions = att[FileAttributeKey.posixPermissions] as? Int {
+                    if (permissions & 128) == 0 {
+                        readOnly = true
+                    }
+                }
+            }
+        }
+    }
 
     init(
         editor: any View,

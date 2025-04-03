@@ -20,7 +20,9 @@ struct MainScene: View {
     @SceneStorage("activeEditor.bookmark") var activeEditorBookmark: Data?
     @SceneStorage("activeEditor.monaco.state") var activeEditorMonacoState: String?
 
+    @SceneStorage("sceneid") var sceneid: String?
     @Environment(\.windowScene) private var windowScene
+    @Environment(\.sceneid) private var sceneidEnv
 
     func getOpenEditorsBookmarks() -> [Data] {
         guard let openEditorsBookmarksData else { return [] }
@@ -100,8 +102,10 @@ struct MainScene: View {
             #if PYDEAPP
                 .environmentObject(App.popupManager)
                 .environmentObject(App.extensionManager.activityBarManager)
+                .environment(\.sceneid, App.sceneIdentifier.uuidString)
             #endif
             .onAppear {
+                sceneid = App.sceneIdentifier.uuidString
                 restoreSceneState()
                 App.extensionManager.initializeExtensions(app: App)
             }

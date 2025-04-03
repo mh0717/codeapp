@@ -46,6 +46,8 @@ class ExtensionManager: ObservableObject {
             PYImageViewerExtension(),
             JsonUIPreviewExtension(),
             RunStringExtension(),
+            NotificationExtension(),
+            NoteBookPreviewExtension(),
         ]
     #else
         private var extensions: [CodeAppExtension] = [
