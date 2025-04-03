@@ -108,7 +108,7 @@ class TextEditorInstance: EditorInstanceWithURL {
     #if PYDEAPP
         @Published var tags: [CTag] = []
         @Published var selectedRange: NSRange = NSRange(location: 0, length: 0)
-        var readOnly: Bool = false
+        @Published var readOnly: Bool = false
     #endif
 
     @Published var content: String
@@ -126,7 +126,10 @@ class TextEditorInstance: EditorInstanceWithURL {
 
     override var url: URL {
         didSet {
-            if !FileManager.default.isWritableFile(atPath: url.path) {
+            readOnly = false
+            if FileManager.default.fileExists(atPath: url.path)
+                && !FileManager.default.isWritableFile(atPath: url.path)
+            {
                 readOnly = true
             }
             if url.isContained(in: Bundle.main.bundleURL) {
@@ -177,7 +180,9 @@ class TextEditorInstance: EditorInstanceWithURL {
         // self.fileWatch?.startMonitoring()
 
         #if PYDEAPP
-            if !FileManager.default.isWritableFile(atPath: url.path) {
+            if FileManager.default.fileExists(atPath: url.path)
+                && !FileManager.default.isWritableFile(atPath: url.path)
+            {
                 readOnly = true
             }
             if url.isContained(in: Bundle.main.bundleURL) {

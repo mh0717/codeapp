@@ -10,9 +10,10 @@ import SwiftUI
 struct EditorReadOnlyLabel: View {
 
     @AppStorage("editorReadOnly") var editorReadOnly = false
+    @EnvironmentObject var App: MainApp
 
     var body: some View {
-        if editorReadOnly {
+        if editorReadOnly || App.activeTextEditor?.readOnly == true {
             Text("READ-ONLY")
         } else {
             EmptyView()
