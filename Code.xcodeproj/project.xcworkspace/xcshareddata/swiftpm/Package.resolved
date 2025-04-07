@@ -65,15 +65,6 @@
         }
       },
       {
-        "package": "HandyJSON",
-        "repositoryURL": "https://github.com/alibaba/HandyJSON",
-        "state": {
-          "branch": null,
-          "revision": "dcf39cf062680ffa4fd0acb7f9117a97755c113f",
-          "version": "5.0.2"
-        }
-      },
-      {
         "package": "Kingfisher",
         "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
         "state": {
@@ -134,15 +125,6 @@
           "branch": null,
           "revision": "bd86ca0141e3cfb333546de5a11ede63f0c4a0e6",
           "version": "4.0.0"
-        }
-      },
-      {
-        "package": "Rearrange",
-        "repositoryURL": "https://github.com/ChimeHQ/Rearrange.git",
-        "state": {
-          "branch": null,
-          "revision": "5ff7f3363f7a08f77e0d761e38e6add31c2136e1",
-          "version": "1.8.1"
         }
       },
       {

@@ -110,86 +110,86 @@ class WorkSpaceStorage: ObservableObject {
         host: URL, authenticationMode: RemoteAuthenticationMode,
         completionHandler: @escaping (Error?) -> Void
     ) {
-        switch host.scheme {
-        case "ftp", "ftps":
-            guard case .plainUsernamePassword(value: let credentials) = authenticationMode else {
-                completionHandler(FSError.UnsupportedAuthenticationMethod)
-                return
-            }
-            guard let fs = FTPFileSystemProvider(baseURL: host, cred: credentials) else {
-                completionHandler(FSError.InvalidHost)
-                return
-            }
-            fs.contentsOfDirectory(at: host) { urls, error in
-                if error != nil {
-                    completionHandler(error)
-                    return
-                }
-                self.fss[host.scheme!] = fs
-                self.updateDirectory(name: "FTP", url: host.absoluteString)
-                completionHandler(nil)
-            }
-        case "sftp":
-            guard
-                let credentials: URLCredential = {
-                    switch authenticationMode {
-                    case .inFileSSHKey(let credentials, _), .inMemorySSHKey(let credentials, _),
-                        .plainUsernamePassword(let credentials):
-                        return credentials
-                    }
-                }()
-            else {
-                completionHandler(FSError.UnsupportedAuthenticationMethod)
-                return
-            }
-
-            guard
-                let fs = SFTPFileSystemProvider(
-                    baseURL: host, cred: credentials,
-                    didDisconnect: { error in
-                        self.disconnect()
-                    }, onTerminalData: self.onTerminalDataAction)
-            else {
-                completionHandler(FSError.Unknown)
-                return
-            }
-
-            fs.connect(
-                authentication: authenticationMode,
-                shouldResolveHomePath: remoteShouldResolveHomePath
-            ) { error in
-                if let error = error {
-                    completionHandler(error)
-                    return
-                }
-                guard let homePath = fs.homePath,
-                    let hostName = host.host,
-                    let baseURL = URL(string: "sftp://\(hostName)/\(homePath)")
-                else {
-                    completionHandler(FSError.Unknown)
-                    return
-                }
-                fs.contentsOfDirectory(at: baseURL) { urls, error in
-                    if error != nil {
-                        completionHandler(error)
-                        return
-                    }
-                    self.fss[host.scheme!] = fs
-                    self.updateDirectory(name: "SFTP", url: baseURL.absoluteString)
-
-                    if let fingerPrint = fs.fingerPrint {
-                        DispatchQueue.main.async {
-                            self.remoteFingerprint = fingerPrint
-                        }
-                    }
-                    completionHandler(nil)
-                }
-            }
-
-        default:
-            completionHandler(FSError.SchemeNotRegistered)
-            return
-        }
+        //        switch host.scheme {
+        //        case "ftp", "ftps":
+        //            guard case .plainUsernamePassword(value: let credentials) = authenticationMode else {
+        //                completionHandler(FSError.UnsupportedAuthenticationMethod)
+        //                return
+        //            }
+        //            guard let fs = FTPFileSystemProvider(baseURL: host, cred: credentials) else {
+        //                completionHandler(FSError.InvalidHost)
+        //                return
+        //            }
+        //            fs.contentsOfDirectory(at: host) { urls, error in
+        //                if error != nil {
+        //                    completionHandler(error)
+        //                    return
+        //                }
+        //                self.fss[host.scheme!] = fs
+        //                self.updateDirectory(name: "FTP", url: host.absoluteString)
+        //                completionHandler(nil)
+        //            }
+        //        case "sftp":
+        //            guard
+        //                let credentials: URLCredential = {
+        //                    switch authenticationMode {
+        //                    case .inFileSSHKey(let credentials, _), .inMemorySSHKey(let credentials, _),
+        //                        .plainUsernamePassword(let credentials):
+        //                        return credentials
+        //                    }
+        //                }()
+        //            else {
+        //                completionHandler(FSError.UnsupportedAuthenticationMethod)
+        //                return
+        //            }
+        //
+        //            guard
+        //                let fs = SFTPFileSystemProvider(
+        //                    baseURL: host, cred: credentials,
+        //                    didDisconnect: { error in
+        //                        self.disconnect()
+        //                    }, onTerminalData: self.onTerminalDataAction)
+        //            else {
+        //                completionHandler(FSError.Unknown)
+        //                return
+        //            }
+        //
+        //            fs.connect(
+        //                authentication: authenticationMode,
+        //                shouldResolveHomePath: remoteShouldResolveHomePath
+        //            ) { error in
+        //                if let error = error {
+        //                    completionHandler(error)
+        //                    return
+        //                }
+        //                guard let homePath = fs.homePath,
+        //                    let hostName = host.host,
+        //                    let baseURL = URL(string: "sftp://\(hostName)/\(homePath)")
+        //                else {
+        //                    completionHandler(FSError.Unknown)
+        //                    return
+        //                }
+        //                fs.contentsOfDirectory(at: baseURL) { urls, error in
+        //                    if error != nil {
+        //                        completionHandler(error)
+        //                        return
+        //                    }
+        //                    self.fss[host.scheme!] = fs
+        //                    self.updateDirectory(name: "SFTP", url: baseURL.absoluteString)
+        //
+        //                    if let fingerPrint = fs.fingerPrint {
+        //                        DispatchQueue.main.async {
+        //                            self.remoteFingerprint = fingerPrint
+        //                        }
+        //                    }
+        //                    completionHandler(nil)
+        //                }
+        //            }
+        //
+        //        default:
+        //            completionHandler(FSError.SchemeNotRegistered)
+        //            return
+        //        }
     }
 
     func disconnect() {

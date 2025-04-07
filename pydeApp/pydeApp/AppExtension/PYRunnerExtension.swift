@@ -9,6 +9,8 @@ import SwiftUI
 import SwiftTerm
 import ios_system
 import pyde
+import pydeCommon
+
 
 class PYRunnerExtension: CodeAppExtension {
     
@@ -44,6 +46,33 @@ class PYRunnerExtension: CodeAppExtension {
             consoleInstance.resetAndSetNewRootDirectory(url: url)
         }
         self.app = app
+        
+        NotificationCenter.default.addObserver(forName: .init("RUN_ROMOTE_COMMAND_IN_LOCAL_CONSOLE"), object: nil, queue: .main) { notify in
+            guard let info = notify.userInfo?["info"] as? [String: Any] else {
+                return
+            }
+            
+            consoleCount += 1
+            let title = NSLocalizedString("Terminal", comment: "") + "#\(consoleCount)"
+            let console = PYRunnerWidget()
+            console.consoleView.title = title
+            app.pyapp.consoles.append(console)
+            app.pyapp.activeConsole = console
+            let parsedCommands = info["commands"] as? [String] ?? ["commands"]
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                let compilerShowPath = UserDefaults.standard.bool(forKey: "compilerShowPath")
+                if compilerShowPath {
+                    console.consoleView.feed(text: parsedCommands.joined(separator: " && "))
+                } else {
+                    let commandName = parsedCommands.first?.components(separatedBy: " ").first ?? "command"
+                    console.consoleView.feed(text: commandName)
+                }
+                console.consoleView.feed(text: "\r\n")
+                
+                console.consoleView.executor.dispatchBlock(command: {clientReqCommands(info: info)}, name: parsedCommands.joined(separator: " "))
+            }
+        }
     }
     
     override func onWorkSpaceStorageChanged(newUrl: URL) {
@@ -56,6 +85,8 @@ class PYRunnerExtension: CodeAppExtension {
     func handleRunnerSizeChanged(_ size: CGSize) {
         
     }
+    
+    private static var _hasRunSplitCommand = false
 }
 
 fileprivate var consoleCount = 0

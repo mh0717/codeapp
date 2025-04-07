@@ -46,6 +46,15 @@
 
 "Changelog.message" =
 "
+### v1.5 (2025年4月)
+- 实现Jupyter Notebook本地化运行引擎，告别HTTP Server依赖！
+    - 新版采用原生架构直接处理Notebook文件，有效规避后台进程被系统中断的风险，确保长时间任务稳定执行。
+    - Notebook前端界面全面重构：基于SwiftUI框架重制交互界面，带来更符合iOS设计规范的流畅体验。
+    - Notebook智能代码辅助增强：全新设计的上下文感知补全系统。
+- 修复aiohttp等依赖库的pip安装异常问题
+- 解决TKinter文本输入卡顿问题
+- 代码编辑器新增「另存为」功能
+
 ### v1.4 (2025年3月)
 - 集成Python标准GUI工具包tkinter模块
     - 基于Tk 8.6图形库

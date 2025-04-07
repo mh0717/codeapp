@@ -60,7 +60,7 @@
       <RemoteRunnable
          runnableDebuggingMode = "1"
          BundleIdentifier = "baobaowang.Python3IDE"
-         RemotePath = "/Users/huima/Library/Developer/CoreSimulator/Devices/16DC32DC-6820-4C4F-83AA-3C5BB3E6DFD5/data/Containers/Bundle/Application/6FB5C426-C23B-4968-9E6F-FFC3B0770E51/Python3IDE.app">
+         RemotePath = "/Users/huima/Library/Developer/CoreSimulator/Devices/16DC32DC-6820-4C4F-83AA-3C5BB3E6DFD5/data/Containers/Bundle/Application/86219413-B5CF-47CA-91FC-FBD9E0AC7D25/Python3IDE.app">
       </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference

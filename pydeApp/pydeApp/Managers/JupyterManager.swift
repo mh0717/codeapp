@@ -54,13 +54,22 @@ class JupyterManager: ObservableObject {
         
         let configText = """
         c.KernelManager.autorestart = False
+        c.KernelManager.ip = '0.0.0.0'
         c.NotebookApp.ip = '\(public_server ? "0.0.0.0" : "127.0.0.1")'
         c.NotebookApp.password = 'sha1:\(passwdSalt):\(sha1)'
         c.NotebookApp.port = \(port)
         c.NotebookApp.disable_check_xsrf = True
         c.NotebookApp.allow_remote_access = True
         c.NotebookApp.local_hostnames = ['localhost', '127.0.0.1']
+        c.NotebookApp.allow_origin = '*'
+        
+        # 设置传输协议为 ipc
+        c.KernelManager.transport = 'ipc'
 
+        c.KernelManager.ip = '\(ConstantManager.appGroupContainer.appendingPathComponent("myconn1").path)'
+
+        # 可选：关闭端口绑定（避免与 TCP 冲突）
+        #c.Session.key = b''  # 禁用密钥（仅用于 IPC）
         """
         
         let configDir = ConstantManager.appGroupContainer.appendingPathComponent(".jupyter")
@@ -69,7 +78,7 @@ class JupyterManager: ObservableObject {
         }
         let configUrl = configDir.appendingPathComponent("/jupyter_notebook_config.py")
         try? configText.write(to: configUrl, atomically: true, encoding: .utf8)
-        let command = "remote jupyter-notebook"
+        let command = "remote jupyter-notebook --config \(configUrl.path) --debug"
         
         running = true
         runnerView.clear()

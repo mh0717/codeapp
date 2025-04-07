@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MarkdownUI
 
 struct PYSettingsView: View {
 
@@ -167,14 +168,13 @@ struct PYSettingsView: View {
                     
                     
                     Section(header: Text(NSLocalizedString("About", comment: ""))) {
-#if DEBUG
                         NavigationLink(
                             destination: SimpleMarkDownView(
                                 text: NSLocalizedString("Changelog.message", comment: ""))
+                            .navigationBarTitle("Release Notes", displayMode: .inline)
                         ) {
                             Text(NSLocalizedString("Release Notes", comment: ""))
                         }
-#endif
                         Link(
                             "Terms of Use",
                             destination: URL(string:"https://www.jianshu.com/p/8ee503e0ae6f")!
@@ -384,6 +384,7 @@ fileprivate struct TerminalSetting: View {
     
 #if DEBUG
     @AppStorage("runUIInPreview") var runUIInPreview = false
+    @AppStorage("injectRemoteCommandInLocalConsole") var injectRemoteCommandInLocalConsole = false
 #endif
     
     var body: some View {
@@ -392,6 +393,7 @@ fileprivate struct TerminalSetting: View {
             Toggle("Global Terminal", isOn: $showGlobalPanel)
 #if DEBUG
             Toggle("runUIInPreview", isOn: $runUIInPreview)
+            Toggle("injectRemoteCommandInLocalConsole", isOn: $injectRemoteCommandInLocalConsole)
 #endif
         }
     }

@@ -203,13 +203,13 @@ public class RSCodeLocalTheme : EditorTheme {
     }
     
     static var light: RSCodeLocalTheme =  {
-        let jsonStr = try! String(contentsOfFile: Bundle.main.bundleURL.appendingPathComponent("RSThemes/Light+.json").path)
+        let jsonStr = try! String(contentsOfFile: Bundle.main.resourceURL!.appendingPathComponent("RSThemes/Light+.json").path)
         let root = try! jsonStr.decoded() as RSThemeRoot
         return RSCodeLocalTheme(root)
     }()
     
     static var dark: RSCodeLocalTheme =  {
-        let jsonStr = try! String(contentsOfFile: Bundle.main.bundleURL.appendingPathComponent("RSThemes/Dark+.json").path)
+        let jsonStr = try! String(contentsOfFile: Bundle.main.resourceURL!.appendingPathComponent("RSThemes/Dark+.json").path)
         let root = try! jsonStr.decoded() as RSThemeRoot
         return RSCodeLocalTheme(root)
     }()

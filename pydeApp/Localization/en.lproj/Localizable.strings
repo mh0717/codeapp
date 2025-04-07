@@ -46,6 +46,15 @@
 
 "Changelog.message" =
 "
+### v1.5 (April 2025)  
+- **Localized Jupyter Notebook Runtime Engine**: Eliminates dependency on HTTP Server!  
+    - The new version adopts a native architecture to process Notebook files directly, avoiding risks of background processes being terminated by the system and ensuring stable execution of long-running tasks.  
+    - **Notebook Frontend Overhaul**: The interface has been completely redesigned using SwiftUI, delivering a smoother experience aligned with iOS design guidelines.  
+    - **Enhanced Smart Code Assistance**: Introduced a redesigned context-aware code completion system.  
+- Fixed pip installation issues for dependencies like **aiohttp**.  
+- Resolved text input lagging issues in **TKinter**.  
+- Added **Save As** functionality to the code editor. 
+
 ### v1.4 (March 2025)
 - Integrated Python standard GUI toolkit - tkinter module 
     - based on Tk 8.6 graphics library

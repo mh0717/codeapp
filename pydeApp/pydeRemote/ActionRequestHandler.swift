@@ -29,6 +29,9 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
                 }
             }
             
+            /// 如果有这个环境变量，jupyter kernel会检测父进程，ios应该检测不了，kernel就直接退出
+            unsetenv("JPY_PARENT_PID")
+            
             if let commands = requestInfo["commands"] as? [String] {
                 
                 NotificationCenter.default.addObserver(forName: .init("UI_SHOW_VC_IN_TAB"), object: nil, queue: nil) { notify in

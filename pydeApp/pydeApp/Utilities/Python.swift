@@ -87,15 +87,22 @@ public func python3SubProcess(argc: Int32, argv:UnsafeMutablePointer<UnsafeMutab
     return remoteReqRemoteCommands(commands: [cmdStr])
 }
 
+private var _python3MainCount = 0
 @_cdecl("python3SubProcessInMain")
 public func python3SubProcessInMain(argc: Int32, argv:UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    if _python3MainCount > 0 {
+        let cmds = __concatenateArgv(argv)
+        let cmdStr = String(cString: cmds!)
+        return remoteReqRemoteCommands(commands: [cmdStr])
+    }
+    _python3MainCount += 1
     let stdin = thread_stdin
        let stdout = thread_stdout
        let stderr = thread_stderr
        var result: Int32 = 0
     if Thread.isMainThread {
-//        result = python3MainNotExit(argc, argv)
-        result = python3Main(argc, argv)
+        result = python3MainNotExit(argc, argv)
+//        result = python3Main(argc, argv)
         return result
     }
     
@@ -107,7 +114,7 @@ public func python3SubProcessInMain(argc: Int32, argv:UnsafeMutablePointer<Unsaf
         thread_stdout = stdout
         thread_stderr = stderr
         /// 这里之所以python不能退出，是因为toga ui不能退出
-        // result = python3Main(argc, argv)
+//         result = python3Main(argc, argv)
         result = python3MainNotExit(argc, argv)
         
         isEnd = true
@@ -311,6 +318,8 @@ public func initRemotePython3Sub() {
     
     replaceCommand("python3", "python3SubProcess", false)
     replaceCommand("python", "python3SubProcess", false)
+//    replaceCommand("python3", "python3SubProcessInMain", false)
+//    replaceCommand("python", "python3SubProcessInMain", false)
     
     replaceCommand("wasm", "idewasm", false)
     

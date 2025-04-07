@@ -7,6 +7,7 @@
 
 import Combine
 import CoreSpotlight
+import FileProvider
 import SwiftGit2
 import SwiftUI
 import ios_system

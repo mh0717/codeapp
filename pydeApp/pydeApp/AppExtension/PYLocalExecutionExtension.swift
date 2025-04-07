@@ -169,7 +169,9 @@ class PYLocalExecutionExtension: CodeAppExtension {
         guard let libbookmark = try? ConstantManager.libraryURL.bookmarkData() else {return nil}
         let columns = executor.winsize.0
         let lines = executor.winsize.1
-        let env = environmentAsArray()
+        let env = environmentAsArray() + ProcessInfo.processInfo.environment.enumerated().map({ item in
+            item.element.key + "=" + item.element.value
+        })
         
         let config: [String: Any] = [
             "workingDirectoryBookmark": bookmark,

@@ -25,6 +25,11 @@ struct PyRuntimesView : View {
                                     Text(ConstantManager.RemotePlugins[item] ?? "")
                                         .foregroundColor(.secondary)
                                         .font(.system(size: 12))
+                                        .contextMenu {
+                                            Button("Copy") {
+                                                UIPasteboard.general.string = ConstantManager.RemotePlugins[item] ?? ""
+                                            }
+                                        }
                                 }
                             }
                             if foreCount > 0 { Spacer()}
