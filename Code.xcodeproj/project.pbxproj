@@ -1014,6 +1014,7 @@
 		A315CE622C0235CA007925A0 /* RSThemes in Resources */ = {isa = PBXBuildFile; fileRef = A315CE602C0235CA007925A0 /* RSThemes */; };
 		A315CE832C0B3CF4007925A0 /* JsonUIPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A315CE822C0B3CF4007925A0 /* JsonUIPreview.swift */; };
 		A315CE842C0B3CF4007925A0 /* JsonUIPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A315CE822C0B3CF4007925A0 /* JsonUIPreview.swift */; };
+		A321EE992DA36FC100082634 /* SwiftyJupyter in Frameworks */ = {isa = PBXBuildFile; productRef = A3F3C9382D9AC6BB00BC9A03 /* SwiftyJupyter */; };
 		A326A8AA2BEA147C0018809A /* WebExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A326A8A92BEA147C0018809A /* WebExtension.swift */; };
 		A326A8AB2BEA147C0018809A /* WebExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A326A8A92BEA147C0018809A /* WebExtension.swift */; };
 		A326A8AD2BEA1A450018809A /* PYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A326A8AC2BEA1A450018809A /* PYApp.swift */; };
@@ -3253,6 +3254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A321EE992DA36FC100082634 /* SwiftyJupyter in Frameworks */,
 				A30F6B442BE0DD53007B7CDF /* FilesProvider in Frameworks */,
 				A30F6B452BE0DD53007B7CDF /* RMStore in Frameworks */,
 				A30F6B472BE0DD53007B7CDF /* Tiercel in Frameworks */,

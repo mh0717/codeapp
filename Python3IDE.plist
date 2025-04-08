@@ -66,6 +66,8 @@
 	<string>You have not turned on the album permission. After you turn it on, you can take pictures and import pictures to the document directory, and then you can use the Python image library for further processing</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Authentication with Face ID</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Requires local network permissions for port forwarding</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow access to the location, you can further process it with Python after opening</string>
 	<key>NSMicrophoneUsageDescription</key>
@@ -89,6 +91,10 @@
 	</dict>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>processing</string>
+	</array>
 	<key>UILaunchScreen</key>
 	<dict/>
 	<key>UILaunchStoryboardName</key>
