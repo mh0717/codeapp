@@ -77,7 +77,7 @@ struct TagsIndicator: View {
         
         path = path.replacingOccurrences(of: ConstantManager.EXAMPLES.resolvingSymlinksInPath().path, with: "")
         path = path.replacingOccurrences(of: ConstantManager.documentURL.resolvingSymlinksInPath().path, with: "Documents")
-        path = path.replacingOccurrences(of: ConstantManager.appdir.resolvingSymlinksInPath().path, with: ConstantManager.APP_NAME + ".app")
+        path = path.replacingOccurrences(of: ConstantManager.appBundleURL.resolvingSymlinksInPath().path, with: ConstantManager.APP_NAME + ".app")
         path = path.replacingOccurrences(of: ConstantManager.appGroupContainer.resolvingSymlinksInPath().path, with: "Home")
         path = path.replacingOccurrences(of: ConstantManager.iCloudContainerURL?.resolvingSymlinksInPath().path ?? "", with: "iCloud")
         

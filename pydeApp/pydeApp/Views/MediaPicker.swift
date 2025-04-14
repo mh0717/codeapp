@@ -169,7 +169,9 @@ public extension View {
                 importAsURLs(phPickerResults,
                              allowedMediaTypes: allowedMediaTypes,
                              progress: progress) { result in
-                    isPresented.wrappedValue = false
+                    DispatchQueue.main.async {
+                        isPresented.wrappedValue = false
+                    }
                     onCompletion(result)
                 }
             case .failure(let error):

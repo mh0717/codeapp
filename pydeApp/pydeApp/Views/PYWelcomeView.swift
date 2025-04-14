@@ -41,11 +41,11 @@ struct PYWelcomeView: View {
             case "https://ipyde.com/ipyde/openpyhome":
                 onExplorFolder(ConstantManager.pyhome)
             case "https://ipyde.com/ipyde/opensitepackages":
-                onExplorFolder(ConstantManager.pysite)
+                onExplorFolder(ConstantManager.sitePackages)
             case "https://ipyde.com/ipyde/opensysroot":
                 onExplorFolder(ConstantManager.SYSROOT)
             case "https://ipyde.com/ipyde/openusersite":
-                onExplorFolder(ConstantManager.user_site)
+                onExplorFolder(ConstantManager.userSite)
             case "https://ipyde.com/ipyde/openhome":
                 onExplorFolder(ConstantManager.HOME)
             case "https://ipyde.com/ipyde/opennodemodules":
@@ -216,7 +216,7 @@ struct PYWelcomeView1: UIViewRepresentable {
             case "https://ipyde.com/ipyde/openpyhome":
                 onExplorFolder(ConstantManager.pyhome)
             case "https://ipyde.com/ipyde/opensitepackages":
-                onExplorFolder(ConstantManager.LOCAL_SITE_PACKAGES_URL)
+                onExplorFolder(ConstantManager.userSite)
             case "https://ipyde.com/ipyde/openhome":
                 onExplorFolder(ConstantManager.appGroupContainer)
             case "https://ipyde.com/ipyde/newdjango":

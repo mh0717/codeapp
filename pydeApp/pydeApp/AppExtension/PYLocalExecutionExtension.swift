@@ -223,10 +223,11 @@ class PYLocalExecutionExtension: CodeAppExtension {
         wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_UI_FORCE_EXIT)
         
         #if DEBUG
-        let runUIInPreview = UserDefaults.standard.bool(forKey: "runUIInPreview")
+        let runUIInPreview = false//UserDefaults.standard.bool(forKey: "runUIInPreview")
         #else
         let runUIInPreview = false
         #endif
+        
         let isQuickLookFile = sanitizedUrl.lowercased().hasSuffix(".ql.ui.tcl") || sanitizedUrl.lowercased().hasSuffix(".ql.ui.py")
         if runUIInPreview || isQuickLookFile {
 //            let name = editor.url.lastPathComponent.replacingFirstOccurrence(of: ".ui.py", with: "").replacingFirstOccurrence(of: ".py", with: "")
@@ -288,11 +289,13 @@ class PYLocalExecutionExtension: CodeAppExtension {
         item.attachments = [provider]
         
         
-        let vc = UIActivityViewController(activityItems: [item, MyActivityItemSource(title: NSLocalizedString("Run Python3IDE UI Script", comment: ""), text: NSLocalizedString("Choose \"Run Python3IDE UI Script\" to run", comment: ""))], applicationActivities: nil)
+        let vc = UIActivityViewController(activityItems: [item/*, MyActivityItemSource(title: NSLocalizedString("Run Python3IDE UI Script", comment: ""), text: NSLocalizedString("Choose \"Run Python3IDE UI Script\" to run", comment: ""))*/], applicationActivities: nil)
+//        let vc = UIActivityViewController(activityItems: [item], applicationActivities: nil)
+        
         vc.completionWithItemsHandler = { _, _, _, _ in
             consoleInstance.executor?.kill()
         }
-        let popoverView = AnyView(VCRepresentable(vc))
+//        let popoverView = AnyView(VCRepresentable(vc))
         
         if UIDevice.current.userInterfaceIdiom == .phone {
             if #available(iOS 16.0, *) {
@@ -302,10 +305,11 @@ class PYLocalExecutionExtension: CodeAppExtension {
             }
         } else {
             let popoverView = AnyView(VCRepresentable(vc))
-            app.popupManager.showOutside(content: popoverView)
+//            app.popupManager.showOutside(content: popoverView)
+            app.popupManager.showSheet(content: popoverView)
         }
         
-        
+#if !targetEnvironment(macCatalyst)
         DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(250))) {
             
             do {
@@ -332,6 +336,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
                 }
             }
         }
+        #endif
         
         let compilerShowPath = UserDefaults.standard.bool(forKey: "compilerShowPath")
         if compilerShowPath {
@@ -373,14 +378,16 @@ class PYLocalExecutionExtension: CodeAppExtension {
         
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         
+#if !targetEnvironment(macCatalyst)
         if editor.url.path.hasSuffix(".ui.py") || editor.url.path.hasSuffix(".ui.tcl") {
             _ = runUICode(app: app, editor: editor, consoleInstance: consoleInstance, dismiss: {})
             return
         }
-        
+        #endif
         let languageIdentifier = editor.url.pathExtension.lowercased()
         let content = (editor as? TextEditorInstance)?.content ?? ""
         
+#if !targetEnvironment(macCatalyst)
         if languageIdentifier == "py", /*!editor.content.contains("__thread__") && */([
             "__ui__",
             "import sdl2",
@@ -407,6 +414,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             _ = runUICode(app: app, editor: editor, consoleInstance: consoleInstance, dismiss: {})
             return
         }
+        #endif
 
         guard let commands = PYLOCAL_EXECUTION_COMMANDS[languageIdentifier] else {
             return

@@ -424,7 +424,7 @@ class PYApp: ObservableObject{
         
         if !fileManager.fileExists(atPath: ConstantManager.SYSROOT.path) || _versionIncreased {
             Thread.detachNewThread {
-                SSZipArchive.unzipFile(atPath: ConstantManager.CUSRZIP.path, toDestination: ConstantManager.SYSROOT.path + "/../")
+                SSZipArchive.unzipFile(atPath: ConstantManager.usr_zip.path, toDestination: ConstantManager.SYSROOT.path + "/../")
             }
         }
         

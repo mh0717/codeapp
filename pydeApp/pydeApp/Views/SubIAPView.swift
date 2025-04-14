@@ -44,7 +44,7 @@ struct SubIAPView: View {
     
     @State private var cellWidth = 100.0
     
-    let resourceBundle = Bundle(path: Bundle.main.bundlePath + "/pyde_pyde.bundle")
+    let resourceBundle = Bundle(url: Bundle.main.resourceURL!.appendingPathComponent("/pyde_pyde.bundle"))
     
     private func computeSixOff() -> String? {
         guard let monthly = iapManager.monthly, let sixMonth = iapManager.sixMonth else {

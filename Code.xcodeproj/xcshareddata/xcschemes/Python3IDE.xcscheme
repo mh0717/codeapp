@@ -49,6 +49,12 @@
             ReferencedContainer = "container:Code.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "/Volumes/Python/Python3IDEGroup/tmp/AC6A294A-6054-42A8-A585-6D6461D8363D.pyremote"
+            isEnabled = "NO">
+         </CommandLineArgument>
+      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

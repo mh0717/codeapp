@@ -747,6 +747,10 @@
 		9FE3E2AC298A169B00F63DD0 /* SwiftGit2 in Frameworks */ = {isa = PBXBuildFile; productRef = 9FE3E2AB298A169A00F63DD0 /* SwiftGit2 */; };
 		9FE3E2AD298A16A300F63DD0 /* NMSSH.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942E321128093CA600233441 /* NMSSH.xcframework */; };
 		A30789782B094741001B6129 /* TagsIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30789772B094741001B6129 /* TagsIndicator.swift */; };
+		A308A7922DA910E1006A66C3 /* UIView+Pipable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308A7912DA910D9006A66C3 /* UIView+Pipable.swift */; };
+		A308A7932DA910E1006A66C3 /* UIView+Pipable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A308A7912DA910D9006A66C3 /* UIView+Pipable.swift */; };
+		A308A7952DA960D7006A66C3 /* copy_frameworks.sh in Resources */ = {isa = PBXBuildFile; fileRef = A308A7942DA960BF006A66C3 /* copy_frameworks.sh */; };
+		A308A7962DA960D7006A66C3 /* copy_frameworks.sh in Resources */ = {isa = PBXBuildFile; fileRef = A308A7942DA960BF006A66C3 /* copy_frameworks.sh */; };
 		A30ED8BA2BE8DE4300608B17 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ED8B92BE8DE4300608B17 /* SideMenu.swift */; };
 		A30ED8BB2BE8DE4300608B17 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ED8B92BE8DE4300608B17 /* SideMenu.swift */; };
 		A30ED8BD2BE8FBD400608B17 /* PYSideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ED8BC2BE8FBD400608B17 /* PYSideBar.swift */; };
@@ -1002,7 +1006,7 @@
 		A30F6BC22BE0E5BD007B7CDF /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A30F6BB72BE0E5BD007B7CDF /* ios_system */; };
 		A30F6BC42BE0E5BD007B7CDF /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A30F6BC52BE0E5BD007B7CDF /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3A91A232B49D6D7007E8C76 /* MainInterface.storyboard */; };
-		A30F6BCD2BE0E60C007B7CDF /* ideRemoteA.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A30F6B9B2BE0E528007B7CDF /* ideRemoteA.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A30F6BCD2BE0E60C007B7CDF /* ideRemoteA.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A30F6B9B2BE0E528007B7CDF /* ideRemoteA.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A30F6BD02BE0E60C007B7CDF /* ideUIA.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A30F6BB42BE0E577007B7CDF /* ideUIA.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A30F6BD82BE1029B007B7CDF /* AlertToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F6BD72BE1029A007B7CDF /* AlertToast.swift */; };
 		A30F6BD92BE1029B007B7CDF /* AlertToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F6BD72BE1029A007B7CDF /* AlertToast.swift */; };
@@ -1015,6 +1019,28 @@
 		A315CE832C0B3CF4007925A0 /* JsonUIPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A315CE822C0B3CF4007925A0 /* JsonUIPreview.swift */; };
 		A315CE842C0B3CF4007925A0 /* JsonUIPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A315CE822C0B3CF4007925A0 /* JsonUIPreview.swift */; };
 		A321EE992DA36FC100082634 /* SwiftyJupyter in Frameworks */ = {isa = PBXBuildFile; productRef = A3F3C9382D9AC6BB00BC9A03 /* SwiftyJupyter */; };
+		A321EEFC2DA52C2200082634 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321EEFA2DA52C2200082634 /* PlayerView.swift */; };
+		A321EEFD2DA52C2200082634 /* Pipable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321EEF92DA52C2200082634 /* Pipable.swift */; };
+		A321EEFE2DA52C2200082634 /* AVKitStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321EEF82DA52C2200082634 /* AVKitStuff.swift */; };
+		A321EEFF2DA52C2200082634 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321EEFA2DA52C2200082634 /* PlayerView.swift */; };
+		A321EF002DA52C2200082634 /* Pipable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321EEF92DA52C2200082634 /* Pipable.swift */; };
+		A321EF012DA52C2200082634 /* AVKitStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = A321EEF82DA52C2200082634 /* AVKitStuff.swift */; };
+		A321EF032DA6C1F100082634 /* openssl.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94D721E3268DBB94007A63BD /* openssl.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A321EF1C2DA6D98C00082634 /* ideCata.bundle in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A321EF182DA6D96100082634 /* ideCata.bundle */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A321EF542DA6E82100082634 /* ideRemoteCata in CopyFiles */ = {isa = PBXBuildFile; fileRef = A321EF372DA6E06700082634 /* ideRemoteCata */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A321EF562DA6EFDE00082634 /* CCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A321EF552DA6EFDE00082634 /* CCommon */; };
+		A321EF572DA6EFDE00082634 /* CCommon in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A321EF552DA6EFDE00082634 /* CCommon */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A321EF592DA6EFE600082634 /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A321EF582DA6EFE600082634 /* ios_system */; };
+		A321EF5A2DA6EFE600082634 /* ios_system in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A321EF582DA6EFE600082634 /* ios_system */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A321EF5B2DA6F15A00082634 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
+		A321EF5D2DA6F19200082634 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A321EF5C2DA6F19200082634 /* pydeCommon */; };
+		A321EF5E2DA6F19200082634 /* pydeCommon in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A321EF5C2DA6F19200082634 /* pydeCommon */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		A321EF5F2DA7053F00082634 /* ideUIPreviewA.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A30F6BCB2BE0E5BD007B7CDF /* ideUIPreviewA.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A321EF642DA70D3900082634 /* libssh2.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C893BB2793D17C00DFBF29 /* libssh2.xcframework */; };
+		A321EF652DA70D3900082634 /* libssh2.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94C893BB2793D17C00DFBF29 /* libssh2.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A321EF662DA70D4200082634 /* lg2.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F58738A2A78FE6D0001F374 /* lg2.xcframework */; };
+		A321EF672DA70D4200082634 /* lg2.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9F58738A2A78FE6D0001F374 /* lg2.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A321EF682DA70DF400082634 /* openssl.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D721E3268DBB94007A63BD /* openssl.xcframework */; };
 		A326A8AA2BEA147C0018809A /* WebExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A326A8A92BEA147C0018809A /* WebExtension.swift */; };
 		A326A8AB2BEA147C0018809A /* WebExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A326A8A92BEA147C0018809A /* WebExtension.swift */; };
 		A326A8AD2BEA1A450018809A /* PYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A326A8AC2BEA1A450018809A /* PYApp.swift */; };
@@ -1035,7 +1061,6 @@
 		A345B7202BFB328D0014A50F /* IDEWasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345B6CD2BF896FA0014A50F /* IDEWasm.swift */; };
 		A349BF362B00ECDF00434BBB /* GitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349BF352B00ECDF00434BBB /* GitService.swift */; };
 		A35551672DA0470C008D517B /* NMSSH.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A35551652DA0470C008D517B /* NMSSH.xcframework */; };
-		A35551752DA0566F008D517B /* files.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7C4A625F5518700F1EF4E /* files.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A355518F2DA28B74008D517B /* ios_system in Frameworks */ = {isa = PBXBuildFile; productRef = A355518E2DA28B74008D517B /* ios_system */; };
 		A35551902DA28B74008D517B /* ios_system in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A355518E2DA28B74008D517B /* ios_system */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A359CCDA2BCEEE5900CD33CF /* python3Objc in Frameworks */ = {isa = PBXBuildFile; productRef = A359CCD92BCEEE5900CD33CF /* python3Objc */; };
@@ -1196,12 +1221,12 @@
 		A39F42612BEAFAF8001546B4 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = A36336EE2AF22B3200085608 /* Action.js */; };
 		A39F42622BEAFAF8001546B4 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A39F42632BEAFAF8001546B4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A36336EA2AF22B3200085608 /* Media.xcassets */; };
-		A39F426A2BEAFB44001546B4 /* ideRemoteB.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A39F41FA2BEAFA9E001546B4 /* ideRemoteB.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A39F426D2BEAFB44001546B4 /* ideRemoteC.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A39F42102BEAFAC5001546B4 /* ideRemoteC.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A39F42702BEAFB44001546B4 /* ideRemoteD.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A39F42262BEAFAD6001546B4 /* ideRemoteD.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A39F42732BEAFB44001546B4 /* ideRemoteE.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A39F423C2BEAFADE001546B4 /* ideRemoteE.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A39F42762BEAFB44001546B4 /* ideRemoteF.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A39F42522BEAFAED001546B4 /* ideRemoteF.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A39F42792BEAFB44001546B4 /* ideRemoteG.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A39F42682BEAFAF8001546B4 /* ideRemoteG.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A39F426A2BEAFB44001546B4 /* ideRemoteB.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A39F41FA2BEAFA9E001546B4 /* ideRemoteB.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A39F426D2BEAFB44001546B4 /* ideRemoteC.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A39F42102BEAFAC5001546B4 /* ideRemoteC.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A39F42702BEAFB44001546B4 /* ideRemoteD.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A39F42262BEAFAD6001546B4 /* ideRemoteD.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A39F42732BEAFB44001546B4 /* ideRemoteE.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A39F423C2BEAFADE001546B4 /* ideRemoteE.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A39F42762BEAFB44001546B4 /* ideRemoteF.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A39F42522BEAFAED001546B4 /* ideRemoteF.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A39F42792BEAFB44001546B4 /* ideRemoteG.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A39F42682BEAFAF8001546B4 /* ideRemoteG.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A39F427D2BEB110A001546B4 /* OnlyExplorerFileTreeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F427C2BEB110A001546B4 /* OnlyExplorerFileTreeSection.swift */; };
 		A39F427E2BEB110A001546B4 /* OnlyExplorerFileTreeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F427C2BEB110A001546B4 /* OnlyExplorerFileTreeSection.swift */; };
 		A39F42802BEBE548001546B4 /* PYActivityBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F427F2BEBE548001546B4 /* PYActivityBarItemView.swift */; };
@@ -1435,6 +1460,7 @@
 		A3C0D89B2D89C20300A78FA9 /* commandDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F32F652AF88C8B00866ED0 /* commandDictionary.plist */; };
 		A3C0D89C2D89C20300A78FA9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A363370B2AF231D200085608 /* MainInterface.storyboard */; };
 		A3C0D8A32D89C33800A78FA9 /* ideUIB.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A3C0D8A12D89C20300A78FA9 /* ideUIB.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A3CDB1522DAA821B00850ECC /* IDEWasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345B6CD2BF896FA0014A50F /* IDEWasm.swift */; };
 		A3D1C9A92B35D802001505C7 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
 		A3D1C9BA2B3B54BA001505C7 /* terminal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 948D12202583F24E008F877A /* terminal.bundle */; };
 		A3D8B0D52BBC449A00C30B26 /* PYTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8B0D42BBC449A00C30B26 /* PYTopBar.swift */; };
@@ -1573,6 +1599,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = A30F6B9D2BE0E577007B7CDF;
 			remoteInfo = ideUIA;
+		};
+		A321EF1D2DA6D98C00082634 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A321EF172DA6D96100082634;
+			remoteInfo = ideCata;
+		};
+		A321EF522DA6E7F600082634 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A321EF362DA6E06700082634;
+			remoteInfo = ideRemoteCata;
+		};
+		A321EF602DA7053F00082634 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A30F6BB62BE0E5BD007B7CDF;
+			remoteInfo = ideUIPreviewA;
 		};
 		A363370F2AF231D200085608 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -2114,7 +2161,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A35551752DA0566F008D517B /* files.xcframework in Embed Frameworks */,
 				A30F6B672BE0DD53007B7CDF /* network_ios.xcframework in Embed Frameworks */,
 				A30F6B692BE0DD53007B7CDF /* RMStore in Embed Frameworks */,
 				A30F6B6A2BE0DD53007B7CDF /* pyde in Embed Frameworks */,
@@ -2123,6 +2169,9 @@
 				A35551902DA28B74008D517B /* ios_system in Embed Frameworks */,
 				A30F6B702BE0DD53007B7CDF /* awk.xcframework in Embed Frameworks */,
 				A30F6B712BE0DD53007B7CDF /* python3Site in Embed Frameworks */,
+				A321EF032DA6C1F100082634 /* openssl.xcframework in Embed Frameworks */,
+				A321EF652DA70D3900082634 /* libssh2.xcframework in Embed Frameworks */,
+				A321EF672DA70D4200082634 /* lg2.xcframework in Embed Frameworks */,
 				A30F6B732BE0DD53007B7CDF /* pydeCommon in Embed Frameworks */,
 				A3856D4B2BF0B60700755140 /* CCommon in Embed Frameworks */,
 				A3EB36312C1226810000B4D4 /* python3Objc in Embed Frameworks */,
@@ -2170,15 +2219,49 @@
 			files = (
 				A39F42762BEAFB44001546B4 /* ideRemoteF.appex in Embed Foundation Extensions */,
 				A39F42792BEAFB44001546B4 /* ideRemoteG.appex in Embed Foundation Extensions */,
+				A321EF5F2DA7053F00082634 /* ideUIPreviewA.appex in Embed Foundation Extensions */,
 				A39F426A2BEAFB44001546B4 /* ideRemoteB.appex in Embed Foundation Extensions */,
 				A30F6BCD2BE0E60C007B7CDF /* ideRemoteA.appex in Embed Foundation Extensions */,
 				A39F426D2BEAFB44001546B4 /* ideRemoteC.appex in Embed Foundation Extensions */,
+				A321EF1C2DA6D98C00082634 /* ideCata.bundle in Embed Foundation Extensions */,
 				A39F42732BEAFB44001546B4 /* ideRemoteE.appex in Embed Foundation Extensions */,
 				A39F42702BEAFB44001546B4 /* ideRemoteD.appex in Embed Foundation Extensions */,
 				A3C0D8A32D89C33800A78FA9 /* ideUIB.appex in Embed Foundation Extensions */,
 				A30F6BD02BE0E60C007B7CDF /* ideUIA.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A321EF352DA6E06700082634 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		A321EF442DA6E14B00082634 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A321EF572DA6EFDE00082634 /* CCommon in Embed Frameworks */,
+				A321EF5E2DA6F19200082634 /* pydeCommon in Embed Frameworks */,
+				A321EF5A2DA6EFE600082634 /* ios_system in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A321EF4E2DA6E3FC00082634 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				A321EF542DA6E82100082634 /* ideRemoteCata in CopyFiles */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A36336F92AF22C1500085608 /* Embed Frameworks */ = {
@@ -2990,6 +3073,8 @@
 		9FE3E292298A14BC00F63DD0 /* CodeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE3E294298A14BC00F63DD0 /* CodeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeUITests.swift; sourceTree = "<group>"; };
 		A30789772B094741001B6129 /* TagsIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsIndicator.swift; sourceTree = "<group>"; };
+		A308A7912DA910D9006A66C3 /* UIView+Pipable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Pipable.swift"; sourceTree = "<group>"; };
+		A308A7942DA960BF006A66C3 /* copy_frameworks.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = copy_frameworks.sh; sourceTree = "<group>"; };
 		A30950AE2B4CF2B90039EA50 /* flet */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = flet; path = ../../modules/pythoncc/flet; sourceTree = "<group>"; };
 		A30ED8B92BE8DE4300608B17 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		A30ED8BC2BE8FBD400608B17 /* PYSideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSideBar.swift; sourceTree = "<group>"; };
@@ -3008,6 +3093,11 @@
 		A30F6BDE2BE7FF7F007B7CDF /* QuickLookExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLookExtension.swift; sourceTree = "<group>"; };
 		A315CE602C0235CA007925A0 /* RSThemes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = RSThemes; sourceTree = "<group>"; };
 		A315CE822C0B3CF4007925A0 /* JsonUIPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonUIPreview.swift; sourceTree = "<group>"; };
+		A321EEF82DA52C2200082634 /* AVKitStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVKitStuff.swift; sourceTree = "<group>"; };
+		A321EEF92DA52C2200082634 /* Pipable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pipable.swift; sourceTree = "<group>"; };
+		A321EEFA2DA52C2200082634 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		A321EF182DA6D96100082634 /* ideCata.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ideCata.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		A321EF372DA6E06700082634 /* ideRemoteCata */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ideRemoteCata; sourceTree = BUILT_PRODUCTS_DIR; };
 		A326A8A92BEA147C0018809A /* WebExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebExtension.swift; sourceTree = "<group>"; };
 		A326A8AC2BEA1A450018809A /* PYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYApp.swift; sourceTree = "<group>"; };
 		A32DE5322B29B7CE00A1E20B /* ios_system.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ios_system.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3183,6 +3273,29 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A321EF262DA6DB5B00082634 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MacPlugin.swift,
+				Plugin.swift,
+			);
+			target = A321EF172DA6D96100082634 /* ideCata */;
+		};
+		A321EF282DA6DB6E00082634 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MacPlugin.swift,
+				Plugin.swift,
+			);
+			target = A3A87CE02AF221D1002E3399 /* iPyDE */;
+		};
+		A321EF2F2DA6DC0000082634 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MacPlugin.swift,
+			);
+			target = A30F6A532BE0DD52007B7CDF /* Python3IDE */;
+		};
 		A35551872DA174E9008D517B /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -3193,6 +3306,9 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		A321EEF72DA52C0F00082634 /* New Folder */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "New Folder"; sourceTree = "<group>"; };
+		A321EF1F2DA6DB2B00082634 /* ideCata */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (A321EF282DA6DB6E00082634 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, A321EF2F2DA6DC0000082634 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, A321EF262DA6DB5B00082634 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = ideCata; sourceTree = "<group>"; };
+		A321EF382DA6E06700082634 /* ideRemoteCata */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ideRemoteCata; sourceTree = "<group>"; };
 		A355517B2DA174E8008D517B /* ideCataRemoteA */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (A35551872DA174E9008D517B /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = ideCataRemoteA; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -3254,6 +3370,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A321EF682DA70DF400082634 /* openssl.xcframework in Frameworks */,
 				A321EE992DA36FC100082634 /* SwiftyJupyter in Frameworks */,
 				A30F6B442BE0DD53007B7CDF /* FilesProvider in Frameworks */,
 				A30F6B452BE0DD53007B7CDF /* RMStore in Frameworks */,
@@ -3267,9 +3384,11 @@
 				A30F6B4B2BE0DD53007B7CDF /* pydeCommon in Frameworks */,
 				A30F6B4C2BE0DD53007B7CDF /* MarkdownView in Frameworks */,
 				A3EB363C2C142CC20000B4D4 /* JSONDrivenUI in Frameworks */,
+				A321EF662DA70D4200082634 /* lg2.xcframework in Frameworks */,
 				A30F6B4E2BE0DD53007B7CDF /* pyde in Frameworks */,
 				A30F6B4F2BE0DD53007B7CDF /* Dynamic in Frameworks */,
 				A30F6B502BE0DD53007B7CDF /* SwiftGit2 in Frameworks */,
+				A321EF642DA70D3900082634 /* libssh2.xcframework in Frameworks */,
 				A3EB36302C1226810000B4D4 /* python3Objc in Frameworks */,
 				A30F6B532BE0DD53007B7CDF /* python3FWS in Frameworks */,
 			);
@@ -3305,6 +3424,23 @@
 				A35E2C542D873B0700BD8137 /* TortoiseGraphics in Frameworks */,
 				A30F6BC22BE0E5BD007B7CDF /* ios_system in Frameworks */,
 				A3856D6C2BF0C7F700755140 /* CCommon in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A321EF152DA6D96100082634 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A321EF342DA6E06700082634 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A321EF562DA6EFDE00082634 /* CCommon in Frameworks */,
+				A321EF5D2DA6F19200082634 /* pydeCommon in Frameworks */,
+				A321EF592DA6EFE600082634 /* ios_system in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3644,7 +3780,6 @@
 				9F046C3729223CC000BDE4E9 /* Extensions */,
 				94369AFD25E3B933008419A0 /* NodeExtension */,
 				9FE3E293298A14BC00F63DD0 /* CodeUITests */,
-				A355517B2DA174E8008D517B /* ideCataRemoteA */,
 				944EEBF12563C381009D77FE /* Products */,
 				24509F1455D67D501EFBD28C /* Frameworks */,
 				A3A87DB52AF221D1002E3399 /* iPyDE.plist */,
@@ -3702,6 +3837,8 @@
 				A3EB36412C1831380000B4D4 /* widgetExtExtension.appex */,
 				A3C0D8A12D89C20300A78FA9 /* ideUIB.appex */,
 				A355517A2DA174E8008D517B /* ideCataRemoteA.appex */,
+				A321EF182DA6D96100082634 /* ideCata.bundle */,
+				A321EF372DA6E06700082634 /* ideRemoteCata */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -4587,6 +4724,7 @@
 		A30F6BDA2BE7FC40007B7CDF /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				A321EEFB2DA52C2200082634 /* Pipable */,
 				A3856CDD2BEE1D6900755140 /* PIP */,
 				A326A8AC2BEA1A450018809A /* PYApp.swift */,
 				A36337212AF237AA00085608 /* PopupManager.swift */,
@@ -4602,6 +4740,17 @@
 				A3856CCC2BEE0CE100755140 /* WithRunnerEditorInstance.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		A321EEFB2DA52C2200082634 /* Pipable */ = {
+			isa = PBXGroup;
+			children = (
+				A308A7912DA910D9006A66C3 /* UIView+Pipable.swift */,
+				A321EEF82DA52C2200082634 /* AVKitStuff.swift */,
+				A321EEF92DA52C2200082634 /* Pipable.swift */,
+				A321EEFA2DA52C2200082634 /* PlayerView.swift */,
+			);
+			path = Pipable;
 			sourceTree = "<group>";
 		};
 		A349BF332B00EC9400434BBB /* Components */ = {
@@ -4661,6 +4810,7 @@
 				A3856CD32BEE184D00755140 /* Extension */,
 				A3856CCF2BEE13A400755140 /* Containers */,
 				A39F41D72BEA8189001546B4 /* AppExtension */,
+				A321EEF72DA52C0F00082634 /* New Folder */,
 				A30F6BDA2BE7FC40007B7CDF /* Managers */,
 				A349BF332B00EC9400434BBB /* Components */,
 				A3F32F6A2AF932F000866ED0 /* Views */,
@@ -4768,6 +4918,8 @@
 		A3A87DB62AF2253E002E3399 /* pydeApp */ = {
 			isa = PBXGroup;
 			children = (
+				A308A7942DA960BF006A66C3 /* copy_frameworks.sh */,
+				A321EF1F2DA6DB2B00082634 /* ideCata */,
 				A315CE602C0235CA007925A0 /* RSThemes */,
 				A3DBA5222BFFB68C0002729C /* Privacy */,
 				A3B87DDD2BF665F0008E74AD /* Templates */,
@@ -4783,6 +4935,8 @@
 				A3A91A1E2B49D6D7007E8C76 /* pydeUIPreview */,
 				A36443192B4EFB8C00B40880 /* FletPreview */,
 				A36443422B57FB9F00B40880 /* README.md */,
+				A355517B2DA174E8008D517B /* ideCataRemoteA */,
+				A321EF382DA6E06700082634 /* ideRemoteCata */,
 			);
 			path = pydeApp;
 			sourceTree = "<group>";
@@ -4982,11 +5136,14 @@
 				A30F6B542BE0DD53007B7CDF /* Resources */,
 				A30F6B652BE0DD53007B7CDF /* Embed Frameworks */,
 				A30F6B772BE0DD53007B7CDF /* delete unused dependencies */,
+				A321EF692DA74E0700082634 /* ShellScript */,
 				A30F6BD62BE0E60C007B7CDF /* Embed Foundation Extensions */,
+				A321EF4E2DA6E3FC00082634 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A321EF532DA6E7F600082634 /* PBXTargetDependency */,
 				A30F6BCF2BE0E60C007B7CDF /* PBXTargetDependency */,
 				A30F6BD22BE0E60C007B7CDF /* PBXTargetDependency */,
 				A39F426C2BEAFB44001546B4 /* PBXTargetDependency */,
@@ -4996,6 +5153,12 @@
 				A39F42782BEAFB44001546B4 /* PBXTargetDependency */,
 				A39F427B2BEAFB44001546B4 /* PBXTargetDependency */,
 				A3C0D8A52D89C33800A78FA9 /* PBXTargetDependency */,
+				A321EF1E2DA6D98C00082634 /* PBXTargetDependency */,
+				A321EF612DA7053F00082634 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A321EEF72DA52C0F00082634 /* New Folder */,
+				A321EF1F2DA6DB2B00082634 /* ideCata */,
 			);
 			name = Python3IDE;
 			packageProductDependencies = (
@@ -5091,6 +5254,51 @@
 			productName = pydeUIPreview;
 			productReference = A30F6BCB2BE0E5BD007B7CDF /* ideUIPreviewA.appex */;
 			productType = "com.apple.product-type.app-extension";
+		};
+		A321EF172DA6D96100082634 /* ideCata */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A321EF192DA6D96100082634 /* Build configuration list for PBXNativeTarget "ideCata" */;
+			buildPhases = (
+				A321EF142DA6D96100082634 /* Sources */,
+				A321EF152DA6D96100082634 /* Frameworks */,
+				A321EF162DA6D96100082634 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ideCata;
+			packageProductDependencies = (
+			);
+			productName = ideCata;
+			productReference = A321EF182DA6D96100082634 /* ideCata.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		A321EF362DA6E06700082634 /* ideRemoteCata */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A321EF3B2DA6E06700082634 /* Build configuration list for PBXNativeTarget "ideRemoteCata" */;
+			buildPhases = (
+				A321EF332DA6E06700082634 /* Sources */,
+				A321EF342DA6E06700082634 /* Frameworks */,
+				A321EF352DA6E06700082634 /* CopyFiles */,
+				A321EF442DA6E14B00082634 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A321EF382DA6E06700082634 /* ideRemoteCata */,
+			);
+			name = ideRemoteCata;
+			packageProductDependencies = (
+				A321EF552DA6EFDE00082634 /* CCommon */,
+				A321EF582DA6EFE600082634 /* ios_system */,
+				A321EF5C2DA6F19200082634 /* pydeCommon */,
+			);
+			productName = ideRemoteCata;
+			productReference = A321EF372DA6E06700082634 /* ideRemoteCata */;
+			productType = "com.apple.product-type.tool";
 		};
 		A35551792DA174E8008D517B /* ideCataRemoteA */ = {
 			isa = PBXNativeTarget;
@@ -5370,6 +5578,10 @@
 				A3F23A832BA75822006F6D7B /* PBXTargetDependency */,
 				A30F6A502BDF47C8007B7CDF /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				A321EEF72DA52C0F00082634 /* New Folder */,
+				A321EF1F2DA6DB2B00082634 /* ideCata */,
+			);
 			name = iPyDE;
 			packageProductDependencies = (
 				A3A87CE12AF221D1002E3399 /* ZIPFoundation */,
@@ -5643,6 +5855,12 @@
 						CreatedOnToolsVersion = 14.1;
 						TestTargetID = 9419692E280316C7008AAEB2;
 					};
+					A321EF172DA6D96100082634 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					A321EF362DA6E06700082634 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					A35551792DA174E8008D517B = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -5720,6 +5938,8 @@
 				A3EB36402C1831380000B4D4 /* widgetExtExtension */,
 				A3C0D8892D89C20300A78FA9 /* ideUIB */,
 				A35551792DA174E8008D517B /* ideCataRemoteA */,
+				A321EF172DA6D96100082634 /* ideCata */,
+				A321EF362DA6E06700082634 /* ideRemoteCata */,
 			);
 		};
 /* End PBXProject section */
@@ -5801,6 +6021,7 @@
 				A3B87DDF2BF665F0008E74AD /* Templates in Resources */,
 				A30F6B5E2BE0DD53007B7CDF /* commandDictionary.plist in Resources */,
 				A30F6B5F2BE0DD53007B7CDF /* Settings.bundle in Resources */,
+				A308A7952DA960D7006A66C3 /* copy_frameworks.sh in Resources */,
 				A30F6B602BE0DD53007B7CDF /* extraCommandsDictionary.plist in Resources */,
 				A30F6B612BE0DD53007B7CDF /* Localizable.strings in Resources */,
 				A30F6B622BE0DD53007B7CDF /* npm.bundle in Resources */,
@@ -5836,6 +6057,13 @@
 			files = (
 				A30F6BC42BE0E5BD007B7CDF /* commandDictionary.plist in Resources */,
 				A30F6BC52BE0E5BD007B7CDF /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A321EF162DA6D96100082634 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5954,6 +6182,7 @@
 				A3D1C9BA2B3B54BA001505C7 /* terminal.bundle in Resources */,
 				A359CCDD2BD2837100CD33CF /* PrivacyInfo.xcprivacy in Resources */,
 				A3A87D982AF221D1002E3399 /* cacert.pem in Resources */,
+				A308A7962DA960D7006A66C3 /* copy_frameworks.sh in Resources */,
 				A3A87D9A2AF221D1002E3399 /* FiraCode-Regular.ttf in Resources */,
 				A3B87DDE2BF665F0008E74AD /* Templates in Resources */,
 				A3F32F662AF88CC000866ED0 /* commandDictionary.plist in Resources */,
@@ -6140,7 +6369,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#install_name_tool -change  \"@rpath/python3FWS.framework/python3FWS\" \"/usr/lib/libSystem.B.dylib\"  \"$BUILT_PRODUCTS_DIR/$TARGET_NAME.app/$TARGET_NAME\"\n#install_name_tool -change  \"@rpath/SDL2.framework/SDL2\" \"/usr/lib/libSystem.B.dylib\"  \"$BUILT_PRODUCTS_DIR/$TARGET_NAME.app/$TARGET_NAME\"\n#install_name_tool -change  \"@rpath/python3Objc.framework/python3Objc\" \"/usr/lib/libSystem.B.dylib\"  \"$BUILT_PRODUCTS_DIR/$TARGET_NAME.app/$TARGET_NAME\"\n\n#install_name_tool -change  \"@rpath/pyde.framework/pyde\" \"/usr/lib/libSystem.B.dylib\"  \"$BUILT_PRODUCTS_DIR/$TARGET_NAME.app/$TARGET_NAME\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ninstall_name_tool -change  \"@rpath/python3FWS.framework/python3FWS\" \"/usr/lib/libSystem.B.dylib\"  \"${TARGET_BUILD_DIR}/${EXECUTABLE_FOLDER_PATH}/${EXECUTABLE_NAME}\"\ninstall_name_tool -change  \"@rpath/python3FWS.framework/Versions/A/python3FWS\" \"@rpath/files.framework/files\"  \"${TARGET_BUILD_DIR}/${EXECUTABLE_FOLDER_PATH}/${EXECUTABLE_NAME}\"\n\n#install_name_tool -change  \"@rpath/SDL2.framework/SDL2\" \"/usr/lib/libSystem.B.dylib\"  \"$BUILT_PRODUCTS_DIR/$TARGET_NAME.app/$TARGET_NAME\"\n#install_name_tool -change  \"@rpath/python3Objc.framework/python3Objc\" \"/usr/lib/libSystem.B.dylib\"  \"$BUILT_PRODUCTS_DIR/$TARGET_NAME.app/$TARGET_NAME\"\n\n#install_name_tool -change  \"@rpath/pyde.framework/pyde\" \"/usr/lib/libSystem.B.dylib\"  \"$BUILT_PRODUCTS_DIR/$TARGET_NAME.app/$TARGET_NAME\"\n\n";
+		};
+		A321EF692DA74E0700082634 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "
+";
 		};
 		A33A5FD52B0EFAAA00CB7CE1 /* delete unused dependencies */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -6528,6 +6775,7 @@
 				A30F6A7C2BE0DD52007B7CDF /* GitHubSearchManager.swift in Sources */,
 				A30F6A7D2BE0DD52007B7CDF /* PYSettingsView.swift in Sources */,
 				A30ED8BB2BE8DE4300608B17 /* SideMenu.swift in Sources */,
+				A308A7922DA910E1006A66C3 /* UIView+Pipable.swift in Sources */,
 				A3856CD22BEE141F00755140 /* OutlineContainer.swift in Sources */,
 				A30F6A7E2BE0DD52007B7CDF /* MainScene.swift in Sources */,
 				A30F6A7F2BE0DD52007B7CDF /* RemoteConnectedSection.swift in Sources */,
@@ -6654,6 +6902,9 @@
 				A30F6AE72BE0DD52007B7CDF /* FileSystemProvider.swift in Sources */,
 				A39F41DA2BEA81A9001546B4 /* WheelExtensionManager.swift in Sources */,
 				A30F6AE82BE0DD52007B7CDF /* EditorReadOnlyLabel.swift in Sources */,
+				A321EEFC2DA52C2200082634 /* PlayerView.swift in Sources */,
+				A321EEFD2DA52C2200082634 /* Pipable.swift in Sources */,
+				A321EEFE2DA52C2200082634 /* AVKitStuff.swift in Sources */,
 				A30F6AE92BE0DD52007B7CDF /* MenuButtonView.swift in Sources */,
 				A30F6AEA2BE0DD52007B7CDF /* RSCodeTheme.swift in Sources */,
 				A30F6AEB2BE0DD52007B7CDF /* PopupManager.swift in Sources */,
@@ -6785,6 +7036,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A321EF142DA6D96100082634 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A321EF332DA6E06700082634 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A321EF5B2DA6F15A00082634 /* Python.swift in Sources */,
+				A3CDB1522DAA821B00850ECC /* IDEWasm.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A35551762DA174E8008D517B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -6896,6 +7163,7 @@
 				A3A87CEF2AF221D1002E3399 /* GitHubSearchManager.swift in Sources */,
 				A3A3DF002B937645004A7C39 /* PYSettingsView.swift in Sources */,
 				A30ED8BA2BE8DE4300608B17 /* SideMenu.swift in Sources */,
+				A308A7932DA910E1006A66C3 /* UIView+Pipable.swift in Sources */,
 				A3856CD12BEE141F00755140 /* OutlineContainer.swift in Sources */,
 				A3A87CF02AF221D1002E3399 /* MainScene.swift in Sources */,
 				A3A87CF12AF221D1002E3399 /* RemoteConnectedSection.swift in Sources */,
@@ -7022,6 +7290,9 @@
 				A3A87D482AF221D1002E3399 /* EditorReadOnlyLabel.swift in Sources */,
 				A3A87D492AF221D1002E3399 /* MenuButtonView.swift in Sources */,
 				A3BB55422B44666500A3E0B9 /* RSCodeTheme.swift in Sources */,
+				A321EEFF2DA52C2200082634 /* PlayerView.swift in Sources */,
+				A321EF002DA52C2200082634 /* Pipable.swift in Sources */,
+				A321EF012DA52C2200082634 /* AVKitStuff.swift in Sources */,
 				A36337222AF237AA00085608 /* PopupManager.swift in Sources */,
 				A3A87D4A2AF221D1002E3399 /* SettingsKeyboardShortcuts.swift in Sources */,
 				A3A87D4B2AF221D1002E3399 /* SearchServiceProvider.swift in Sources */,
@@ -7236,6 +7507,7 @@
 		};
 		A30F6BCF2BE0E60C007B7CDF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = A30F6B872BE0E528007B7CDF /* ideRemoteA */;
 			targetProxy = A30F6BCE2BE0E60C007B7CDF /* PBXContainerItemProxy */;
 		};
@@ -7244,6 +7516,23 @@
 			target = A30F6B9D2BE0E577007B7CDF /* ideUIA */;
 			targetProxy = A30F6BD12BE0E60C007B7CDF /* PBXContainerItemProxy */;
 		};
+		A321EF1E2DA6D98C00082634 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = maccatalyst;
+			target = A321EF172DA6D96100082634 /* ideCata */;
+			targetProxy = A321EF1D2DA6D98C00082634 /* PBXContainerItemProxy */;
+		};
+		A321EF532DA6E7F600082634 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = maccatalyst;
+			target = A321EF362DA6E06700082634 /* ideRemoteCata */;
+			targetProxy = A321EF522DA6E7F600082634 /* PBXContainerItemProxy */;
+		};
+		A321EF612DA7053F00082634 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A30F6BB62BE0E5BD007B7CDF /* ideUIPreviewA */;
+			targetProxy = A321EF602DA7053F00082634 /* PBXContainerItemProxy */;
+		};
 		A36337102AF231D200085608 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A36337032AF231D200085608 /* pydeUI */;
@@ -7251,31 +7540,37 @@
 		};
 		A39F426C2BEAFB44001546B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = A39F41E62BEAFA9E001546B4 /* ideRemoteB */;
 			targetProxy = A39F426B2BEAFB44001546B4 /* PBXContainerItemProxy */;
 		};
 		A39F426F2BEAFB44001546B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = A39F41FC2BEAFAC5001546B4 /* ideRemoteC */;
 			targetProxy = A39F426E2BEAFB44001546B4 /* PBXContainerItemProxy */;
 		};
 		A39F42722BEAFB44001546B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = A39F42122BEAFAD6001546B4 /* ideRemoteD */;
 			targetProxy = A39F42712BEAFB44001546B4 /* PBXContainerItemProxy */;
 		};
 		A39F42752BEAFB44001546B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = A39F42282BEAFADE001546B4 /* ideRemoteE */;
 			targetProxy = A39F42742BEAFB44001546B4 /* PBXContainerItemProxy */;
 		};
 		A39F42782BEAFB44001546B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = A39F423E2BEAFAED001546B4 /* ideRemoteF */;
 			targetProxy = A39F42772BEAFB44001546B4 /* PBXContainerItemProxy */;
 		};
 		A39F427B2BEAFB44001546B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = A39F42542BEAFAF8001546B4 /* ideRemoteG */;
 			targetProxy = A39F427A2BEAFB44001546B4 /* PBXContainerItemProxy */;
 		};
@@ -8135,6 +8430,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE.ideUIPreviewA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -8172,9 +8468,113 @@
 				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE.ideUIPreviewA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A321EF1A2DA6D96100082634 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE.ideCata;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		A321EF1B2DA6D96100082634 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = baobaowang.Python3IDE.ideCata;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		A321EF3C2DA6E06700082634 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		A321EF3D2DA6E06700082634 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = KQ2S7RKY3D;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -9935,6 +10335,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		A321EF192DA6D96100082634 /* Build configuration list for PBXNativeTarget "ideCata" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A321EF1A2DA6D96100082634 /* Debug */,
+				A321EF1B2DA6D96100082634 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A321EF3B2DA6E06700082634 /* Build configuration list for PBXNativeTarget "ideRemoteCata" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A321EF3C2DA6E06700082634 /* Debug */,
+				A321EF3D2DA6E06700082634 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A35551882DA174E9008D517B /* Build configuration list for PBXNativeTarget "ideCataRemoteA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -10406,6 +10824,18 @@
 			productName = ios_system;
 		};
 		A30F6BB82BE0E5BD007B7CDF /* pydeCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = pydeCommon;
+		};
+		A321EF552DA6EFDE00082634 /* CCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CCommon;
+		};
+		A321EF582DA6EFE600082634 /* ios_system */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ios_system;
+		};
+		A321EF5C2DA6F19200082634 /* pydeCommon */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = pydeCommon;
 		};

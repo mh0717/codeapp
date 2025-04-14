@@ -471,13 +471,13 @@ struct PYTopBar: View {
                         }
                         
                         Button(action: {
-                            App.openFile(url: ConstantManager.pysite, alwaysInNewTab: true)
+                            App.openFile(url: ConstantManager.sitePackages, alwaysInNewTab: true)
                         }) {
                             Label("python SITE-PACKAGES", systemImage: "folder")
                         }
                         
                         Button(action: {
-                            App.openFile(url: ConstantManager.user_site, alwaysInNewTab: true)
+                            App.openFile(url: ConstantManager.userSite, alwaysInNewTab: true)
                         }) {
                             Label("python USER_SITE", systemImage: "folder")
                         }
@@ -521,6 +521,12 @@ struct PYTopBar: View {
                     App.loadFolder(url: ConstantManager.appdir)
                 }) {
                     Label("Open Bundle", systemImage: "folder")
+                }
+                
+                Button(action: {
+                    runIdeCataPlugin()
+                }) {
+                    Label("MacPlugin", systemImage: "file")
                 }
                 #endif
 

@@ -19,7 +19,7 @@ class IAPExtension: CodeAppExtension {
             #if PYTHON3IDE
             
             let im = SubIapManager.instance
-            #if targetEnvironment(simulator)
+            #if targetEnvironment(simulator) || targetEnvironment(macCatalyst)
             #else
             if PYApp.isLockScreen && im.runCout >= 30, !im.isPro {
                 im.showIap = true

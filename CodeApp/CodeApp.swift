@@ -10,6 +10,7 @@ import SwiftUI
 import UIKit
 import WebKit
 import ios_system
+import pydeCommon
 
 @main
 struct CodeApp: App {
@@ -213,31 +214,35 @@ struct CodeApp: App {
 
     #if PYDEAPP
         init() {
-            UITableView.appearance().backgroundColor = UIColor.clear
-            UITableViewCell.appearance().backgroundColor = UIColor.clear
-            UITableView.appearance().separatorStyle = .none
-            UITextView.appearance().backgroundColor = .clear
+            if !(CommandLine.arguments.count >= 2
+                && CommandLine.arguments[1].hasSuffix(".pyremote"))
+            {
+                UITableView.appearance().backgroundColor = UIColor.clear
+                UITableViewCell.appearance().backgroundColor = UIColor.clear
+                UITableView.appearance().separatorStyle = .none
+                UITextView.appearance().backgroundColor = .clear
 
-            // Disable mini map and line number for iPhones
-            if UIScreen.main.traitCollection.horizontalSizeClass == .compact {
-                if UserDefaults.standard.object(forKey: "editorLineNumberEnabled") == nil {
-                    UserDefaults.standard.setValue(false, forKey: "editorLineNumberEnabled")
-                    UserDefaults.standard.setValue(false, forKey: "editorMiniMapEnabled")
+                // Disable mini map and line number for iPhones
+                if UIScreen.main.traitCollection.horizontalSizeClass == .compact {
+                    if UserDefaults.standard.object(forKey: "editorLineNumberEnabled") == nil {
+                        UserDefaults.standard.setValue(false, forKey: "editorLineNumberEnabled")
+                        UserDefaults.standard.setValue(false, forKey: "editorMiniMapEnabled")
+                    }
+                    if UserDefaults.standard.object(forKey: "compilerShowPath") == nil {
+                        UserDefaults.standard.setValue(false, forKey: "compilerShowPath")
+                    }
                 }
-                if UserDefaults.standard.object(forKey: "compilerShowPath") == nil {
-                    UserDefaults.standard.setValue(false, forKey: "compilerShowPath")
+
+                Repository.initialize_libgit2()
+
+                DispatchQueue.main.async {
+                    initPyDE()
                 }
+
+                PYApp.onAppInitialized()
+
+                DownloadManager.instance.setup()
             }
-
-            Repository.initialize_libgit2()
-
-            DispatchQueue.main.async {
-                initPyDE()
-            }
-
-            PYApp.onAppInitialized()
-
-            DownloadManager.instance.setup()
 
             signal(SIGPIPE, SIG_IGN)
         }
@@ -360,18 +365,22 @@ struct CodeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            SceneReader {
-                MainScene()
-                    .ignoresSafeArea(.container, edges: .bottom)
-                    .preferredColorScheme(themeManager.colorSchemePreference)
-                    .environmentObject(themeManager)
-                    #if PYDEAPP
-                        #if PYTHON3IDE
-                            .environmentObject(subIapManager)
-                        #else
-                            .environmentObject(iapManager)
+            if CommandLine.arguments.count >= 2 && CommandLine.arguments[1].hasSuffix(".pyremote") {
+                IDERemoteUI()
+            } else {
+                SceneReader {
+                    MainScene()
+                        .ignoresSafeArea(.container, edges: .bottom)
+                        .preferredColorScheme(themeManager.colorSchemePreference)
+                        .environmentObject(themeManager)
+                        #if PYDEAPP
+                            #if PYTHON3IDE
+                                .environmentObject(subIapManager)
+                            #else
+                                .environmentObject(iapManager)
+                            #endif
                         #endif
-                    #endif
+                }
             }
         }
     }
@@ -388,4 +397,135 @@ func refreshNodeCommands() {
             replaceCommand(cmd, "nodeg", true)
         }
     }
+}
+
+struct IDERemoteUI: UIViewControllerRepresentable {
+
+    let tabvc = UITabBarController(nibName: nil, bundle: nil)
+
+    func makeUIViewController(context: Context) -> some UIViewController {
+        //        setenv("SDL_SCREEN_SIZE", "\(Int(self.view.bounds.width)):\(Int(self.view.bounds.height))", 1)
+
+        return tabvc
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+
+    }
+
+    func makeCoordinator() -> TabCoordinator {
+        return TabCoordinator(tabvc)
+    }
+
+    class TabCoordinator {
+        private weak var tabvc: UITabBarController?
+        private var vcs: [UIViewController] = []
+        private var activityView: UIActivityIndicatorView?
+
+        var ntidentifier: String?
+
+        init(_ tabvc: UITabBarController) {
+            self.tabvc = tabvc
+
+            setupNotify()
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
+                self.run()
+            }
+        }
+
+        func run() {
+            //            setenv("SDL_VIDEODRIVER", "metal", 1)
+            guard let path = CommandLine.arguments.safeObject(at: 1) else { return }
+            let url = URL(fileURLWithPath: path)
+            print(url)
+            guard let data = try? Data(contentsOf: url),
+                let requestInfo = try? PropertyListSerialization.propertyList(
+                    from: data, format: nil) as? [String: Any]
+            else {
+                print("requestInfo nil!!!!!")
+                real_exit(vlaue: 1)
+                exit(1)
+            }
+            ConstantManager.pydeEnv = .remoteUI
+
+            if let env = requestInfo["env"] as? [String], !env.isEmpty {
+                env.forEach { item in
+                    //                        ios_putenv(item.utf8CString)
+                    putenv(item.utf8CString)
+                }
+            }
+
+            /// 如果有这个环境变量，jupyter kernel会检测父进程，ios应该检测不了，kernel就直接退出
+            unsetenv("JPY_PARENT_PID")
+
+            guard let commands = requestInfo["commands"] as? [String] else {
+                return
+            }
+            print(commands)
+            initPydeUI()
+
+            Thread.detachNewThread {
+                let result = remoteExe(requestInfo: requestInfo, exit: false)
+            }
+        }
+
+        func setupNotify() {
+            NotificationCenter.default.addObserver(
+                forName: .init("UI_SHOW_VC_IN_TAB"), object: nil, queue: nil
+            ) { notify in
+                guard let vc = notify.userInfo?["vc"] as? UIViewController else { return }
+                if self.vcs.contains(vc) {
+                    DispatchQueue.main.async {
+                        self.tabvc?.selectedViewController = vc
+                        self.tabvc?.preferredContentSize = vc.preferredContentSize
+                    }
+                    return
+                }
+
+                DispatchQueue.main.async {
+                    if let activityView = self.activityView {
+                        activityView.removeFromSuperview()
+                        self.activityView = nil
+                    }
+                    if vc.title == nil || vc.title!.isEmpty {
+                        vc.title = "Window"
+                    }
+                    self.vcs.append(vc)
+                    self.tabvc?.viewControllers = self.vcs
+                    self.tabvc?.selectedViewController = vc
+                    self.tabvc?.tabBar.isHidden = self.vcs.count <= 1
+                    self.tabvc?.preferredContentSize = vc.preferredContentSize
+
+                    //                    self.selectedViewController?.addObserver(self, forKeyPath: "preferredContentSize", context: nil)
+
+                    if NSStringFromClass(type(of: vc)) == "FlutterViewController" {
+                        NotificationCenter.default.post(
+                            name: UIApplication.willEnterForegroundNotification, object: nil,
+                            userInfo: nil)
+                        vc.perform(Selector("surfaceUpdated:"), with: true)
+                    }
+                }
+            }
+
+            NotificationCenter.default.addObserver(
+                forName: .init("UI_HIDE_VC_IN_TAB"), object: nil, queue: nil
+            ) { notify in
+                guard let tabvc = self.tabvc else {
+                    return
+                }
+                guard let vc = notify.userInfo?["vc"] as? UIViewController else { return }
+                DispatchQueue.main.async {
+                    //                    vc.removeObserver(self, forKeyPath: "preferredContentSize")
+                    self.vcs.removeAll(where: { $0 == vc })
+                    tabvc.viewControllers = self.vcs
+                    if tabvc.selectedIndex >= tabvc.viewControllers!.count {
+                        tabvc.selectedIndex = tabvc.viewControllers!.count - 1
+                    }
+                    tabvc.tabBar.isHidden = self.vcs.count <= 1
+                }
+            }
+        }
+    }
+
 }

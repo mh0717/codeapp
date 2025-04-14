@@ -100,7 +100,7 @@ class ActionViewController: UITabBarController {
                 
                 self.selectedViewController?.addObserver(self, forKeyPath: "preferredContentSize", context: nil)
                 
-                print(vc.self)
+//                print(vc.self)
                 if NSStringFromClass(type(of: vc)) == "FlutterViewController" {
                     NotificationCenter.default.post(name: UIApplication.willEnterForegroundNotification, object: nil, userInfo: nil)
                     vc.perform(Selector("surfaceUpdated:"), with: true)

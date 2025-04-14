@@ -97,7 +97,7 @@ class JupyterManager: ObservableObject {
         })
         
         // 使用示例
-        forwarder = UnixSocketProxy(tcpPort: Int32(port, radix: 10) ?? 8888, unixPath: serverSock)
+        forwarder = UnixSocketProxy(tcpPort: Int32(port, radix: 10) ?? 8888, unixPath: serverSock, isPublic: public_server)
 
         // 启动服务
         do {
@@ -162,6 +162,7 @@ class UnixSocketProxy {
     private var isRunning: Bool = false
     private let queue = DispatchQueue(label: "jupyter.proxy.queue", attributes: .concurrent)
     private var activeConnections = Set<Connection>()
+    private let isPublic: Bool
     
     private var backgroundTask: UIBackgroundTaskIdentifier = .invalid
     private var healthTimer: DispatchSourceTimer?
@@ -183,9 +184,10 @@ class UnixSocketProxy {
     }
     
     // MARK: 初始化
-    init(tcpPort: Int32, unixPath: String) {
+    init(tcpPort: Int32, unixPath: String, isPublic: Bool) {
         self.tcpPort = tcpPort
         self.unixPath = unixPath
+        self.isPublic = isPublic
         
         setupNotifications()
     }
@@ -212,7 +214,10 @@ class UnixSocketProxy {
         var addr = sockaddr_in()
         addr.sin_family = sa_family_t(AF_INET)
         addr.sin_port = in_port_t(tcpPort).bigEndian
-        addr.sin_addr.s_addr = INADDR_ANY
+        addr.sin_addr.s_addr = INADDR_LOOPBACK
+        if isPublic {
+            addr.sin_addr.s_addr = INADDR_ANY
+        }
         
         // 绑定 TCP 端口
         let bindResult = withUnsafePointer(to: &addr) {

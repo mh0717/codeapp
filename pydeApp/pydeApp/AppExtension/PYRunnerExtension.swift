@@ -10,11 +10,99 @@ import SwiftTerm
 import ios_system
 import pyde
 import pydeCommon
+import AVKit
 
 
-class PYRunnerExtension: CodeAppExtension {
+class PYRunnerExtension: CodeAppExtension, PictureInPictureDelegate {
+    func didEnterPictureInPicture() {
+        isPipPlaying = true
+        
+        app?.pyapp.defaultConsole.consoleView.onChanged = onConsoleChanged
+        
+        var _updateCount = 0
+        pipTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+            _updateCount += 1
+            if self._consoleChanged {
+                self._consoleChanged = false
+                self.app?.pyapp.defaultConsole.consoleView.updatePictureInPictureSnapshot()
+            }
+            
+            if _updateCount >= 50 {
+                _updateCount = 0
+                self._consoleChanged = false
+                self.app?.pyapp.defaultConsole.consoleView.updatePictureInPictureSnapshot()
+            }
+        })
+    }
+    
+    func didExitPictureInPicture() {
+        isPipPlaying = false
+        pipTimer?.invalidate()
+        pipTimer = nil
+        app?.pyapp.defaultConsole.consoleView.onChanged = nil
+        do {
+            try AVAudioSession.sharedInstance().setActive(false, options: [])
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func didFailToEnterPictureInPicture(error: any Error) {
+        print(error.localizedDescription)
+    }
+    
+    func didPause() {
+        isPipPlaying = false
+    }
+    
+    func didResume() {
+        isPipPlaying = true
+    }
+    
+    var isPlaying: Bool {
+        return isPipPlaying
+    }
+    
+    private var isPipPlaying = false
+    
     
     weak var app: MainApp?
+    
+    var pipTimer: Timer?
+    private var _consoleChanged = false
+    private func onConsoleChanged(_ console: ConsoleView) {
+        _consoleChanged = true
+    }
+    
+    private func handlePipPlay() {
+        guard let app else {
+            return
+        }
+        if app.pyapp.defaultConsole.consoleView.pictureInPictureController?.isPictureInPictureActive == false {
+            
+            // Start an audio session and PIP
+            app.pyapp.defaultConsole.consoleView.updatePictureInPictureSnapshot()
+            
+            do {
+                try AVAudioSession.sharedInstance().setCategory(.playback, options: .mixWithOthers)
+                try AVAudioSession.sharedInstance().setActive(true, options: [])
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.2) {
+                app.pyapp.defaultConsole.consoleView.pictureInPictureController?.startPictureInPicture()
+            }
+            
+        } else {
+            
+            // Stop PIP
+            pipTimer?.invalidate()
+            pipTimer = nil
+            app.pyapp.defaultConsole.consoleView.onChanged = nil
+            app.pyapp.defaultConsole.consoleView.pictureInPictureController?.stopPictureInPicture()
+        }
+    }
     
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
         let panel = Panel(
@@ -37,7 +125,7 @@ class PYRunnerExtension: CodeAppExtension {
                         }
                     )
             ),
-            toolBarView: AnyView(ToolbarView())
+            toolBarView: AnyView(ToolbarView(onPipPlay: handlePipPlay))
         )
         contribution.panel.registerPanel(panel: panel)
         
@@ -46,6 +134,7 @@ class PYRunnerExtension: CodeAppExtension {
             consoleInstance.resetAndSetNewRootDirectory(url: url)
         }
         self.app = app
+        app.pyapp.defaultConsole.consoleView.pictureInPictureDelegate = self
         
         NotificationCenter.default.addObserver(forName: .init("RUN_ROMOTE_COMMAND_IN_LOCAL_CONSOLE"), object: nil, queue: .main) { notify in
             guard let info = notify.userInfo?["info"] as? [String: Any] else {
@@ -94,6 +183,8 @@ fileprivate var consoleCount = 0
 private struct ToolbarView: View {
     @EnvironmentObject var App: MainApp
     
+    var onPipPlay: (()->Void)
+    
     var body: some View {
         HStack(spacing: 12) {
             Button(
@@ -110,6 +201,19 @@ private struct ToolbarView: View {
             )
             .contentShape(Rectangle())
             .keyboardShortcut("c", modifiers: [.control])
+            
+            if AVPictureInPictureController.isPictureInPictureSupported() {
+                Button(
+                    action: {
+                        onPipPlay()
+                    },
+                    label: {
+                        Image(systemName: "pip").frame(width: 25, height: 20)
+                    }
+                )
+                .contentShape(Rectangle())
+                .keyboardShortcut("c", modifiers: [.control])
+            }
             
             Menu {
                 
@@ -171,3 +275,5 @@ private struct ConsoleWidget: View {
         }
     }
 }
+
+

@@ -3,6 +3,7 @@ import SwiftUI
 import SafariServices
 import ios_system
 import pydeCommon
+import AVFAudio
 
 private let EXTENSION_ID = "VCInTabExtension"
 
@@ -132,10 +133,14 @@ struct VCInTab: UIViewControllerRepresentable {
                 }
             }
         }
+        
+        
+        
+        
     }
 }
 
-class VCInTabEditorInstance: EditorInstance {
+class VCInTabEditorInstance: EditorInstance, PictureInPictureDelegate {
 
     let url: URL
     let vc: UIViewController
@@ -160,14 +165,97 @@ class VCInTabEditorInstance: EditorInstance {
         kvoToken = nil
         super.dispose()
     }
+    
+    private var isPipPlaying = false
+    
+    var pipTimer: Timer?
+    
+    func didEnterPictureInPicture() {
+        isPipPlaying = true
+        
+        pipTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+            self.vc.view.updatePictureInPictureSnapshot()
+        })
+    }
+    
+    func didExitPictureInPicture() {
+        isPipPlaying = false
+        pipTimer?.invalidate()
+        pipTimer = nil
+        do {
+            try AVAudioSession.sharedInstance().setActive(false, options: [])
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func didFailToEnterPictureInPicture(error: any Error) {
+        print(error.localizedDescription)
+    }
+    
+    func didPause() {
+        isPipPlaying = false
+    }
+    
+    func didResume() {
+        isPipPlaying = true
+    }
+    
+    var isPlaying: Bool {
+        return isPipPlaying
+    }
 }
 
 class VCInTabExtension: CodeAppExtension {
     
     static var _showCount = 0
     
+    private func handlePipPlay(app: MainApp) {
+        guard let editor = app.activeEditor as? VCInTabEditorInstance else {
+            return
+        }
+        editor.vc.view.pictureInPictureDelegate = editor
+        if editor.vc.view.pictureInPictureController?.isPictureInPictureActive == false {
+            
+            // Start an audio session and PIP
+            editor.vc.view.updatePictureInPictureSnapshot()
+            
+            do {
+                try AVAudioSession.sharedInstance().setCategory(.playback, options: .mixWithOthers)
+                try AVAudioSession.sharedInstance().setActive(true, options: [])
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.2) {
+                editor.vc.view.pictureInPictureController?.startPictureInPicture()
+            }
+            
+        } else {
+            
+            // Stop PIP
+            editor.pipTimer?.invalidate()
+            editor.pipTimer = nil
+            
+            editor.vc.view.pictureInPictureController?.stopPictureInPicture()
+        }
+    }
+    
 
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
+        
+        let toolbarItem = ToolbarItem(
+            extenionID: EXTENSION_ID,
+            icon: "pip",
+            onClick: {self.handlePipPlay(app: app)},
+            shortCut: nil,
+            panelToFocusOnTap: nil,
+            shouldDisplay: {
+                guard let editor = app.activeEditor as? VCInTabEditorInstance else { return false }
+                return true
+            }
+        )
+        contribution.toolBar.registerItem(item: toolbarItem)
         
         NotificationCenter.default.addObserver(forName: .init("UI_SHOW_VC_IN_TAB"), object: nil, queue: nil) { notify in
             let sceneIdentifier = notify.userInfo?["sceneIdentifier"] as? String

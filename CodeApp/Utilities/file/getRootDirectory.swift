@@ -8,7 +8,7 @@
 import Foundation
 
 func getRootDirectory() -> URL {
-    #if targetEnvironment(simulator)
+    #if targetEnvironment(simulator) || targetEnvironment(macCatalyst)
         return URL(fileURLWithPath: "/Volumes/Python/pydoc")
     #endif
     // We want ./private prefix because all other files have it

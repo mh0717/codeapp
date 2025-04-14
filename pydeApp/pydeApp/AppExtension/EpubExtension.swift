@@ -101,8 +101,8 @@ class EpubEditorInstance: EditorInstanceWithURL {
         coordinator = WebCoordinator(url: url)
         super.init(view: AnyView(PoliateView(webView: wbview).id(UUID())), title: title, url: url)
         
-        let hurl = ConstantManager.FOLIATE.appendingPathComponent("reader.html")
-        let aurl = ConstantManager.FOLIATE
+        let hurl = ConstantManager.foliatejs.appendingPathComponent("reader.html")
+        let aurl = ConstantManager.foliatejs
         wbview.loadFileURL(hurl, allowingReadAccessTo: aurl)
         
         wbview.navigationDelegate = coordinator

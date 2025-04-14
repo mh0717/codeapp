@@ -102,6 +102,7 @@ struct MainScene: View {
             #if PYDEAPP
                 .environmentObject(App.popupManager)
                 .environmentObject(App.extensionManager.activityBarManager)
+                .environmentObject(SubIapManager.instance)
                 .environment(\.sceneid, App.sceneIdentifier.uuidString)
             #endif
             .onAppear {
@@ -165,7 +166,7 @@ private struct MainView: View {
 
     #if PYDEAPP
         @EnvironmentObject var popupManager: PopupManager
-        @EnvironmentObject var iapManager: IapManager
+        //        @EnvironmentObject var iapManager: IapManager
         @EnvironmentObject var subIapManager: SubIapManager
         @SceneStorage("isLeftDrawerShowing") var isLeftDrawerShowing: Bool = false
 
@@ -422,6 +423,7 @@ private struct MainView: View {
             #if PYTHON3IDE
                 .fullScreenCover(isPresented: $subIapManager.showIap) {
                     SubIAPView()
+                    .environmentObject(subIapManager)
                 }
             #else
                 .fullScreenCover(isPresented: $iapManager.showIap) {

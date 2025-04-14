@@ -7,14 +7,78 @@
 
 import Combine
 import CoreSpotlight
-import FileProvider
 import SwiftGit2
 import SwiftUI
 import ios_system
 
+#if targetEnvironment(macCatalyst)
+#else
+    //    import FileProvider
+#endif
+
 #if PYDEAPP
     import pydeCommon
 #endif
+
+#if targetEnvironment(macCatalyst)
+    @available(macCatalyst 13.0, *)
+    struct NSFileProviderError: Error {
+        enum ErrorCode: Int, Equatable {
+            case notAuthenticated = -1000
+            case serverUnreachable = -1001
+            case noSuchItem = -1002
+            // 添加其他原始错误码...
+        }
+
+        let errorCode: ErrorCode
+        let userInfo: [String: Any]
+
+        // 实现模式匹配支持
+        static func ~= (lhs: Self, rhs: Error) -> Bool {
+            guard let selfError = rhs as? Self else { return false }
+            return selfError == lhs
+        }
+
+        // 原生构造器
+        init(_ code: ErrorCode, userInfo: [String: Any] = [:]) {
+            self.errorCode = code
+            self.userInfo = userInfo
+        }
+
+        // 静态构造器
+        static var notAuthenticated: NSFileProviderError {
+            .init(.notAuthenticated)
+        }
+
+        static var serverUnreachable: NSFileProviderError {
+            .init(.serverUnreachable)
+        }
+
+        static var noSuchItem: NSFileProviderError {
+            .init(.noSuchItem)
+        }
+    }
+
+    // 实现关键协议
+    extension NSFileProviderError: Equatable {
+        static func == (lhs: Self, rhs: Self) -> Bool {
+            lhs.errorCode == rhs.errorCode
+        }
+    }
+
+#else
+    import FileProvider
+#endif
+
+//// 统一使用接口
+//@available(macCatalyst 13.0, iOS 11.0, *)
+//func handleError() -> Error {
+//    #if targetEnvironment(macCatalyst)
+//    return NSFileProviderError.notAuthenticated
+//    #else
+//    return NSFileProviderError(.notAuthenticated)
+//    #endif
+//}
 
 struct CheckoutDestination: Identifiable {
     var id = UUID()
@@ -223,9 +287,16 @@ class MainApp: ObservableObject {
         #if PYDEAPP
             pyapp.App = self
             pyappCancellable = pyapp.objectWillChange.sink { [weak self] (_) in
-                DispatchQueue.main.async {
+                //                DispatchQueue.main.async {
+                if Thread.isMainThread {
                     self?.objectWillChange.send()
+                } else {
+                    DispatchQueue.main.async {
+                        self?.objectWillChange.send()
+                    }
                 }
+
+                //                }
             }
 
             Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] timer in

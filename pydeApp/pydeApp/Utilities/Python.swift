@@ -9,7 +9,7 @@ import Foundation
 import pydeCommon
 import CCommon
 import ios_system
-import UIKit
+//import UIKit
 
 //@_cdecl("python3Main")
 //public func python3Main(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
@@ -295,10 +295,8 @@ public func initPyDE() {
     #else
     DispatchQueue.main.async {
         wasmWebView.loadFileURL(
-            ConstantManager.WASM.appendingPathComponent("wasm.html"),
+            ConstantManager.clanglib.appendingPathComponent("wasm.html"),
             allowingReadAccessTo: ConstantManager.WASM)
-        
-//            wasmWebView.load(URLRequest(url: URL(string: "http://localhost/wasm-worker.html")!))
     }
     #endif
     
@@ -328,7 +326,7 @@ public func initRemotePython3Sub() {
     #else
     DispatchQueue.main.async {
         wasmWebView.loadFileURL(
-            ConstantManager.REMOTE_WASM.appendingPathComponent("wasm.html"),
+            ConstantManager.clanglib.appendingPathComponent("wasm.html"),
             allowingReadAccessTo: ConstantManager.WASM)
     }
     #endif
@@ -357,8 +355,8 @@ public func initPydeUI() {
 //    initDEMainIntp()
 //    replaceCommand("python3", "python3MainInMainThread", false)
     
-    replaceCommand("python3", "python3SubProcessInMain", false)
-    replaceCommand("python", "python3SubProcessInMain", false)
+//    replaceCommand("python3", "python3SubProcessInMain", false)
+//    replaceCommand("python", "python3SubProcessInMain", false)
     replaceCommand("wish", "wish_inmain", false)
 }
 
