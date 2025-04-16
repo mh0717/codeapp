@@ -28,6 +28,44 @@ class TagsModelManager: ObservableObject {
         
         weak var currentEditor: TextEditorInstance?
         
+//        app.$activeEditor
+//            .handleEvents(receiveOutput: {[weak self] editor in
+//                guard let self else {return}
+//                currentEditor = editor as? TextEditorInstance
+//                self.expansionStates = [:]
+//                self.tags = currentEditor?.tags ?? []
+//                
+//                if let editor = editor as? TextEditorInstance, TAGS_VALID_EXT.contains(editor.url.pathExtension.lowercased()),  editor.tags.isEmpty {
+//                    Task {
+//                        if let tags = await requestCTagsService(editor.url.path, content: editor.content) {
+//                            DispatchQueue.main.async { [weak editor] in
+//                                editor?.tags = tags
+//                            }
+//                        }
+//                    }
+//                }
+//            })
+//            .filter({$0 is TextEditorInstance})
+//            .map({$0 as! TextEditorInstance})
+//            .flatMap({($0.$content)})
+//            .removeDuplicates()
+//            .flatMap({content in
+//                Future<[CTag], Never> {
+//                    if let currentEditor, TAGS_VALID_EXT.contains(currentEditor.url.pathExtension.lowercased()) {
+//                        return await requestCTagsService(currentEditor.url.path, content: currentEditor.content) ?? []
+//                    } else {
+//                        return [CTag]()
+//                    }
+//                }
+//                
+//            })
+//            .receive(on: RunLoop.main)
+//            .handleEvents(receiveOutput: {tags in
+//                currentEditor?.tags = tags
+//            })
+//            .assign(to: \.tags, on: self)
+//            .store(in: &cancellables)
+        
         app.$activeEditor
             .handleEvents(receiveOutput: {[weak self] editor in
                 guard let self else {return}
@@ -35,34 +73,36 @@ class TagsModelManager: ObservableObject {
                 self.expansionStates = [:]
                 self.tags = currentEditor?.tags ?? []
                 
-                if let currentEditor, TAGS_VALID_EXT.contains(currentEditor.url.pathExtension.lowercased()),  currentEditor.tags.isEmpty {
+                if let editor = editor as? TextEditorInstance, TAGS_VALID_EXT.contains(editor.url.pathExtension.lowercased()),  editor.tags.isEmpty {
                     Task {
-                        if let tags = await requestCTagsService(currentEditor.url.path, content: currentEditor.content) {
-                            DispatchQueue.main.async { [weak currentEditor] in
-                                currentEditor?.tags = tags
+                        if let tags = await requestCTagsService(editor.url.path, content: editor.content) {
+                            DispatchQueue.main.async { [weak editor] in
+                                editor?.tags = tags
+                                if editor == app.activeEditor {
+                                    self.tags = tags
+                                }
                             }
                         }
                     }
                 }
             })
-            .filter({$0 is TextEditorInstance})
-            .map({$0 as! TextEditorInstance})
-            .flatMap({$0.$content})
-            .removeDuplicates()
-            .flatMap({content in
-                Future<[CTag], Never> {
-                    if let currentEditor, TAGS_VALID_EXT.contains(currentEditor.url.pathExtension.lowercased()) {
-                        return await requestCTagsService(currentEditor.url.path, content: currentEditor.content) ?? []
-                    } else {
-                        return [CTag]()
+            .compactMap { $0 as? TextEditorInstance }
+            .flatMap { instance in
+                instance.$content
+                    .map { _ in instance }
+            }
+            .debounce(for: .seconds(10), scheduler: DispatchQueue.main)
+            .flatMap { editor in
+                Task {
+                    if let tags = await requestCTagsService(editor.url.path, content: editor.content) {
+                        DispatchQueue.main.async { [weak editor] in
+                            editor?.tags = tags
+                        }
                     }
                 }
-                
-            })
+                return editor.$tags
+            }
             .receive(on: RunLoop.main)
-            .handleEvents(receiveOutput: {tags in
-                currentEditor?.tags = tags
-            })
             .assign(to: \.tags, on: self)
             .store(in: &cancellables)
 

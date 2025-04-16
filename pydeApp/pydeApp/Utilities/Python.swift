@@ -300,6 +300,14 @@ public func initPyDE() {
     }
     #endif
     
+    #if PYTHON3IDE
+    replaceCommand("ctagswasm", "ctagswasm", false)
+    DispatchQueue.main.async {
+        ctagsWebView.loadFileURL(
+            ConstantManager.clanglib.appendingPathComponent("wasm.html"),
+            allowingReadAccessTo: ConstantManager.WASM)
+    }
+    #endif
    
 }
 

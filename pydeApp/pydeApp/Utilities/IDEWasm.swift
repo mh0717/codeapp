@@ -17,6 +17,7 @@ import ios_system
 import pydeCommon
 
 private var wasmLoaded = false
+private var ctagsLoaded = false
 
 @_cdecl("idewasm")
 public func idewasm(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
@@ -24,7 +25,16 @@ public func idewasm(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer
         usleep(1000 * 30)
     }
     let args = convertCArguments(argc: argc, argv: argv)
-    return executeWebAssembly(arguments: args)
+    return executeWebAssembly(arguments: args, webview: wasmWebView)
+}
+
+@_cdecl("ctagswasm")
+public func ctagswasm(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>?) -> Int32 {
+    while !ctagsLoaded {
+        usleep(1000 * 30)
+    }
+    let args = convertCArguments(argc: argc, argv: argv)
+    return executeWebAssembly(arguments: args, webview: ctagsWebView)
 }
 
 class wasmWebViewDelegate: NSObject, WKNavigationDelegate, WKScriptMessageHandler, WKUIDelegate {
@@ -45,7 +55,13 @@ class wasmWebViewDelegate: NSObject, WKNavigationDelegate, WKScriptMessageHandle
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        wasmLoaded = true
+        if webView == wasmWebView {
+            wasmLoaded = true
+        }
+        
+        if webView == ctagsWebView {
+            ctagsLoaded = true
+        }
     }
 
     func userContentController(
@@ -93,16 +109,33 @@ class wasmWebViewDelegate: NSObject, WKNavigationDelegate, WKScriptMessageHandle
             ios_setContext(UnsafeMutableRawPointer(mutating: "wasm".toCString()))
             if arguments[1] == "open" {
                 let rights = Int32(arguments[3]) ?? 577
-                if !FileManager().fileExists(atPath: arguments[2]) && (rights > 0) {
+                var path = arguments[2]
+//                if "/\(path)".hasPrefix(ConstantManager.appGroupContainer.path) {
+//                    path = "/" + path
+//                }
+                if !FileManager().fileExists(atPath: path) && (rights > 0) {
                     // The file doesn't exist *and* we will want to write into it. First, we create it:
-                    let fileUrl = URL(fileURLWithPath: arguments[2])
+                    let fileUrl = URL(fileURLWithPath: path)
                     do {
                         try "".write(to: fileUrl, atomically: true, encoding: .utf8)
                     } catch {
-                        // We will raise an error with open later.
+                        // We will raise an error with open later
                     }
                 }
-                let returnValue = open(arguments[2], rights)
+                var returnValue = open(path, rights)
+                if returnValue == -1 {
+                    path = "/" + path
+                    if !FileManager().fileExists(atPath: path) && (rights > 0) {
+                        // The file doesn't exist *and* we will want to write into it. First, we create it:
+                        let fileUrl = URL(fileURLWithPath: path)
+                        do {
+                            try "".write(to: fileUrl, atomically: true, encoding: .utf8)
+                        } catch {
+                            // We will raise an error with open later
+                        }
+                    }
+                    returnValue = open(path, rights)
+                }
                 if returnValue == -1 {
                     completionHandler("\(-errno)")
                     errno = 0
@@ -546,6 +579,8 @@ class WasmWebView: WKWebView {
 
 var wasmWebView = WasmWebView()
 
+var ctagsWebView = WasmWebView()
+
 var javascriptRunning = false  // We can't execute JS while we are already executing JS.
 
 // copies of thread_std*, used when inside a sub-thread, for example executing webAssembly
@@ -555,7 +590,7 @@ private var thread_stderr_copy: UnsafeMutablePointer<FILE>? = nil
 private var stdout_active = false
 var stdinString: String = ""
 
-private func executeWebAssembly(arguments: [String]?) -> Int32 {
+private func executeWebAssembly(arguments: [String]?, webview: WasmWebView) -> Int32 {
     guard arguments != nil else { return -1 }
     guard arguments!.count >= 2 else { return -1 }  // There must be at least one command
     // copy arguments:
@@ -616,7 +651,7 @@ private func executeWebAssembly(arguments: [String]?) -> Int32 {
     thread_stdout_copy = thread_stdout
     thread_stderr_copy = thread_stderr
     DispatchQueue.main.async {
-        wasmWebView.callAsyncJavaScript(javascript, arguments: [:], in: nil, in: .page) {
+        webview.callAsyncJavaScript(javascript, arguments: [:], in: nil, in: .page) {
             result in
             let result = try? result.get()
 
