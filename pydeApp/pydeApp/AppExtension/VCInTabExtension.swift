@@ -244,18 +244,18 @@ class VCInTabExtension: CodeAppExtension {
 
     override func onInitialize(app: MainApp, contribution: CodeAppExtension.Contribution) {
         
-        let toolbarItem = ToolbarItem(
-            extenionID: EXTENSION_ID,
-            icon: "pip",
-            onClick: {self.handlePipPlay(app: app)},
-            shortCut: nil,
-            panelToFocusOnTap: nil,
-            shouldDisplay: {
-                guard let editor = app.activeEditor as? VCInTabEditorInstance else { return false }
-                return true
-            }
-        )
-        contribution.toolBar.registerItem(item: toolbarItem)
+//        let toolbarItem = ToolbarItem(
+//            extenionID: EXTENSION_ID,
+//            icon: "pip",
+//            onClick: {self.handlePipPlay(app: app)},
+//            shortCut: nil,
+//            panelToFocusOnTap: nil,
+//            shouldDisplay: {
+//                guard let editor = app.activeEditor as? VCInTabEditorInstance else { return false }
+//                return true
+//            }
+//        )
+//        contribution.toolBar.registerItem(item: toolbarItem)
         
         NotificationCenter.default.addObserver(forName: .init("UI_SHOW_VC_IN_TAB"), object: nil, queue: nil) { notify in
             let sceneIdentifier = notify.userInfo?["sceneIdentifier"] as? String

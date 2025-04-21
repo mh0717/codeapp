@@ -363,8 +363,8 @@ public func initPydeUI() {
 //    initDEMainIntp()
 //    replaceCommand("python3", "python3MainInMainThread", false)
     
-//    replaceCommand("python3", "python3SubProcessInMain", false)
-//    replaceCommand("python", "python3SubProcessInMain", false)
+    replaceCommand("python3", "python3SubProcessInMain", false)
+    replaceCommand("python", "python3SubProcessInMain", false)
     replaceCommand("wish", "wish_inmain", false)
 }
 
@@ -537,3 +537,304 @@ public func python3_exec(argc: Int32, argv: UnsafeMutablePointer<UnsafeMutablePo
 //        }))
 //    }
 //}
+
+
+
+//import Foundation
+//import UIKit
+//
+//final class SharedMemoryManager {
+//    private(set) var mappedPtr: UnsafeMutableRawPointer!
+//    private var fileHandle: FileHandle!
+//    fileprivate let bufferSize: Int
+//    private let bufferCount: Int
+//    
+//    init(bufferSize: Int, bufferCount: Int = 3) {
+//        self.bufferSize = bufferSize
+//        self.bufferCount = bufferCount
+//        setupSharedMemory()
+//    }
+//    
+//    private func setupSharedMemory() {
+//        let fileURL = FileManager.default
+//            .containerURL(forSecurityApplicationGroupIdentifier: "group.com.example.app")!
+//            .appendingPathComponent("shared_buffer")
+//        
+//        // 创建或打开共享文件
+//        if !FileManager.default.fileExists(atPath: fileURL.path) {
+//            FileManager.default.createFile(atPath: fileURL.path, contents: nil)
+//        }
+//        
+//        // 计算总内存大小（帧头 + 三重缓冲）
+//        let totalSize = MemoryLayout<Int>.size * 2 + bufferSize * bufferCount
+//        let fd = open(fileURL.path, O_RDWR | O_CREAT, 0666)
+//        guard fd != -1 else {
+//            fatalError("Failed to open shared file")
+//        }
+//        
+//        // 调整文件大小
+//        ftruncate(fd, off_t(totalSize))
+//        
+//        // 内存映射
+//        mappedPtr = mmap(nil, totalSize, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0)
+//        guard mappedPtr != MAP_FAILED else {
+//            close(fd)
+//            fatalError("Memory mapping failed")
+//        }
+//        
+//        // 初始化帧头
+//        let versionPtr = mappedPtr.bindMemory(to: Int.self, capacity: 2)
+//        versionPtr[0] = 0  // 当前版本号
+//        versionPtr[1] = 0  // 当前写入索引
+//    }
+//    
+//    deinit {
+//        let totalSize = MemoryLayout<Int>.size * 2 + bufferSize * bufferCount
+//        munmap(mappedPtr, totalSize)
+//        close(fileHandle?.fileDescriptor ?? -1)
+//    }
+//}
+//
+//
+//class RenderProcess {
+//    private let manager: SharedMemoryManager
+//    private let semaphore = DispatchSemaphore(value: 1)
+//    private let bufferSize: Int
+//    
+//    init(bufferSize: Int) {
+//        self.bufferSize = bufferSize
+//        self.manager = SharedMemoryManager(bufferSize: bufferSize)
+//    }
+//    
+//    func render(image: UIImage) {
+//        guard let cgImage = image.cgImage,
+//              let data = image.pngData() else { return }
+//        
+//        semaphore.wait()
+//        defer { semaphore.signal() }
+//        
+//        // 获取当前写入索引
+//        let header = manager.mappedPtr.bindMemory(to: Int.self, capacity: 2)
+//        let writeIndex = (header[1] + 1) % 3
+//        header[1] = writeIndex
+//        
+//        // 写入数据
+//        let bufferPtr = manager.mappedPtr
+//            .advanced(by: MemoryLayout<Int>.size * 2)
+//            .advanced(by: bufferSize * writeIndex)
+//        
+//        data.withUnsafeBytes { bytes in
+//            memcpy(bufferPtr, bytes.baseAddress!, min(data.count, bufferSize))
+//        }
+//        
+//        // 更新版本号
+//        header[0] += 1
+//    }
+//}
+//
+//
+//
+//class DisplayController {
+//    private let manager: SharedMemoryManager
+//    private var lastVersion = 0
+//    private var displayLink: CADisplayLink!
+//    private weak var displayLayer: CALayer!
+//    
+//    init(layer: CALayer, bufferSize: Int) {
+//        self.manager = SharedMemoryManager(bufferSize: bufferSize)
+//        self.displayLayer = layer
+//        setupDisplayLink()
+//    }
+//    
+//    private func setupDisplayLink() {
+//        displayLink = CADisplayLink(target: self, selector: #selector(updateFrame))
+//        displayLink.preferredFramesPerSecond = UIScreen.main.maximumFramesPerSecond
+//        displayLink.add(to: .main, forMode: .common)
+//    }
+//    
+//    @objc private func updateFrame() {
+//        let header = manager.mappedPtr.bindMemory(to: Int.self, capacity: 2)
+//        guard header[0] > lastVersion else { return }
+//        
+//        // 获取最新数据索引
+//        let readIndex = (header[1] + 3 - 1) % 3  // 总比写入索引慢一帧
+//        
+//        let bufferPtr = manager.mappedPtr
+//            .advanced(by: MemoryLayout<Int>.size * 2)
+//            .advanced(by: manager.bufferSize * readIndex)
+//        
+//        let data = Data(bytes: bufferPtr, count: manager.bufferSize)
+//        guard let image = UIImage(data: data) else { return }
+//        
+//        // 更新图层
+//        CATransaction.begin()
+//        CATransaction.setDisableActions(true)
+//        displayLayer.contents = image.cgImage
+//        CATransaction.commit()
+//        
+//        lastVersion = header[0]
+//    }
+//}
+//
+////
+////// 在渲染进程使用
+////let renderer = RenderProcess(bufferSize: 1920 * 1080 * 4)
+////let image = UIImage(named: "frame")!
+////renderer.render(image: image)
+////
+////// 在主进程显示
+////let displayLayer = CALayer()
+////displayLayer.frame = UIScreen.main.bounds
+////view.layer.addSublayer(displayLayer)
+////
+////let displayController = DisplayController(layer: displayLayer, bufferSize: 1920 * 1080 * 4)
+
+
+
+
+
+import Foundation
+import CoreGraphics
+
+final class PixelBufferManager {
+    static let bytesPerPixel = 4 // BGRA格式
+    let width: Int
+    let height: Int
+    
+    fileprivate var mappedPtr: UnsafeMutableRawPointer!
+    fileprivate let bufferSize: Int
+    
+    init(width: Int, height: Int) {
+        self.width = width
+        self.height = height
+        self.bufferSize = width * height * Self.bytesPerPixel
+        setupSharedMemory()
+    }
+    
+    private func setupSharedMemory() {
+        let fileURL = FileManager.default
+            .containerURL(forSecurityApplicationGroupIdentifier: "group.com.example.app")!
+            .appendingPathComponent("pixel_buffer")
+        
+        // 创建内存映射文件
+        let fd = open(fileURL.path, O_RDWR | O_CREAT, 0666)
+        ftruncate(fd, off_t(bufferSize))
+        
+        mappedPtr = mmap(nil, bufferSize, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0)
+        guard mappedPtr != MAP_FAILED else {
+            close(fd)
+            fatalError("Memory mapping failed")
+        }
+        
+        // 初始化内存为黑色
+        memset(mappedPtr, 0, bufferSize)
+    }
+    
+    func writePixelData(_ data: UnsafeRawPointer) {
+        memcpy(mappedPtr, data, bufferSize)
+        msync(mappedPtr, bufferSize, MS_SYNC)
+    }
+    
+    func readPixelData() -> UnsafeRawPointer {
+        return UnsafeRawPointer(mappedPtr)
+    }
+    
+    deinit {
+        munmap(mappedPtr, bufferSize)
+    }
+}
+
+
+
+class FrameRenderer {
+    private let bufferManager: PixelBufferManager
+    private let colorSpace = CGColorSpaceCreateDeviceRGB()
+    
+    init(width: Int, height: Int) {
+        self.bufferManager = PixelBufferManager(width: width, height: height)
+    }
+    
+    func render(image: UIImage) {
+        // 转换为BGRA格式
+        guard let cgImage = image.cgImage else { return }
+        
+        let bitmapInfo = CGBitmapInfo(
+            rawValue: CGBitmapInfo.byteOrder32Little.rawValue |
+            CGImageAlphaInfo.premultipliedFirst.rawValue
+        )
+        
+        // 创建目标上下文
+        guard let context = CGContext(
+            data: bufferManager.mappedPtr,
+            width: bufferManager.width,
+            height: bufferManager.height,
+            bitsPerComponent: 8,
+            bytesPerRow: bufferManager.width * PixelBufferManager.bytesPerPixel,
+            space: colorSpace,
+            bitmapInfo: bitmapInfo.rawValue
+        ) else { return }
+        
+        // 绘制图像并直接写入共享内存
+        context.draw(cgImage, in: CGRect(origin: .zero, size: CGSize(width: bufferManager.width, height: bufferManager.height)))
+        
+        // 强制同步内存
+        bufferManager.writePixelData(context.data!)
+    }
+}
+
+
+class DisplayController {
+    private let bufferManager: PixelBufferManager
+    private let displayLayer: CALayer
+    private var displayLink: CADisplayLink!
+    private let context = CIContext()
+    
+    init(layer: CALayer, width: Int, height: Int) {
+        self.displayLayer = layer
+        self.bufferManager = PixelBufferManager(width: width, height: height)
+        setupDisplayLink()
+    }
+    
+    private func setupDisplayLink() {
+        displayLink = CADisplayLink(target: self, selector: #selector(updateFrame))
+        displayLink.preferredFrameRateRange = CAFrameRateRange(minimum: 60, maximum: 120, preferred: 120)
+        displayLink.add(to: .main, forMode: .common)
+    }
+    
+    @objc private func updateFrame() {
+        // 直接从共享内存创建CIImage
+        let pixelData = bufferManager.readPixelData()
+        let bitmapInfo = CGBitmapInfo(
+            rawValue: CGBitmapInfo.byteOrder32Little.rawValue |
+            CGImageAlphaInfo.premultipliedFirst.rawValue
+        )
+        
+        let ciImage = CIImage(
+            bitmapData: Data(bytes: pixelData, count: bufferManager.bufferSize),
+            bytesPerRow: bufferManager.width * PixelBufferManager.bytesPerPixel,
+            size: CGSize(width: bufferManager.width, height: bufferManager.height),
+            format: .BGRA8,
+            colorSpace: CGColorSpaceCreateDeviceRGB()
+        )
+        
+        // 转换为CGImage
+        guard let cgImage = context.createCGImage(ciImage, from: ciImage.extent) else { return }
+        
+        // 更新图层（线程安全）
+        DispatchQueue.main.async { [weak self] in
+            self?.displayLayer.contents = cgImage
+        }
+    }
+}
+
+
+//// 初始化渲染器（渲染进程）
+//let renderer = FrameRenderer(width: 1920, height: 1080)
+//renderer.render(image: UIImage(named: "frame")!)
+//
+//// 初始化显示控制器（主进程）
+//let displayLayer = CALayer()
+//displayLayer.frame = UIScreen.main.bounds
+//view.layer.addSublayer(displayLayer)
+//
+//let displayCtrl = DisplayController(layer: displayLayer, width: 1920, height: 1080)

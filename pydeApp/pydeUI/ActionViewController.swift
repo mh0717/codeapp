@@ -283,7 +283,7 @@ class ActionViewController: UITabBarController {
             real_exit(vlaue: 0)
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
             real_exit(vlaue: 0)
         }
         

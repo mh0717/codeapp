@@ -8,6 +8,7 @@
 import GameController
 import SwiftUI
 import WebKit
+import pydeCommon
 
 struct MonacoEditor: UIViewRepresentable {
 

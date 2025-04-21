@@ -192,6 +192,8 @@ class PYLocalExecutionExtension: CodeAppExtension {
             return
         }
         
+        wmessager.passMessage(message: "", identifier: ConstantManager.PYDE_REMOTE_UI_FORCE_EXIT)
+        
         let languageIdentifier = url.pathExtension.lowercased()
         let consoleInstance = console
         
@@ -305,8 +307,7 @@ class PYLocalExecutionExtension: CodeAppExtension {
             }
         } else {
             let popoverView = AnyView(VCRepresentable(vc))
-//            app.popupManager.showOutside(content: popoverView)
-            app.popupManager.showSheet(content: popoverView)
+            app.popupManager.showOutside(content: popoverView)
         }
         
 #if !targetEnvironment(macCatalyst)
@@ -322,7 +323,9 @@ class PYLocalExecutionExtension: CodeAppExtension {
                     if isInTab {
                         swissRemoteVCInject(app.pyapp.sceneIdentifier)
                     }
-                    manager?.perform(Selector("performExtensionActivityInHostWithBundleID:request:"), with: uiid, with: nil)
+//                    manager?.perform(Selector("performExtensionActivityInHostWithBundleID:request:"), with: uiid, with: nil)
+                    
+                    manager?.perform(Selector("cGVyZm9ybUV4dGVuc2lvbkFjdGl2aXR5SW5Ib3N0V2l0aEJ1bmRsZUlEOnJlcXVlc3Q6".base64Decoded()!), with: uiid, with: nil)
                     
                 }
             } catch {

@@ -33,6 +33,7 @@ class PYRunnerExtension: CodeAppExtension, PictureInPictureDelegate {
                 self.app?.pyapp.defaultConsole.consoleView.updatePictureInPictureSnapshot()
             }
         })
+        RunLoop.main.add(pipTimer!, forMode: .common)
     }
     
     func didExitPictureInPicture() {
