@@ -404,6 +404,34 @@ struct PYNewFileView: View {
                     execute_from_command_line(sys.argv + ['runserver', '8080', '--noreload'])
                 
                 """
+        case 15:
+            name = "example_notebook.ipynb"
+            content = """
+            {
+             "cells": [
+              {
+               "cell_type": "code",
+               "execution_count": null,
+               "metadata": {},
+               "outputs": [],
+               "source": []
+              }
+             ],
+             "metadata": {
+              "kernelspec": {
+               "display_name": "Python 3",
+               "language": "python",
+               "name": "python3"
+              },
+              "language_info": {
+               "name": "python",
+               "version": "3.x"
+              }
+             },
+             "nbformat": 4,
+             "nbformat_minor": 2
+            }
+            """
         case 20:
             name = "example.c"
             content = """
@@ -619,6 +647,7 @@ struct PYNewFileView: View {
 
     let languageMappingPython: [LanguageTemplateMapping] = [
         .init(code: 0, name: "Python"),
+        .init(code: 15, name: "Notebook"),
         .init(code: 1, name: "Tkinter"),
         .init(code: 2, name: "SDL2"),
         .init(code: 3, name: "PyGame"),
@@ -652,35 +681,33 @@ struct PYNewFileView: View {
             NavigationView {
                 Form {
                     Section(header: Text(NSLocalizedString("Templates", comment: ""))) {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(languageMappingPython, id: \.code) { language in
-                                    Text(language.name)
-                                        .onTapGesture {
-                                            Task {
-                                                try await createNewFile(lang: language.code)
-                                            }
+                        FlowLayout(itemSpacing: 10, lineSpacing: 20) {
+                            ForEach(languageMappingPython, id: \.code) { language in
+                                Text(language.name)
+                                    .onTapGesture {
+                                        Task {
+                                            try await createNewFile(lang: language.code)
                                         }
-                                        .padding()
-                                        .background(Color.init("B3_A"))
-                                        .cornerRadius(12)
-                                }
+                                    }
+                                    .padding()
+                                    .background(Color.init("B3_A"))
+                                    .cornerRadius(12)
                             }
                         }
                         
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-                                ForEach(languageMapping, id: \.code) { language in
-                                    Text(language.name)
-                                        .onTapGesture {
-                                            Task {
-                                                try await createNewFile(lang: language.code)
-                                            }
+                        Spacer(minLength: 15)
+                        
+                        FlowLayout(itemSpacing: 10, lineSpacing: 20) {
+                            ForEach(languageMapping, id: \.code) { language in
+                                Text(language.name)
+                                    .onTapGesture {
+                                        Task {
+                                            try await createNewFile(lang: language.code)
                                         }
-                                        .padding()
-                                        .background(Color.init("B3_A"))
-                                        .cornerRadius(12)
-                                }
+                                    }
+                                    .padding()
+                                    .background(Color.init("B3_A"))
+                                    .cornerRadius(12)
                             }
                         }
                     }.listRowSeparator(.hidden)
@@ -737,3 +764,108 @@ struct PYNewFileView: View {
     }
 }
 
+
+
+import SwiftUI
+
+// MARK: - 自定义流式布局
+struct FlowLayout: Layout {
+    // 定义元素间距和行间距
+    var itemSpacing: CGFloat = 4
+    var lineSpacing: CGFloat = 8
+
+    // 计算布局总大小
+    func sizeThatFits(
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout Void
+    ) -> CGSize {
+        guard !subviews.isEmpty else { return .zero }
+        
+        let containerWidth = proposal.width ?? .infinity
+        var totalHeight: CGFloat = 0
+        var currentLineWidth: CGFloat = 0
+        var currentLineHeight: CGFloat = 0
+        
+        for view in subviews {
+            // 获取子视图的理想尺寸
+            let size = view.sizeThatFits(.unspecified)
+            
+            // 判断是否需要换行
+            if currentLineWidth + size.width > containerWidth {
+                // 换行逻辑
+                totalHeight += currentLineHeight + lineSpacing
+                currentLineWidth = size.width
+                currentLineHeight = size.height
+            } else {
+                // 不换行，累加宽度
+                currentLineWidth += size.width + itemSpacing
+                currentLineHeight = max(currentLineHeight, size.height)
+            }
+        }
+        
+        // 添加最后一行的高度
+        totalHeight += currentLineHeight
+        
+        return CGSize(
+            width: containerWidth,
+            height: totalHeight
+        )
+    }
+
+    // 放置子视图
+    func placeSubviews(
+        in bounds: CGRect,
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout Void
+    ) {
+        var currentX = bounds.minX
+        var currentY = bounds.minY
+        var currentLineHeight: CGFloat = 0
+        
+        for view in subviews {
+            // 获取子视图的理想尺寸
+            let size = view.sizeThatFits(.unspecified)
+            
+            // 换行逻辑
+            if currentX + size.width > bounds.maxX {
+                currentX = bounds.minX
+                currentY += currentLineHeight + lineSpacing
+                currentLineHeight = 0
+            }
+            
+            // 放置子视图
+            view.place(
+                at: CGPoint(x: currentX, y: currentY),
+                anchor: .topLeading,
+                proposal: .init(size)
+            )
+            
+            // 更新当前行位置
+            currentX += size.width + itemSpacing
+            currentLineHeight = max(currentLineHeight, size.height)
+        }
+    }
+}
+
+//// MARK: - 使用示例
+//struct FlowLayoutDemo: View {
+//    let tags = [
+//        "SwiftUI", "Layout", "自动折行", "Flow", "iOS 16+",
+//        "Apple", "Xcode", "WWDC23", "自定义布局", "Mobile"
+//    ]
+//    
+//    var body: some View {
+//        FlowLayout(itemSpacing: 8, lineSpacing: 12) {
+//            ForEach(tags, id: \.self) { tag in
+//                Text(tag)
+//                    .padding(8)
+//                    .background(.blue)
+//                    .foregroundColor(.white)
+//                    .cornerRadius(8)
+//            }
+//        }
+//        .padding()
+//    }
+//}
