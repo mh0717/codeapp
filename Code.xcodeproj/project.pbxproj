@@ -1035,7 +1035,6 @@
 		A321EF5B2DA6F15A00082634 /* Python.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D1C9A82B35D802001505C7 /* Python.swift */; };
 		A321EF5D2DA6F19200082634 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A321EF5C2DA6F19200082634 /* pydeCommon */; };
 		A321EF5E2DA6F19200082634 /* pydeCommon in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A321EF5C2DA6F19200082634 /* pydeCommon */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		A321EF5F2DA7053F00082634 /* ideUIPreviewA.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A30F6BCB2BE0E5BD007B7CDF /* ideUIPreviewA.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A321EF642DA70D3900082634 /* libssh2.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C893BB2793D17C00DFBF29 /* libssh2.xcframework */; };
 		A321EF652DA70D3900082634 /* libssh2.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94C893BB2793D17C00DFBF29 /* libssh2.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A321EF662DA70D4200082634 /* lg2.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F58738A2A78FE6D0001F374 /* lg2.xcframework */; };
@@ -1070,8 +1069,6 @@
 		A359CD1C2BD956AC00CD33CF /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A359CD1B2BD956AC00CD33CF /* DownloadManager.swift */; };
 		A359CD1E2BD9706800CD33CF /* DownloadContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A359CD1D2BD9706800CD33CF /* DownloadContainer.swift */; };
 		A359CD202BDAA95300CD33CF /* DownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A359CD1F2BDAA95300CD33CF /* DownloadButton.swift */; };
-		A35E2C542D873B0700BD8137 /* TortoiseGraphics in Frameworks */ = {isa = PBXBuildFile; productRef = A35E2C532D873B0700BD8137 /* TortoiseGraphics */; };
-		A35E2C552D873B0700BD8137 /* TortoiseGraphics in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A35E2C532D873B0700BD8137 /* TortoiseGraphics */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A36336D32AF226BA00085608 /* pyde in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; };
 		A36336D42AF226BA00085608 /* pyde in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A36336D22AF226BA00085608 /* pyde */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		A36336D62AF226BA00085608 /* pydeCommon in Frameworks */ = {isa = PBXBuildFile; productRef = A36336D52AF226BA00085608 /* pydeCommon */; };
@@ -1613,13 +1610,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = A321EF362DA6E06700082634;
 			remoteInfo = ideRemoteCata;
-		};
-		A321EF602DA7053F00082634 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 944EEBE82563C381009D77FE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A30F6BB62BE0E5BD007B7CDF;
-			remoteInfo = ideUIPreviewA;
 		};
 		A363370F2AF231D200085608 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -2206,7 +2196,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A35E2C552D873B0700BD8137 /* TortoiseGraphics in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2219,7 +2208,6 @@
 			files = (
 				A39F42762BEAFB44001546B4 /* ideRemoteF.appex in Embed Foundation Extensions */,
 				A39F42792BEAFB44001546B4 /* ideRemoteG.appex in Embed Foundation Extensions */,
-				A321EF5F2DA7053F00082634 /* ideUIPreviewA.appex in Embed Foundation Extensions */,
 				A39F426A2BEAFB44001546B4 /* ideRemoteB.appex in Embed Foundation Extensions */,
 				A30F6BCD2BE0E60C007B7CDF /* ideRemoteA.appex in Embed Foundation Extensions */,
 				A39F426D2BEAFB44001546B4 /* ideRemoteC.appex in Embed Foundation Extensions */,
@@ -3421,7 +3409,6 @@
 			files = (
 				A30F6BBF2BE0E5BD007B7CDF /* QuickLook.framework in Frameworks */,
 				A30F6BC02BE0E5BD007B7CDF /* pydeCommon in Frameworks */,
-				A35E2C542D873B0700BD8137 /* TortoiseGraphics in Frameworks */,
 				A30F6BC22BE0E5BD007B7CDF /* ios_system in Frameworks */,
 				A3856D6C2BF0C7F700755140 /* CCommon in Frameworks */,
 			);
@@ -5154,7 +5141,6 @@
 				A39F427B2BEAFB44001546B4 /* PBXTargetDependency */,
 				A3C0D8A52D89C33800A78FA9 /* PBXTargetDependency */,
 				A321EF1E2DA6D98C00082634 /* PBXTargetDependency */,
-				A321EF612DA7053F00082634 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				A321EEF72DA52C0F00082634 /* New Folder */,
@@ -5249,7 +5235,6 @@
 				A30F6BB72BE0E5BD007B7CDF /* ios_system */,
 				A30F6BB82BE0E5BD007B7CDF /* pydeCommon */,
 				A3856D6B2BF0C7F700755140 /* CCommon */,
-				A35E2C532D873B0700BD8137 /* TortoiseGraphics */,
 			);
 			productName = pydeUIPreview;
 			productReference = A30F6BCB2BE0E5BD007B7CDF /* ideUIPreviewA.appex */;
@@ -7528,11 +7513,6 @@
 			target = A321EF362DA6E06700082634 /* ideRemoteCata */;
 			targetProxy = A321EF522DA6E7F600082634 /* PBXContainerItemProxy */;
 		};
-		A321EF612DA7053F00082634 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A30F6BB62BE0E5BD007B7CDF /* ideUIPreviewA */;
-			targetProxy = A321EF602DA7053F00082634 /* PBXContainerItemProxy */;
-		};
 		A36337102AF231D200085608 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A36337032AF231D200085608 /* pydeUI */;
@@ -8138,7 +8118,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 58;
+				CURRENT_PROJECT_VERSION = 60;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -8195,7 +8175,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 58;
+				CURRENT_PROJECT_VERSION = 60;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"CodeApp/Preview Content\"";
 				DEVELOPMENT_TEAM = KQ2S7RKY3D;
@@ -10850,10 +10830,6 @@
 		A359CD192BD955FE00CD33CF /* Tiercel */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Tiercel;
-		};
-		A35E2C532D873B0700BD8137 /* TortoiseGraphics */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = TortoiseGraphics;
 		};
 		A36336D22AF226BA00085608 /* pyde */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -1100,3 +1100,156 @@ class LSPFrameAdaptor: WSFrameAdaptor {
         }
     }
 }
+
+
+
+// lsp.py
+//import socket
+//import json
+//
+//
+//
+//import socket
+//import json
+//
+//def send_request(sock, method, params, request_id=1):
+//    request = {
+//        "jsonrpc": "2.0",
+//        "id": request_id,
+//        "method": method,
+//        "params": params
+//    }
+//    body = json.dumps(request).encode()
+//    headers = f"Content-Length: {len(body)}\r\n\r\n".encode()
+//    sock.sendall(headers + body)
+//    return sock.recv(4096)
+//
+//# 连接服务器
+//#sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+//#sock.connect(("127.0.0.1", 2087))
+//sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+//sock.connect("/Volumes/Python/Python3IDEGroup/pylsp.sock")
+//
+//# 1. 初始化
+//initialize_response = send_request(
+//    sock,
+//    "initialize",
+//    {
+//        "processId": None,
+//        "rootUri": "file:///tmp",    # 替换为实际路径
+//        "capabilities": {}
+//    }
+//)
+//#print("Initialize Response:", json.loads(initialize_response.decode()))
+//
+//# 2. 发送 initialized 通知
+//initialized_notification = {
+//    "jsonrpc": "2.0",
+//    "method": "initialized",
+//    "params": {}
+//}
+//body = json.dumps(initialized_notification).encode()
+//headers = f"Content-Length: {len(body)}\r\n\r\n".encode()
+//sock.sendall(headers + body)
+//
+//# 3. 发送补全请求
+//completion_response = send_request(
+//    sock,
+//    "textDocument/completion",
+//    {
+//        "textDocument": {"uri": "file:///tmp/test.py"},
+//        "position": {"line": 0, "character": 16}
+//    },
+//    request_id=2
+//)
+//print("Completion Response:", completion_response.decode())
+//
+//
+//import time
+//time.sleep(10)
+//sock.close()
+//
+//
+//
+//#jedi-language-server --sock /Volumes/Python/Python3IDEGroup/pylsp.sock -v
+
+
+
+
+
+// lspws.py
+//import socket
+//import json
+//
+//
+//
+//import socket
+//import json
+//
+//from websocket import create_connection
+//
+//def send_request(sock, method, params, request_id=1):
+//    request = {
+//        "jsonrpc": "2.0",
+//        "id": request_id,
+//        "method": method,
+//        "params": params
+//    }
+//    body = json.dumps(request).encode()
+//    headers = f"Content-Length: {len(body)}\r\n\r\n".encode()
+//#    sock.sendall(headers + body)
+//#    return sock.recv(4096)
+//    ws.send(body)
+//    return ws.recv()
+//    
+//
+//# 连接服务器
+//#sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+//#sock.connect(("127.0.0.1", 2087))
+//#sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+//#sock.connect("/Volumes/Python/Python3IDEGroup/pylsp.sock")
+//ws = create_connection("ws://127.0.0.1:2087")
+//
+//# 1. 初始化
+//initialize_response = send_request(
+//    sock,
+//    "initialize",
+//    {
+//        "processId": None,
+//        "rootUri": "file:///tmp",    # 替换为实际路径
+//        "capabilities": {}
+//    }
+//)
+//#print("Initialize Response:", json.loads(initialize_response.decode()))
+//
+//# 2. 发送 initialized 通知
+//initialized_notification = {
+//    "jsonrpc": "2.0",
+//    "method": "initialized",
+//    "params": {}
+//}
+//body = json.dumps(initialized_notification).encode()
+//headers = f"Content-Length: {len(body)}\r\n\r\n".encode()
+//sock.sendall(headers + body)
+//
+//# 3. 发送补全请求
+//completion_response = send_request(
+//    sock,
+//    "textDocument/completion",
+//    {
+//        "textDocument": {"uri": "file:///tmp/test.py"},
+//        "position": {"line": 0, "character": 16}
+//    },
+//    request_id=2
+//)
+//print("Completion Response:", completion_response.decode())
+//
+//
+//import time
+//time.sleep(10)
+//sock.close()
+//
+//
+//
+//#jedi-language-server --sock /Volumes/Python/Python3IDEGroup/pylsp.sock -v
+

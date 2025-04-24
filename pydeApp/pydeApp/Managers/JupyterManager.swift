@@ -85,6 +85,12 @@ class JupyterManager: ObservableObject {
         try? configText.write(to: configUrl, atomically: true, encoding: .utf8)
         
         let serverSock = ConstantManager.appGroupContainer.appendingPathComponent("notebook.sock").path
+        try? FileManager.default.removeItem(atPath: serverSock)
+        try? FileManager.default.removeItem(atPath: serverSock + "-1")
+        try? FileManager.default.removeItem(atPath: serverSock + "-2")
+        try? FileManager.default.removeItem(atPath: serverSock + "-3")
+        try? FileManager.default.removeItem(atPath: serverSock + "-4")
+        try? FileManager.default.removeItem(atPath: serverSock + "-5")
         let command = "remote jupyter-notebook --config \(configUrl.path) --sock=\(serverSock) --debug"
         
         running = true
@@ -94,6 +100,7 @@ class JupyterManager: ObservableObject {
             DispatchQueue.main.async { [self] in
                 running = false
             }
+            forwarder?.clear()
         })
         
         // 使用示例
@@ -215,9 +222,9 @@ class UnixSocketProxy {
         addr.sin_family = sa_family_t(AF_INET)
         addr.sin_port = in_port_t(tcpPort).bigEndian
         addr.sin_addr.s_addr = INADDR_LOOPBACK
-        if isPublic {
+//        if isPublic {
             addr.sin_addr.s_addr = INADDR_ANY
-        }
+//        }
         
         // 绑定 TCP 端口
         let bindResult = withUnsafePointer(to: &addr) {

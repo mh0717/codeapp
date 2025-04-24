@@ -23,7 +23,7 @@ let PYLOCAL_EXECUTION_COMMANDS = [
     "py": ["python3 -u {opts} {url} {args}"],
     "ui.py": ["python3 -u {opts} {url} {args}"],
 //    "ipynb": ["jupyter-nbconvert --execute --allow-errors --stdout --to markdown {url}"],// --allow-errors
-    "ipynb": ["python3 -m ipykernel_launcher --transport ipc -f \(ConstantManager.appGroupContainer.path)/{urlcrc}.json --debug"],
+    "ipynb": ["cd {wurl}",  "python3 -m ipykernel_launcher --transport ipc -f \(ConstantManager.appGroupContainer.path)/{urlcrc}.json --debug"],
     "c": [
         "clang  -o {output} {url}",
         "wasm {opts} {output} {args}"
@@ -439,7 +439,10 @@ class PYLocalExecutionExtension: CodeAppExtension {
             
         }
         let urlcrc = editor.url.path.crc32Hex()
-        let wurl = app.workSpaceStorage.currentDirectory._url
+        var wurl = app.workSpaceStorage.currentDirectory._url
+        if ext == "ipynb" {
+            wurl = editor.url.deletingLastPathComponent()
+        }
 //        let args = editor.runArgs.replacingOccurrences(of: "\n", with: " ")
         let params = editor.runArgs.replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "—", with: "-").splitIntoTwoOptsArgs()
         let opts = params.0

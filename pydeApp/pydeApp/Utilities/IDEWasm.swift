@@ -110,6 +110,10 @@ class wasmWebViewDelegate: NSObject, WKNavigationDelegate, WKScriptMessageHandle
             if arguments[1] == "open" {
                 let rights = Int32(arguments[3]) ?? 577
                 var path = arguments[2]
+                if path.hasSuffix("ctags.d") {
+                    completionHandler("-1")
+                    return
+                }
 //                if "/\(path)".hasPrefix(ConstantManager.appGroupContainer.path) {
 //                    path = "/" + path
 //                }
