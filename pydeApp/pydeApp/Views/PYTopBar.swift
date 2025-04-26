@@ -18,6 +18,7 @@ struct PYTopBar: View {
 
     @SceneStorage("sidebar.visible") var isSideBarExpanded: Bool = DefaultUIState.SIDEBAR_VISIBLE
     @SceneStorage("panel.visible") var isPanelVisible: Bool = DefaultUIState.PANEL_IS_VISIBLE
+    @AppStorage("editorTabSize") var edtorTabSize: Int = 4
 
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     let openConsolePanel: () -> Void
@@ -291,6 +292,25 @@ struct PYTopBar: View {
                 Divider()
                 
                 if App.activeTextEditor != nil {
+                    if App.activeTextEditor!.url.pathExtension.lowercased() == "py" {
+                        Button {
+                            if App.pyapp.activeConsole.consoleView.executor.state != .idle {
+                                App.notificationManager.showErrorMessage("Terminal is busy")
+                                return
+                            }
+                            App.pyapp.activeConsole.consoleView.feed(text: "formating...")
+                            App.pyapp.activeConsole.consoleView.executor?.dispatch(command: "autopep8 -i --indent-size=\(self.edtorTabSize) \(App.activeTextEditor!.url.path)", completionHandler: { _ in
+                                DispatchQueue.main.async {
+                                    App.pyapp.activeConsole.consoleView.readLine()
+                                    App.activeTextEditor?.reload()
+                                }
+                               
+                            })
+                        } label: {
+                            Label("Format", systemImage: "text.alignleft")
+                        }
+                    }
+                    
                     Button {
                         App.pyapp.showsSaveAsPicker.toggle()
                     } label: {

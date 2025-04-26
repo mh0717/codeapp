@@ -224,6 +224,17 @@ class TextEditorInstance: EditorInstanceWithURL {
         //        })
         #endif
     }
+
+    func reload() {
+        guard let content = try? String(contentsOf: url, encoding: self.encoding) else {
+            return
+        }
+        let updatedAttributes = try? FileManager.default.attributesOfItem(atPath: url.path)
+        let updatedModificationDate = updatedAttributes?[.modificationDate] as? Date
+        self.lastSavedDate = updatedModificationDate
+        self.lastSavedVersionId = self.currentVersionId
+        self.content = content
+    }
 }
 
 class DiffTextEditorInstnace: TextEditorInstance {

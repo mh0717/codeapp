@@ -41,6 +41,11 @@ class PYPlainTextEditorInstance: TextEditorInstance {
     func goToLine(_ line: Int) {
         editorView.goToLine(line)
     }
+    
+    override func reload() {
+        super.reload()
+        editorView.text = content
+    }
 }
 
 
@@ -74,6 +79,11 @@ class PYTextEditorInstance: WithRunnerEditorInstance {
     
     func goToLine(_ line: Int) {
         editorView.goToLine(line)
+    }
+    
+    override func reload() {
+        super.reload()
+        editorView.text = content
     }
     
     override func dispose() {
