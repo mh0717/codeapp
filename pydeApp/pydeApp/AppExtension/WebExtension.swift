@@ -137,6 +137,7 @@ private struct PYWebView: UIViewRepresentable {
     func makeCoordinator() -> WebViewCoordinator {
         let coordinator = WebViewCoordinator(app: App)
         webView.navigationDelegate = coordinator
+        webView.uiDelegate = coordinator
         return coordinator
     }
 }
@@ -152,6 +153,7 @@ class PYWebViewEditorInstance: EditorInstanceWithURL {
         _safariCount += 1
         
         webView = WebViewBase()
+        webView.allowsBackForwardNavigationGestures = true
 //        webView.navigationDelegate = coordinator
         
         let request = URLRequest(url: url)
@@ -192,7 +194,7 @@ class PYWebViewEditorInstance: EditorInstanceWithURL {
     }
 }
 
-fileprivate class WebViewCoordinator: NSObject, WKNavigationDelegate {
+fileprivate class WebViewCoordinator: NSObject, WKNavigationDelegate, WKUIDelegate {
     init(app: MainApp) {
         self.app = app
     }
@@ -200,6 +202,13 @@ fileprivate class WebViewCoordinator: NSObject, WKNavigationDelegate {
     let app: MainApp
     
     var firstFailed = true
+    
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        if navigationAction.targetFrame == nil {
+            webView.load(navigationAction.request) // ✅ 在现有 WebView 中加载
+        }
+        return nil
+    }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         firstFailed = false
@@ -217,20 +226,32 @@ fileprivate class WebViewCoordinator: NSObject, WKNavigationDelegate {
         }
     }
     
+    
+    
     func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-        // 判断服务器采用的验证方法
-        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
-            if challenge.previousFailureCount == 0 {
-                // 如果没有错误的情况下 创建一个凭证，并使用证书
-                let credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-                completionHandler(.useCredential, credential)
-            } else {
-                // 验证失败，取消本次验证
-                completionHandler(.cancelAuthenticationChallenge, nil)
-            }
-        } else {
+        guard let serverTrust = challenge.protectionSpace.serverTrust else {
             completionHandler(.cancelAuthenticationChallenge, nil)
+            return
         }
+               
+       // 无条件信任服务器证书
+       let credential = URLCredential(trust: serverTrust)
+       completionHandler(.useCredential, credential)
+        
+        
+//        // 判断服务器采用的验证方法
+//        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+//            if challenge.previousFailureCount == 0 {
+//                // 如果没有错误的情况下 创建一个凭证，并使用证书
+//                let credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+//                completionHandler(.useCredential, credential)
+//            } else {
+//                // 验证失败，取消本次验证
+//                completionHandler(.cancelAuthenticationChallenge, nil)
+//            }
+//        } else {
+//            completionHandler(.cancelAuthenticationChallenge, nil)
+//        }
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, preferences: WKWebpagePreferences, decisionHandler: @escaping (WKNavigationActionPolicy, WKWebpagePreferences) -> Void) {

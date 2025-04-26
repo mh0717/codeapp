@@ -98,6 +98,7 @@ class JupyterManager: ObservableObject {
 //        runnerView.terminalView.isUserInteractionEnabled = false
         runnerView.executor?.dispatch(command: command, isInteractive: false, completionHandler: { [self] _ in
             DispatchQueue.main.async { [self] in
+                runnerView.readLine()
                 running = false
             }
             forwarder?.clear()

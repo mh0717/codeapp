@@ -33,6 +33,9 @@ class WheelExtensionManager: CodeAppExtension {
                 let cmd = "pythonA -m pip install \(url.path)"
                 runnerWidget.consoleView.feed(text: "\(cmd)\r\n")
                 runnerWidget.consoleView.executor?.dispatch(command: "remote \(cmd) --user", completionHandler: { rlt in
+                    DispatchQueue.main.async {
+                        runnerWidget.consoleView.readLine()
+                    }
                     continuation.resume(returning: rlt)
                 })
                 
