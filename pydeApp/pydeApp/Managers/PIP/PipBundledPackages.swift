@@ -44,7 +44,6 @@ public let pipBundledPackage: [PipPackage] = [
     PipPackage("decorator", "5.1.1"),
     PipPackage("defusedxml", "0.7.1"),
     PipPackage("Django", "5.0.3"),
-    PipPackage("docutils", "0.20.1"),
     PipPackage("executing", "1.2.0"),
     PipPackage("ezenv", "0.92"),
     PipPackage("Faker", "24.9.0"),

@@ -298,7 +298,7 @@ struct PYTopBar: View {
                                 App.notificationManager.showErrorMessage("Terminal is busy")
                                 return
                             }
-                            App.pyapp.activeConsole.consoleView.feed(text: "formating...")
+                            App.pyapp.activeConsole.consoleView.feed(text: "formating...\r\n")
                             App.pyapp.activeConsole.consoleView.executor?.dispatch(command: "autopep8 -i --indent-size=\(self.edtorTabSize) \(App.activeTextEditor!.url.path)", completionHandler: { _ in
                                 DispatchQueue.main.async {
                                     App.pyapp.activeConsole.consoleView.readLine()
