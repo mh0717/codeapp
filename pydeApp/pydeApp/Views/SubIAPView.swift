@@ -145,6 +145,7 @@ struct SubIAPView: View {
                                 PkgCell(title: "yaml")
                             }
                             Section(header: Text("Image Processing")) {
+                                PkgCell(title: "Turtle")
                                 PkgCell(title: "Pillow")
                                 PkgCell(title: "OpenCV")
                                 PkgCell(title: "SKImage")
@@ -157,12 +158,14 @@ struct SubIAPView: View {
                                 PkgCell(title: "PyGame")
                             }
                             Section(header: Text("UI Develop")) {
+                                PkgCell(title: "tkinter")
                                 PkgCell(title: "PyGame_gui")
                                 PkgCell(title: "Kivy")
                                 PkgCell(title: "KivyMD")
                                 PkgCell(title: "Imgui")
                                 PkgCell(title: "Flet")
                                 PkgCell(title: "Toga")
+                                PkgCell(title: "nicegui")
                             }
                             Section(header: Text("Bioinformatics")) {
                                 PkgCell(title: "BioPython")
@@ -188,6 +191,11 @@ struct SubIAPView: View {
                                 PkgCell(title: "pyemd")
                                 PkgCell(title: "pywt")
                             }
+                            Section(header: Text("Web Develope")) {
+                                PkgCell(title: "Tornado")
+                                PkgCell(title: "Flask")
+                                PkgCell(title: "Django")
+                            }
                             Section(header: Text("Other")) {
                                 PkgCell(title: "cffi")
                                 PkgCell(title: "pyzmq")
@@ -195,6 +203,12 @@ struct SubIAPView: View {
                                 PkgCell(title: "markupsafe")
                                 PkgCell(title: "psutil")
                                 PkgCell(title: "fontTools")
+                                PkgCell(title: "erjson")
+                                PkgCell(title: "pydantic")
+                                PkgCell(title: "uvloop")
+                                PkgCell(title: "watchfiles")
+                                PkgCell(title: "httptools")
+                                PkgCell(title: "materialyoucolor")
                             }
                         }
                         .listStyle(.sidebar)
