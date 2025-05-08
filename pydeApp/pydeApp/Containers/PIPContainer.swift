@@ -329,7 +329,8 @@ struct PipOpButton: View {
 //                            let cmd = version == nil ? "python3 -m pip install \(package)" : "python3 -m pip install \(package)==\(version!) --no-binary :all: --no-build-isolation "
                             let cmd = version == nil ? "python3 -m pip install \(package)" : "python3 -m pip install \(package)==\(version!) "
                             runnerWidget.consoleView.feed(text: "\(cmd)\r\n")
-                            runnerWidget.consoleView.executor?.dispatch(command: "remote \(cmd) --user --config-settings=pure-python=true", completionHandler: { rlt in
+                            
+                            runnerWidget.consoleView.executor?.dispatch(command: "remote \(cmd) --user --config-settings=pure-python=true -c \(ConstantManager.pip_constraint.path)", completionHandler: { rlt in
                                 DispatchQueue.main.async {
                                     runnerWidget.consoleView.readLine()
                                 }
@@ -337,6 +338,7 @@ struct PipOpButton: View {
                             })
                             
                         }
+                        
                         
                         if result == 0 {
                             let msg = String(format: localizedString(forKey: "Successfully installed %@"), package)
