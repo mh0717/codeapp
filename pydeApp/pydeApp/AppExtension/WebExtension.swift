@@ -123,10 +123,23 @@ private var _safariCount = 0
 private struct PYWebView: UIViewRepresentable {
 
     let webView: WKWebView
+    let url: URL
     
     @EnvironmentObject var App: MainApp
 
     func makeUIView(context: Context) -> WKWebView {
+        webView.navigationDelegate = context.coordinator
+        webView.uiDelegate = context.coordinator
+        webView.load(URLRequest(url: url))
+        if url.host()?.contains("127.0.0.1") == true || url.host()?.contains("localhost") == true {
+            context.coordinator.retryTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
+                if webView.url == nil {
+                    webView.load(URLRequest(url: url))
+                } else {
+                    timer.invalidate()
+                }
+            })
+        }
         return webView
     }
 
@@ -139,6 +152,10 @@ private struct PYWebView: UIViewRepresentable {
         webView.navigationDelegate = coordinator
         webView.uiDelegate = coordinator
         return coordinator
+    }
+    
+    static func dismantleUIView(_ uiView: Self.UIViewType, coordinator: Self.Coordinator) {
+        coordinator.retryTimer?.invalidate()
     }
 }
 
@@ -156,23 +173,17 @@ class PYWebViewEditorInstance: EditorInstanceWithURL {
         webView.allowsBackForwardNavigationGestures = true
 //        webView.navigationDelegate = coordinator
         
-        let request = URLRequest(url: url)
-        webView.load(request)
+//        let request = URLRequest(url: url)
+//        webView.load(request)
         
         super.init(
-            view: AnyView(PYWebView(webView: webView).id(UUID())),
+            view: AnyView(PYWebView(webView: webView, url: url).id(UUID())),
             title: "Web#\(_safariCount)", url: url
         )
         
         kvoToken = webView.observe(\.title, changeHandler: { [weak self] (view, value) in
             self?.title = view.title ?? self?.title ?? ""
         })
-        
-        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(1000))) {
-            if self.webView.url == nil {
-                self.webView.load(URLRequest(url: url))
-            }
-        }
     }
     
     override func dispose() {
@@ -200,8 +211,11 @@ fileprivate class WebViewCoordinator: NSObject, WKNavigationDelegate, WKUIDelega
     }
     
     let app: MainApp
+    var retryTimer: Timer?
     
     var firstFailed = true
+    var _retryCount = 0
+    
     
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
         if navigationAction.targetFrame == nil {
@@ -210,21 +224,24 @@ fileprivate class WebViewCoordinator: NSObject, WKNavigationDelegate, WKUIDelega
         return nil
     }
     
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        firstFailed = false
-    }
-
-    
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        if !firstFailed {
-            return
-        }
-        firstFailed = false
-        
-        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(1000))) {
-            webView.reload()
-        }
-    }
+//    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+//        firstFailed = false
+//    }
+//
+//    
+//    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+//        if !firstFailed {
+//            return
+//        }
+//        if _retryCount >= 5 {
+//            firstFailed = false
+//        }
+//        _retryCount += 1
+//        
+//        DispatchQueue.main.asyncAfter(deadline: .now().advanced(by: .milliseconds(1000))) {
+//            webView.reload()
+//        }
+//    }
     
     
     
