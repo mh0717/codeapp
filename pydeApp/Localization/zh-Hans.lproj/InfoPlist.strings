@@ -1,0 +1,15 @@
+/* 
+  InfoPlist.strings
+  Code
+
+  Created by Ken Chung on 2/5/2021.
+  
+*/
+"NSPhotoLibraryAddUsageDescription" = "此应用需要访问照片库以支持Python保存图像。";
+"NSPhotoLibraryUsageDescription" = "此应用需要访问照片库以支持Python后续处理图像";
+"NSCalendarsUsageDescription" = "此应用需要访问您的日历来支持Python添加日程并设置提醒";
+"NSBluetoothAlwaysUsageDescription" = "需要访问蓝牙以支持Python连接设备和同步数据";
+"NSCameraUsageDescription" = "需要访问摄像头以拍摄照片并保存到应用目录，支持Python后续图像处理";
+"NSLocationWhenInUseUsageDescription" = "允许访问位置信息，授权后可通过Python进行后续处理";
+"NSMicrophoneUsageDescription" = "需要访问麦克风以进行录音或语音输入，音频数据可通过Python代码进一步处理";
+"NSMotionUsageDescription" = "需要访问设备的运动数据以支持Python健身追踪和活动分析";

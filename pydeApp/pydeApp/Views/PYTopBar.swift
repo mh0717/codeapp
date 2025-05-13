@@ -516,7 +516,8 @@ struct PYTopBar: View {
                     }
                 }
                 #if DEBUG
-                    DebugMenu()
+                DebugMenu()
+                PYDebugMenu()
                 Button {
                     let editor = EditorInstance(view: AnyView(ViewRepresentable(wasmWebView)), title: "wasm")
                     App.appendAndFocusNewEditor(editor: editor, alwaysInNewTab: true)

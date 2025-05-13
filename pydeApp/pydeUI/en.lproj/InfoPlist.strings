@@ -6,4 +6,4 @@
   
 */
 "CFBundleDisplayName" = "Run Python3IDE UI Script";
-"CFBundleName" = "pydeUI";
+"CFBundleName" = "ideUI";

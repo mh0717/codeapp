@@ -1044,6 +1044,8 @@
 		A326A8AB2BEA147C0018809A /* WebExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A326A8A92BEA147C0018809A /* WebExtension.swift */; };
 		A326A8AD2BEA1A450018809A /* PYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A326A8AC2BEA1A450018809A /* PYApp.swift */; };
 		A326A8AE2BEA1A450018809A /* PYApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A326A8AC2BEA1A450018809A /* PYApp.swift */; };
+		A327E5EE2DCD1A6300AA5910 /* PYDebugMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A327E5ED2DCD1A5D00AA5910 /* PYDebugMenu.swift */; };
+		A327E5EF2DCD1A6300AA5910 /* PYDebugMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A327E5ED2DCD1A5D00AA5910 /* PYDebugMenu.swift */; };
 		A33A5FE82B10B98800CB7CE1 /* PipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33A5FE22B10B98800CB7CE1 /* PipManager.swift */; };
 		A33EEC8E2BC9A32500348751 /* PipBundledPackages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33EEC8D2BC9A32500348751 /* PipBundledPackages.swift */; };
 		A345B6CE2BF896FA0014A50F /* IDEWasm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A345B6CD2BF896FA0014A50F /* IDEWasm.swift */; };
@@ -3088,6 +3090,7 @@
 		A321EF372DA6E06700082634 /* ideRemoteCata */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ideRemoteCata; sourceTree = BUILT_PRODUCTS_DIR; };
 		A326A8A92BEA147C0018809A /* WebExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebExtension.swift; sourceTree = "<group>"; };
 		A326A8AC2BEA1A450018809A /* PYApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYApp.swift; sourceTree = "<group>"; };
+		A327E5ED2DCD1A5D00AA5910 /* PYDebugMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYDebugMenu.swift; sourceTree = "<group>"; };
 		A32DE5322B29B7CE00A1E20B /* ios_system.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ios_system.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33A5FE22B10B98800CB7CE1 /* PipManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PipManager.swift; sourceTree = "<group>"; };
 		A33EEC8D2BC9A32500348751 /* PipBundledPackages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipBundledPackages.swift; sourceTree = "<group>"; };
@@ -4984,6 +4987,7 @@
 		A3F32F6A2AF932F000866ED0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A327E5ED2DCD1A5D00AA5910 /* PYDebugMenu.swift */,
 				A39385AA2D8D873100C2E6BC /* SceneReader.swift */,
 				A39F427F2BEBE548001546B4 /* PYActivityBarItemView.swift */,
 				A3F52F002B0BF16D001F096E /* PYActivityBar.swift */,
@@ -6906,6 +6910,7 @@
 				A326A8AE2BEA1A450018809A /* PYApp.swift in Sources */,
 				A30F6AF62BE0DD52007B7CDF /* SearchContainer.swift in Sources */,
 				A30F6AF82BE0DD52007B7CDF /* LocalizedUtils.swift in Sources */,
+				A327E5EF2DCD1A6300AA5910 /* PYDebugMenu.swift in Sources */,
 				A30F6AF92BE0DD52007B7CDF /* String+base64EncodedDecoded.swift in Sources */,
 				A30F6AFA2BE0DD52007B7CDF /* FileDisplayName.swift in Sources */,
 				A30F6AFB2BE0DD52007B7CDF /* RegularSidebar.swift in Sources */,
@@ -7319,6 +7324,7 @@
 				A3A87D662AF221D1002E3399 /* SFTPTerminalServiceProvider.swift in Sources */,
 				A3F239712B9FEBE8006F6D7B /* PYWelcomeView.swift in Sources */,
 				A326A8AA2BEA147C0018809A /* WebExtension.swift in Sources */,
+				A327E5EE2DCD1A6300AA5910 /* PYDebugMenu.swift in Sources */,
 				A3A87D672AF221D1002E3399 /* URL+relativePath.swift in Sources */,
 				A3DDCBA22B25666100EA74E5 /* PYPanel.swift in Sources */,
 				A3A87D682AF221D1002E3399 /* Secrets.swift in Sources */,
